@@ -27,12 +27,16 @@ export PATH=$PATH:$HOME/go/bin
  The project setup is labeled sauce_school_codelab. Within it you should see the folders tools/site. Inside of /site, you have a separate 'codelabs' directory for each course (this is because each course will have it's own 'codelabs' landing page with several modules.) _?subject to change per design decision_
 Once you have the project cloned, go into the site folder and install all the dependencies:
 
+#### Navigate to the `site` folder:
+
 ```
-## navigate to folder
 cd /tools/site
-## install gulp dependencies
-npm install
-npm install -g gulp-cli
+```
+
+#### Install package dependencies and gulp dependencies
+
+```
+npm install && npm install -g gulp-cli
 ```
 
 ### 5. Exporting .md to an HTML page using Claat.
