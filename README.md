@@ -16,12 +16,13 @@ Download the [claat binary](https://github.com/googlecodelabs/tools/tree/master/
  [_more detailed instructions can be found here_])(https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
 
 ### 3. Update PATH
- in your ~/.bash_profile add in
+ In your `~/.bash_profile` (or `~/.zshenv` if you're using Catalina MacOSX) set the `go` `$PATH` environment variable:
 
 ```
-##Codelabs Path required
 export PATH=$PATH:$HOME/go/bin
 ```
+
+> For Windows users you will have to set this variable in the [Advanced System Settings](https://docs.oracle.com/en/database/oracle/r-enterprise/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html#GUID-DD6F9982-60D5-48F6-8270-A27EC53807D0)
 
 ### 4. Project Setup
  The project setup is labeled sauce_school_codelab. Within it you should see the folders tools/site. Inside of /site, you have a separate 'codelabs' directory for each course (this is because each course will have it's own 'codelabs' landing page with several modules.) _?subject to change per design decision_
