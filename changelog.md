@@ -1,6 +1,7 @@
+#Changelog- Add newest additions in an .ms file at top
 ## Aug 24, 2020 – Lindsay
-### Added Sauce School Info for 'Course' Oage
- in _tools/site/app/views/default_ I updated view.json with new title and course description, as well as the infor in index.HTML
+### Added Sauce School Info for 'Course' Page
+ in _tools/site/app/views/default_ I updated view.json with new title and course description, as well as the same info in index.HTML
 
 ### Created variables for Sauce Color Palatte
 in _tools/site/styles/_variables..scss_ created the following variables:
