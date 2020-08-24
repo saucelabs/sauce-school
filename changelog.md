@@ -19,7 +19,7 @@ in _tools/site/styles/_variables..scss_ created the following variables:
 - $pantoneDarkBlue #003A70
 
 the following variables were also changed:
-- $backgroundColor : $coolGrey10C5
+- $backgroundColor : $coolGrey10C10
 - $mainColor: $pantoneRed
 - $accentColor: $pantoneDarkBlue
 
