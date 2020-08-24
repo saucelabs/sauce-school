@@ -10,8 +10,8 @@
 
 ### Created variables for Sauce Color Palatte
 in _tools/site/styles/_variables..scss_ created the following variables:
-- $coolGrey!0C5 #EDEDEF
-- $coolGrey10C5 #C1C3C7
+- $coolGrey10C20 #EDEDEF
+- $coolGrey10C10 #C1C3C7
 - $pureWhite #FFFFFF
 - $pantoneRed #E2231A
 - $pantoneGrey #474C55

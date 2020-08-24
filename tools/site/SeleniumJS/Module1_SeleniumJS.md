@@ -55,7 +55,7 @@ There are seven basic elements of a Selenium test script, which apply to any tes
 
 The Selenium Grid allows you to run parallel tests on multiple combinations of machines (e.g., Mac, Windows, or Unix-based systems) using multiple web browsers (versions of Chrome, Edge, Firefox, Safari). These different machines can exist virtually on a server in a cloud environment, or as a network of real devices. JSON is used to communicate test requirements and route it to different nodes which have different environments to test on.
 
-![comp](assets/1.02B.png "comp")
+![comp](assets/1.02B.png "comp" | width=250)
 
 
 The Sauce Labs platform enables you to use a Selenium Grid at scale to run thousands of tests at once, on our suite of different test environments in the cloud. Sauce also has a robust dashboard for easy viewing of test outcomes and increased velocity of debugging tests. This dashboard includes tracking of errors and even a visual record of what occurred in different environments.

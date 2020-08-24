@@ -40,7 +40,7 @@ npm install -g gulp-cli
  **!IMPORTANT at the top of the .md file , you need to have project information with the id- this is what your file generated for the codelab will be named. Set it to the same name as your project directory (see below) of your codelab** (see below). Each codelab means a new landing page- each codelab is a course, with several modules in it. Each markdown file is a 'module' with several lessons in it. The 'feedback link' will later be [set to a G-Form](https://docs.google.com/forms/d/1QKpJDvv64-YXrCPr_unHL-fBAezRnGzqjruLMKC4ssQ/edit?usp=sharing) for people to fill out about bugs/ issues/ questions.
  Some examples name of 'codelab' directories include 'site/SeleniumJS' and site/Selenium Java'. Enter the directory for the course, where the codelab is stored. Now run the command `claat export <filename.md>` e.g `claat export Module1_SeleniumJS.md` to export it to a new directory with a .json file and index.html.
 
- *convention, make the .md file use underscores_in_the_name.md and the id and (generated from id) codelabs files have dashes-in-the-name*
+ *convention, make the .md file use underscores_in_the_name.md and the folder containing that index.html (generated from id in .md file) codelabs files have dashes-in-the-name*
 
 ```
 summary: Module 1 Introduction to Selenium with JavaScript
