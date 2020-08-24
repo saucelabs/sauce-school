@@ -2,7 +2,7 @@
 ### Added Sauce School Info for 'Course' Oage
  in _tools/site/app/views/default_ I updated view.json with new title and course description, as well as the infor in index.HTML
 
-###Created variables for Sauce Color Palatte
+### Created variables for Sauce Color Palatte
 in _tools/site/styles/_variables..scss_ created the following variables:
 - $coolGrey!0C5 #EDEDEF
 - $coolGrey10C5 #C1C3C7
