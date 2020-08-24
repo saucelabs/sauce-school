@@ -1,0 +1,721 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Module 3 — Writing Reusable Test Code</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+
+  <script>
+  function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+      x.className += " w3-show";
+    } else {
+      x.className = x.className.replace(" w3-show", "");
+    }
+  }
+  </script>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid="Google Analytics ID"
+                  id="Module3_SeleniumJS"
+                  title="Module 3 — Writing Reusable Test Code"
+                  environment="web"
+                  feedback-link="https://docs.google.com/forms/d/e/1FAIpQLScbd1F2ZOYX4Wm7SuWeecBDBBLq8t0ASbYOhN57JIfxPPWE4A/viewform?usp=sf_link">
+
+      <google-codelab-step label="3.01 What You&#39;ll Learn" duration="0">
+        <p>This module is derived from content in chapters 8-10 of <em>The Selenium Guidebook JavaScript Edition</em> By Dave Haeffner. This Module focuses on writing tests in Selenium that follow the Page Object Model (POM) for organizing test suites and abstracting imperative code into separate classes from the page and test classes. Add error handling to your test suit to detect and debug more easily, as well as learn about explicit and implicit waits and how they should be used.</p>
+<h2 is-upgraded>Objectives</h2>
+<ul>
+<li>Create a Base Page and use the simplified commands created with other pages to write code that is easier to read and maintain</li>
+<li>Create tests that have separate code for the Page and Test Objects, with pages that draw on one or more tests to perform desired actions on that specific page</li>
+<li>Add elements into your test suite for error handling, to alert test runner to common reasons for tests to fail, such as invalid credentials or failure of a page to load</li>
+<li>Apply a try...catch statement in your code to allow all tests to run (without throwing an exceptions that stop your test suite)</li>
+<li>Write code with explicit waits that are applied to individual actions, not entire functions or classes, and that doesn&#39;t rely on implicit waits</li>
+<li>Create a ‘facade layer&#39; that separates and defines simple commands that are used by all tests and page objects</li>
+<li>Identify and fix problems in test suites such as poor locators, silent failures, and too much functionality in a single class</li>
+<li>Choose and separate imperative language into separate objects and pages, and use the simplified commands created in that class with other tests to write code that is easier to read, maintain, and declarative in nature</li>
+<li>Analyze and plan test suites, learning how to balance the size and maintainability (ability to check failed tests) against the amount of features you want to test, as well as the level of abstraction you want to use to make modular objects to use in your test suite</li>
+<li>Use the Page Object Model and create separate directories and files that are for Page objects and Test objects, and understand how they work together to make a full test suite</li>
+<li>Understand how the latency that naturally occurs when you test in the cloud can impact the usability of test suites, and what you can do to ensure your tests can be run in any environment</li>
+<li>Understand what implicit and explicit waits are, and the effects that occur along with latency when test suites are moved from a local machine to the public cloud</li>
+</ul>
+<h2 is-upgraded>Base Code</h2>
+<p>If you skipped Modules 1 &amp; 2, make sure you have a project folder set up and have created the following files, as well as have NodeJS installed and init for this project:</p>
+<p><a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod2/2.07" target="_blank"><strong>Final Module 2 Project Code</strong></a></p>
+<h2 is-upgraded>Use GitHub Repository (Optional)</h2>
+<p>If you are familiar with using GitHub to write your code, you can also fork/ branch this repository for the first set of code.</p>
+<h3 is-upgraded>NOTE</h3>
+<p><em>if you are using Github, it is recommended that you </em><a href="https://www.codementor.io/@johnkennedy/get-rid-of-that-npm-package-lock-json-e0bj7ai42" target="_blank"><em>delete the package-lock.json</em></a><em> file.</em></p>
+
+
+      </google-codelab-step>
+
+      <google-codelab-step label="3.02 The POM and Imperative vs. Declarative Tests" duration="0">
+        <p>The Page Object Model (POM) is a design pattern that can be used with Selenium with any kind of framework. Using this pattern for tests means that you create two separate types of classes; <strong>Pages</strong> and <strong>Test Cases</strong>. The <strong>Page</strong> classes set up and navigate items on the page, using variables to represent web elements, and <strong>Test</strong> classes perform the actual assertions and tests.</p>
+<p class="image-container"><img alt="POM Model" src="img/b3587596b70aebed.png"></p>
+<p>Rather than integrate the calls to Selenium directly into your test methods, you can create separate classes. The POM allows you to write your tests using user-centric language, rather than Selenium-centric language.</p>
+<p>Some general guidelines for creating page objects (aka classes) include:</p>
+<ul>
+<li>The public methods represent the services that the page offers</li>
+<li>Try not to expose the internals of the page</li>
+<li>Generally don&#39;t make assertions</li>
+<li>Methods return other PageObjects</li>
+<li>Need not represent an entire page</li>
+</ul>
+<p>(Source: <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects" target="_blank">https://github.com/SeleniumHQ/selenium/wiki/PageObjects</a>)</p>
+<p>Different results for the same action are modelled as different methods. Using strategies like this means that when your application changes and your tests break, you only have to update your page objects in one place in order to accommodate the changes. This gives us reusable functionality across our suite of tests, as well as more readable tests.</p>
+<h2 is-upgraded>Imperative vs. Declarative Test Language</h2>
+<p><em>Imperative language</em> is language that gives you the step-by-step directions for how to do something. As an example, instead of telling someone to make a peanut butter and jelly sandwich (which is a declarative statement), imperative language would tell you to lay down two pieces of bread, spread peanut butter on one, spread jelly on the other, then put the pieces together.</p>
+<p>What is the problem with this? It doesn&#39;t give a good sense of the purpose of the task. An alien from outer space may put the sandwich together with the jelly-side facing out, since they don&#39;t know what the end result is supposed to be.</p>
+<h3 is-upgraded>Video</h3>
+<p>Take a look at this snippet of a Sauce Labs meetup talk by Titus Fortner to see an example of imperative and declarative language.</p>
+<p><a href="https://drive.google.com/file/d/1zq2JBVjFwupuq2NbsrkW5vHrIOFR3xer/view?usp=sharing" target="_blank">3.01_Imperative_Declarative</a></p>
+
+
+      </google-codelab-step>
+
+      <google-codelab-step label="3.03 Your First Page Object" duration="0">
+        <p>One of the biggest challenges with Selenium tests is that they can be brittle and challenging to maintain over time. This is largely due to the fact that things in the application you&#39;re testing change, like to elements that appear on the screen, or even the flow &amp; layout of your website — causing your tests to break.</p>
+<p>But the reality of a software project is that <em>change is a constant</em>. So we need to account for this reality somehow in our test code in order to be successful.</p>
+<p>Enter Page Objects.</p>
+<h2 is-upgraded>A Page Objects Primer</h2>
+<h3 is-upgraded>Part 1: Create A Page Object And Update Test</h3>
+<p>Let&#39;s take our login example from earlier, create a page object for it, and update our test accordingly.</p>
+<p>First we&#39;ll need to create a new folder called <code>pages</code> in the root of our project directory. In it we&#39;ll add a <code>LoginPage.js</code> file. When we&#39;re done, our directory structure should look like this:</p>
+<p class="image-container"><img alt="File Structure" src="img/489f51e69f48b849.png"></p>
+<p>Open LoginPage.js in your text editor and add in the following code:</p>
+<pre><code>// filename: pages/LoginPage.js
+const USERNAME_INPUT = { id: &#39;username&#39; }
+const PASSWORD_INPUT = { id: &#39;password&#39; }
+const SUBMIT_BUTTON = { css: &#39;button&#39; }
+const SUCCESS_MESSAGE = { css: &#39;.flash.success&#39; }
+
+class LoginPage {
+  constructor(driver) {
+    this.driver = driver
+  }
+
+  async load() {
+    await this.driver.get(&#39;http://the-internet.herokuapp.com/login&#39;)
+  }
+
+  async authenticate(username, password) {
+    await this.driver.findElement(USERNAME_INPUT).sendKeys(username)
+    await this.driver.findElement(PASSWORD_INPUT).sendKeys(password)
+    await this.driver.findElement(SUBMIT_BUTTON).click()
+  }
+
+  async successMessagePresent() {
+    return await this.driver.findElement(SUCCESS_MESSAGE).isDisplayed()
+  }
+}
+
+module.exports = LoginPage
+</code></pre>
+<p>At the top of the file, we specify some variables. These are for the locators we want to use on the page. We then declare the class by specifying its constructor<code>, constructor(driver) {}</code>. This block will run whenever a new instance of the class is created. In order for this class to work, we need access to the Selenium driver object, so we accept it as a parameter in the constructor and store it in the class variable, <code>this.driver</code>). This enables the rest of the class to use it.</p>
+<p>The second method , <code>load()</code>, is responsible for navigating to the page. Since it&#39;s asynchronous we can&#39;t have this behavior happen in the constructor.</p>
+<p>The third method, <code>authenticate(username, password)</code>is the core functionality of the login page. It&#39;s responsible for filling in the login form and submitting it. By accepting parameters for the username and password we&#39;re able to make the functionality here reusable for additional tests. Also, instead of the hard-coded locators, we updated the Selenium calls with the locator variables we specified at the top of the class.</p>
+<p>The last method, <code>successMessagePresent(),</code> is the display check from earlier that was used in our assertion. It will return a boolean result just like before.</p>
+<p>The class ends with<code>module.exports = LoginPage;</code>. This makes it so this class can be called upon by other classes and use the methods within the <code>LoginPage.js</code>.</p>
+<h3 is-upgraded>Part 2: Update LoginTest.js to use the Page Object</h3>
+<p>Now open the file in the test folder named <code>LoginTest.js</code>. We will be adding a few things into the test so that it can work with the LoginPage.js file you just created.</p>
+<p>Under the <code>const assert</code>, add in</p>
+<pre><code>...
+const LoginPage = require(&#39;../pages/LoginPage&#39;)
+
+</code></pre>
+<p>Inside the <code>Describe()</code>function, after<code>let driver</code> variable instantiation, instantiate another variable called login :</p>
+<pre><code>...
+    let login
+
+</code></pre>
+<p>Inside the <code>beforeEach()</code>function, after<code>driver = await new Builder().forBrowser(&#39;firefox&#39;).build()</code>, add in :</p>
+<pre><code>    ...
+    login = new LoginPage(driver)
+    await login.load()
+</code></pre>
+<p>Lastly, we are going to completely change the test inside of the<code>it()</code> function. Now we will write the test as one action and an assertion.</p>
+<pre><code>...
+ it(&#39;with valid credentials&#39;, async function() {
+    await login.authenticate(&#39;tomsmith&#39;, &#39;SuperSecretPassword!&#39;)
+    assert(await login.successMessagePresent(), &#39;Success message not
+    displayed&#39;)
+  })
+
+
+</code></pre>
+<p>Notice how we have switched from_ imperative_ to <em>declarative</em> language. Instead of giving step by step instructions to the driver to find the elements individually, and send the login information step by step, the new code just tells you to <code>authenticate</code>, then asserts the success message is present.</p>
+
+<button onclick="myFunction('Demo1')" class="w3-button w3-block w3-left-align">
+<h3 is-upgraded>Final Code</h3></button>
+<div id="Demo1" class="w3-container w3-hide">
+
+  <p>Your new code in <code>LoginTest.js</code> should look like this:</p>
+  <p class="image-container"><img alt="Final Code Login Test" src="img/8edfcfda178ac8ce.png"></p>
+  <p>Run npm test and you should get this success message:</p>
+  <p class="image-container"><img alt="Success Message" src="img/f7d0d45e938bf4e1.png"></p>
+</div>
+
+
+
+<p>See the complete <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/code-examples/javascript/Mod3/3.02" target="_blank">source code here</a>. Note that you have to run npm install in the root project folder before being able to use code pulled down from a repository.</p>
+
+
+      </google-codelab-step>
+
+      <google-codelab-step label="3.04 Writing Code with Error Handling" duration="0">
+        <p>When you write tests, you are checking for one specific thing to occur. In the last example, we are checking for a specific situation where the user logs onto the login page, enters their username and password, and then they get a message indicating their success.</p>
+<p>There is more than one reason, however, that that test can fail. The test we wrote kind of assumes that the user and server for the website did everything right, and is testing to see if the app is responding with a success message as expected. Some other reasons that the success message might not display include:</p>
+<ul>
+<li>The user enters the wrong username and/ or password</li>
+<li>The page fails to load properly in the first place</li>
+</ul>
+<p>The term <strong>Error Handling</strong> refers to creating cases that check for (predictable) unexpected outcomes or conditions so when the test is run, there are other possible errors or reasons for a failed test accounted for.</p>
+<h2 is-upgraded>Test for Invalid Login Credentials</h2>
+<p>Creating a page object may feel like more work than what we started with initially. But it&#39;s well worth the effort since we&#39;re in a much sturdier position and able to easily write follow-on tests (since the specifics of the page are abstracted away for simple reuse).</p>
+<p>Let&#39;s add a test that checks for a failed login to demonstrate.</p>
+<p>First, let&#39;s<a href="https://the-internet.herokuapp.com/login" target="_blank"> take a look </a>at the markup that gets rendered when we provide invalid credentials:</p>
+<p class="image-container"><img alt="Login Page- Inspect" src="img/3c266abcad75287e.png"></p>
+<p>We will use the ‘flash error&#39; class in our assertion. Open<code>LoginPage.js</code>. We will add in a new variable underneath ‘SUCCESS_MESSAGE&#39;</p>
+<pre><code>...
+const FAILURE_MESSAGE = {css: &#39;.flash.error&#39;}
+</code></pre>
+<p>Underneath the function<code>successMessagePresent(){}</code> add in:</p>
+<pre><code>...
+    async failureMessagePresent() {
+        return await
+     this.driver.findElement(FAILURE_MESSAGE).isDisplayed()
+  }
+
+</code></pre>
+<button onclick="myFunction('Demo2')" class="w3-button w3-block w3-left-align">
+<h3 is-upgraded>Final Code</h3></button>
+<div id="Demo2" class="w3-container w3-hide">
+  <p>The updated LoginPage.js code should look like this:</p>
+  <p class="image-container"><img alt="Login Page Changes" src="img/9a91c474d43b65a4.png"></p>
+</div>
+
+<p>Next go to test/loginTest.js. Under the first<code>it()</code>statement add another one that says:</p>
+<pre><code>...
+    it(&#39;with invalid credentials&#39;, async function() {
+        await login.authenticate(&#39;tomsmith&#39;, &#39;bad password&#39;)
+    assert(await login.failureMessagePresent(), &#39;Failure message not
+    displayed&#39;)
+  })
+
+
+</code></pre>
+<p>Run npm test and you should get this error message</p>
+<p class="image-container"><img alt="Failed Login Test" src="img/8ca0d689ddbc7911.png"></p>
+
+<button onclick="myFunction('Demo3')" class="w3-button w3-block w3-left-align">
+<h3 is-upgraded>NOTE</h3></button>
+<div id="Demo3" class="w3-container w3-hide">
+  <p><strong>Why?</strong> Think about what the page interaction is like. After you click the login, if it was successful, then the error message (with the class <code>.flash.error</code>) will not show up, only the success message is displayed, and that element will not exist to interact with, therefore the test will fail.</p>
+</div>
+
+<script>
+function myFunction(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+<h2 is-upgraded>Add Another Check</h2>
+<p>Before we can call our page object complete, there&#39;s one more addition we should make. We&#39;ll want to add a check to make sure that Selenium is in the right place before proceeding, which will in turn, add some resiliency to our tests.</p>
+<p>At the top of the page In the file <code>LoginPage.js</code>, at the top of the variable list, add in a new variable that checks the id of the login page to make sure it shows up.</p>
+<pre><code>const LOGIN_FORM = { id: &#39;login&#39; }
+...
+
+</code></pre>
+<p>In the same file, within the<code>load()</code> function, right after <code>await this.driver.get(&#39;herokuapp.com...&#39;)</code>, add in the following code:</p>
+<pre><code>...
+    if (!(await this.driver.findElement(LOGIN_FORM).isDisplayed()))
+      throw new Error(&#39;Login form not loaded&#39;)
+  })
+
+
+</code></pre>
+<p>When we navigate to and load our login page, we need to check to see that the login form is displayed after navigating there. This code will provide the message; ‘Login form not loaded&#39; so the tester can see that the issue is with loading the page.</p>
+<button onclick="myFunction('Demo4')" class="w3-button w3-block w3-left-align">
+<h3 is-upgraded>Final Code</h3></button>
+<div id="Demo4" class="w3-container w3-hide">
+  <p>The code for the LoginPage should now look like this:</p>
+  <p class="image-container"><img alt="Login Page Changes" src="img/54eb272b4f5e69c9.png"></p>
+  <p>If you run your code (<code>npm test</code>in your project folder), you should get the same message (the locate and ‘with valid credentials tests should pass, with invalid credentials will not), however now if the issue with the test is with that page loading, now we have an alert that checks for it. When the page doesn&#39;t load correctly, the error ‘Login form not loaded&#39; will appear.</p>
+</div>
+
+
+
+<p>See the complete <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/code-examples/javascript/Mod3/3.03" target="_blank">source code here</a>. Note that you have to run npm install in the root project folder before being able to use code pulled down from a repository.</p>
+
+
+      </google-codelab-step>
+
+      <google-codelab-step label="3.05  Common Issues with Test Code Reuse" duration="0">
+        <p>In the previous lesson, we stepped through creating a simple page object to capture the behavior of the page we were interacting with. While this was a good start, there&#39;s more we can do.</p>
+<p>As our test suite grows (we create more page and test classes), and we add more page objects we will start to see common behavior that we will want to use over and over again throughout our suite. If we leave this unchecked we will end up with duplicative code which will slowly make our page objects harder to maintain.</p>
+<p>Right now we are using Selenium actions directly in our page object. While on the face of it this may seem fine, it has some long term impacts, like:</p>
+<ul>
+<li>Slow Page creation &amp; rendering due to the way the JavaScript or other library loads things on the page</li>
+<li>Needing to update your test code (maintenance) because of updates and changes to the <a href="https://www.selenium.dev/selenium/docs/api/javascript/index.html" target="_blank">Selenium API</a></li>
+<li>The inability to swap out the driver for your tests. You may in the future, for instance, want to swap out commands in Selenium for commands in Appium (for mobile testing)</li>
+</ul>
+<p>What we will do is set up a Base Page that will create descriptive variables and methods, then use those created methods to interact with other pages. This way, if you need to swap out, say, a Selenium method for an Appium method, instead of having to do it in each and every page, you can change the BasePage.js methods to Appium-specific ones, and not have to change all of your other pages.</p>
+<h2 is-upgraded>Create a Facade Layer</h2>
+<p>A facade is a class that helps you simplify the language to carry out simple commands like <code>click()</code>, <code>isDisplayed()</code>, <code>visit()</code>, etc. so that these methods can be used by the rest of the test suite. In this lesson, we are going to create a simplified interface called <code>BasePage.js</code>, which we will then use within our <code>LoginPage.js</code>class.</p>
+<p>First let&#39;s add a new file called <code>BasePage.js</code>in the<code>pages</code>directory. At this point, we can also delete<code>LocatorTest.js</code> as we won&#39;t be using any longer.</p>
+<p class="image-container"><img alt="File Structure" src="img/a3b7238698776211.png"></p>
+<h2 is-upgraded>Deleting Tests</h2>
+<p>Even though you may have grown attached to tests, it can often be a huge help to your testing suite to just delete tests that aren&#39;t worth your time. Ask yourself the following questions:</p>
+<ul>
+<li>How important is this test? (Do we really need to locate &amp; return what that button says?)</li>
+<li>How likely is this test to fail if the code changes? (High likelihood? Delete or refactor!)</li>
+<li>How likely is this test due to fail if things run slowly?</li>
+<li>How likely is this test to take up a lot of QA time figuring out why it failed?</li>
+<li>How many individual pieces of functionality does this test actually check? (if it&#39;s more than one it&#39;s time to delete or refactor it into separate tests)</li>
+</ul>
+<p>Too many tests can be an even bigger problem for a QA team than too few. Figuring out how and why a test fails takes up more time than it is worth, and impedes the feedback a dev team needs to push a feature into production. Take the time to consider the balance between testAllTheThings() and testing efficiently and effectively, and don&#39;t be afraid to delete tests and or useless objects and start fresh.</p>
+<iframe src="https://giphy.com/embed/m9eG1qVjvN56H0MXt8" width="295" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/baby-bye-slide-m9eG1qVjvN56H0MXt8">via GIPHY</a></p>
+<p>Next let&#39;s open <code>BasePage.js</code>in your IDE and add in the following code:</p>
+<pre><code>// filename: pages/BasePage.js
+class BasePage {
+  constructor(driver) {
+    this.driver = driver
+  }
+
+  async visit(url) {
+    await this.driver.get(url)
+  }
+
+  find(locator) {
+    return this.driver.findElement(locator)
+  }
+
+  async click(locator) {
+    await this.find(locator).click()
+  }
+
+  async type(locator, inputText) {
+    await this.find(locator).sendKeys(inputText)
+  }
+
+  async isDisplayed(locator) {
+    return await this.find(locator).isDisplayed()
+  }
+}
+
+module.exports = BasePage
+
+
+</code></pre>
+<p>In this module, we declare a BasePage class along with methods for all of the common behavior we use with Selenium (e.g., visit, find, click, type, and isDisplayed). We also have a constructor that enables us to pass in and store an instance of the driver, so we don&#39;t have to explicitly pass it to the methods whenever we call them.</p>
+<p>Now open LoginPags.js from the same folder, and import the base page class you just created by putting <code>const BasePage = require(&#39;./BasePage&#39;)</code> right at the top above all the variables, and the code to make LoginPage an extension of BasePage (this part goes after the variables and before <code>async load()</code>).</p>
+<pre><code>// filename: pages/LoginPage.js
+const BasePage = require(&#39;./BasePage&#39;)
+
+const ...
+/Users/lindsaywalker/selenium-guidebook/book/javascript/content/chapters/09.md
+
+class LoginPage extends BasePage {
+  constructor(driver) {
+    super(driver)
+  }
+</code></pre>
+<p>You will first modify the class <code>LoginPage.js</code>to inherit from BasePage and the command in the class. Inside of the functions <code>async load(), async authenticate(), successMessagePresent(), and failureMessagePresent()</code> you are going to replace the methods that interact with the page.</p>
+<pre><code>// filename: LoginPage.js
+class LoginPage extends BasePage {
+  constructor(driver) {
+    super(driver)
+  }
+
+  async load() {
+    await this.visit(&#39;http://the-internet.herokuapp.com/login&#39;)
+    if (await !this.isDisplayed(LOGIN_FORM))
+      throw new Error(&#39;Login form not loaded&#39;)
+  }
+
+  async authenticate(username, password) {
+    await this.type(USERNAME_INPUT, username)
+    await this.type(PASSWORD_INPUT, password)
+    await this.click(SUBMIT_BUTTON)
+  }
+
+  successMessagePresent() {
+    return this.isDisplayed(SUCCESS_MESSAGE)
+  }
+
+  failureMessagePresent() {
+    return this.isDisplayed(FAILURE_MESSAGE)
+  }
+}
+
+</code></pre>
+
+<button onclick="myFunction('Demo5')" class="w3-button w3-block w3-left-align">
+<h3 is-upgraded>Final Code</h3></button>
+<div id="Demo5" class="w3-container w3-hide">
+  <p>Your final code should look like this:</p>
+  <p class="image-container"><img alt="Login Page" src="img/8266c5d543f36030.png"></p>
+  <p>A few things have changed in our Login page object. We&#39;ve imported the base page class we want to use, established inheritance between the two classes, and we&#39;ve swapped out all of our Selenium commands with calls to the methods in the base page object (e.g., <code>this.visit, this.type, this.click</code>).</p>
+  <p><strong>Why?</strong></p>
+  <p>In other words, instead of having to type out all this, using Selenium-specific commands, to find an id on the page and input a username:</p>
+  <pre><code>await this.driver.findElement(USERNAME_INPUT).sendKeys(username)
+  </code></pre>
+  <p>All you need to type is</p>
+  <pre><code>await this.type(USERNAME_INPUT, username)
+  </code></pre>
+  <p>It&#39;s easier to read and understand that <code>this.type</code>wants you to type this in there, without having to specify the <code>driver</code>, <code>findElement</code>and <code>sendKeys</code>, method, etc.</p>
+</div>
+
+
+
+<h2 is-upgraded>Inherit from the Base Page</h2>
+<p>To establish inheritance, we used the<code>extends</code>keyword when declaring the class (example; class <code>LoginPage extends BasePage {}),</code>and call<code>super</code>from the constructor, <code>super(driver)</code>. This passes the instance of Selenium to the base page object, and makes all of the base page object&#39;s methods available to our login page object (through <code>this</code>.).</p>
+<p>If we save everything and run our tests they will run and pass just like before. But now our page objects are more readable, simpler to write, and easier to maintain and extend.</p>
+<h2 is-upgraded>Fix NoSuchElement Error</h2>
+<p>Notices how we have been getting errors saying ‘no such element&#39; since either the <code>.flash.success</code> or<code>flash.error</code> will appear (but never both!)</p>
+<p class="image-container"><img alt="No Such Credentials" src="img/7d8fcc10d7b9f33d.png"></p>
+<p>It&#39;s time to fix that. First go to<code>BasePage.js</code> and update the <code>async isDisplayed()</code> function to the following:</p>
+<pre><code>// filename: pages/BasePage.js
+
+async isDisplayed(locator) {
+  try {
+    return await this.find(locator).isDisplayed()
+  } catch (error) {
+    return false
+  }
+}
+
+</code></pre>
+<p>When an error occurs, JavaScript will normally stop and generate an error message. This is called throwing an exception.</p>
+<p>In this next example, we use a <a href="w3schools.com/js/js_errors.asp" target="_blank">try... catch </a>statements to tell the program what to do when it encounters an error (in this case, it didn&#39;t find an element) what to do with it, so you can continue running the next tests without exiting the test (throwing an exception).</p>
+<h3 is-upgraded>Cheat Sheet</h3>
+<p><a href="https://docs.google.com/document/d/1XNjmsOWqCvdcsnmAgIKgRNJPsKxRxDFv_XKnsw8IYzs/edit?usp=sharing" target="_blank">3.04 Exception Handling Cheat Sheet</a></p>
+<p>Next, in  <code>LoginTest.j</code>s we will make a change to check that and validate that it is true that the success message is not present. Comment out the current code in the it() function ‘with invalid credentials, and enter the following:</p>
+<pre><code>// filename: pages/LoginTest.js
+//...
+it(&#39;with invalid credentials&#39;, async function() {
+    await login.authenticate(&#39;tomsmith&#39;, &#39;BadPassword!&#39;)
+    assert(!(await login.failureMessagePresent()), &#39;Failure message displayed&#39;)
+  })
+
+
+
+
+</code></pre>
+<p>Now when you run your test (<code>npm test</code> in terminal from your project folder), you should see one passing and one failing test. Notice that in the above example the password is BadPassword!. This test should fail, because there is an incorrect password, and now you will get the error message without an exception being thrown. This was thrown because the test detected that the ‘failure message&#39; did in fact show up.</p>
+<p class="image-container"><img alt="Failed Login Test" src="img/289d1b42e8defe26.png"></p>
+<p>Lets change the password back to SuperSecretPassword! And re-name the test ‘not invalid credentials&#39;. This way, from here on out, you will get a passing test as long as the credentials are valid, otherwise you will be alerted that the test failed because of login credentials.</p>
+<pre><code>  it(&#39;not invalid credentials&#39;, async function() {
+    await login.authenticate(&#39;tomsmith&#39;, &#39;SuperSecretPassword!&#39;)
+    assert(!(await login.failureMessagePresent()), &#39;Failure message displayed&#39;)
+  })
+</code></pre>
+<p>When you run your test, you should get two success messages:</p>
+<p class="image-container"><img alt="Sucessful Login Test" src="img/4e277171e54503fa.png"></p>
+<button onclick="myFunction('Demo6')" class="w3-button w3-block w3-left-align">
+<h3 is-upgraded>Final Code</h3></button>
+<div id="Demo6" class="w3-container w3-hide">
+  <p class="image-container"><img alt="Base Page" src="img/c8df29554ce1e799.png"></p>
+  <p class="image-container"><img alt="Login Test" src="img/9328828c3be6f0.png"></p>
+</div>
+
+<p>See the complete <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/code-examples/javascript/Mod3/3.04" target="_blank">source code here</a>. Note that you have to run npm install in the root project folder before being able to use code pulled down from a repository.</p>
+<h2 is-upgraded>Quiz</h2>
+<ol type="1">
+<li>What are the reasons we created <code>BasePage.js</code>? Pick the most correct answer.  <ol type="1">
+<li>We are lazy and don&#39;t want to have to write code as many times, and we know the code will never change, so we can just put it all in BasePage and forget about it.</li>
+<li>We want to give people writing tests only five options to create tests with, (<code>visit, find, click, type, isDiplayed</code>) so they don&#39;t make overly complex tests, so we created these in BasePage.</li>
+<li>We aren&#39;t using the functionality of <code>this.driver.get(</code>) or<code>this.driver.FindElement()</code>, so we put it in a separate document that won&#39;t be used in our test suite.</li>
+<li>We want to be able to make other pages we make, like<code>LoginPage.js</code> more readable, as well as reuse basic code so it&#39;s easier to update in one place, and take effect everywhere.</li>
+</ol>
+</li>
+<li>Without the following code, what problem might the person running your tests encounter?</li>
+</ol>
+<p class="image-container"><img alt="If Statement" src="img/1c76141ecace618c.png"></p>
+<pre><code>5. They wouldn&#39;t correctly detect an unsuccessful login.
+6. They would get an error that the failure message was present, but not the success message
+7. They would get an error that the success message was present, but not the error message
+8. They would get an error telling them that neither failure or success messages were present, but be unable to understand why.
+</code></pre>
+
+
+      </google-codelab-step>
+
+      <google-codelab-step label="3.06  Resilient Test Code and Timing — Page with Explicit Waits" duration="0">
+        <p>Ideally you should be able to write your tests once and run them across all supported browsers. While this is a rosy proposition, there is some work to make this a reliable success. More often than not, you will run into unexpected problems running a test in all environments, and sometimes there may be a hack or two involved.</p>
+<p>Choosing high quality locators will help with this, but there are still some issues to deal with; most notably... timing. This is especially true when working with dynamic, JavaScript heavy pages (which is more the rule than the exception in a majority of web applications you&#39;ll deal with).</p>
+<p>But there is a simple way to design the bedrock of reliable and resilient Selenium tests — and that&#39;s how you wait for elements you want to interact with. The best way to do this is through the use of explicit waits.</p>
+<h2 is-upgraded>Explicit Waits</h2>
+<p>One important thing to understand with the Selenium framework is that each method you write requires a round-trip communication between the tests and the devices. When you use these tests on the cloud, and to test remote devices, the round trips can start to take a very long time.</p>
+<p class="image-container"><img alt="Selenium Commands" src="img/c40629427a52dcd6.png"></p>
+<p>A function like the authenticate function here has a total of six &#34;round trips&#34; to do.</p>
+<pre><code>async authenticate(username, password) {
+    await this.driver.findElement(USERNAME_INPUT).sendKeys(username)
+    await this.driver.findElement(PASSWORD_INPUT).sendKeys(password)
+    await this.driver.findElement(SUBMIT_BUTTON).click()
+  }
+</code></pre>
+<p>In this example, there are six separate communications between the location the test is stored and the location where the devices you are testing are stored just to execute the authenticate() function above.</p>
+<h2 is-upgraded>Implicit vs. Explicit Waits</h2>
+<p>Explicit waits help solve the problem of errors occurring because of lags in loading and communication with the webpage. An explicit wait instructs your test to halt the program execution until something specific happens. For example, you can ask your code to wait until something is clicked, until something loads on the page, and much more.</p>
+<p>This is different from implicit waits, which are commands that cause your code to stop and wait for a given amount of time, no matter what, and take a timeout before continuing to the next function or class. There are also sleep commands, which tell the program to stop executing completely (including any asynchronous commands within the program).</p>
+<p class="image-container"><img alt="Sleep and Wait" src="img/118d077012b78236.png"></p>
+<p>Source: Kristin Schmit, Flickr (<a href="https://www.flickr.com/photos/giraffecereal/5860286735" target="_blank">https://www.flickr.com/photos/giraffecereal/5860286735</a>)</p>
+<p>Explicit waits are applied to individual test actions. Each time you want to use one you specify an amount of time (in seconds) and the Selenium action action you want to accomplish. Implicit waits are generally not recommended, and also mixing explicit waits with implicit waits cause negative consequences. Many classes or functions have default timeouts, or they may change or interfere with one another.</p>
+<p>The only time you would want to use an implicit wait is to make sure your tests have enough time to run, especially when you move them to the cloud. When using waits, Selenium will repeatedly try an action until either it can be accomplished, or until the amount of time specified has been reached. If the latter occurs, a timeout exception will be thrown.</p>
+<h3 is-upgraded>Cheat Sheet</h3>
+<p><a href="https://docs.google.com/document/d/18nZvzgw7ukpBMYw9iJJzNFBIfRr2-m8ZHnOi3tE9KXE/edit?usp=sharing" target="_blank">3.05 Waits Cheat Sheet</a></p>
+<h2 is-upgraded>Create a Page with Explicit Waits</h2>
+<p>We&#39;re going to use this page as an example that demonstrates this against <a href="http://the-internet.herokuapp.com/dynamic_loading/1" target="_blank">a dynamic page on the-internet.</a> The functionality is pretty simple — there is a button, and when you click it a loading bar appears for five seconds. After that, it disappears and is replaced with the text Hello World!</p>
+<p class="image-container"><img alt="Dynamic Loading Page 1" src="img/e60acede3fec4ea3.png"></p>
+<p class="image-container"><img alt="Dynamic Loading Page 2" src="img/f5a82731cda7945d.png"></p>
+<p class="image-container"><img alt="Dynamic Loading Page 3" src="img/4e1152a18874fe9b.png"></p>
+<p>We will create a page object named DynamicLoadingPage.js in the pages directory.</p>
+<p class="image-container"><img alt="File Structure" src="img/3cfee9bef5202288.png"></p>
+<p>Paste in the following code:</p>
+<pre><code>// filename: pages/DynamicLoadingPage.js
+
+const BasePage = require(&#39;./BasePage&#39;)
+
+const START_BUTTON = { css: &#39;#start button&#39; }
+const FINISH_TEXT = { id: &#39;finish&#39; }
+
+class DynamicLoadingPage extends BasePage {
+  constructor(driver) {
+    super(driver)
+  }
+
+  async loadExample(exampleNumber) {
+    await this.visit(
+      &#39;http://the-internet.herokuapp.com/dynamic_loading/&#39; + exampleNumber
+    )
+    await this.click(START_BUTTON)
+  }
+
+  async isFinishTextPresent() {
+    return this.isDisplayed(FINISH_TEXT, 10000)
+  }
+}
+
+module.exports = DynamicLoadingPage
+
+</code></pre>
+<p>We will use the locator of the start <code>&lt;button&gt;</code> in the HTML page, as well as the <code>id = &#39;finish&#39;</code> for the &#34;Hello World!&#34; test that appears on the page for the<code>START_BUTTON</code> and <code>FINISH_TEXT</code> variables.</p>
+<p>Since there are two dynamic loading page examples to choose from on the-internet, we created the method<code>loadExample()</code>. It accepts a number as an argument, so we can specify which of the examples we want to visit and start.</p>
+<p>Similar to our Login page object, we have a function to check for the finish text, <code>isFinishTextPresent()</code>. This check is slightly different though. Notice that it has a second argument (an integer value of 10000). This bit of code is how we&#39;ll tell Selenium to wait (in milliseconds) for an element to be displayed before giving up.</p>
+<p>Let&#39;s update the <code>isDisplayed</code>method in <code>BasePage.js</code>. First add in the <code>Until</code>variable at the top:</p>
+<pre><code>// filename: pages/BasePage.js
+const Until = require(&#39;selenium-webdriver&#39;).until
+// ...
+</code></pre>
+<p>Next, update the isDisplayed function with the two explicit waits, <code>Until.elementLocated()</code>and <code>Until.elementIsVisible(</code>). Note that you are adding a parameter in the is<code>Displayed()</code>function, an <code>if, else</code> statement, and placing the new explicit wait functionality within the <code>if</code> statement, and moving the <code>try...catch</code>block inside the <code>else</code> statement.</p>
+<pre><code>// ...
+  async isDisplayed(locator, timeout) {
+    if (timeout) {
+      await this.driver.wait(Until.elementLocated(locator), timeout)
+      await this.driver.wait(
+        Until.elementIsVisible(this.find(locator)),
+        timeout
+      )
+      return true
+    } else {
+      try {
+        return await this.find(locator).isDisplayed()
+      } catch (error) {
+        return false
+      }
+    }
+  }
+}
+// ...
+
+</code></pre>
+<p>Note the new<code>Until</code>module, which is a <a href="https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/lib/until.html" target="_blank">collection of functions</a> that can be used with Selenium&#39;s wait function. We require and store it in a variable. We then update the <code>isDisplayed()</code>function to take an additional argument and use the Until variable we just created.</p>
+<p>We call <code>driver.wait</code>, provide an initial condition that we want to wait for (wait until the element is located), the locator to wait for, and the timeout.<code>(Until.elementLocated(locator), timeout)</code>.</p>
+<p>It&#39;s important to do these in order so that first you locate the element (wait until that is completed), then you check (and wait) that the element is visible using <code>(Until.elementIsVisible(find(locator)</code>).</p>
+<p class="image-container"><img alt="Dynamic Loading Page Flow" src="img/4edd2ed1d533d204.png"></p>
+<p>In the <code>else</code> block of i<code>sDisplayed()</code> we account for the case where no timeout is provided when calling this function. When that happens the original behavior will be used (e.g., see if an element is displayed without waiting and return false if it&#39;s not present).</p>
+<h3 is-upgraded>Final Code</h3>
+<p>The changes to the code should look like this:</p>
+<p class="image-container"><img alt="Base Page 1" src="img/5a0522742aa37e0f.png"></p>
+<p class="image-container"><img alt="Base Page 2" src="img/8bb16cc7b8956339.png"></p>
+<h3 is-upgraded>NOTE</h3>
+<p>The <code>timeout</code> parameter in both the <code>isDisplayed()</code> method, and the elementLocated is set to 10 seconds. This allows time for a slowly loading page and plenty of time to check to see that the element has been located and check if it is visible. In this case, if the <code>isDisplayed()</code> function is called without the<code>timeout</code> parameter, it will try the same test without the locator (the code in the <code>else</code>block).</p>
+<p class="image-container"><img alt="Base and Dynamic Loading Pages" src="img/4d0e3860948cc3b6.png"></p>
+<p>There are other conditions you can wait for besides <code>elementLocated()</code>or <code>elementIsVisible()</code>. You can find a full list <a href="http://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/until.html" target="_blank">here in the API documentation</a>.</p>
+<h2 is-upgraded>Don&#39;t Combine Explicit and Implicit Waits</h2>
+<p>The major benefit of explicit waits is that if the behavior on the page takes longer than we expect (e.g., due to slow load times, or a feature change), we can simply adjust a single wait time to fix the test — rather than increase a blanket wait time (which impacts every test). And since the wait is dynamic (e.g., constantly polling), it won&#39;t take the full amount of time to complete (like a hard-coded sleep would).</p>
+<p>If you&#39;re thinking about mixing explicit waits with an implicit wait – DON&#39;T. If you use both together you could run into issues later on due to inconsistent implementations of the implicit wait functionality across local and remote browser drivers. Long story short, you could end up with randomly failing tests that will be hard to debug. You can read more about the specifics <a href="https://stackoverflow.com/questions/15164742/combining-implicit-wait-and-explicit-wait-together-results-in-unexpected-wait-ti#answer-15174978" target="_blank">here</a>.</p>
+<p>In this lesson we created <code>DynamicLoadingPage.js</code>, but have yet to create a test we can run against it, which you will do in the next lesson.</p>
+<p>You can see the <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/code-examples/javascript/Mod3/3.05" target="_blank">code examples here</a>.</p>
+
+
+      </google-codelab-step>
+
+      <google-codelab-step label="3.07  Testing with Explicit Waits" duration="0">
+        <p>Now that we have our new page object and an updated base page, it&#39;s time to write our test to use it.</p>
+<p>Let&#39;s create a new file called <code>DynamicLoadingTest.js</code> in the test directory.</p>
+<p class="image-container"><img alt="File Structure" src="img/32d2b8089926a513.png"></p>
+<p>The contents of this test file are similar to <code>LoginTest.js</code> with regards to its setup and structure. Open <code>DynamicLoadingTest.js</code> in your IDE and paste in the following:</p>
+<pre><code>// filename: test/DynamicLoadingTest.js
+const { Builder } = require(&#39;selenium-webdriver&#39;)
+//const path = require(&#39;path&#39;)
+const assert = require(&#39;assert&#39;)
+const DynamicLoadingPage = require(&#39;../pages/DynamicLoadingPage&#39;)
+
+describe(&#39;Dynamic Loading&#39;, function() {
+  this.timeout(30000)
+  let dynamicLoading
+
+  beforeEach(async function() {
+    const vendorDirectory =
+      // path.delimiter + path.join(__dirname, &#39;..&#39;, &#39;vendor&#39;)
+      // process.env.PATH += vendorDirectory
+      driver = await new Builder().forBrowser(&#39;firefox&#39;).build()
+      dynamicLoading = new DynamicLoadingPage(driver)
+  })
+
+  afterEach(async function() {
+    await driver.quit()
+  })
+
+  it(&#39;hidden element&#39;, async function() {
+    await dynamicLoading.loadExample(&#39;1&#39;)
+    assert(
+      await dynamicLoading.isFinishTextPresent(),true, &#39;Finish text not displayed&#39;
+    )
+  })
+})
+</code></pre>
+<p>In our test, <code>&#39;hidden element&#39;</code>,  we are visiting the first dynamic loading example and clicking the start button (which is accomplished in <code>dynamicLoading.loadExample(&#39;1&#39;);).</code> We&#39;re then checking that the finish text gets displayed.</p>
+<h3 is-upgraded>NOTE</h3>
+<p>I included the path variable in the test code, and commented out the code for the path because if you are using npm, you don&#39;t need it, however you will need it if you are managing dependencies yourself.</p>
+<p>When we save this and run it with <code>npm test</code> from the command-line) it will:</p>
+<ul>
+<li>Launch a browser</li>
+<li>Visit the page</li>
+<li>Click the start button</li>
+<li>Wait for the loading bar to complete</li>
+<li>Find the finish text</li>
+<li>Assert that it is displayed.</li>
+<li>Close the browser</li>
+</ul>
+<p class="image-container"><img alt="Passing Tests" src="img/ae0af8e4878fa4e.png"></p>
+<h3 is-upgraded>NOTE</h3>
+<p>The other test will be run as well.</p>
+<h2 is-upgraded>Use the Test with Another Page</h2>
+<p>Let&#39;s step through one more example to see if our explicit wait holds up.</p>
+<p class="image-container"><img alt="Dynamically Loading Page Elements" src="img/1ef8b71559dfe49d.png"></p>
+<p><a href="http://the-internet.herokuapp.com/dynamic_loading/2" target="_blank">The second dynamic loading example</a> is laid out similarly to the last one. The difference is that it renders the final text after the progress bar completes (whereas the previous example had the element on the page but it was hidden until the progress bar finished). In other words, in the first test, the text was there but hidden, but in this test the text doesn&#39;t even exist until after the loading image disappears.</p>
+<p>Notice that it has the same start <code>&lt;button&gt;</code> and <code>id=&#39;finished&#39;</code> at the beginning and end of the test. Will our same test work for the second page?</p>
+<p>Let&#39;s add a nearly identical second test to<code>DynamicLoadingTest.js</code> called <code>&#39;rendered element&#39;</code> that will load this second example and perform the same check as we did for the previous test.</p>
+<pre><code>// filename: test/DynamicLoadingTest.js
+...
+  it(&#39;rendered element&#39;, async function() {
+    await dynamicLoading.loadExample(&#39;2&#39;)
+    assert(
+      await dynamicLoading.isFinishTextPresent(), true, &#39;Finish text not displayed&#39;
+    )
+  })
+...
+</code></pre>
+<h3 is-upgraded>Final Code</h3>
+<p class="image-container"><img alt="Dynamic Loading Test" src="img/acb1e729d5554666.png"></p>
+<p>Run the test. This time we are going to use a different command that allows us to run specific test objects, instead of all the tests in our test class. Open the terminal in your project folder and run the command <code>npm test -- --grep &#34;Dynamic Loading&#34;</code></p>
+<p class="image-container"><img alt="Two Passing Dynamic Loading Tests" src="img/5ce8daf3270e3981.png"></p>
+<h3 is-upgraded>NOTE</h3>
+<p>The<a href="https://www.geeksforgeeks.org/grep-command-in-unixlinux/" target="_blank"> grep </a>command allows you to search for a certain set of characters when we run the mocha test. In this case, we are searching for and running the name of the test ‘Dynamic Loading.&#39;</p>
+<p class="image-container"><img alt="Test- Dynamic Loading" src="img/f21bbffbd4ce50f4.png"></p>
+<p>See the complete <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/code-examples/javascript/Mod3/3.06" target="_blank">source code here.</a> Note that you have to run npm install in the root project folder before being able to use code pulled down from a repository.</p>
+<h2 is-upgraded>Browser Timing</h2>
+<p>Using explicit waits gets you pretty far. But there are a few things you&#39;ll want to think about when it comes to writing your tests to work on various browsers.</p>
+<p>It&#39;s simple enough to write your tests locally against one browser and assume you&#39;re all set. But once you start to run things against other browsers you may be in for a surprise. The first thing you&#39;re likely to run into is the speed of execution. A lot of your tests may start to fail when you point them at either Chrome or Internet Explorer, and likely for different reasons.</p>
+<p>Chrome execution can sometimes be faster than Firefox, so you could see some odd timeout failures. This is an indicator that you need to add explicit waits to parts of your page objects that don&#39;t already have them. And the inverse is true when running things against Internet Explorer. This is an indicator that your explicit wait times are not long enough since the browser is taking longer to respond — so your tests timeout.</p>
+<p>The best approach to solve this is an iterative one. Run your tests in a target browser and see which ones fail. Take each failed test, adjust your code as needed, and re-run it against the target browser until they all pass. Repeat for each browser you care about until everything is green.</p>
+<h2 is-upgraded>Closing Thoughts</h2>
+<p>By explicitly waiting to complete an action, our tests are in a much more resilient position because Selenium will keep trying for a reasonable amount of time rather than trying just once. And each action can be tuned to meet the needs of each circumstance. Couple that with the dynamic nature of explicit waits, and you have something that will work in a multitude of circumstances — helping you endure even the toughest of browsers to automate.</p>
+<p>This is one of the most important concepts in testing with Selenium. <em>Use explicits waits often.</em></p>
+
+
+      </google-codelab-step>
+
+      <google-codelab-step label="3.08 Quiz" duration="0">
+        <ol type="1">
+<li>Why did we include a try... catch block in<code>BasePage.js</code>?</li>
+</ol>
+<pre><code>1. We wanted to be able to use both the `elementIsVisible()` and the `isDisplayed() `methods to check if an element is on a page.
+2. We wanted to be able handle checking to see if an element is on the page with and without a `timeout` set.
+3. We wanted to be able to be able to use the newer is`Displayed()` method is the `elementIsVisible()` didn&#39;t work.
+4. We wanted to check and see if an elements was on the page before and after a set timeout.
+</code></pre>
+<ol type="1">
+<li>Where is the method <code>isDisplayed()</code>declared (created)?</li>
+</ol>
+<pre><code>5. BasePage.js
+6. DynamicLoadingTest.js
+7. DynamicLoadingPage.js
+8. LoginTest.js
+</code></pre>
+<ol type="1">
+<li>What is the difference between these two tests (on the two different dynamic loading pages on the-internet)?</li>
+</ol>
+<pre><code>9. We need to test two different pages with the same test, and we also need to have unique error codes so we can tell which has failed.
+10. There are two different pages, and you must always have different tests for different pages.
+11. There are different ids for the elements on the page you are trying to locate, so you had to write different tests &amp; assertions for each one.
+12. We need to use a different Selenium method for each test, `elementIsVisible() `and `elementLocated(),` so we write two different tests.
+</code></pre>
+<ol type="1">
+<li>Where is the method <code>isFinishTextPresent()</code>declared (created)?</li>
+</ol>
+<pre><code>13. BasePage.js
+14. DynamicLoadingTest.js
+15. DynamicLoadingPage.js
+16. LoginTest.js
+</code></pre>
+<ol type="1">
+<li>Which of the following best describes a facade layer like <code>BasePage.js</code>?  <ol type="1">
+<li>A class that is created to separate code for implicit and explicit waits, so that one can avoid problems created by having both of these types of wait.</li>
+<li>A class that is created to write the more imperative language, specific to a testing language like Selenium, that can be swapped out.</li>
+<li>A class that is created for use with a specific programming language such as JavaScript or Python, so that the same test code can be used with different programming languages.</li>
+<li>A class that is created to be easy to read, with very declarative testing language.</li>
+</ol>
+</li>
+<li>Question about code example &amp; implicit/ explicit wait.</li>
+</ol>
+
+
+      </google-codelab-step>
+
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

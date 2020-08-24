@@ -1,0 +1,25 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2020-07-29T11:59:29-05:00",
+  "id": "Module1-SeleniumJS",
+  "duration": 0,
+  "title": "Module 1 — Introduction to Selenium with JavaScript",
+  "authors": "Lindsay Walker",
+  "summary": "Module 1 Introduction to Selenium with JavaScript",
+  "source": "Module1_SeleniumJS.md",
+  "theme": "",
+  "status": [
+    "work in progress"
+  ],
+  "category": [
+    "first draft"
+  ],
+  "tags": [
+    "beginner"
+  ],
+  "feedback": "mailto:helpdocs@saucelabs.com",
+  "url": "Module1-SeleniumJS"
+}
