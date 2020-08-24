@@ -1,4 +1,6 @@
-# Changelog- Add newest additions in an .ms file at top
+# Changelog- Add newest additions in an .md file at top
+///start typing below this textLineHeight
+
 ## Aug 24, 2020 – Lindsay
 ### Added Sauce School Info for 'Course' Page
  in _tools/site/app/views/default_ I updated view.json with new title and course description, as well as the same info in index.HTML
