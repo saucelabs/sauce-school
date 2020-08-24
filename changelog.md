@@ -1,5 +1,5 @@
 # Changelog- Add newest additions in an .md file at top
-///start typing below this textLineHeight
+///start typing below this text
 
 ## Aug 24, 2020 – Lindsay
 ### Added Sauce School Info for 'Course' Page
