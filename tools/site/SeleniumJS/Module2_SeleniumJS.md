@@ -24,7 +24,7 @@ This module is derived from content in chapters 6-7 of _The Selenium Guidebook_ 
 
 
 *   Use NodeJS along with npm to run local tests and manage dependencies on your machine
-*   Understand that good tests are atomic: They have test grouped by functionality and are named descriptively. Good tests also use test runners, and are maintained in version control systems
+*   Understand that good tests are atomic: They have test grouped by functionality and are named descriptively Good tests also use test runners, and are maintained in version control systems
 *   Create and maintain a project folder with your test suite & dependencies, with separate folders for page and test classes
 *   Be able to define a test strategy and use a testing strategy like BDD and TDD to create test cases
 *   Use the browser dev tools console to test locators on the page using elements such as class, id, XPath, and more
@@ -40,7 +40,7 @@ If you skipped Module 1, make sure you have a project folder set up and have cre
 
 
 
-![alt_text](images/image1.png "image_tooltip")
+![Directory Structure](assets/2.00.png | width=100)
 
 
 
@@ -75,7 +75,7 @@ Each test needs to be concise (e.g., testing a single feature rather than multip
 
 Doing this may require a mental shift, discipline, and more upfront effort. But it will make a dramatic impact on the quality, effectiveness, and maintainability of your tests. Especially when you get into parallel test execution.
 
-![alt_text](images/image2.png "image_tooltip")
+![Atomic](assets/2.01A.png | width=150)
 
 
 Image Source: [https://medium.com/swlh/creating-fast-reliable-focused-ui-automation-with-atomic-tests-582e4318c0bb](https://medium.com/swlh/creating-fast-reliable-focused-ui-automation-with-atomic-tests-582e4318c0bb)
@@ -93,7 +93,7 @@ A test file should have a high level name that denotes what the tests within it 
 This enables developers to run a subset of tests to exercise functionality they just modified while also enabling you to intelligently wire your test suite up to a Continuous Integration (CI) server for fast and dynamic feedback (more on CI servers later on).
 
 
-## **Test Runn**er**s**
+## **Test Runners**
 
 At the heart of every test harness is some kind of a test runner like Mocha that does a lot of the heavy lifting (e.g., test execution, centralized configuration, test output). In this course, we will be using the Mocha test runner. Rather than reinvent the wheel you can use one of the many test runners that exist today. With it you can bolt on third party libraries to extend its functionality if there's something missing.
 
@@ -120,7 +120,7 @@ A great way to increase your chances of success with automated web testing is to
 *   _How does your business make money?_
 *   _What features in your application are being used?_
 *   _What browsers are your users using?_
-*   _ What things have broken in the application before?_
+*   _What things have broken in the application before?_
 
 ![alt_text](images/image3.png "image_tooltip")
 
@@ -151,16 +151,16 @@ Now that you know what functionality is business critical and widely adopted by 
 Note the top 2 (or 3 depending on your numbers), but focus on the top 1 for now. This is the browser you will start using for automation.
 
 
-#### Question 4: What are the Risky Bits
+#### Question 4: What are the Risky Bits?
 
 To round out the strategy, it is also best to think about what things have broken in the application before. To answer this question, it's best to check your defect/bug tracker (if you have one) and to ask your team. What you end up with may read like a laundry list of browser specific issues or functionality that has been flaky or forgotten about in the past. But it's all useful information.
 
 Be sure to check this list against your automation backlog. If something's not there, add it to the bottom of the backlog. If it is there, make a note in the backlog item that it has been an issue in the past.
 
-If the issue has happened numerous times and has the potential to occur again, move the item up in the backlog. And if issues keep cropping up that are related to a specific browser, compare this browser to your short list of browsers from question #3. If it's a browser that's not in your list but it's still important (e.g., a small pocket of influential users), track it on the backlog, but put it at the bottom.
+If the issue has happened numerous times and has the potential to occur again, move the item up in the backlog. And if issues keep cropping up that are related to a specific browser, compare this browser to your short list of browsers from question \#3. If it's a browser that's not in your list but it's still important (e.g., a small pocket of influential users), track it on the backlog, but put it at the bottom.
 
 
-## Now You are Ready
+### Now You are Ready
 
 Having answered these questions, you should now have a prioritized backlog of critical business functionality, a short list of browsers to focus on, and an understanding of the risky parts of your application to watch out for. With it, you're on the right track — focusing on things that matter for your business and its users.
 
@@ -169,7 +169,7 @@ Having answered these questions, you should now have a prioritized backlog of cr
 ## 2.04 Finding & Testing Locators in the Browser
 
 
-## How to Find Locators
+### How to Find Locators
 
 The simplest way to find locators is to inspect the elements on a page. The best way to do this is from within your web browser. Fortunately, popular browsers come pre-loaded with development tools that make this simple to accomplish.
 
@@ -194,7 +194,7 @@ Use the following notes to help you use the inspector to test elements. Later yo
 
 ![Locator Table](images/image4.jpg "image_tooltip")
 
-## How to Find Quality Elements
+### How to Find Quality Elements
 
 You want to find an element that is unique, descriptive, and unlikely to change.
 
@@ -218,7 +218,7 @@ Selenium is able to find and interact with elements on a page by way of various 
 *   XPath
 
 
-## Quiz
+### Quiz
 
 
 1. Fill in the blanks with the best set of two words: The software development methodology named _______ focuses on creating tests based around the specific functions of an application to create failing then passing tests,  whereas ______ focuses on the abstract features and epics of an application to first create a testing plan.
@@ -278,13 +278,13 @@ Notice the element attributes on the form. The username input field has a unique
 Let's put these elements to use in our first test.
 
 
-## Setup Your Project File
+### Setup Your Project File
 
 
     First we'll need to create a new project directory called` SeleniumJS` (your main project directory), and inside create a folder named` test `inside that project directory. This is a default folder that Mocha will know to look for.
 
 
-#### *Note*
+#### NOTE
 
 
      You can see all of the files here.
