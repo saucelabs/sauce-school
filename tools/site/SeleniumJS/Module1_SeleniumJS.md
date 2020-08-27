@@ -156,8 +156,12 @@ _** If you already have experience with the NodeJS server, and know how to insta
 
 Now we are going to install npm. When we run the command npm install, it will download dependencies defined in a package.json file and generate a node_modules folder with the installed modules.
 
-1. Navigate to the folder you just made from the terminal. ![cd Selenium JS](assets/1.05B.png "cd SeleniumJS")
-2. Run npm install from the terminal. ![npm install](assets/1.05C.png "npm install")
+1. Navigate to the folder you just made from the terminal.
+
+![cd Selenium JS](assets/1.05B.png "cd SeleniumJS")
+2. Run npm install from the terminal.
+
+ ![npm install](assets/1.05C.png "npm install")
 3. If you open your file folder, you should see the folder ‘node_modules’ as well as package.json and package-lock.json.
 
 
@@ -172,18 +176,20 @@ Later on when you set up your first test, you will go back to the ‘SeleniumJS�
 
 _if you are using Github, it is recommended that you [delete the package-lock.json](https://www.codementor.io/@johnkennedy/get-rid-of-that-npm-package-lock-json-e0bj7ai42) file._
 
+--
 
 ### Use GitHub Repository (Optional)
 
 If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
 
-**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/code-examples/javascript/Mod1)**
+**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod1/1.05)**
 
 
 #### NOTE
 
 If you download this project, you should open the directory (1.05) in your terminal and run npm install before trying to write any tests.
 
+--
 
 #### Cheat Sheet
 
