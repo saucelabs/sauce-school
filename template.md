@@ -57,7 +57,9 @@ Adding a link!
 
 ### Add an Image
 Adding an image!
-![image_caption](assets/1.01A.png | width=100)
+![image_caption](assets/1.01A.png)
 
 ### Embed an iframe
 ![<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfF6_0V7jEE9JYF4vWDUsHTuYYHnQbaEsMGtfeTcr8arxZgzg/viewform?embedded=true" width="640" height="1240" frameborder="0" marginheight="0" marginwidth="0">Embedded Element Not Loading</iframe>](https://docs.google.com/forms/d/e/1FAIpQLSfF6_0V7jEE9JYF4vWDUsHTuYYHnQbaEsMGtfeTcr8arxZgzg/viewform?usp=sf_link)
+
+### Align Image and Text

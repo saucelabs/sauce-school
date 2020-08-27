@@ -19,7 +19,7 @@ analytics account: Google Analytics ID
 This module is derived from content in chapters 6-7 of _The Selenium Guidebook_ _JavaScript Edition_ By Dave Haeffner. This module will touch lightly on how to write a basic test, and teach users about how to set up a project, as well as learn about how Selenium locates and interacts with elements on a “page”, which can be any view or even object within a webpage.
 
 
-## Objectives
+### Objectives
 
 
 
@@ -34,13 +34,13 @@ This module is derived from content in chapters 6-7 of _The Selenium Guidebook_ 
 *   Analyze and plan test suites, learning how to balance the size and maintainability (ability to check failed tests) against the amount of features you want to test, as well as the level of abstraction you want to use to make modular objects to use in your test suite
 
 
-## Base Code
+### Base Code
 
 If you skipped Module 1, make sure you have a project folder set up and have created the following files, as well as have NodeJS installed and init for this project:
 
 
 
-![Directory Structure](assets/2.00.png | width=100)
+![Directory Structure](assets/2.00.png)
 
 
 
@@ -48,12 +48,13 @@ If you skipped Module 1, make sure you have a project folder set up and have cre
 
 _if you are using Github, it is recommended that you [delete the package-lock.json](https://www.codementor.io/@johnkennedy/get-rid-of-that-npm-package-lock-json-e0bj7ai42) file._
 
+--
 
-## Use GitHub Repository (Optional)
+### Use GitHub Repository (Optional)
 
 If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
 
-**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/code-examples/javascript/Mod1)**
+**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod1/1.05)**
 
 <!-- ------------------------ -->
 ## 2.02 Writing Good Acceptance Tests
@@ -69,41 +70,41 @@ In order to write automated web tests that are easy to maintain, perform well, a
 *   Store tests in a Version Control System
 
 
-## **Atomic & Autonomous Tests**
+### **Atomic & Autonomous Tests**
 
-Each test needs to be concise (e.g., testing a single feature rather than multiple features) and be capable of being run independently (e.g., sets up its own data rather than relying on a previous test to do it). [Learn more in the Sauce Cookbook](https://wiki.saucelabs.com/display/DOCS/Best+Practices%3A+Use+Small%2C+Atomic%2C+Autonomous+Tests).
+Each test needs to be concise (e.g., testing a single feature rather than multiple features) and be capable of being run independently (e.g., sets up its own data rather than relying on a previous test to do it). [Learn more in the Sauce Cookbook](https://wiki.saucelabs.com/display/DOCS/Best+Practices%3A+Use+Small%2C+Atomic%2C+Autonomous+Tests?utm_source=referral&utm_medium=LMS&utm_campaign=link).
 
 Doing this may require a mental shift, discipline, and more upfront effort. But it will make a dramatic impact on the quality, effectiveness, and maintainability of your tests. Especially when you get into parallel test execution.
 
-![Atomic](assets/2.01A.png | width=150)
+![Atomic](assets/2.01A.png)
 
 
 Image Source: [https://medium.com/swlh/creating-fast-reliable-focused-ui-automation-with-atomic-tests-582e4318c0bb](https://medium.com/swlh/creating-fast-reliable-focused-ui-automation-with-atomic-tests-582e4318c0bb)
 
 
-## Grouping Tests
+### Grouping Tests
 
 As your test suite grows, you will have numerous test files. Each one contains a grouping of tests that have similar functionality. For example, you would have one directory for the files that are designed to locate and interact with the page, and another directory for files that perform tests (test to check if something does or does not happen when you interact).
 
 
-## Being Descriptive
+### Being Descriptive
 
 A test file should have a high level name that denotes what the tests within it are exercising. Each test should have an informative name (even if it is a bit verbose). Also, each test (or grouping of tests) should include some helpful metadata (e.g., tags or categories), which can provide additional information about the test as well as enable flexible test execution (more on that later on). This way, all or part of your test suite can be run, and the results will be informative thanks to helpful naming.
 
 This enables developers to run a subset of tests to exercise functionality they just modified while also enabling you to intelligently wire your test suite up to a Continuous Integration (CI) server for fast and dynamic feedback (more on CI servers later on).
 
 
-## **Test Runners**
+### **Test Runners**
 
 At the heart of every test harness is some kind of a test runner like Mocha that does a lot of the heavy lifting (e.g., test execution, centralized configuration, test output). In this course, we will be using the Mocha test runner. Rather than reinvent the wheel you can use one of the many test runners that exist today. With it you can bolt on third party libraries to extend its functionality if there's something missing.
 
 
-## Version Control
+### Version Control
 
 In order to effectively collaborate with other testers and developers on your team, your test code must live in a version control system. Look to see what your development team uses and add your code to it. In the examples in this course, we will be providing code samples from GitHub.
 
 
-## [BDD and TDD](https://saucelabs.com/blog/a-two-minute-bdd-overview)
+### [BDD and TDD](https://saucelabs.com/blog/a-two-minute-bdd-overview)
 
 Behavior Driven Development and Test Driven Development are two important strategies to help you understand how to write effective tests. [BDD](https://cucumber.io/blog/bdd/bdd-is-not-test-automation/) is a collaborative process that focuses on starting with a business value or need. It’s a feature and epic-centric approach to create a requirements analysis. With both BDD and TDD, you plan to write the code for the test first (application code comes later).
 
@@ -122,10 +123,10 @@ A great way to increase your chances of success with automated web testing is to
 *   _What browsers are your users using?_
 *   _What things have broken in the application before?_
 
-![alt_text](images/image3.png "image_tooltip")
+![Bootsterbot](assets/2.03A.png)
 
 
-## What to Do with the Answers
+### What to Do with the Answers
 
 After answering these questions, you should end up with a prioritized punch list (a.k.a., backlog) of test automation tasks that you can work off of and track progress against.
 
@@ -175,7 +176,7 @@ The simplest way to find locators is to inspect the elements on a page. The best
 
 When viewing the page, right-click on the element you want to interact with and click **Inspect Element**. This will bring up a small window with all of the markup for the page but zoomed into your highlighted selection. From here, you can see if there are unique or descriptive attributes you can work with.
 
-![alt_text](images/image4.jpg "image_tooltip")
+![image_caption](assets/2.04A.png)
 
 
 If you're fortunate enough to be working with unique IDs and classes, then you're usually all set. But when you have to handle more complex actions like traversing a page, or you need to run down odd test behavior, it can be a real challenge to verify that you have the right locators to accomplish what you want.
@@ -192,7 +193,9 @@ Use the following notes to help you use the inspector to test elements. Later yo
 
 #### Locator Strategies
 
-![Locator Table](images/image4.jpg "image_tooltip")
+![Locator Table](assets/2.04B.png)
+
+Find more on [XPath here](https://yizeng.me/2014/03/23/evaluate-and-validate-xpath-css-selectors-in-chrome-developer-tools/)
 
 ### How to Find Quality Elements
 
@@ -221,32 +224,45 @@ Selenium is able to find and interact with elements on a page by way of various 
 ### Quiz
 
 
-1. Fill in the blanks with the best set of two words: The software development methodology named _______ focuses on creating tests based around the specific functions of an application to create failing then passing tests,  whereas ______ focuses on the abstract features and epics of an application to first create a testing plan.
-    1. Selenium, Mocha
-    2. BDD, TDD
-    3. TDD, BDD
-    4. Mocha, Selenium
+1. Fill in the blanks with the best set of two words: The software development methodology named _________   focuses on creating tests based around the specific functions of an application to create failing then passing tests,  whereas  _________   focuses on the abstract features and epics of an application to first create a testing plan.
+
+A.  Selenium, Mocha
+
+B. BDD, TDD
+
+C. TDD, BDD
+
+D.  Mocha, Selenium
+
 2. Which of the following questions about your test strategy is the most important and involves tracking real user interactions through your app?
-    5. What is the Value?
-    6. What Does Usage Data Say?
-    7. Which Browsers?
-    8. What are the Risky Bits?
+
+A. What is the Value?
+
+B. What Does Usage Data Say?
+
+C.  Which Browsers?
+
+D.  What are the Risky Bits?
+
 3. Which of the following commands, typed into the console of the inspector, would return this element?
 
-![alt_text](images/image9.png "image_tooltip")
+![image_caption](assets/2.04C.png)
 
-    9. `$x("//*[@id="content"]/div[1]/")`
-    10. `$x("//*[@id=\"content\"]/div[1]/div[1]")`
-    11. `$x(“//*[@id=\"large-2 columns\"]/div[1]/div[1]”)`
-    12. `$x(//*[@id="large-2 columns"]/div[1]/div[1])`
+A.  `$x("//*[@id="content"]/div[1]/")`
+
+B.  `$x("//*[@id=\"content\"]/div[1]/div[1]")`
+
+C.  `$x(“//*[@id=\"large-2 columns\"]/div[1]/div[1]”)`
+
+D. `$x(//*[@id="large-2 columns"]/div[1]/div[1])`
 
 <!-- ------------------------ -->
 
 ## 2.05 Setting Up Your First Test
 
-Here's the markup for a standard login form (pulled from [the login example app on the-interne](http://the-internet.herokuapp.com/login)t).
+Here's the markup for a standard login form (pulled from the login example app on [the-internet](http://the-internet.herokuapp.com/login).
 
-![alt_text](images/image10.png "image_tooltip")
+![Login Page](assets/2.05A.png)
 
 
 
@@ -281,29 +297,25 @@ Let's put these elements to use in our first test.
 ### Setup Your Project File
 
 
-    First we'll need to create a new project directory called` SeleniumJS` (your main project directory), and inside create a folder named` test `inside that project directory. This is a default folder that Mocha will know to look for.
+First we will need to create a new project directory called `SeleniumJS` (your main project directory), and inside create a folder named `test` inside that project directory. This is a default folder that Mocha will know to look for.
 
 
-#### NOTE
+You can see all of the files here.
+
+**_[Selenium_Course_Example_Code ](https://github.com/walkerlj0/Selenium_Course_Example_Code)_**
 
 
-     You can see all of the files here.
+Go into the SeleniumJS (your main project) directory using your terminal. Type the command npm init.
 
+![npm init](assets/2.05B.png)
 
-    **_[Selenium_Course_Example_Code ](https://github.com/walkerlj0/Selenium_Course_Example_Code)_**
+This will set up a new node package in the folder. Hit enter (and enter any information you wish to add) to run the init. If you are creating this in the repo, make sure you put it in the ‘code-examples’ file.
 
-
-    Go into the SeleniumJS (your main project) directory using your terminal. Type the command npm init.
-
-![alt_text](images/image11.png "image_tooltip")
-
-    This will set up a new node package in the folder. Hit enter (and enter any information you wish to add) to run the init. If you are creating this in the repo, make sure you put it in the ‘code-examples’ file.
-
-![alt_text](images/image12.png "image_tooltip")
+![npm init output](assets/2.05C.png)
 
 
 
-    In your file we'll create a new test file called `LoginTest.js`. Next, we will install dependencies using npm. You should already have a folder name node_modules in your `SeleniumJS` folder, as well as a file called` package.json`. Open `package.json`.  in your IDE, and under` licences`, add in `dependencies `and the following:
+In your file we'll create a new test file called `LoginTest.js`. Next, we will install dependencies using npm. You should already have a folder name node_modules in your `SeleniumJS` folder, as well as a file called` package.json`. Open `package.json`.  in your IDE, and under` licences`, add in `dependencies `and the following:
 
 
 ```
@@ -322,6 +334,8 @@ Let's put these elements to use in our first test.
 
  the versions of the dependencies may have changed to a more updated version, or need a different version for your tests. If you have nom installed, it should auto-complete the most recent versions.
 
+ --
+
 Under where it says directories and scripts, change the value of `"test" `to `"mocha"`
 
 
@@ -338,24 +352,25 @@ Under where it says directories and scripts, change the value of `"test" `to `"m
 
 and edit to look as follows:
 
-![alt_text](images/image13.png "image_tooltip")
+![package.json](assets/2.05E.png)
 
 
 #### NOTE
 
-The versions of each of the dependencies will change over time. If you have an IDE, it will give you options for each one & auto-fill the most recent version for you if you use npm. Otherwise, resea_rch what the most recent or best version of each dependency is._
+The versions of each of the dependencies will change over time. If you have an IDE, it will give you options for each one & auto-fill the most recent version for you if you use npm. Otherwise, research what the most recent or best version of each dependency is.
+
+--
+
+After you have adjusted the package.json file, go to the terminal (make sure you are in your ‘SeleniumJS’ project folder that you made, or the ‘javascript’ folder from the repo and enter
+
+![npm install](assets/2.05F.png)
 
 
-    After you have adjusted the package.json file, go to the terminal (make sure you are in your ‘SeleniumJS’ project folder that you made, or the ‘javascript’ folder from the repo and enter
-
-![alt_text](images/image14.png "image_tooltip")
-
-
-    This will pull the dependencies you listed in package.json to your project so you can use those libraries and frameworks to write your test code and interact with the browser.
+This will pull the dependencies you listed in package.json to your project so you can use those libraries and frameworks to write your test code and interact with the browser.
 
 When we're done our directory, structure should look like this:
 
-![alt_text](images/image15.png "image_tooltip")
+![directory with npm](assets/2.05G.png)
 
 
 Now you are ready for the next lessons here you will write your first test!
@@ -409,7 +424,7 @@ describe('Login', function() {
 Notice how the `const path` and first few lines in the `BeforeEach()` method that create the `vendorDirectory` object are commented out. This is because we used npm install to get the drivers. If you installed the gecko driver manually into the vendor file, set up the same way as (or pulled from)  [this repo](https://github.com/saucelabs/selenium-guidebook/tree/master/code-examples/javascript/06/01), you can leave it as is.
 
 
-## Breaking Down the Elements
+### Breaking Down the Elements
 
 At the top of the file, we import some dependencies. One is to create and control an instance of Selenium, the other is for working with file paths. The variable `assert` will be used later on when we create some actual assertions for the test.
 
@@ -459,7 +474,7 @@ beforeEach(async function() {
 
 
 ```
-
+--
 
 Our test method starts with `it` and a helpful name (e.g., `'with valid credentials`’). In this test we're visiting the login page by its URL (with `driver.get()`), finding the input fields by their ID (with `driver.findElement({id: 'username'});`), inputting text into them (with `sendKeys`), and submitting the form by clicking the submit button (e.g., `driver.findElement({css: 'button'}).click()`).
 
@@ -482,11 +497,11 @@ it('with valid credentials', async function() {
 
 
 
-## Test Your Code with Mocha
+### Test Your Code with Mocha
 
 If we save this and run it (by running `npm test` from the command-line), it will run and pass. But there's one thing missing — an assertion. In order to find an element to write an assertion against we need to see what the markup of the page is after submitting the login form.
 
-See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/code-examples/javascript/Mod2/2.05). Note that you have to run npm install in the root project folder before being able to use code pulled from a repository
+See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod2/2.06). Note that you have to run npm install in the root project folder before being able to use code pulled from a repository
 
 <!-- ------------------------ -->
 
@@ -495,11 +510,11 @@ See the complete [source code here](https://github.com/walkerlj0/Selenium_Course
 Assertions are statements that are used at a certain point in the test code (usually following a certain sequence of events) that check to see if some condition is true or false. The test code you created thus far simply tells your test what elements to look for on the page, and what to do with those elements.
 
 
-## Add an Assertion
+### Add an Assertion
 
 Now it’s time to add in an assertion to see if your actions had the desired effect. We want to check that the div that pops up when you have successfully logged in with the `class = "flash_success"` does in fact appear after you enter the login credentials.
 
-![alt_text](images/image16.png "image_tooltip")
+![login success message](assets/2.07A.png)
 
 
 At the top under where the `const path `is defined, add in the variable `const assert = require('assert').`
@@ -518,7 +533,7 @@ Inside the describe function, within the it command, add the following underneat
 The code should look like this:
 
 
-![alt_text](images/image17.png "image_tooltip")
+![Assertion](assets/2.07B.png)
 
 
 This code will detect if a success message is displayed when the username and password are entered, then the login button is clicked.
@@ -527,31 +542,31 @@ Open your terminal and navigate to your project folder. Save the code and run it
 
 You should see the Firefox browser open briefly, enter the username, password, and login, then get the following output in your terminal.
 
-![alt_text](images/image18.png "image_tooltip")
+![First Passed Test](assets/2.07C.png)
 
 
 
-## Double Check
+### Double Check
 
 If your test passed, we want to double check and make sure it is in fact checking what it is supposed to be checking (the `flash.success` class), and see if we get a failed test if we do locate the `flash.success` class on the page.
 
 Find the assertion below and add in the` ! `character before the `driver.findelement() `method.
 
-![alt_text](images/image19.png "image_tooltip")
+![exclamation point](assets/2.07D.png)
 
 
 Run npm test for your project folder with the terminal.
 
 This time you should get an error from your terminal, as well as the message when for the ‘falsy’ condition.
 
-![alt_text](images/image20.png "image_tooltip")
+![failed test](assets/2.07E.png)
 
 
 If it fails, then we can feel reasonably confident that the test is doing what we expect and we can change the assertion back to normal before committing our code.
 
 This trick will save you more trouble that you know. Practice it often.
 
-See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/code-examples/javascript/Mod2/2.06). Note that you have to run npm install in the root project folder before being able to use code pulled from a repository.
+See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod2/2.07). Note that you have to run npm install in the root project folder before being able to use code pulled from a repository.
 
 <!-- ------------------------ -->
 
@@ -569,7 +584,7 @@ In this exercise we can create a similar test using another page from the _the-i
 
 Next, we will create a new test file, named LocatorTest.js place it in the same ‘test’ folder as the other test we created:
 
-![alt_text](images/image21.png "image_tooltip")
+![Locator Test Dir](assets/2.08A.png)
 
 
 Next, enter the following starter code into LocatorTest.js:
@@ -617,16 +632,16 @@ Use the inspector to locate and test finding elements. In this test we are going
 
 ##### Video
 
-[2.07 Locator Test](https://drive.google.com/file/d/12p_3_UZkZHNdPHhiVBB4AdX73WFW1mfQ/view?usp=sharing)
+[2.08 Locator Test](https://drive.google.com/file/d/12p_3_UZkZHNdPHhiVBB4AdX73WFW1mfQ/view?usp=sharing)
 
 
 ##### Cheat Sheet
 
-[2.07 Selenium Locators Cheat Sheet](https://docs.google.com/document/d/14zLvAljiJd8vFsM42-e-GJH_2UjSFU_3oIm6_0AK4LY/edit?usp=sharing)
+[2.08 Selenium Locators Cheat Sheet](https://docs.google.com/document/d/14zLvAljiJd8vFsM42-e-GJH_2UjSFU_3oIm6_0AK4LY/edit?usp=sharing)
 
 Our test should test clicking first the green button, then the blue button, the see check to make sure both have been clicked (Check CSS/ id) Using the code above, complete and run the test.  This is not your typical test, as there is no assertion but we do return a value.
 
-![alt_text](images/image22.png "image_tooltip")
+![Add Element Locators](assets/2.08B.png)
 
 
 Use the documentation here on using the[ By Selenium class ](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_By.html)to figure out how to complete the code. You can also use the **[Cheat Sheet](https://docs.google.com/document/d/14zLvAljiJd8vFsM42-e-GJH_2UjSFU_3oIm6_0AK4LY/edit?usp=sharing)** to help.
@@ -634,7 +649,7 @@ Use the documentation here on using the[ By Selenium class ](https://www.seleniu
 If you were successful, you should see both the locator and login tests (both are in the test folder) run, and below your locator, you should see the text that appeared on the red button when it was run:
 
 
-![alt_text](images/image23.png "image_tooltip")
+![Locate Test success](assets/2.08C.png)
 
 
 See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/code-examples/javascript/Mod2/2.07). Note that you have to run npm install in the root project folder before being able to use code pulled from a repository.
@@ -645,26 +660,38 @@ See the complete [source code here](https://github.com/walkerlj0/Selenium_Course
 
 
 1. When you run npm install on your machine, what is being installed?
-    1. A library of dependencies, a configuration file (package.json) which directs npm which dependencies to install, and a file that locks the dependencies installed into the versions that were installed originally (package-lock.json)
-    2. A library of dependencies based on what you specified in the configuration file (package.json).
-    3. A library of dependencies and a lock file to ensure the same version of the dependencies are installed when you share your code with others (package-lock.json).
-    4. Node package manager is being installed.
+
+    A. A library of dependencies, a configuration file (package.json) which directs npm which dependencies to install, and a file that locks the dependencies installed into the versions that were installed originally (package-lock.json)
+
+    B. A library of dependencies based on what you specified in the configuration file (package.json).
+
+    C. A library of dependencies and a lock file to ensure the same version of the dependencies are installed when you share your code with others (package-lock.json).
+
+    D. Node package manager is being installed.
+
 2. For the red button at [https://the-internet.herokuapp.com/challenging_dom](https://the-internet.herokuapp.com/challenging_dom), which of the following is the best way to use JavaScript to locate the red button and why?
 
-![alt_text](images/image24.png "image_tooltip")
+![Red Button Q](assets/2.09A.png)
 
-    5. We should use  <code>By.[xpath](https://www.codota.com/code/javascript/functions/selenium-webdriver/By/xpath)() </code>because we know the location of the buttons would always be located under the div, even as the application has updates made to it.
-    6. We should use  <code>By.id() </code>because we know it doesn’t change when you interact with the interface.
-    7. We should use  <code>By.className() </code>because we know it doesn’t change when you interact with the interface.
-    8. We should use  <code>By.className() </code>because it’s the shortest identifier and easy to use.
+  A. We should use  <code>By.[xpath](https://www.codota.com/code/javascript/functions/selenium-webdriver/By/xpath)() </code>because we know the location of the buttons would always be located under the div, even as the application has updates made to it.
+
+  B. We should use  <code>By.id() </code>because we know it doesn’t change when you interact with the interface.
+
+  C. We should use  <code>By.className() </code>because we know it doesn’t change when you interact with the interface.
+
+  D. We should use  <code>By.className() </code>because it’s the shortest identifier and easy to use.
+
 3. What did adding an exclamation point in the code here do, and why was this done?
 
-![alt_text](images/image25.png "image_tooltip")
+![Exclamation Q](assets/2.09B.png)
 
-    9.  It made the test fail because the code deleted flash.success from the page, and we did it to check if the test would work without it.
-    10. It caused a failing test because the code now looked for the opposite condition (flash.success not being a class on the page) to be true, and we did it to ensure we could delete that class and still have a passing test.
-    11. It caused a failing test because the code now looked for the opposite condition (flash.success not being a class on the page) to be true, and we did it to ensure the assertion was working the way we intended, looking for that class.
-    12. It made the test fail because the code deleted flash.success from the page, and we did it to ensure the assertion was working the way we intended, looking for that class.
+A.  It made the test fail because the code deleted flash.success from the page, and we did it to check if the test would work without it.
+
+B. It caused a failing test because the code now looked for the opposite condition (flash.success not being a class on the page) to be true, and we did it to ensure we could delete that class and still have a passing test.
+
+C. It caused a failing test because the code now looked for the opposite condition (flash.success not being a class on the page) to be true, and we did it to ensure the assertion was working the way we intended, looking for that class.
+
+D. It made the test fail because the code deleted flash.success from the page, and we did it to ensure the assertion was working the way we intended, looking for that class.
 
 
 
@@ -672,12 +699,15 @@ See the complete [source code here](https://github.com/walkerlj0/Selenium_Course
 
 4. Why were we able to comment out this piece of the code in the vendorDirectory?
 
-![alt_text](images/image26.png "image_tooltip")
+![Vendor Dir Q](assets/2.09C.png)
 
 
-    13. We didn’t use a firefox driver and don’t need to map that dependency.
-    14. We didn’t use the vendor directory and npm took care of mapping the dependency path.
-    15. We didn’t use npm and don’t need to map a path to the dependencies.
-    16. We aren’t running tests on the Selenium grid yet and don’t need to map a path to dependencies.
+A. We didn’t use a firefox driver and don’t need to map that dependency.
+
+B.  We didn’t use the vendor directory and npm took care of mapping the dependency path.
+
+C. We didn’t use npm and don’t need to map a path to the dependencies.
+
+D. We aren’t running tests on the Selenium grid yet and don’t need to map a path to dependencies.
 
 <!-- ------------------------ -->
