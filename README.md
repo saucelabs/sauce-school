@@ -9,11 +9,11 @@ The course are located in tools/site/CourseName (e.g. tools/site/SeleniumJS). Ea
 
 ## Initial setup
 ### 1. Get the Tools
- Install Go and nodeJS on your computer, as per [instructions here](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
+ Install [Golang](https://golang.org/dl/) and [nodeJS v.10 and NPM](https://nodejs.org/en/download/) on your computer. [More instructions here](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
 
 ### 2. Get Claat
 Download the [claat binary](https://github.com/googlecodelabs/tools/tree/master/claat#install). When you installed GO on your computer, you should have a folder called go/bin and inside that file will be claat.
- [_more detailed instructions can be found here_])(https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
+ [_more detailed instructions can be found here_](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
 
 ### 3. Update PATH
  In your `~/.bash_profile` (or `~/.zshenv` if you're using Catalina MacOSX) set the `go` `$PATH` environment variable:
@@ -42,8 +42,14 @@ npm install && npm install -g gulp-cli
 
 ### 5. Exporting .md to an HTML page using Claat.
 <!-- -->
- **!IMPORTANT at the top of the .md file , you need to have project information with the id- this is what your file generated for the codelab will be named. Set it to the same name as your project directory (see below) of your codelab** (see below). Each codelab means a new landing page- each codelab is a course, with several modules in it. Each markdown file is a 'module' with several lessons in it. The 'feedback link' will later be [set to a G-Form](https://docs.google.com/forms/d/1QKpJDvv64-YXrCPr_unHL-fBAezRnGzqjruLMKC4ssQ/edit?usp=sharing) for people to fill out about bugs/ issues/ questions.
- Some examples name of 'codelab' directories include 'site/SeleniumJS' and site/Selenium Java'. Enter the directory for the course, where the codelab is stored. Now run the command `claat export <filename.md>` e.g `claat export Module1_SeleniumJS.md` to export it to a new directory with a .json file and index.html.
+ Place a markdown file in a folder that is a child of _tools/ site_. Enter that folder and run the command `claat export <filename.md>` (e.g `claat export Module1_SeleniumJS.md`) to export it to a new directory with a .json file and index.html.
+
+
+  **!IMPORTANT at the top of the .md file , you need to have project information with the id- this is what your file generated for the codelab will be named. Set it to the same name as your project directory (see below) of your codelab** (see below).
+
+  Each codelab means a new landing page- each codelab is a course, with several modules in it. Each markdown file is a 'module' with several lessons in it. The 'feedback link' will later be [set to a G-Form](https://docs.google.com/forms/d/1QKpJDvv64-YXrCPr_unHL-fBAezRnGzqjruLMKC4ssQ/edit?usp=sharing) for people to fill out about bugs/ issues/ questions.
+
+ Some examples name of 'codelab' directories include 'tools/site/SeleniumJS' and tools/site/SeleniumJava'. Enter the directory for the course, where the codelab is stored.
 
  *convention, make the .md file use underscores_in_the_name.md and the folder containing that index.html (generated from id in .md file) codelabs files have dashes-in-the-name*
 

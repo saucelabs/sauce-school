@@ -12,6 +12,7 @@ Feedback Link: https://forms.gle/CGu4QchgBxxWnNJK8
 <!-- ------------------------ -->
 
 ## 1.01 What You’ll Learn
+Duration: 0:03:00
 
 This module will focus on topics from _The Selenium Guidebook_ _JavaScript Edition_ By Dave Haeffner, chapters 1-4, with instructions on how to set up an environment on your local machine with libraries, dependencies, browsers, and IDEs. This module touches on an introduction and the Selenium WebDriver, explaining and installing dependencies, and setting up and getting started with a JS test on your local machine. This module also has a brief overview of JavaScript and the different code elements in an examples test class.
 
@@ -32,6 +33,7 @@ This module will focus on topics from _The Selenium Guidebook_ _JavaScript Editi
 
 <!-- ------------------------ -->
 ## 1.02 What is Selenium?
+Duration: 0:05:00
 
 Selenium is an open source tool used for automating testing of web applications. Without  automated testing, each time a web application was updated, a human would have to go on to the website and try out every possible combination of clicks, interactions, and submissions. If you are able to automate your testing, when an update is made, you simply run your test with the ‘robot’ that is Selenium, which performs programmed sets of interactions for you to test new features and functionality before an updated version of a web app is released into the wild.
 
@@ -55,7 +57,7 @@ There are seven basic elements of a Selenium test script, which apply to any tes
 
 The Selenium Grid allows you to run parallel tests on multiple combinations of machines (e.g., Mac, Windows, or Unix-based systems) using multiple web browsers (versions of Chrome, Edge, Firefox, Safari). These different machines can exist virtually on a server in a cloud environment, or as a network of real devices. JSON is used to communicate test requirements and route it to different nodes which have different environments to test on.
 
-![comp](assets/1.02B.png "comp" | width=250)
+![comp](assets/1.02B.png)
 
 
 The Sauce Labs platform enables you to use a Selenium Grid at scale to run thousands of tests at once, on our suite of different test environments in the cloud. Sauce also has a robust dashboard for easy viewing of test outcomes and increased velocity of debugging tests. This dashboard includes tracking of errors and even a visual record of what occurred in different environments.
@@ -75,6 +77,7 @@ It's less ideal for checking lower-level functionality like HTTP status codes or
 
 <!-- ------------------------ -->
 ## 1.03 What is the W3C WebDriver?
+Duration: 0:05:00
 
 The WebDriver protocol consists of rules for communication between the client on the local end, which use languages and libraries like Java, Ruby, JavaScript, etc. and a web browser. The local end (your computer) communicates with the remote end node on the server side. The web driver defines how the remote end can behave, and the method for how the remote end receives information. As an example, the Selenium WebDriver provides instructions to the browser on how to click or type into elements on a page. This is then communicated to specific browser drivers, such as Chromedriver (for the Chrome browser) or Geckodriver (for the Firefox browser) and the commands are carried out.
 
@@ -114,6 +117,7 @@ Mocha is a JavaScript library/ package that allows you to communicate with Selen
 
 <!-- ------------------------ -->
 ## 1.04 Test Frameworks and Dependencies
+Duration: 0:03:00
 
 A test framework includes code libraries as well as rules and conventions for setting up tests. When it comes to testing frameworks, there are three basic pieces that go into creating a framework
 
@@ -138,6 +142,7 @@ As you learn more about the different tools you use when you write code, they wi
 
 <!-- ------------------------ -->
 ## 1.05  Installing Dependencies
+Duration: 0:10:00
 
 We need five dependencies in order for our test to run as planned, which we will install later on, and for now we will get set up to do that. In this module, we’re going to install and set up the NodeJS server, create a project folder and install npm so that later on we can install all the dependencies. The dependencies include WebDrivers that communicate with different browsers, as well as Mocha, a Javascript framework/ library that allows you to write actual tests.
 
@@ -198,6 +203,7 @@ If you would like to configure each driver without npm, use the **[Cheat Sheet](
 <!-- ------------------------ -->
 
 ## 1.06 Editing Code & JavaScript Summary
+Duration: 0:10:00
 
 Let’s take a look at the first test we will set up in the next module:
 
@@ -241,6 +247,8 @@ In many languages, without the await command, the code will try and run through 
 <!-- ------------------------ -->
 
 ## 1.07 Module 1 Quiz
+Duration: 0:07:00
+
 ![https://docs.google.com/forms/d/e/1FAIpQLScxdog5n8yTVeEd-FIbk4aMslA87ZCWB5rogfpwSMlavb_alg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScxdog5n8yTVeEd-FIbk4aMslA87ZCWB5rogfpwSMlavb_alg/viewform?usp=sf_link)
 
 

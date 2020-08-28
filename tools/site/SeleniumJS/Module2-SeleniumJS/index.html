@@ -27,7 +27,7 @@
                   environment="web"
                   feedback-link="https://forms.gle/CGu4QchgBxxWnNJK8">
     
-      <google-codelab-step label="2.01 What You&#39;ll Learn" duration="0">
+      <google-codelab-step label="2.01 What You&#39;ll Learn" duration="5">
         <p>This module is derived from content in chapters 6-7 of <em>The Selenium GuidebookJavaScript Edition</em> By Dave Haeffner. This module will touch lightly on how to write a basic test, and teach users about how to set up a project, as well as learn about how Selenium locates and interacts with elements on a &#34;page&#34;, which can be any view or even object within a webpage.</p>
 <h2 is-upgraded>Objectives</h2>
 <ul>
@@ -54,7 +54,7 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="2.02 Writing Good Acceptance Tests" duration="0">
+      <google-codelab-step label="2.02 Writing Good Acceptance Tests" duration="10">
         <p>In order to write automated web tests that are easy to maintain, perform well, and are ultimately resilient, there are some simple guidelines to follow:</p>
 <ul>
 <li>Write atomic and autonomous tests</li>
@@ -84,7 +84,7 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="2.03 Defining a Test Strategy and Picking a Framework." duration="0">
+      <google-codelab-step label="2.03 Defining a Test Strategy and Picking a Framework." duration="5">
         <p>A great way to increase your chances of success with automated web testing is to first map out a testing strategy. The best way to do it is to answer these four questions:</p>
 <ul>
 <li><em>How does your business make money?</em></li>
@@ -114,7 +114,7 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="2.04 Finding &amp; Testing Locators in the Browser" duration="0">
+      <google-codelab-step label="2.04 Finding &amp; Testing Locators in the Browser" duration="15">
         <h2 is-upgraded>How to Find Locators</h2>
 <p>The simplest way to find locators is to inspect the elements on a page. The best way to do this is from within your web browser. Fortunately, popular browsers come pre-loaded with development tools that make this simple to accomplish.</p>
 <p>When viewing the page, right-click on the element you want to interact with and click <strong>Inspect Element</strong>. This will bring up a small window with all of the markup for the page but zoomed into your highlighted selection. From here, you can see if there are unique or descriptive attributes you can work with.</p>
@@ -144,33 +144,12 @@
 <li>XPath</li>
 </ul>
 <h2 is-upgraded>Quiz</h2>
-<ol type="1">
-<li>Fill in the blanks with the best set of two words: The software development methodology named _________   focuses on creating tests based around the specific functions of an application to create failing then passing tests,  whereas  _________   focuses on the abstract features and epics of an application to first create a testing plan.</li>
-</ol>
-<p>A.  Selenium, Mocha</p>
-<p>B. BDD, TDD</p>
-<p>C. TDD, BDD</p>
-<p>D.  Mocha, Selenium</p>
-<ol type="1">
-<li>Which of the following questions about your test strategy is the most important and involves tracking real user interactions through your app?</li>
-</ol>
-<p>A. What is the Value?</p>
-<p>B. What Does Usage Data Say?</p>
-<p>C.  Which Browsers?</p>
-<p>D.  What are the Risky Bits?</p>
-<ol type="1">
-<li>Which of the following commands, typed into the console of the inspector, would return this element?</li>
-</ol>
-<p class="image-container"><img alt="image_caption" src="img/ae12f003b303d09f.png"></p>
-<p>A.  <code>$x(&#34;//*[@id=&#34;content&#34;]/div[1]/&#34;)</code></p>
-<p>B.  <code>$x(&#34;//*[@id=\&#34;content\&#34;]/div[1]/div[1]&#34;)</code></p>
-<p>C.  <code>$x(&#34;//*[@id=\&#34;large-2 columns\&#34;]/div[1]/div[1]&#34;)</code></p>
-<p>D. <code>$x(//*[@id=&#34;large-2 columns&#34;]/div[1]/div[1])</code></p>
+<iframe class="embedded-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLScnb_ZgqNPc2h4VZIVut_7KybE4drVzvb-SIkqk3Lip4JVFTw/viewform?embedded=true"></iframe>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="2.05 Setting Up Your First Test" duration="0">
+      <google-codelab-step label="2.05 Setting Up Your First Test" duration="10">
         <p>Here&#39;s the markup for a standard login form (pulled from the login example app on <a href="http://the-internet.herokuapp.com/login" target="_blank">the-internet</a>.</p>
 <p class="image-container"><img alt="Login Page" src="img/4c5360db0f2f09c4.png"></p>
 <pre><code>&lt;form name=&#34;login&#34; id=&#34;login&#34; action=&#34;/authenticate&#34; method=&#34;post&#34;&gt;
@@ -239,7 +218,7 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="2.06 Writing &amp; Configuring Your First Test" duration="0">
+      <google-codelab-step label="2.06 Writing &amp; Configuring Your First Test" duration="10">
         <p>Start by opening the blank <code>LoginTest.js</code> file you created in the <code>test</code> directory.</p>
 <p>Copy and paste the following code into your program file</p>
 <pre><code>// filename: test/LoginTest.js
@@ -330,7 +309,7 @@ it(&#39;with valid credentials&#39;, async function() {
 
       </google-codelab-step>
     
-      <google-codelab-step label="2.07 Adding an Assertion" duration="0">
+      <google-codelab-step label="2.07 Adding an Assertion" duration="8">
         <p>Assertions are statements that are used at a certain point in the test code (usually following a certain sequence of events) that check to see if some condition is true or false. The test code you created thus far simply tells your test what elements to look for on the page, and what to do with those elements.</p>
 <h2 is-upgraded>Add an Assertion</h2>
 <p>Now it&#39;s time to add in an assertion to see if your actions had the desired effect. We want to check that the div that pops up when you have successfully logged in with the <code>class = &#34;flash_success&#34;</code> does in fact appear after you enter the login credentials.</p>
@@ -362,7 +341,7 @@ it(&#39;with valid credentials&#39;, async function() {
 
       </google-codelab-step>
     
-      <google-codelab-step label="2.08 Verifying Locators with Selenium" duration="0">
+      <google-codelab-step label="2.08 Verifying Locators with Selenium" duration="15">
         <p>Selenium uses locators to find elements on the page and interact with them.</p>
 <p>Instead of the painful and tedious process of trying out various locators in your tests until you get what you&#39;re looking for, try verifying them in the browser instead.</p>
 <p>Once you have identified a class, id, name, link text, Xpath, etc. for an element, you can use the Selenium findElement() method along with the driver object in your JavaScript test code.</p>
@@ -419,32 +398,8 @@ describe(&#39;Locate&#39;, function() {
 
       </google-codelab-step>
     
-      <google-codelab-step label="2.09 Module 2 Quiz" duration="0">
-        <ol type="1">
-<li>When you run npm install on your machine, what is being installed?A. A library of dependencies, a configuration file (package.json) which directs npm which dependencies to install, and a file that locks the dependencies installed into the versions that were installed originally (package-lock.json)B. A library of dependencies based on what you specified in the configuration file (package.json).C. A library of dependencies and a lock file to ensure the same version of the dependencies are installed when you share your code with others (package-lock.json).D. Node package manager is being installed.</li>
-<li>For the red button at <a href="https://the-internet.herokuapp.com/challenging_dom" target="_blank">https://the-internet.herokuapp.com/challenging_dom</a>, which of the following is the best way to use JavaScript to locate the red button and why?</li>
-</ol>
-<p class="image-container"><img alt="Red Button Q" src="img/ad92ab617acefea7.png"></p>
-<p>A. We should use  <a href="https://www.codota.com/code/javascript/functions/selenium-webdriver/By/xpath" target="_blank">xpath</a>because we know the location of the buttons would always be located under the div, even as the application has updates made to it.</p>
-<p>B. We should use  <code>By.id()</code> because we know it doesn&#39;t change when you interact with the interface.</p>
-<p>C. We should use  <code>By.className()</code> because we know it doesn&#39;t change when you interact with the interface.</p>
-<p>D. We should use  <code>By.className()</code> because it&#39;s the shortest identifier and easy to use.</p>
-<ol type="1">
-<li>What did adding an exclamation point in the code here do, and why was this done?</li>
-</ol>
-<p class="image-container"><img alt="Exclamation Q" src="img/d34d8dfddb562cb0.png"></p>
-<p>A.  It made the test fail because the code deleted flash.success from the page, and we did it to check if the test would work without it.</p>
-<p>B. It caused a failing test because the code now looked for the opposite condition (flash.success not being a class on the page) to be true, and we did it to ensure we could delete that class and still have a passing test.</p>
-<p>C. It caused a failing test because the code now looked for the opposite condition (flash.success not being a class on the page) to be true, and we did it to ensure the assertion was working the way we intended, looking for that class.</p>
-<p>D. It made the test fail because the code deleted flash.success from the page, and we did it to ensure the assertion was working the way we intended, looking for that class.</p>
-<ol type="1">
-<li>Why were we able to comment out this piece of the code in the vendorDirectory?</li>
-</ol>
-<p class="image-container"><img alt="Vendor Dir Q" src="img/72e4a6640601d83e.png"></p>
-<p>A. We didn&#39;t use a firefox driver and don&#39;t need to map that dependency.</p>
-<p>B.  We didn&#39;t use the vendor directory and npm took care of mapping the dependency path.</p>
-<p>C. We didn&#39;t use npm and don&#39;t need to map a path to the dependencies.</p>
-<p>D. We aren&#39;t running tests on the Selenium grid yet and don&#39;t need to map a path to dependencies.</p>
+      <google-codelab-step label="2.09 Module 2 Quiz" duration="5">
+        <iframe class="embedded-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfkkZl3HOaKMW6a5UUKRap00dpjWYaTAHczdQplYOZZeH1HUg/viewform?embedded=true"></iframe>
 
 
       </google-codelab-step>

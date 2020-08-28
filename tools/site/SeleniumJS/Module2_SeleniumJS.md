@@ -15,6 +15,7 @@ analytics account: Google Analytics ID
 <!-- ------------------------ -->
 
 ## 2.01 What You’ll Learn
+Duration: 0:05:00
 
 This module is derived from content in chapters 6-7 of _The Selenium Guidebook_ _JavaScript Edition_ By Dave Haeffner. This module will touch lightly on how to write a basic test, and teach users about how to set up a project, as well as learn about how Selenium locates and interacts with elements on a “page”, which can be any view or even object within a webpage.
 
@@ -58,6 +59,7 @@ If you are familiar with using GitHub to write your code, you can also fork/ bra
 
 <!-- ------------------------ -->
 ## 2.02 Writing Good Acceptance Tests
+Duration: 0:10:00
 
 In order to write automated web tests that are easy to maintain, perform well, and are ultimately resilient, there are some simple guidelines to follow:
 
@@ -113,6 +115,7 @@ Behavior Driven Development and Test Driven Development are two important strate
 <!-- ------------------------ -->
 
 ## 2.03 Defining a Test Strategy and Picking a Framework.
+Duration: 0:05:00
 
 A great way to increase your chances of success with automated web testing is to first map out a testing strategy. The best way to do it is to answer these four questions:
 
@@ -168,6 +171,7 @@ Having answered these questions, you should now have a prioritized backlog of cr
 <!-- ------------------------ -->
 
 ## 2.04 Finding & Testing Locators in the Browser
+Duration: 0:15:00
 
 
 ### How to Find Locators
@@ -223,8 +227,9 @@ Selenium is able to find and interact with elements on a page by way of various 
 
 ### Quiz
 
+![https://docs.google.com/forms/d/e/1FAIpQLScnb_ZgqNPc2h4VZIVut_7KybE4drVzvb-SIkqk3Lip4JVFTw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScnb_ZgqNPc2h4VZIVut_7KybE4drVzvb-SIkqk3Lip4JVFTw/viewform?usp=sf_link)
 
-1. Fill in the blanks with the best set of two words: The software development methodology named _________   focuses on creating tests based around the specific functions of an application to create failing then passing tests,  whereas  _________   focuses on the abstract features and epics of an application to first create a testing plan.
+<!--
 
 A.  Selenium, Mocha
 
@@ -256,9 +261,12 @@ C.  `$x(“//*[@id=\"large-2 columns\"]/div[1]/div[1]”)`
 
 D. `$x(//*[@id="large-2 columns"]/div[1]/div[1])`
 
+-->
+
 <!-- ------------------------ -->
 
 ## 2.05 Setting Up Your First Test
+Duration: 0:10:00
 
 Here's the markup for a standard login form (pulled from the login example app on [the-internet](http://the-internet.herokuapp.com/login).
 
@@ -378,6 +386,7 @@ Now you are ready for the next lessons here you will write your first test!
 <!-- ------------------------ -->
 
 ## 2.06 Writing & Configuring Your First Test
+Duration: 0:10:00
 
 Start by opening the blank `LoginTest.js` file you created in the `test` directory.
 
@@ -506,6 +515,7 @@ See the complete [source code here](https://github.com/walkerlj0/Selenium_Course
 <!-- ------------------------ -->
 
 ## 2.07 Adding an Assertion
+Duration: 0:08:00
 
 Assertions are statements that are used at a certain point in the test code (usually following a certain sequence of events) that check to see if some condition is true or false. The test code you created thus far simply tells your test what elements to look for on the page, and what to do with those elements.
 
@@ -571,6 +581,7 @@ See the complete [source code here](https://github.com/walkerlj0/Selenium_Course
 <!-- ------------------------ -->
 
 ## 2.08 Verifying Locators with Selenium
+Duration: 0:15:00
 
 Selenium uses locators to find elements on the page and interact with them.  
 
@@ -657,7 +668,11 @@ See the complete [source code here](https://github.com/walkerlj0/Selenium_Course
 <!-- ------------------------ -->
 
 ## 2.09 Module 2 Quiz
+Duration: 0:05:00
 
+![https://docs.google.com/forms/d/e/1FAIpQLSfkkZl3HOaKMW6a5UUKRap00dpjWYaTAHczdQplYOZZeH1HUg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSfkkZl3HOaKMW6a5UUKRap00dpjWYaTAHczdQplYOZZeH1HUg/viewform?usp=sf_link)
+
+<!--
 
 1. When you run npm install on your machine, what is being installed?
 
@@ -709,5 +724,7 @@ B.  We didn’t use the vendor directory and npm took care of mapping the depend
 C. We didn’t use npm and don’t need to map a path to the dependencies.
 
 D. We aren’t running tests on the Selenium grid yet and don’t need to map a path to dependencies.
+
+-->
 
 <!-- ------------------------ -->
