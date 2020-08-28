@@ -1,0 +1,10 @@
+{
+  "title": "Selenium Java",
+  "description": "Same course new flavor",
+  "logoUrl": "/SeleniumJava/logo.png",
+  "tags": ["Java"],
+  "exclude": [
+    ".*-about$",
+    "^lang-.*"
+  ]
+}

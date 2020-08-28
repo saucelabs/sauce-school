@@ -4,9 +4,10 @@
 author:Lindsay
 summary: Module X of the course X. Learn to write Selenium tests in X programming language with X Test runner and X framework
 id: ModiuleX_SeleniumLang
-categories: Beginner/ Intermediate/ Expert, Selenium, JavaScript/Java/Python/Ruby/C#, Test Runner, Framework
+tags: <enter view names here from tools/site/app>  
+categories: <enter category for drop-down filter>
 environments: Web
-status: Published
+status: Published/ Work in Progress
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: Google Analytics ID
 

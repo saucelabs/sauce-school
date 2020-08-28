@@ -1,9 +1,9 @@
 
 summary: Module 1 Introduction to Selenium with JavaScript
 id: Module1-SeleniumJS
-categories: First draft
-tags: Beginner
-status: work in progress
+categories: Beginner
+tags: JavaScript
+status: Published
 authors: Lindsay Walker
 Feedback Link: https://forms.gle/CGu4QchgBxxWnNJK8
 

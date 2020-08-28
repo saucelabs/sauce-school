@@ -2,7 +2,8 @@
 author:Lindsay
 summary: Module 2 of the Selenium JavaScript course X. Learn to write Selenium tests in X programming language with X Test runner and X framework
 id: Module2-SeleniumJS
-categories: Beginner, Intermediate, Mocha, Selenium
+categories: Intermediate
+tags: Java
 environments: Web
 status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8

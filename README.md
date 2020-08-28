@@ -25,7 +25,7 @@ export PATH=$PATH:$HOME/go/bin
 > For Windows users you will have to set this variable in the [Advanced System Settings](https://docs.oracle.com/en/database/oracle/r-enterprise/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html#GUID-DD6F9982-60D5-48F6-8270-A27EC53807D0)
 
 ### 4. Project Setup
- The project setup is labeled sauce_school_codelab. Within it you should see the folders tools/site. Inside of /site, you have a separate 'codelabs' directory for each course (this is because each course will have it's own 'codelabs' landing page with several modules.) _?subject to change per design decision_
+ The project setup is labeled sauce_school_codelab. Within it you should see the folders tools/site. Inside of /site, you have a separate 'codelabs' directory for each course (this is because each course will have it's own 'codelabs' landing page with several modules.)
 Once you have the project cloned, go into the site folder and install all the dependencies:
 
 #### Navigate to the `site` folder:
@@ -40,7 +40,7 @@ cd /tools/site
 npm install && npm install -g gulp-cli
 ```
 
-### 5. Exporting .md to an HTML page using Claat.
+### 5. Using .md files and using [Claat](https://github.com/googlecodelabs/tools) to render an HTML page using.
 <!-- -->
  Place a markdown file in a folder that is a child of _tools/ site_. Enter that folder and run the command `claat export <filename.md>` (e.g `claat export Module1_SeleniumJS.md`) to export it to a new directory with a .json file and index.html.
 

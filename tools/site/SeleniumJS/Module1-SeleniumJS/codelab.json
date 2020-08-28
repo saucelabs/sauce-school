@@ -3,7 +3,7 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2020-08-27T10:30:34-05:00",
+  "updated": "2020-08-28T12:23:20-05:00",
   "id": "Module1-SeleniumJS",
   "duration": 43,
   "title": "Module 1 — Introduction to Selenium with JavaScript",
@@ -12,13 +12,13 @@
   "source": "Module1_SeleniumJS.md",
   "theme": "",
   "status": [
-    "work in progress"
+    "published"
   ],
   "category": [
-    "first draft"
+    "beginner"
   ],
   "tags": [
-    "beginner"
+    "javascript"
   ],
   "feedback": "https://forms.gle/CGu4QchgBxxWnNJK8",
   "url": "Module1-SeleniumJS"
