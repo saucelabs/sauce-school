@@ -65,10 +65,11 @@ Adding an image!
 
 ### Add Code Samples
 All code samples must begin and end with three tick marks:
+
 ```
 this.is.code.text.here () {
   any language can be(used)
 }
-````
+```
 
 ### Align Image and Text
