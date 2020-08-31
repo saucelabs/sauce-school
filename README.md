@@ -39,6 +39,7 @@ cd /tools/site
 ```
 npm install && npm install -g gulp-cli
 ```
+use `sudo npm install -g gulp-cli` if you aren't currently in superuser status.
 
 ### 5. Add .md files and use [Claat](https://github.com/googlecodelabs/tools) to render an HTML page/ JSON file.
 <!-- -->
