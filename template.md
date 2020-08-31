@@ -63,4 +63,12 @@ Adding an image!
 ### Embed an iframe
 ![https://docs.google.com/forms/d/e/1FAIpQLSfF6_0V7jEE9JYF4vWDUsHTuYYHnQbaEsMGtfeTcr8arxZgzg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSfF6_0V7jEE9JYF4vWDUsHTuYYHnQbaEsMGtfeTcr8arxZgzg/viewform?usp=sf_link)
 
+### Add Code Samples
+All code samples must begin and end with three tick marks:
+```
+this.is.code.text.here () {
+  any language can be(used)
+}
+````
+
 ### Align Image and Text

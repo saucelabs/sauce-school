@@ -83,6 +83,8 @@ When you create a new codelab markdown file from a GDoc, you can use the [Docs t
     Format for <iframes> `[embed URL](regular URl link)`
     - Get the embed URL and copy the content within src="" like the following: `<iframe src="` **https://docs.google.com/forms/d/e/1FAIpQLSfF6_0V7jEE9JYF4vWDUsHTuYYHnQbaEsMGtfeTcr8arxZgzg/viewform?embedded=true** `" width="640" height="1240" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>`
 
+    More on how to convert markdown files is [here](https://docs.google.com/document/d/1C7CunszYBCTAgzwYbDdtHS7yjwLEYQJuvKVC2ff4MZY/edit?usp=sharing)
+
 ### 10. Adding Dropdowns
 
 Copy and paste this link in the `<head>` of any HTML page:
