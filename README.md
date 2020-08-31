@@ -54,14 +54,18 @@ npm install && npm install -g gulp-cli
  *convention, make the .md file use underscores_in_the_name.md and the folder containing that index.html (generated from id in .md file) codelabs files have dashes-in-the-name*
 
 ```
-summary: Module 1 Introduction to Selenium with JavaScript
-id: Module1-SeleniumJS
-categories: First draft
-tags: Beginner/Intermediate/expert, CourseName, WebDriverType, TestRunnerType, FrameworkType
-status: work in progress
-authors: Lindsay Walker
-Feedback Link: https://docs.google.com/forms/d/1QKpJDvv64-YXrCPr_unHL-fBAezRnGzqjruLMKC4ssQ/edit?usp=sharing
+author:Lindsay
+summary: Module X of the course X. Learn to write Selenium tests in X programming language with X Test runner and X framework
+id: ModiuleX_SeleniumLang
+tags: <enter view names here from tools/site/app>  
+categories: <enter category for drop-down filter>
+environments: Web
+status: Published/ Work in Progress
+feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
+analytics account: Google Analytics ID
+
 ```
+#### More on [markdown here](https://docs.google.com/document/d/1C7CunszYBCTAgzwYbDdtHS7yjwLEYQJuvKVC2ff4MZY/edit?usp=sharing)
 
 ### 6. Serve it Locally
  To serve it up locally, (`cd ..` to the course directory first) run `gulp serve --codelabs-dir=<codelab directory name>` e.g. `gulp serve --codelabs-dir=SeleniumJS`
