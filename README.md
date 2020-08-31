@@ -40,7 +40,7 @@ cd /tools/site
 npm install && npm install -g gulp-cli
 ```
 
-### 5. Using .md files and using [Claat](https://github.com/googlecodelabs/tools) to render an HTML page using.
+### 5. Add .md files and use [Claat](https://github.com/googlecodelabs/tools) to render an HTML page/ JSON file.
 <!-- -->
  Place a markdown file in a folder that is a child of _tools/ site_. Enter that folder and run the command `claat export <filename.md>` (e.g `claat export Module1_SeleniumJS.md`) to export it to a new directory with a .json file and index.html.
 
