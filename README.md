@@ -43,7 +43,7 @@ use `sudo npm install -g gulp-cli` if you aren't currently in superuser status.
 
 ### 5. Add .md files and use [Claat](https://github.com/googlecodelabs/tools) to render an HTML page/ JSON file.
 <!-- -->
- Place a markdown file in a folder that is a child of _tools/ site_. Enter that folder and run the command `claat export <filename.md>` (e.g `claat export Module1_SeleniumJS.md`) to export it to a new directory with a .json file and index.html.
+ Place a markdown file in a folder called _tools/ site/codelabs_. Enter that folder and run the command `claat export <filename.md>` (e.g `claat export Module1_SeleniumJS.md`) to export it to a new directory with a .json file and index.html.
 
 
   **!IMPORTANT at the top of the .md file , you need to have project information with the id- this is what your file generated for the codelab will be named. Set it to the same name as your project directory (see below) of your codelab** (see below).
