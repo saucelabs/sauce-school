@@ -13,11 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+ @font-face {
+     font-family: 'Museo-Sans';
+     src: url('https://use.typekit.net/zmt8tam.css');
+ }
 
 @mixin md-font-base() {
-  font-family: 'Roboto', 'Noto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
+  font-family: 'Museo-Sans', sans-serif;
+  -webkit-font-smoothing: ant'ialiased;
+'}
 
 @mixin md-font-body1() {
   @include md-font-base();

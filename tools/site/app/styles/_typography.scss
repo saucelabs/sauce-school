@@ -15,6 +15,10 @@
  */
 
 @import "material";
+@font-face {
+    font-family: 'Museo-Sans';
+    src: url('https://use.typekit.net/zmt8tam.css');
+}
 
 body {
   @include md-font-subhead();
