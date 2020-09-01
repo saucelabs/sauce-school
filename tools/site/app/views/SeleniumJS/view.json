@@ -1,0 +1,10 @@
+{
+  "title": "Selenium JavaScript",
+  "description": "Selenium with JavaScript and Mocha",
+  "logoUrl": "/SeleniumJS/logo.png",
+  "tags": ["JavaScript"],
+  "exclude": [
+    ".*-about$",
+    "^lang-.*"
+  ]
+}

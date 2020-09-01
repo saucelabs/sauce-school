@@ -3,7 +3,7 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2020-08-28T12:23:30-05:00",
+  "updated": "2020-09-01T14:28:06-05:00",
   "id": "Module2-SeleniumJS",
   "duration": 83,
   "title": "Module 2 — Locators and JavaScript Tests",
@@ -17,7 +17,7 @@
     "intermediate"
   ],
   "tags": [
-    "java",
+    "javascript",
     "web"
   ],
   "feedback": "https://forms.gle/CGu4QchgBxxWnNJK8",

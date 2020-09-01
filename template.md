@@ -5,7 +5,7 @@ author:Lindsay
 summary: Module X of the course X. Learn to write Selenium tests in X programming language with X Test runner and X framework
 id: ModiuleX_SeleniumLang
 tags: <enter view names here from tools/site/app>  
-categories: <enter category for drop-down filter>
+categories: <enter a single category for drop-down filter>
 environments: Web
 status: Published/ Work in Progress
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8

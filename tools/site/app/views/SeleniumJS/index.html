@@ -116,11 +116,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <header id="banner" {% if view.id != 'default' -%}down{%- else %}down$="[[_toBoolean(selectedFilter)]]"{%- endif %}>
       <div class="site-width">
         {% if view.id == 'default' %}
-        <h2 class="banner-title">Sauce School – Training</h2>
+        <h2 class="banner-title">Elemental Selenium with JavaScript</h2>
         <div class="banner-description"
              data-filter-selected$="{% raw %}[[_toBoolean(selectedFilter)]]{% endraw %}">
           <p class="banner-info">
-            Sauce School Uses Google Codelabs to create courses designed for a beginning automation test engineer, as well as content for more experienced SDETs who are looking to improve the strategy and functionality of their test suites. Beginners should start with Modules 1 and 2, while more experienced developers can jump ahead and start with Module 3.
+            This course is derived from Dave Haeffner’s Elemental Selenium Guidebook for JavaScript which is a collection of self-paced educational material designed to help the end user learn how to automate front-end software tests using Selenium. The intended audience is a novice developer (getting started) to intermediate (looking to improve the reliability and resilience of their Selenium tests).
             <br>
           </p>
         {%- else -%}
@@ -149,7 +149,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         {% if view.id == 'default' %}
         <paper-dropdown-menu
-          label="Choose a Language"
+          label="Choose an event"
           class="dropdown-filter"
           no-label-float
           noink no-animations
