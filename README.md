@@ -5,7 +5,7 @@ This document will be for documenting sauce_school specific changes and specific
 <!-- -->
 
 ## Access 'Codelabs' or Course files
-The course are located in tools/site/CourseName (e.g. tools/site/SeleniumJS). Each course will contain a markdown file for each module (which contains several lessons) which is compiled into a directory containing an index.html redered from the corresponding markdown page.
+The course are located in tools/site/codelabs directory. Each course will contain a markdown file for each module by language (which contains several lessons) which is compiled into a directory containing an index.html rendered from the corresponding markdown page.
 
 ## Initial setup
 ### 1. Get the Tools
@@ -48,9 +48,7 @@ use `sudo npm install -g gulp-cli` if you aren't currently in superuser status.
 
   **!IMPORTANT at the top of the .md file , you need to have project information with the id- this is what your file generated for the codelab will be named. Set it to the same name as your project directory (see below) of your codelab** (see below).
 
-  Each codelab means a new landing page- each codelab is a course, with several modules in it. Each markdown file is a 'module' with several lessons in it. The 'feedback link' will later be [set to a G-Form](https://docs.google.com/forms/d/1QKpJDvv64-YXrCPr_unHL-fBAezRnGzqjruLMKC4ssQ/edit?usp=sharing) for people to fill out about bugs/ issues/ questions.
-
- Some examples name of 'codelab' directories include 'tools/site/SeleniumJS' and tools/site/SeleniumJava'. Enter the directory for the course, where the codelab is stored.
+  Teh codelab folder contains all courses, each with several modules in it. Each Course module is labeled by language and module number (e.g. Module 3 SeleniumJS) Each markdown file is a 'module' with several lessons in it. The 'feedback link' is [set to a G-Form](https://docs.google.com/forms/d/1QKpJDvv64-YXrCPr_unHL-fBAezRnGzqjruLMKC4ssQ/edit?usp=sharing) for people to fill out about bugs/ issues/ questions.
 
  *convention, make the .md file use underscores_in_the_name.md and the folder containing that index.html (generated from id in .md file) codelabs files have dashes-in-the-name*
 
