@@ -4,10 +4,10 @@
 author:Lindsay
 summary: Module X of the course X. Learn to write Selenium tests in X programming language with X Test runner and X framework
 id: ModiuleX_SeleniumLang
-tags: <enter view names here from tools/site/app>  
 categories: <enter a single category for drop-down filter>
+tags: <enter view names here from tools/site/app>  
 environments: Web
-status: Published/ Work in Progress
+status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: Google Analytics ID
 
@@ -54,14 +54,14 @@ Duration: 0:05:00
 
 ### Add a Link
 Adding a link!
-[Example of a Link](https://www.google.com)
+`[Example of a Link](https://www.google.com)`
 
-### Add an Image
-Adding an image!
-![image_caption](assets/1.01A.png)
+
+### Images
+`![alt-text-here](assets/puppy.jpg)`
 
 ### Embed an iframe
-![https://docs.google.com/forms/d/e/1FAIpQLSfF6_0V7jEE9JYF4vWDUsHTuYYHnQbaEsMGtfeTcr8arxZgzg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSfF6_0V7jEE9JYF4vWDUsHTuYYHnQbaEsMGtfeTcr8arxZgzg/viewform?usp=sf_link)
+`![https://docs.google.com/forms/d/e/1FAIpQLSfF6_0V7jEE9JYF4vWDUsHTuYYHnQbaEsMGtfeTcr8arxZgzg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSfF6_0V7jEE9JYF4vWDUsHTuYYHnQbaEsMGtfeTcr8arxZgzg/viewform?usp=sf_link)``
 
 ### Add Code Samples
 All code samples must begin and end with three tick marks:
@@ -72,4 +72,20 @@ this.is.code.text.here () {
 }
 ```
 
-### Align Image and Text
+### Size Images
+You can add in a sized image with the `<img/>` tag. As an example take this image in markdown:
+`![Pencil](assets/2.02C.png)`
+and resize it with the following:
+`<img src="assets/2.02C.png" alt="Pencil" width="150"/>`
+
+### Embed Video from Google Drive
+Use the same markdown as embedding an iframe:
+`![EmbedURL](ShareURL)`
+
+##### EmbedURL
+1. Double click on the YouTube Video to open it
+2. once it's open click the three dots in upper left and choose 'Open in New Window'
+3. In the new window, click on the three dots at the top left and choose 'embed item' copy the URL from the src="" (what is in the quotation marks)
+
+#### ShareURL
+this can simply be found by clicking on the 'copy link' from the folder the video is in, and use the URL that you would use to share.

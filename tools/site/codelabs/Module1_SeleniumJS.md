@@ -38,6 +38,9 @@ Duration: 0:05:00
 Selenium is an open source tool used for automating testing of web applications. Without  automated testing, each time a web application was updated, a human would have to go on to the website and try out every possible combination of clicks, interactions, and submissions. If you are able to automate your testing, when an update is made, you simply run your test with the ‘robot’ that is Selenium, which performs programmed sets of interactions for you to test new features and functionality before an updated version of a web app is released into the wild.
 
 ![SauceQA Bot](assets/1.02A.png "sauceQAbot")
+<!-- <div style="height:200px; width:auto">
+<img src="assets/1.02A.png"/>
+</div> -->
 
 Selenium is a robotic testing tool (not a framework) it expresses no judgement, nor does it help you test. In order to orchestrate the how tests are run, and report on the things that Selenium does, you need a framework, which we will go over later.
 
@@ -162,13 +165,12 @@ _** If you already have experience with the NodeJS server, and know how to insta
 Now we are going to install npm. When we run the command npm install, it will download dependencies defined in a package.json file and generate a node_modules folder with the installed modules.
 
 1. Navigate to the folder you just made from the terminal.
-
 ![cd Selenium JS](assets/1.05B.png "cd SeleniumJS")
 2. Run npm install from the terminal.
 
- ![npm install](assets/1.05C.png "npm install")
-3. If you open your file folder, you should see the folder ‘node_modules’ as well as package.json and package-lock.json.
+![npm install](assets/1.05C.png "npm install")
 
+3. If you open your file folder, you should see the folder ‘node_modules’ as well as package.json and package-lock.json.
 
 ![directory structure](assets/1.05D.png "directory structure")
 

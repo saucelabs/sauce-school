@@ -43,7 +43,7 @@
 </ul>
 <h2 is-upgraded>Base Code</h2>
 <p>If you skipped Module 1, make sure you have a project folder set up and have created the following files, as well as have NodeJS installed and init for this project:</p>
-<p class="image-container"><img alt="Directory Structure" src="img/c54ce1e4d7c0aabb.png"></p>
+<p class="image-container"><img alt="Directory Structure" style="width: 400.00px" src="img/c54ce1e4d7c0aabb.png"></p>
 <h3 is-upgraded>NOTE</h3>
 <p><em>if you are using Github, it is recommended that you </em><a href="https://www.codementor.io/@johnkennedy/get-rid-of-that-npm-package-lock-json-e0bj7ai42" target="_blank"><em>delete the package-lock.json</em></a><em> file.</em></p>
 <p>–</p>
@@ -55,7 +55,8 @@
       </google-codelab-step>
     
       <google-codelab-step label="2.02 Writing Good Acceptance Tests" duration="10">
-        <p>In order to write automated web tests that are easy to maintain, perform well, and are ultimately resilient, there are some simple guidelines to follow:</p>
+        <p>Acceptance tests are an important final step to take when releasing anything you may have designed, to make sure that the software you have created meets the requirements and specifications laid out when you designed and planned your application or platform. Automated testing is an integral tool to use to efficiently and accurately test your product for release.</p>
+<p>In order to write automated web tests that are easy to maintain, perform well, and are ultimately resilient, there are some simple guidelines to follow:</p>
 <ul>
 <li>Write atomic and autonomous tests</li>
 <li>Group like tests together in small batches</li>
@@ -63,22 +64,24 @@
 <li>Use a Test Runner</li>
 <li>Store tests in a Version Control System</li>
 </ul>
-<h2 is-upgraded><strong>Atomic &amp; Autonomous Tests</strong></h2>
+<h2 is-upgraded>Atomic &amp; Autonomous Tests</h2>
 <p>Each test needs to be concise (e.g., testing a single feature rather than multiple features) and be capable of being run independently (e.g., sets up its own data rather than relying on a previous test to do it). <a href="https://wiki.saucelabs.com/display/DOCS/Best+Practices%3A+Use+Small%2C+Atomic%2C+Autonomous+Tests?utm_source=referral&utm_medium=LMS&utm_campaign=link" target="_blank">Learn more in the Sauce Cookbook</a>.</p>
-<p>Doing this may require a mental shift, discipline, and more upfront effort. But it will make a dramatic impact on the quality, effectiveness, and maintainability of your tests. Especially when you get into parallel test execution.</p>
+<p>Doing this may require a mental shift, discipline, and more upfront effort, but it will make a dramatic impact on the quality, effectiveness, and maintainability of your tests, especially when you get into parallel test execution.</p>
 <p class="image-container"><img alt="Atomic" src="img/661ab29424ea3dbc.png"></p>
-<p>Image Source: <a href="https://medium.com/swlh/creating-fast-reliable-focused-ui-automation-with-atomic-tests-582e4318c0bb" target="_blank">https://medium.com/swlh/creating-fast-reliable-focused-ui-automation-with-atomic-tests-582e4318c0bb</a></p>
+<p>Image Source: <a href="https://medium.com/swlh/creating-fast-reliable-focused-ui-automation-with-atomic-tests-582e4318c0bb" target="_blank">Medium Article</a></p>
 <h2 is-upgraded>Grouping Tests</h2>
-<p>As your test suite grows, you will have numerous test files. Each one contains a grouping of tests that have similar functionality. For example, you would have one directory for the files that are designed to locate and interact with the page, and another directory for files that perform tests (test to check if something does or does not happen when you interact).</p>
+<p>As your test suite grows, you will have numerous test files. Each file contains a group of tests that have similar functions. For example, you would have one directory for the files that are designed to locate and interact with the page, and another directory for files that perform tests (test to check if something does or does not happen when you interact).</p>
 <h2 is-upgraded>Being Descriptive</h2>
-<p>A test file should have a high level name that denotes what the tests within it are exercising. Each test should have an informative name (even if it is a bit verbose). Also, each test (or grouping of tests) should include some helpful metadata (e.g., tags or categories), which can provide additional information about the test as well as enable flexible test execution (more on that later on). This way, all or part of your test suite can be run, and the results will be informative thanks to helpful naming.</p>
-<p>This enables developers to run a subset of tests to exercise functionality they just modified while also enabling you to intelligently wire your test suite up to a Continuous Integration (CI) server for fast and dynamic feedback (more on CI servers later on).</p>
-<h2 is-upgraded><strong>Test Runners</strong></h2>
-<p>At the heart of every test harness is some kind of a test runner like Mocha that does a lot of the heavy lifting (e.g., test execution, centralized configuration, test output). In this course, we will be using the Mocha test runner. Rather than reinvent the wheel you can use one of the many test runners that exist today. With it you can bolt on third party libraries to extend its functionality if there&#39;s something missing.</p>
+<p>A test file should have a high level name that describes what the group of tests within it are doing. Each individual test with the test files should also have an informative name to describe the action each test is taking. In this case, descriptive names are better than concise names. Also, each test or grouping of tests should include some helpful tags or categories, which can provide additional information about the test as well as enable flexible test execution. This way, you can run all or part of your test suite, and the results will inform the tester what is being tested, as well as accurately identify what goes wrong.</p>
+<p class="image-container"><img alt="Check" style="width: 150.00px" src="img/97c27b2115ad2b7.png"></p>
+<p>This also enables developers to run a subset of tests to exercise functionality they just modified and enable you to use  a Continuous Integration (CI) server to run the right groups of tests at the right time for fast and dynamic feedback. It is helpful to be able to identify which tests you run when you only make changes to certain parts of an application. You may also want to have a subset of tests that is run regularly, on a nightly or weekly basis, to verify performance regularly, so using a certain category of tests for a regular test deployment can be helpful.</p>
+<h2 is-upgraded>Test Runners</h2>
+<p>At the heart of every test suite is some kind of a test runner like JUnit that does a lot of the heavy lifting such as test execution, centralized configuration, and test output. In this course, we will be using the Mocha test runner. Rather than reinvent the wheel, you can use one of the many test runners that exist today. With it you can bolt on third party libraries to extend its functionality if there&#39;s something missing.</p>
 <h2 is-upgraded>Version Control</h2>
 <p>In order to effectively collaborate with other testers and developers on your team, your test code must live in a version control system. Look to see what your development team uses and add your code to it. In the examples in this course, we will be providing code samples from GitHub.</p>
 <h2 is-upgraded><a href="https://saucelabs.com/blog/a-two-minute-bdd-overview" target="_blank">BDD and TDD</a></h2>
 <p>Behavior Driven Development and Test Driven Development are two important strategies to help you understand how to write effective tests. <a href="https://cucumber.io/blog/bdd/bdd-is-not-test-automation/" target="_blank">BDD</a> is a collaborative process that focuses on starting with a business value or need. It&#39;s a feature and epic-centric approach to create a requirements analysis. With both BDD and TDD, you plan to write the code for the test first (application code comes later).</p>
+<p class="image-container"><img alt="Pencil" style="width: 150.00px" src="img/f06c14e85da7935b.png"></p>
 <p><a href="https://saucelabs.com/blog/the-state-of-test-driven-development" target="_blank">TDD</a> is a more granular step that should be taken after a BDD plan is created. The general process involves writing a failing test for particular features (determined previously with the BDD process), then the developer writes the code to lead to a successful run of this test. The goal is to be able to write failing tests that can be turned into a passing test with minimal code modification, and no change to dependencies, base pages, or configuration files.</p>
 
 
@@ -120,8 +123,9 @@
 <p>When viewing the page, right-click on the element you want to interact with and click <strong>Inspect Element</strong>. This will bring up a small window with all of the markup for the page but zoomed into your highlighted selection. From here, you can see if there are unique or descriptive attributes you can work with.</p>
 <p class="image-container"><img alt="image_caption" src="img/d6c9d80cbb15841.png"></p>
 <p>If you&#39;re fortunate enough to be working with unique IDs and classes, then you&#39;re usually all set. But when you have to handle more complex actions like traversing a page, or you need to run down odd test behavior, it can be a real challenge to verify that you have the right locators to accomplish what you want.</p>
-<h4 is-upgraded>Video</h4>
-<p>Watch <a href="https://drive.google.com/file/d/1UkrnRcfnjurdlTiFAHSvpvohy5wdj9FF/view?usp=sharing" target="_blank">this video</a> on using locators and follow along in your browser.</p>
+<h3 is-upgraded>Video</h3>
+<p>Watch <a href="https://www.youtube.com/watch?v=l_oOa7LeHqI&feature=youtu.be" target="_blank">Finding Locators with Dev tools</a> on using locators and follow along in your browser.</p>
+<iframe class="embedded-iframe" src="https://drive.google.com/file/d/1UkrnRcfnjurdlTiFAHSvpvohy5wdj9FF/preview"></iframe>
 <p>Use the following notes to help you use the inspector to test elements. Later you will test elements with your code. You can use the webpage here to follow along:</p>
 <p><a href="https://www.saucedemo.com/" target="_blank"><strong>https://www.saucedemo.com/</strong></a></p>
 <h3 is-upgraded>Locator Strategies</h3>
@@ -179,7 +183,7 @@
 <p>You can see all of the files here.</p>
 <p><strong>_</strong><a href="https://github.com/walkerlj0/Selenium_Course_Example_Code" target="_blank"><strong>Selenium_Course_Example_Code </strong></a><strong>_</strong></p>
 <p>Go into the SeleniumJS (your main project) directory using your terminal. Type the command npm init.</p>
-<p class="image-container"><img alt="npm init" src="img/9cd12a0b6b8d3e28.png"></p>
+<p class="image-container"><img alt="npm init" style="width: 200.00px" src="img/9cd12a0b6b8d3e28.png"></p>
 <p>This will set up a new node package in the folder. Hit enter (and enter any information you wish to add) to run the init. If you are creating this in the repo, make sure you put it in the ‘code-examples&#39; file.</p>
 <p class="image-container"><img alt="npm init output" src="img/e0bd4bc306756f7c.png"></p>
 <p>In your file we&#39;ll create a new test file called <code>LoginTest.js</code>. Next, we will install dependencies using npm. You should already have a folder name node_modules in your <code>SeleniumJS</code> folder, as well as a file called<code>package.json</code>. Open <code>package.json</code>.  in your IDE, and under<code>licences</code>, add in <code>dependencies</code>and the following:</p>
@@ -209,10 +213,10 @@
 <p>The versions of each of the dependencies will change over time. If you have an IDE, it will give you options for each one &amp; auto-fill the most recent version for you if you use npm. Otherwise, research what the most recent or best version of each dependency is.</p>
 <p>–</p>
 <p>After you have adjusted the package.json file, go to the terminal (make sure you are in your ‘SeleniumJS&#39; project folder that you made, or the ‘javascript&#39; folder from the repo and enter</p>
-<p class="image-container"><img alt="npm install" src="img/da004d02ce613f3d.png"></p>
+<p class="image-container"><img alt="npm Install" style="width: 250.00px" src="img/da004d02ce613f3d.png"></p>
 <p>This will pull the dependencies you listed in package.json to your project so you can use those libraries and frameworks to write your test code and interact with the browser.</p>
 <p>When we&#39;re done our directory, structure should look like this:</p>
-<p class="image-container"><img alt="directory with npm" src="img/d0da8993e75cf8aa.png"></p>
+<p class="image-container"><img alt="Directory with npm" style="width: 300.00px" src="img/d0da8993e75cf8aa.png"></p>
 <p>Now you are ready for the next lessons here you will write your first test!</p>
 
 
@@ -326,7 +330,7 @@ it(&#39;with valid credentials&#39;, async function() {
 <p>This code will detect if a success message is displayed when the username and password are entered, then the login button is clicked.</p>
 <p>Open your terminal and navigate to your project folder. Save the code and run it (by running <code>npm test</code> from the command-line).</p>
 <p>You should see the Firefox browser open briefly, enter the username, password, and login, then get the following output in your terminal.</p>
-<p class="image-container"><img alt="First Passed Test" src="img/9e537244620722f.png"></p>
+<p class="image-container"><img alt="First Passed Test" style="width: 350.00px" src="img/9e537244620722f.png"></p>
 <h2 is-upgraded>Double Check</h2>
 <p>If your test passed, we want to double check and make sure it is in fact checking what it is supposed to be checking (the <code>flash.success</code> class), and see if we get a failed test if we do locate the <code>flash.success</code> class on the page.</p>
 <p>Find the assertion below and add in the<code>!</code>character before the <code>driver.findelement()</code>method.</p>
@@ -348,7 +352,7 @@ it(&#39;with valid credentials&#39;, async function() {
 <p>In this exercise we can create a similar test using another page from the _the-internet _app called</p>
 <p><a href="https://the-internet.herokuapp.com/challenging_dom" target="_blank"><strong>Challenging DOM</strong></a></p>
 <p>Next, we will create a new test file, named LocatorTest.js place it in the same ‘test&#39; folder as the other test we created:</p>
-<p class="image-container"><img alt="Locator Test Dir" src="img/f8e2b9f692d92dd1.png"></p>
+<p class="image-container"><img alt="Locator Test Dir" style="width: 250.00px" src="img/f8e2b9f692d92dd1.png"></p>
 <p>Next, enter the following starter code into LocatorTest.js:</p>
 <pre><code>// filename: test/LocatorTest.js
 // ...
@@ -384,15 +388,16 @@ describe(&#39;Locate&#39;, function() {
 </code></pre>
 <p>Navigate to <a href="https://the-internet.herokuapp.com/challenging_dom" target="_blank">https://the-internet.herokuapp.com/challenging_dom</a> and right click on a button to open the inspector.</p>
 <p>Use the inspector to locate and test finding elements. In this test we are going to click the green button, then the blue button, and then check to make sure that both buttons have been clicked.</p>
-<h4 is-upgraded>Video</h4>
-<p><a href="https://drive.google.com/file/d/12p_3_UZkZHNdPHhiVBB4AdX73WFW1mfQ/view?usp=sharing" target="_blank">2.08 Locator Test</a></p>
-<h4 is-upgraded>Cheat Sheet</h4>
+<h3 is-upgraded>Video</h3>
+<p>Watch <a href="https://drive.google.com/file/d/12p_3_UZkZHNdPHhiVBB4AdX73WFW1mfQ/view?usp=sharing" target="_blank">2.08 Locator Test</a> to help you understand how this test works.</p>
+<iframe class="embedded-iframe" src="https://drive.google.com/file/d/12p_3_UZkZHNdPHhiVBB4AdX73WFW1mfQ/preview"></iframe>
+<h3 is-upgraded>Cheat Sheet</h3>
 <p><a href="https://docs.google.com/document/d/14zLvAljiJd8vFsM42-e-GJH_2UjSFU_3oIm6_0AK4LY/edit?usp=sharing" target="_blank">2.08 Selenium Locators Cheat Sheet</a></p>
 <p>Our test should test clicking first the green button, then the blue button, the see check to make sure both have been clicked (Check CSS/ id) Using the code above, complete and run the test.  This is not your typical test, as there is no assertion but we do return a value.</p>
 <p class="image-container"><img alt="Add Element Locators" src="img/a59fe02d38d2f069.png"></p>
 <p>Use the documentation here on using the<a href="https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_By.html" target="_blank"> By Selenium class </a>to figure out how to complete the code. You can also use the <a href="https://docs.google.com/document/d/14zLvAljiJd8vFsM42-e-GJH_2UjSFU_3oIm6_0AK4LY/edit?usp=sharing" target="_blank"><strong>Cheat Sheet</strong></a> to help.</p>
 <p>If you were successful, you should see both the locator and login tests (both are in the test folder) run, and below your locator, you should see the text that appeared on the red button when it was run:</p>
-<p class="image-container"><img alt="Locate Test success" src="img/dbfe8b1af86025a9.png"></p>
+<p class="image-container"><img alt="Pencil" style="width: 250.00px" src="img/dbfe8b1af86025a9.png"></p>
 <p>See the complete <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/code-examples/javascript/Mod2/2.07" target="_blank">source code here</a>. Note that you have to run npm install in the root project folder before being able to use code pulled from a repository.</p>
 
 
