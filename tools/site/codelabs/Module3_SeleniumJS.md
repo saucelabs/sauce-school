@@ -341,7 +341,7 @@ Even though you may have grown attached to tests, it can often be a huge help to
 
 Too many tests can be an even bigger problem for a QA team than too few. Figuring out how and why a test fails takes up more time than it is worth, and impedes the feedback a dev team needs to push a feature into production. Take the time to consider the balance between `testAllTheThings()` and testing efficiently and effectively, and don’t be afraid to delete tests and or useless objects and start fresh.
 
-<img src="https://giphy.com/embed/m9eG1qVjvN56H0MXt8" alt="Bye Giphy" width="400"/>
+**GIPHY BYE PLACEHOLDER**
 
 Next let's open `BasePage.js `in your IDE and insert the following code:
 
@@ -537,6 +537,8 @@ Review the [complete source code](https://github.com/walkerlj0/Selenium_Course_E
     <li>They would get an error that the failure message was present, but not the success message</li>
     <li>They would get an error that the success message was present, but not the error message</li>
     <li>They would get an error telling them that they hadn’t successfully loaded the login page</li>
+  </ol>
+
 
 ## 3.06  Resilient Test Code and Timing — Page with Explicit Waits
 
