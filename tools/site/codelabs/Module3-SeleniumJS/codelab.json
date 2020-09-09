@@ -1,0 +1,25 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2020-09-09T15:15:16-04:00",
+  "id": "Module3-SeleniumJS",
+  "duration": 0,
+  "title": "Module 3 — Writing Reusable Test Code",
+  "authors": "Lindsay Walker",
+  "summary": "Module 3 Writing Reusable Test Code",
+  "source": "Module3_SeleniumJS.md",
+  "theme": "",
+  "status": [
+    "work in progress"
+  ],
+  "category": [
+    "intermediate"
+  ],
+  "tags": [
+    "javascript"
+  ],
+  "feedback": "https://forms.gle/CGu4QchgBxxWnNJK8",
+  "url": "Module3-SeleniumJS"
+}
