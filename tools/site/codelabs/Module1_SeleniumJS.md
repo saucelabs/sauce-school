@@ -167,9 +167,7 @@ Now we are going to install npm. When we run the command npm install, it will do
 1. Navigate to the folder you just made from the terminal.
 ![cd Selenium JS](assets/1.05B.png "cd SeleniumJS")
 2. Run npm install from the terminal.
-
 ![npm install](assets/1.05C.png "npm install")
-
 3. If you open your file folder, you should see the folder ‘node_modules’ as well as package.json and package-lock.json.
 
 ![directory structure](assets/1.05D.png "directory structure")
