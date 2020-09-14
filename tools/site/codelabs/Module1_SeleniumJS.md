@@ -84,12 +84,12 @@ Duration: 0:05:00
 
 The WebDriver protocol consists of rules for communication between the client on the local end, which use languages and libraries like Java, Ruby, JavaScript, etc. and a web browser. The local end (your computer) communicates with the remote end node on the server side. The web driver defines how the remote end can behave, and the method for how the remote end receives information. As an example, the Selenium WebDriver provides instructions to the browser on how to click or type into elements on a page. This is then communicated to specific browser drivers, such as Chromedriver (for the Chrome browser) or Geckodriver (for the Firefox browser) and the commands are carried out.
 
-The code that Selenium provides to you as a developer (the libraries) is called a Selenium language binding. It ‘binds’ together the JavaScript code you write for actions and tests with things that WebDriver can understand. You also need to use You also need to use webdrivers such as Chromedriver and Geckodriver.
+The code that Selenium provides to you as a developer (the Selnium library) is called a Selenium language binding. It ‘binds’ together the JavaScript code you write for actions and tests with things that WebDriver can understand. You also need to use web drivers such as Chromedriver and Geckodriver.
 
 
  ![Selenium Diagram](assets/1.03A.png "SeleniumDiagram")
 
-Mocha is a JavaScript library/ package that allows you to communicate with Selenium and run unit tests. It also helps orchestrate test execution. This JavaScript language binding (Selenium WebDriver methods written in JavaScript) allows you to leverage the features specified by the W3C WebDriver protocol.
+Mocha is a JavaScript library/ test runner that allows you to communicate with Selenium and run unit tests. It also helps orchestrate test execution. This JavaScript language binding (Selenium WebDriver methods written in JavaScript) allows you to leverage the features specified by the W3C WebDriver protocol.
 
 
 ### Quiz
@@ -139,15 +139,15 @@ So far, you’ve learned a bit about how the code on your end communicates with 
 
 ![Framework Diagram](assets/1.04A.png "Framework Diagram")
 
-Above is an example of how you might connect a framework with the selenium grid that then executes tests with the Selenium WebDriver. tools you use when you write code, the more these frameworks will make sense.
+Above is an example of how you might connect a framework with the selenium grid that then executes tests with the Selenium WebDriver.
 
-As you learn more about the different tools you use when you write code, they will make more sense.
+As you work through this course, you will learn more about the different tools you use when you write code, they will make more sense.
 
 <!-- ------------------------ -->
 ## 1.05  Installing Dependencies
 Duration: 0:10:00
 
-We need five dependencies in order for our test to run as planned, which we will install later on, and for now we will get set up to do that. In this module, we’re going to install and set up the NodeJS server, create a project folder and install npm so that later on we can install all the dependencies. The dependencies include WebDrivers that communicate with different browsers, as well as Mocha, a Javascript framework/ library that allows you to write actual tests.
+We need five dependencies in order for our test to run as planned, which we will install later on, and for now we will get set up to do that. In this module, we’re going to install and set up the NodeJS server, create a project folder and install npm so that later on we can install all the dependencies. The dependencies include WebDrivers that communicate with different browsers, as well as Mocha, to use in writing actual tests.
 
 Go to [https://nodejs.org/en](https://nodejs.org/en/), download and install the NodeJS software.
 
@@ -157,21 +157,23 @@ Now, create a project folder in your user directory. I named mine SeleniumJS.
 
 In Terminal:
 
-![Terminal mkdir](assets/1.05A.png "terminal mkdir")
+<img src="assets/1.05A.png" alt="mkdir SeleniumJS" width="450"/>
 
 
-_** If you already have experience with the NodeJS server, and know how to install npm in a project folder, you can skip the rest of this (on to 1.05). You can also skip to the end to pull the code from the GitHub repository._
+
+_** If you already have experience with the NodeJS server, and know how to install npm in a project folder, you can skip the rest of this Module (on to 2.01) where you can find a github project directory to download or fork.
 
 Now we are going to install npm. When we run the command npm install, it will download dependencies defined in a package.json file and generate a node_modules folder with the installed modules.
 
 1. Navigate to the folder you just made from the terminal.
-![cd Selenium JS](assets/1.05B.png "cd SeleniumJS")
+<img src="assets/1.05B.png" alt="cd SeleniumJS" width="250"/>
+
 2. Run npm install from the terminal.
-![npm install](assets/1.05C.png "npm install")
+<img src="assets/1.05C.png" alt="npm install" width="200"/>
+
 3. If you open your file folder, you should see the folder ‘node_modules’ as well as package.json and package-lock.json.
 
-![directory structure](assets/1.05D.png "directory structure")
-
+<img src="assets/1.05D.png" alt="directory structure" width="230"/>
 
 
 Later on when you set up your first test, you will go back to the ‘SeleniumJS’ folder you just set up and create your first project files there.

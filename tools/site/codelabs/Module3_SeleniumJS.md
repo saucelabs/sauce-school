@@ -11,7 +11,7 @@ Feedback Link: https://forms.gle/CGu4QchgBxxWnNJK8
 <!--- ------------------------ -->
 
 ## 3.01 What You’ll Learn
-
+Duration: 0:03:00
 This module is derived from content in chapters 8-10 of _The Selenium Guidebook JavaScript Edition_ By Dave Haeffner. This module focuses on writing tests in Selenium that follow the Page Object Model (POM) for organizing test suites and abstracting imperative code into separate classes from the page and test classes. Add error handling to your test suit to detect and debug more easily, as well as learn about explicit and implicit waits and how they should be used.
 
 ### Objectives
@@ -45,6 +45,7 @@ If you are familiar with using GitHub to write your code, you can also fork/bran
 
 
 ## 3.02 The POM and Imperative vs. Declarative Tests
+Duration: 0:08:00
 
 The Page Object Model (POM) is a design pattern that can be used with Selenium with any kind of framework. Using this pattern for tests means that you create two separate types of classes; **Pages** and **Test Cases**. The **Page** classes set up and navigate items on the page, using variables to represent web elements, and **Test** classes perform the actual assertions and tests.
 

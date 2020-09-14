@@ -32,13 +32,13 @@
 <h2 is-upgraded>Objectives</h2>
 <ul>
 <li>Use NodeJS along with npm to run local tests and manage dependencies on your machine</li>
-<li>Understand that good tests are atomic: They have test grouped by functionality and are named descriptively Good tests also use test runners, and are maintained in version control systems</li>
+<li>Understand that good tests are atomic: They have test grouped by functionality, and are named descriptively. Good tests also use test runners, and are maintained in version control systems</li>
 <li>Create and maintain a project folder with your test suite &amp; dependencies, with separate folders for page and test classes</li>
 <li>Be able to define a test strategy and use a testing strategy like BDD and TDD to create test cases</li>
 <li>Use the browser dev tools console to test locators on the page using elements such as class, id, XPath, and more</li>
 <li>Demonstrate the ability to choose and verify locators for a test class and write code that successfully uses the locators</li>
-<li>Write a test case with BeforeEach(), AfterEach() functions and an assertion, then run it successfully on your local machine</li>
-<li>Write and validate tests that can both succeed and fail, while accounting (and methods that generate error messages) for different possible failure scenarios</li>
+<li>Write a test case with <code>BeforeEach()</code> and <code>AfterEach()</code> functions and an assertion, then run it successfully on your local machine</li>
+<li>Write and validate tests that can both succeed and fail, while planning for different failure scenarios (and methods that generate error messages) for those different scenarios</li>
 <li>Analyze and plan test suites, learning how to balance the size and maintainability (ability to check failed tests) against the amount of features you want to test, as well as the level of abstraction you want to use to make modular objects to use in your test suite</li>
 </ul>
 <h2 is-upgraded>Base Code</h2>
@@ -76,7 +76,7 @@
 <p class="image-container"><img alt="Check" style="width: 150.00px" src="img/97c27b2115ad2b7.png"></p>
 <p>This also enables developers to run a subset of tests to exercise functionality they just modified and enable you to use  a Continuous Integration (CI) server to run the right groups of tests at the right time for fast and dynamic feedback. It is helpful to be able to identify which tests you run when you only make changes to certain parts of an application. You may also want to have a subset of tests that is run regularly, on a nightly or weekly basis, to verify performance regularly, so using a certain category of tests for a regular test deployment can be helpful.</p>
 <h2 is-upgraded>Test Runners</h2>
-<p>At the heart of every test suite is some kind of a test runner like JUnit that does a lot of the heavy lifting such as test execution, centralized configuration, and test output. In this course, we will be using the Mocha test runner. Rather than reinvent the wheel, you can use one of the many test runners that exist today. With it you can bolt on third party libraries to extend its functionality if there&#39;s something missing.</p>
+<p>At the heart of every test suite is some kind of a test runner like Mocha that does a lot of the heavy lifting such as test execution, centralized configuration, and test output. In this course, we will be using the Mocha test runner. Rather than reinvent the wheel, you can use one of the many test runners that exist today. With it you can bolt on third party libraries to extend its functionality if there&#39;s something missing.</p>
 <h2 is-upgraded>Version Control</h2>
 <p>In order to effectively collaborate with other testers and developers on your team, your test code must live in a version control system. Look to see what your development team uses and add your code to it. In the examples in this course, we will be providing code samples from GitHub.</p>
 <h2 is-upgraded><a href="https://saucelabs.com/blog/a-two-minute-bdd-overview" target="_blank">BDD and TDD</a></h2>
@@ -97,12 +97,12 @@
 </ul>
 <p class="image-container"><img alt="Bootsterbot" src="img/87b188751749832b.png"></p>
 <h2 is-upgraded>What to Do with the Answers</h2>
-<p>After answering these questions, you should end up with a prioritized punch list (a.k.a., backlog) of test automation tasks that you can work off of and track progress against.</p>
+<p>After answering these questions, you should end up with a prioritized punch list or backlog of test automation tasks that you can choose tasks from, and track progress against.</p>
 <h3 is-upgraded>Question 1: What is the Value?</h3>
-<p>Every company&#39;s application makes money (or generates value) through core functionality that is defined by a series of increasingly-valuable user interactions — a.k.a. a &#34;funnel&#34;. Your answers to this question will help you determine what your funnel is.</p>
+<p>Every company&#39;s application makes money (or generates value) through core functionality that is defined by a series of increasingly-valuable user interactions known as a &#34;funnel&#34;. Your answers to this question will help you determine what your funnel is.</p>
 <p>These items will be your highest priority for automation. Start an automation backlog to keep track of them.</p>
 <h3 is-upgraded>Question 2: What Does Usage Data Say?</h3>
-<p>Odds are your application offers a robust set of functionality well beyond your funnel. Your answers to this question will help highlight what it is. And if you&#39;re basing these answers on usage data (e.g., Google Analytics), then it will be broken down from highly used to lightly used.</p>
+<p>Odds are your application offers a robust set of functionality well beyond your funnel. Your answers to this question will help highlight what it is. And if you&#39;re basing these answers on usage data like those obtained from Google Analytics, then you can see which features and functionality are more frequently used than others.</p>
 <p>When you data shows certain functions, features, and flows are frequently used, consider adding them as a priority for your automated testing suite.</p>
 <h3 is-upgraded>Question 3: Which Browsers?</h3>
 <p>Now that you know what functionality is business critical and widely adopted by your users, you need to determine what browsers to focus your automated web testing efforts on. Your usage data will tell you this as well. It will help you determine which browsers you can reasonably avoid testing in (based on non-existent or low usage numbers).</p>
@@ -277,7 +277,7 @@ describe(&#39;Login&#39;, function() {
 <p>Next we declare a <code>driver</code> variable where we&#39;ll store our instance of Selenium. We handle the setup and teardown of Selenium in <code>beforeEach</code> and <code>afterEach</code> methods. This ensures that there is a clean instance of Selenium for each test (e.g., a new instance is created before a test, and destroyed after the test completes). To create an instance of Selenium we call <code>new Builder().forBrowser(&#39;firefox&#39;).build();</code> and store it in the <code>driver</code>variable.</p>
 <p>In order for Selenium to load an instance of Firefox, we&#39;ll need to specify the path to the directory where the <code>geckodriver</code> file is. We do this by finding the path to the current working directory (e.g., <code>_dirname</code>, appending <code>/vendor</code> to it, and adding this to the execution path.)</p>
 <h3 is-upgraded><strong>NOTE</strong></h3>
-<p>If you used npm to install your drivers, you will comment vendorDirectory out, as you don&#39;t need to specify the path, since npm was used to install the dependencies, it takes care of mapping the code in your project to the correct path. The only code you will need inside the vendorDirectory for now is the <code>driver = await new Builder()</code>.</p>
+<p>If you used npm to install your drivers, you will comment the <code>vendorDirectory</code> variable declaration out, as you don&#39;t need to specify the path, since npm was used to install the dependencies, it takes care of mapping the code in your project to the correct path. The only code you will need inside the vendorDirectory for now is the <code>driver = await new Builder()</code>.</p>
 <pre><code>beforeEach(async function() {
    / * const vendorDirectory =
      path.delimiter + path.join(__dirname, &#39;..&#39;, &#39;vendor&#39;)
@@ -292,7 +292,7 @@ describe(&#39;Login&#39;, function() {
 
 </code></pre>
 <p>–</p>
-<p>Our test method starts with <code>it</code> and a helpful name (e.g., <code>&#39;with valid credentials</code>&#39;). In this test we&#39;re visiting the login page by its URL (with <code>driver.get()</code>), finding the input fields by their ID (with <code>driver.findElement({id: &#39;username&#39;});</code>), inputting text into them (with <code>sendKeys</code>), and submitting the form by clicking the submit button (e.g., <code>driver.findElement({css: &#39;button&#39;}).click()</code>).</p>
+<p>Our test method starts with <code>it</code> and a helpful name, <code>&#39;with valid credentials</code>. In this test we&#39;re visiting the login page by its URL (with <code>driver.get()</code>), finding the input fields by their ID (with <code>driver.findElement({id: &#39;username&#39;});</code>), inputting text into them (with <code>sendKeys</code>), and submitting the form by clicking the submit button (e.g., <code>driver.findElement({css: &#39;button&#39;}).click()</code>).</p>
 <pre><code>...
 it(&#39;with valid credentials&#39;, async function() {
        	await driver.get(&#39;http://the-internet.herokuapp.com/login&#39;)
@@ -319,7 +319,7 @@ it(&#39;with valid credentials&#39;, async function() {
 <p>Now it&#39;s time to add in an assertion to see if your actions had the desired effect. We want to check that the div that pops up when you have successfully logged in with the <code>class = &#34;flash_success&#34;</code> does in fact appear after you enter the login credentials.</p>
 <p class="image-container"><img alt="login success message" src="img/e927da2d1f4b1494.png"></p>
 <p>At the top under where the <code>const path</code>is defined, add in the variable <code>const assert = require(&#39;assert&#39;).</code></p>
-<p>Inside the describe function, within the it command, add the following underneath the await function that sent the password to the password field;</p>
+<p>Inside the describe function, within the <code>it</code> command, add the following underneath the await function that sent the password to the password field;</p>
 <pre><code>        assert(
             await driver.findElement({ css: &#39;.flash.success&#39;          
             }).isDisplayed(), &#39;Success message not displayed&#39;
@@ -330,7 +330,7 @@ it(&#39;with valid credentials&#39;, async function() {
 <p>This code will detect if a success message is displayed when the username and password are entered, then the login button is clicked.</p>
 <p>Open your terminal and navigate to your project folder. Save the code and run it (by running <code>npm test</code> from the command-line).</p>
 <p>You should see the Firefox browser open briefly, enter the username, password, and login, then get the following output in your terminal.</p>
-<p class="image-container"><img alt="First Passed Test" style="width: 350.00px" src="img/9e537244620722f.png"></p>
+<p class="image-container"><img alt="First Passed Test" style="width: 450.00px" src="img/9e537244620722f.png"></p>
 <h2 is-upgraded>Double Check</h2>
 <p>If your test passed, we want to double check and make sure it is in fact checking what it is supposed to be checking (the <code>flash.success</code> class), and see if we get a failed test if we do locate the <code>flash.success</code> class on the page.</p>
 <p>Find the assertion below and add in the<code>!</code>character before the <code>driver.findelement()</code>method.</p>
@@ -340,7 +340,7 @@ it(&#39;with valid credentials&#39;, async function() {
 <p class="image-container"><img alt="failed test" src="img/f7590313c22e58b.png"></p>
 <p>If it fails, then we can feel reasonably confident that the test is doing what we expect and we can change the assertion back to normal before committing our code.</p>
 <p>This trick will save you more trouble that you know. Practice it often.</p>
-<p>See the complete <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod2/2.07" target="_blank">source code here</a>. Note that you have to run npm install in the root project folder before being able to use code pulled from a repository.</p>
+<p>See the complete <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod2/2.07" target="_blank">source code here</a>. Note that you have to run <code>npm install</code> then <code>npm i mocha</code> in terminal from within the root project folder before being able to use code pulled from a GitHub repository.</p>
 
 
       </google-codelab-step>

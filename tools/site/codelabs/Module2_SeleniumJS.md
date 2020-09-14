@@ -26,13 +26,13 @@ This module is derived from content in chapters 6-7 of _The Selenium Guidebook_ 
 
 
 *   Use NodeJS along with npm to run local tests and manage dependencies on your machine
-*   Understand that good tests are atomic: They have test grouped by functionality and are named descriptively Good tests also use test runners, and are maintained in version control systems
+*   Understand that good tests are atomic: They have test grouped by functionality, and are named descriptively. Good tests also use test runners, and are maintained in version control systems
 *   Create and maintain a project folder with your test suite & dependencies, with separate folders for page and test classes
 *   Be able to define a test strategy and use a testing strategy like BDD and TDD to create test cases
 *   Use the browser dev tools console to test locators on the page using elements such as class, id, XPath, and more
 *   Demonstrate the ability to choose and verify locators for a test class and write code that successfully uses the locators
-*   Write a test case with BeforeEach(), AfterEach() functions and an assertion, then run it successfully on your local machine
-*   Write and validate tests that can both succeed and fail, while accounting (and methods that generate error messages) for different possible failure scenarios
+*   Write a test case with `BeforeEach()` and `AfterEach()` functions and an assertion, then run it successfully on your local machine
+*   Write and validate tests that can both succeed and fail, while planning for different failure scenarios (and methods that generate error messages) for those different scenarios
 *   Analyze and plan test suites, learning how to balance the size and maintainability (ability to check failed tests) against the amount of features you want to test, as well as the level of abstraction you want to use to make modular objects to use in your test suite
 
 
@@ -96,7 +96,7 @@ A test file should have a high level name that describes what the group of tests
 This also enables developers to run a subset of tests to exercise functionality they just modified and enable you to use  a Continuous Integration (CI) server to run the right groups of tests at the right time for fast and dynamic feedback. It is helpful to be able to identify which tests you run when you only make changes to certain parts of an application. You may also want to have a subset of tests that is run regularly, on a nightly or weekly basis, to verify performance regularly, so using a certain category of tests for a regular test deployment can be helpful.
 
 ### Test Runners
-At the heart of every test suite is some kind of a test runner like JUnit that does a lot of the heavy lifting such as test execution, centralized configuration, and test output. In this course, we will be using the Mocha test runner. Rather than reinvent the wheel, you can use one of the many test runners that exist today. With it you can bolt on third party libraries to extend its functionality if there's something missing.
+At the heart of every test suite is some kind of a test runner like Mocha that does a lot of the heavy lifting such as test execution, centralized configuration, and test output. In this course, we will be using the Mocha test runner. Rather than reinvent the wheel, you can use one of the many test runners that exist today. With it you can bolt on third party libraries to extend its functionality if there's something missing.
 
 ### Version Control
 In order to effectively collaborate with other testers and developers on your team, your test code must live in a version control system. Look to see what your development team uses and add your code to it. In the examples in this course, we will be providing code samples from GitHub.
@@ -132,19 +132,19 @@ A great way to increase your chances of success with automated web testing is to
 
 ### What to Do with the Answers
 
-After answering these questions, you should end up with a prioritized punch list (a.k.a., backlog) of test automation tasks that you can work off of and track progress against.
+After answering these questions, you should end up with a prioritized punch list or backlog of test automation tasks that you can choose tasks from, and track progress against.
 
 
 #### Question 1: What is the Value?
 
-Every company's application makes money (or generates value) through core functionality that is defined by a series of increasingly-valuable user interactions — a.k.a. a "funnel". Your answers to this question will help you determine what your funnel is.
+Every company's application makes money (or generates value) through core functionality that is defined by a series of increasingly-valuable user interactions known as a "funnel". Your answers to this question will help you determine what your funnel is.
 
 These items will be your highest priority for automation. Start an automation backlog to keep track of them.
 
 
 #### Question 2: What Does Usage Data Say?
 
-Odds are your application offers a robust set of functionality well beyond your funnel. Your answers to this question will help highlight what it is. And if you're basing these answers on usage data (e.g., Google Analytics), then it will be broken down from highly used to lightly used.
+Odds are your application offers a robust set of functionality well beyond your funnel. Your answers to this question will help highlight what it is. And if you're basing these answers on usage data like those obtained from Google Analytics, then you can see which features and functionality are more frequently used than others.
 
 When you data shows certain functions, features, and flows are frequently used, consider adding them as a priority for your automated testing suite.
 
@@ -471,7 +471,7 @@ In order for Selenium to load an instance of Firefox, we’ll need to specify th
 
 #### **NOTE**
 
-If you used npm to install your drivers, you will comment vendorDirectory out, as you don’t need to specify the path, since npm was used to install the dependencies, it takes care of mapping the code in your project to the correct path. The only code you will need inside the vendorDirectory for now is the `driver = await new Builder()`.
+If you used npm to install your drivers, you will comment the `vendorDirectory` variable declaration out, as you don’t need to specify the path, since npm was used to install the dependencies, it takes care of mapping the code in your project to the correct path. The only code you will need inside the vendorDirectory for now is the `driver = await new Builder()`.
 
 
 ```
@@ -491,7 +491,7 @@ beforeEach(async function() {
 ```
 --
 
-Our test method starts with `it` and a helpful name (e.g., `'with valid credentials`’). In this test we're visiting the login page by its URL (with `driver.get()`), finding the input fields by their ID (with `driver.findElement({id: 'username'});`), inputting text into them (with `sendKeys`), and submitting the form by clicking the submit button (e.g., `driver.findElement({css: 'button'}).click()`).
+Our test method starts with `it` and a helpful name, `'with valid credentials`. In this test we're visiting the login page by its URL (with `driver.get()`), finding the input fields by their ID (with `driver.findElement({id: 'username'});`), inputting text into them (with `sendKeys`), and submitting the form by clicking the submit button (e.g., `driver.findElement({css: 'button'}).click()`).
 
 
 ```
@@ -535,7 +535,7 @@ Now it’s time to add in an assertion to see if your actions had the desired ef
 
 At the top under where the `const path `is defined, add in the variable `const assert = require('assert').`
 
-Inside the describe function, within the it command, add the following underneath the await function that sent the password to the password field;
+Inside the describe function, within the `it` command, add the following underneath the await function that sent the password to the password field;
 
 
 ```
@@ -558,7 +558,7 @@ Open your terminal and navigate to your project folder. Save the code and run it
 
 You should see the Firefox browser open briefly, enter the username, password, and login, then get the following output in your terminal.
 
-<img src="assets/2.07C.png" alt="First Passed Test" width="350"/>
+<img src="assets/2.07C.png" alt="First Passed Test" width="450"/>
 <!-- ![First Passed Test](assets/2.07C.png) -->
 
 
@@ -583,7 +583,7 @@ If it fails, then we can feel reasonably confident that the test is doing what w
 
 This trick will save you more trouble that you know. Practice it often.
 
-See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod2/2.07). Note that you have to run npm install in the root project folder before being able to use code pulled from a repository.
+See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod2/2.07). Note that you have to run `npm install` then `npm i mocha` in terminal from within the root project folder before being able to use code pulled from a GitHub repository.
 
 <!-- ------------------------ -->
 
