@@ -11,15 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup.node@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-        run: |
+      - run: |
           cd tools/site
           npm install
           npm install -g gulp-cli
-      # Left off here
-        run:
+      - run: gulp serve --codelabs-dir=codelabs &
 
       # Setup gcloud CLI
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
@@ -30,5 +29,5 @@ jobs:
 
       - name: Deploy to Bucket
         run: |
-          cd tools/site/build
+          cd /tools/site/build
           gsutil -m rsync -R . ${{ secrets.GCS_BUCKET }}
