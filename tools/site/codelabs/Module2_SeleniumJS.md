@@ -1,4 +1,3 @@
-
 author:Lindsay
 summary: Module 2 of the Selenium JavaScript course X. Learn to write Selenium tests in X programming language with X Test runner and X framework
 id: Module2-SeleniumJS
