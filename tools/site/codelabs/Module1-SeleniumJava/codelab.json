@@ -3,8 +3,8 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2020-09-16T15:35:22-05:00",
-  "id": "Modiule1_SeleniumJava",
+  "updated": "2020-09-16T15:39:47-05:00",
+  "id": "Module1-SeleniumJava",
   "duration": 3,
   "title": "Module 1- Introduction to Selenium with Java",
   "summary": "Module 1 of the Selenium Java Test Automation. Learn to write Selenium tests in Java language using the JUnit framework, IntelliJ, and Jenkins.",
@@ -17,5 +17,5 @@
   "tags": [
     "java"
   ],
-  "url": "Modiule1_SeleniumJava"
+  "url": "Module1-SeleniumJava"
 }
