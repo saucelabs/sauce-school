@@ -1,6 +1,6 @@
 {
   "title": "Sauce School Training",
-  "description": "Sauce School Uses Google Codelabs to create courses designed for a beginning automation test engineer, as well as content for more experienced SDETs who are looking to improve the strategy and functionality of their test suites. Beginners should start with Modules 1 and 2, while more experienced developers can jump ahead and start with Module 3.",
+  "description": "Sauce School is the training portal for Sauce Labs. The courses here provide how-to tutorials with best practices for both beginners and experienced automation test developers.  The courses here will help you gain experience with the code and tools all automated testers need. You will walk through the process of automated test development with instructions from setting up an environment and writing test code to deploying your tests in a CI/CD pipeline and setting up a tunnel with SauceConnect.  Current courses offered are focused around automated testing with Selenium, with options to use different programming languages such as JavaScript and Java, as well as how-tos with instructions using different tools and test runners such as Mocha, JUnit, Jenkins, Sauce Labs, SauceConnect, SauceOnDemand, npm, Maven, and more.",
   "tags": [],
   "categories": [],
   "exclude": [
