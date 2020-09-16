@@ -77,14 +77,20 @@ You can add in a sized image with the `<img/>` tag. As an example take this imag
 and resize it with the following:
 `<img src="assets/2.02C.png" alt="Pencil" width="150"/>`
 
-### Embed Video from Google Drive
+### Embed Video/ Form from Google Drive
 Use the same markdown as embedding an iframe:
 `![EmbedURL](ShareURL)`
 
 ##### EmbedURL
-1. Double click on the YouTube Video to open it
+**Video**
+1. Double click on the Video to open it
 2. once it's open click the three dots in upper left and choose 'Open in New Window'
 3. In the new window, click on the three dots at the top left and choose 'embed item' copy the URL from the src="" (what is in the quotation marks)
+
+**Google Form**
+1. Click the 'Send button.
+2. choose the third tab with the embed icon `<>`. YOu should see an `<iframe>` tag.
+3. Copy the link after the 'src' that is in quotes
 
 #### ShareURL
 this can simply be found by clicking on the 'copy link' from the folder the video is in, and use the URL that you would use to share.

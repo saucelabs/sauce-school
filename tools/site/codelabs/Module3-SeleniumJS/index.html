@@ -122,8 +122,7 @@ module.exports = LoginPage
 <p>The second method, <code>load()</code>, is responsible for navigating to the page. This has to be in a separate function so it occurs after you load the driver.</p>
 <p>The third method, <code>authenticate(username, password)</code> is the core functionality of the login page. It fills in the login form and submits the data using the variables you just created. Later, you&#39;ll put these variables in a separate class so they can be used by multiple page objects.</p>
 <p>The last method, <code>successMessagePresent()</code>, checks to see that the final success message is present on the screen after you log in.</p>
-<p><strong>The intended image below is missing from the assets directory -NS</strong></p>
-<p class="image-container"><img alt="Resized Message Present Example" style="width: 500.00px" src="img/8edfcfda178ac8ce.png"></p>
+<p class="image-container"><img alt="Resized Message Present Example" style="width: 500.00px" src="img/525141d41a177fb5.png"></p>
 <p>The class ends with <code>module.exports = LoginPage;</code>, which makes it available for other classes to call and use the methods within the <code>LoginPage.js</code>.</p>
 <h3 is-upgraded>Part 2: Update LoginTest.js to use the Page Object</h3>
 <p>Now open the file in the test folder named <code>LoginTest.js</code>. You will add a few things into the test so that it can work with the <code>LoginPage.js</code> file you just created.</p>
@@ -245,7 +244,7 @@ const LOGIN_FORM = { id: &#39;login&#39; }
 <p>First let&#39;s add a new file called <code>BasePage.js</code> in the <code>pages</code> directory. At this point, you can also delete <code>LocatorTest.js</code> as you won&#39;t be using any longer.</p>
 <p class="image-container"><img alt="Resized Base Page Directory" style="width: 450.00px" src="img/a3b7238698776211.png"></p>
 <h2 is-upgraded>Deleting Tests</h2>
-<p>Even though you may have grown attached to tests, it can often be a huge help to your testing suite to just delete tests that aren&#39;t worth your time. Ask yourself the following questions:</p>
+<p>Even though you may have grown attached to test that you worked hard to create, it can often be a huge help to your testing suite to just delete tests that aren&#39;t worth your time. Ask yourself the following questions:</p>
 <ul>
 <li>How important is this test? (Do you really need to locate &amp; return what that button says?)</li>
 <li>How likely is this test to fail if the code changes? (High likelihood? Delete or refactor!)</li>
@@ -254,7 +253,8 @@ const LOGIN_FORM = { id: &#39;login&#39; }
 <li>How many individual pieces of functionality does this test actually check? (if it&#39;s more than one it&#39;s time to delete or refactor it into separate tests)</li>
 </ul>
 <p>Too many tests can be an even bigger problem for a QA team than too few. Figuring out how and why a test fails takes up more time than it is worth, and impedes the feedback a dev team needs to push a feature into production. Take the time to consider the balance between <code>testAllTheThings()</code> and testing efficiently and effectively, and don&#39;t be afraid to delete tests and or useless objects and start fresh.</p>
-<p><strong>GIPHY BYE PLACEHOLDER</strong></p>
+<p class="image-container"><img alt="Bye" src="img/3685213d411cedf8.gif"></p>
+<p>Source: <a href="https://giphy.com/gifs/baby-bye-slide-m9eG1qVjvN56H0MXt8" target="_blank">Giphy</a></p>
 <p>Next let&#39;s open <code>BasePage.js</code>in your IDE and insert the following code:</p>
 <pre><code>// filename: pages/BasePage.js
 class BasePage {
@@ -327,8 +327,8 @@ class LoginPage extends BasePage {
 }
 </code></pre>
 <p>A few things have changed in our Login page object. We&#39;ve imported the base page class you want to use, established inheritance between the two classes, and we&#39;ve swapped out all of our Selenium commands with calls to the methods in the base page object (e.g., <code>this.visit, this.type, this.click</code>).</p>
-<h3 is-upgraded>WHY?</h3>
-<p>In other words, instead of having to type out all this, using Selenium-specific commands, to find an id on the page and input a username:</p>
+<h3 is-upgraded>NOTE</h3>
+<p><strong>Why?</strong> In other words, instead of having to type out all this, using Selenium-specific commands, to find an id on the page and input a username:</p>
 <pre><code>await this.driver.findElement(USERNAME_INPUT).sendKeys(username)
 </code></pre>
 <p>You can simply type:</p>
@@ -383,22 +383,7 @@ it(&#39;with invalid credentials&#39;, async function() {
 <p class="image-container"><img alt="Final Code 2" style="width: 600.00px" src="img/9328828c3be6f0.png"></p>
 <p>Review the <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/code-examples/javascript/Mod3/3.04" target="_blank">complete source code</a>. Note that you have to run <code>npm install</code> in the root project folder before being able to use code pulled down from a repository.</p>
 <h2 is-upgraded>Quiz</h2>
-<ol type="1">
-<li>What are the reasons you created <code>BasePage.js</code>? Pick the most correct answer. <ol type="a">
-<li>You are lazy and don&#39;t want to have to write code as many times, and you know the code will never change, so you can just put it all in BasePage and forget about it.</li>
-<li>You want to give people writing tests only five options to create tests with, (<code>visit, find, click, type, isDiplayed</code>) so they don&#39;t make overly complex tests, so you created these in BasePage.</li>
-<li>You aren&#39;t using the functionality of <code>this.driver.get(</code>) or<code>this.driver.FindElement()</code>, so you put it in a separate document that won&#39;t be used in our test suite.</li>
-<li>You want to be able to make other pages you make, like<code>LoginPage.js</code> more readable, as well as reuse basic code so it&#39;s easier to update in one place, and take effect everywhere.</li>
-</ol>
-</li>
-<li>Without the following code, what problem might the person running your tests encounter? <img alt="Quiz Code" style="width: 500.00px" src="img/1c76141ecace618c.png"><ol type="a">
-<li>They wouldn&#39;t correctly detect an unsuccessful login</li>
-<li>They would get an error that the failure message was present, but not the success message</li>
-<li>They would get an error that the success message was present, but not the error message</li>
-<li>They would get an error telling them that they hadn&#39;t successfully loaded the login page</li>
-</ol>
-</li>
-</ol>
+<iframe class="embedded-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSe0UySBd2KO1SL5ytlrmSRuyKyHwM3lz5R_PElfFpMcJJcAQQ/viewform?embedded=true"></iframe>
 
 
       </google-codelab-step>
@@ -426,7 +411,7 @@ it(&#39;with invalid credentials&#39;, async function() {
 <p>Explicit waits are applied to individual test actions. Each time you want to use one you specify an amount of time (in seconds) and the Selenium action you want to accomplish.</p>
 <p>Implicit waits are generally not recommended, and also mixing explicit waits with implicit waits cause negative consequences. Many classes or functions have default timeouts, or the different waits may change or interfere with one another.</p>
 <p>The only time you would want to use an implicit wait is to make sure your tests have enough time to run, especially when you move them to the cloud. When using waits, Selenium will repeatedly try an action until either it can be accomplished, or until the amount of time specified has elapsed. If the latter occurs, a timeout exception is thrown.</p>
-<h4 is-upgraded>Cheat Sheet</h4>
+<h3 is-upgraded>Cheat Sheet</h3>
 <p><a href="https://docs.google.com/document/d/18nZvzgw7ukpBMYw9iJJzNFBIfRr2-m8ZHnOi3tE9KXE/edit?usp=sharing" target="_blank">3.06 Waits Cheat Sheet</a></p>
 <h2 is-upgraded>Create a Page with Explicit Waits</h2>
 <p>We&#39;re going to use this page as an example that demonstrates waits against <a href="http://the-internet.herokuapp.com/dynamic_loading/1" target="_blank">a dynamic page on the-internet.</a> The functionality is pretty simple — there is a button, and when you click it, a loading bar appears for five seconds. After that, it disappears and is replaced with the text Hello World!</p>
@@ -582,7 +567,7 @@ describe(&#39;Dynamic Loading&#39;, function() {
 </code></pre>
 <p>Run the test. This time you are going to use a different command that allows us to run specific test objects, instead of all the tests in our test class. Open the terminal in your project folder and run the command <code>npm test -- --grep &#34;Dynamic Loading&#34;</code></p>
 <h3 is-upgraded>NOTE</h3>
-<p>The <a href="https://www.geeksforgeeks.org/grep-command-in-unixlinux/" target="_blank">grep</a>command allows you to search for a certain set of characters when you run the mocha test. In this case, you are searching for and running the name of the test <code>Dynamic Loading</code>.</p>
+<p>The <a href="https://www.geeksforgeeks.org/grep-command-in-unixlinux/" target="_blank">grep</a> command allows you to search for a certain set of characters when you run the mocha test. In this case, you are searching for and running the name of the test <code>Dynamic Loading</code>.</p>
 <p class="image-container"><img alt="Dynamic Loading test" style="width: 600.00px" src="img/acb1e729d5554666.png"></p>
 <p>See the complete <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod3/3.07" target="_blank">source code here</a>. Note that you have to run <code>npm install</code> in the root project folder before being able to use code pulled down from a repository. You will be running just your Dynamic Loading test with the grep command at the end.</p>
 <h2 is-upgraded>Browser Timing</h2>
@@ -602,67 +587,7 @@ describe(&#39;Dynamic Loading&#39;, function() {
       </google-codelab-step>
     
       <google-codelab-step label="3.08 Quiz" duration="0">
-        <ol type="1">
-<li>Why did you include a try... catch block in<code>BasePage.js</code>? <img alt="Quiz1" style="width: 450.00px" src="img/913fccb1797362ff.png"><ol type="a">
-<li>We wanted to be able to use both the <code>elementIsVisible()</code> and the <code>isDisplayed()</code>methods to check if an element is on a page.</li>
-<li>We wanted to be able handle checking to see if an element is on the page with and without a <code>timeout</code> set.</li>
-<li>We wanted to be able to be able to use the newer is<code>Displayed()</code> method is the <code>elementIsVisible()</code> didn&#39;t work.</li>
-<li>We wanted to check and see if an elements was on the page before and after a set timeout.</li>
-</ol>
-</li>
-<li>Where is the method <code>isDisplayed()</code>declared (created)? <img alt="Quiz2" style="width: 450.00px" src="img/653a983680bbef8c.png"><ol type="a">
-<li>BasePage.js</li>
-<li>DynamicLoadingTest.js</li>
-<li>DynamicLoadingPage.js</li>
-<li>LoginTest.js</li>
-</ol>
-</li>
-<li>What is the difference between these two tests (on the two different dynamic loading pages on the-internet)? <img alt="Quiz3" style="width: 450.00px" src="img/746bc5c98625479a.png"><ol type="a">
-<li>The two different pages load and display elements differently, and you also need to have unique error codes so you can tell which has failed.</li>
-<li>There are two different pages, and you must always have different tests for different pages.</li>
-<li>There are different ids for the elements on the page you are trying to locate, so you had to write different tests &amp; assertions for each one.</li>
-<li>We need to use a different Selenium method for each test, <code>elementIsVisible()</code>and <code>elementLocated(),</code> so you write two different tests.</li>
-</ol>
-</li>
-<li>Where is the method <code>isFinishTextPresent()</code>declared (created)? <img alt="Quiz4" style="width: 450.00px" src="img/b9c431e1430e402b.png"><ol type="a">
-<li>BasePage.js</li>
-<li>DynamicLoadingTest.js</li>
-<li>DynamicLoadingPage.js</li>
-<li>LoginTest.js</li>
-</ol>
-</li>
-<li>Which of the following best describes a facade layer like <code>BasePage.js</code>? <ol type="a">
-<li>A class that is created to separate code for implicit and explicit waits, so that one can avoid problems created by having both of these types of wait.</li>
-<li>A class that is created to write the more imperative language, specific to a testing language like Selenium, that can be swapped out.</li>
-<li>A class that is created for use with a specific programming language such as JavaScript or Python, so that the same test code can be used with different programming languages.</li>
-<li>A class that is created to be easy to read, with very declarative testing language.</li>
-</ol>
-</li>
-<li>Which of the following is the biggest reason to use explicit waits instead of implicit waits? <ol type="a">
-<li>Explicit waits will run no matter what, so you can be sure that all the waits in all the tests will be used.</li>
-<li>Explicit waits help you run tests on all elements in a codebase, even if they are not visible, and are not as dynamic, so you do not have to worry about them not running.</li>
-<li>Explicit waits are run in parallel and will run all waits at the same time, an are also dynamic, meaning they will never run out of order.</li>
-<li>Explicit waits are dynamic, and will run when they need to be run, and can prevent a test from continuing before an element is available, which could cause a <code>ElementNotVisibleException</code>.</li>
-</ol>
-</li>
-</ol>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="3.09 Challenge — Fix the Test Code" duration="0">
-        <p>In this test suite you will have a simple set of tests. They include a base page, two page classes, and two test classes.  You will indicate where some problem code exists, and give you documentation that gives you examples on how to do it differently. I will point out where ‘problem code&#39; is located. It is up to you to make (____) number of changes. You will need to decide:</p>
-<ul>
-<li>Do you have code written into a test object/class that should be in a page object/class?</li>
-<li>Do you have code that needs to be written using better locators?</li>
-<li>Do you have code written that needs an explicit wait?</li>
-<li>Should you add a try... catch block so that test can be executed afterwards?</li>
-<li>Do you need to add in an if, else statement so that a test can be run without a timeout? <br><code>...<br>Code snippet<br>...<br></code></li>
-</ul>
-<p>Download the test suite from this repo:</p>
-<p>Suggested Solution</p>
-<h4 is-upgraded>Cheat Sheet</h4>
-<p><a href="https://docs.google.com/document/d/1Oick2l5E1oHMr6KGXRgbfhQJePzw3tH4mxfjtDSGcqs/edit?usp=sharing" target="_blank">Common Selenium Commands Cheat Sheet 3.08</a></p>
+        <iframe class="embedded-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSdeJQyAbgrqVoFtPi31YubP_L-rj9HdoG_DypzwXnEPEh3sSA/viewform?embedded=true"></iframe>
 
 
       </google-codelab-step>

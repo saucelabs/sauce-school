@@ -140,7 +140,6 @@ The third method, `authenticate(username, password)` is the core functionality o
 
 The last method, `successMessagePresent()`, checks to see that the final success message is present on the screen after you log in.
 
-**The intended image below is missing from the assets directory -NS**
 
 <img src="assets/3.03B.png" alt="Resized Message Present Example" width="500"/>
 
@@ -196,7 +195,7 @@ Review the [example project code](https://github.com/walkerlj0/Selenium_Course_E
 
 Your new code in `LoginTest.js` should look like this:
 
-<img src="assets/3.03B.png" alt="LoginTest Code" width="600"/>
+<img src="assets/3.03BB.png" alt="LoginTest Code" width="600"/>
 
 Run npm test and you should get this success message:
 
@@ -332,7 +331,7 @@ First let's add a new file called `BasePage.js` in the `pages` directory. At thi
 
 ### Deleting Tests
 
-Even though you may have grown attached to tests, it can often be a huge help to your testing suite to just delete tests that aren’t worth your time. Ask yourself the following questions:
+Even though you may have grown attached to test that you worked hard to create, it can often be a huge help to your testing suite to just delete tests that aren’t worth your time. Ask yourself the following questions:
 
 *   How important is this test? (Do you really need to locate & return what that button says?)
 *   How likely is this test to fail if the code changes? (High likelihood? Delete or refactor!)
@@ -342,7 +341,9 @@ Even though you may have grown attached to tests, it can often be a huge help to
 
 Too many tests can be an even bigger problem for a QA team than too few. Figuring out how and why a test fails takes up more time than it is worth, and impedes the feedback a dev team needs to push a feature into production. Take the time to consider the balance between `testAllTheThings()` and testing efficiently and effectively, and don’t be afraid to delete tests and or useless objects and start fresh.
 
-**GIPHY BYE PLACEHOLDER**
+![Bye](assets/3.05Bye.gif)
+
+Source: [Giphy](https://giphy.com/gifs/baby-bye-slide-m9eG1qVjvN56H0MXt8)
 
 Next let's open `BasePage.js `in your IDE and insert the following code:
 
@@ -427,8 +428,9 @@ class LoginPage extends BasePage {
 
 A few things have changed in our Login page object. We've imported the base page class you want to use, established inheritance between the two classes, and we've swapped out all of our Selenium commands with calls to the methods in the base page object (e.g., `this.visit, this.type, this.click`).
 
-#### WHY?
+#### NOTE
 
+**Why?**
 In other words, instead of having to type out all this, using Selenium-specific commands, to find an id on the page and input a username:
 
 ```
@@ -523,23 +525,7 @@ Review the [final code](https://github.com/walkerlj0/Selenium_Course_Example_Cod
 Review the [complete source code](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/code-examples/javascript/Mod3/3.04). Note that you have to run `npm install` in the root project folder before being able to use code pulled down from a repository.
 
 ### Quiz
-
-1. What are the reasons you created `BasePage.js`? Pick the most correct answer.
-  <ol type="a">
-    <li>You are lazy and don’t want to have to write code as many times, and you know the code will never change, so you can just put it all in BasePage and forget about it.</li>
-    <li>You want to give people writing tests only five options to create tests with, (`visit, find, click, type, isDiplayed`) so they don’t make overly complex tests, so you created these in BasePage.</li>
-    <li>You aren’t using the functionality of `this.driver.get(`) or` this.driver.FindElement()`, so you put it in a separate document that won’t be used in our test suite.</li>
-    <li>You want to be able to make other pages you make, like` LoginPage.js ` more readable, as well as reuse basic code so it’s easier to update in one place, and take effect everywhere.</li>
-  </ol>
-1. Without the following code, what problem might the person running your tests encounter?
-  <img src="assets/3.05H.png" alt="Quiz Code" width="500"/>
-  <ol type="a">
-    <li>They wouldn’t correctly detect an unsuccessful login</li>
-    <li>They would get an error that the failure message was present, but not the success message</li>
-    <li>They would get an error that the success message was present, but not the error message</li>
-    <li>They would get an error telling them that they hadn’t successfully loaded the login page</li>
-  </ol>
-
+![https://docs.google.com/forms/d/e/1FAIpQLSe0UySBd2KO1SL5ytlrmSRuyKyHwM3lz5R_PElfFpMcJJcAQQ/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSe0UySBd2KO1SL5ytlrmSRuyKyHwM3lz5R_PElfFpMcJJcAQQ/viewform?usp=sf_link)
 
 ## 3.06  Resilient Test Code and Timing — Page with Explicit Waits
 
@@ -583,7 +569,7 @@ Implicit waits are generally not recommended, and also mixing explicit waits wit
 
 The only time you would want to use an implicit wait is to make sure your tests have enough time to run, especially when you move them to the cloud. When using waits, Selenium will repeatedly try an action until either it can be accomplished, or until the amount of time specified has elapsed. If the latter occurs, a timeout exception is thrown.
 
-##### Cheat Sheet
+#### Cheat Sheet
 
 [3.06 Waits Cheat Sheet](https://docs.google.com/document/d/18nZvzgw7ukpBMYw9iJJzNFBIfRr2-m8ZHnOi3tE9KXE/edit?usp=sharing)
 
@@ -800,7 +786,7 @@ Run the test. This time you are going to use a different command that allows us 
 
 #### NOTE
 
-The [grep](https://www.geeksforgeeks.org/grep-command-in-unixlinux/)command allows you to search for a certain set of characters when you run the mocha test. In this case, you are searching for and running the name of the test `Dynamic Loading`.
+The [grep](https://www.geeksforgeeks.org/grep-command-in-unixlinux/) command allows you to search for a certain set of characters when you run the mocha test. In this case, you are searching for and running the name of the test `Dynamic Loading`.
 
 <img src="assets/3.07D.png" alt="Dynamic Loading test" width="600"/>
 
@@ -834,74 +820,4 @@ Run the test. This time you are going to use a different command that allows us 
 
 ## 3.08 Quiz
 
-1. Why did you include a try… catch block in` BasePage.js`?
-    <img src="assets/3.08A.png" alt="Quiz1" width="450"/>
-    <ol type="a">
-      <li>We wanted to be able to use both the `elementIsVisible()` and the `isDisplayed() `methods to check if an element is on a page.</li>
-      <li>We wanted to be able handle checking to see if an element is on the page with and without a `timeout` set.</li>
-      <li>We wanted to be able to be able to use the newer is`Displayed()` method is the `elementIsVisible()` didn’t work.</li>
-      <li>We wanted to check and see if an elements was on the page before and after a set timeout.</li>
-    </ol>
-1. Where is the method `isDisplayed()`declared (created)?
-    <img src="assets/3.08B.png" alt="Quiz2" width="450"/>
-    <ol type="a">
-      <li>BasePage.js</li>
-      <li>DynamicLoadingTest.js</li>
-      <li>DynamicLoadingPage.js</li>
-      <li>LoginTest.js</li>
-    </ol>
-1. What is the difference between these two tests (on the two different dynamic loading pages on the-internet)?
-  <img src="assets/3.08C.png" alt="Quiz3" width="450"/>
-  <ol type="a">
-    <li>The two different pages load and display elements differently, and you also need to have unique error codes so you can tell which has failed.</li>
-    <li>There are two different pages, and you must always have different tests for different pages.</li>
-    <li>There are different ids for the elements on the page you are trying to locate, so you had to write different tests & assertions for each one.</li>
-    <li>We need to use a different Selenium method for each test, `elementIsVisible() `and `elementLocated(),` so you write two different tests.</li>
-  </ol>
-1. Where is the method `isFinishTextPresent() `declared (created)?
-  <img src="assets/3.08D.png" alt="Quiz4" width="450"/>
-  <ol type="a">
-    <li>BasePage.js</li>
-    <li>DynamicLoadingTest.js</li>
-    <li>DynamicLoadingPage.js</li>
-    <li>LoginTest.js</li>
-  </ol>
-1. Which of the following best describes a facade layer like `BasePage.js`?
-  <ol type="a">
-    <li>A class that is created to separate code for implicit and explicit waits, so that one can avoid problems created by having both of these types of wait.</li>
-    <li>A class that is created to write the more imperative language, specific to a testing language like Selenium, that can be swapped out.</li>
-    <li>A class that is created for use with a specific programming language such as JavaScript or Python, so that the same test code can be used with different programming languages.</li>
-    <li>A class that is created to be easy to read, with very declarative testing language.</li>
-  </ol>
-1. Which of the following is the biggest reason to use explicit waits instead of implicit waits?
-  <ol type ="a">
-    <li>Explicit waits will run no matter what, so you can be sure that all the waits in all the tests will be used.</li>
-    <li>Explicit waits help you run tests on all elements in a codebase, even if they are not visible, and are not as dynamic, so you do not have to worry about them not running.</li>
-    <li>Explicit waits are run in parallel and will run all waits at the same time, an are also dynamic, meaning they will never run out of order.</li>
-    <li>Explicit waits are dynamic, and will run when they need to be run, and can prevent a test from continuing before an element is available, which could cause a `ElementNotVisibleException`.</li>
-  </ol>
-
-## 3.09 Challenge — Fix the Test Code
-
-In this test suite you will have a simple set of tests. They include a base page, two page classes, and two test classes.  You will indicate where some problem code exists, and give you documentation that gives you examples on how to do it differently. I will point out where ‘problem code’ is located. It is up to you to make (____) number of changes. You will need to decide:
-
-*   Do you have code written into a test object/class that should be in a page object/class?
-*   Do you have code that needs to be written using better locators?
-*   Do you have code written that needs an explicit wait?
-*   Should you add a try… catch block so that test can be executed afterwards?
-*   Do you need to add in an if, else statement so that a test can be run without a timeout?
-
-    ```
-...
-    Code snippet
-...
-```
-
-Download the test suite from this repo:
-
-Suggested Solution
-
-
-##### Cheat Sheet
-
-[Common Selenium Commands Cheat Sheet 3.08](https://docs.google.com/document/d/1Oick2l5E1oHMr6KGXRgbfhQJePzw3tH4mxfjtDSGcqs/edit?usp=sharing)
+![https://docs.google.com/forms/d/e/1FAIpQLSdeJQyAbgrqVoFtPi31YubP_L-rj9HdoG_DypzwXnEPEh3sSA/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSdeJQyAbgrqVoFtPi31YubP_L-rj9HdoG_DypzwXnEPEh3sSA/viewform?usp=sf_link)
