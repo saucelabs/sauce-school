@@ -2,7 +2,7 @@
   "title": "Selenium Java Test Automation",
   "description": "In this course, you will learn to use JavaScript with the JUnit testing framework to develop an automated testing suite. Both beginners and advanced testers will benefit by getting experience with software and test code projects to build up skills in writing test code that is reusable, and not prone to issues found in flaky and brittle test code.  By following the practices outlined here, you can write test code that is easy to scale to the cloud using Sauce Labs. You can create autonomous, easy to maintain test code, and learn to use Maven, Jenkins, SauceConnect, and SauceOnDemand along with Selenium, Java, and JUnit to write a test suite and to gain the skills using tools you need as a test automation engineer.",
   "logoUrl": "/SeleniumJava/logo.png",
-  "tags": ["Java"],
+  "tags": ["java"],
   "exclude": [
     ".*-about$",
     "^lang-.*"

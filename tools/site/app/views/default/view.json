@@ -2,7 +2,7 @@
   "title": "Sauce School Training",
   "description": "Sauce School is the training portal for Sauce Labs. The courses here provide how-to tutorials with best practices for both beginners and experienced automation test developers.  The courses here will help you gain experience with the code and tools all automated testers need. You will walk through the process of automated test development with instructions from setting up an environment and writing test code to deploying your tests in a CI/CD pipeline and setting up a tunnel with SauceConnect.  Current courses offered are focused around automated testing with Selenium, with options to use different programming languages such as JavaScript and Java, as well as how-tos with instructions using different tools and test runners such as Mocha, JUnit, Jenkins, Sauce Labs, SauceConnect, SauceOnDemand, npm, Maven, and more.",
   "tags": [],
-  "categories": [],
+  "categories": ["beginner"],
   "exclude": [
     "^lang-.*"
   ],

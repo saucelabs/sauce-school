@@ -47,7 +47,7 @@
     
       <google-codelab-step label="1.02 What is Selenium?" duration="5">
         <p>Selenium is an open source tool used for automating testing of web applications. Without  automated testing, each time a web application was updated, a human would have to go on to the website and try out every possible combination of clicks, interactions, and submissions. If you are able to automate your testing, when an update is made, you simply run your test with the ‘robot&#39; that is Selenium, which performs programmed sets of interactions for you to test new features and functionality before an updated version of a web app is released into the wild.</p>
-<p class="image-container"><img alt="SauceQA Bot" title="sauceQAbot" src="img/b21839a1687a814.png"></p>
+<p class="image-container"><img alt="Automation bot" style="width: 200.00px" src="img/b21839a1687a814.png"></p>
 <p>Selenium is a robotic testing tool (not a framework) it expresses no judgement, nor does it help you test. In order to orchestrate the how tests are run, and report on the things that Selenium does, you need a framework, which we will go over later.</p>
 <h2 is-upgraded>The Seven Basic Steps of Selenium Tests</h2>
 <p>There are seven basic elements of a Selenium test script, which apply to any test case and any application under test (AUT):</p>
@@ -61,7 +61,7 @@
 <li>Conclude the test.</li>
 </ol>
 <p>The Selenium Grid allows you to run parallel tests on multiple combinations of machines (e.g., Mac, Windows, or Unix-based systems) using multiple web browsers (versions of Chrome, Edge, Firefox, Safari). These different machines can exist virtually on a server in a cloud environment, or as a network of real devices. JSON is used to communicate test requirements and route it to different nodes which have different environments to test on.</p>
-<p class="image-container"><img alt="comp" src="img/67fdd10360c35b36.png"></p>
+<p class="image-container"><img alt="Selenium Computer" style="width: 350.00px" src="img/67fdd10360c35b36.png"></p>
 <p>The Sauce Labs platform enables you to use a Selenium Grid at scale to run thousands of tests at once, on our suite of different test environments in the cloud. Sauce also has a robust dashboard for easy viewing of test outcomes and increased velocity of debugging tests. This dashboard includes tracking of errors and even a visual record of what occurred in different environments.</p>
 <p>As your test suite grows, your test runs will take longer to complete. To speed them up you will want to run them in parallel, which is where the benefit of having your own servers or using a cloud provider comes in – that, and the ability to have numerous browser and operating system combinations to run your tests on.</p>
 <p>This course focuses on the fourth version of Selenium that supports communication via the W3C WebDriver. All modern web browsers are also built in compliance with this protocol (a set of rules on how to communicate), which means Selenium 4 can be used with any programming language and any browser/ OS environment. With W3C you can discover and manipulate elements on a page in order to test their functionality.</p>
@@ -94,7 +94,7 @@
 <p>A good framework combines best practices for structuring and writing code, along with structure how data is handled and stored, enabling you to write test code that is reusable and will have less need for maintenance.</p>
 <p>Frameworks provide both tools and guidelines for creating and designing test suites. They can include coding standards, test-data handling methods, object repositories, processes for storing test results, or information on how to access external resources.</p>
 <p>So far, you&#39;ve learned a bit about how the code on your end communicates with the W3C WebDriver using Selenium, however, this isn&#39;t the whole picture. There are other tools that are used in order for you to write test code and implement it. Usually there are runners frameworks used alongside the &#34;vanilla&#34; (plain) programming language that help give structure, create commands, manage &amp; organize files, store data, and more. In this course, we&#39;ll use the Mocha as a test runner and build up our own framework.</p>
-<p class="image-container"><img alt="Framework Diagram" title="Framework Diagram" src="img/928490bee4f0c8e9.png"></p>
+<p class="image-container"><img alt="Framework" style="width: 450.00px" src="img/4aa2068a9196b4a.png"></p>
 <p>Above is an example of how you might connect a framework with the selenium grid that then executes tests with the Selenium WebDriver.</p>
 <p>As you work through this course, you will learn more about the different tools you use when you write code, they will make more sense.</p>
 
@@ -108,7 +108,7 @@
 <p>Now, create a project folder in your user directory. I named mine SeleniumJS.</p>
 <p>In Terminal:</p>
 <p class="image-container"><img alt="mkdir SeleniumJS" style="width: 450.00px" src="img/fc21d670ffa09cb2.png"></p>
-<p><em>** If you already have experience with the NodeJS server, and know how to install npm in a project folder, you can skip the rest of this (on to 1.05). You can also skip to the end to pull the code from the GitHub repository.</em></p>
+<p>_** If you already have experience with the NodeJS server, and know how to install npm in a project folder, you can skip the rest of this Module (on to 2.01) where you can find a github project directory to download or fork.</p>
 <p>Now we are going to install npm. When we run the command npm install, it will download dependencies defined in a package.json file and generate a node_modules folder with the installed modules.</p>
 <ol type="1">
 <li>Navigate to the folder you just made from the terminal. <img alt="cd SeleniumJS" style="width: 250.00px" src="img/8582720e943759c5.png"></li>
