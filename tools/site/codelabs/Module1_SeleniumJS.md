@@ -37,10 +37,8 @@ Duration: 0:05:00
 
 Selenium is an open source tool used for automating testing of web applications. Without  automated testing, each time a web application was updated, a human would have to go on to the website and try out every possible combination of clicks, interactions, and submissions. If you are able to automate your testing, when an update is made, you simply run your test with the ‘robot’ that is Selenium, which performs programmed sets of interactions for you to test new features and functionality before an updated version of a web app is released into the wild.
 
-![SauceQA Bot](assets/1.02A.png "sauceQAbot")
-<!-- <div style="height:200px; width:auto">
-<img src="assets/1.02A.png"/>
-</div> -->
+<img src="assets/1.02A.png" alt="Automation bot" width="200"/>
+
 
 Selenium is a robotic testing tool (not a framework) it expresses no judgement, nor does it help you test. In order to orchestrate the how tests are run, and report on the things that Selenium does, you need a framework, which we will go over later.
 
@@ -60,7 +58,7 @@ There are seven basic elements of a Selenium test script, which apply to any tes
 
 The Selenium Grid allows you to run parallel tests on multiple combinations of machines (e.g., Mac, Windows, or Unix-based systems) using multiple web browsers (versions of Chrome, Edge, Firefox, Safari). These different machines can exist virtually on a server in a cloud environment, or as a network of real devices. JSON is used to communicate test requirements and route it to different nodes which have different environments to test on.
 
-![comp](assets/1.02B.png)
+<img src="assets/1.02B.png" alt="Selenium Computer" width="350"/>
 
 
 The Sauce Labs platform enables you to use a Selenium Grid at scale to run thousands of tests at once, on our suite of different test environments in the cloud. Sauce also has a robust dashboard for easy viewing of test outcomes and increased velocity of debugging tests. This dashboard includes tracking of errors and even a visual record of what occurred in different environments.
@@ -136,8 +134,7 @@ Frameworks provide both tools and guidelines for creating and designing test sui
 
 So far, you’ve learned a bit about how the code on your end communicates with the W3C WebDriver using Selenium, however, this isn’t the whole picture. There are other tools that are used in order for you to write test code and implement it. Usually there are runners frameworks used alongside the “vanilla” (plain) programming language that help give structure, create commands, manage & organize files, store data, and more. In this course, we’ll use the Mocha as a test runner and build up our own framework.
 
-
-![Framework Diagram](assets/1.04A.png "Framework Diagram")
+<img src="assets/1.04A.png" alt=Framework Diagram width="450"/>
 
 Above is an example of how you might connect a framework with the selenium grid that then executes tests with the Selenium WebDriver.
 
