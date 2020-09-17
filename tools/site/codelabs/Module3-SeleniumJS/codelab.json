@@ -3,7 +3,7 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2020-09-17T10:55:23-05:00",
+  "updated": "2020-09-17T12:35:10-05:00",
   "id": "Module3-SeleniumJS",
   "duration": 11,
   "title": "Module 3 — Writing Reusable Test Code",
@@ -15,7 +15,7 @@
     "work in progress"
   ],
   "category": [
-    "intermediate"
+    "advanced"
   ],
   "tags": [
     "javascript"
