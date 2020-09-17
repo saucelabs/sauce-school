@@ -1,7 +1,7 @@
 summary: Module 3 Writing Reusable Test Code
 id: Module3-SeleniumJS
-categories: Intermediate
-tags: JavaScript
+categories: intermediate
+tags: javascript
 status: Work in Progress
 authors: Lindsay Walker
 Feedback Link: https://forms.gle/CGu4QchgBxxWnNJK8

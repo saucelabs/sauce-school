@@ -1,7 +1,7 @@
 
 summary: Module 1 Introduction to Selenium with JavaScript
 id: Module1-SeleniumJS
-categories: Beginner
+categories: beginner
 tags: javascript
 status: Published
 authors: Lindsay Walker

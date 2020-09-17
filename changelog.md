@@ -1,6 +1,40 @@
 # Changelog- Add newest additions in an .md file at top
 ///start typing below this text
 
+##Sept 17 2020 – lindsay
+##Updated the markdown/ view files
+In each of the markdown files in the `codelabs` directory, I made the tag and categories lowercase. Example from `Module1_SeleniumJS`
+
+```
+author:Lindsay
+summary: Module 1 of the Selenium Java Test Automation. Learn to write Selenium tests in Java language using the JUnit framework, IntelliJ, and Jenkins.
+id: Module1-SeleniumJava
+categories: beginner
+tags: java  
+```
+
+updated the views as well. for `app/views/default/view.json`:
+```
+"title": "Sauce School Training",
+"description": "Sauce School is the training portal for Sauce Labs. The courses here provide how-to tutorials with best practices for both beginners and experienced automation test developers. Courses cover topics including Selenium, JavaScript and Java, with how-tos and instructions on using different tools and test runners such as Mocha, JUnit, Jenkins, Sauce Labs, SauceConnect, SauceOnDemand, npm, Maven, and more.",
+"tags": ["java, javascript"],
+"categories": ["beginner, intermediate, advanced"],
+```
+
+an as an example, for `app/views/seleniumjs/view.json`:
+
+```
+"title": "Selenium JavaScript",
+"description": "In this course, you will learn to use JavaScript with the Mocha test runner to develop an automated testing suite. Both beginners and advanced testers will create autonomous, easy to maintain test code, and use npm, Jenkins, SauceConnect, and SauceOnDemand along with Selenium, JavaScript, and Mocha to write a test suite and to gain the skills using tools you need as a test automation engineer.",
+"logoUrl": "/SeleniumJS/logo.png",
+"tags": ["javascript"],
+```
+
+###Dropdowns and Categories
+Note that none of the modules are showing on the main page, and that the dropdown seems to be picking up the "title" from view.json and not the tag. The URL for each landing page (JS, or Java) seems to contain the name of the folder in `/app/views` e.g. `URL/seleniumjs`
+
+within the Javascript landing page, the categories are being picked up (all were changed to lowercase). also,
+
 ## Sept 1 2020 – Lindsay
 ### Added Museo Sans
 Updated files in _tools/site/app/styles_ _materials.scss and _typography.scss to include Museo Sans and sans-serif. May need to further change the _materials.scss to modify font weight, width, spacing etc for h1, h2 etc defined in _typography
