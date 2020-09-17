@@ -1,6 +1,6 @@
 {
   "title": "Selenium Java",
-  "description": "In this course, you will learn to use JavaScript with the Mocha test runner to develop an automated testing suite. Both beginners and advanced testers will create autonomous, easy to maintain test code, and use npm, Jenkins, SauceConnect, and SauceOnDemand along with  Selenium, Java, and JUnit to write a test suite and to gain the skills using tools you need as a test automation engineer.",
+  "description": "In this course, you will learn to use Java with the JUnit test runner to develop an automated testing suite. Both beginners and advanced testers will create autonomous, easy to maintain test code, and use Maven, Jenkins, SauceConnect, and SauceOnDemand along with  Selenium, Java, and IntelliJ to write a test suite and to gain test automation skills.",
   "logoUrl": "/SeleniumJava/logo.png",
   "tags": ["java"],
   "exclude": [

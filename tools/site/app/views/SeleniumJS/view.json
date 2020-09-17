@@ -1,6 +1,6 @@
 {
   "title": "Selenium JavaScript",
-  "description": "In this course, you will learn to use JavaScript with the Mocha test runner to develop an automated testing suite. Both beginners and advanced testers will create autonomous, easy to maintain test code, and use npm, Jenkins, SauceConnect, and SauceOnDemand along with Selenium, JavaScript, and Mocha to write a test suite and to gain the skills using tools you need as a test automation engineer.",
+  "description": "In this course, you will learn to use JavaScript with the Mocha test runner to develop an automated testing suite. Both beginners and advanced testers will create autonomous, easy to maintain test code, and use npm, Jenkins, SauceConnect, and SauceOnDemand along with Selenium, JavaScript, and Mocha to write a test suite and to gain test automation skills.",
   "logoUrl": "/SeleniumJS/logo.png",
   "tags": ["javascript"],
   "exclude": [
