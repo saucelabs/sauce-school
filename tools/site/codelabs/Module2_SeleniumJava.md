@@ -1,4 +1,4 @@
-author:Lindsay
+author: Lindsay Walker
 summary: Module 2 of the Selenium Java course. Learn to write Selenium tests in Java using the JUnit framework, Maven, and the IntelliJ IDE.
 id: Module2-SeleniumJava
 categories: intermediate
@@ -9,7 +9,6 @@ feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: Google Analytics ID
 
 <!-- ------------------------ -->
-
 
 # Module 2 — Locators and JavaScript Tests
 <!-- ------------------------ -->
@@ -554,10 +553,7 @@ This is a key debugging strategy, and for each test you create, you should check
 
 ### Final Code
 
-
-
 <img src="assets/2.07F.png" alt="Final Test Code" width="650"/>
-
 
 <!-- ------------------------ -->
 

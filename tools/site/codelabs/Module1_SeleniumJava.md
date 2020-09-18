@@ -1,10 +1,10 @@
-author:Lindsay
+author:Lindsay Walker
 summary: Module 1 of the Selenium Java Test Automation. Learn to write Selenium tests in Java language using the JUnit framework, IntelliJ, and Jenkins.
 id: Module1-SeleniumJava
 categories: beginner
 tags: java  
 environments: Web
-status: Draft
+status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: Google Analytics ID
 
@@ -14,6 +14,7 @@ analytics account: Google Analytics ID
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
 Duration: 0:03:00
+
 *   Learn to install and use Selenium WebDriver in conjunction with Java tools (IntelliJ and Maven) to write tests.  
 *   Use Maven and IntelliJ to compile and run tests and manage dependencies on your machine
 *   Use the Selenium WebDriver in conjunction with a Java test runner (JUnit) to write tests
@@ -26,6 +27,7 @@ Duration: 0:03:00
 
 <!-- ------------------------ -->
 ## 1.02 What is Selenium?
+Duration: 0:05:00
 
 Selenium is an open source tool used for automating testing of web applications. Without  automated testing, each time a web application was updated, a human would have to go onto the website and try various combinations of clicks, interactions, and submissions. If you  automate your testing with a tool like Selenium, when an update is made, you can write and run tests with the “robot” that is Selenium, which performs programmed sets of interactions for you to
 test new features and functionality before an updated version of a web app is released into the wild.
@@ -36,7 +38,7 @@ test new features and functionality before an updated version of a web app is re
 Selenium is a robotic testing tool, not a framework. It expresses no judgement, nor does it help you test. In order to orchestrate how tests are run, and report on the things that Selenium does, you need a framework, which will be covered later on.
 
 
-## **The Seven Basic Steps of Se**lenium Tests**
+### The Seven Basic Steps of Selenium Tests
 
 There are seven basic elements of a Selenium test script, which apply to any test case and any application under test (AUT):
 
@@ -70,7 +72,8 @@ Selenium is built to automate browsers and human interaction with them. This can
 It is less ideal for checking lower-level functionality, like HTTP status codes or HTTP headers. While you can use Selenium this way, it requires third-party tools.
 
 <!-- ------------------------ -->
-# 1.03 What is the W3C WebDriver Protocol?
+## 1.03 What is the W3C WebDriver Protocol?
+Duration: 0:05:00
 
 The WebDriver protocol consists of rules for communication between the client on the local end, -- which uses languages and libraries like Java, Ruby, or JavaScript -- and a web browser. The local end (your computer) communicates with the remote end node on the server side. The web driver defines how the remote end can behave, and the method for how the remote end receives information. As an example, the Selenium WebDriver provides instructions to the browser on how to click or type into elements on a page. This is then communicated to specific browser drivers, such as Chromedriver (for the Chrome browser) or Geckodriver (for the Firefox browser) and the commands are carried out.
 
@@ -89,7 +92,8 @@ JUnit is a Java library/package that allows you to communicate with Selenium and
 ![https://docs.google.com/forms/d/e/1FAIpQLSeVipqyrEAf1oDn8zaKStANDRQ94Ih6ZevtpZTrA9dqL39rLA/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSeVipqyrEAf1oDn8zaKStANDRQ94Ih6ZevtpZTrA9dqL39rLA/viewform?usp=sf_link)
 
 <!-- ------------------------ -->
-# 1.04 Test Frameworks and Dependencies
+## 1.04 Test Frameworks and Dependencies
+Duration: 0:05:00
 
 A test framework includes code libraries as well as rules and conventions for setting up tests. When it comes to testing frameworks, there are three basic pieces that go into creating a framework.
 
@@ -114,6 +118,7 @@ In the exercises that follow, you will learn more about the different tools you 
 
 <!-- ------------------------ -->
 ## 1.05  Installing Dependencies
+Duration: 0:15:00
 
 Download and install [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/#section=mac), a free version of the  IDE. It includes the entire ecosystem that you’ll need, tools to test and debug your code, and a sandbox environment that includes Java and Maven.  This tool makes it easy to download and include the Java Development Kit and that makes the basis for your code, as well as the Maven build tool.
 
@@ -193,7 +198,7 @@ The version of the apache-maven variable needs to reflect which version you down
 From the terminal, inside of your project folder (or in the IntelliJ IDEA),run the command `source ~/.bash_profile` (if you are running MacOS Catalina 10 or above, run `source  ~/.zshrc`) from the terminal inside of your project folder (or in the IntelliJ IDEA) so your machine knows to look at the .`bash_profile `for where to access Java and Maven (setting the `HOME `variables)
 
 
-## Install IntelliJ
+### Install IntelliJ
 
 On the [IntelliJ page](https://www.jetbrains.com/idea/download/#section=mac), download the IntelliJ IDEA community edition.
 
@@ -203,7 +208,7 @@ On the [IntelliJ page](https://www.jetbrains.com/idea/download/#section=mac), do
 Open the .msi  or .dmg file, and then install it as an application.  
 
 
-## Create a New Project Directory with IntelliJ
+### Create a New Project Directory with IntelliJ
 
 Use IntelliJ to create a new project directory. Click on **Create New Project.**
 
@@ -230,7 +235,7 @@ If you look in the project file, you should notice that there is a **pom.xml** f
 
 <img src="assets/1.05N.png" alt="pom.xml" width="350"/>
 
-## Update .pom File
+### Update .pom File
 
 For now, update the .pom file with the following dependencies. Maven will install and use these dependencies alongside the test code. Note that the versions may be out of date and you may want to use a more updated version of JUnit, Selenium, or Selenium drivers.
 
@@ -334,7 +339,7 @@ If your .pom file doesn’t have all the dependencies that you need, or if those
 ![https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/preview](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
 
 
-## Use GitHub Repository (Optional)
+### Use GitHub Repository (Optional)
 
 If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
 
@@ -342,6 +347,7 @@ If you are familiar with using GitHub to write your code, you can also fork/ bra
 
 <!-- ------------------------ -->
 ## 1.06 Editing Code and Java Summary
+Duration: 0:10:00
 
 Take a look at the first test code we will be creating in the next module. There are several things at play:
 
@@ -381,5 +387,7 @@ You can see an example of the project we will begin to be setting up in the next
 <!-- ------------------------ -->
 
 ## 1.07 Module 1 Quiz
+Duration: 0:03:00
+
 
 ![<https://docs.google.com/forms/d/e/1FAIpQLSd39ROQpSKm7_M0FFEuBP24cBPM_AjZ_bcbrKuMe0F31GDRcg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSd39ROQpSKm7_M0FFEuBP24cBPM_AjZ_bcbrKuMe0F31GDRcg/viewform?usp=sf_link)
