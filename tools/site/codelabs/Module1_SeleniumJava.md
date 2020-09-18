@@ -338,13 +338,14 @@ If your .pom file doesn’t have all the dependencies that you need, or if those
 
 If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
 
-**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod1)**
+**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod1/1.06/src/test/java/companyname/TestLogin.java)**
 
 <!-- ------------------------ -->
 ## 1.06 Editing Code and Java Summary
 
 Take a look at the first test code we will be creating in the next module. There are several things at play:
 
+**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod1/1.06/src/test/java/companyname/TestLogin.java)**
 
 <img src="assets/1.06A.png" alt="IntelliJ JDK" width="550"/>
 ### Java Methods

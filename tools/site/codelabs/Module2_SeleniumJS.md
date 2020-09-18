@@ -1,8 +1,8 @@
 author:Lindsay
-summary: Module 2 of the Selenium JavaScript course X. Learn to write Selenium tests in X programming language with X Test runner and X framework
+summary: Module 2 of the Selenium JavaScript course. Learn to write Selenium tests in JavaScript using npm and Mocha.
 id: Module2-SeleniumJS
 categories: intermediate
-tags: javaScript
+tags: javascript
 environments: Web
 status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
@@ -126,8 +126,8 @@ A great way to increase your chances of success with automated web testing is to
 *   _What browsers are your users using?_
 *   _What things have broken in the application before?_
 
-![Bootsterbot](assets/2.03A.png)
-<!-- <img align="center" width="400" height="auto" src="assets/2.03A.png"> -->
+
+<img src="assets/2.03A.png" alt="Directory Structure" width="250"/>
 
 ### What to Do with the Answers
 
@@ -180,7 +180,7 @@ The simplest way to find locators is to inspect the elements on a page. The best
 
 When viewing the page, right-click on the element you want to interact with and click **Inspect Element**. This will bring up a small window with all of the markup for the page but zoomed into your highlighted selection. From here, you can see if there are unique or descriptive attributes you can work with.
 
-![image_caption](assets/2.04A.png)
+<img src="assets/2.04A.png" alt="npm init" width="200"/>
 
 
 If you're fortunate enough to be working with unique IDs and classes, then you're usually all set. But when you have to handle more complex actions like traversing a page, or you need to run down odd test behavior, it can be a real challenge to verify that you have the right locators to accomplish what you want.
@@ -386,7 +386,7 @@ When we're done our directory, structure should look like this:
 <!-- ![directory with npm](assets/2.05G.png) -->
 
 
-Now you are ready for the next lessons here you will write your first test!
+Now you are ready for the next lessons where you will write your first test!
 
 <!-- ------------------------ -->
 
