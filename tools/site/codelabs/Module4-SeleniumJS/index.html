@@ -78,7 +78,7 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="4.03 Scaling your Tests" duration="10">
+      <google-codelab-step label="4.03 Scaling your Tests" duration="16">
         <p>Now that we have some tests and page objects, we&#39;ll want to start thinking about how to structure our test code to be more flexible. Ensuring that our code is reusable, and can scale to as many tests as we need requires some additional elements &amp; abstractions.</p>
 <h2 is-upgraded>Part 1: Global Setup &amp; Teardown</h2>
 <p>We&#39;ll start by using a separate class for Selenium setup and teardown out of our tests, placing the file in a central directory.</p>
@@ -328,7 +328,7 @@ class DriverFactory {
 
       </google-codelab-step>
     
-      <google-codelab-step label="4.05  Testing on Sauce Labs" duration="0">
+      <google-codelab-step label="4.05  Testing on Sauce Labs" duration="15">
         <p>In this lesson you are going to learn how to move the test suite that you have written from your local machine onto the <a href="https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link" target="_blank">Sauce Labs</a> cloud provider. They maintain a set of real and virtual devices, as well as a Selenium grid that you can use to run your test in almost any environment. There are many reasons this is advantageous:</p>
 <ul>
 <li>You can use virtual machines (without having to set it up on your own machine)  <ul>
@@ -450,7 +450,7 @@ class DriverFactory {
 
       </google-codelab-step>
     
-      <google-codelab-step label="4.06  Setup for Sauce Labs Reporting" duration="10">
+      <google-codelab-step label="4.06  Setup for Sauce Labs Reporting" duration="12">
         <p>In this lesson you will add in some elements for better reporting to understand the status of test run on the<a href="https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link" target="_blank"> Sauce Labs automated web testing platform</a>.</p>
 <p>Now that your tests are up and running on the Sauce Labs platform, you&#39;ll notice it&#39;s hard to tell one apart from the other. The tests you should have run will show up as <strong>Unnamed job</strong> with a hash identifier- not easy to use for testing and debugging.</p>
 <p class="image-container"><img alt="Unnamed Job" style="width: 550.00px" src="img/880ba3c69a244afb.png"></p>

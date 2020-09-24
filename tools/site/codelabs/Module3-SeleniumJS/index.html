@@ -28,7 +28,7 @@
                   feedback-link="https://forms.gle/CGu4QchgBxxWnNJK8">
     
       <google-codelab-step label="3.01 What You&#39;ll Learn" duration="3">
-        <p><em>The Selenium Guidebook JavaScript Edition</em> By Dave Haeffner. This module focuses on writing tests in Selenium that follow the Page Object Model (POM) for organizing test suites and abstracting imperative code into separate classes from the page and test classes. Add error handling to your test suit to detect and debug more easily, as well as learn about explicit and implicit waits and how they should be used.</p>
+        <p>This module is derived from content in chapters 8-10 of <em>The Selenium Guidebook JavaScript Edition</em> By Dave Haeffner. This module focuses on writing tests in Selenium that follow the Page Object Model (POM) for organizing test suites and abstracting imperative code into separate classes from the page and test classes. Add error handling to your test suit to detect and debug more easily, as well as learn about explicit and implicit waits and how they should be used.</p>
 <h2 is-upgraded>Objectives</h2>
 <ul>
 <li>Create a Base Page and use the simplified commands created with other pages to write code that is easier to read and maintain</li>
@@ -79,7 +79,7 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="3.03 Your First Page Object" duration="0">
+      <google-codelab-step label="3.03 Your First Page Object" duration="12">
         <p>One of the biggest challenges with Selenium tests is that they can be brittle and challenging to maintain over time. This is largely due to the fact that things in the application you&#39;re testing change - like elements that appear on the screen or even the flow &amp; layout of your website — causing your tests to break.</p>
 <p>But the reality of a software project is that <em>change is a constant</em>. So you need to account for this reality somehow in our test code in order to be successful.</p>
 <p>Enter Page Objects.</p>
@@ -163,7 +163,7 @@ const LoginPage = require(&#39;../pages/LoginPage&#39;)
 
       </google-codelab-step>
     
-      <google-codelab-step label="3.04 Writing Code with Error Handling" duration="0">
+      <google-codelab-step label="3.04 Writing Code with Error Handling" duration="10">
         <p>When you write tests, you are checking for one specific thing to occur. In the last example, you were checking for a specific situation where the user logs onto the login page, enters their username and password, and then they get a message indicating their success.</p>
 <p>There is more than one reason, however, why that test might fail. The test you wrote kind of assumes that the user and server for the website did everything right, and is testing to see if the app responds with a success message as expected. Some other reasons why the success message might not display include:</p>
 <ul>
@@ -229,7 +229,7 @@ const LOGIN_FORM = { id: &#39;login&#39; }
 
       </google-codelab-step>
     
-      <google-codelab-step label="3.05  Common Issues with Test Code Reuse" duration="0">
+      <google-codelab-step label="3.05  Common Issues with Test Code Reuse" duration="17">
         <p>In the previous lesson, you stepped through creating a simple page object to capture the behavior of the page you were interacting with. While this is a good start, there&#39;s more you can do.</p>
 <p>As our test suite grows, and you add more page objects, you will start to see common behavior that you will want to use over and over again throughout our suite. If you leave this unchecked you will end up with duplicative code which will slowly make our page objects harder to maintain.</p>
 <p>Right now you are using Selenium actions directly in your page object. While on the face of it this may seem fine, it has some long term impacts, like:</p>
@@ -388,7 +388,7 @@ it(&#39;with invalid credentials&#39;, async function() {
 
       </google-codelab-step>
     
-      <google-codelab-step label="3.06  Resilient Test Code and Timing — Page with Explicit Waits" duration="0">
+      <google-codelab-step label="3.06  Resilient Test Code and Timing — Page with Explicit Waits" duration="12">
         <p>Ideally you should be able to write your tests once and run them across all supported browsers. More often than not, however, you will run into unexpected problems running a test in all environments, and sometimes there may be a hack or two involved.</p>
 <p>Choosing high quality locators will help with this, but there are still some issues to deal with; most notably, timing. This is especially true when working with dynamic, JavaScript heavy pages, which is more the rule than the exception in a majority of web applications you&#39;ll deal with.</p>
 <p>But there is a simple way to design the bedrock of reliable and resilient Selenium tests — and that&#39;s how you wait for elements you want to interact with. The best way to do this is through the use of explicit waits.</p>
@@ -498,7 +498,7 @@ const Until = require(&#39;selenium-webdriver&#39;).until
 
       </google-codelab-step>
     
-      <google-codelab-step label="3.07  Testing with Explicit Waits" duration="0">
+      <google-codelab-step label="3.07  Testing with Explicit Waits" duration="8">
         <p>Now that you have our new page object and an updated base page, it&#39;s time to write our test to use it.</p>
 <h2 is-upgraded>Part 1: Dynamic Loading Test</h2>
 <p>Let&#39;s create a new file called <code>DynamicLoadingTest.js</code> in the test directory.</p>

@@ -97,7 +97,7 @@ This type of testing refers to a code-based approach to testing web applications
 
 
 ## 4.03 Scaling your Tests
-Duration: 0:10:00
+Duration: 0:16:00
 
 Now that we have some tests and page objects, we'll want to start thinking about how to structure our test code to be more flexible. Ensuring that our code is reusable, and can scale to as many tests as we need requires some additional elements & abstractions.
 
@@ -534,6 +534,7 @@ The new code should look like this:
 
 
 ## 4.05  Testing on Sauce Labs
+Duration: 0:15:00
 
 In this lesson you are going to learn how to move the test suite that you have written from your local machine onto the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) cloud provider. They maintain a set of real and virtual devices, as well as a Selenium grid that you can use to run your test in almost any environment. There are many reasons this is advantageous:
 
@@ -730,7 +731,7 @@ Your final code will look like this:
 
 
 ## 4.06  Setup for Sauce Labs Reporting
-Duration: 0:10:00
+Duration: 0:12:00
 
 In this lesson you will add in some elements for better reporting to understand the status of test run on the[ Sauce Labs automated web testing platform](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
 

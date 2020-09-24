@@ -12,6 +12,7 @@ Feedback Link: https://forms.gle/CGu4QchgBxxWnNJK8
 
 ## 3.01 What You’ll Learn
 Duration: 0:03:00
+
 This module is derived from content in chapters 8-10 of _The Selenium Guidebook JavaScript Edition_ By Dave Haeffner. This module focuses on writing tests in Selenium that follow the Page Object Model (POM) for organizing test suites and abstracting imperative code into separate classes from the page and test classes. Add error handling to your test suit to detect and debug more easily, as well as learn about explicit and implicit waits and how they should be used.
 
 ### Objectives
@@ -79,6 +80,7 @@ Take a look at this snippet of a Sauce Labs meetup talk by Titus Fortner to see 
 ![https://drive.google.com/file/d/1zq2JBVjFwupuq2NbsrkW5vHrIOFR3xer/preview](https://drive.google.com/file/d/1zq2JBVjFwupuq2NbsrkW5vHrIOFR3xer/view?usp=sharing)
 
 ## 3.03 Your First Page Object
+Duration: 0:12:00
 
 One of the biggest challenges with Selenium tests is that they can be brittle and challenging to maintain over time. This is largely due to the fact that things in the application you're testing change - like elements that appear on the screen or even the flow & layout of your website — causing your tests to break.
 
@@ -204,6 +206,7 @@ Run npm test and you should get this success message:
 See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/code-examples/javascript/Mod3/3.02). Note that you have to run `npm install` in the root project folder before being able to use code pulled down from a repository.
 
 ## 3.04 Writing Code with Error Handling
+Duration: 0:10:00
 
 When you write tests, you are checking for one specific thing to occur. In the last example, you were checking for a specific situation where the user logs onto the login page, enters their username and password, and then they get a message indicating their success.
 
@@ -307,6 +310,7 @@ The code for the the LoginPage should now look like this:
 <img src="assets/3.04D.png" alt="Page Object Directory" width="600"/>
 
 ## 3.05  Common Issues with Test Code Reuse
+Duration: 0:17:00
 
 In the previous lesson, you stepped through creating a simple page object to capture the behavior of the page you were interacting with. While this is a good start, there's more you can do.
 
@@ -528,6 +532,8 @@ Review the [complete source code](https://github.com/walkerlj0/Selenium_Course_E
 ![https://docs.google.com/forms/d/e/1FAIpQLSe0UySBd2KO1SL5ytlrmSRuyKyHwM3lz5R_PElfFpMcJJcAQQ/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSe0UySBd2KO1SL5ytlrmSRuyKyHwM3lz5R_PElfFpMcJJcAQQ/viewform?usp=sf_link)
 
 ## 3.06  Resilient Test Code and Timing — Page with Explicit Waits
+Duration: 0:12:00
+
 
 Ideally you should be able to write your tests once and run them across all supported browsers. More often than not, however, you will run into unexpected problems running a test in all environments, and sometimes there may be a hack or two involved.
 
@@ -694,6 +700,7 @@ The changes to the code at this point should look like this:
 
 
 ## 3.07  Testing with Explicit Waits
+Duration: 0:08:00
 
 Now that you have our new page object and an updated base page, it's time to write our test to use it.
 
