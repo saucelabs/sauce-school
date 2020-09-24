@@ -10,7 +10,7 @@ analytics account: Google Analytics ID
 
 <!-- ------------------------ -->
 
-# Module 2 — Locators and JavaScript Tests
+# Module 2 — Locators and Java Tests
 <!-- ------------------------ -->
 
 ## 2.01 What You’ll Learn

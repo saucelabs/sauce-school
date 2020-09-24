@@ -42,11 +42,11 @@ In testing, both automated and manual, there are several different types of test
 
 ### Functional vs Non-Functional Tests
 
-These two types of tests are ways to categorize tests by what they are testing. Functional tests check to see if a feature is or is not working, nothing more (e.g. did I log in or not log in?). Non-functional testing typically gives a value or amount that helps engineering and product teams do **performance testing** and understand and predict whether the software and features will work as expected, at scale. An example would be load testing, to see if the test runs as expected with many simultaneous users or volume testing. Sauce Labs does front-end
+These two types of tests are ways to categorize tests by what they are testing. Functional tests check to see if a feature is or is not working, nothing more (e.g. did I log in or not log in?). Non-functional testing typically gives a value or amount that helps engineering and product teams do **performance testing** and understand and predict whether the software and features will work as expected, at scale. An example would be load testing, to see if the test runs as expected with many simultaneous users or volume testing.  [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)   does front-end functional testing, as well as non-functional testing.
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="Ksjm2D3"><a href="//imgur.com/Ksjm2D3">DDoS Attack</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<img src="assets/DDoS.gif" alt="DDOS Attack" width="450"/>
 
-(DDOS attack GIF on imgur: [https://imgur.com/Ksjm2D3](https://imgur.com/Ksjm2D3))
+Source [imgur](https://imgur.com/Ksjm2D3)
 
 Selenium is most used for functional testing  Types of functional tests include unit testing, UI testing, regression testing, integration testing, and more.
 
@@ -93,7 +93,7 @@ White Box testing is a type of testing you do when you can see and understand al
 
 ### [Headless Testing](https://saucelabs.com/blog/headless-browser-testing-101)
 
-This type of testing refers to a code-based approach to testing web applications. When a human user is manually testing an application, they are looking at the visual browser interface with items you can see, click, and interact with. Headless testing is done by a robot that doesn’t use the visual component of a browser, and instead does all interactions through communication with the codebase and other services that make up an application. [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) also provides headless user testing .
+This type of testing refers to a code-based approach to testing web applications. When a human user is manually testing an application, they are looking at the visual browser interface with items you can see, click, and interact with. Headless testing is done by a robot that doesn’t use the visual component of a browser, and instead does all interactions through communication with the codebase and other services that make up an application. [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) also provides headless user testing.
 
 
 ## 4.03 Scaling your Tests
