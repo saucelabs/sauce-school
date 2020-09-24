@@ -36,4 +36,4 @@ jobs:
           cd tools/site/build
           gsutil -m rsync -R . ${{ secrets.GCS_BUCKET }}
           cd ../
-          gsutil -m rsync -R codelabs/ ${{ secrets.GCS_BUCKET}}
+          gsutil -m rsync -R codelabs/ ${{ secrets.GCS_BUCKET}}/codelabs
