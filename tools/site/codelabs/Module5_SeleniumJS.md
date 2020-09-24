@@ -219,7 +219,7 @@ configure() {
 ```
 
 
-Last but not least, update `config.js` so that the `host` variable is set to `s'auce-W3C`” so it matches the third case in `DriverFactory.js:`
+Last but not least, update `config.js` so that the `host` variable is set to `sauce-W3C` so it matches the third case in `DriverFactory.js:`
 
 
 ```
