@@ -54,7 +54,9 @@ There are many versions of the pyramid created by experts in the testing field, 
 
 #### Video
 
-[5.02 Testing Strategy](https://drive.google.com/file/d/1RwwCDmqY4Q1H8NG8LFx0VsKxTjb5flCK/view?usp=sharing), Excerpts from “Pyramids Are Ancient” By Richard Bradshaw to learn about how to develop a testing strategy for your business, as well as tip on how to plan and identify the layers of your application you should run your tests on.
+Watch [5.02 Testing Strategy](https://drive.google.com/file/d/1RwwCDmqY4Q1H8NG8LFx0VsKxTjb5flCK/view?usp=sharing), Excerpts from “Pyramids Are Ancient” By Richard Bradshaw to learn about how to develop a testing strategy for your business, as well as tip on how to plan and identify the layers of your application you should run your tests on.
+
+ ![https://drive.google.com/file/d/1RwwCDmqY4Q1H8NG8LFx0VsKxTjb5flCK/preview](https://drive.google.com/file/d/1RwwCDmqY4Q1H8NG8LFx0VsKxTjb5flCK/view?usp=sharing)
 
 
 ### Testing Layers
@@ -668,6 +670,8 @@ To run your test, simply click **Build Now** in the menu, then click on the sphe
 #### Video
 
 Watch [5.06 Run Jenkins with Homebrew ](https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/view?usp=sharing)for a walk through of how to run and check the configuration of your test job and Node environment in Jenkins.
+
+![https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/preview](https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/view?usp=sharing)
 
 
 #### NOTE

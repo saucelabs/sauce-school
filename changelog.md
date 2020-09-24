@@ -1,8 +1,21 @@
 # Changelog- Add newest additions in an .md file at top
 ///start typing below this text
 
-##Sept 17 2020 – lindsay
-##Updated the markdown/ view files
+## Sept 24 – Lindsay
+### Added colors & icons to Module Cards
+- In _tools/site/app/images_ added in some small images to use as icons as codelab card.
+- in _tools/site/app/styles/\_categories.scss_ Added in to the very bottom;
+
+```
+@include codelab-card(['beginner'], $pantoneRed, 'magGlass.png');
+@include codelab-card(['intermediate'], $pantoneRed, 'seleniumSml.png');
+@include codelab-card(['advanced'], $pantoneRed, 'checkSml.png');
+```
+
+- Finally, went into _tools/site/images/icons_ and added in the small icons I used in the above code e.g. `seleniuumSml.png`
+
+##Sept 17 2020 – Lindsay
+###Updated the markdown/ view files
 In each of the markdown files in the `codelabs` directory, I made the tag and categories lowercase. Example from `Module1_SeleniumJS`
 
 ```
