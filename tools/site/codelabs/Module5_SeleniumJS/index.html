@@ -161,7 +161,7 @@ configure() {
   }
 
 </code></pre>
-<p>Last but not least, update <code>config.js</code> so that the <code>host</code> variable is set to <code>s&#39;auce-W3C</code>&#34; so it matches the third case in <code>DriverFactory.js:</code></p>
+<p>Last but not least, update <code>config.js</code> so that the <code>host</code> variable is set to <code>sauce-W3C</code> so it matches the third case in <code>DriverFactory.js:</code></p>
 <pre><code>// filename: lib/config.js
 module.exports = {
   baseUrl: process.env.BASE_URL || &#39;http://the-internet.herokuapp.com&#39;,
@@ -374,6 +374,11 @@ describe(&#39;Dynamic Loading @deep&#39;, function() {
 <p>Since you are using npm to manage dependencies, including Mocha and the <code>npm test</code>command, you need to set up **NodeJS **as a **Global Tool **so Jenkins can use it in the same way your machine does to run tests.</p>
 <p>First, return to the dashboard (You can do this by clicking the** Jenkins** icon in the menu at any time). Next, click on <strong>Manage Jenkins</strong> &gt; <strong>Global Tool Configuration</strong>.</p>
 <p class="image-container"><img alt="Manage Jenkins Global Tools Configuration" style="width: 750.00px" src="img/f07e8c488291503b.png"></p>
+<p>NOTE If you see a warning at the top of your Global Tool Configuration dashboard, you can go to the plugin manager, choose the <strong>Available</strong> tab, and install necessary updates.</p>
+<p>For those updates to take effect, you need to type in terminal:</p>
+<p class="image-container"><img alt="Global Tools Config" style="width: 750.00px" src="img/ff3337ac9bc18c33.png"></p>
+<p>Brew services restart jenkins</p>
+<p>–</p>
 <p>Scroll down to the bottom where you will see the NodeJS section. Open it up and choose <strong>Add NodeJS</strong>. Give this one a name, and pick your version of NodeJS. We also need to make sure it installs the most recent version of mocha. You will do this by typing <code>mocha@&amp;lt;x.x.x</code>&gt;. This should be the same as the version in your <code>package.json</code> file. Hit** Save**.</p>
 <p class="image-container"><img alt="Add NodeJS" style="width: 750.00px" src="img/ff3337ac9bc18c33.png"></p>
 <p>Last but not least you need to use this NodeJS installation in our test. Return to your dashboard and click on the name of your test. Click the <strong>Configure</strong> tab and scroll down to find the <strong>Build Environment</strong> section.</p>
@@ -549,8 +554,9 @@ module.exports = {
 </code></pre>
 <h2 is-upgraded>Running a Test with Sauce OnDemand and Sauce Connect</h2>
 <p>This part is simple: to get a Sauce Connect Proxy tunnel up and running, all you&#39;ll need to do is change one Jenkins configuration in your job. All of your tests will be routed through that tunnel.</p>
-<p>Go to **Shallow Test Chrome 75 Windows 10 <strong>&gt;</strong> Configure<strong>. Under</strong> Sauce Connect Options<strong>,</strong> **check the **Enable Sauce Connect **checkbox. You don&#39;t have to do anything to set the variable, or install any software or run commands to get the running—Sauce OnDemand does everything for you.</p>
-<p class="image-container"><img alt="Enable Sauce Connect" style="width: 750.00px" src="img/53c2d89b690ba0f1.png"></p>
+<p>Go to **Shallow Test Chrome 75 Windows 10 <strong>&gt;</strong> Configure<strong>. Under</strong> Build Environment, <strong>check the box that says</strong> Sauce Labs Support<strong>,then</strong> **check the **Enable Sauce Connect **checkbox, and choose the global credentials you set up (or add new ones).</p>
+<p class="image-container"><img alt="Enable Sauce Connect" style="width: 750.00px" src="img/5d40fceff534b2bc.png"></p>
+<p>You don&#39;t have to do anything to set the variable, or install any software or run commands to get the tunnel running—Sauce OnDemand creates a tunnel and runs the tests in it for you.</p>
 <p>Now you can run your tests. If you would like, you can also comment out the failing test from LoginTest.js, then watch as your tests are built successfully on <a href="https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link" target="_blank">Sauce Labs</a> and your Jenkins interface:</p>
 <pre><code>// filename: test/LoginTest.js
 //...
