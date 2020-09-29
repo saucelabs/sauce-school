@@ -8,7 +8,7 @@ tags: javascript
 environments: Web
 status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
-analytics account: Google Analytics ID
+analytics account: UA-6735579-1
 
 <!-- ------------------------ -->
 # Module 5 – Sauce Connect, Sauce OnDemand, and Continuous Integration

@@ -8,7 +8,7 @@ tags: <enter Language names here from tools/site/app/views what is labeled in th
 environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
-analytics account: Google Analytics ID
+analytics account: UA-6735579-1
 
 <!-- ------------------------ -->
 # Module X – Title of codelab
