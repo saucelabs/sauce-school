@@ -26,6 +26,7 @@ $card-col-height: 200px; // column mode
   flex-wrap: wrap;
   justify-content: flex-start;
   margin-bottom: $keyline * 3;
+  min-height: 300px;
 }
 
 .codelab-card {
