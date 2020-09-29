@@ -14,8 +14,8 @@
 
 - Finally, went into _tools/site/images/icons_ and added in the small icons I used in the above code e.g. `seleniuumSml.png`
 
-##Sept 17 2020 – Lindsay
-###Updated the markdown/ view files
+## Sept 17 2020 – Lindsay
+### Updated the markdown/ view files
 In each of the markdown files in the `codelabs` directory, I made the tag and categories lowercase. Example from `Module1_SeleniumJS`
 
 ```
@@ -43,7 +43,7 @@ an as an example, for `app/views/seleniumjs/view.json`:
 "tags": ["javascript"],
 ```
 
-###Dropdowns and Categories
+### Dropdowns and Categories
 Note that none of the modules are showing on the main page, and that the dropdown seems to be picking up the "title" from view.json and not the tag. The URL for each landing page (JS, or Java) seems to contain the name of the folder in `/app/views` e.g. `URL/seleniumjs`
 
 within the Javascript landing page, the categories are being picked up (all were changed to lowercase). also,
