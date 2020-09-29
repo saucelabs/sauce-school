@@ -15,15 +15,8 @@
  */
 
 @import "material";
-@font-face {
-    font-family: 'Museo-Sans';
-    src: url('https://use.typekit.net/zmt8tam.css');
-}
-
 body {
-  @include md-font-subhead();
-  // line-height: 32px;
-  color: #5c5c5c;
+  @include md-font-body1();
 }
 
 h1 {

@@ -16,10 +16,12 @@
 
 @import "_variables";
 
-#footer {
-  background-color: $pantoneGrey;
+footer {
+  background-color: $sauceRed;
   font-size: 13px;
   padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
 
   ul, li {
     list-style: none;
@@ -27,8 +29,13 @@
     padding: 0;
   }
 
-  a {
-    color: $grey500;
+  .footer-column {
+    padding: 0 20px;
+
+    a {
+      color: #fff;
+    }
+
   }
 
   .footer-wrapper {
