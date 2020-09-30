@@ -21,8 +21,8 @@ jobs:
       - name: Install Dependencies and Build Site
         run: |
           cd tools/site
-          npm install && npm install -g gulp-cli
-          gulp serve --codelabs-dir=codelabs &
+          npm install
+          npm run dist
           
       - name: Setup Google Cloud CLI
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
