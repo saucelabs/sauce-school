@@ -23,6 +23,8 @@ This module, based off chapters 13-18 of _The Selenium Guidebook:_ _JavaScript E
 
 ### Skills & Knowledge
 
+Hello Lindsay! 
+
 
 *   Set up and run tests using the Sauce Connect Proxy tunnel with terminal commands and the Sauce Labs application interface. Set up environment variables and access them with the Sauce Connect software to run tests using the tunnel
 *   Use npm to install the mocha-parallel-tests package and use that package to run tests on the Sauce Platform in parallel
