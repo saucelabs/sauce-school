@@ -5,6 +5,11 @@ on:
     tags:
       - 'v*'
 
+env:
+  GCS_BUCKET: ${{secrets.PROD_BUCKET}}
+  RUN_PROJECT: ${{secrets.PROD_RUN_PROJECT}}
+  RUN_SA_KEY: ${{secrets.PROD_RUN_SA_KEY}}
+
 jobs:
   build-and-deploy-to-cloud-storage:
     name: Deploy to GCS Training Bucket
@@ -28,14 +33,11 @@ jobs:
       - name: Install Dependencies and Build Site
         run: |
           cd tools/site
-          npm install
-          npm run dist
+          npm ci
+          npm run gulp -- dist --codelabs-dir=codelabs
 
       - name: Deploy to GCS Bucket
         run: |
-          cd tools/site/build
-          gsutil -m rsync -R . ${{ secrets.GCS_PROD_BUCKET }}
-          cd ../app
-          gsutil -m rsync -R elements/ ${{ secrets.GCS__PROD_BUCKET }}/elements
-          cd ../
-          gsutil -m rsync -R codelabs/ ${{ secrets.GCS__PROD_BUCKET}}/codelabs
+          cd tools/site
+          npm run gulp -- publish:prod:views --prod-bucket=$GCS_BUCKET
+          npm run gulp -- publish:prod:codelabs --prod-bucket=$GCS_BUCKET

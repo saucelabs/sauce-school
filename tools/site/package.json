@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dist": "node_modules/.bin/gulp dist --codelabs-dir=codelabs"
+    "gulp": "node_modules/.bin/gulp"
   },
   "private": true,
   "devDependencies": {

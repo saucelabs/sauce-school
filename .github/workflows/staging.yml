@@ -2,10 +2,16 @@
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
 name: Deploy to staging
+
 on:
   push:
     branches:
       - master
+
+env:
+  GCS_BUCKET: ${{secrets.STAGING_BUCKET}}
+  RUN_PROJECT: ${{secrets.STAGING_RUN_PROJECT}}
+  RUN_SA_KEY: ${{secrets.STAGING_RUN_SA_KEY}}
 
 jobs:
   build-and-deploy:
@@ -34,11 +40,14 @@ jobs:
           npm install
           npm run dist
 
+      - name: Install Dependencies and Build Site
+        run: |
+          cd tools/site
+          npm ci
+          npm run gulp -- dist --codelabs-dir=codelabs
+
       - name: Deploy to GCS Bucket
         run: |
-          cd tools/site/build
-          gsutil -m rsync -R . ${{ secrets.GCS_STAGING_BUCKET }}
-          cd ../app
-          gsutil -m rsync -R elements/ ${{ secrets.GCS_STAGING_BUCKET }}/elements
-          cd ../
-          gsutil -m rsync -R codelabs/ ${{ secrets.GCS_STAGING_BUCKET}}/codelabs
+          cd tools/site
+          npm run gulp -- publish:prod:views --prod-bucket=$GCS_BUCKET
+          npm run gulp -- publish:prod:codelabs --prod-bucket=$GCS_BUCKET
