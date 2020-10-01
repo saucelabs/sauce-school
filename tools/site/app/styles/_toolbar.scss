@@ -20,19 +20,45 @@
   display: flex;
   align-items: center;
   height: $keyline * 8;
-  background-color: $coolGrey10C10;
+  background-color: #fff;
   color: #fff;
   padding: $keyline * 2;
-
+  height: 100px;
   paper-icon-button[icon="menu"] {
     flex-shrink: 0;
   }
-
   a {
     display: flex;
     align-items: center;
   }
-
+  ul.header__primary-nav {
+    list-style-type: none;
+    margin: 25px 0px 0px 0px;
+    padding: 0px;
+    li {
+      float: left;
+      margin-right: 25px;
+      a {
+        color: #464B54;
+        &.btn.btn-primary {
+          background-color: #F83838;
+          color: #fff;
+          border-radius: 50px;
+          padding: 6px 15px 6px 15px;
+          margin-top: -8px;
+          font-size: 12px;
+          letter-spacing: 2px;
+        }
+        &.sign__in {
+          color:  #F83838;
+        }
+      }
+      .search__icon {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
   .logo-icon {
     margin-right: $keyline * 2;
     width: 30px;

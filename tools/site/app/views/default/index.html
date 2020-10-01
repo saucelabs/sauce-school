@@ -101,13 +101,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <a href="/">
           <img src="/images/logo.png" class="logo-devs" alt="Codelabs Logo">
         </a>
-        <div id="searchbar">
+        <!--<div id="searchbar">
           <paper-input-container no-label-float>
             <paper-icon-button prefix icon="search"></paper-icon-button>
             <label>Search</label>
             <input is="iron-input" bind-value="{{searchVal}}" on-keydown="onSearchKeyDown">
           </paper-input-container>
-        </div>
+        </div>-->
+        <ul class="header__primary-nav">
+          <li><a href="#">Solutions</a></li>
+          <li><a href="#">Platform</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Resources</a></li>
+          <li><a href="#">Company</a></li>
+          <li><a href="#">Contact</a></li>
+          <li>
+            <a class="btn btn-primary" href="#">Try it free</a>
+          </li>
+          <li><a class="sign__in" href="#">Sign In</a></li>
+          <li><a href="#"><img class="search__icon" src="/images/search-icon.svg" /></a></li>
+        </ul>
       </div>
     </div>
     {% endraw %}
