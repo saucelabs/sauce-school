@@ -109,7 +109,7 @@ Frameworks provide both tools and guidelines for creating and designing test sui
 
 So far, you’ve learned a bit about how the code on your end communicates with the W3C WebDriver using Selenium. This isn’t the whole picture, however. There are other tools that enable you to write and implement test code. Usually, runners and frameworks are used alongside the base programming language that help give structure, create commands, manage and organize files, store data, and more. In this course, we will use JUnit annotations and methods with Java and Selenium to write our tests.
 
-<img src="assets/1.04A.png" alt=Framework Diagram width="450"/>
+<img src="assets/1.04B.png" alt=Framework Diagram width="650"/>
 
 Above is an example of how you might connect a framework with the Selenium grid that then executes tests with the Selenium WebDriver.
 
@@ -356,7 +356,7 @@ Take a look at the first test code we will be creating in the next module. There
 <img src="assets/1.06A.png" alt="IntelliJ JDK" width="550"/>
 ### Java Methods
 
-**public class **– A command that instantiates a Java Class.
+**public class**– A command that instantiates a Java Class.
 
 **private** – A command used to declare a variable whose scope is to be used only within the class or method it is defined within.
 

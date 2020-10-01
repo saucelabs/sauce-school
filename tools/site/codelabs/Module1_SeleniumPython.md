@@ -1,8 +1,8 @@
 author:Lindsay Walker
-summary: Module 1 of the Selenium Java Test Automation. Learn to write Selenium tests in Java language using the JUnit framework, IntelliJ, and Jenkins.
-id: Module1-SeleniumJava
+summary: Module 1 of the Selenium Python Test Automation. Learn to write Selenium tests in Java language using the Pytest framework, the PyCharm IDE
+id: Module1-SeleniumPython
 categories: beginner
-tags: java  
+tags: python  
 environments: Web
 status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
@@ -77,7 +77,7 @@ Duration: 0:05:00
 
 The WebDriver protocol consists of rules for communication between the client on the local end, -- which uses languages and libraries like Java, Ruby, Python, or JavaScript -- and a web browser. The local end (your computer) communicates with the remote end node on the server side. The web driver defines how the remote end can behave, and the method for how the remote end receives information. As an example, the Selenium WebDriver provides instructions to the browser on how to click or type into elements on a page. This is then communicated to specific browser drivers, such as Chromedriver (for the Chrome browser) or Geckodriver (for the Firefox browser) and the commands are carried out.
 
-The code that Selenium provides to you as a developer (the libraries) is called a Selenium language binding. It binds together the Python code you write for actions and tests with things that WebDriver can understand.
+The code that Selenium provides to you as a developer (as libraries) is called a Selenium language binding. It binds together the Python code you write for actions and tests with things that WebDriver can understand.
 
 
 
@@ -85,7 +85,7 @@ The code that Selenium provides to you as a developer (the libraries) is called 
 
 Python uses the driver method to interact with Selenium. When you use it, you instantiate a web driver, and then you have access to methods allowed by the web driver. Selenium uses the driver to automate and manipulate elements in the browser. Some examples of drivers include Chromedriver for the Chrome browser or Geckodriver for the Firefox browser.
 
-------- is a -------- library/package that allows you to communicate with Selenium and run unit tests. It also helps orchestrate test execution. This -------- language binding (Selenium WebDriver methods written in --------) allows you to leverage the features specified by the W3C WebDriver protocol.
+The Pytest dependencies are a set of Python library/package that allow you to communicate with Selenium and run unit tests. It also helps orchestrate test execution. The [Python language binding](https://selenium-python.readthedocs.io/installation.html#downloading-python-bindings-for-selenium), which are Selenium WebDriver methods written in python, allow you to leverage the features specified by the W3C WebDriver protocol.
 
 
 #### Quiz
@@ -97,7 +97,7 @@ Duration: 0:05:00
 
 A test framework includes code libraries as well as rules and conventions for setting up tests. When it comes to testing frameworks, there are three basic pieces that go into creating a framework.
 
-**Test Runner –** A library or tool that takes the tests you write, along with settings you have configured in your tests, and executes them. It orchestrates the execution of the tests, controlling what is run when and in what order. For this course, we will be using the ------ test runner.
+**Test Runner –** A library or tool that takes the tests you write, along with settings you have configured in your tests, and executes them. It orchestrates the execution of the tests, controlling what is run when and in what order. For this course, we will be using the Pytest test runner.
 
 **Robot –** Performs the actual actions on the browser. In this case, Selenium is the robot used to perform the interactions. It is a protocol that tells the browser to locate elements and perform actions on a page.
 
@@ -107,9 +107,9 @@ A good framework combines best practices for structuring and writing code, along
 
 Frameworks provide both tools and guidelines for creating and designing test suites. They can include coding standards, test-data handling methods, Page Object Models, processes for storing test results, and information on how to access external resources.
 
-So far, you’ve learned a bit about how the code on your end communicates with the W3C WebDriver using Selenium. This isn’t the whole picture, however. There are other tools that enable you to write and implement test code. Usually, runners and frameworks are used alongside the base programming language that help give structure, create commands, manage and organize files, store data, and more. In this course, we will use ------- and methods with -------- and Selenium to write our tests.
+So far, you’ve learned a bit about how the code on your end communicates with the W3C WebDriver using Selenium. This isn’t the whole picture, however. There are other tools that enable you to write and implement test code. Usually, runners and frameworks are used alongside the base programming language that help give structure, create commands, manage and organize files, store data, and more. In this course, we will use Python and methods with -------- and Selenium to write our tests.
 
-<img src="assets/xxx.png" alt="Framework Diagram" width="450"/>
+<img src="assets/1.04C.png" alt="Framework Diagram" width="650"/>
 
 Above is an example of how you might connect a framework with the Selenium grid that then executes tests with the Selenium WebDriver.
 
@@ -127,7 +127,7 @@ If you are installing Python on a Widows of Linux machine, you can follow the in
 
 #### NOTE
 
-In order to install Jenkins on the Mac, Jenkins has opted to enlist the help of another tool called [Homebrew](https://brew.sh/). Homebrew makes it easier to install and keep other files and software up to date on your machine. To install brew, [go to the website](https://brew.sh/) to view instructions. Copy and paste the command on there into your terminal:
+In order to install Jenkins on the Mac, Jenkins has opted to enlist the help of another tool called [Homebrew](https://brew.sh/). Homebrew makes it easier to install and keep other files and software up to date on your machine. To install brew, copy and paste the command on there into your terminal:
 
 
 ```
@@ -135,52 +135,81 @@ In order to install Jenkins on the Mac, Jenkins has opted to enlist the help of 
 ```
 
 
-If you type in `brew info` in your terminal, and you have homebrew installed correctly, you should see something like this:
+If you type `brew info` in your terminal, and you have homebrew installed correctly, you should see something like this:
 
 <img src="assets/5.06C.png" alt="Pencil" width="350"/>
 
-The Homebrew installation should also update the PATH veriable when you install it, so other programs on your computer know how to access it.
+The Homebrew installation should also update the PATH variable when you install it, so other programs on your computer know how to access `brew` commands
 
 --
 
 ###Installing Python
 
-Once you have brew installed, it's easy to install python by typing this command into your terminal:
+Once you have [Homebrew](https://brew.sh/) installed, it's easy to install python by typing this command into your terminal:
 
 ```
 $ brew install python
 ```
 
-The nice thing about Homebrew is that it will automatically download the laterst version of Python. Once it's installed, you should see a message letting you know where it installed your version of Python:
+The nice thing about Homebrew is that it will automatically download the several version of Python. Once it's installed, you should see messages letting you know where it installed your versions of Python:
 
 <img src="assets/1.05O.png" alt="Selenium Computer" width="550"/>
 
-Homebrew may have installed several versions of Python. YOu can check which version you are useing by typing `python --version` If it is not version 3, you can switch versions with the command
+Homebrew may have installed several versions of Python. You can check which version you are using by typing
 
-``
+ ```
+ python --version
+ ```
+
+
+Since Homebrew installed several versions, you will want to specify which, you will want to type in the command:
+```
+python3
+```
+This will take you into the interface that will allow you to interact and write programs on the Python interpreter.
+
+<img src="assets/1.05P.png" alt="Selenium Computer" width="450"/>
+
+You can exit the python interpreter by typing _control + D_  or:
+```
+quit()
+```
 
 Next, create a project folder and install pip so that later on we can install other dependencies. The dependencies include WebDrivers that communicate with different browsers, as well as----, a --- framework/ library that ----
 
-Go to [](), download and install the Python software.
+
+### Install PyCharm
+In order to write and edit your test code, you will need an  **I**ntegrated **D**evelopment **E**nvironments (IDE) to edit code and manage your project. [Pycharm](https://www.jetbrains.com/pycharm/) is a good option for this. Download and install the community version for this project.
+
+<img src="assets/1.05Q.png" alt="PSelenium Diagram" width="550"/>`
+
+
+### Install Pip?
 
 Download and install
 
 // ...
 
-**Python–** A -----, ------ typed language // ... before you are able to run Selenium tests locally or in the cloud. .
+### Install Pytest Libraries
 
-**Package Manager –** Manages other required dependencies, as well as builds any application code you create. // ...
-
-**Test Runner –** An open-source, J// ...
-
-** IDE & Debugger –** This tool helps with the writing, debugging, and organization of your code. This includes features that make your code easier to read and organize. // ..
-
-
-### Install ...
+Download and install
 
 // ...
 
-Note: These instructions are for a MacOS operating system. If you are using another system, use the [documents here for setup instructions](https://github.com/saucelabs-training EDIT THIS ROOT DIR).
+### Install VirtualEnv
+
+Download and install
+
+// ...
+
+### Dependency Overview
+**Python–** A -----, ------ typed language // ... before you are able to run Selenium tests locally or in the cloud. .
+
+**Pip Package Manager –** Manages other required dependencies, as well as builds any application code you create. // ...
+
+**Pytest Test Runner –** An open-source, J// ...
+
+**IDE & Debugger –** This tool helps with the writing, debugging, and organization of your code. This includes features that make your code easier to read and organize. // ..
 
 
 #### Cheat Sheet
@@ -200,26 +229,63 @@ Duration: 0:10:00
 
 Take a look at the first test code we will be creating in the next module. There are several things at play:
 
-**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod1/1.06/src/test/java/companyname/TestLogin.java)**
+```
+import pytest
+import os
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.firefox.service import Service as FirefoxService
 
-<img src="assets/1.06A.png" alt="IntelliJ JDK" width="550"/>
-### Language Methods
+
+class TestLogin():
+
+    @pytest.fixture
+    def driver(self, request):
+        _geckodriver = os.path.join(os.getcwd(), 'vendor', 'geckodriver')
+        if os.path.isfile(_geckodriver):
+            _service = FirefoxService(executable_path=_geckodriver)
+            driver_ = webdriver.Firefox(service=_service)
+        else:
+            driver_ = webdriver.Firefox()
+
+        def quit():
+            driver_.quit()
+
+        request.addfinalizer(quit)
+        return driver_
+
+    def test_valid_credentials(self, driver):
+        driver.get("http://the-internet.herokuapp.com/login")
+        driver.find_element(By.ID, "username").send_keys("tomsmith")
+        driver.find_element(By.ID, "password").send_keys(
+            "SuperSecretPassword!")
+        driver.find_element(By.CSS_SELECTOR, "button").click()
+        assert(
+            driver.find_element(
+                By.CSS_SELECTOR,
+                ".flash.success").is_displayed())
+        #assert(driver.find_element(By.CSS_SELECTOR, ".flash.successasdf").is_displayed())
+```
+
+
+
+### Python Methods
 
 
 **Example method** – Description
 
 
 
-### Testrunner Methods
+### Pytest Methods
 
 **[example method ](link) –** Description
 
 
 ### Selenium Elements
 
-**driver variable with** driver.get(), driver.findElement, driver.* **– The driver variable instantiates a WebDriver session/ object, and then you can use Java commands for that driver.
+**driver variable with driver.get(), driver.findElement, etc –** The driver variable instantiates a WebDriver session/ object, and then you can use Python commands with that driver.
 
-**[Driver.quit](https://artoftesting.com/difference-between-driver-close-and-driver-quit-command-in-selenium-webdriver) –** An important Selenium command to use within **@After**s annotations, this closes any browser windows that may be open and terminates the WebDriver session.
+**[Driver.quit](https://artoftesting.com/difference-between-driver-close-and-driver-quit-command-in-selenium-webdriver) –** An important Selenium command to use within **quit()** annotations, this closes any browser windows that may be open and terminates the WebDriver session.
 
 You can see an example of the project we will begin to be setting up in the next module [here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod1/SeleniumJava%20copy/src/test/java/companyname)
 

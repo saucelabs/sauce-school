@@ -136,7 +136,7 @@ Frameworks provide both tools and guidelines for creating and designing test sui
 
 So far, you’ve learned a bit about how the code on your end communicates with the W3C WebDriver using Selenium, however, this isn’t the whole picture. There are other tools that are used in order for you to write test code and implement it. Usually there are runners frameworks used alongside the “vanilla” (plain) programming language that help give structure, create commands, manage & organize files, store data, and more. In this course, we’ll use the Mocha as a test runner and build up our own framework.
 
-<img src="assets/1.04A.png" alt=Framework Diagram width="450"/>
+<img src="assets/1.04A.png" alt=Framework Diagram width="650"/>
 
 Above is an example of how you might connect a framework with the selenium grid that then executes tests with the Selenium WebDriver.
 
@@ -146,23 +146,27 @@ As you work through this course, you will learn more about the different tools y
 ## 1.05  Installing Dependencies
 Duration: 0:10:00
 
-We need five dependencies in order for our test to run as planned, which we will install later on, and for now we will get set up to do that. In this module, we’re going to install and set up the NodeJS server, create a project folder and install npm so that later on we can install all the dependencies. The dependencies include WebDrivers that communicate with different browsers, as well as Mocha, to use in writing actual tests.
+We need several dependencies, or tools and libraries, in order for our test to run as planned, which we will install later on, and for now we will get set up to do that. In this module, we’re going to install and set up the NodeJS server, create a project folder and install npm so that later on we can install all the dependencies. The dependencies include WebDrivers that communicate with different browsers, as well as Mocha, to use in writing actual tests.
 
+###Install the NodeJS Server
 Go to [https://nodejs.org/en](https://nodejs.org/en/), download and install the NodeJS software.
 
 Download and install the correct version of NodeJS for your machine. NodeJS is a server that will run on your machine so that you can send and receive files and data with other endpoints.
 
 Now, create a project folder in your user directory. I named mine SeleniumJS.
 
-In Terminal:
+In Terminal you can type this command to create a new project directory:
 
 <img src="assets/1.05A.png" alt="mkdir SeleniumJS" width="450"/>
 
 
 
-_** If you already have experience with the NodeJS server, and know how to install npm in a project folder, you can skip the rest of this Module (on to 2.01) where you can find a github project directory to download or fork.
+#### Note
+If you already have experience with the NodeJS server and an IDE, and know how to install npm in a project folder, you can skip the rest of this Module (on to 2.01) where you can find a github project directory to download or fork.
 
 Now we are going to install npm. When we run the command npm install, it will download dependencies defined in a package.json file and generate a node_modules folder with the installed modules.
+
+--
 
 1. Navigate to the folder you just made from the terminal.
 <img src="assets/1.05B.png" alt="cd SeleniumJS" width="250"/>
@@ -176,6 +180,11 @@ Now we are going to install npm. When we run the command npm install, it will do
 
 
 Later on when you set up your first test, you will go back to the ‘SeleniumJS’ folder you just set up and create your first project files there.
+
+### Install an IDE
+When using JavaScript, there are any number of **I**ntegrated **D**evelopment **E**nvironments (IDEs) that you can use. In this course, you will see examples from the [Atom IDE](https://atom.io/). You can use any IDE that works well to create JavaScript files & works with the NodeJS served.
+
+Most IDEs come with a set of [plugins and packages](https://atom.io/packages) you can add on to make writing, debugging, and managing code & projects easier.
 
 
 #### NOTE
