@@ -299,7 +299,7 @@ gulp.task('dist', gulp.series(
 
 // watch:css watches css files for changes and re-builds them
 gulp.task('watch:css', () => {
-  gulp.watch('app/**/*.scss', gulp.series('build:css'));
+  gulp.watch('app/**/*.scss', gulp.series('build:scss'));
 });
 
 // watch:html watches html files for changes and re-builds them
