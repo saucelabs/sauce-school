@@ -9,7 +9,7 @@ feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-6735579-1
 
 <!-- ------------------------ -->
-# Module 1- Introduction to Selenium with Java
+# Module 1- Introduction to Selenium with Python
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
@@ -143,7 +143,7 @@ The Homebrew installation should also update the PATH variable when you install 
 
 --
 
-###Installing Python
+### Install Python
 
 Once you have [Homebrew](https://brew.sh/) installed, it's easy to install python by typing this command into your terminal:
 
