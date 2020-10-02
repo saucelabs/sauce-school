@@ -1,3 +1,6 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
 name: Deploy to Production
 
 on:
@@ -6,29 +9,30 @@ on:
       - 'v*'
 
 env:
-  GCS_BUCKET: ${{secrets.PROD_BUCKET}}
-  RUN_PROJECT: ${{secrets.PROD_RUN_PROJECT}}
-  RUN_SA_KEY: ${{secrets.PROD_RUN_SA_KEY}}
+  GCS_BUCKET: ${{secrets.GCS_PROD_BUCKET}}
+  GCS_SA_KEY: ${{secrets.GCS_PROD_SA_KEY}}
+  GCS_PROJECT: ${{secrets.GCS_PROD_PROJECT}}
 
 jobs:
-  build-and-deploy-to-cloud-storage:
-    name: Deploy to GCS Training Bucket
+  build-and-deploy:
+    name: Deploy to GCS Training Production Bucket
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-        
+
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-  
+
       - name: Setup Google Cloud CLI
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
           version: '290.0.1'
-          service_account_key: ${{ secrets.RUN_SA_KEY }}
-          project_id: ${{ secrets.RUN_PROJECT }}
+          service_account_key: ${{ secrets.GCS_SA_KEY }}
+          project_id: ${{ secrets.GCS_PROJECT }}
 
       - name: Install Dependencies and Build Site
         run: |
@@ -36,8 +40,11 @@ jobs:
           npm ci
           npm run gulp -- dist --codelabs-dir=codelabs
 
+      # Deployment is using publish:staging:* since publish:prod:* involves copy from the staging bucket.
+      # Considering we want to deploy this specific version and not the one that could have been overwritten
+      # in staging env, this is preferable to go this way.
       - name: Deploy to GCS Bucket
         run: |
           cd tools/site
-          # npm run gulp -- publish:prod:views --prod-bucket=$GCS_BUCKET
-          # npm run gulp -- publish:prod:codelabs --prod-bucket=$GCS_BUCKET
+          npm run gulp -- publish:staging:views --staging-bucket=$GCS_BUCKET
+          npm run gulp -- publish:staging:codelabs --staging-bucket=$GCS_BUCKET
