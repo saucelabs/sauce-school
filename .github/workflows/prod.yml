@@ -39,5 +39,5 @@ jobs:
       - name: Deploy to GCS Bucket
         run: |
           cd tools/site
-          npm run gulp -- publish:prod:views --prod-bucket=$GCS_BUCKET
-          npm run gulp -- publish:prod:codelabs --prod-bucket=$GCS_BUCKET
+          # npm run gulp -- publish:prod:views --prod-bucket=$GCS_BUCKET
+          # npm run gulp -- publish:prod:codelabs --prod-bucket=$GCS_BUCKET

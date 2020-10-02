@@ -37,17 +37,11 @@ jobs:
       - name: Install Dependencies and Build Site
         run: |
           cd tools/site
-          npm install
-          npm run dist
-
-      - name: Install Dependencies and Build Site
-        run: |
-          cd tools/site
           npm ci
           npm run gulp -- dist --codelabs-dir=codelabs
 
       - name: Deploy to GCS Bucket
         run: |
           cd tools/site
-          npm run gulp -- publish:prod:views --prod-bucket=$GCS_BUCKET
-          npm run gulp -- publish:prod:codelabs --prod-bucket=$GCS_BUCKET
+          npm run gulp -- publish:staging:views --staging-bucket=$GCS_BUCKET
+          npm run gulp -- publish:staging:codelabs --staging-bucket=$GCS_BUCKET
