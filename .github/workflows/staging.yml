@@ -11,6 +11,7 @@ on:
 
 env:
   GCS_BUCKET: ${{ secrets.GCS_STAGING_BUCKET }}
+  CLOUDSDK_PYTHON: python3.7
 
 jobs:
   build-and-deploy:
