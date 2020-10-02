@@ -9,9 +9,8 @@ on:
       - 'v*'
 
 env:
-  GCS_BUCKET: ${{secrets.GCS_PROD_BUCKET}}
-  GCS_SA_KEY: ${{secrets.GCS_PROD_SA_KEY}}
-  GCS_PROJECT: ${{secrets.GCS_PROD_PROJECT}}
+  GCS_BUCKET: ${{ secrets.GCS_PROD_BUCKET }}
+  CLOUDSDK_PYTHON: python3.7
 
 jobs:
   build-and-deploy:
@@ -27,12 +26,22 @@ jobs:
         with:
           node-version: '12.x'
 
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Install PIP dependencies
+        run: |
+          pip install --upgrade pip
+          pip install crcmod
+
       - name: Setup Google Cloud CLI
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
           version: '290.0.1'
-          service_account_key: ${{ secrets.GCS_SA_KEY }}
-          project_id: ${{ secrets.GCS_PROJECT }}
+          service_account_key: ${{ secrets.GCS_PROD_SA_KEY }}
+          project_id: ${{ secrets.GCS_PROD_PROJECT }}
 
       - name: Install Dependencies and Build Site
         run: |

@@ -7,7 +7,6 @@ on:
   push:
     branches:
       - master
-      - feat/enhancements-on-gh-actions
 
 env:
   GCS_BUCKET: ${{ secrets.GCS_STAGING_BUCKET }}
