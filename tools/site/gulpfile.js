@@ -194,6 +194,7 @@ gulp.task('build:js', (callback) => {
 
   const bowerSrcs = [
     'app/bower_components/webcomponentsjs/webcomponents-lite.min.js',
+    'app/bower_components/url-search-params-polyfill/src/url-search-params.js',
     // Needed for async loading - remove after polymer/polymer#2380
     'app/bower_components/google-codelab-elements/shared-style.html',
     'app/bower_components/google-prettify/src/prettify.js',
