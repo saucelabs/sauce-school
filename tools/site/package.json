@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "gulp": "node_modules/.bin/gulp"
+  },
   "private": true,
   "devDependencies": {
     "autoprefixer": "^9.3.1",
@@ -13,6 +16,7 @@
     "google-closure-compiler": "^20181008.0.0",
     "gulp": "^4.0.0",
     "gulp-babel": "^7.0.0",
+    "gulp-cli": "^2.3.0",
     "gulp-crisper": "^1.1.0",
     "gulp-flatten": "^0.4.0",
     "gulp-html-postcss": "^7.1.4",
