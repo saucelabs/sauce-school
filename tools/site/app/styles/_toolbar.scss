@@ -77,6 +77,15 @@
     margin-top: 5px;
   }
 }
+.header__menu--mobile {
+  display: none;
+}
+.--show {
+  display: inherit;
+}
+.--hide {
+  display: none!important;
+}
 
 #searchbar {
   border-radius: $radius;
@@ -113,9 +122,22 @@
   #searchbar paper-input-container {
     display: none;
   }
+  ul.header__primary-nav {
+    display: none;
+  }
+  .header__menu--mobile {
+    display: inline-block!important;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 12px 10px 10px 10px;
+  }
+  .mobile__menu-icon {
+    padding: 5px;
+    cursor: pointer;
+  }
   #mainToolbar {
     height: $keyline * 7;
-
     paper-icon-button[icon="menu"] {
       width: 40px;
       margin-right: $keyline;

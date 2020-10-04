@@ -110,6 +110,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <input is="iron-input" bind-value="{{searchVal}}" on-keydown="onSearchKeyDown">
           </paper-input-container>
         </div>-->
+        <div class="header__menu--mobile">
+          <img onclick="menuOpen()" class="mobile__menu-icon" id="mobileMenuIcon" src="/images/mobile_menu.svg" />
+          <img onclick="menuClose()" class="mobile__menu-icon --hide" id="mobileClose" src="/images/mobile_close.svg" />
+        </div>
+
         <ul class="header__primary-nav">
           <li><a href="#">Solutions</a></li>
           <li><a href="#">Platform</a></li>
@@ -123,6 +128,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <li><a class="sign__in" href="#">Sign In</a></li>
           <li><a href="#"><img class="search__icon" src="/images/search-icon.svg" /></a></li>
         </ul>
+
       </div>
     </div>
     {% endraw %}
@@ -337,5 +343,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <!-- build:js /scripts/main.js -->
   <script src="/scripts/app.js"></script>
   <!-- endbuild-->
+  <script>
+    function menuOpen() {
+      document.getElementById('mobileClose').classList.remove("--hide")
+      document.getElementById('mobileMenuIcon').classList.add("--hide")
+    }
+    function menuClose() {
+      document.getElementById('mobileClose').classList.add("--hide")
+      document.getElementById('mobileMenuIcon').classList.remove("--hide")
+    }
+  </script>
 </body>
 </html>
