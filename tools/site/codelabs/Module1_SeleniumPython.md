@@ -1,4 +1,5 @@
-summary: Module 1 Introduction to Selenium with Python
+author:Lindsay Walker
+summary: Module 1 of the Selenium Python Test Automation. Learn to write Selenium tests in Java language using the Pytest framework, the PyCharm IDE
 id: Module1-SeleniumPython
 categories: beginner
 tags: python  
@@ -6,7 +7,6 @@ environments: Web
 status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-6735579-1
-author:Lindsay Walker
 
 <!-- ------------------------ -->
 # Module 1- Introduction to Selenium with Python
@@ -15,14 +15,14 @@ author:Lindsay Walker
 ## 1.01 What You'll Learn
 Duration: 0:03:00
 
-*   Learn to install and use Selenium WebDriver in conjunction with Python tools (pip3, Pytest, and Pycharm) to write tests.  
-*   Use Pycharm and Pip3 to set up, run tests, and manage dependencies on your machine
-*   Use the Selenium WebDriver in conjunction with a Pytest test runner to write tests
+*   Learn to install and use Selenium WebDriver in conjunction with Java tools (IntelliJ and Maven) to write tests.  
+*   Use----- and ---to compile and run tests and manage dependencies on your machine
+*   Use the Selenium WebDriver in conjunction with a --------- test runner to write tests
 *   Understand what the Selenium WebDriver is and the basics of how it is used to automate testing
-*   Understand the role a test runner, such as Pytest, plays in creating tests
+*   Understand the role a test runner, such as ------, plays in creating tests
 *   Differentiate between the Selenium language bindings and the web drivers for different browsers
-*   Know how Pip3 manages and updates packages and tools used for Selenium testing in Python.
-*   Explain how Selenium bindings, web drivers, and Pytest work together to create tests and test suites
+*   Know how ------ manages and updates packages and tools used for Selenium testing in --------
+*   Explain how Selenium bindings, web drivers, and ---------- work together to create tests and test suites
 *   Understand that good tests are atomic: They have tests grouped by functionality and are named descriptively. Good tests also use test runners, and are maintained in version control systems.
 
 <!-- ------------------------ -->
@@ -89,7 +89,7 @@ The Pytest dependencies are a set of Python library/package that allow you to co
 
 
 #### Quiz
-
+<!-- ![Embed URL](Share URL) -->
 
 <!-- ------------------------ -->
 ## 1.04 Test Frameworks and Dependencies
@@ -123,11 +123,11 @@ Duration: 0:15:00
 
 You will need several dependencies dependencies in order for our test to run as planned, and now we will get set up to do that. In this module, you’re going to install a program called Homebrew, which will help install Python version 3 and manage it's dependencies.
 
-If you are installing Python on a Widows or Linux machine, you can follow the instructions found on [_The Hitchikers Guide to Python_](https://docs.python-guide.org/starting/installation/)
+If you are installing Python on a Widows of Linux machine, you can follow the instructions found on [_The Hitchikers Guide to Python_](https://docs.python-guide.org/starting/installation/)
 
 #### NOTE
 
-The easiest way to install Python dependencies on Mac is to enlist the help of another tool called [Homebrew](https://brew.sh/). Homebrew makes it easier to install and keep other files and software up to date on your machine. To install brew, copy and paste the command on there into your terminal:
+In order to install Jenkins on the Mac, Jenkins has opted to enlist the help of another tool called [Homebrew](https://brew.sh/). Homebrew makes it easier to install and keep other files and software up to date on your machine. To install brew, copy and paste the command on there into your terminal:
 
 
 ```
@@ -151,18 +151,18 @@ Once you have [Homebrew](https://brew.sh/) installed, it's easy to install pytho
 $ brew install python
 ```
 
-The nice thing about Homebrew is that it will automatically download the the latest version of Python, as well as update dependencies for Python 2.7, which is automatically installed on Mac. You shouldn't, however use Python version 2.7 for your test code as it's no longer supported.
+The nice thing about Homebrew is that it will automatically download the several version of Python. Once it's installed, you should see messages letting you know where it installed your versions of Python:
 
 <img src="assets/1.05O.png" alt="Selenium Computer" width="550"/>
 
-Homebrew may have updated several versions of Python. You can check which version you are using by typing
+Homebrew may have installed several versions of Python. You can check which version you are using by typing
 
  ```
  python --version
  ```
 
 
-Since you may have other versions on your machine, you will want to specify which version to use with your tests, you will want to type in the command to get :
+Since Homebrew installed several versions, you will want to specify which, you will want to type in the command:
 ```
 python3
 ```
@@ -170,13 +170,12 @@ This will take you into the interface that will allow you to interact and write 
 
 <img src="assets/1.05P.png" alt="Selenium Computer" width="450"/>
 
-You can exit the python interpreter by typing _control + D_  or typing in your terminal:
-
+You can exit the python interpreter by typing _control + D_  or:
 ```
 quit()
 ```
 
-Next, create a project folder and install pip so that later on we can install other dependencies. The dependencies include the Selenium Webdriver, web drivers that communicate with different browsers (such as chromium), as well as other frameworks and libraries.
+Next, create a project folder and install pip so that later on we can install other dependencies. The dependencies include WebDrivers that communicate with different browsers, as well as----, a --- framework/ library that ----
 
 
 ### Install PyCharm
@@ -185,195 +184,87 @@ In order to write and edit your test code, you will need an  **I**ntegrated **D*
 <img src="assets/1.05Q.png" alt="PSelenium Diagram" width="550"/>`
 
 
-### Install Pip
+### Install Pip?
 
-The first thing you will need is the standard package manager for Python. It allows you to install and manage tools and libraries that don't come with the regular Python package you installed. When you installed the python package above, a version of pip, called `pip3` was installed. Check that you have it on your machine by typing:
+Download and install
 
-```
-pip3 --versions
+// ...
 
-```
+### Install Pytest Libraries
 
-You should see an output like this:
+Download and install
 
- <img src="assets/1.05R.png" alt="PIP 3" width="550"/>
+// ...
 
- #### NOTE
- If you don't have pip3 installed, or you are using an older version of Python, you may want to check to see if you have pip installed by typing `pip --version` into your terminal. You can also [use this website](https://pip.pypa.io/en/latest/installing/)  get get pip installed. It's not recommended that you use Python 2.7 and pip, as it's not supported, but it may be a reason `pip3`  isn't working.
+### Install VirtualEnv
 
- --
+Download and install
 
-### Install Libraries from PyPI
-
-While the Python standard library come well equipped with many of the things you will need, the Python community is constantly adding new and useful tools which can be found in the Python Package Index, or [PyPI](https://pypi.org/). We will install the following libraries by typing each of the following into your terminal:
-
-```
-pip3 install pytest
-```
-```
-pip 3 install pytest-randomly
-```
-```
-pip3 install pytest-xdist
-```
-```
-pip3 install Selenium
-```
-
-For each of these installs you should see the processes processing an output on the terminal, and a success message for each:
-
- <img src="assets/1.05S.png" alt="PIP 3" width="450"/>
-
-
-
-### Install A Virtual Environment
-
-Since there may be more than one version of Python on your machine (being used by different software for different purposes) we want to create a sandbox environment where you can run your tests written for the latest version of Python where you can set up all the dependencies use with that version of Python.
-
-You can install the virtual environment by typing the following command into your terminal:
-
-```
-python3 -m venv venv3
-```
-
-Next, run the command to start the virtual environment:
-
-```
-source venv3/bin/activate
-```
-
-In your terminal, you should see the following to indicate that the venv3 environment is running. This environment allows you to run Python 3 and the related dependencies, without the problems of getting mixed up with dependencies meant for other versions of Python.
-
-<img src="assets/1.05T.png" alt="PIP 3" width="350"/>
-
-If you type in `python --version` you will now see that you have Python 3 running on your machine, in the virtual environemtn.
-
-<img src="assets/1.05U.png" alt="PIP 3" width="350"/>
-
-You will have to run the command `source venv3/bin/activate` run the command to start your virtual environment any time you would like to run tests outside of the PyCharm IDE. You can then enter the directory your test suite is kept, and run the command `pytest`.
-
- To exit the virtual environment in your terminal, type `deactivate`.
-
+// ...
 
 ### Dependency Overview
-**Python–** A dynamically-typed, interpreted language used in conjunction with libraries like Pytest that allow you to run tests on all parts of an application.
+**Python–** A -----, ------ typed language // ... before you are able to run Selenium tests locally or in the cloud. .
 
-**Pip Package Manager –** Manages other required dependencies, installing and managing tools and libraries from cloud repositories like [PiPY](https://pypi.org/).
+**Pip Package Manager –** Manages other required dependencies, as well as builds any application code you create. // ...
 
-**Pytest Test Runner –** An open-source tool that executes the test with commands that allow you to do things like run tests in parallel, run specific sets of tests, and more.
+**Pytest Test Runner –** An open-source, J// ...
 
-**PyCharm IDE –** This tool helps with the writing, debugging, and organization of your code. It includes features that make your code easier to read and organize, start a virtual environment, as well as update dependencies and run test all in one tool.
-
-<!-- ------------------------ -->
-
-## 1.06 Project Directory Setup
+**IDE & Debugger –** This tool helps with the writing, debugging, and organization of your code. This includes features that make your code easier to read and organize. // ..
 
 
-### Create a Project Directory
+#### Cheat Sheet
 
-If you have never used an IDE like Pycharm, I highly recommend you read the docs, and [take a look](https://www.jetbrains.com/help/pycharm/quick-start-guide.html#ui) at what the different tools are that exist in the window.
+<!-- ![Embed URL](share URL) -->
 
-
-The first thing we will need to do is create a project directory. Open up PyCharm and choose the location on your local machine for your project. Name the project folder **SeleniumPython**
-
-<img src="assets/1.06B.png" alt="PIP 3" width="550"/>
-
-You will want to make sure you have the following options chosen:
-  1. You have chosen the **Location** on you Machines file directory and typed **SeleniumPython** at the end for the name of you Python Test suite.
-  2. You chose a **New environment using Virtualenv**, located within the **SeleniumPython** directory you just created.
-  3. Check the box to **Inherit global site-packages**.
-
-It's up to you if you want to create a `main.py` welcome script, you will delete it later.
-
-Click **Create** and you should see a project like this:
-
-<img src="assets/1.06C.png" alt="Create file" width="650"/>
-
-If you have a `main.py` file, then right click on it in the Projects tool window, choose delete and perform a safe delete
-
-<img src="assets/1.06D.png" alt="Safe delete" width="550"/>
-
-Right click on the main Seleniun Python project folder and choose **New > DIrectory** Name it `tests`.
-
-<img src="assets/1.06E.png" alt="new directory" width="550"/>
-
-Right click on the `tests` directory you created and choose **New > Python File**. Name the file `login_test`.
-
-<img src="assets/1.06F.png" alt="New python file" width="550"/>
-<img src="assets/1.06G.png" alt="login test" width="350"/>
-
-Last, you are going to add a requirements file that woeks with `pip3` install, update, and manage the dependencies. In the top level **SeleniumJava** directory right click and choose **New > File** and name it `requirements.txt`
-
-<img src="assets/1.06H.png" alt="New file" width="550"/>
-<img src="assets/1.06I.png" alt="requirements.txt" width="350"/>
-
-Double click to open this file in the editor window, and copy-paste in the following:
-
-```
-selenium==3.14.0
-sauceclient>=0.2.1
-pytest==4.4.0
-pytest-xdist
-pytest-randomly
-```
-
- You should now have a project directory that looks like this:
-
- <img src="assets/1.06J.png" alt="requirements.txt" width="750"/>
-
-### The Requirements File
- This repository contains a file called [requirements.txt](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/python/Mod1/1.05/requirements.txt) that can be used in the PyCharm IDE to automatically install the dependencies from the previous lesson, and make sure they are available in this particular virtual environment. All you need to do is open the terminal in the PyCharm IDE and type in the command:
-
- ```
- pip install -r requirements.txt
- ```
- Some of the dependencies, such as pytest might need updating to the latest version.
-
- <img src="assets/1.05V.png" alt="PIP 3" width="750"/>
 
 ### Use GitHub Repository (Optional)
 
-If you are familiar with using GitHub to write your code, you can fork/ branch this repository here for the first set of code:
+If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
 
-**[Module 1 Project Directory](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod1/1.05)**
-
-
+**[Module 1 Project Folder](EDIT)**
 
 <!-- ------------------------ -->
-## 1.07 Editing Code and Python Summary
+## 1.06 Editing Code and XXX Summary
 Duration: 0:10:00
 
-Take a look at the first test code we will be creating in the next module inside the file `test-login.py`. There are several things at play:
+Take a look at the first test code we will be creating in the next module. There are several things at play:
 
 ```
-# filename: tests/login_test.py
 import pytest
 import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-
-@pytest.fixture
-def driver(request):
-    _chromedriver= os.path.join(os.getcwd(), 'vendor', 'chromedriver')
-    if os.path.isfile(_chromedriver):
-        driver_ = webdriver.Chrome(_chromedriver)
-
-    else:
-        driver_ = webdriver.Chrome()
-
-    def quit():
-        driver_.quit()
-
-    request.addfinalizer(quit)
-    return driver_
+from selenium.webdriver.firefox.service import Service as FirefoxService
 
 
-def test_valid_credentials(driver):
-    driver.get("http://the-internet.herokuapp.com/login")
-    driver.find_element(By.ID, "username").send_keys("tomsmith")
-    driver.find_element(By.ID, "password").send_keys("SuperSecretPassword!")
-    driver.find_element(By.CSS_SELECTOR, "button").click()
+class TestLogin():
 
+    @pytest.fixture
+    def driver(self, request):
+        _geckodriver = os.path.join(os.getcwd(), 'vendor', 'geckodriver')
+        if os.path.isfile(_geckodriver):
+            _service = FirefoxService(executable_path=_geckodriver)
+            driver_ = webdriver.Firefox(service=_service)
+        else:
+            driver_ = webdriver.Firefox()
+
+        def quit():
+            driver_.quit()
+
+        request.addfinalizer(quit)
+        return driver_
+
+    def test_valid_credentials(self, driver):
+        driver.get("http://the-internet.herokuapp.com/login")
+        driver.find_element(By.ID, "username").send_keys("tomsmith")
+        driver.find_element(By.ID, "password").send_keys(
+            "SuperSecretPassword!")
+        driver.find_element(By.CSS_SELECTOR, "button").click()
+        assert(
+            driver.find_element(
+                By.CSS_SELECTOR,
+                ".flash.success").is_displayed())
+        #assert(driver.find_element(By.CSS_SELECTOR, ".flash.successasdf").is_displayed())
 ```
 
 
@@ -381,29 +272,27 @@ def test_valid_credentials(driver):
 ### Python Methods
 
 
-**os** – The imported [`os` module](https://docs.python.org/3/library/os.html) allows Python to interact with the operating system that the tests are running on. In this case getting the filepath (`os.path`) from the current working directory and appending `/vendor/chromedriver` to provide a path to the Chromedriver file that will instantiate a webdriver for the test.
+**Example method** – Description
+
 
 
 ### Pytest Methods
 
-**Fixture** – The [fixture functions](https://www.tutorialspoint.com/pytest/pytest_fixtures.htm) are run before a test, and provides input, or data to the test. In this case it is providing the information about the driver to the `driver` method.
-
-**[test_*]–** By naming the [method test_*](https://docs.pytest.org/en/stable/), Pytest will know it's a test method and execute it accordingly. The current code only contains Selenium commands to locate elements on the page, but Pytest also provides `assertions`.
-
-**Assert** – The
+**[example method ](link) –** Description
 
 
 ### Selenium Elements
 
-**_driver** – To create an instance of Selenium we call `webdriver.Chrome()` and store the response in a variable. Since the name of the method is already driver, we refer to this variable as `driver_`.
-
-**driver.get(), driver.findElement, etc –** The driver variable instantiates a WebDriver session/ object, and you can combine Python commands with these driver commands.
+**driver variable with driver.get(), driver.findElement, etc –** The driver variable instantiates a WebDriver session/ object, and then you can use Python commands with that driver.
 
 **[Driver.quit](https://artoftesting.com/difference-between-driver-close-and-driver-quit-command-in-selenium-webdriver) –** An important Selenium command to use within **quit()** annotations, this closes any browser windows that may be open and terminates the WebDriver session.
 
-You can see an example of the project we will begin to be setting up in the next module [here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/python/Mod2/2.05/tests/login_test.py)
+You can see an example of the project we will begin to be setting up in the next module [here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod1/SeleniumJava%20copy/src/test/java/companyname)
 
 <!-- ------------------------ -->
 
-## 1.08 Module 1 Quiz
+## 1.07 Module 1 Quiz
 Duration: 0:03:00
+
+
+<<!-- ![Embed URL](Share URL) -->

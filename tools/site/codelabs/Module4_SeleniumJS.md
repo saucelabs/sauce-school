@@ -329,7 +329,7 @@ The two test classes should now look like this:
 
 <img src="assets/4.03B.png" alt="Final Login test" width="450"/>
 
-<img src="assets/4.03c.png" alt="Final Dymaic Loading test" width="450"/>
+<img src="assets/4.03C.png" alt="Final Dymaic Loading test" width="450"/>
 
 <img src="assets/4.03D.png" alt="Final package.json" width="450"/>
 
