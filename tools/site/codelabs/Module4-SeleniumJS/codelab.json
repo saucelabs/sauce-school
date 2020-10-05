@@ -3,7 +3,7 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2020-09-24T13:09:11-05:00",
+  "updated": "2020-09-29T12:10:03-05:00",
   "id": "Module4-SeleniumJS",
   "duration": 70,
   "title": "Module 4 – Scaling Tests to the Cloud",
@@ -21,6 +21,6 @@
     "web"
   ],
   "feedback": "https://forms.gle/CGu4QchgBxxWnNJK8",
-  "ga": "Google Analytics ID",
+  "ga": "UA-6735579-1",
   "url": "Module4-SeleniumJS"
 }

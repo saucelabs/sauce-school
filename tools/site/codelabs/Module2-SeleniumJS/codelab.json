@@ -3,7 +3,7 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2020-09-18T10:45:59-05:00",
+  "updated": "2020-09-29T12:09:41-05:00",
   "id": "Module2-SeleniumJS",
   "duration": 83,
   "title": "Module 2 — Locators and JavaScript Tests",
@@ -21,6 +21,6 @@
     "web"
   ],
   "feedback": "https://forms.gle/CGu4QchgBxxWnNJK8",
-  "ga": "Google Analytics ID",
+  "ga": "UA-6735579-1",
   "url": "Module2-SeleniumJS"
 }

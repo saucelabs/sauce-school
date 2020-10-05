@@ -517,7 +517,7 @@ public class Login extends Base {
 ```
 
 
-Under the` public Login() `class, change `this.driver = driver;` to `super driver; `so it references the parent Base class, and change` driver.get() `to` visit()` from the base page.
+Under the` public Login() `class, change `this.driver = driver;` to `super(driver); `so it references the parent Base class, and change` driver.get() `to` visit()` from the base page.
 
 
 ```
@@ -564,20 +564,33 @@ Lastly, update the `successMessagePresent()` and `failureMessagePresent()` metho
 ```
 
 
+Lastly, since the driver member is defined in the `Base.java` class, the driver member in `Login.java` can be safely deleted
+
+
+```
+// filename: pageobjects/Login.java
+// public class Login extends Base {
+
+       By usernameLocator = By.id("username");
+       ...
+    }
+// ...
+```
+
+
 Now much of your code has been abstracted into the facade layer called Base.java, making it easier to read, reuse, and eventually maintain.
 
 
-#### NOTE
+### NOTE–
 
 
-**Inheriting from the Base Page**
+### Inheriting from the Base Page
 
-To establish inheritance, you use the` extends `keyword when declaring the class (example; class `Login extends Base {}, `and call` super `from the constructor, `super(driver)`. This passes the instance of Selenium to the base page object, and makes all of the base page object's methods available to our login page object and any other page objects we eventually create).
+To establish inheritance, you use the` extends `keyword when declaring the class (example;` class Login extends Base, `and call` super `from the constructor, `super(driver)`. This passes the instance of the Selenium webdriver to the base page object, and makes all of the base page object's methods available to our login page object and any other page objects we eventually create).
 
 --
 
 If you save everything and run your tests they will run and pass just like before, but now our page objects are more readable, simpler to write, and easier to maintain and extend.
-
 
 #### Final Code
 
@@ -1066,7 +1079,7 @@ The `-Dtests= `flag allows you to search for a certain set of characters when yo
 See the complete [source code here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod3/3.07)
 
 
-## Browser Timing
+### Browser Timing
 
 Using explicit waits gets you pretty far. But there are a few things you'll want to think about when it comes to writing your tests to work on various browsers.
 
@@ -1075,7 +1088,7 @@ It's simple enough to write your tests locally against one browser and assume yo
 The best approach to solve this is an iterative one. Run your tests in a target browser and see which ones fail. Take each failed test, adjust your code as needed, and re-run it against the target browser until they all pass. Repeat for each browser you care about until everything is green.
 
 
-## Closing Thoughts
+### Closing Thoughts
 
 By explicitly waiting to complete an action, our tests are in a much more resilient position because Selenium will keep trying for a reasonable amount of time rather than trying just once. And each action can be tuned to meet the needs of each circumstance. Couple that with the dynamic nature of explicit waits, and you have something that will work in a multitude of circumstances — helping you endure even the toughest of browsers to automate.
 
