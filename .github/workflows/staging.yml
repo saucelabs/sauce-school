@@ -49,7 +49,7 @@ jobs:
           project_id: ${{ secrets.GCS_STAGING_PROJECT }}
 
       - name: Build codelabs using claat
-        run: claat export -o codelabs codelabs/*.md
+        run: claat export -o tools/site/codelabs tools/site/codelabs/*.md
 
       - name: Install Dependencies and Build Site
         run: |
