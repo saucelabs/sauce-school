@@ -3,10 +3,7 @@
 
 name: Deploy to staging
 
-on:
-  push:
-    branches:
-      - master
+on: [push, pull_request]
 
 env:
   GCS_BUCKET: ${{ secrets.GCS_STAGING_BUCKET }}
@@ -50,6 +47,7 @@ jobs:
           npm run gulp -- dist --codelabs-dir=codelabs
 
       - name: Deploy to GCS Bucket
+        if: ${{ github.ref == 'refs/heads/master' }}
         run: |
           cd tools/site
           npm run gulp -- publish:staging:views --staging-bucket=$GCS_BUCKET
