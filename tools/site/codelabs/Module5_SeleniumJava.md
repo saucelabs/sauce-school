@@ -2,7 +2,7 @@
 
 author:Lindsay Walker
 summary: Module 5 of Selenium with Java. Learn to write Selenium tests in X programming language with X Test runner and X framework
-id: ModiuleX_SeleniumLang
+id: Module5_SeleniumJava
 categories: <enter a single category for drop-down filter>
 tags: <enter Language names here from tools/site/app/views what is labeled in the view.json tag: attribute>  
 environments: Web

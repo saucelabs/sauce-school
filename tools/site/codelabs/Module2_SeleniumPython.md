@@ -46,7 +46,7 @@ If you skipped Module 1, make sure you have a project folder set up and have cre
 
 If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
 
-**[Module 1 Project Folder](?)**
+**[Module 1 Project Folder](http://example.com)**
 
 <!-- ------------------------ -->
 ## 2.02 Writing Good Acceptance Tests
@@ -221,7 +221,7 @@ Selenium is able to find and interact with elements on a page by way of various 
 
 ### Quiz
 
-![Embed URL](share URL)
+<!-- ![Embed URL](share URL) -->
 
 
 
@@ -272,7 +272,7 @@ First we will need to create a new project directory called `SeleniumPython` (yo
 
 You can see all of the files here.
 
-**_[Selenium_Course_Example_Code ](?)_**
+**_[Selenium_Course_Example_Code ](http://example.com)_**
 
 
 Go into the SeleniumJava (your main project) directory using your terminal.
@@ -335,7 +335,7 @@ Assertions are ...
 Now it’s time to add in an ..
 // ...
 
-![login success message](?)
+![login success message](assets/?.png)
 
 
 //...
@@ -343,7 +343,7 @@ Now it’s time to add in an ..
 The code should look like this:
 
 
-![Assertion](?)
+![Assertion](assets/?.png)
 
 
 // ...
@@ -399,7 +399,7 @@ Use the inspector to locate and test finding elements. In this test we are going
 
 Watch [2.08 Locator Test](?) to help you understand how this test works.
 
-![?](?)
+![?](assets/?.png)
 
 
 #### Cheat Sheet
@@ -426,4 +426,4 @@ See the complete [source code here](?).
 ## 2.09 Module 2 Quiz
 Duration: 0:05:00
 
-![?](?)
+![?](assets/?.png)
