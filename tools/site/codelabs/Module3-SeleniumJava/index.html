@@ -350,7 +350,7 @@ public class Base {
 public class Login extends Base {
 // ...
 </code></pre>
-<p>Under the<code>public Login()</code>class, change <code>this.driver = driver;</code> to <code>super driver;</code>so it references the parent Base class, and change<code>driver.get()</code>to<code>visit()</code> from the base page.</p>
+<p>Under the<code>public Login()</code>class, change <code>this.driver = driver;</code> to <code>super(driver);</code>so it references the parent Base class, and change<code>driver.get()</code>to<code>visit()</code> from the base page.</p>
 <pre><code>// filename: pageobjects/Login.java
 // ...
 
@@ -382,15 +382,24 @@ public class Login extends Base {
     }
 // ...
 </code></pre>
+<p>Lastly, since the driver member is defined in the <code>Base.java</code> class, the driver member in <code>Login.java</code> can be safely deleted</p>
+<pre><code>// filename: pageobjects/Login.java
+// public class Login extends Base {
+
+       By usernameLocator = By.id(&#34;username&#34;);
+       ...
+    }
+// ...
+</code></pre>
 <p>Now much of your code has been abstracted into the facade layer called Base.java, making it easier to read, reuse, and eventually maintain.</p>
-<h3 is-upgraded>NOTE</h3>
-<p><strong>Inheriting from the Base Page</strong></p>
-<p>To establish inheritance, you use the<code>extends</code>keyword when declaring the class (example; class <code>Login extends Base {},</code>and call<code>super</code>from the constructor, <code>super(driver)</code>. This passes the instance of Selenium to the base page object, and makes all of the base page object&#39;s methods available to our login page object and any other page objects we eventually create).</p>
+<h2 is-upgraded>NOTE–</h2>
+<h2 is-upgraded>Inheriting from the Base Page</h2>
+<p>To establish inheritance, you use the<code>extends</code>keyword when declaring the class (example;<code>class Login extends Base,</code>and call<code>super</code>from the constructor, <code>super(driver)</code>. This passes the instance of the Selenium webdriver to the base page object, and makes all of the base page object&#39;s methods available to our login page object and any other page objects we eventually create).</p>
 <p>–</p>
 <p>If you save everything and run your tests they will run and pass just like before, but now our page objects are more readable, simpler to write, and easier to maintain and extend.</p>
 <h3 is-upgraded>Final Code</h3>
 <p>Your final code should look like this:</p>
-<p class="image-container"><img alt="Extend Base" style="width: 550.00px" src="img/970b90083f8782ba.png"></p>
+<p class="image-container"><img alt="Extend Base" style="width: 550.00px" src="img/539acf1a145aaf1b.png"></p>
 <h2 is-upgraded>Part 2: Fix No Such Element Exception</h2>
 <p>Before you add in any permanent code, lets try out an experiment. In <code>tests/TestLogin.java</code>, update <code>import static org.junit.Assert.assertTrue</code>, changing<code>True</code>to <code>*</code> so all assertions are imported.</p>
 <pre><code>//filename: tests/TestLogin.java

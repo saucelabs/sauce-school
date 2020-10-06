@@ -110,7 +110,7 @@
 <p>In Terminal you can type this command to create a new project directory:</p>
 <p class="image-container"><img alt="mkdir SeleniumJS" style="width: 450.00px" src="img/fc21d670ffa09cb2.png"></p>
 <h3 is-upgraded>Note</h3>
-<p>If you already have experience with the NodeJS server and an IDE, and know how to install npm in a project folder, you can skip the rest of this Module (on to 2.01) where you can find a github project directory to download or fork.</p>
+<p>If you already have experience with the NodeJS server and an IDE, and know how to install npm in a project folder, you can skip the rest of this Module (on to 2.01) where you can find a Github project directory to download or fork.</p>
 <p>Now we are going to install npm. When we run the command npm install, it will download dependencies defined in a package.json file and generate a node_modules folder with the installed modules.</p>
 <p>–</p>
 <ol type="1">
@@ -154,7 +154,13 @@
 <p><a href="https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_Builder.html" target="_blank"><strong>{ Builder }</strong></a></p>
 <p>Builds the WebDriver instance &amp; specified target browser, remote URLs, and more.</p>
 <h2 is-upgraded>Asynchronous Programming</h2>
-<p>An important element of test code is the use of promises and waits. Much of what occurs in a test is a sequence of actions, with many of the actions needing to wait to be executed until a previous command  has been carried out. This is called Asynchronous programming. Often, it is important to define in your code the need to ‘await&#39; the occurrence of another action. For example, you would not want to click the login button until you have made sure that the username and password has been entered.</p>
+<p>An important element of test code is the use of promises and waits. Much of what occurs in a test is a sequence of actions, with many of the actions needing to wait to be executed until a previous command  has been carried out. This is called Synchronous programming. When you execute something asynchronously, you can move on to another task before it finishes. This is often done in JavaScript <code>async</code> functions. <code>it()</code> is another kind of asynchronous function.</p>
+<p>The <code>await</code> command in an <code>async</code> function allows you to run a command (while other async threads occur simultaneously) but wait for the commands within that particular function to occur in order, one after another. As an example, in the code above you want to</p>
+<ol type="1">
+<li>Wait for the webpage to load <strong>then</strong></li>
+<li>Locate the username field <strong>then</strong></li>
+<li>Enter the username</li>
+</ol>
 <p>In many languages, without the await command, the code will try and run through as many processes or commands as possible, which can be a good thing when you&#39;re trying to load a webpage or get something done quickly. In the case of test code, however, it is important to make sure that commands are carried out in a certain order.</p>
 
 

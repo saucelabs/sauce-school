@@ -1,4 +1,3 @@
-author:Lindsay
 summary: Module 2 of the Selenium Python Course using pip3 with Pytest.
 id: Module2-SeleniumPython
 categories: intermediate
@@ -7,7 +6,7 @@ environments: Web
 status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: Google Analytics ID
-
+author:Lindsay Walker
 <!-- ------------------------ -->
 
 
@@ -278,7 +277,7 @@ You can see all of the files here.
 
 Go into the SeleniumJava (your main project) directory using your terminal.
 
-Essentially, Selenium works with two pieces of information, the element on apage you will use and what you want to do with it. In this example test you will 
+Essentially, Selenium works with two pieces of information, the element on apage you will use and what you want to do with it. In this example test you will
 //...
 
 

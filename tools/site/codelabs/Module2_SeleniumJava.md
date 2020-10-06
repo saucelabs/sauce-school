@@ -1,4 +1,3 @@
-author: Lindsay Walker
 summary: Module 2 of the Selenium Java course. Learn to write Selenium tests in Java using the JUnit framework, Maven, and the IntelliJ IDE.
 id: Module2-SeleniumJava
 categories: intermediate
@@ -7,7 +6,7 @@ environments: Web
 status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-6735579-1
-
+author: Lindsay Walker
 <!-- ------------------------ -->
 
 # Module 2 — Locators and Java Tests

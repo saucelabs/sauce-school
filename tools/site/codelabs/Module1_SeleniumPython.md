@@ -1,4 +1,3 @@
-author:Lindsay Walker
 summary: Module 1 Introduction to Selenium with Python
 id: Module1-SeleniumPython
 categories: beginner
@@ -7,6 +6,7 @@ environments: Web
 status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-6735579-1
+author:Lindsay Walker
 
 <!-- ------------------------ -->
 # Module 1- Introduction to Selenium with Python
@@ -15,7 +15,7 @@ analytics account: UA-6735579-1
 ## 1.01 What You'll Learn
 Duration: 0:03:00
 
-*   Learn to install and use Selenium WebDriver in conjunction with Java tools (IntelliJ and Maven) to write tests.  
+*   Learn to install and use Selenium WebDriver in conjunction with Python tools (pip3, Pytest, and Pycharm) to write tests.  
 *   Use Pycharm and Pip3 to set up, run tests, and manage dependencies on your machine
 *   Use the Selenium WebDriver in conjunction with a Pytest test runner to write tests
 *   Understand what the Selenium WebDriver is and the basics of how it is used to automate testing
@@ -250,7 +250,9 @@ If you type in `python --version` you will now see that you have Python 3 runnin
 
 <img src="assets/1.05U.png" alt="PIP 3" width="350"/>
 
-You will have to `source venv3/bin/activate` run the command to start your virtual environment any time you would like to run tests outside of PuCharm. To exit the virtual environment, type `deactivate`.
+You will have to run the command `source venv3/bin/activate` run the command to start your virtual environment any time you would like to run tests outside of the PyCharm IDE. You can then enter the directory your test suite is kept, and run the command `pytest`.
+
+ To exit the virtual environment in your terminal, type `deactivate`.
 
 
 ### Dependency Overview
@@ -379,22 +381,27 @@ def test_valid_credentials(driver):
 ### Python Methods
 
 
-**os** – The imported `os` module allows Python to interact with the operating system that the tests are running on. In this case getting the filepath (`os.path`) from the current working directory and appending `/vendor/chromedriver` to 
-
+**os** – The imported [`os` module](https://docs.python.org/3/library/os.html) allows Python to interact with the operating system that the tests are running on. In this case getting the filepath (`os.path`) from the current working directory and appending `/vendor/chromedriver` to provide a path to the Chromedriver file that will instantiate a webdriver for the test.
 
 
 ### Pytest Methods
 
-**[example method ](link) –** Description
+**Fixture** – The [fixture functions](https://www.tutorialspoint.com/pytest/pytest_fixtures.htm) are run before a test, and provides input, or data to the test. In this case it is providing the information about the driver to the `driver` method.
+
+**[test_*]–** By naming the [method test_*](https://docs.pytest.org/en/stable/), Pytest will know it's a test method and execute it accordingly. The current code only contains Selenium commands to locate elements on the page, but Pytest also provides `assertions`.
+
+**Assert** – The
 
 
 ### Selenium Elements
 
-**driver variable with driver.get(), driver.findElement, etc –** The driver variable instantiates a WebDriver session/ object, and then you can use Python commands with that driver.
+**_driver** – To create an instance of Selenium we call `webdriver.Chrome()` and store the response in a variable. Since the name of the method is already driver, we refer to this variable as `driver_`.
+
+**driver.get(), driver.findElement, etc –** The driver variable instantiates a WebDriver session/ object, and you can combine Python commands with these driver commands.
 
 **[Driver.quit](https://artoftesting.com/difference-between-driver-close-and-driver-quit-command-in-selenium-webdriver) –** An important Selenium command to use within **quit()** annotations, this closes any browser windows that may be open and terminates the WebDriver session.
 
-You can see an example of the project we will begin to be setting up in the next module [here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod1/SeleniumJava%20copy/src/test/java/companyname)
+You can see an example of the project we will begin to be setting up in the next module [here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/python/Mod2/2.05/tests/login_test.py)
 
 <!-- ------------------------ -->
 

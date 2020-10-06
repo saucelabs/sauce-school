@@ -1,4 +1,3 @@
-author:Lindsay
 summary: Module 4 of the Selenium JavaScript course. Learn to write Selenium tests in the JavaScript programming language with Mocha.
 id: Module4-SeleniumJS
 categories: advanced
@@ -7,7 +6,7 @@ environments: Web
 status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-6735579-1
-
+author:Lindsay Walker
 <!-- ------------------------ -->
 # Module 4 – Scaling Tests to the Cloud
 <!-- ------------------------ -->

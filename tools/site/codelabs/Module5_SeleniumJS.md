@@ -1,6 +1,4 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
-
-author:Lindsay Walker
 summary: Module 5 of Selenium JavaScript course . Learn to write Selenium tests in the JavaScript programming language with Mocha.
 id: Module5_SeleniumJS
 categories: advanced
@@ -9,6 +7,7 @@ environments: Web
 status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-6735579-1
+author:Lindsay Walker
 
 <!-- ------------------------ -->
 # Module 5 – Sauce Connect, Sauce OnDemand, and Continuous Integration

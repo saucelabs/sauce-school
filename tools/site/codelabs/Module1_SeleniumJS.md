@@ -1,4 +1,3 @@
-author: Lindsay
 summary: Module 1 Introduction to Selenium with JavaScript
 id: Module1-SeleniumJS
 categories: beginner
@@ -8,6 +7,7 @@ status: Published
 authors: Lindsay Walker
 Feedback Link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-6735579-1
+author: Lindsay Walker  
 
 # Module 1 — Introduction to Selenium with JavaScript
 
@@ -250,7 +250,12 @@ Builds the WebDriver instance & specified target browser, remote URLs, and more.
 
 ### Asynchronous Programming
 
-An important element of test code is the use of promises and waits. Much of what occurs in a test is a sequence of actions, with many of the actions needing to wait to be executed until a previous command  has been carried out. This is called Asynchronous programming. Often, it is important to define in your code the need to ‘await’ the occurrence of another action. For example, you would not want to click the login button until you have made sure that the username and password has been entered.
+An important element of test code is the use of promises and waits. Much of what occurs in a test is a sequence of actions, with many of the actions needing to wait to be executed until a previous command  has been carried out. This is called Synchronous programming. When you execute something asynchronously, you can move on to another task before it finishes. This is often done in JavaScript `async` functions. `it()` is another kind of asynchronous function.
+
+The `await` command in an `async` function allows you to run a command (while other async threads occur simultaneously) but wait for the commands within that particular function to occur in order, one after another. As an example, in the code above you want to
+  1. Wait for the webpage to load **then**
+  2. Locate the username field **then**
+  3. Enter the username
 
 In many languages, without the await command, the code will try and run through as many processes or commands as possible, which can be a good thing when you’re trying to load a webpage or get something done quickly. In the case of test code, however, it is important to make sure that commands are carried out in a certain order.
 

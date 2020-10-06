@@ -204,7 +204,7 @@ pytest-randomly
 <p>You should now have a project directory that looks like this:</p>
 <p class="image-container"><img alt="requirements.txt" style="width: 750.00px" src="img/a115155e9d4fdf59.png"></p>
 <h2 is-upgraded>The Requirements File</h2>
-<p>This repository contains a file called <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/python/Mod1/1.05/requirements.txt" target="_blank">requirements.txt</a> that can be used in the PyCharm IDE to automatically install the dependencies from the previous lesson in this particular virtual environment. All you need to do is open the terminal in the PyCharm IDE and type in the command:</p>
+<p>This repository contains a file called <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/python/Mod1/1.05/requirements.txt" target="_blank">requirements.txt</a> that can be used in the PyCharm IDE to automatically install the dependencies from the previous lesson, and make sure they are available in this particular virtual environment. All you need to do is open the terminal in the PyCharm IDE and type in the command:</p>
 <pre><code> pip install -r requirements.txt
 </code></pre>
 <p>Some of the dependencies, such as pytest might need updating to the latest version.</p>
@@ -223,16 +223,15 @@ import pytest
 import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.firefox.service import Service as FirefoxService
 
 @pytest.fixture
 def driver(request):
-    _geckodriver = os.path.join(os.getcwd(), &#39;vendor&#39;, &#39;geckodriver&#39;)
-    if os.path.isfile(_geckodriver):
-        _service = FirefoxService(executable_path=_geckodriver)
-        driver_ = webdriver.Firefox(service=_service)
+    _chromedriver= os.path.join(os.getcwd(), &#39;vendor&#39;, &#39;chromedriver&#39;)
+    if os.path.isfile(_chromedriver):
+        driver_ = webdriver.Chrome(_chromedriver)
+
     else:
-        driver_ = webdriver.Firefox()
+        driver_ = webdriver.Chrome()
 
     def quit():
         driver_.quit()
@@ -246,9 +245,10 @@ def test_valid_credentials(driver):
     driver.find_element(By.ID, &#34;username&#34;).send_keys(&#34;tomsmith&#34;)
     driver.find_element(By.ID, &#34;password&#34;).send_keys(&#34;SuperSecretPassword!&#34;)
     driver.find_element(By.CSS_SELECTOR, &#34;button&#34;).click()
+
 </code></pre>
 <h2 is-upgraded>Python Methods</h2>
-<p><strong>Example method</strong> – Description</p>
+<p><strong>os</strong> – The imported <code>os</code> module allows Python to interact with the operating system that the tests are running on. In this case getting the filepath (<code>os.path</code>) from the current working directory and appending <code>/vendor/chromedriver</code> to instantiate a webdriver for the test.</p>
 <h2 is-upgraded>Pytest Methods</h2>
 <p><a href="link" target="_blank"><strong>example method </strong></a><strong> –</strong> Description</p>
 <h2 is-upgraded>Selenium Elements</h2>
