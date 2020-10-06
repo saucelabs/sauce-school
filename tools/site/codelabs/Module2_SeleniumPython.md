@@ -221,7 +221,7 @@ Selenium is able to find and interact with elements on a page by way of various 
 
 ### Quiz
 
-![Embed URL](share URL)
+<!-- ![Embed URL](share URL) -->
 
 
 
