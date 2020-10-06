@@ -335,12 +335,19 @@ gulp.task('watch:js', () => {
   gulp.watch(srcs, gulp.series('build:js', 'build:html'));
 });
 
+// watch:codelabs watches codelabs files for changes and updates them
+gulp.task('watch:codelabs', () => {
+  const watchPath = path.join(__dirname, CODELABS_SRC_DIR, '*.md');
+  gulp.watch(watchPath, gulp.series('build:codelabs'));
+});
+
 // watch starts all watchers
 gulp.task('watch', gulp.parallel(
   'watch:css',
   'watch:html',
   'watch:images',
   'watch:js',
+  'watch:codelabs',
 ));
 
 // serve builds the website, starts the webserver, and watches for changes.
