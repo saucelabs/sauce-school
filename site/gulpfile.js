@@ -60,7 +60,7 @@ const BASE_URL = args.baseUrl || 'https://example.com';
 // CODELABS_DIR is the directory where the actual codelabs exist on disk.
 // Despite being a constant, this can be overridden with the --codelabs-dir
 // flag.
-const CODELABS_DIR = args.codelabsDir || '.';
+const CODELABS_DIR = args.codelabsDir || 'codelabs';
 
 // CODELABS_SRC_DIR is the directory where the source of codelabs exist on disk.
 // Despite being a constant, this can be overridden with the --codelabs-dir
@@ -119,9 +119,10 @@ gulp.task('clean', gulp.parallel(
 
 // build:codelabs copies the codelabs from the directory into build.
 gulp.task('build:codelabs', async (done) => {
-  await gulp.series('codelabs:export')();
-  copyFilteredCodelabs('build');
-  done();
+  gulp.series('codelabs:export')(() => {
+    copyFilteredCodelabs('build');
+    done();
+  });
 });
 
 // build:scss builds all the scss files into the dist dir
@@ -378,13 +379,14 @@ gulp.task('codelabs:export', (callback) => {
   const source = fs.readdirSync(CODELABS_SRC_DIR)
       .filter(file => file.endsWith('.md'))
       .map(file => path.join(__dirname, CODELABS_SRC_DIR, file));
+  const outDir = path.join(__dirname, CODELABS_DIR);
 
   if (source !== undefined) {
     const sources = Array.isArray(source) ? source : [source];
-    claat.run(CODELABS_DIR, 'export', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, sources, callback);
+    claat.run(CODELABS_DIR, 'export', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, outDir, sources, callback);
   } else {
     const codelabIds = collectCodelabs().map((c) => { return c.id });
-    claat.run(CODELABS_DIR, 'update', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, codelabIds, callback);
+    claat.run(CODELABS_DIR, 'update', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, outDir, codelabIds, callback);
   }
 });
 

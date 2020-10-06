@@ -21,7 +21,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: 12.x
 
       - name: Set up Python 3.7
         uses: actions/setup-python@v2
@@ -47,9 +47,6 @@ jobs:
           version: '290.0.1'
           service_account_key: ${{ secrets.GCS_STAGING_SA_KEY }}
           project_id: ${{ secrets.GCS_STAGING_PROJECT }}
-
-      - name: Build codelabs using claat
-        run: claat export -o site/codelabs codelabs/Module*.md
 
       - name: Install Dependencies and Build Site
         run: |
