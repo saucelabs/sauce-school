@@ -201,7 +201,7 @@ Your new code in `LoginTest.js` should look like this:
 
 <img src="assets/3.03BB.png" alt="LoginTest Code" width="600"/>
 
-Run npm test and you should get this success message:
+Run `npm test` and you should get this success message:
 
 <img src="assets/3.03C.png" alt="LoginTest Success" width="600"/>
 
@@ -750,7 +750,7 @@ In our test, `'hidden element'`,  you are visiting the first dynamic loading exa
 
 #### NOTE
 
-You have included the path variable in the test code, and commented out the code for the path because if you are using npm, you don’t need it, but you will need it if you are managing dependencies yourself.
+You have included the path variable in the test code, and commented out the code for the path because if you are using `npm`, you don’t need it, but you will need it if you are managing dependencies yourself.
 
 When you save this and run it with `npm test` from the command-line it will:
 

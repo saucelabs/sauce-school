@@ -312,7 +312,7 @@ It is recommended that you do not use the Sauce Connect tunnel and change the va
 
 --
 
-First you need to install [mocha-parallel-tests](https://www.npmjs.com/package/mocha-parallel-tests). So let's update our package.json file and use npm install to install it.
+First you need to install [mocha-parallel-tests](https://www.npmjs.com/package/mocha-parallel-tests). So let's update our package.json file and use `npm install` to install it.
 
 Open your `package.json` file and add in  `the following `at the bottom of the file (add in a comma after `"mocha:{}" `) :
 
@@ -351,7 +351,7 @@ Visit the [mocha-parallel-tests ](https://www.npmjs.com/package/mocha-parallel-t
 
 --
 
-Run `npm install` in your project folder to install the` mocha-parallel-tests `test runner as one of the files in node_modules. (If your parallel test don’t work correctly, try deleting node-modules and re-installing them with npm install.)
+Run `npm install` in your project folder to install the` mocha-parallel-tests `test runner as one of the files in node_modules. (If your parallel test don’t work correctly, try deleting node-modules and re-installing them with `npm install`.)
 
 This will allow you to run several tests at the same time. This test runner executes each of your test files in a separate process while maintaining the output structure of mocha.
 
@@ -635,7 +635,7 @@ To return to the dashboard and see the list of projects, you can click **Back to
 
 ### Add NodeJS as a Global Tool
 
-Since you are using npm to manage dependencies, including Mocha and the `npm test `command, you need to set up **NodeJS **as a **Global Tool **so Jenkins can use it in the same way your machine does to run tests.
+Since you are using `npm` to manage dependencies, including Mocha and the `npm test `command, you need to set up **NodeJS **as a **Global Tool **so Jenkins can use it in the same way your machine does to run tests.
 
 First, return to the dashboard (You can do this by clicking the** Jenkins** icon in the menu at any time). Next, click on **Manage Jenkins** > **Global Tool Configuration**.
 
@@ -669,7 +669,7 @@ Check the box that says **Provide Node & npm bin/folder to PATH.**
 *   From the first dropdown, choose the version of node you just set up with the Mocha dependency.
 *   From the third dropdown, choose** Local to the workspace.**
 
-This way the tests you run can also use npm to run the tests the way you have been on your local machine, and it will cache temporary files in the Jenkins environment. If you want to cache on your machine, you will have to change the system settings on your computer. Click **Save**. You are now ready to run your tests.
+This way the tests you run can also use `npm` to run the tests the way you have been on your local machine, and it will cache temporary files in the Jenkins environment. If you want to cache on your machine, you will have to change the system settings on your computer. Click **Save**. You are now ready to run your tests.
 
 
 ### Run Your Tests Using Jenkins

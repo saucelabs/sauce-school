@@ -164,14 +164,14 @@ In Terminal you can type this command to create a new project directory:
 #### Note
 If you already have experience with the NodeJS server and an IDE, and know how to install npm in a project folder, you can skip the rest of this Module (on to 2.01) where you can find a Github project directory to download or fork.
 
-Now we are going to install npm. When we run the command npm install, it will download dependencies defined in a package.json file and generate a node_modules folder with the installed modules.
+Now we are going to install npm. When we run the command `npm install`, it will download dependencies defined in a package.json file and generate a node_modules folder with the installed modules.
 
 --
 
 1. Navigate to the folder you just made from the terminal.
 <img src="assets/1.05B.png" alt="cd SeleniumJS" width="250"/>
 
-2. Run npm install from the terminal.
+2. Run `npm install` from the terminal.
 <img src="assets/1.05C.png" alt="npm install" width="200"/>
 
 3. If you open your file folder, you should see the folder ‘node_modules’ as well as package.json and package-lock.json.
@@ -202,13 +202,13 @@ If you are familiar with using GitHub to write your code, you can also fork/ bra
 
 #### NOTE
 
-If you download this project, you should open the directory (1.05) in your terminal and run npm install before trying to write any tests.
+If you download this project, you should open the directory (1.05) in your terminal and run `npm install` before trying to write any tests.
 
 --
 
 #### Cheat Sheet
 
-If you would like to configure each driver without npm, use the **[Cheat Sheet](https://docs.google.com/document/d/1tQn9JSZ2I6wlNM13LtQ5hh5GN-aSMrvgInBk5LxiELI/edit?usp=sharing)**.
+If you would like to configure each driver without `npm`, use the **[Cheat Sheet](https://docs.google.com/document/d/1tQn9JSZ2I6wlNM13LtQ5hh5GN-aSMrvgInBk5LxiELI/edit?usp=sharing)**.
 <!-- ![Cheat-sheet 1.05](assets/1.05_Driver_Configuration_Cheat_Sheet.pdf) -->
 <!-- ------------------------ -->
 

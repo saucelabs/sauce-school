@@ -319,7 +319,7 @@ Finally, update the login and dynamicLoading variables on your test pages in the
 ```
 
 
-See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod4/4.03). Note that you have to run npm install in the root project folder before being able to use code pulled down from a repository.
+See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod4/4.03). Note that you have to run `npm install` in the root project folder before being able to use code pulled down from a repository.
 
 
 #### Final Code
@@ -464,7 +464,7 @@ Your new code should look like this:
 
 WebDriver works with each of the major browsers through a browser driver which is (ideally but not always) maintained by the browser manufacturer. It is an executable file (consider it a thin layer) that acts as a bridge between Selenium and the browser.
 
-By using npm with the package.json file, the updated version will be fetched for you without manual install and setting of the PATH variable. If you don’t use npm, you need to manually install each driver and update the path
+By using `npm` with the `package.json` file, the updated version will be fetched for you without manual install and setting of the PATH variable. If you don’t use `npm`, you need to manually install each driver and update the path
 
 
 ### Running Tests in Different Browsers
@@ -513,7 +513,7 @@ class DriverFactory {
 ```
 
 
-Run your code with npm test, and you should see your tests working when you enter either ‘chrome’ or ‘firefox in config.js. Complete course code can be found [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod4/4.04).
+Run your code with `npm test`, and you should see your tests working when you enter either ‘chrome’ or ‘firefox in config.js. Complete course code can be found [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod4/4.04).
 
 
 #### Final Code
@@ -607,7 +607,7 @@ Watch This Video to See how to set up your Sauce Credentials as environment vari
 
 ### Set a Source for Sauce Credentials
 
-If you get a failing test such as this, Sauce Labs doesn’t know to look at the updated SAUCE_USERNAME and SAUCE_ACCESS_KEY that you put in your .bash_profile. (First make sure npm is correctly installed as well)
+If you get a failing test such as this, Sauce Labs doesn’t know to look at the updated SAUCE_USERNAME and SAUCE_ACCESS_KEY that you put in your .bash_profile. (First make sure `npm` is correctly installed as well)
 
 <img src="assets/4.05C.png" alt="Sauce Labs Authentication Error" width="450"/>
 
@@ -694,7 +694,7 @@ Now that you are running tests on the Sauce Labs platform, you may notice that t
 ```
 
 
-Now when you run npm test, you should see a confirmation that your test ran. It should have taken longer than it did on your local machine. Remember to set the `source ~/.bash_profile` for your project folder if you have made any changes.
+Now when you run `npm test`, you should see a confirmation that your test ran. It should have taken longer than it did on your local machine. Remember to set the `source ~/.bash_profile` for your project folder if you have made any changes.
 
 <img src="assets/4.05D.png" alt="4 Passing Tests" width="350"/>
 
@@ -789,7 +789,7 @@ beforeEach(async function() {
 ```
 
 
-Run `npm tes`t to see if it works. (If you have a new project file, don’t forget to run s`ource ~/.bash_profile`).  Now when we run our tests in Sauce Labs, the [account dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) will show the tests running with a name in the dashboard
+Run `npm test` to see if it works. (If you have a new project file, don’t forget to run s`ource ~/.bash_profile`).  Now when we run our tests in Sauce Labs, the [account dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) will show the tests running with a name in the dashboard
 
 
 <img src="assets/4.06B.png" alt="Tests with Names" width="550"/>

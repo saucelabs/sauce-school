@@ -383,21 +383,23 @@ def test_valid_credentials(driver):
 
 **os** – The imported [`os` module](https://docs.python.org/3/library/os.html) allows Python to interact with the operating system that the tests are running on. In this case getting the filepath (`os.path`) from the current working directory and appending `/vendor/chromedriver` to provide a path to the Chromedriver file that will instantiate a webdriver for the test.
 
+**def** – The keyword that defines a function in Python.
+
 
 ### Pytest Methods
 
-**Fixture** – The [fixture functions](https://www.tutorialspoint.com/pytest/pytest_fixtures.htm) are run before a test, and provides input, or data to the test. In this case it is providing the information about the driver to the `driver` method.
-
 **[test_*]–** By naming the [method test_*](https://docs.pytest.org/en/stable/), Pytest will know it's a test method and execute it accordingly. The current code only contains Selenium commands to locate elements on the page, but Pytest also provides `assertions`.
 
-**Assert** – The
+**Fixture** – The [fixture](https://www.tutorialspoint.com/pytest/pytest_fixtures.htm) is a type of function are run before a test, and provides input, or data to the test you choose to run(`test_valid_credentials`). In this case it is providing the information about the driver to the `driver` method. Fixtures help define when you should (and should not) use certain methods defined in a function by passing the fixture function in as a parameter.
+
+**Assert** – Not used yet in this code sample, however [assertions](https://docs.pytest.org/en/3.0.2/assert.html) are important to check is elements are present (`assert true' or 'false`), or if the outcome to a certain action has a certain value. (`assert a == b`)
 
 
 ### Selenium Elements
 
-**_driver** – To create an instance of Selenium we call `webdriver.Chrome()` and store the response in a variable. Since the name of the method is already driver, we refer to this variable as `driver_`.
+**Driver** – To create an instance of Selenium we call `webdriver.Chrome()` and store the response in a variable. Since the name of the method is already driver, we refer to this variable as `driver_`.
 
-**driver.get(), driver.findElement, etc –** The driver variable instantiates a WebDriver session/ object, and you can combine Python commands with these driver commands.
+**driver.get(), driver.findElement, etc. –** The driver variable instantiates a WebDriver session/ object, and you can combine Python commands with these driver commands.
 
 **[Driver.quit](https://artoftesting.com/difference-between-driver-close-and-driver-quit-command-in-selenium-webdriver) –** An important Selenium command to use within **quit()** annotations, this closes any browser windows that may be open and terminates the WebDriver session.
 

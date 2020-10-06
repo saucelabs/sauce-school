@@ -342,7 +342,7 @@ In your file we'll create a new test file called `LoginTest.js`. Next, we will i
 
 #### NOTE
 
- the versions of the dependencies may have changed to a more updated version, or need a different version for your tests. If you have nom installed, it should auto-complete the most recent versions.
+ the versions of the dependencies may have changed to a more updated version, or need a different version for your tests. If you have `npm` installed, it should auto-complete the most recent versions.
 
  --
 
@@ -367,7 +367,7 @@ and edit to look as follows:
 
 #### NOTE
 
-The versions of each of the dependencies will change over time. If you have an IDE, it will give you options for each one & auto-fill the most recent version for you if you use npm. Otherwise, research what the most recent or best version of each dependency is.
+The versions of each of the dependencies will change over time. If you have an IDE, it will give you options for each one & auto-fill the most recent version for you if you use `npm`. Otherwise, research what the most recent or best version of each dependency is.
 
 --
 
@@ -434,7 +434,7 @@ describe('Login', function() {
 ```
 
 
-Notice how the `const path` and first few lines in the `BeforeEach()` method that create the `vendorDirectory` object are commented out. This is because we used npm install to get the drivers. If you installed the gecko driver manually into the vendor file, set up the same way as (or pulled from)  [this repo](https://github.com/saucelabs/selenium-guidebook/tree/master/code-examples/javascript/06/01), you can leave it as is.
+Notice how the `const path` and first few lines in the `BeforeEach()` method that create the `vendorDirectory` object are commented out. This is because we used `npm` install to get the drivers. If you installed the gecko driver manually into the vendor file, set up the same way as (or pulled from)  [this repo](https://github.com/saucelabs/selenium-guidebook/tree/master/code-examples/javascript/06/01), you can leave it as is.
 
 
 ### Breaking Down the Elements
@@ -469,7 +469,7 @@ In order for Selenium to load an instance of Firefox, we’ll need to specify th
 
 #### **NOTE**
 
-If you used npm to install your drivers, you will comment the `vendorDirectory` variable declaration out, as you don’t need to specify the path, since npm was used to install the dependencies, it takes care of mapping the code in your project to the correct path. The only code you will need inside the vendorDirectory for now is the `driver = await new Builder()`.
+If you used `npm` to install your drivers, you will comment the `vendorDirectory` variable declaration out, as you don’t need to specify the path, since `npm` was used to install the dependencies, it takes care of mapping the code in your project to the correct path. The only code you will need inside the vendorDirectory for now is the `driver = await new Builder()`.
 
 
 ```
@@ -514,7 +514,7 @@ it('with valid credentials', async function() {
 
 If we save this and run it (by running `npm test` from the command-line), it will run and pass. But there's one thing missing — an assertion. In order to find an element to write an assertion against we need to see what the markup of the page is after submitting the login form.
 
-See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod2/2.06). Note that you have to run npm install in the root project folder before being able to use code pulled from a repository
+See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod2/2.06). Note that you have to run `npm` install in the root project folder before being able to use code pulled from a repository
 
 <!-- ------------------------ -->
 
@@ -570,7 +570,7 @@ Find the assertion below and add in the` ! `character before the `driver.findele
 ![exclamation point](assets/2.07D.png)
 
 
-Run npm test for your project folder with the terminal.
+Run `npm test` for your project folder with the terminal.
 
 This time you should get an error from your terminal, as well as the message when for the ‘falsy’ condition.
 
@@ -671,7 +671,7 @@ If you were successful, you should see both the locator and login tests (both ar
 <!-- ![Locate Test success](assets/2.08C.png) -->
 
 
-See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/code-examples/javascript/Mod2/2.07). Note that you have to run npm install in the root project folder before being able to use code pulled from a repository.
+See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/code-examples/javascript/Mod2/2.07). Note that you have to run `npm install` in the root project folder before being able to use code pulled from a repository.
 
 <!-- ------------------------ -->
 
