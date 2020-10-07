@@ -123,7 +123,7 @@ Duration: 0:15:00
 
 You will need several dependencies dependencies in order for our test to run as planned, and now we will get set up to do that. In this module, you’re going to install a program called Homebrew, which will help install Python version 3 and manage it's dependencies.
 
-If you are installing Python on a Widows or Linux machine, you can follow the instructions found on [_The Hitchikers Guide to Python_](https://docs.python-guide.org/starting/installation/)
+If you are installing Python on a Widows or Linux machine, you can follow the instructions found on [_The Hitchikers Guide to Python_](https://docs.python-guide.org/starting/installation/).
 
 #### NOTE
 
