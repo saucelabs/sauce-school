@@ -1,0 +1,65 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Deploy to staging
+
+on: [push, pull_request]
+
+env:
+  GCS_BUCKET: ${{ secrets.GCS_STAGING_BUCKET }}
+  CLOUDSDK_PYTHON: python3.7
+
+jobs:
+  build-and-deploy:
+    name: Deploy to GCS Training Staging Bucket
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Install PIP dependencies
+        run: |
+          pip install --upgrade pip
+          pip install crcmod
+
+      - name: Set up Go 1.14
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.14
+
+      - name: Install claat
+        run: go get github.com/googlecodelabs/tools/claat
+
+      - name: Setup Google Cloud CLI
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: '290.0.1'
+          service_account_key: ${{ secrets.GCS_STAGING_SA_KEY }}
+          project_id: ${{ secrets.GCS_STAGING_PROJECT }}
+
+      - name: Build codelabs using claat
+        run: claat export -o tools/site/codelabs tools/site/codelabs/Module*.md
+
+      - name: Install Dependencies and Build Site
+        run: |
+          cd tools/site
+          npm ci
+          npm run gulp -- dist --codelabs-dir=codelabs
+
+      - name: Deploy to GCS Bucket
+        if: ${{ github.ref == 'refs/heads/master' }}
+        run: |
+          cd tools/site
+          npm run gulp -- publish:staging:views --staging-bucket=$GCS_BUCKET
+          npm run gulp -- publish:staging:codelabs --staging-bucket=$GCS_BUCKET

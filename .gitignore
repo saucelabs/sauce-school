@@ -6,4 +6,3 @@ debug.test
 *pb.go
 node_modules
 **node_modules/
-site/codelabs/
