@@ -89,6 +89,7 @@ The Pytest dependencies are a set of Python library/package that allow you to co
 
 
 #### Quiz
+![<https://docs.google.com/forms/d/e/1FAIpQLSf_99aRNED76XGNnhRkIvQJZ1oh_ONVfQHvRw2kb6V2xsgO9A/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSf_99aRNED76XGNnhRkIvQJZ1oh_ONVfQHvRw2kb6V2xsgO9A/viewform?usp=sf_link)
 
 
 <!-- ------------------------ -->
@@ -124,6 +125,7 @@ Duration: 0:15:00
 You will need several dependencies dependencies in order for our test to run as planned, and now we will get set up to do that. In this module, you’re going to install a program called Homebrew, which will help install Python version 3 and manage it's dependencies.
 
 If you are installing Python on a Widows or Linux machine, you can follow the instructions found on [_The Hitchikers Guide to Python_](https://docs.python-guide.org/starting/installation/).
+
 
 #### NOTE
 
@@ -258,7 +260,7 @@ You will have to run the command `source venv3/bin/activate` run the command to 
 ### Dependency Overview
 **Python–** A dynamically-typed, interpreted language used in conjunction with libraries like Pytest that allow you to run tests on all parts of an application.
 
-**Pip Package Manager –** Manages other required dependencies, installing and managing tools and libraries from cloud repositories like [PiPY](https://pypi.org/).
+**Pip3 Package Manager –** Manages other required dependencies, installing and managing tools and libraries from cloud repositories like [PiPY](https://pypi.org/).
 
 **Pytest Test Runner –** An open-source tool that executes the test with commands that allow you to do things like run tests in parallel, run specific sets of tests, and more.
 
@@ -409,3 +411,4 @@ You can see an example of the project we will begin to be setting up in the next
 
 ## 1.08 Module 1 Quiz
 Duration: 0:03:00
+![<https://docs.google.com/forms/d/e/1FAIpQLSfGvau9FXl3laJq0BD6kTJLdj7yfkg8tRrnCIGno3KQBWg9bw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSfGvau9FXl3laJq0BD6kTJLdj7yfkg8tRrnCIGno3KQBWg9bw/viewform?usp=sf_link)

@@ -1,9 +1,16 @@
 bazel-*
-**.DS_Store
+**/.DS_Store
+.DS_Store
 .drone.sec.yml
 **.idea/
+.idea/
 debug.test
 *pb.go
 node_modules
 **node_modules/
 site/codelabs/
+
+$> cat ~/.gitignore_global        
+# Ignore default files of MacOS X
+.DS_Store
+.idea/
