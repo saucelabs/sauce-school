@@ -89,7 +89,7 @@ The Pytest dependencies are a set of Python library/package that allow you to co
 
 
 #### Quiz
-![<https://docs.google.com/forms/d/e/1FAIpQLSf_99aRNED76XGNnhRkIvQJZ1oh_ONVfQHvRw2kb6V2xsgO9A/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSf_99aRNED76XGNnhRkIvQJZ1oh_ONVfQHvRw2kb6V2xsgO9A/viewform?usp=sf_link)
+![https://docs.google.com/forms/d/e/1FAIpQLSf_99aRNED76XGNnhRkIvQJZ1oh_ONVfQHvRw2kb6V2xsgO9A/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSf_99aRNED76XGNnhRkIvQJZ1oh_ONVfQHvRw2kb6V2xsgO9A/viewform?usp=sf_link)
 
 
 <!-- ------------------------ -->
@@ -411,4 +411,4 @@ You can see an example of the project we will begin to be setting up in the next
 
 ## 1.08 Module 1 Quiz
 Duration: 0:03:00
-![<https://docs.google.com/forms/d/e/1FAIpQLSfGvau9FXl3laJq0BD6kTJLdj7yfkg8tRrnCIGno3KQBWg9bw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSfGvau9FXl3laJq0BD6kTJLdj7yfkg8tRrnCIGno3KQBWg9bw/viewform?usp=sf_link)
+![https://docs.google.com/forms/d/e/1FAIpQLSfGvau9FXl3laJq0BD6kTJLdj7yfkg8tRrnCIGno3KQBWg9bw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSfGvau9FXl3laJq0BD6kTJLdj7yfkg8tRrnCIGno3KQBWg9bw/viewform?usp=sf_link)
