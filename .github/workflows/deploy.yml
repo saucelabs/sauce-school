@@ -56,7 +56,11 @@ jobs:
 
       - name: Install NPN dependencies
         working-directory: ./site/
-        run: npm ci && npm run gulp -- dist --codelabs-dir=codelabs
+        run: npm ci
+
+      - name: Build it
+        working-directory: ./site/
+        run: npm run gulp -- dist --codelabs-dir=codelabs
 
       - name: Deploy to Staging
         if: ${{ github.ref == 'refs/heads/master' }}
