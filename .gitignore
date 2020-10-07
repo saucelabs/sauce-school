@@ -9,8 +9,4 @@ debug.test
 node_modules
 **node_modules/
 site/codelabs/
-
-$> cat ~/.gitignore_global        
-# Ignore default files of MacOS X
-.DS_Store
-.idea/
+/tools

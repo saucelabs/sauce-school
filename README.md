@@ -25,8 +25,10 @@ export PATH=$PATH:$HOME/go/bin
 > For Windows users you will have to set this variable in the [Advanced System Settings](https://docs.oracle.com/en/database/oracle/r-enterprise/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html#GUID-DD6F9982-60D5-48F6-8270-A27EC53807D0)
 
 ### 4. Project Setup
- The project setup is labeled sauce_school_codelab. Within it you should see the folders tools/site. Inside of /site, you have a separate 'codelabs' directory for each course (this is because each course will have it's own 'codelabs' landing page with several modules.)
-Once you have the project cloned, go into the site folder and install all the dependencies:
+ The project setup is labeled sauce-school. Within it you should see the directories:
+ * `/site`
+ * `/codelabs`
+ the `codelabs` directory is where module `.md` files are uploaded, and from there, they are exported with the `guplp.js` tool to `/site/codelabs` where the published versions are built.
 
 #### Navigate to the `site` folder:
 
@@ -40,23 +42,34 @@ cd site
 npm install
 ```
 
-### 5. Add .md files and use [Claat](https://github.com/googlecodelabs/tools) to render an HTML page/ JSON file.
+### 5. Add .md Files to add Course Module3_SeleniumJS
+
+[Claat](https://github.com/googlecodelabs/tools) will render an HTML page/ JSON file inside of `site/codelabs`.
+
+*   The `/codelab` directory contains all courses, each with several modules in it.
 <!-- -->
- Place a markdown file in a folder called _tools/ site/codelabs_. Enter that folder and run the command `claat export <filename.md>` (e.g `claat export Module1_SeleniumJS.md`) to export it to a new directory with a .json file and index.html.
+ Place a markdown file for course modules in a folder called _/site/codelabs_.
+
+ * Each Course module `.md.` file is labeled by language and module number (e.g. Module3_SeleniumJS.md).
+ * The `tag` at the top of each codelab markdown file identifies the course e.g. java, javascript, python etc.) which are made of many 'modules' with several lessons in it. The codelabs will br grouped together into a course (aka `views`) according to this tag.
+
+  **!IMPORTANT at the top of the .md file , you need to have project information with the id- this is the name of the rendered codelab in `site/buile/codelabs`* (see below).
 
 
-  **!IMPORTANT at the top of the .md file , you need to have project information with the id- this is what your file generated for the codelab will be named. Set it to the same name as your project directory (see below) of your codelab** (see below).
 
-  Teh codelab folder contains all courses, each with several modules in it. Each Course module is labeled by language and module number (e.g. Module 3 SeleniumJS) Each markdown file is a 'module' with several lessons in it. The 'feedback link' is [set to a G-Form](https://docs.google.com/forms/d/1QKpJDvv64-YXrCPr_unHL-fBAezRnGzqjruLMKC4ssQ/edit?usp=sharing) for people to fill out about bugs/ issues/ questions.
 
- *convention, make the .md file use underscores_in_the_name.md and the folder containing that index.html (generated from id in .md file) codelabs files have dashes-in-the-name*
+* The `feedback link` is [a G-Form](https://docs.google.com/forms/d/1QKpJDvv64-YXrCPr_unHL-fBAezRnGzqjruLMKC4ssQ/edit?usp=sharing) for people to fill out about bugs/ issues/ questions.
+
+ * Convention, make the .md file use underscores_in_the_name.md and the folder containing that index.html (generated from id in .md file) codelabs files have dashes-in-the-name*
+
+ **Example metadata at the top of `.md` file:**
 
 ```
-author:Lindsay
+author:Lindsay Walker
 summary: Module X of the course X. Learn to write Selenium tests in X programming language with X Test runner and X framework
 id: ModiuleX_SeleniumLang
-tags: <enter view names here from tools/site/app>  
-categories: <enter category for drop-down filter>
+tags: <enter tag names here from /site/app/views/*.json>  
+categories: <enter a single category for drop-down filter>
 environments: Web
 status: Published/ Work in Progress
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
@@ -78,15 +91,15 @@ When you create a new codelab markdown file from a GDoc, you can use the [Docs t
  - Delete any HTML tags, they will screw things up
  - Make sure you delete any random `<p>` tags within the doc, which may have been generated with Docs to Markdown.
  - before each lesson with `##`, above it insert `<!-- ------------------------ -->` to denote a new pages
- - Images can mess things up. Make sure you list an image as  imagefolder/imagename.png. The image folder will be at the same level as the markdown page (not within a codelabs folder')
+
 
 ###  8. Images
- Other notes on setup- for images to appear, you need to have an asset folder in the 'codelab' directory where each codelab can pull from (e.g. 'SeleniumJS') Copy and paste the folder **universal assets** in tools/site/universal_assets into the codelab folder and rename that folder **assets** folder (ex- you will have SeleniumJS/assets) You will need to add in the assets unique to that folder to the new assets folder.
+Images can mess things up. Make sure you list an image as `assets/imagename.png` withing the markdown file. The assets folder will be at the same level as the markdown page in `/codelabs` (not within a `/codelabs/ModuleX` folder)
 
 ### 9. Adding in Elements to .md files
     Format for Images `!(Image title)[imageDirInCodelab/Imagename,extension]``
     Format for Links `[Text to be highlighted](URL)`
-    Format for <iframes> `[embed URL](regular URl link)`
+    Format for <iframes> `![embed URL](regular URL)`
     - Get the embed URL and copy the content within src="" like the following: `<iframe src="` **https://docs.google.com/forms/d/e/1FAIpQLSfF6_0V7jEE9JYF4vWDUsHTuYYHnQbaEsMGtfeTcr8arxZgzg/viewform?embedded=true** `" width="640" height="1240" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>`
 
     More on how to convert markdown files is [here](https://docs.google.com/document/d/1C7CunszYBCTAgzwYbDdtHS7yjwLEYQJuvKVC2ff4MZY/edit?usp=sharing)
