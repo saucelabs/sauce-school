@@ -5,7 +5,7 @@ This document will be for documenting sauce_school specific changes and specific
 <!-- -->
 
 ## Access 'Codelabs' or Course files
-The course are located in tools/site/codelabs directory. Each course will contain a markdown file for each module by language (which contains several lessons) which is compiled into a directory containing an index.html rendered from the corresponding markdown page.
+The course are located in `codelabs` directory. Each course will contain a markdown file for each module by language (which contains several lessons) which is compiled into a directory containing an index.html rendered from the corresponding markdown page.
 
 ## Initial setup
 ### 1. Get the Tools
@@ -31,15 +31,14 @@ Once you have the project cloned, go into the site folder and install all the de
 #### Navigate to the `site` folder:
 
 ```
-cd /tools/site
+cd site
 ```
 
 #### Install package dependencies and gulp dependencies
 
 ```
-npm install && npm install -g gulp-cli
+npm install
 ```
-use `sudo npm install -g gulp-cli` if you aren't currently in superuser status.
 
 ### 5. Add .md files and use [Claat](https://github.com/googlecodelabs/tools) to render an HTML page/ JSON file.
 <!-- -->
@@ -67,7 +66,11 @@ analytics account: Google Analytics ID
 #### More on [markdown here](https://docs.google.com/document/d/1C7CunszYBCTAgzwYbDdtHS7yjwLEYQJuvKVC2ff4MZY/edit?usp=sharing)
 
 ### 6. Serve it Locally
- To serve it up locally, (`cd ..` to the course directory first) run `gulp serve --codelabs-dir=<codelab directory name>` e.g. `gulp serve --codelabs-dir=codelabs`
+ To serve it up locally, ensure you are in `site` folder:
+```
+npm run -- gulp serve --codelabs-dir=codelabs`
+```
+It will automatically regenerate the codelabs when they are modified.
 
 ### 7. Docs to Markdown
 When you create a new codelab markdown file from a GDoc, you can use the [Docs to Markdown tool](https://gsuite.google.com/marketplace/app/docs_to_markdown/700168918607), however there will be some HTML tags at the top you need to delete, as well as title cleanup you need to do

@@ -1,0 +1,77 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Deployment Pipeline
+
+on:
+  create:
+    tags: [v*]
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+env:
+  GCS_STAGING_BUCKET: ${{ secrets.GCS_STAGING_BUCKET }}
+  GCS_PRODUCTION_BUCKET: ${{ secrets.GCS_PRODUCTION_BUCKET }}
+  CLOUDSDK_PYTHON: python3.7
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install NodeJS
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Install golang
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.14
+      - run: go get github.com/googlecodelabs/tools/claat
+
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - run: pip install crcmod
+
+      - name: Install Google Cloud SDK
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: '290.0.1'
+          service_account_key: ${{ secrets.GCS_STAGING_SA_KEY }}
+          project_id: ${{ secrets.GCS_STAGING_PROJECT }}
+
+      - name: Cache NPM packages
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install NPN dependencies
+        working-directory: ./site/
+        run: npm ci
+
+      - name: Build it
+        working-directory: ./site/
+        run: npm run gulp -- dist --codelabs-dir=codelabs
+
+      - name: Deploy to Staging
+        if: ${{ github.ref == 'refs/heads/master' }}
+        working-directory: ./site/
+        run: |
+          npm run gulp -- publish:staging:views --staging-bucket=$GCS_STAGING_BUCKET
+          npm run gulp -- publish:staging:codelabs --staging-bucket=$GCS_STAGING_BUCKET
+
+      - name: Deploy to Production
+        if: ${{ startsWith(github.ref, 'refs/tags/v') == true }}
+        working-directory: ./site/
+        run: |
+          npm run gulp -- publish:staging:views --staging-bucket=$GCS_PRODUCTION_BUCKET
+          npm run gulp -- publish:staging:codelabs --staging-bucket=$GCS_PRODUCTION_BUCKET
