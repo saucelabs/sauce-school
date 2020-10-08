@@ -13,6 +13,8 @@ on:
 env:
   GCS_STAGING_BUCKET: ${{ secrets.GCS_STAGING_BUCKET }}
   GCS_PRODUCTION_BUCKET: ${{ secrets.GCS_PRODUCTION_BUCKET }}
+  SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+  SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
   CLOUDSDK_PYTHON: python3.7
 
 jobs:
@@ -47,7 +49,7 @@ jobs:
         run: npm run gulp -- dist --codelabs-dir=codelabs
 
       - name: archive site/dist/
-        run: tar -czf dist.tar.gz ./site/dist/
+        run: tar -czHf dist.tar.gz ./site/dist/
 
       - name: archive node_modules
         run: tar -czf node_modules.tar.gz ./site/node_modules/
@@ -74,7 +76,7 @@ jobs:
           name: dist
 
       - name: unarchive-artifact
-        run: tar -xf dist.tar.gz
+        run: tar -xvf dist.tar.gz
 
       - name: Run saucectl
         run: |
@@ -121,7 +123,7 @@ jobs:
         run: tar -xf dist.tar.gz
 
       - name: unarchive node_modules
-        run: tar -xvf node_modules.tar.gz
+        run: tar -xf node_modules.tar.gz
 
       - name: Deploy
         working-directory: ./site/
