@@ -165,7 +165,7 @@ After adding our requisite libraries, we declare a class along with two methods;
 
 The class ends with `module.exports`, so that other classes can call and use the methods defined here.
 
-Next, open the `spc_helper.js` file in the test folder and paste in the following:
+Next, open the `spec_helper.js` file in the test folder and paste in the following:
 
 
 ```
