@@ -13,6 +13,8 @@ on:
 env:
   GCS_STAGING_BUCKET: ${{ secrets.GCS_STAGING_BUCKET }}
   GCS_PRODUCTION_BUCKET: ${{ secrets.GCS_PRODUCTION_BUCKET }}
+  SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+  SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
   CLOUDSDK_PYTHON: python3.7
 
 jobs:
@@ -47,7 +49,7 @@ jobs:
         run: npm run gulp -- dist --codelabs-dir=codelabs
 
       - name: archive site/dist/
-        run: tar -czf dist.tar.gz ./site/dist/
+        run: tar -czhf dist.tar.gz ./site/dist/
 
       - name: archive node_modules
         run: tar -czf node_modules.tar.gz ./site/node_modules/
@@ -58,7 +60,6 @@ jobs:
           path: |
             dist.tar.gz
             node_modules.tar.gz
-
   test:
     needs: build
     runs-on: ubuntu-latest
@@ -74,22 +75,19 @@ jobs:
           name: dist
 
       - name: unarchive-artifact
-        run: tar -xf dist.tar.gz
+        run: tar -xvf dist.tar.gz
 
       - name: Run saucectl
         run: |
           # Install saucectl
           curl -L -s  https://github.com/saucelabs/saucectl/releases/download/v0.14.0/saucectl_0.14.0_linux_64-bit.tar.gz | sudo tar -xvz -C /usr/bin/
-
           # Expose website
           cd site/dist && python3 -m http.server 8000 &
-
           # Run skipping ci-mode
           export SKIP_CI=true
           export CYPRESS_HOST_IP=`hostname -i`
           echo "Injection CYPRESS_HOST_IP=${CYPRESS_HOST_IP}"
           saucectl run --env CYPRESS_HOST_IP=${CYPRESS_HOST_IP} -c ./.sauce/config.yml
-
   deploy-staging:
     needs: test
     if: ${{ github.ref == 'refs/heads/master' }}
@@ -121,14 +119,13 @@ jobs:
         run: tar -xf dist.tar.gz
 
       - name: unarchive node_modules
-        run: tar -xvf node_modules.tar.gz
+        run: tar -xf node_modules.tar.gz
 
       - name: Deploy
         working-directory: ./site/
         run: |
           npm run gulp -- publish:staging:views --staging-bucket=$GCS_STAGING_BUCKET
           npm run gulp -- publish:staging:codelabs --staging-bucket=$GCS_STAGING_BUCKET
-
   deploy-production:
     needs: test
     runs-on: ubuntu-latest
