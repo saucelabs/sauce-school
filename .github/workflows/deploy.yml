@@ -49,7 +49,7 @@ jobs:
         run: npm run gulp -- dist --codelabs-dir=codelabs
 
       - name: archive site/dist/
-        run: tar -czLf dist.tar.gz ./site/dist/
+        run: tar -czhf dist.tar.gz ./site/dist/
 
       - name: archive node_modules
         run: tar -czf node_modules.tar.gz ./site/node_modules/
