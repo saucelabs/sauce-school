@@ -1,13 +1,12 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Deployment Pipeline
+name: Build & Test & Deployment
 
 on:
   create:
     tags: [v*]
   push:
-    branches: [master]
   pull_request:
     branches: [master]
 
@@ -17,44 +16,29 @@ env:
   CLOUDSDK_PYTHON: python3.7
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Install NodeJS
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: 12.x
 
-      - name: Install golang
-        uses: actions/setup-go@v2
+      - uses: actions/setup-go@v2
         with:
           go-version: 1.14
       - run: go get github.com/googlecodelabs/tools/claat
 
-      - name: Install Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.7
-      - run: pip install crcmod
-
-      - name: Install Google Cloud SDK
-        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
-        with:
-          version: '290.0.1'
-          service_account_key: ${{ secrets.GCS_STAGING_SA_KEY }}
-          project_id: ${{ secrets.GCS_STAGING_PROJECT }}
-
-      - name: Cache NPM packages
-        uses: actions/cache@v2
+      - uses: actions/cache@v2
+        id: cache-npm-packages
         with:
           path: |
             **/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install NPN dependencies
+        if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         working-directory: ./site/
         run: npm ci
 
@@ -62,15 +46,123 @@ jobs:
         working-directory: ./site/
         run: npm run gulp -- dist --codelabs-dir=codelabs
 
-      - name: Deploy to Staging
-        if: ${{ github.ref == 'refs/heads/master' }}
+      - name: archive site/dist/
+        run: tar -czf dist.tar.gz ./site/dist/
+
+      - name: archive node_modules
+        run: tar -czf node_modules.tar.gz ./site/node_modules/
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: |
+            dist.tar.gz
+            node_modules.tar.gz
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: dist
+
+      - name: unarchive-artifact
+        run: tar -xf dist.tar.gz
+
+      - name: Run saucectl
+        run: |
+          # Install saucectl
+          curl -L -s  https://github.com/saucelabs/saucectl/releases/download/v0.14.0/saucectl_0.14.0_linux_64-bit.tar.gz | sudo tar -xvz -C /usr/bin/
+
+          # Expose website
+          cd site/dist && python3 -m http.server 8000 &
+
+          # Run skipping ci-mode
+          export SKIP_CI=true
+          export CYPRESS_HOST_IP=`hostname -i`
+          echo "Injection CYPRESS_HOST_IP=${CYPRESS_HOST_IP}"
+          saucectl run --env CYPRESS_HOST_IP=${CYPRESS_HOST_IP} -c ./.sauce/config.yml
+
+  deploy-staging:
+    needs: test
+    if: ${{ github.ref == 'refs/heads/master' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - run: pip install crcmod
+
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: '290.0.1'
+          service_account_key: ${{ secrets.GCS_STAGING_SA_KEY }}
+          project_id: ${{ secrets.GCS_STAGING_PROJECT }}
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: dist
+
+      - name: unarchive dist
+        run: tar -xf dist.tar.gz
+
+      - name: unarchive node_modules
+        run: tar -xvf node_modules.tar.gz
+
+      - name: Deploy
         working-directory: ./site/
         run: |
           npm run gulp -- publish:staging:views --staging-bucket=$GCS_STAGING_BUCKET
           npm run gulp -- publish:staging:codelabs --staging-bucket=$GCS_STAGING_BUCKET
 
-      - name: Deploy to Production
-        if: ${{ startsWith(github.ref, 'refs/tags/v') == true }}
+  deploy-production:
+    needs: test
+    runs-on: ubuntu-latest
+    if: ${{ startsWith(github.ref, 'refs/tags/v') == true }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - run: pip install crcmod
+
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: '290.0.1'
+          service_account_key: ${{ secrets.GCS_STAGING_SA_KEY }}
+          project_id: ${{ secrets.GCS_STAGING_PROJECT }}
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: dist
+
+      - name: unarchive dist
+        run: tar -xf dist.tar.gz
+
+      - name: unarchive node_modules
+        run: tar -xvf node_modules.tar.gz
+
+      - name: Deploy
         working-directory: ./site/
         run: |
           npm run gulp -- publish:staging:views --staging-bucket=$GCS_PRODUCTION_BUCKET
