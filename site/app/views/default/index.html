@@ -116,16 +116,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </div>
 
         <ul class="header__primary-nav">
-          <li><a href="#">Solutions</a></li>
+          <li>
+            <a href="#">Solutions</a>
+            <div class="sub-nav__solutions">
+
+            </div>
+          </li>
           <li><a href="#">Platform</a></li>
-          <li><a href="#">Pricing</a></li>
+          <li><a target="_blank" href="https://saucelabs.com/pricing">Pricing</a></li>
           <li><a href="#">Resources</a></li>
           <li><a href="#">Company</a></li>
           <li><a href="#">Contact</a></li>
           <li>
             <a class="btn btn-primary" href="#">Try it free</a>
           </li>
-          <li><a class="sign__in" href="#">Sign In</a></li>
+          <li><a target="_blank" class="sign__in" href="https://accounts.saucelabs.com/am/XUI/#login/">Sign In</a></li>
           <li><a href="#"><img class="search__icon" src="/images/search-icon.svg" /></a></li>
         </ul>
 
@@ -161,6 +166,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <main>
       <div id="filters" class="site-width layout horizontal center justified">
+
         <div id="sortby">
           <paper-tabs selected="0" noink on-iron-activate="sortBy">
             <paper-tab>A-Z</paper-tab>
@@ -218,7 +224,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       <card-sorter id="cards" class="site-width">
         {% for codelab in codelabs -%}
-
           {# Only filter hidden codelabs from the default view.
              All other views are explicitly opt-in via metadata. #}
           {% if codelab.status.indexOf('hidden') === -1 || view.id !== 'default' %}
@@ -251,6 +256,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div id="loading-placeholder" class="site-width">
         Loading Codelabs, please wait...
       </div>
+
     </main>
 
     <footer id="footer">
