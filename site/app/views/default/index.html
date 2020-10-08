@@ -294,7 +294,38 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </div>
             </div>
           </li>
-          <li><a href="#">Company</a></li>
+          <li>
+            <a onmouseover="showCompanySubnav()" href="#">Company</a>
+            <div onmouseover="showCompanySubnav()" onmouseout="hideCompanySubnav()" class="sub-nav__company">
+              <div class="sub-nav__triangle"></div>
+              <div class="sub-nav__inner">
+                <div class="sub-nav__inner--center">
+                  <ul class="sub-nav__inner-list">
+                    <li>
+                      <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/company">About Us</a>
+                    </li>
+                    <li>
+                      <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/company/careers">Careers</a>
+                    </li>
+                    <li>
+                      <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/security">Security</a>
+                    </li>
+                    <li>
+                      <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/news">News</a>
+                    </li>
+                    <li>
+                      <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/company/partners">Partners</a>
+                      <ul class="sub-nav__inner-list--children">
+                        <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/company/partners/tap">Technology Alliance</a></li>
+                        <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/company/partners/go-to-market">Go-To-Market</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+
+                </div>
+              </div>
+            </div>
+          </li>
           <li><a href="#">Contact</a></li>
           <li>
             <a class="btn btn-primary" target="_blank" href="https://saucelabs.com/sign-up">Try it free</a>
@@ -517,6 +548,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <!-- build:js /scripts/main.js -->
   <script src="/scripts/app.js"></script>
+
   <!-- endbuild-->
   <script>
     // menu functions
@@ -533,6 +565,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     function showSolutionsSubnav() {
       hidePlatformSubnav();
       hideResourcesSubnav();
+      hideCompanySubnav();
+      hideContactSubnav();
       document.getElementsByClassName('sub-nav__solutions')[0].classList.add("--show")
     }
     function hideSolutionsSubnav() {
@@ -543,6 +577,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     function showPlatformSubnav() {
       hideSolutionsSubnav();
       hideResourcesSubnav();
+      hideCompanySubnav();
+      hideContactSubnav();
       document.getElementsByClassName('sub-nav__platform')[0].classList.add("--show")
     }
     function hidePlatformSubnav() {
@@ -553,10 +589,36 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     function showResourcesSubnav() {
       hideSolutionsSubnav();
       hidePlatformSubnav();
+      hideCompanySubnav();
+      hideContactSubnav();
       document.getElementsByClassName('sub-nav__resources')[0].classList.add("--show")
     }
     function hideResourcesSubnav() {
       document.getElementsByClassName('sub-nav__resources')[0].classList.remove("--show")
+    }
+
+    //company menu item
+    function showCompanySubnav() {
+      hideSolutionsSubnav();
+      hidePlatformSubnav();
+      hideResourcesSubnav();
+      hideContactSubnav();
+      document.getElementsByClassName('sub-nav__company')[0].classList.add("--show")
+    }
+    function hideCompanySubnav() {
+      document.getElementsByClassName('sub-nav__company')[0].classList.remove("--show")
+    }
+
+    //contact menu item
+    function showContactSubnav() {
+      hideSolutionsSubnav();
+      hidePlatformSubnav();
+      hideResourcesSubnav();
+      hideCompanySubnav();
+      document.getElementsByClassName('sub-nav__company')[0].classList.add("--show")
+    }
+    function hideContactSubnav() {
+      document.getElementsByClassName('sub-nav__company')[0].classList.remove("--show")
     }
 
 

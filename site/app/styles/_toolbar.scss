@@ -33,7 +33,21 @@
     display: flex;
     align-items: center;
   }
-  .sub-nav__solutions, .sub-nav__platform, .sub-nav__resources {
+  .sub-nav__company {
+    width: 288px!important;
+    margin-left: -120px!important;
+    .sub-nav__inner--center {
+      text-align: left!important;
+      border-bottom: none!important;
+    }
+    ul.sub-nav__inner-list {
+      li {
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+  .sub-nav__solutions, .sub-nav__platform, .sub-nav__resources, .sub-nav__company {
     &.--show {
       display: inherit;
     }
