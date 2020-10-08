@@ -48,7 +48,7 @@ npm install
 
 *   The `/codelab` directory contains all courses, each with several modules in it.
 <!-- -->
- Place a markdown file for course modules in a folder called _/site/codelabs_.
+ Place a markdown file for course modules in a folder called _/site/codelabs_. When you use CLAAT for export it, you will run the command `claat export codelabs/Module4_SeleniumJS.md  -o site/codelabs` so it will be exported into the build folder (the .md files are kept separately).
 
  * Each Course module `.md.` file is labeled by language and module number (e.g. Module3_SeleniumJS.md).
  * The `tag` at the top of each codelab markdown file identifies the course e.g. java, javascript, python etc.) which are made of many 'modules' with several lessons in it. The codelabs will br grouped together into a course (aka `views`) according to this tag.

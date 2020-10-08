@@ -165,7 +165,7 @@ After adding our requisite libraries, we declare a class along with two methods;
 
 The class ends with `module.exports`, so that other classes can call and use the methods defined here.
 
-Next, open the `spc_helper.js` file in the test folder and paste in the following:
+Next, open the `spec_helper.js` file in the test folder and paste in the following:
 
 
 ```
@@ -548,22 +548,26 @@ In this lesson you are going to learn how to move the test suite that you have w
 
 ### Update Config
 
-We are going to use the config.js file that you used earlier to set up the browser and baseURL. Inside module.exports, underneath the browser, add in the following:
+We are going to use the `config.js` file that you used earlier to set up the the capabilities. [Capabilities](https://wiki.saucelabs.com/display/DOCS/W3C+Capabilities+Support) are a way of communicating information to other services, such as Sauce Labs, that you need to covey in order to run your Tests.
+
+Open `config.js` and update it to look like the following:
 
 
 ```
 // filename: lib/config.js
 module.exports = {
-//...
-    host: process.env.HOST || "saucelabs",
+  baseUrl: process.env.BASE_URL || 'http://the-internet.herokuapp.com',
+  host: process.env.HOST || 'saucelabs',
   sauce: {
-    username: process.env.SAUCE_USERNAME,
-    accessKey: process.env.SAUCE_ACCESS_KEY,
-    browserName: process.env.BROWSER_NAME || 'internet explorer',
-    browserVersion: process.env.BROWSER_VERSION || "11.0",
-    platformName: process.env.PLATFORM_NAME || "Windows 7",
-  }
-
+    "browserName": process.env.BROWSER_NAME || 'chrome',
+    "browserVersion": process.env.BROWSER_VERSION || '75.0',
+    "platformName": process.env.PLATFORM_NAME || 'Windows 10',
+    "sauce:options": {
+      "username": process.env.SAUCE_USERNAME,
+      "accessKey": process.env.SAUCE_ACCESS_KEY,
+    }
+  },
+}
 ```
 
 
@@ -575,9 +579,10 @@ Notice the new variables you have added:
 *   The `sauce` object contains the information for each specific test. We assume you may pass in unique usernames and access keys
     *   `username` is the username you have created for Sauce Labs
     *   `accessKey` is generated (and can be regenerated) in your user settings
-    *   `browserName` specifies the browser for a test.
-    *   `browserVersion` specifies which version of the browser for a test
-    *   `platformName` specifies the operating system for a test.
+    * `platformName` specifies the operating system for a test.  
+ * `sauce:options` contain capabilities with options for information you can pass to Sauce Labs
+      * `browserName` specifies the browser for a test.
+      * `browserVersion` specifies which version of the browser for a test
 
 
 ### Setting up your Sauce Labs Account

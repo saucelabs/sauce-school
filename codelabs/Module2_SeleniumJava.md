@@ -311,6 +311,10 @@ First, check which version of chrome you are using by opening Chrome on your mac
 
 Next, (download the Chromedriver)[https://chromedriver.chromium.org/downloads] (you can also download (Geckodriver)[https://github.com/mozilla/geckodriver] for Firefox or (any other driver)[https://automationintesting.com/selenium/java/lessons/drivers.html] you will need for popular browsers) The driver version should match the version of the browser you have on your machine.
 
+#### Cheat Sheet
+
+![https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/preview](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
+
 ### NOTE
  If you are testing on an older version of Firefox (e.g., 47 or earlier) then you don't need to download Geckodriver. You will be able to use the legacy FirefoxDriver implementation. To do that you just need to disable Marionette (the new Firefox WebDriver implementation that Geckodriver connects to) which would look like this:
 

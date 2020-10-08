@@ -533,7 +533,7 @@ Now it’s time to add in an assertion to see if your actions had the desired ef
 
 At the top under where the `const path `is defined, add in the variable `const assert = require('assert').`
 
-Inside the describe function, within the `it` command, add the following underneath the await function that sent the password to the password field;
+Inside the describe function, within the `it` command, add the following underneath the `await` function clicks the button, add in the the following assertion;
 
 
 ```
