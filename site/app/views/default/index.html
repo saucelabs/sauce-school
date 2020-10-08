@@ -58,6 +58,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding: 8px;
       }
     }
+
   </style>
 
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -242,7 +243,57 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </div>
           </li>
           <li><a target="_blank" href="https://saucelabs.com/pricing">Pricing</a></li>
-          <li><a href="#">Resources</a></li>
+          <li>
+            <a onmouseover="showResourcesSubnav()" href="#">Resources</a>
+            <div onmouseover="showResourcesSubnav()" onmouseout="hideResourcesSubnav()" class="sub-nav__resources">
+              <div class="sub-nav__triangle"></div>
+              <div class="sub-nav__inner">
+                <div class="sub-nav__inner--left">
+                  <ul class="sub-nav__inner-list">
+                    <li>
+                      <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/blog">Source Labs Blog</a>
+                    </li>
+                    <li>
+                      <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/resources">Resource Center</a>
+                      <ul class="sub-nav__inner-list--children">
+                        <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/resources/articles">Articles</a></li>
+                        <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/resources/videos">Videos</a></li>
+                        <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/resources/webinars">Webinars</a></li>
+                        <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/resources/case-studies">Case Studies</a></li>
+                        <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/resources/white-papers">White Papers</a></li>
+                        <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/resources/data-sheets">Data Sheets</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="sub-nav__inner--right">
+                  <ul class="sub-nav__inner-list">
+                    <li>
+                      <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/training-support">Training & Support</a>
+                      <ul class="sub-nav__inner-list--children">
+                        <li><a class="sub-nav__link" target="_blank" href="https://support.saucelabs.com/">Knowledge Base</a></li>
+                        <li><a class="sub-nav__link" target="_blank" href="https://wiki.saucelabs.com/">Documentation</a></li>
+                        <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/our-experts">Our Experts</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+
+                  <ul class="sub-nav__inner-list">
+                    <li>
+                      <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/community">Community</a>
+                      <ul class="sub-nav__inner-list--children">
+                        <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/community/join-secret-sauce">Join Secret Sauce</a></li>
+                        <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/community/events">Events</a></li>
+                        <li><a class="sub-nav__link" target="_blank" href="https://www.seleniumhq.org/">Selenium</a></li>
+                        <li><a class="sub-nav__link" target="_blank" href="http://appium.io/">Appium</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+
+                </div>
+              </div>
+            </div>
+          </li>
           <li><a href="#">Company</a></li>
           <li><a href="#">Contact</a></li>
           <li>
@@ -477,22 +528,38 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       document.getElementById('mobileClose').classList.add("--hide")
       document.getElementById('mobileMenuIcon').classList.remove("--hide")
     }
+
     //solutions menu item
     function showSolutionsSubnav() {
-      hidePlatformSubnav()
+      hidePlatformSubnav();
+      hideResourcesSubnav();
       document.getElementsByClassName('sub-nav__solutions')[0].classList.add("--show")
     }
     function hideSolutionsSubnav() {
       document.getElementsByClassName('sub-nav__solutions')[0].classList.remove("--show")
     }
+
     //platform menu item
     function showPlatformSubnav() {
       hideSolutionsSubnav();
+      hideResourcesSubnav();
       document.getElementsByClassName('sub-nav__platform')[0].classList.add("--show")
     }
     function hidePlatformSubnav() {
       document.getElementsByClassName('sub-nav__platform')[0].classList.remove("--show")
     }
+
+    //resources menu item
+    function showResourcesSubnav() {
+      hideSolutionsSubnav();
+      hidePlatformSubnav();
+      document.getElementsByClassName('sub-nav__resources')[0].classList.add("--show")
+    }
+    function hideResourcesSubnav() {
+      document.getElementsByClassName('sub-nav__resources')[0].classList.remove("--show")
+    }
+
+
   </script>
 </body>
 </html>

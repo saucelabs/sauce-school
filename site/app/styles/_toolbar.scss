@@ -33,7 +33,7 @@
     display: flex;
     align-items: center;
   }
-  .sub-nav__solutions, .sub-nav__platform {
+  .sub-nav__solutions, .sub-nav__platform, .sub-nav__resources {
     &.--show {
       display: inherit;
     }
@@ -69,6 +69,15 @@
         margin-top: 15px;
         li {
           margin-bottom: 15px;
+          ul.sub-nav__inner-list--children {
+            margin: 10px 0 0 10px;
+            li {
+              margin-bottom: 5px;
+              font-size: 14px;
+              display: block;
+              width: 100%;
+            }
+          }
           a {
             &:hover {
               color: $sauceRedAlt;
