@@ -117,8 +117,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <ul class="header__primary-nav">
           <li>
-            <a href="#">Solutions</a>
-            <div class="sub-nav__solutions">
+            <a onmouseover="showSolutionsSubnav()" href="#">Solutions</a>
+            <div onmouseover="showSolutionsSubnav()" onmouseout="hideSolutionsSubnav()" class="sub-nav__solutions">
               <div class="sub-nav__triangle"></div>
               <div class="sub-nav__inner">
                 <div class="sub-nav__inner--left">
@@ -386,6 +386,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <script src="/scripts/app.js"></script>
   <!-- endbuild-->
   <script>
+    // menu functions
     function menuOpen() {
       document.getElementById('mobileClose').classList.remove("--hide")
       document.getElementById('mobileMenuIcon').classList.add("--hide")
@@ -393,6 +394,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     function menuClose() {
       document.getElementById('mobileClose').classList.add("--hide")
       document.getElementById('mobileMenuIcon').classList.remove("--hide")
+    }
+    function showSolutionsSubnav() {
+      document.getElementsByClassName('sub-nav__solutions')[0].classList.add("--show")
+    }
+    function hideSolutionsSubnav() {
+      document.getElementsByClassName('sub-nav__solutions')[0].classList.remove("--show")
     }
   </script>
 </body>

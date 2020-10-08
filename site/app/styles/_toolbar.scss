@@ -34,6 +34,9 @@
     align-items: center;
   }
   .sub-nav__solutions {
+    &.--show {
+      display: inherit;
+    }
     width: 490px;
     background: $pureWhite;
     position: absolute;
@@ -41,6 +44,7 @@
     margin-top: 30px;
     box-shadow: 0px 0px 13px -4px rgba(0,0,0,0.75);
     text-align: center;
+    display: none;
     .sub-nav__triangle {
       width: 0;
       height: 0;
@@ -65,6 +69,11 @@
         margin-top: 15px;
         li {
           margin-bottom: 15px;
+          a {
+            &:hover {
+              color: $sauceRedAlt;
+            }
+          }
         }
       }
       .sub-nav__sub-title {
