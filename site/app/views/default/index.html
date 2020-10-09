@@ -326,7 +326,33 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </div>
             </div>
           </li>
-          <li><a href="#">Contact</a></li>
+          <li>
+            <a onmouseover="showContactSubnav()" href="#">Contact</a>
+            <div onmouseover="showContactSubnav()" onmouseout="hideContactSubnav()" class="sub-nav__contact">
+              <div class="sub-nav__triangle"></div>
+              <div class="sub-nav__inner">
+                <div class="sub-nav__inner--center">
+                  <ul class="sub-nav__inner-list">
+                    <li>
+                      <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/sales">Contact Sales</a>
+                    </li>
+                    <li>
+                      <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/contact">General Inquiries</a>
+                    </li>
+                  </ul>
+                  <span class="sub-nav__sub-title">Get Support</span>
+                  <ul class="sub-nav__inner-list">
+                    <li>
+                      <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/training-support">Contact Support</a>
+                    </li>
+                    <li>
+                      <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/community">Sauce Community</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
           <li>
             <a class="btn btn-primary" target="_blank" href="https://saucelabs.com/sign-up">Try it free</a>
           </li>
@@ -615,10 +641,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       hidePlatformSubnav();
       hideResourcesSubnav();
       hideCompanySubnav();
-      document.getElementsByClassName('sub-nav__company')[0].classList.add("--show")
+      document.getElementsByClassName('sub-nav__contact')[0].classList.add("--show")
     }
     function hideContactSubnav() {
-      document.getElementsByClassName('sub-nav__company')[0].classList.remove("--show")
+      document.getElementsByClassName('sub-nav__contact')[0].classList.remove("--show")
     }
 
 

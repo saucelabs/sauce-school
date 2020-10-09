@@ -33,7 +33,7 @@
     display: flex;
     align-items: center;
   }
-  .sub-nav__company {
+  .sub-nav__company, .sub-nav__contact {
     width: 288px!important;
     margin-left: -120px!important;
     .sub-nav__inner--center {
@@ -47,7 +47,7 @@
       }
     }
   }
-  .sub-nav__solutions, .sub-nav__platform, .sub-nav__resources, .sub-nav__company {
+  .sub-nav__solutions, .sub-nav__platform, .sub-nav__resources, .sub-nav__company, .sub-nav__contact {
     &.--show {
       display: inherit;
     }
