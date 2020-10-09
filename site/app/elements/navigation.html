@@ -1,0 +1,342 @@
+
+<link rel="import" href="../bower_components/google-codelab-elements/google-codelab-elements.html">
+
+<dom-module id="navigation-element">
+
+  <template>
+    <ul class="header__primary-nav">
+      <li>
+        <a onmouseover="showSolutionsSubnav()" href="#">Solutions</a>
+        <div onmouseover="showSolutionsSubnav()" onmouseout="hideSolutionsSubnav()" class="sub-nav__solutions">
+          <div class="sub-nav__triangle"></div>
+          <div class="sub-nav__inner">
+            <div class="sub-nav__inner--left">
+              <span class="sub-nav__sub-title">solutions for</span>
+              <ul class="sub-nav__inner-list">
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/solutions/enterprise">Enterprise</a>
+                  <p class="sub-nav__description">The continuous testing platform for enterprise scale automation</p>
+                </li>
+                <li>
+                  <a class="sub-nav__link"  target="_blank" href="https://saucelabs.com/solutions/startup-medium-teams">Start-ups & SMB Teams</a>
+                  <p class="sub-nav__description">Plans designed for individuals, small and medium-sized teams</p>
+                </li>
+                <li>
+                  <a class="sub-nav__link"  target="_blank" href="https://saucelabs.com/solutions/open-source">Open Source Projects</a>
+                  <p class="sub-nav__description">Free live and automated testing for open source projects</p>
+                </li>
+              </ul>
+            </div>
+            <div class="sub-nav__inner--right">
+              <span class="sub-nav__sub-title">testing solutions</span>
+              <ul class="sub-nav__inner-list">
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/solutions/continuous-testing">Continuous Testing</a>
+                  <p class="sub-nav__description">Automate tests at every stage of the development cycle</p>
+                </li>
+                <li>
+                  <a class="sub-nav__link"  target="_blank" href="https://saucelabs.com/solutions/automated-testing">Automated Testing</a>
+                  <p class="sub-nav__description">Release more quickly and improve developer productivity</p>
+                </li>
+                <li>
+                  <a class="sub-nav__link"  target="_blank" href="https://saucelabs.com/solutions/live-testing">Live Testing</a>
+                  <p class="sub-nav__description">Interactively test websites and real mobile devices</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a onmouseover="showPlatformSubnav()" href="#">Platform</a>
+        <div onmouseover="showPlatformSubnav()" onmouseout="hidePlatformSubnav()" class="sub-nav__platform">
+          <div class="sub-nav__triangle"></div>
+          <div class="sub-nav__inner">
+            <div class="sub-nav__inner--center">
+              <span class="sub-nav__sub-title">Continuous testing cloud</span>
+              <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/platform">Overview</a>
+            </div>
+            <div class="sub-nav__inner--left">
+              <span class="sub-nav__sub-title">Testing features</span>
+              <ul class="sub-nav__inner-list">
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/platform/real-device-cloud">Real Device Cloud</a>
+                </li>
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/platform/cross-browser-testing">Cross-browser Testing</a>
+                </li>
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/platform/mobile-emulators-and-simulators">Emulators & Simulators</a>
+                </li>
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/platform/sauce-headless">Sauce Headless</a>
+                </li>
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/platform/sauce-testrunner-toolkit">Testrunner ToolKit BETA</a>
+                </li>
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/platform/visual-testing">Visual Testing</a>
+                </li>
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/platform/integrations-plugins">Supported Integrations</a>
+                </li>
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/platform/supported-browsers-devices">Supported Browsers & Devices</a>
+                </li>
+
+              </ul>
+            </div>
+            <div class="sub-nav__inner--right">
+              <span class="sub-nav__sub-title">Analytics & Performance</span>
+              <ul class="sub-nav__inner-list">
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/solutions/continuous-testing">Sauce Performance</a>
+                </li>
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/platform/analytics-performance/sauce-insights">Sauce Insights</a>
+                </li>
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/platform/analytics-performance/advanced-debugging-tools">Extended Debugging</a>
+                </li>
+              </ul>
+              <span class="sub-nav__sub-title">Automation Tools</span>
+
+              <div class="sub-nav__sub-list__left">
+                <ul class="sub-nav__inner-list">
+                  <li>
+                    <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/platform/automation-tools/selenium">Selenium</a>
+                  </li>
+                  <li>
+                    <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/platform/automation-tools/appium">Appium</a>
+                  </li>
+                  <li>
+                    <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/platform/automation-tools">View All</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="sub-nav__sub-list__left">
+                <ul class="sub-nav__inner-list">
+                  <li>
+                    <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/platform/automation-tools/espresso">Espresso</a>
+                  </li>
+                  <li>
+                    <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/platform/automation-tools/xcuitest">XCUI Test</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </li>
+      <li><a target="_blank" href="https://saucelabs.com/pricing">Pricing</a></li>
+      <li>
+        <a onmouseover="showResourcesSubnav()" href="#">Resources</a>
+        <div onmouseover="showResourcesSubnav()" onmouseout="hideResourcesSubnav()" class="sub-nav__resources">
+          <div class="sub-nav__triangle"></div>
+          <div class="sub-nav__inner">
+            <div class="sub-nav__inner--left">
+              <ul class="sub-nav__inner-list">
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/blog">Source Labs Blog</a>
+                </li>
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/resources">Resource Center</a>
+                  <ul class="sub-nav__inner-list--children">
+                    <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/resources/articles">Articles</a></li>
+                    <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/resources/videos">Videos</a></li>
+                    <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/resources/webinars">Webinars</a></li>
+                    <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/resources/case-studies">Case Studies</a></li>
+                    <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/resources/white-papers">White Papers</a></li>
+                    <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/resources/data-sheets">Data Sheets</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="sub-nav__inner--right">
+              <ul class="sub-nav__inner-list">
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/training-support">Training & Support</a>
+                  <ul class="sub-nav__inner-list--children">
+                    <li><a class="sub-nav__link" target="_blank" href="https://support.saucelabs.com/">Knowledge Base</a></li>
+                    <li><a class="sub-nav__link" target="_blank" href="https://wiki.saucelabs.com/">Documentation</a></li>
+                    <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/our-experts">Our Experts</a></li>
+                  </ul>
+                </li>
+              </ul>
+
+              <ul class="sub-nav__inner-list">
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/community">Community</a>
+                  <ul class="sub-nav__inner-list--children">
+                    <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/community/join-secret-sauce">Join Secret Sauce</a></li>
+                    <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/community/events">Events</a></li>
+                    <li><a class="sub-nav__link" target="_blank" href="https://www.seleniumhq.org/">Selenium</a></li>
+                    <li><a class="sub-nav__link" target="_blank" href="http://appium.io/">Appium</a></li>
+                  </ul>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a onmouseover="showCompanySubnav()" href="#">Company</a>
+        <div onmouseover="showCompanySubnav()" onmouseout="hideCompanySubnav()" class="sub-nav__company">
+          <div class="sub-nav__triangle"></div>
+          <div class="sub-nav__inner">
+            <div class="sub-nav__inner--center">
+              <ul class="sub-nav__inner-list">
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/company">About Us</a>
+                </li>
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/company/careers">Careers</a>
+                </li>
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/security">Security</a>
+                </li>
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/news">News</a>
+                </li>
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/company/partners">Partners</a>
+                  <ul class="sub-nav__inner-list--children">
+                    <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/company/partners/tap">Technology Alliance</a></li>
+                    <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/company/partners/go-to-market">Go-To-Market</a></li>
+                  </ul>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a onmouseover="showContactSubnav()" href="#">Contact</a>
+        <div onmouseover="showContactSubnav()" onmouseout="hideContactSubnav()" class="sub-nav__contact">
+          <div class="sub-nav__triangle"></div>
+          <div class="sub-nav__inner">
+            <div class="sub-nav__inner--center">
+              <ul class="sub-nav__inner-list">
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/sales">Contact Sales</a>
+                </li>
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/contact">General Inquiries</a>
+                </li>
+              </ul>
+              <span class="sub-nav__sub-title">Get Support</span>
+              <ul class="sub-nav__inner-list">
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/training-support">Contact Support</a>
+                </li>
+                <li>
+                  <a class="sub-nav__link" target="_blank" href="https://saucelabs.com/community">Sauce Community</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a class="btn btn-primary" target="_blank" href="https://saucelabs.com/sign-up">Try it free</a>
+      </li>
+      <li><a target="_blank" class="sign__in" href="https://accounts.saucelabs.com/am/XUI/#login/">Sign In</a></li>
+      <li>
+        <a href="#" onclick="searchOverlay()" target="_blank"><img class="search__icon" src="/images/search-icon.svg" /></a>
+        <div class="search__overlay-input">
+          <div class="sub-nav__triangle"></div>
+          <div class="sub-nav__inner">
+            test
+          </div>
+        </div>
+      </li>
+    </ul>
+  </template>
+
+  <script>
+    Polymer({
+      is: "navigation-element"
+    });
+    // menu functions
+    function menuOpen() {
+      document.getElementById('mobileClose').classList.remove("--hide")
+      document.getElementById('mobileMenuIcon').classList.add("--hide")
+    }
+    function menuClose() {
+      document.getElementById('mobileClose').classList.add("--hide")
+      document.getElementById('mobileMenuIcon').classList.remove("--hide")
+    }
+
+    //solutions menu item
+    function showSolutionsSubnav() {
+      hidePlatformSubnav();
+      hideResourcesSubnav();
+      hideCompanySubnav();
+      hideContactSubnav();
+      document.getElementsByClassName('sub-nav__solutions')[0].classList.add("--show")
+    }
+    function hideSolutionsSubnav() {
+      document.getElementsByClassName('sub-nav__solutions')[0].classList.remove("--show")
+    }
+
+    //platform menu item
+    function showPlatformSubnav() {
+      hideSolutionsSubnav();
+      hideResourcesSubnav();
+      hideCompanySubnav();
+      hideContactSubnav();
+      document.getElementsByClassName('sub-nav__platform')[0].classList.add("--show")
+    }
+    function hidePlatformSubnav() {
+      document.getElementsByClassName('sub-nav__platform')[0].classList.remove("--show")
+    }
+
+    //resources menu item
+    function showResourcesSubnav() {
+      hideSolutionsSubnav();
+      hidePlatformSubnav();
+      hideCompanySubnav();
+      hideContactSubnav();
+      document.getElementsByClassName('sub-nav__resources')[0].classList.add("--show")
+    }
+    function hideResourcesSubnav() {
+      document.getElementsByClassName('sub-nav__resources')[0].classList.remove("--show")
+    }
+
+    //company menu item
+    function showCompanySubnav() {
+      hideSolutionsSubnav();
+      hidePlatformSubnav();
+      hideResourcesSubnav();
+      hideContactSubnav();
+      document.getElementsByClassName('sub-nav__company')[0].classList.add("--show")
+    }
+    function hideCompanySubnav() {
+      document.getElementsByClassName('sub-nav__company')[0].classList.remove("--show")
+    }
+
+    //contact menu item
+    function showContactSubnav() {
+      hideSolutionsSubnav();
+      hidePlatformSubnav();
+      hideResourcesSubnav();
+      hideCompanySubnav();
+      document.getElementsByClassName('sub-nav__contact')[0].classList.add("--show")
+    }
+    function hideContactSubnav() {
+      document.getElementsByClassName('sub-nav__contact')[0].classList.remove("--show")
+    }
+
+    //search overlay
+    function searchOverlay() {
+      alert('works')
+    }
+
+
+  </script>
+
+</dom-module>
