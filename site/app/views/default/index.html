@@ -112,13 +112,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <input is="iron-input" bind-value="{{searchVal}}" on-keydown="onSearchKeyDown">
           </paper-input-container>
         </div>-->
-        <div class="header__menu--mobile">
-          <img onclick="menuOpen()" class="mobile__menu-icon" id="mobileMenuIcon" src="/images/mobile_menu.svg" />
-          <img onclick="menuClose()" class="mobile__menu-icon --hide" id="mobileClose" src="/images/mobile_close.svg" />
-        </div>
         <navigation-element></navigation-element>
-        
-
       </div>
     </div>
     {% endraw %}
@@ -336,81 +330,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <!-- endbuild-->
   <script>
-    // menu functions
-    function menuOpen() {
-      document.getElementById('mobileClose').classList.remove("--hide")
-      document.getElementById('mobileMenuIcon').classList.add("--hide")
-    }
-    function menuClose() {
-      document.getElementById('mobileClose').classList.add("--hide")
-      document.getElementById('mobileMenuIcon').classList.remove("--hide")
-    }
-
-    //solutions menu item
-    function showSolutionsSubnav() {
-      hidePlatformSubnav();
-      hideResourcesSubnav();
-      hideCompanySubnav();
-      hideContactSubnav();
-      document.getElementsByClassName('sub-nav__solutions')[0].classList.add("--show")
-    }
-    function hideSolutionsSubnav() {
-      document.getElementsByClassName('sub-nav__solutions')[0].classList.remove("--show")
-    }
-
-    //platform menu item
-    function showPlatformSubnav() {
-      hideSolutionsSubnav();
-      hideResourcesSubnav();
-      hideCompanySubnav();
-      hideContactSubnav();
-      document.getElementsByClassName('sub-nav__platform')[0].classList.add("--show")
-    }
-    function hidePlatformSubnav() {
-      document.getElementsByClassName('sub-nav__platform')[0].classList.remove("--show")
-    }
-
-    //resources menu item
-    function showResourcesSubnav() {
-      hideSolutionsSubnav();
-      hidePlatformSubnav();
-      hideCompanySubnav();
-      hideContactSubnav();
-      document.getElementsByClassName('sub-nav__resources')[0].classList.add("--show")
-    }
-    function hideResourcesSubnav() {
-      document.getElementsByClassName('sub-nav__resources')[0].classList.remove("--show")
-    }
-
-    //company menu item
-    function showCompanySubnav() {
-      hideSolutionsSubnav();
-      hidePlatformSubnav();
-      hideResourcesSubnav();
-      hideContactSubnav();
-      document.getElementsByClassName('sub-nav__company')[0].classList.add("--show")
-    }
-    function hideCompanySubnav() {
-      document.getElementsByClassName('sub-nav__company')[0].classList.remove("--show")
-    }
-
-    //contact menu item
-    function showContactSubnav() {
-      hideSolutionsSubnav();
-      hidePlatformSubnav();
-      hideResourcesSubnav();
-      hideCompanySubnav();
-      document.getElementsByClassName('sub-nav__contact')[0].classList.add("--show")
-    }
-    function hideContactSubnav() {
-      document.getElementsByClassName('sub-nav__contact')[0].classList.remove("--show")
-    }
-
-    //search overlay
-    function searchOverlay() {
-      alert('works')
-    }
-
 
   </script>
 </body>

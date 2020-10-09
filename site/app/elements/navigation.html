@@ -4,6 +4,10 @@
 <dom-module id="navigation-element">
 
   <template>
+    <div class="header__menu--mobile">
+      <img onclick="menuOpen()" class="mobile__menu-icon" id="mobileMenuIcon" src="/images/mobile_menu.svg" />
+      <img onclick="menuClose()" class="mobile__menu-icon --hide" id="mobileClose" src="/images/mobile_close.svg" />
+    </div>
     <ul class="header__primary-nav">
       <li>
         <a onmouseover="showSolutionsSubnav()" href="#">Solutions</a>
@@ -335,7 +339,6 @@
     function searchOverlay() {
       alert('works')
     }
-
 
   </script>
 
