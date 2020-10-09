@@ -1,9 +1,12 @@
 bazel-*
-**.DS_Store
+**/.DS_Store
+.DS_Store
 .drone.sec.yml
 **.idea/
+.idea/
 debug.test
 *pb.go
 node_modules
 **node_modules/
-**package-lock.json
+site/codelabs/
+/tools
