@@ -1,6 +1,11 @@
 # Changelog- Add newest additions in an .md file at top
 ///start typing below this text
 
+
+## OCT 10 – Casey
+### Added navigation element for landing pages
+- In _site/app/elements/navigation.html_ you'll find the navigation that mimics the corporate site
+
 ## Sept 24 – Lindsay
 ### Added colors & icons to Module Cards
 - In _tools/site/app/images_ added in some small images to use as icons as codelab card.
