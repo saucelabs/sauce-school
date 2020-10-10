@@ -46,7 +46,5 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "dependencies": {
-    "gulp-inline-css": "^3.5.0"
-  }
+  "dependencies": {}
 }
