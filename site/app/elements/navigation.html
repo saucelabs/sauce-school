@@ -249,7 +249,7 @@
       </li>
       <li><a target="_blank" class="sign__in" href="https://accounts.saucelabs.com/am/XUI/#login/">Sign In</a></li>
       <li>
-        <a href="#" onclick="searchOverlay()" target="_blank"><img class="search__icon" src="/images/search-icon.svg" /></a>
+        <img onclick="searchOverlay()" class="search__icon" src="/images/search-icon.svg" />
         <div class="search__overlay-input">
           <div class="sub-nav__triangle"></div>
           <div class="sub-nav__inner">
@@ -334,10 +334,14 @@
       document.getElementsByClassName('sub-nav__contact')[0].classList.remove("--show")
     }
 
-    //search overlay
-    function searchOverlay() {
-      alert('works')
-    }
+    //search function
+    window.addEventListener('click', function(e){
+      if (document.getElementsByClassName('search__icon')[0].contains(e.target)){
+        document.getElementsByClassName('search__overlay-input')[0].classList.add("--show")
+      } else{
+        document.getElementsByClassName('search__overlay-input')[0].classList.remove("--show")
+      }
+    });
 
   </script>
 
