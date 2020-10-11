@@ -27,6 +27,48 @@ $card-col-height: 200px; // column mode
   justify-content: flex-start;
   margin-bottom: $keyline * 3;
   min-height: 300px;
+  &.--index__cards {
+    margin-bottom: 0px;
+    padding-bottom: 25px;
+  }
+}
+
+.landing__cards {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+}
+
+.codelab-category__card {
+  flex: 0 50%;
+  text-align: center;
+  padding: 10px;
+  .card__inner {
+    background-color: $pureWhite;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    text-align: left;
+    box-shadow: -1px 0px 5px 0px rgba(0,0,0,0.03);
+    h1 {
+      font-size: 21px;
+      line-height: 21px;
+      margin-bottom: 15px;
+      font-family: 'Lucida Grande', sans-serif;
+      color: $greyDark;
+    }
+    p {
+      font-size: 16px;
+      font-family: 'Lucida Grande', sans-serif;
+      color: $greyDark;
+      line-height: 24px;
+      margin-bottom: 10px;
+    }
+    .link__button {
+      color: $sauceRedAlt;
+    }
+  }
 }
 
 .codelab-card {

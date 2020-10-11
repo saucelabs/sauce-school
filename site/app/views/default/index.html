@@ -155,7 +155,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </div>
 
         {% if view.id == 'default' %}
-        <paper-dropdown-menu
+        <!--<paper-dropdown-menu
           label="Choose a Language"
           class="dropdown-filter"
           no-label-float
@@ -174,7 +174,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               {%- endif -%}
             {%- endfor %}
           </paper-listbox>
-        </paper-dropdown-menu>
+        </paper-dropdown-menu>-->
         {% endif %}
 
         {%- if showcats -%}
@@ -201,8 +201,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         {%- endif -%}
       </div>
 
-      <card-sorter id="cards" class="site-width">
-        {% for codelab in codelabs -%}
+      <card-sorter id="cards" class="site-width --index__cards">
+        <!--{% for codelab in codelabs -%}
           {# Only filter hidden codelabs from the default view.
              All other views are explicitly opt-in via metadata. #}
           {% if codelab.status.indexOf('hidden') === -1 || view.id !== 'default' %}
@@ -229,12 +229,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </div>
             </a>
           {%- endif %}
-        {%- endfor %}
+        {%- endfor %}-->
+
+        <div class="landing__cards">
+          {%- for view in views -%}
+            {%- if view.id != 'default' && !view.hidden -%}
+            <div class="codelab-category__card">
+              <div class="card__inner">
+                <h1><a href="/{{view.url}}/" tabindex="-1">{{view.title}}</a></h1>
+                <p>{{view.description}}</p>
+                <p><a class="link__button" href="/{{view.url}}/">Begin Lesson »</a></p>
+              </div>
+            </div>
+            {%- endif -%}
+          {%- endfor %}
+        </div>
+
       </card-sorter>
 
       <div id="loading-placeholder" class="site-width">
         Loading Codelabs, please wait...
       </div>
+
+
 
     </main>
 
