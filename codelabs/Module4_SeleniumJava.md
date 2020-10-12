@@ -709,7 +709,7 @@ You should also visit [http://app.saucelabs.com/](http://app.saucelabs.com/). Go
 
 
 
-### NOTE
+#### NOTE
 
 What did you do? At this point to create an instance of a test, you are dependent on several different objects in your test suite. First, `Base` sets up methods used by your page objects and instantiates a Selenium Webdriver instance. The page objects like `Login` and `Dynamic Loading` use the Base class (and the methods) to interact with the pages.
 
@@ -741,34 +741,194 @@ Now that your tests are up and running on the Sauce Labs platform, you’ll noti
 <img src="assets/4.06A.png" alt="Unnamed Job" width="550"/>
 
 
-To fix this issue, you can pull in the name and the status from the test and send it to the [Sauce Labs dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)so we can use our tests to effectively debug and improve our application.
+To fix this issue, you can pull in the name and the status from the test and send it to the [Sauce Labs dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)so you can use our tests to effectively debug and improve our application.
 
-In addition, right now regardless of the outcome of a test, the job in Sauce Labs will register as **Finished.** Ideally we want to know if the job was a **Pass** or a **Fail**. That way we can tell at a glance if a test failed or not. With a couple of tweaks we can make this happen easily enough.
+In addition, right now regardless of the outcome of a test, the job in Sauce Labs will register as **Finished.** Ideally you want to know if the job was a **Pass** or a **Fail**. That way we can tell at a glance if a test failed or not. With a couple of tweaks we can make this happen easily enough.
 
 
-### Add a Test Name
+### Part 1 Add a Test Name
 
-It's great that our tests are running on Sauce Labs. But we're not done yet because the test name in each Sauce job is getting set to an unnamed job. This makes it extremely challenging to know what tests were run in each job. To remedy this we'll need to pass the test name to Sauce Labs.
+It's great that our tests are running on Sauce Labs. But we're not done yet because the test name in each Sauce job is getting set to an unnamed job. This makes it extremely challenging to know which tests were run in each job. This code will allow you to pass the test name to Sauce Labs.
 
-.....
+In` BaseTest` you will use another [JUnit rule](https://github.com/junit-team/junit4/wiki/Rules#testwatchmantestwatcher-rules) called `TestWatcher().` First you will need to create a string variable in the` BaseTest `class underneath where you instantiate the driver.
 
 
 ```
-// filename:
+// filename: lib/DriverFactory.js
+// ...
+private String testName;
+// ...
 ```
 
+
+Next, use the  `TestWatcher()`after the second` @Override `annotation, right before the final closing curly braces. It has a method called `starting` that gives us access to the description of each test as its starting. So yougrab the display name for the test and store it in the `testName `string variable.
+
+
+```
+// filename: lib/DriverFactory.js
+// ...
+    @Rule
+    public TestRule watcher = new TestWatcher() {
+        @Override
+        protected void starting(Description description) {
+            testName = description.getDisplayName();
+        }
+    };
+}
+```
+
+
+At the top of `BaseTest`, make sure you import `TestRule` and `TestWatcher` and the `Description` in the list of imports at the top:
+
+
+```
+// filename: tests/BaseTest.java
+// ...
+import org.junit.rules.TestRule;
+import org.junit.rules.TestWatcher;
+import org.junit.runner.Description;
+
+// ...
+
+```
+
+
+Now you can add it to [Sauce Options](https://opensource.saucelabs.com/sauce_bindings/docs/basic-options) in between` platformName `after the `accessKey` and before the list of `Mutable Capabilities`:
+
+
+```
+// filename: tests/BaseTest.java
+// ...
+sauceOptions.setCapability("name", testName);
+// ...
+
+```
+
+
+Run `mvn clean test -Dhost=saucelabs` to see if it works. Now when you run our tests in Sauce Labs, the [account dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) will show the tests running with the name of the test outside of the parentheses, and the class inside of the parentheses:
 
 ### Add a Test Status
 
-After adding a test name, we will add in an id and status for each unique test that you create.
+After adding a test name, youwill add in an id and status for each unique test that you create. First, you will need to update our tests. If you noticed before, the only status was **Complete** or had an **Error**. You will now add in whether a test has passed or failed.
+
+<img src="assets/4.06F.png" alt="Error or Complete" width="750"/>
+
+
+A _failure _is different from an _error_. An error means that you test code is erroneous, and you, as the test writer, need to make a change. You should see this error in your terminal output, and if the code is correct to communicate with Sauce Labs, it should be on your dashboard as well. A failure means a test successfully ran, but the conditions it was checking for were not present – in other words, the code for the app isn’t as expected or needs fixing.
+
+You’ll first need install the `saucerest` library by adding it to our `pom.xml `file within the `&lt;dependencies>` tags.
+
+
+```
+// filename: pom.xml
+// ...
+        <dependency>
+            <groupId>com.saucelabs</groupId>
+            <artifactId>saucerest</artifactId>
+            <version>1.0.40</version>
+            <scope>test</scope>
+        </dependency>
+
+// ...
+
+```
+
+
+
+### NOTE
+
+If you add a dependency and the text appears in red (Maven isn’t recognizing it) you can right click on the pom.xml file in the project directory in IntelliJ then choose **Maven > Reload project**:
+
+<img src="assets/4.06G.png" alt="Reload project with Maven" width="750"/>
+
+--
+
+In the variable list of the` BaseTest` class (below `private string testName;`) add in the following:
+
+
+```
+// filename: tests/BaseTest.java
+// ...
+    private String sessionId;
+    private SauceREST sauceClient;
+// ...
+```
+
+
+Under the saucelabs` driver` instantiation in the` before()` rule instantiate a` sessionId` and `sauceClient` for when you are running tests on Sauce Labs:
+
+
+```
+// filename: tests/BaseTest.java
+// ...
+        sessionId = ((RemoteWebDriver) driver).getSessionId().toString();
+        sauceClient = new SauceREST(sauceUser, sauceKey, DataCenter.US);
+
+// ...
+```
+
+
+The `sessionId` is retrieved from the `RemoteWebDriver`. The `sauceClient` creates an instance using the Sauce Labs REST API, passing in the username, access key, and data center location. You can change the data center on the Sauce Labs dashboard, and then [change](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints) the `DataCenter` option in your code to reflect this.
+
+<img src="assets/4.06H.png" alt="Data Center" width="750"/>
+
+
+Now you can` import` the `sauceRest` package in the` imports` list of `BaseTest.java`:
+
+
+```
+// filename: tests/BaseTest.java
+// ...
+import com.saucelabs.saucerest.SauceREST;
+// ...
+```
+
+
+Now, go down to the` TestWatcher` rule. Under the first` @Override` annotation, add in two more:
+
+
+```
+// filename: tests/BaseTest.java
+// ...
+@Override
+        protected void failed(Throwable throwable, Description description) {
+            if (host.equals("saucelabs")) {
+                sauceClient.jobFailed(sessionId);
+                System.out.println(String.format("https://saucelabs.com/tests/%s", sessionId));
+            }
+        }
+
+        @Override
+        protected void succeeded(Description description) {
+            if (host.equals("saucelabs")) {
+                sauceClient.jobPassed(sessionId);
+            }
+        }
+// ...
+```
+
+
+Once a Sauce job is established we're able to get the session ID from `RemoteWebDriver` and store it's string value in` sessionId`. youthen create an instance of `SauceREST` (which connects to the Sauce API) and store the session in `sauceClient`.
+
+With a conditional check in each you make sure the sauceClient commands only trigger when a Sauce session has been established.
+
+When a test is successful the `succeeded()` method will fire, marking the Sauce job for the test as `passed`. When a test fails the failed method will trigger, and the job will be marked as `failed`. When there's a failure, we'll want to know the URL to view the job on [SauceLabs ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)so you concatenate the URL and output it to the console using the `System.out.println` command.
+
+Now when you run `mvn clean test -Dhost=saucelabs `in terminal, then check your [Sauce Labs dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). On the right you should be able to see a status of passed with each test.
 
 <img src="assets/4.06C.png" alt="Passed Tests" width="550"/>
 
-You can see an example of the completed code[ here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod4/4.06)
+You can see an example of the completed code[ here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.06)
 
 #### Final Code
 
-<img src="assets/XXXX.png" alt="Image Name" width="450"/>
+<img src="assets/4.06I.png" alt="Test Rule and Watcher" width="550"/>
+
+<img src="assets/4.06J.png" alt="Session ID and SauceREST API" width="750"/>
+
+<img src="assets/4.06K.png" alt="Test Watcher" width="750"/>
+
+<img src="assets/4.06L.png" alt="Sauce Rest in pom.xml" width="750"/>
 
 <!-- ------------------------ -->
 ## 4.07 Quiz
