@@ -5,7 +5,7 @@ id: Module4_SeleniumJava
 categories: advanced
 tags: java
 environments: Web
-status: Draft
+status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-6735579-1
 author: Lindsay Walker
@@ -928,12 +928,15 @@ You can see an example of the completed code[ here.](https://github.com/walkerlj
 
 <img src="assets/4.06K.png" alt="Test Watcher" width="750"/>
 
-<img src="assets/4.06L.png" alt="Sauce Rest in pom.xml" width="750"/>
+<img src="assets/4.06L.png" alt="Sauce Rest in pom.xml" width="650"/>
 
 <!-- ------------------------ -->
 ## 4.07 Quiz
 Duration: 0:05:00
 
+![https://docs.google.com/forms/d/e/1FAIpQLSdiPBDahX6pf0akZmn0ogA4JLInFa4EAb5HXy-VAa3lsIyEyQ/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSdiPBDahX6pf0akZmn0ogA4JLInFa4EAb5HXy-VAa3lsIyEyQ/viewform?usp=sf_link)
+
+<!--
 Fill in the blanks with the best choice for the type of test. A ______ test is measuring something with a value, that can give you an idea of how well something is performing. _______ testing is a type of test without a visual browser, tests are done with a robot who interacts with the codebase of a application.
 
 Headless, Unit
@@ -942,13 +945,10 @@ UI, End-to-End
 Functional, Integration
 
 Which Page Object is responsible for the set-up of all where & what your suite is testing?
---------------
-----------
---------
------------
 
 
-Which of the following best describes how a test in the test folder uses the files ------------------------------------
+
+Which of the following best describes how a test in the test folder uses the files -----
 
 
 <img src="assets/XXXX.png" alt="Image Name" width="450"/>
@@ -977,3 +977,4 @@ It defines (creates) the variable ----------- in the-------------) method, which
 It uses the variable ------------- defined (created) in ------------ that is only created in the afterEach function, which will only run once all other test code has successfully completed.
 It uses the variable -----------which allows the creation of ------------ that can also only be created if all other test code has successfully completed.
 It defines (creates) the variable --------after the ---------- method, which can’t be defined unless all other test code has successfully completed.
+-->
