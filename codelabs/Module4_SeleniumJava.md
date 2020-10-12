@@ -627,40 +627,82 @@ To learn more about setting up environment variables, you can see the article [h
 
 #### Video
 
-Watch This Video to See how to set up your Sauce Credentials as environment variables on MacOS [4.05 Sauce Credentials](https://drive.google.com/file/d/1RilJKEMT4sTkmglbwxOuqybg5X5CgBJi/view?usp=sharing)
+Watch This Video to See how to set up your Sauce Credentials as environment variables on MacOS [4.05 Sauce Credentials](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing)
 
-![https://drive.google.com/file/d/1RilJKEMT4sTkmglbwxOuqybg5X5CgBJi/preview](https://drive.google.com/file/d/1RilJKEMT4sTkmglbwxOuqybg5X5CgBJi/view?usp=sharing)
-
-
-### Set a Source for Sauce Credentials
-
-IIf you get a failing test such as this, Sauce Labs doesn’t know to look at the updated SAUCE_USERNAME and SAUCE_ACCESS_KEY that you put in your .bash_profile. (First make sure`-----------` is correctly installed as well)
+![https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/preview](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing)
 
 
-<img src="assets/4.05C.png" alt="Sauce Labs Authentication Error" width="450"/>
+### Part 2: Use the Remote Web Driver
 
-
-You can tell your machine (Mac only)  to look for the correct credentials and type in your terminal:
+Now you need to update `BaseTest.java `to work with these new values and connect to Sauce Labs. Note that these are called _[Capabilities](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options), _and the format they are in here is compatible with the Selenium 4.0 web driver and backwards compatible. They set the options for setting up the environment for your tests.
 
 
 ```
-source ~/.bash_profile
+// filename: tests/BaseTest.java
+// ...
+  @Override
+        protected void before() throws Throwable {
+            if (host.equals("saucelabs")) {
+                MutableCapabilities sauceOptions = new MutableCapabilities();
+                sauceOptions.setCapability("username", sauceUser);
+                sauceOptions.setCapability("accessKey", sauceKey);
+                MutableCapabilities capabilities = new MutableCapabilities();
+                capabilities.setCapability("browserName", browserName);
+                capabilities.setCapability("browserVersion", browserVersion);
+                capabilities.setCapability("platformName", platformName);
+                capabilities.setCapability("sauce:options", sauceOptions);
+                String sauceUrl = String.format("https://ondemand.saucelabs.com/wd/hub");
+                driver = new RemoteWebDriver(new URL(sauceUrl), capabilities);
+            } else if (host.equals("localhost")) {
+                if (browserName.equals("firefox")) {
+                    System.setProperty("webdriver.gecko.driver",
+                            System.getProperty("webdriver.gecko.driver", "src/test/java/drivers/geckodriver"));
+                    driver = new FirefoxDriver();
+                } else if (browserName.equals("chrome")) {
+                    System.setProperty("webdriver.chrome.driver", "src/test/java/drivers/chromedriver");
+                    ChromeOptions browserOptions = new ChromeOptions();
+                    driver = new ChromeDriver();
+                }
+            }
+        }
+
+
 ```
 
 
-Now, when you run a program it will have the updated username and access key. **IMPORTANT** you need to do this with any new project file you create, and also any time you update your bash profile.
+This has two if/ else statements:
 
 
-### Update -------
 
-Now we can update `-----------` to work with these new values and connect to [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
+*   The first one checks to see if you have set your test to run on the `"localhost"` or` "saucelabs".`
+*   The second, nested in the localhost condition, sets your test up to use the Geckodriver or Chromedriver saved in your project folder, depending on which browser you have set your test to use.
+
+Now you can import the `MutableCapabilities `and` RemoteWebDriver` Selenium classes, as well as the` URL` java class. Add these imports in `BaseTest.java`:
 
 
 ```
-// filename:
+// filename: tests/BaseTest.java
+// ...
+import org.openqa.selenium.MutableCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import java.net.URL;
+// ...
 ```
+
+
+
+### Run Your Tests
+
+Now you can use terminal commands to run your tests on Sauce Labs while specifying the `browserName`,` browserVersion`, and `platformName`. As an example, if you run this command the test will be run in Sauce Labs in on MacOS 10.10 in the Chrome 75 browser:
+
+
+```
+mvn clean test -Dhost=saucelabs -DbrowserName=chrome -DbrowserVersion=75 -Dplatform="OS X 10.10"
+```
+
 
 You should also visit [http://app.saucelabs.com/](http://app.saucelabs.com/). Go to the left hand menu and choose **Automated → Test Results**. There you will see your tests with icons indicating they were run on the operating system & browser that you chose:
+
 
 
 <img src="assets/4.05E.png" alt="Jobs Run on Sauce" width="550"/>
@@ -669,20 +711,23 @@ You should also visit [http://app.saucelabs.com/](http://app.saucelabs.com/). Go
 
 ### NOTE
 
-What did we do?
+What did you do? At this point to create an instance of a test, you are dependent on several different objects in your test suite. First, `Base` sets up methods used by your page objects and instantiates a Selenium Webdriver instance. The page objects like `Login` and `Dynamic Loading` use the Base class (and the methods) to interact with the pages.
 
-<img src="assets/XXXX.png" alt="Test Suite Structure" width="550"/>
+Once the interactions with the webpage are taken care of, the tests come into play.` BaseTest` imports the settings from `Config`, then the tests use the `Base` class and define the specific tests run on the page.
+
+
+<img src="assets/4.05K.png" alt="Test Suite Structure" width="750"/>
 
 --
-
-Complete course code can be found [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod4/4.05).
 
 
 #### Final Code
 
-Your final code will look like this:
+The complete code can be found [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.05). Your final code will look like this:
 
-<img src="assets/XXXX.png" alt="Image Name" width="450"/>
+<img src="assets/4.05L.png" alt="Image Name" width="750"/>
+
+<img src="assets/4.05M.png" alt="Image Name" width="750"/>
 
 
 <!-- ------------------------ -->
