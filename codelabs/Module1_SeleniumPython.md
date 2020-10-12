@@ -81,7 +81,7 @@ The code that Selenium provides to you as a developer (as libraries) is called a
 
 
 
-<img src="assets/1.03A.png" alt="PSelenium Diagram" width="550"/>`
+<img src="assets/1.03A.png" alt="Selenium Diagram" width="550"/>`
 
 Python uses the driver method to interact with Selenium. When you use it, you instantiate a web driver, and then you have access to methods allowed by the web driver. Selenium uses the driver to automate and manipulate elements in the browser. Some examples of drivers include Chromedriver for the Chrome browser or Geckodriver for the Firefox browser.
 
