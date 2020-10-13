@@ -27,16 +27,69 @@ $card-col-height: 200px; // column mode
   justify-content: flex-start;
   margin-bottom: $keyline * 3;
   min-height: 300px;
+  &.--index__cards {
+    margin-bottom: 0px;
+    padding-bottom: 25px;
+  }
+  &.site-width {
+    max-width: calc(1168px + 20px);
+    position: relative;
+    left: 10px;
+  }
+}
+
+.landing__cards {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+}
+
+.codelab-category__card {
+  flex: 0 50%;
+  text-align: center;
+  padding: 10px;
+  .card__inner {
+    background-color: $pureWhite;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    text-align: left;
+    box-shadow: -1px 0px 5px 0px rgba(0,0,0,0.03);
+    h1 {
+      font-size: 21px;
+      line-height: 21px;
+      font-weight: 400;
+      margin-bottom: 15px;
+      font-family: 'Museo-Sans', sans-serif;
+      color: $greyDark;
+    }
+    p {
+      font-size: 16px;
+      font-family: 'Museo-Sans', sans-serif;
+      color: $greyDark;
+      line-height: 24px;
+      font-weight: 300;
+      margin-bottom: 10px;
+    }
+    .link__button {
+      color: $sauceRedAlt;
+    }
+  }
 }
 
 .codelab-card {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  flex: 1 0 $card-width;
-  margin: 0 $keyline * 2 $keyline * 2 0;
+  flex: 0 calc(50% - 20px);
+  text-align: center;
+  padding: 20px;
+  margin-right: 20px!important;
+  margin-bottom: 20px!important;
+  //flex-direction: column;
+  //flex: 1 0 $card-width;
+  //margin: 0 $keyline * 2 $keyline * 2 0;
   background-color: #fff;
-  max-width: $card-width;
+  //max-width: $card-width;
   border-radius: $radius;
   box-shadow: 0 1px rgba(0,0,0,0.15);
   border-bottom: 2px solid transparent;
@@ -79,10 +132,13 @@ $card-col-height: 200px; // column mode
   }
 
   .description {
-    padding: $keyline * 2 $keyline * 2 0 $keyline * 2;
-    flex: 1 0 auto;
-    color: #212121;
-    -webkit-font-smoothing: antialiased;
+    font-size: 21px;
+    line-height: 21px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    font-family: 'Museo-Sans', sans-serif;
+    color: $greyDark;
+    text-align: left;
   }
 }
 
@@ -125,6 +181,10 @@ $card-col-height: 200px; // column mode
   #cards {
     flex-direction: column;
     align-items: center;
+  }
+  .codelab-category__card {
+    flex: 100%;
+    text-align: center;
   }
 
   .codelab-card {

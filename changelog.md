@@ -1,6 +1,13 @@
 # Changelog- Add newest additions in an .md file at top
 ///start typing below this text
 
+
+## OCT 10 – Casey
+### Added navigation element for landing pages
+- In _site/app/elements/navigation.html_ you'll find the navigation that mimics the corporate site
+- Commented out code in _site/app/views/default/index.html_ and replaced with index cards to page Categories
+- Added _site/app/styles/_overrides.scss_ to eventually inject into _site/build/codelabes_ course modules to alter css. Haven't found a solid gulp task for this yet, so I'll continue to code it out manually until I find a solution.
+
 ## Sept 24 – Lindsay
 ### Added colors & icons to Module Cards
 - In _tools/site/app/images_ added in some small images to use as icons as codelab card.
