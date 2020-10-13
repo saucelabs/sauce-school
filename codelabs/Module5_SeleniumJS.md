@@ -272,8 +272,8 @@ Autonomous tests are the type of tests that are not dependent on other tests to 
 
 
 
-1. **LoginTest– **This test is performed first to allow you to login to the platform.
-2. **ShoppingTest– **This test is performed second, where the user chooses and adds an item to the test.
+1. **LoginTest–** This test is performed first to allow you to login to the platform.
+2. **ShoppingTest–** This test is performed second, where the user chooses and adds an item to the test.
 3. **CheckoutTest–** This test is performed third, where the user accesses the checkout screen where they can pay and order the item from their shopping cart.
 
 Clearly these tests aren’t autonomous when you are doing User Interface (UI) tests; you cannot perform CheckoutTest until you have logged into the platform and chosen an item for the shopping cart. There are ways, however, to set up your test so you can “jump right in” with a filled shopping cart without having to wait for other tests to run by using API calls and other tricks that can help you write a suite of autonomous tests.
@@ -457,12 +457,12 @@ You'll probably get a lot of mileage out of your test suite in its current form 
 
 The real goal in test automation is to find issues reliably, quickly, and automatically. We've built things to be reliable and quick. Now you need to make them run on their own, and ideally, in sync with the development workflow you are a part of.
 
-To do that you need to use a Continuous Integration server.
+To do that you need to use a _Continuous Integration server_.
 
 
 ### CI Servers
 
-A Continuous Integration server (CI) makes it possible for several developers to merge their code into a central repository, then automate the process of building, testing, and deploying the set of code with the entire team’s contributions. As an example, In GitHub, this would be a certain branch of a shared repository. A CI server can be set up so that it takes updated code through the process several times a month, week, or even a day.
+A _Continuous Integration_ server (CI server) makes it possible for several developers to merge their code into a central repository, then automate the process of building, testing, and deploying the set of code with the entire team’s contributions. As an example, In GitHub, this would be a certain branch of a shared repository. A CI server can be set up so that it takes updated code through the process several times a month, week, or even a day.
 
 The great thing about doing this is that code from several teams or developers can be brought together into the same working project quickly and tested, instead of developers trying to test their code in isolation (and not know what could break when all contributors’ code is built together).  
 
