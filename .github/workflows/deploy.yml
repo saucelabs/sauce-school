@@ -48,6 +48,7 @@ jobs:
         id: cache-build
         with:
           path: |
+            site/codelabs
             site/dist
           key: ${{ runner.os }}-${{ github.sha }}
 
@@ -82,6 +83,7 @@ jobs:
         id: cache-build
         with:
           path: |
+            site/codelabs
             site/dist
           key: ${{ runner.os }}-${{ github.sha }}
 
@@ -141,6 +143,7 @@ jobs:
         id: cache-build
         with:
           path: |
+            site/codelabs
             site/dist
           key: ${{ runner.os }}-${{ github.sha }}
 
@@ -194,6 +197,7 @@ jobs:
         id: cache-build
         with:
           path: |
+            site/codelabs
             site/dist
           key: ${{ runner.os }}-${{ github.sha }}
 
