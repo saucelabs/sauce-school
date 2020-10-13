@@ -148,12 +148,21 @@ gulp.task('build:css', () => {
 gulp.task('override:modules', function() {
   return gulp.src('./codelabs/*/index.html')
     .pipe(dom(function(){
+
       let htmlDoc = this;
       let linkOverrideCss = htmlDoc.createElement('link');
-      var newSS = htmlDoc.createElement('link');
+      let newSS = htmlDoc.createElement('link');
       newSS.rel = 'stylesheet';
       newSS.href = './styles/_overrides.css';
-      return htmlDoc.getElementsByTagName('head')[0].appendChild(newSS);
+      
+      let header = htmlDoc.getElementsByTagName('head')[0];
+      let numberOfChildren = header.getElementsByTagName('link').length
+
+      if (numberOfChildren = 3) {
+        return htmlDoc.getElementsByTagName('head')[0].appendChild(newSS);
+      }
+
+
     }))
     .pipe(gulp.dest('./codelabs/'));
 });
