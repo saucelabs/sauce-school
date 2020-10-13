@@ -253,7 +253,7 @@
         <div class="search__overlay-input">
           <div class="sub-nav__triangle"></div>
           <div class="sub-nav__inner">
-            test
+            <input onkeyup="searchInputNavigation()" id="navSearchInput" class="search__input" type="text" placeholder="search">
           </div>
         </div>
       </li>
@@ -338,10 +338,23 @@
     window.addEventListener('click', function(e){
       if (document.getElementsByClassName('search__icon')[0].contains(e.target)){
         document.getElementsByClassName('search__overlay-input')[0].classList.add("--show")
-      } else{
+        document.getElementById("navSearchInput").focus();
+      }
+      else if (document.getElementsByClassName('search__input')[0].contains(e.target)) {
+        document.getElementsByClassName('search__overlay-input')[0].classList.add("--show")
+      }
+      else{
         document.getElementsByClassName('search__overlay-input')[0].classList.remove("--show")
       }
     });
+
+    //search input
+    //function searchInputNavigation(e) {
+      //if(e.keyCode == 13){
+         //alert("Here");
+         //window.location.href = 'https://saucelabs.com/search?q=test';
+      //}
+    //}
 
   </script>
 
