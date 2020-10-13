@@ -44,22 +44,18 @@ jobs:
         working-directory: ./site/
         run: npm ci
 
-      - name: Build it
+      - uses: actions/cache@v2
+        id: cache-build
+        with:
+          path: |
+            site/dist
+          key: ${{ runner.os }}-${{ github.sha }}
+
+      - name: Build
+        if: steps.cache-build.outputs.cache-hit != 'true'
         working-directory: ./site/
         run: npm run gulp -- dist --codelabs-dir=codelabs
 
-      - name: archive site/dist/
-        run: tar -czhf dist.tar.gz ./site/dist/
-
-      - name: archive node_modules
-        run: tar -czf node_modules.tar.gz ./site/node_modules/
-
-      - uses: actions/upload-artifact@v2
-        with:
-          name: dist
-          path: |
-            dist.tar.gz
-            node_modules.tar.gz
   test:
     needs: build
     runs-on: ubuntu-latest
@@ -70,12 +66,29 @@ jobs:
         with:
           python-version: 3.7
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/cache@v2
+        id: cache-npm-packages
         with:
-          name: dist
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
-      - name: unarchive-artifact
-        run: tar -xvf dist.tar.gz
+      - name: Install NPN dependencies
+        if: steps.cache-npm-packages.outputs.cache-hit != 'true'
+        working-directory: ./site/
+        run: npm ci
+
+      - uses: actions/cache@v2
+        id: cache-build
+        with:
+          path: |
+            site/dist
+          key: ${{ runner.os }}-${{ github.sha }}
+
+      - name: Build
+        if: steps.cache-build.outputs.cache-hit != 'true'
+        working-directory: ./site/
+        run: npm run gulp -- dist --codelabs-dir=codelabs
 
       - name: Run saucectl
         run: |
@@ -88,6 +101,7 @@ jobs:
           export CYPRESS_HOST_IP=`hostname -i`
           echo "Injection CYPRESS_HOST_IP=${CYPRESS_HOST_IP}"
           saucectl run --env CYPRESS_HOST_IP=${CYPRESS_HOST_IP} -c ./.sauce/config.yml
+
   deploy-staging:
     needs: test
     if: ${{ github.ref == 'refs/heads/master' }}
@@ -111,21 +125,36 @@ jobs:
           service_account_key: ${{ secrets.GCS_STAGING_SA_KEY }}
           project_id: ${{ secrets.GCS_STAGING_PROJECT }}
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/cache@v2
+        id: cache-npm-packages
         with:
-          name: dist
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
-      - name: unarchive dist
-        run: tar -xf dist.tar.gz
+      - name: Install NPN dependencies
+        if: steps.cache-npm-packages.outputs.cache-hit != 'true'
+        working-directory: ./site/
+        run: npm ci
 
-      - name: unarchive node_modules
-        run: tar -xf node_modules.tar.gz
+      - uses: actions/cache@v2
+        id: cache-build
+        with:
+          path: |
+            site/dist
+          key: ${{ runner.os }}-${{ github.sha }}
+
+      - name: Build
+        if: steps.cache-build.outputs.cache-hit != 'true'
+        working-directory: ./site/
+        run: npm run gulp -- dist --codelabs-dir=codelabs
 
       - name: Deploy
         working-directory: ./site/
         run: |
           npm run gulp -- publish:staging:views --staging-bucket=$GCS_STAGING_BUCKET
           npm run gulp -- publish:staging:codelabs --staging-bucket=$GCS_STAGING_BUCKET
+
   deploy-production:
     needs: test
     runs-on: ubuntu-latest
@@ -149,15 +178,29 @@ jobs:
           service_account_key: ${{ secrets.GCS_STAGING_SA_KEY }}
           project_id: ${{ secrets.GCS_STAGING_PROJECT }}
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/cache@v2
+        id: cache-npm-packages
         with:
-          name: dist
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
-      - name: unarchive dist
-        run: tar -xf dist.tar.gz
+      - name: Install NPN dependencies
+        if: steps.cache-npm-packages.outputs.cache-hit != 'true'
+        working-directory: ./site/
+        run: npm ci
 
-      - name: unarchive node_modules
-        run: tar -xvf node_modules.tar.gz
+      - uses: actions/cache@v2
+        id: cache-build
+        with:
+          path: |
+            site/dist
+          key: ${{ runner.os }}-${{ github.sha }}
+
+      - name: Build
+        if: steps.cache-build.outputs.cache-hit != 'true'
+        working-directory: ./site/
+        run: npm run gulp -- dist --codelabs-dir=codelabs
 
       - name: Deploy
         working-directory: ./site/
