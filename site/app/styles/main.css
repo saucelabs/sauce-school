@@ -1,0 +1,1435 @@
+/**
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*******************************
+          Flex Layout
+*******************************/
+.layout.horizontal,
+.layout.horizontal-reverse,
+.layout.vertical,
+.layout.vertical-reverse {
+  display: flex; }
+
+.layout.horizontal {
+  flex-direction: row; }
+
+.layout.vertical {
+  flex-direction: column; }
+
+.layout.wrap {
+  flex-wrap: wrap; }
+
+.flex,
+.flex-1 {
+  -ms-flex: 1;
+  -webkit-flex: 1;
+  flex: 1; }
+
+/* alignment in cross axis */
+.layout.start {
+  align-items: flex-start; }
+
+.layout.center,
+.layout.center-center {
+  align-items: center; }
+
+.layout.end {
+  align-items: flex-end; }
+
+/* alignment in main axis */
+.layout.start-justified {
+  justify-content: flex-start; }
+
+.layout.center-justified,
+.layout.center-center {
+  justify-content: center; }
+
+.layout.end-justified {
+  justify-content: flex-end; }
+
+.layout.around-justified {
+  justify-content: space-around; }
+
+.layout.justified {
+  justify-content: space-between; }
+
+/* self alignment */
+.self-start {
+  align-self: flex-start; }
+
+.self-center {
+  align-self: center; }
+
+.self-end {
+  align-self: flex-end; }
+
+.self-stretch {
+  align-self: stretch; }
+
+/*******************************
+          Other Layout
+*******************************/
+.block {
+  display: block; }
+
+/* IE 10 support for HTML5 hidden attr */
+[hidden] {
+  display: none !important; }
+
+.invisible {
+  visibility: hidden !important; }
+
+.relative {
+  position: relative; }
+
+.fit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+
+body.fullbleed {
+  margin: 0;
+  height: 100vh; }
+
+.scroll {
+  -webkit-overflow-scrolling: touch;
+  overflow: auto; }
+
+/**
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+@font-face {
+  font-family: 'Museo-Sans'; }
+
+body {
+  font-family: 'Museo-Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px; }
+
+h1 {
+  font-family: 'Museo-Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 56px;
+  font-weight: 400;
+  letter-spacing: -.026em;
+  line-height: 60px; }
+
+h2 {
+  font-family: 'Museo-Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 45px;
+  font-weight: 400;
+  letter-spacing: -.018em;
+  line-height: 48px; }
+
+h3 {
+  font-family: 'Museo-Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 34px;
+  font-weight: 400;
+  letter-spacing: -.01em;
+  line-height: 40px; }
+
+h4 {
+  font-family: 'Museo-Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: -.012em;
+  line-height: 32px; }
+
+/**
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* Colors */
+/* Typography */
+/* Breakpoints */
+/**
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+@font-face {
+  font-family: 'Museo-Sans'; }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  outline: none; }
+
+body {
+  background: #ffffff; }
+  body.view #banner {
+    padding-top: calc(56px + 24px);
+    padding-bottom: 24px;
+    position: relative; }
+  body #dropShadow {
+    display: none !important; }
+  body #loading-placeholder {
+    display: none;
+    padding: 40px 0;
+    text-align: center; }
+  body.loading card-sorter#cards {
+    display: none; }
+  body.loading div#filters,
+  body.loading div#searchbar {
+    display: none; }
+  body.loading div#loading-placeholder {
+    display: block; }
+
+main {
+  background-color: #F1F2F2; }
+
+b {
+  font-weight: 500; }
+
+a {
+  text-decoration: none;
+  color: currentcolor; }
+
+ul, li {
+  list-style: none;
+  padding: 0; }
+
+.site-width {
+  margin: 0 auto;
+  width: 90vw;
+  max-width: 1168px; }
+
+#banner {
+  background-color: #fff;
+  padding: 0 40px 0 40px;
+  padding: 85px 0 85px 0;
+  box-shadow: 0px 3px 6px -3px #BDBDBD;
+  text-align: center; }
+  #banner[down] .banner-slider {
+    transform: none; }
+  #banner[down] .banner-title {
+    visibility: hidden; }
+  #banner h2, #banner h3 {
+    font-weight: 300; }
+  #banner #logo {
+    height: 125px;
+    width: auto;
+    max-width: 100%; }
+  #banner .banner-slider {
+    position: absolute;
+    top: 0;
+    max-width: 100%;
+    width: 100%;
+    background-color: #ffffff;
+    color: #546E7A;
+    padding: 8px 0;
+    transform: translateY(-100%);
+    transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
+    will-change: transform; }
+    #banner .banner-slider h3 {
+      font-size: 30px; }
+  #banner .banner_arrows {
+    margin-left: 16px; }
+  #banner .banner-title {
+    color: #464B54;
+    font-weight: 300;
+    margin: 5px 0 15px 0; }
+  #banner .banner__subtext {
+    text-transform: uppercase;
+    color: #464B54;
+    font-weight: 600;
+    letter-spacing: 2px; }
+  #banner .banner-description {
+    width: 75%;
+    display: inline-block;
+    margin: 0 auto; }
+    #banner .banner-description p.banner-info {
+      font-size: 18px;
+      line-height: 26px;
+      font-weight: 200;
+      color: #464B54; }
+    #banner .banner-description .banner-meta {
+      padding: 0 32px 0 32px; }
+      #banner .banner-description .banner-meta h3 {
+        margin-bottom: 8px; }
+  #banner paper-button {
+    font-family: 'Museo-Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    background-color: #607D8B;
+    padding: 8px 16px;
+    min-width: 150px;
+    color: #fff;
+    text-align: center;
+    line-height: initial; }
+    #banner paper-button.iron-selected {
+      background-color: #455a64; }
+
+#sortby {
+  padding: 24px 0;
+  justify-content: center; }
+  #sortby paper-tabs {
+    text-transform: uppercase; }
+    #sortby paper-tabs paper-tab {
+      padding: 0 5px;
+      margin: auto 7px; }
+
+.paper-button-0,
+.paper-menu-button-0 {
+  border-radius: 3px !important; }
+
+.dropdown-filter {
+  background-color: #fff;
+  border-radius: 3px; }
+
+.dropdown-content {
+  border-radius: 3px !important; }
+  .dropdown-content paper-item:hover {
+    background: #EEEEEE;
+    cursor: pointer; }
+
+@media (max-width: 767px) {
+  #banner {
+    padding: 16px 0;
+    line-height: 16px; }
+    #banner paper-button {
+      display: inline-block;
+      margin: 16px 0 0 0; }
+  #filters {
+    padding: 0;
+    margin: 0;
+    height: 20px;
+    visibility: hidden; }
+  .banner-info {
+    line-height: 24px;
+    align-self: flex-start;
+    width: 100%; }
+  .banner-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; }
+  .banner-technologies {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    z-index: 1; }
+  .banner-title {
+    font-size: 7vw; }
+  .banner-meta {
+    display: none; }
+  #logo {
+    margin-bottom: 16px; }
+  .filters {
+    width: 100%; } }
+
+@media (min-width: 768px) {
+  #banner paper-button {
+    margin-bottom: 16px; }
+  #banner .banner-title {
+    margin-bottom: 16px; }
+  .banner-info {
+    margin-right: 32px;
+    line-height: 32px; }
+  .banner-info a {
+    text-decoration: underline; }
+  .banner-description {
+    display: flex; }
+    .banner-description .banner-info {
+      flex: 1; } }
+
+/**
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* Colors */
+/* Typography */
+/* Breakpoints */
+#mainToolbar {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  background-color: #fff;
+  color: #fff;
+  padding: 16px;
+  height: 130px;
+  box-shadow: -1px 3px 73px -24px rgba(0, 0, 0, 0.25);
+  z-index: 10; }
+  #mainToolbar paper-icon-button[icon="menu"] {
+    flex-shrink: 0; }
+  #mainToolbar a {
+    display: flex;
+    align-items: center; }
+  #mainToolbar .sub-nav__company, #mainToolbar .sub-nav__contact {
+    width: 288px !important;
+    margin-left: -120px !important; }
+    #mainToolbar .sub-nav__company .sub-nav__inner--center, #mainToolbar .sub-nav__contact .sub-nav__inner--center {
+      text-align: left !important;
+      border-bottom: none !important; }
+    #mainToolbar .sub-nav__company ul.sub-nav__inner-list li, #mainToolbar .sub-nav__contact ul.sub-nav__inner-list li {
+      width: 100%;
+      display: block; }
+  #mainToolbar .search__overlay-input {
+    display: none;
+    width: 168px;
+    height: 30px;
+    border-radius: 25px !important;
+    margin-left: -60px;
+    background: #FFFFFF;
+    position: absolute;
+    margin-top: 20px;
+    box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.75);
+    text-align: center; }
+    #mainToolbar .search__overlay-input.--show {
+      display: inherit; }
+    #mainToolbar .search__overlay-input .sub-nav__triangle {
+      z-index: 2; }
+  #mainToolbar .sub-nav__solutions, #mainToolbar .sub-nav__platform, #mainToolbar .sub-nav__resources, #mainToolbar .sub-nav__company, #mainToolbar .sub-nav__contact {
+    width: 490px;
+    background: #FFFFFF;
+    position: absolute;
+    margin-left: -200px;
+    margin-top: 30px;
+    box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.75);
+    text-align: center;
+    display: none; }
+    #mainToolbar .sub-nav__solutions.--show, #mainToolbar .sub-nav__platform.--show, #mainToolbar .sub-nav__resources.--show, #mainToolbar .sub-nav__company.--show, #mainToolbar .sub-nav__contact.--show {
+      display: inherit; }
+    #mainToolbar .sub-nav__solutions .sub-nav__triangle, #mainToolbar .sub-nav__platform .sub-nav__triangle, #mainToolbar .sub-nav__resources .sub-nav__triangle, #mainToolbar .sub-nav__company .sub-nav__triangle, #mainToolbar .sub-nav__contact .sub-nav__triangle {
+      width: 0;
+      height: 0;
+      border: 0 solid transparent;
+      border-right-width: 15px;
+      border-left-width: 15px;
+      border-bottom: 15px solid #FFFFFF;
+      position: relative;
+      top: -15px;
+      display: inline-block;
+      margin: 0 auto; }
+    #mainToolbar .sub-nav__solutions .sub-nav__inner, #mainToolbar .sub-nav__platform .sub-nav__inner, #mainToolbar .sub-nav__resources .sub-nav__inner, #mainToolbar .sub-nav__company .sub-nav__inner, #mainToolbar .sub-nav__contact .sub-nav__inner {
+      display: inline-block;
+      top: -20px;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      padding: 25px; }
+      #mainToolbar .sub-nav__solutions .sub-nav__inner ul.sub-nav__inner-list, #mainToolbar .sub-nav__platform .sub-nav__inner ul.sub-nav__inner-list, #mainToolbar .sub-nav__resources .sub-nav__inner ul.sub-nav__inner-list, #mainToolbar .sub-nav__company .sub-nav__inner ul.sub-nav__inner-list, #mainToolbar .sub-nav__contact .sub-nav__inner ul.sub-nav__inner-list {
+        margin-top: 15px; }
+        #mainToolbar .sub-nav__solutions .sub-nav__inner ul.sub-nav__inner-list li, #mainToolbar .sub-nav__platform .sub-nav__inner ul.sub-nav__inner-list li, #mainToolbar .sub-nav__resources .sub-nav__inner ul.sub-nav__inner-list li, #mainToolbar .sub-nav__company .sub-nav__inner ul.sub-nav__inner-list li, #mainToolbar .sub-nav__contact .sub-nav__inner ul.sub-nav__inner-list li {
+          margin-bottom: 15px; }
+          #mainToolbar .sub-nav__solutions .sub-nav__inner ul.sub-nav__inner-list li ul.sub-nav__inner-list--children, #mainToolbar .sub-nav__platform .sub-nav__inner ul.sub-nav__inner-list li ul.sub-nav__inner-list--children, #mainToolbar .sub-nav__resources .sub-nav__inner ul.sub-nav__inner-list li ul.sub-nav__inner-list--children, #mainToolbar .sub-nav__company .sub-nav__inner ul.sub-nav__inner-list li ul.sub-nav__inner-list--children, #mainToolbar .sub-nav__contact .sub-nav__inner ul.sub-nav__inner-list li ul.sub-nav__inner-list--children {
+            margin: 10px 0 0 10px; }
+            #mainToolbar .sub-nav__solutions .sub-nav__inner ul.sub-nav__inner-list li ul.sub-nav__inner-list--children li, #mainToolbar .sub-nav__platform .sub-nav__inner ul.sub-nav__inner-list li ul.sub-nav__inner-list--children li, #mainToolbar .sub-nav__resources .sub-nav__inner ul.sub-nav__inner-list li ul.sub-nav__inner-list--children li, #mainToolbar .sub-nav__company .sub-nav__inner ul.sub-nav__inner-list li ul.sub-nav__inner-list--children li, #mainToolbar .sub-nav__contact .sub-nav__inner ul.sub-nav__inner-list li ul.sub-nav__inner-list--children li {
+              margin-bottom: 5px;
+              font-size: 14px;
+              display: block;
+              width: 100%; }
+          #mainToolbar .sub-nav__solutions .sub-nav__inner ul.sub-nav__inner-list li a:hover, #mainToolbar .sub-nav__platform .sub-nav__inner ul.sub-nav__inner-list li a:hover, #mainToolbar .sub-nav__resources .sub-nav__inner ul.sub-nav__inner-list li a:hover, #mainToolbar .sub-nav__company .sub-nav__inner ul.sub-nav__inner-list li a:hover, #mainToolbar .sub-nav__contact .sub-nav__inner ul.sub-nav__inner-list li a:hover {
+            color: #E12726; }
+      #mainToolbar .sub-nav__solutions .sub-nav__inner .sub-nav__sub-list__left, #mainToolbar .sub-nav__platform .sub-nav__inner .sub-nav__sub-list__left, #mainToolbar .sub-nav__resources .sub-nav__inner .sub-nav__sub-list__left, #mainToolbar .sub-nav__company .sub-nav__inner .sub-nav__sub-list__left, #mainToolbar .sub-nav__contact .sub-nav__inner .sub-nav__sub-list__left {
+        float: left;
+        display: inline-block;
+        position: relative;
+        width: 50%; }
+      #mainToolbar .sub-nav__solutions .sub-nav__inner .sub-nav__sub-title, #mainToolbar .sub-nav__platform .sub-nav__inner .sub-nav__sub-title, #mainToolbar .sub-nav__resources .sub-nav__inner .sub-nav__sub-title, #mainToolbar .sub-nav__company .sub-nav__inner .sub-nav__sub-title, #mainToolbar .sub-nav__contact .sub-nav__inner .sub-nav__sub-title {
+        color: #c1c3c6;
+        font-size: 12px;
+        display: block;
+        line-height: .6875rem;
+        letter-spacing: .035em;
+        text-transform: uppercase;
+        color: #c1c3c6;
+        margin-bottom: 12px; }
+      #mainToolbar .sub-nav__solutions .sub-nav__inner .sub-nav__description, #mainToolbar .sub-nav__platform .sub-nav__inner .sub-nav__description, #mainToolbar .sub-nav__resources .sub-nav__inner .sub-nav__description, #mainToolbar .sub-nav__company .sub-nav__inner .sub-nav__description, #mainToolbar .sub-nav__contact .sub-nav__inner .sub-nav__description {
+        color: #484D56;
+        font-size: 12px;
+        line-height: 18px; }
+      #mainToolbar .sub-nav__solutions .sub-nav__inner .sub-nav__inner--center, #mainToolbar .sub-nav__platform .sub-nav__inner .sub-nav__inner--center, #mainToolbar .sub-nav__resources .sub-nav__inner .sub-nav__inner--center, #mainToolbar .sub-nav__company .sub-nav__inner .sub-nav__inner--center, #mainToolbar .sub-nav__contact .sub-nav__inner .sub-nav__inner--center {
+        width: 100%;
+        text-align: center;
+        display: block;
+        clear: both;
+        position: relative;
+        border-bottom: solid 1px #DBDADA;
+        padding: 0 0 15px 0;
+        margin-bottom: 25px; }
+        #mainToolbar .sub-nav__solutions .sub-nav__inner .sub-nav__inner--center a:hover, #mainToolbar .sub-nav__platform .sub-nav__inner .sub-nav__inner--center a:hover, #mainToolbar .sub-nav__resources .sub-nav__inner .sub-nav__inner--center a:hover, #mainToolbar .sub-nav__company .sub-nav__inner .sub-nav__inner--center a:hover, #mainToolbar .sub-nav__contact .sub-nav__inner .sub-nav__inner--center a:hover {
+          color: #E12726; }
+        #mainToolbar .sub-nav__solutions .sub-nav__inner .sub-nav__inner--center .sub-nav__link, #mainToolbar .sub-nav__platform .sub-nav__inner .sub-nav__inner--center .sub-nav__link, #mainToolbar .sub-nav__resources .sub-nav__inner .sub-nav__inner--center .sub-nav__link, #mainToolbar .sub-nav__company .sub-nav__inner .sub-nav__inner--center .sub-nav__link, #mainToolbar .sub-nav__contact .sub-nav__inner .sub-nav__inner--center .sub-nav__link {
+          display: inline-block; }
+      #mainToolbar .sub-nav__solutions .sub-nav__inner .sub-nav__inner--left, #mainToolbar .sub-nav__platform .sub-nav__inner .sub-nav__inner--left, #mainToolbar .sub-nav__resources .sub-nav__inner .sub-nav__inner--left, #mainToolbar .sub-nav__company .sub-nav__inner .sub-nav__inner--left, #mainToolbar .sub-nav__contact .sub-nav__inner .sub-nav__inner--left {
+        border-right: solid 1px #DBDADA;
+        width: calc(50% - 1px);
+        height: 100%;
+        display: inline-block;
+        float: left;
+        text-align: left; }
+      #mainToolbar .sub-nav__solutions .sub-nav__inner .sub-nav__inner--right, #mainToolbar .sub-nav__platform .sub-nav__inner .sub-nav__inner--right, #mainToolbar .sub-nav__resources .sub-nav__inner .sub-nav__inner--right, #mainToolbar .sub-nav__company .sub-nav__inner .sub-nav__inner--right, #mainToolbar .sub-nav__contact .sub-nav__inner .sub-nav__inner--right {
+        width: 50%;
+        height: 100%;
+        display: inline-block;
+        float: left;
+        text-align: left;
+        padding-left: 15px; }
+  #mainToolbar ul.header__primary-nav {
+    list-style-type: none;
+    margin: 25px 0px 0px 0px;
+    padding: 0px; }
+    #mainToolbar ul.header__primary-nav li {
+      float: left;
+      margin-right: 25px;
+      font-size: 16px; }
+      #mainToolbar ul.header__primary-nav li a {
+        color: #464B54; }
+        #mainToolbar ul.header__primary-nav li a:hover {
+          font-weight: bold; }
+        #mainToolbar ul.header__primary-nav li a.btn.btn-primary {
+          background-color: #E12726;
+          color: #FFFFFF;
+          border-radius: 50px;
+          padding: 12px 25px 12px 25px;
+          margin-top: -13px;
+          font-size: 14px;
+          font-weight: 600;
+          letter-spacing: 2px; }
+          #mainToolbar ul.header__primary-nav li a.btn.btn-primary:hover {
+            background-color: #F85757; }
+        #mainToolbar ul.header__primary-nav li a.sign__in {
+          color: #E12726; }
+      #mainToolbar ul.header__primary-nav li .search__icon {
+        width: 15px;
+        height: 15px;
+        position: relative;
+        top: 1px;
+        cursor: pointer; }
+      #mainToolbar ul.header__primary-nav li .search__input {
+        padding: 15px;
+        font-size: 16px;
+        width: 100%;
+        border: none; }
+  #mainToolbar .logo-icon {
+    margin-right: 16px;
+    width: 30px;
+    height: 24px; }
+  #mainToolbar .logo-devs {
+    width: 15em;
+    height: auto;
+    margin-top: 5px; }
+
+.header__menu--mobile {
+  display: none; }
+
+.--show {
+  display: inherit; }
+
+.--hide {
+  display: none !important; }
+
+#searchbar {
+  border-radius: 3px; }
+  #searchbar paper-input-container {
+    padding: 0; }
+    #searchbar paper-input-container label, #searchbar paper-input-container input {
+      color: #fff; }
+    #searchbar paper-input-container label {
+      opacity: 0.5; }
+
+@media (min-width: 768px) {
+  #searchbar {
+    background-color: #EDEDEF;
+    transition: background-color 400ms cubic-bezier(0, 0, 0.2, 1);
+    align-self: center;
+    color: #424242; }
+    #searchbar:hover {
+      background-color: #474c55; }
+  .logo-devs {
+    margin: 5px 32px 0 0; } }
+
+@media (max-width: 767px) {
+  #searchbar paper-input-container {
+    display: none; }
+  ul.header__primary-nav {
+    display: none; }
+  .header__menu--mobile {
+    display: inline-block !important;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 12px 10px 10px 10px; }
+  .mobile__menu-icon {
+    padding: 5px;
+    cursor: pointer; }
+  #mainToolbar {
+    height: 56px; }
+    #mainToolbar paper-icon-button[icon="menu"] {
+      width: 40px;
+      margin-right: 8px; } }
+
+/**
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* Colors */
+/* Typography */
+/* Breakpoints */
+/**
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* Google colors */
+/* Other colors */
+/* Mixins */
+/* Actual CSS classes */
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.about-icon, .search-icon {
+  background-image: url("/images/icons/google-g.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.ads-icon {
+  background-image: url("/images/icons/google-ads.svg"); }
+
+.analytics-bg {
+  background-color: #f37c22; }
+
+.codelab-card.category-analytics {
+  border-bottom-color: #f37c22; }
+
+.analytics-icon {
+  background-image: url("/images/icons/google-analytics.svg"); }
+
+.android-bg, .android-kotlin-bg, .android-tv-bg {
+  background-color: #a4c639; }
+
+.codelab-card.category-android, .codelab-card.category-android-kotlin, .codelab-card.category-android-tv {
+  border-bottom-color: #a4c639; }
+
+.android-icon, .android-kotlin-icon, .android-tv-icon {
+  background-image: url("/images/icons/android.svg"); }
+
+.android-auto-bg {
+  background-color: #03a9f4; }
+
+.codelab-card.category-android-auto {
+  border-bottom-color: #03a9f4; }
+
+.android-auto-icon {
+  background-image: url("/images/icons/android-auto.svg"); }
+
+.android-things-bg {
+  background-color: #6c6c6c; }
+
+.codelab-card.category-android-things {
+  border-bottom-color: #6c6c6c; }
+
+.android-things-icon {
+  background-image: url("/images/icons/android-things.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.android-wear-icon, .wear-icon, .wear-os-icon {
+  background-image: url("/images/icons/wear-os.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.assistant-icon {
+  background-image: url("/images/icons/google-assistant.svg"); }
+
+.ar-bg, .ar-core-bg, .augmented-reality-bg, .augmented-reality-core-bg {
+  background-color: #4a148c; }
+
+.codelab-card.category-ar, .codelab-card.category-ar-core, .codelab-card.category-augmented-reality, .codelab-card.category-augmented-reality-core {
+  border-bottom-color: #4a148c; }
+
+.ar-icon, .ar-core-icon, .augmented-reality-icon, .augmented-reality-core-icon {
+  background-image: url("/images/icons/ar-core.svg"); }
+
+.cardboard-bg, .games-bg, .play-games-bg, .vr-bg, .virtualreality-bg, .virtualreality-games-bg, .virtual-reality-bg, .virtual-reality-games-bg {
+  background-color: #f16523; }
+
+.codelab-card.category-cardboard, .codelab-card.category-games, .codelab-card.category-play-games, .codelab-card.category-vr, .codelab-card.category-virtualreality, .codelab-card.category-virtualreality-games, .codelab-card.category-virtual-reality, .codelab-card.category-virtual-reality-games {
+  border-bottom-color: #f16523; }
+
+.cardboard-icon, .games-icon, .play-games-icon, .vr-icon, .virtualreality-icon, .virtualreality-games-icon, .virtual-reality-icon, .virtual-reality-games-icon {
+  background-image: url("/images/icons/cardboard.svg"); }
+
+.gsuite-bg, .g-suite-bg, .apps-bg {
+  background-color: #9aa0a6; }
+
+.codelab-card.category-gsuite, .codelab-card.category-g-suite, .codelab-card.category-apps {
+  border-bottom-color: #9aa0a6; }
+
+.gsuite-icon, .g-suite-icon, .apps-icon {
+  background-image: url("/images/icons/gsuite.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.docs-icon {
+  background-image: url("/images/icons/google-docs.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.drive-icon {
+  background-image: url("/images/icons/google-drive.svg"); }
+
+.sheets-bg, .google-maps-bg, .googlemaps-bg, .maps-bg, .geo-bg {
+  background-color: #34a853; }
+
+.codelab-card.category-sheets, .codelab-card.category-google-maps, .codelab-card.category-googlemaps, .codelab-card.category-maps, .codelab-card.category-geo {
+  border-bottom-color: #34a853; }
+
+.sheets-icon {
+  background-image: url("/images/icons/google-sheets.svg"); }
+
+.slides-bg {
+  background-color: #fbbc05; }
+
+.codelab-card.category-slides {
+  border-bottom-color: #fbbc05; }
+
+.slides-icon {
+  background-image: url("/images/icons/google-slides.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.blockly-icon {
+  background-image: url("/images/icons/blockly.svg"); }
+
+.brillo-bg {
+  background-color: #3bbaf3; }
+
+.codelab-card.category-brillo {
+  border-bottom-color: #3bbaf3; }
+
+.brillo-icon {
+  background-image: url("/images/icons/brillo.svg"); }
+
+.cast-bg, .chromecast-bg, .chrome-cast-bg, .nest-bg {
+  background-color: #5f6368; }
+
+.codelab-card.category-cast, .codelab-card.category-chromecast, .codelab-card.category-chrome-cast, .codelab-card.category-nest {
+  border-bottom-color: #5f6368; }
+
+.cast-icon, .chromecast-icon, .chrome-cast-icon {
+  background-image: url("/images/icons/cast.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.chrome-icon, .google-chrome-icon, .googlechrome-icon {
+  background-image: url("/images/icons/chrome.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.cloud-icon, .cloud-about-icon, .cloud-general-icon, .cloud-other-icon, .cloud-others-icon, .cloud-platform-icon, .cloud-tools-icon, .cloud-cloud-tools-icon {
+  background-image: url("/images/icons/cloud-platform.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.cloud-appengine-icon, .cloud-app-engine-icon {
+  background-image: url("/images/icons/cloud-appengine.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.cloud-bigquery-icon, .cloud-big-query-icon, .bigquery-icon, .big-query-icon {
+  background-image: url("/images/icons/cloud-bigquery.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.cloud-build-icon {
+  background-image: url("/images/icons/cloud-build.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.cloud-compute-icon, .cloud-compute-engine-icon {
+  background-image: url("/images/icons/cloud-compute-engine.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.cloud-data-icon, .cloud-sql-icon {
+  background-image: url("/images/icons/cloud-sql.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.cloud-datalab-icon, .cloud-data-lab-icon {
+  background-image: url("/images/icons/cloud-datalab.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.cloud-iam-icon {
+  background-image: url("/images/icons/cloud-iam.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.cloud-iot-icon, .cloud-iot-core-icon, .iot-core-icon, .iot-icon {
+  background-image: url("/images/icons/cloud-iot-core.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.cloud-key-management-service-icon, .cloud-kms-icon {
+  background-image: url("/images/icons/cloud-key-management-service.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.cloud-ml-icon, .cloud-machine-learning-icon {
+  background-image: url("/images/icons/cloud-machine-learning.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.cloud-monitoring-icon, .cloud-monitor-icon {
+  background-image: url("/images/icons/cloud-monitoring.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.cloud-networking-icon, .cloud-network-icon {
+  background-image: url("/images/icons/cloud-networking.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.cloud-security-icon, .cloud-security-command-center-icon {
+  background-image: url("/images/icons/cloud-security-command-center.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.cloud-data-icon, .cloud-sql-icon {
+  background-image: url("/images/icons/cloud-sql.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.cloud-web-icon, .web-icon {
+  background-image: url("/images/icons/web.svg"); }
+
+.design-bg {
+  background-color: #757575; }
+
+.codelab-card.category-design {
+  border-bottom-color: #757575; }
+
+.design-icon {
+  background-image: url("/images/icons/design.svg"); }
+
+.firebase-bg, .firebase-web-bg {
+  background-color: #f57c00; }
+
+.codelab-card.category-firebase, .codelab-card.category-firebase-web {
+  border-bottom-color: #f57c00; }
+
+.firebase-icon, .firebase-web-icon {
+  background-image: url("/images/icons/firebase.svg"); }
+
+.flutter-bg, .flutter-firebase-bg, .flutter-android-bg, .design-flutter-bg {
+  background-color: #45d1fd; }
+
+.codelab-card.category-flutter, .codelab-card.category-flutter-firebase, .codelab-card.category-flutter-android, .codelab-card.category-design-flutter {
+  border-bottom-color: #45d1fd; }
+
+.flutter-icon, .flutter-firebase-icon, .flutter-android-icon, .design-flutter-icon {
+  background-image: url("/images/icons/flutter.svg"); }
+
+.sheets-bg, .google-maps-bg, .googlemaps-bg, .maps-bg, .geo-bg {
+  background-color: #34a853; }
+
+.codelab-card.category-sheets, .codelab-card.category-google-maps, .codelab-card.category-googlemaps, .codelab-card.category-maps, .codelab-card.category-geo {
+  border-bottom-color: #34a853; }
+
+.google-maps-icon, .googlemaps-icon, .maps-icon, .geo-icon {
+  background-image: url("/images/icons/google-maps.svg"); }
+
+.cast-bg, .chromecast-bg, .chrome-cast-bg, .nest-bg {
+  background-color: #5f6368; }
+
+.codelab-card.category-cast, .codelab-card.category-chromecast, .codelab-card.category-chrome-cast, .codelab-card.category-nest {
+  border-bottom-color: #5f6368; }
+
+.nest-icon {
+  background-image: url("/images/icons/nest.svg"); }
+
+.openthread-bg, .open-thread-bg {
+  background-color: #484848; }
+
+.codelab-card.category-openthread, .codelab-card.category-open-thread {
+  border-bottom-color: #484848; }
+
+.openthread-icon, .open-thread-icon {
+  background-image: url("/images/icons/openthread.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.about-icon, .search-icon {
+  background-image: url("/images/icons/google-g.svg"); }
+
+.slurm-bg, .hpc-bg, .cloud-hpc-bg {
+  background-color: #42afeb; }
+
+.codelab-card.category-slurm, .codelab-card.category-hpc, .codelab-card.category-cloud-hpc {
+  border-bottom-color: #42afeb; }
+
+.slurm-icon, .hpc-icon, .cloud-hpc-icon {
+  background-image: url("/images/icons/slurm.svg"); }
+
+.tensorflow-bg, .tensor-flow-bg {
+  background-color: #ed8e24; }
+
+.codelab-card.category-tensorflow, .codelab-card.category-tensor-flow {
+  border-bottom-color: #ed8e24; }
+
+.tensorflow-icon, .tensor-flow-icon {
+  background-image: url("/images/icons/tensorflow.svg"); }
+
+.unity-bg {
+  background-color: #222c37; }
+
+.codelab-card.category-unity {
+  border-bottom-color: #222c37; }
+
+.unity-icon {
+  background-image: url("/images/icons/unity.svg"); }
+
+.weave-bg {
+  background-color: #0f9d58; }
+
+.codelab-card.category-weave {
+  border-bottom-color: #0f9d58; }
+
+.weave-icon {
+  background-image: url("/images/icons/weave.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.android-wear-icon, .wear-icon, .wear-os-icon {
+  background-image: url("/images/icons/wear-os.svg"); }
+
+.about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .docs-bg, .drive-bg, .blockly-bg, .chrome-bg, .google-chrome-bg, .googlechrome-bg, .cloud-bg, .cloud-about-bg, .cloud-general-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-tools-bg, .cloud-cloud-tools-bg, .cloud-appengine-bg, .cloud-app-engine-bg, .cloud-bigquery-bg, .cloud-big-query-bg, .bigquery-bg, .big-query-bg, .cloud-build-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-datalab-bg, .cloud-data-lab-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .iot-core-bg, .iot-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-ml-bg, .cloud-machine-learning-bg, .cloud-monitoring-bg, .cloud-monitor-bg, .cloud-networking-bg, .cloud-network-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-web-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+  background-color: #4285f4; }
+
+.codelab-card.category-about, .codelab-card.category-ads, .codelab-card.category-android-wear, .codelab-card.category-assistant, .codelab-card.category-docs, .codelab-card.category-drive, .codelab-card.category-blockly, .codelab-card.category-chrome, .codelab-card.category-google-chrome, .codelab-card.category-googlechrome, .codelab-card.category-cloud, .codelab-card.category-cloud-about, .codelab-card.category-cloud-general, .codelab-card.category-cloud-other, .codelab-card.category-cloud-others, .codelab-card.category-cloud-platform, .codelab-card.category-cloud-tools, .codelab-card.category-cloud-cloud-tools, .codelab-card.category-cloud-appengine, .codelab-card.category-cloud-app-engine, .codelab-card.category-cloud-bigquery, .codelab-card.category-cloud-big-query, .codelab-card.category-bigquery, .codelab-card.category-big-query, .codelab-card.category-cloud-build, .codelab-card.category-cloud-compute, .codelab-card.category-cloud-compute-engine, .codelab-card.category-cloud-data, .codelab-card.category-cloud-datalab, .codelab-card.category-cloud-data-lab, .codelab-card.category-cloud-iam, .codelab-card.category-cloud-iot, .codelab-card.category-cloud-iot-core, .codelab-card.category-iot-core, .codelab-card.category-iot, .codelab-card.category-cloud-key-management-service, .codelab-card.category-cloud-kms, .codelab-card.category-cloud-ml, .codelab-card.category-cloud-machine-learning, .codelab-card.category-cloud-monitoring, .codelab-card.category-cloud-monitor, .codelab-card.category-cloud-networking, .codelab-card.category-cloud-network, .codelab-card.category-cloud-security, .codelab-card.category-cloud-security-command-center, .codelab-card.category-cloud-sql, .codelab-card.category-cloud-web, .codelab-card.category-search, .codelab-card.category-wear, .codelab-card.category-wear-os, .codelab-card.category-web {
+  border-bottom-color: #4285f4; }
+
+.cloud-web-icon, .web-icon {
+  background-image: url("/images/icons/web.svg"); }
+
+.beginner-bg, .intermediate-bg, .advanced-bg {
+  background-color: #E2231A; }
+
+.codelab-card.category-beginner, .codelab-card.category-intermediate, .codelab-card.category-advanced {
+  border-bottom-color: #E2231A; }
+
+.beginner-icon {
+  background-image: url("/images/icons/magGlass.png"); }
+
+.beginner-bg, .intermediate-bg, .advanced-bg {
+  background-color: #E2231A; }
+
+.codelab-card.category-beginner, .codelab-card.category-intermediate, .codelab-card.category-advanced {
+  border-bottom-color: #E2231A; }
+
+.intermediate-icon {
+  background-image: url("/images/icons/seleniumSml.png"); }
+
+.beginner-bg, .intermediate-bg, .advanced-bg {
+  background-color: #E2231A; }
+
+.codelab-card.category-beginner, .codelab-card.category-intermediate, .codelab-card.category-advanced {
+  border-bottom-color: #E2231A; }
+
+.advanced-icon {
+  background-image: url("/images/icons/checkSml.png"); }
+
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 24px;
+  min-height: 300px; }
+  #cards.--index__cards {
+    margin-bottom: 0px;
+    padding-bottom: 25px; }
+  #cards.site-width {
+    max-width: calc(1168px + 20px);
+    position: relative;
+    left: 10px; }
+
+.landing__cards {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  width: 100%; }
+
+.codelab-category__card {
+  flex: 0 50%;
+  text-align: center;
+  padding: 10px; }
+  .codelab-category__card .card__inner {
+    background-color: #FFFFFF;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    text-align: left;
+    box-shadow: -1px 0px 5px 0px rgba(0, 0, 0, 0.03); }
+    .codelab-category__card .card__inner h1 {
+      font-size: 21px;
+      line-height: 21px;
+      font-weight: 400;
+      margin-bottom: 15px;
+      font-family: 'Museo-Sans', sans-serif;
+      color: #464B54; }
+    .codelab-category__card .card__inner p {
+      font-size: 16px;
+      font-family: 'Museo-Sans', sans-serif;
+      color: #464B54;
+      line-height: 24px;
+      font-weight: 300;
+      margin-bottom: 10px; }
+    .codelab-category__card .card__inner .link__button {
+      color: #E12726; }
+
+.codelab-card {
+  position: relative;
+  flex: 0 calc(50% - 20px);
+  text-align: center;
+  padding: 20px;
+  margin-right: 20px !important;
+  margin-bottom: 20px !important;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid transparent; }
+  .codelab-card:nth-of-type(3n) {
+    margin-right: 0; }
+  .codelab-card img {
+    margin-right: 4px; }
+  .codelab-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 16px 0 16px; }
+  .codelab-card .card-duration {
+    display: flex;
+    align-items: center;
+    color: #aaaaaa;
+    font-size: 11px;
+    padding: 0 16px;
+    mix-blend-mode: initial;
+    justify-content: space-between; }
+    .codelab-card .card-duration img {
+      opacity: 0.24; }
+  .codelab-card .card-author,
+  .codelab-card .card-updated {
+    font-size: 12px;
+    color: #BDBDBD;
+    line-height: 16px;
+    text-align: right; }
+  .codelab-card .description {
+    font-size: 21px;
+    line-height: 21px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    font-family: 'Museo-Sans', sans-serif;
+    color: #464B54;
+    text-align: left; }
+
+.card-footer {
+  border-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px; }
+  .card-footer paper-button {
+    font-family: 'Museo-Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    color: #fff;
+    text-transform: none;
+    padding: 13px 25px; }
+  .card-footer .category-icon {
+    width: 42px;
+    height: 42px;
+    background-size: 32px;
+    background-repeat: no-repeat;
+    background-position: 0 50%; }
+
+.card-pin {
+  position: absolute;
+  left: 7px;
+  bottom: 14px;
+  width: 15px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-image: url('data:image/svg+xml;utf8,<svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h18v18H0"/><path fill="#888" d="M13 4V2H5v2h1v5l-1.5 1.5V12H8v4l1 1 1-1v-4h3.5v-1.5L12 9V4"/></g></svg>'); }
+
+/* ***** Responsive ***** */
+@media (max-width: 767px) {
+  #cards {
+    flex-direction: column;
+    align-items: center; }
+  .codelab-category__card {
+    flex: 100%;
+    text-align: center; }
+  .codelab-card {
+    margin: 0 0 16px;
+    min-width: 330px;
+    max-width: 100%;
+    width: 100%;
+    flex: 1 0 200px; }
+    .codelab-card .card-header {
+      align-items: center; }
+      .codelab-card .card-header .category-icon {
+        margin: 0; } }
+
+@media (min-width: 767px) and (max-width: 1136px) {
+  .codelab-card {
+    flex: 0 0 32%;
+    margin: 0 2% 2% 0; } }
+
+/**
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* Colors */
+/* Typography */
+/* Breakpoints */
+footer {
+  background-color: #E2231A;
+  font-size: 13px;
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-between; }
+  footer ul, footer li {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  footer .footer-column {
+    padding: 0 20px; }
+    footer .footer-column a {
+      color: #fff; }
+  footer .footer-wrapper {
+    display: flex; }
+  footer .link-list {
+    border-top: 1px solid #616161;
+    flex: 1;
+    margin-right: 32px; }
+    footer .link-list:last-child {
+      margin-right: 0;
+      margin-bottom: 0; }
+    footer .link-list label {
+      display: block;
+      color: #fff;
+      margin: 8px 0 16px; }
+
+.footerbar {
+  background-color: #e5e5e5;
+  color: #fff;
+  font-size: 13px;
+  padding: 10px 0;
+  max-height: 10%; }
+  .footerbar a {
+    color: currentcolor; }
+
+@media (max-width: 767px) {
+  #footer {
+    padding: 24px 0; }
+    #footer .footer-wrapper {
+      flex-direction: column; }
+    #footer .link-list {
+      margin: 0 0 24px 0; } }
+
+img[title="sauceQAbot"] {
+  height: 200px;
+  width: auto; }

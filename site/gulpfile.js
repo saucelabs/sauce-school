@@ -144,16 +144,28 @@ gulp.task('build:css', () => {
     .pipe(gulp.dest('build'));
 });
 
+// override:build:scss builds the scss file inside the app/styles/overrides.scss file and creates style folders inside modules
+gulp.task('override:build:scss', () => {
+  return gulp.src('./app/styles/overrides.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./codelabs/**/styles'))
+    .pipe(gulp.dest(glob.sync('./codelabs/**/styles')));
+});
+
 //override module css with custom styles
 gulp.task('override:modules', function() {
   return gulp.src('./codelabs/*/index.html')
     .pipe(dom(function(){
       let htmlDoc = this;
       let linkOverrideCss = htmlDoc.createElement('link');
-      var newSS = htmlDoc.createElement('link');
-      newSS.rel = 'stylesheet';
-      newSS.href = './styles/_overrides.css';
-      return htmlDoc.getElementsByTagName('head')[0].appendChild(newSS);
+      let newOverrideStyles = htmlDoc.createElement('link');
+      let header = htmlDoc.getElementsByTagName('head')[0];
+      let numberOfChildren = header.getElementsByTagName('link').length
+      newOverrideStyles.rel = 'stylesheet';
+      newOverrideStyles.href = './styles/overrides.css';
+      if (numberOfChildren = 3) {
+        return htmlDoc.getElementsByTagName('head')[0].appendChild(newOverrideStyles);
+      }
     }))
     .pipe(gulp.dest('./codelabs/'));
 });
@@ -256,6 +268,7 @@ gulp.task('build:vulcanize', () => {
 gulp.task('build', gulp.series(
   'clean',
   'build:codelabs',
+  'override:build:scss',
   'override:modules',
   'build:css',
   'build:scss',
