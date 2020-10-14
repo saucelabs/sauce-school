@@ -1,6 +1,21 @@
 # Changelog- Add newest additions in an .md file at top
 ///start typing below this text
 
+## Oct 13 - Casey's changes (Lindsay)
+### Updated navigation in Views
+in each of the folder in `site/app/views` before the closing `</div` for the div `id=searchbar` add in `<navigation-element></navigation-element> ` to make the Sauce-style navigation show up on each course page.
+
+All of these styles were created in a new css file in _app/elements/navigation.html_, then injected with Polymer framework into the Codelab course and landing pages.
+
+### Created a task in gulp to overrride styles
+To override styles, used gulp to build a css directory/ file in each module folder that is generated with the build
+* updated dependencies in package.json `gulp-inline-css`
+* created _site_app_styles/_override.scss_
+
+#### Gulpfile.js changes
+* ln 43 `require ('gulp-dom')``
+* ln 147-161 `created a gulp.task to override modules with CSS`
+* ln 259 added `override:modules` to the gulp build task.
 
 ## OCT 10 – Casey
 ### Added navigation element for landing pages
