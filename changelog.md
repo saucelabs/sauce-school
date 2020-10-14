@@ -1,7 +1,7 @@
 # Changelog- Add newest additions in an .md file at top
 ///start typing below this text
 
-## Oct 13 - Casey's changes
+## Oct 13 - Casey's changes (Lindsay)
 ### Updated navigation in Views
 in each of the folder in `site/app/views` before the closing `</div` for the div `id=searchbar` add in `<navigation-element></navigation-element> ` to make the Sauce-style navigation show up on each course page.
 
@@ -17,12 +17,11 @@ To override styles, used gulp to build a css directory/ file in each module fold
 * ln 147-161 `created a gulp.task to override modules with CSS`
 * ln 259 added `override:modules` to the gulp build task.
 
-
 ## OCT 10 – Casey
 ### Added navigation element for landing pages
- -- In _site/app/elements/navigation.html_ you'll find the navigation that mimics the corporate site
- -- Commented out code in _site/app/views/default/index.html_ and replaced with index cards to page Categories
- -- Added _site/app/styles/_overrides.scss_ to eventually inject into _site/build/codelabes_ course modules to alter css. Haven't found a solid gulp task for this yet, so I'll continue to code it out manually until I find a solution.
+- In _site/app/elements/navigation.html_ you'll find the navigation that mimics the corporate site
+- Commented out code in _site/app/views/default/index.html_ and replaced with index cards to page Categories
+- Added _site/app/styles/_overrides.scss_ to eventually inject into _site/build/codelabes_ course modules to alter css. Haven't found a solid gulp task for this yet, so I'll continue to code it out manually until I find a solution.
 
 
 ## Sept 24 – Lindsay
