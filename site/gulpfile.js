@@ -40,6 +40,8 @@ const spawn = childprocess.spawn;
 const swig = require('swig-templates');
 const url = require('url');
 
+const dom = require('gulp-dom');
+
 // DEFAULT_GA is the default Google Analytics tracker ID
 const DEFAULT_GA = 'UA-49880327-14';
 
@@ -142,6 +144,21 @@ gulp.task('build:css', () => {
     .pipe(gulp.dest('build'));
 });
 
+//override module css with custom styles
+gulp.task('override:modules', function() {
+  return gulp.src('./codelabs/*/index.html')
+    .pipe(dom(function(){
+      let htmlDoc = this;
+      let linkOverrideCss = htmlDoc.createElement('link');
+      var newSS = htmlDoc.createElement('link');
+      newSS.rel = 'stylesheet';
+      newSS.href = './styles/_overrides.css';
+      return htmlDoc.getElementsByTagName('head')[0].appendChild(newSS);
+    }))
+    .pipe(gulp.dest('./codelabs/'));
+});
+
+
 // build:html builds all the HTML files
 gulp.task('build:html', () => {
   const streams = [];
@@ -239,6 +256,7 @@ gulp.task('build:vulcanize', () => {
 gulp.task('build', gulp.series(
   'clean',
   'build:codelabs',
+  'override:modules',
   'build:css',
   'build:scss',
   'build:html',
