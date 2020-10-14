@@ -1,0 +1,38 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "gulp build",
+			"path": "site/",
+			"problemMatcher": [],
+			"label": "build",
+			"detail": "node_modules/.bin/gulp",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "npm",
+			"script": "gulp serve",
+			"path": "site/",
+			"problemMatcher": [],
+			"label": "serve",
+			"detail": "node_modules/.bin/gulp",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"label": "localdev",
+			"dependsOn": ["build", "serve"],
+			"dependsOrder": "sequence",
+			"group": {
+			  "kind": "build",
+			  "isDefault": true
+			}
+		  },
+	]
+}
