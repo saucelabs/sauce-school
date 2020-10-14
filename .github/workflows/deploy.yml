@@ -8,7 +8,6 @@ on:
     tags: [v*]
   push:
   pull_request:
-    branches: [master]
 
 env:
   GCS_STAGING_BUCKET: ${{ secrets.GCS_STAGING_BUCKET }}
