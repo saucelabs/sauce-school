@@ -23,7 +23,7 @@ This module is derived from content in chapters 6-7 of _The Selenium Guidebook_ 
 
 
 
-*   Use _____ along with pip3 and Python to run local tests and manage dependencies on your machine
+*   Use _____ along with Pip3 and Python to run local tests and manage dependencies on your machine
 *   Understand that good tests are atomic: They have test grouped by functionality, and are named descriptively. Good tests also use test runners, and are maintained in version control systems
 *   Create and maintain a project folder with your test suite & dependencies, with separate folders for page and test classes
 *   Be able to define a test strategy and use a testing strategy like BDD and TDD to create test cases

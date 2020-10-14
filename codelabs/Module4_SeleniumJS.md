@@ -377,7 +377,7 @@ Your file directory should look like this:
 
 Next, what we will do is create a separate file for setting the browser that your test will run in, and store it in a variable called baseURL.
 
-Open config.js with your IDE and paste in the following:
+Open `config.js` with your IDE and paste in the following:
 
 
 ```
@@ -409,7 +409,7 @@ This looks for the ‘http’ characters to detect if a valid URL for a website 
 
 ### Remove URLs from Page Objects
 
-In order to use our new config file, add in the following at the top of your base page, it will apply to all other page objects:
+In order to use our new `config` file, add in the following at the top of your base page, it will apply to all other page objects:
 
 
 ```
@@ -462,7 +462,7 @@ Your new code should look like this:
 
 ### Running Different Browsers Locally
 
-WebDriver works with each of the major browsers through a browser driver which is (ideally but not always) maintained by the browser manufacturer. It is an executable file (consider it a thin layer) that acts as a bridge between Selenium and the browser.
+WebDriver works with each of the major browsers through a browser driver which is (ideally but not always) maintained by the browser creator such as Chrome or Firefox. It is an executable file (consider it a thin layer) that acts as a bridge between Selenium and the browser.
 
 By using `npm` with the `package.json` file, the updated version will be fetched for you without manual install and setting of the PATH variable. If you don’t use `npm`, you need to manually install each driver and update the path
 
