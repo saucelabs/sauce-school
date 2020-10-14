@@ -121,7 +121,11 @@ gulp.task('clean', gulp.parallel(
 
 // build:codelabs copies the codelabs from the directory into build.
 gulp.task('build:codelabs', async (done) => {
-  gulp.series('codelabs:export')(() => {
+  gulp.series([
+      'codelabs:export',
+      'override:build:scss',
+      'override:modules'
+  ])(() => {
     copyFilteredCodelabs('build');
     done();
   });
@@ -268,8 +272,6 @@ gulp.task('build:vulcanize', () => {
 gulp.task('build', gulp.series(
   'clean',
   'build:codelabs',
-  'override:build:scss',
-  'override:modules',
   'build:css',
   'build:scss',
   'build:html',
