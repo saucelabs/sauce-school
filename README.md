@@ -7,7 +7,7 @@ This document will be for documenting sauce_school specific changes and specific
 ## Access 'Codelabs' or Course files
 The course are located in `codelabs` directory. Each course will contain a markdown file for each module by language (which contains several lessons) which is compiled into a directory containing an index.html rendered from the corresponding markdown page.
 
-## Initial setup
+## Option 1- Local Setup
 ### 1. Get the Tools
  Install [Golang](https://golang.org/dl/) and [nodeJS v.10 and NPM](https://nodejs.org/en/download/) on your computer. [More instructions here](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
 
@@ -48,7 +48,7 @@ npm install
 
 *   The `/codelab` directory contains all courses, each with several modules in it.
 <!-- -->
- Place a markdown file for course modules in a folder called _/site/codelabs_. When you use CLAAT for export it, go to the root golder `sauce-school` and run the command `claat export codelabs/Module4_SeleniumJS.md` so it will be exported into the build folder (the .md files are kept separately). Move 
+ Place a markdown file for course modules in a folder called _/site/codelabs_. When you use CLAAT for export it, go to the root golder `sauce-school` and run the command `claat export codelabs/Module4_SeleniumJS.md` so it will be exported into the build folder (the .md files are kept separately). Move
 
  * Each Course module `.md.` file is labeled by language and module number (e.g. Module3_SeleniumJS.md).
  * The `tag` at the top of each codelab markdown file identifies the course e.g. java, javascript, python etc.) which are made of many 'modules' with several lessons in it. The codelabs will br grouped together into a course (aka `views`) according to this tag.
@@ -104,35 +104,17 @@ Images can mess things up. Make sure you list an image as `assets/imagename.png`
 
     More on how to convert markdown files is [here](https://docs.google.com/document/d/1C7CunszYBCTAgzwYbDdtHS7yjwLEYQJuvKVC2ff4MZY/edit?usp=sharing)
 
-### 10. Adding Dropdowns
+## Option 2 Setup in Docker Container
+As I was going through the README I wanted to codify my dependencies and task definitions so that I don’t have to refresh myself the next time I contribute to the repository.
 
-Copy and paste this link in the `<head>` of any HTML page:
-```
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">.
-```
+### Dependencies:
+Docker • https://www.docker.com/products/docker-desktop
+Remote Containers Extension • https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
 
-At the top of each HTML page, create this script:
-After each HTML button/ div, add in a script (each needs a unique script)
-```
-<script>
-function myFunction(id) {
-  var x = document.getElementById(id);
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else {
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-</script>
-```
+### How to use:
+Cmd + Shift + P => type "Reopen in container" ↩
+Cmd + Shift + P => type "Run task" ↩ => type "serve" ↩
 
-Use this within your HTML for the dropdown. You can replace -'Final Code' titles, and 'Note' title within the `<button>` (include H3 tags) and the content within the `<div id="Demo1"`>'. The parameter for each `my function(XXX)` and the `div id=XXX` each need to be unique. E.g. the next one you create will be 'Demo2'
-
-```
-<button onclick="myFunction('Demo1')" class="w3-button w3-block w3-left-align">
-TITLE</button>
-<div id="Demo1" class="w3-container w3-hide">
-  <p>CONTENT & IMAGES</p>
-</div>
-
-```
+Reference:
+https://code.visualstudio.com/docs/remote/containers
+https://code.visualstudio.com/docs/editor/tasks
