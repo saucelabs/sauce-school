@@ -25,14 +25,5 @@
 				"isDefault": true
 			}
 		},
-		{
-			"label": "localdev",
-			"dependsOn": ["build", "serve"],
-			"dependsOrder": "sequence",
-			"group": {
-			  "kind": "build",
-			  "isDefault": true
-			}
-		  },
 	]
 }
