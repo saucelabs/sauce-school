@@ -49,7 +49,7 @@ These two types of tests are ways to categorize tests by what they are testing. 
 
 Source [imgur](https://imgur.com/Ksjm2D3)
 
-Selenium is most used for functional testing  Types of functional tests include unit testing, UI testing, regression testing, integration testing, and more.
+Selenium is most used for functional testing using a browser. Types of functional tests include unit testing, UI testing, regression testing, integration testing, and more.
 
 
 ### Unit Tests
@@ -100,7 +100,7 @@ This type of testing refers to a code-based approach to testing web applications
 ## 4.03 Scaling Your Tests
 Duration: 0:20:00
 
-Now that you have some tests and page objects, we'll want to start thinking about how to structure our test code to be more flexible. Ensuring that our code is reusable, and can scale to as many tests as you need, requires some additional elements & abstractions.
+Now that you have some tests and page objects, we'll want to start thinking about how to structure our test code to be more flexible and maintainable. Ensuring that our code is reusable, and can scale to as many tests as you need, requires some additional elements & abstractions.
 
 In a test suite, when you specify before and after hooks outside of a test class they are used globally for all tests. These are referred to as_ root-level hooks_. Every test that you write will use the `before()` and` after() `methods to perform the same set of actions to set up and tear down the test, so it makes sense to store these in one place so you can make changes in one place, instead of within each and every test.
 
@@ -145,7 +145,7 @@ public class BaseTest {
     public ExternalResource resource = new ExternalResource() {
 
         @Override
-        protected void before() throws Throwable {
+        protected void before() throws Exception {
             System.setProperty("webdriver.chrome.driver", "/Users/lindsaywalker/Documents/chromedriver");
         ChromeOptions browserOptions = new ChromeOptions();
         driver = new ChromeDriver();
@@ -356,7 +356,7 @@ Duration: 0:15:00
 
 ### Abstraction and Non-Duplication
 
-Thus far you have prepared our test suite well to be reusable. When you have things like the setup and teardown used for all tests in one place, making changes to this becomes a lot easier. Not duplicating (re-writing the same) code and abstracting into files like the driver factory, spec helper, and base page mean that you won’t have to re-write that code each time you write a new page or test object, or go make changes to all those files when you need to modify something.
+Thus far you have prepared our test suite well to be maintainable. When you have things like the setup and teardown used for all tests in one place, making changes to this becomes a lot easier. Not duplicating (re-writing the same) code and abstracting into files like the driver factory, spec helper, and base page mean that you won’t have to re-write that code each time you write a new page or test object, or go make changes to all those files when you need to modify something.
 
 
 #### Video
@@ -409,8 +409,8 @@ Now you will create a new path to the files you installed as a part of your test
 // filename: lib/config.java
 // ...
 @Override
-    protected void before() throws Throwable {           
-    System.setProperty("youbdriver.chrome.driver", "src/test/java/drivers/chromedriver");
+    protected void before() throws Exception {           
+    System.setProperty("yourdriver.chrome.driver", "src/test/java/drivers/chromedriver");
         ChromeOptions browserOptions = new ChromeOptions();
         driver = new ChromeDriver();
         }
@@ -469,7 +469,7 @@ Update the `System.setProperty() `method in `BaseTest.java` and driver inside of
 // filename: tests/BaseTest.java
 // ...
     @Override
-        protected void before() throws Throwable {
+        protected void before() throws Exception {
             if (browserName.equals("chrome")) {
                 System.setProperty("webdriver.chrome.driver", "src/test/java/drivers/chromedriver");
                 ChromeOptions browserOptions = new ChromeOptions();
@@ -641,7 +641,7 @@ Now you need to update `BaseTest.java `to work with these new values and connect
 // filename: tests/BaseTest.java
 // ...
   @Override
-        protected void before() throws Throwable {
+        protected void before() throws Exception {
             if (host.equals("saucelabs")) {
                 MutableCapabilities sauceOptions = new MutableCapabilities();
                 sauceOptions.setCapability("username", sauceUser);
@@ -868,7 +868,7 @@ Under the saucelabs` driver` instantiation in the` before()` rule instantiate a`
 ```
 
 
-The `sessionId` is retrieved from the `RemoteWebDriver`. The `sauceClient` creates an instance using the Sauce Labs REST API, passing in the username, access key, and data center location. You can change the data center on the Sauce Labs dashboard, and then [change](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints) the `DataCenter` option in your code to reflect this.
+The `sessionId` is retrieved from the `RemoteWebDriver`. The `sauceClient` creates an instance using the Sauce Labs REST API, passing in the username, access key, and data center location. You can change the data center on the Sauce Labs dashboard. Once that is changed, if you would like, go into your code and [change](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints) the `DataCenter` option in your code to reflect this.
 
 <img src="assets/4.06H.png" alt="Data Center" width="750"/>
 
