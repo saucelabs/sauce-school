@@ -45,6 +45,9 @@ const dom = require('gulp-dom');
 // DEFAULT_GA is the default Google Analytics tracker ID
 const DEFAULT_GA = 'UA-49880327-14';
 
+// DEFAULT_SEGMENTIO is the default SegmentIO tracker ID which is staging
+const DEFAULT_SEGMENTIO = 'vBOoUyfeZUYAdP1nVo9dRPSJGmPM9NOE';
+
 // DEFAULT_VIEW_META_PATH is the default path to view metadata.
 const DEFAULT_VIEW_META_PATH = 'app/views/default/view.json';
 
@@ -601,6 +604,7 @@ const generateView = () => {
 
     // Aanalytics information.
     const ga = DEFAULT_GA;
+    const segmentIO = DEFAULT_SEGMENTIO;
 
     // Full list of views
     const all = collectMetadata();
@@ -622,6 +626,7 @@ const generateView = () => {
       categories: categories,
       codelabs: codelabs,
       ga: ga,
+      segmentIO: segmentIO,
       showcats: categories.length > 1,
       view: view,
       views: all.views,
