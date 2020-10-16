@@ -152,7 +152,6 @@ gulp.task('build:css', () => {
 gulp.task('override:build:scss', () => {
   return gulp.src('./app/styles/overrides.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./codelabs/**/styles'))
     .pipe(gulp.dest(glob.sync('./codelabs/**/styles')));
 });
 
