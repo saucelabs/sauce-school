@@ -23,7 +23,7 @@ curl https://sdk.cloud.google.com | bash
 ```sh
 exec -l $SHELL
 ```
-* [Run `gsutil init`](https://cloud.google.com/storage/docs/gsutil_install) in order to intialize your `gloud` environment and link to the appropriate project:
+* [Run `gcloud init`](https://cloud.google.com/storage/docs/gsutil_install) in order to intialize your `gloud` environment and link to the appropriate project:
 ```sh
 gcloud init
 ```
@@ -58,11 +58,11 @@ npm run gulp serve:dist
 ```
 6. Publish the `views` directory (the frontend stuff) with `publish:staging:views`:
 ```sh
-`npm run gulp -- publish:staging:views --staging-bucket=$GCS_STAGING_BUCKET`
+npm run gulp -- publish:staging:views --staging-bucket=$GCS_STAGING_BUCKET
 ```
 7. Publish the `codelabs` directory with `publish:staging:codelabs`:
 ```sh
-`npm run gulp -- publish:staging:codelabs --staging-bucket=$GCS_STAGING_BUCKET`
+npm run gulp -- publish:staging:codelabs --staging-bucket=$GCS_STAGING_BUCKET
 ```
 > :warning: if you receive errors during this fnal step, it's most likely due to:
 > * `gsutil init` didn't properly run or you don't have access to the GCS_STAGING_BUCKET.

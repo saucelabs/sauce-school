@@ -561,7 +561,7 @@ To do this you are going to need something called the _Selenium Grid_ and the _R
 You tell the Grid which browser and OS you want your test to run on through the use of Selenium's class object [MutableCapabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html), and its various subclasses for specific browser options (ChromeOptions, FirefoxOptions, etc.) Sauce Labs has [specific language bindings](https://github.com/saucelabs/sauce_bindings) that act as wrappers for supported programming languages.
 
 
-## Part 1: Update Desired Capabilities
+### Part 1: Update Desired Capabilities
 
 In the` Config.java` file, you are going to communicate the settings for our test environment with the W3C _[Capabilities](https://wiki.saucelabs.com/display/DOCS/Desired+Capabilities+Required+for+Selenium+and+Appium+Tests/?utm_source=referral&utm_medium=LMS&utm_campaign=link)_, required for every Selenium test.
 
