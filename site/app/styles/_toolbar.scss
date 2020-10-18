@@ -241,6 +241,12 @@
 .--hide {
   display: none!important;
 }
+.--mobile {
+  display: none;
+}
+.--desktop {
+  display: inherit;
+}
 
 #searchbar {
   border-radius: $radius;
@@ -277,6 +283,12 @@
   #searchbar paper-input-container {
     display: none;
   }
+  .--mobile {
+    display: inherit;
+  }
+  .--desktop {
+    display: none;
+  }
   ul.header__primary-nav {
     display: none;
   }
@@ -296,6 +308,27 @@
     paper-icon-button[icon="menu"] {
       width: 40px;
       margin-right: $keyline;
+    }
+  }
+  .header__mobile-nav {
+    position: absolute;
+    width: 100%;
+    display: inline-block;
+    top: 55px;
+    left: 0px;
+    background-color: $pureWhite;
+    color: $greyDark;
+    text-align: left;
+    z-index: 5;
+    .header__mobile-item {
+      font-size: 20px;
+      padding: 20px 0 20px 0;
+      cursor: pointer;
+      img {
+        position: relative;
+        top: -2px;
+        margin: 0 10px 5px 10px;
+      }
     }
   }
 }
