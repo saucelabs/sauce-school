@@ -123,7 +123,8 @@ gulp.task('clean', gulp.parallel(
 gulp.task('build:codelabs', async (done) => {
   gulp.series([
       'codelabs:export',
-      'override:build:scss',
+      //commenting out until this process is cleaned up
+      //'override:build:scss',
       'override:modules'
   ])(() => {
     copyFilteredCodelabs('build');

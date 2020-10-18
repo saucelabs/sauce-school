@@ -320,6 +320,7 @@
     color: $greyDark;
     text-align: left;
     z-index: 5;
+    height: calc(100% - 55px);
     .header__mobile-item {
       font-size: 20px;
       padding: 20px 0 20px 0;
@@ -328,6 +329,9 @@
         position: relative;
         top: -2px;
         margin: 0 10px 5px 10px;
+      }
+      .--no-children-elements {
+        margin: 0 0 0 35px;
       }
     }
   }
