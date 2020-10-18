@@ -166,8 +166,14 @@ gulp.task('override:modules', function() {
       let numberOfChildren = header.getElementsByTagName('link').length
       newOverrideStyles.rel = 'stylesheet';
       newOverrideStyles.href = './styles/overrides.css';
-      if (numberOfChildren = 3) {
-        return htmlDoc.getElementsByTagName('head')[0].appendChild(newOverrideStyles);
+      //add override.css to header
+      return runOverrides()
+      function runOverrides() {
+        if (numberOfChildren = 3) {
+          htmlDoc.getElementsByTagName('head')[0].appendChild(newOverrideStyles);
+        }
+        //console.log(htmlDoc)
+        //need to come back to this. Cannot grab html elements. protected by an object.
       }
     }))
     .pipe(gulp.dest('./codelabs/'));

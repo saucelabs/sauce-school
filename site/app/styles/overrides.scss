@@ -27,3 +27,6 @@ google-codelab #drawer ol ::-webkit-scrollbar-thumb {
   font-family: 'Museo-Sans', sans-serif!important;
   color: #464B54;
 }
+google-codelab #drawer ol li .step:before {
+  content: "";
+}
