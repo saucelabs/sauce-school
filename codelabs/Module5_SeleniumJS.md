@@ -789,7 +789,7 @@ Once the plugin is installed, you can check under the **Installed **tab on the s
 
 You can set up your Sauce Labs credentials to be passed into tests as variables running on Jenkins in the same way that you set up your tests to get the credentials stored on your personal machine as variables. The nice thing about this is that you can control which Jenkins users have access to these credentials, and allow or disallow certain people that use the same Jenkins instance to use these credentials.
 
-Go to **Security **> **Manage Jenkins **>** Manage Credentials**.
+Go to **Security > Manage Jenkins > Manage Credentials**.
 
 Depending on how Jenkins is set up, other instances of Jenkins may have different domains. In this example, you can set things up in the** global **domain:
 
@@ -848,7 +848,7 @@ Open `config.js`. Below the `sauceW3C `object, create a` jenkins `object (don’
 ```
 
 
-In this example, you are setting up our test with Chrome 75 and you need to use the new capabilities that are compliant with the latest W3C capabilities. First, change the name of the project from the Jenkins** Dashboard**:
+In this example, you are setting up our test with Chrome 75 and you need to use the new capabilities that are compliant with the latest W3C capabilities. First, change the name of the project from the Jenkins **Dashboard**:
 
 <img src="assets/5.07H.png" alt="Rename Test" width="650"/>
 

@@ -273,7 +273,8 @@ public class TestDynamicLoading extends BaseTest {
 
 #### NOTE
 
-Including the `quit()` function is extremely important for the speed & passability of your tests. Without the quit method, the test will keep running even once all other methods have been executed until the default timeout has expired. This will not only slow down your ability to run many parallel tests at once, it will also send timeout error messages that could abort the test build.  This is now contained in `Base.java` and should never be excluded from any test.
+Negative
+: Including the `quit()` function is extremely important for the speed & passability of your tests. Without the quit method, the test will keep running even once all other methods have been executed until the default timeout has expired. This will not only slow down your ability to run many parallel tests at once, it will also send timeout error messages that could abort the test build.  This is now contained in `Base.java` and should never be excluded from any test.
 
 --
 
@@ -424,13 +425,17 @@ Try running your tests in IntelliJ just to make sure this new filepath works.
 
 #### NOTE
 
-Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, go to **System Preferences** on your Mac **> Security & Privacy**, then under the **General** tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers.
+Negative
+: Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, go to **System Preferences** on your Mac **> Security & Privacy**, then under the **General** tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers.
 
-<img src="assets/4.04K.png" alt="Allow Unidentified FIles in Security and Privacy" width="450"/>
+Negative
+: <img src="assets/4.04K.png" alt="Allow Unidentified FIles in Security and Privacy" width="450"/>
 
-On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver **or **geckodriver **manually.
+Negative
+: On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver **or **geckodriver **manually.
 
-Another option is to simply look through your file directories on your computer and double click on the files to manually open them with terminal or command line. After you have allowed them to be opened once, your computer should allow the drivers to be run by your tests.
+Negative
+: Another option is to simply look through your file directories on your computer and double click on the files to manually open them with terminal or command line. After you have allowed them to be opened once, your computer should allow the drivers to be run by your tests.
 
 --
 
@@ -711,12 +716,15 @@ You should also visit [http://app.saucelabs.com/](http://app.saucelabs.com/). Go
 
 #### NOTE
 
-What did you do? At this point to create an instance of a test, you are dependent on several different objects in your test suite. First, `Base` sets up methods used by your page objects and instantiates a Selenium Webdriver instance. The page objects like `Login` and `Dynamic Loading` use the Base class (and the methods) to interact with the pages.
+Negative
+: What did you do? At this point to create an instance of a test, you are dependent on several different objects in your test suite. First, `Base` sets up methods used by your page objects and instantiates a Selenium Webdriver instance. The page objects like `Login` and `Dynamic Loading` use the Base class (and the methods) to interact with the pages.
 
-Once the interactions with the webpage are taken care of, the tests come into play.` BaseTest` imports the settings from `Config`, then the tests use the `Base` class and define the specific tests run on the page.
+Negative
+: Once the interactions with the webpage are taken care of, the tests come into play.` BaseTest` imports the settings from `Config`, then the tests use the `Base` class and define the specific tests run on the page.
 
 
-<img src="assets/4.05K.png" alt="Test Suite Structure" width="750"/>
+Negative
+: <img src="assets/4.05K.png" alt="Test Suite Structure" width="750"/>
 
 --
 
@@ -837,9 +845,11 @@ You’ll first need install the `saucerest` library by adding it to our `pom.xml
 
 ### NOTE
 
-If you add a dependency and the text appears in red (Maven isn’t recognizing it) you can right click on the pom.xml file in the project directory in IntelliJ then choose **Maven > Reload project**:
+Negative
+: If you add a dependency and the text appears in red (Maven isn’t recognizing it) you can right click on the pom.xml file in the project directory in IntelliJ then choose **Maven > Reload project**:
 
-<img src="assets/4.06G.png" alt="Reload project with Maven" width="750"/>
+Negative
+: <img src="assets/4.06G.png" alt="Reload project with Maven" width="750"/>
 
 --
 
