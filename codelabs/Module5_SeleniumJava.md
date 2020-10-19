@@ -339,11 +339,6 @@ You also don’t want to put the output for the reporting to be created in a fil
 // ...
 ```
 
-.....
-<img src="assets/5.04.png" alt="Sauce W3C case" width="550"/>
-
-
-............
 
 ### Part 2: Run Parallel Tests
 
