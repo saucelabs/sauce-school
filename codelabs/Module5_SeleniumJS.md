@@ -811,6 +811,8 @@ Once you click **Save**, you should see your new access key listed under **Globa
 
 Now you can go to your project and set up your credentials. Go back to your Jenkins dashboard, choose the project you created, and then **Configure **in the menu. Scroll down, and under **Build Environment**, click the **Sauce Labs Options** checkbox. Make sure the credentials you just set up are listed here.
 
+You can configure a failed build to trigger things like e-mail messages or send information directly to Jira tickets. You can find out more[ here](https://plugins.jenkins.io/email-ext/). All you need to do to get started is go to Manage Jenkins > Manage Plugins and search for an email plugin in available plugins
+
 
 ### Run Tests with Sauce OnDemand
 
