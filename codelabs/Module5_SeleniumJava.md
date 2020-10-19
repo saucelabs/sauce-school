@@ -6,7 +6,7 @@ id: Module5_SeleniumJava
 categories: advanced
 tags: java
 environments: Web
-status: Hidden
+status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-6735579-1
 

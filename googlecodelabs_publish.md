@@ -48,7 +48,7 @@ pip3 install -U crcmod
 ```
 > This is a VERY important tool for `gsutil`. Without `crcmod`, Google is not able to verify object integrity. For more details please refer to this doc: [CRC32 and Installing crcmod](https://cloud.google.com/storage/docs/gsutil/addlhelp/CRC32CandInstallingcrcmod)
 
-4. Build the website using `gulp.js`. You must specify the `codelabs-dir`, otherwise you may not see your modules in the site: (_Note that you must commit first_)
+4. Build the website using `gulp.js`. You must specify the `codelabs-dir`, otherwise you may not see your modules in the site: (_Note that you must commit (delete file in site/codelabs?) first_)
 ```sh
 npm run gulp -- dist --codelabs-dir=codelabs
 ```
