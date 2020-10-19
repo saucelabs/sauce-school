@@ -28,7 +28,7 @@ body {
   &.view {
     #banner {
       padding-top: calc(56px + 24px); // "codelabs" topbar height
-      padding-bottom: $keyline * 3;
+      padding-bottom: 55px;
       position: relative; // ensures bar renders below top toolbar on page load.
     }
   }
@@ -92,10 +92,12 @@ ul, li {
       transform: none;
     }
     .banner-title {
-      visibility: hidden; // Just hide but keep layout.
+      //visibility: hidden; // Just hide but keep layout.
     }
   }
-
+  h2.banner-title {
+    visibility: inherit;
+  }
   h2, h3 {
     font-weight: 300;
   }
