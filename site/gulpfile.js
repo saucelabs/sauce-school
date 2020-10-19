@@ -163,15 +163,23 @@ gulp.task('override:modules', function() {
       let htmlDoc = this;
       let linkOverrideCss = htmlDoc.createElement('link');
       let newOverrideStyles = htmlDoc.createElement('link');
+      let newFontStyles = htmlDoc.createElement('link');
       let header = htmlDoc.getElementsByTagName('head')[0];
       let numberOfChildren = header.getElementsByTagName('link').length
       newOverrideStyles.rel = 'stylesheet';
+      newFontStyles.rel = 'stylesheet';
+      //link to overrides
       newOverrideStyles.href = './styles/overrides.css';
+      //link to museo sans
+      newFontStyles.href = 'https://use.typekit.net/uws2znl.css';
       //add override.css to header
       return runOverrides()
       function runOverrides() {
-        if (numberOfChildren = 3) {
+        if (numberOfChildren = 4) {
+          //get override styles
           htmlDoc.getElementsByTagName('head')[0].appendChild(newOverrideStyles);
+          //get museo sans web safe
+          htmlDoc.getElementsByTagName('head')[0].appendChild(newFontStyles);
         }
         //console.log(htmlDoc)
         //need to come back to this. Cannot grab html elements. protected by an object.
