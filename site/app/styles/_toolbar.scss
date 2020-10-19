@@ -334,5 +334,68 @@
         margin: 0 0 0 35px;
       }
     }
+    .header__mobile-item--child {
+      background-color: #464b54;
+      padding: 30px;
+      width: 100%;
+      color: $pureWhite;
+      a {
+        color: $sauceRedAlt;
+      }
+      .header__mobile-sub-title {
+        font-size: .75rem;
+        line-height: 1.3125rem;
+        color: #ececee;
+        margin-bottom: 10px;
+        display: block;
+        font-weight: bold;
+      }
+      li {
+        a {
+          font-size: 1rem;
+          line-height: 1.3125rem;
+          letter-spacing: .015em;
+          color: #f83838;
+          font-weight: bold;
+        }
+        span {
+          font-size: .75rem;
+          line-height: .9375rem;
+          color: #fff;
+        }
+      }
+    }
+    .header__mobile-bottom {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      padding: 40px 50px;
+      background-color: $darkRed;
+      .btn {
+        font-size: 1rem;
+        line-height: 2.375rem;
+        letter-spacing: .025em;
+        background: $pureWhite;
+        color: #ff221a;
+        font-weight: bold;
+        display: inline-block!important;
+        border-radius: 25px;
+        text-align: center!important;
+        padding: 5px 25px 5px 25px;
+      }
+      .btn-link {
+        color: $pureWhite;
+        width: inherit;
+        padding: 0 0 0 30%;
+        margin: 15px 0 15px 0;
+      }
+      .header__mobile-bottom-inner {
+        position: relative;
+      }
+    }
   }
 }
