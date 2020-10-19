@@ -23,7 +23,7 @@ curl https://sdk.cloud.google.com | bash
 ```sh
 exec -l $SHELL
 ```
-* [Run `gcloud init`](https://cloud.google.com/storage/docs/gsutil_install) in order to intialize your `gloud` environment and link to the appropriate project:
+* [Run `gcloud init`](https://cloud.google.com/storage/docs/gsutil_install) in order to intialize your `gcloud` environment and link to the appropriate project:
 ```sh
 gcloud init
 ```
@@ -48,9 +48,14 @@ pip3 install -U crcmod
 ```
 > This is a VERY important tool for `gsutil`. Without `crcmod`, Google is not able to verify object integrity. For more details please refer to this doc: [CRC32 and Installing crcmod](https://cloud.google.com/storage/docs/gsutil/addlhelp/CRC32CandInstallingcrcmod)
 
-4. Use `claat export` in the _/sauce-schools/codelabs_ directory, then move exported file into _../site/codelabs_
+4. Use `claat export` in the _/sauce-schools/codelabs_ directory, then move exported file into _../site/codelabs_. Then back out and go to the site directory
+```
+cd ..
+cd site
+```
 
-5. Build the website using `gulp.js`. You must specify the `codelabs-dir`, otherwise you may not see your modules in the site: (_Note that you must commit (delete file in site/codelabs?) first_)
+
+5. Build the website using `gulp.js`. You must specify the `codelabs-dir`, otherwise you may not see your modules in the site: (_Note that you must commit first_)
 ```sh
 npm run gulp -- dist --codelabs-dir=codelabs
 ```

@@ -198,7 +198,7 @@ else if (host.equals("saucelabs-tunnel")) {
 In this case, which you have named `saucelabs-tunnel`, when you run your test, you will set all the capabilities you did before, but notice how the `sauceTunnel `variable is being used by `setCapabilities`, right under where you set the `testName` capability. The reason that we need to create a whole new case is that the tests will error if they are given a tunnel identifier, and it is not used.
 
 
-## Run Tests Using Sauce Connect Proxy
+### Run Tests Using Sauce Connect Proxy
 
 Once your tunnel is up and running, (you should see the message Sauce Connect is up in terminal)  and you have updated your `config.js` and `BaseTest.java` files, you can run your tests in Sauce Labs using Sauce Connect Proxy. First, update your` .bash_profile `with an environment variable (it must match the` tunnel id `you used to start the tunnel).
 
@@ -288,7 +288,7 @@ As an example, if the SauceClient  was declared as `private static SauceRest sau
 
 
 
-## Part 1: Add Configuration Options to your Surefire Plugin
+### Part 1: Add Configuration Options to your Surefire Plugin
 
 You should already have the `maven-surefire-plugin` in your `pom.xml` file within the `&lt;build>` tags. If for some reason you don’t, add it in now:
 
@@ -352,7 +352,7 @@ Run` maven clean test -Dhost=saucelabs `and visit the [Sauce Labs Dashboard ](ht
 
 <img src="assets/5.04H.png" alt="Concurrent tests running" width="650"/>
 
-## Part 3: Randomize Your Tests
+### Part 3: Randomize Your Tests
 
 You might ask, why randomization? This is a very effective way to see if your tests are truly atomic and independent of one another. As you run more and more tests, it’s important to make sure that they aren’t dependent on the behavior of a different test, because conditions will not always be the same as you use tests for different cases.
 
@@ -387,7 +387,7 @@ In order to get the most out of your tests, you'll want a way to break them up i
 In order to do this with Java, you will need to use categories: _Shallow, deep, _and_ all._ _Shallow tests_ are equivalent to _smoke _(or _sanity_) _tests_. These should pass before you can consider running the _deep tests_. Running all will run all the tests in your suite.
 
 
-## Part 1: Adding Test Interfaces
+### Part 1: Adding Test Interfaces
 
 For each category, You will need to create an [interface ](https://www.tutorialspoint.com/java/java_interfaces.htm)file. Create a new package (right click in the directory **Test > New > Package**) called `groups` inside of the `tests` package. Inside `groups` (right click in the directory **groups > New > Class**) you'll create three interface files -- `All.java`, `Deep.java`, and `Shallow.java`.
 
@@ -483,7 +483,7 @@ public class TestDynamicLoading extends BaseTest {
 
 
 
-## Part 2: Running Tests with Categories
+### Part 2: Running Tests with Categories
 
 Before you can run your tests with these categories, you need to be able to specify a category as a runtime property. For that, you'll modify `pom.xml`. In the `&lt;properties>` tags add a `&lt;groups> `tag as a child like so:
 
@@ -686,16 +686,16 @@ Now that Jenkins is loaded in the browser, let's create a **Project **and config
 
 
 
-1. Click **New Item** from the Dashboard menu.
+* Click **New Item** from the Dashboard menu.
 
 <img src="assets/5.06L.png" alt="New Project" width="350"/>
 
-2. Give it a name based on what it’s testing (example: **
-3. Select the **Freestyle** project option.
+* Give it a name based on what it’s testing (example: **
+* Select the **Freestyle** project option.
 
 <img src="assets/5.06M.png" alt="New Project" width="550"/>
 
-4. Click **OK**.
+* Click **OK**.
 
 This will load a configuration screen for the Jenkins project.
 
@@ -706,15 +706,15 @@ Once you have clicked on a project and chosen **Configure** from the menu, go to
 
 <img src="assets/5.06N.png" alt="Advanced Configurations" width="650"/>
 
-1. Choose the checkbox for **Use custom workspace.** This is where your test files are stored on your computer. When setting up a real CI pipeline, you would direct this to the local copy of your GitHub repo.
-2. Provide the full path to your test code.
-3. Leave the **Display Name** field blank.
+* Choose the checkbox for **Use custom workspace.** This is where your test files are stored on your computer. When setting up a real CI pipeline, you would direct this to the local copy of your GitHub repo.
+* Provide the full path to your test code.
+* Leave the **Display Name** field blank.
 
 <img src="assets/5.06O.png" alt="Test Code Path" width="650"/>
 
-4. Scroll down to the **Build** section and select **Add build step.**
-5. Select **Execute shell.**.
-6. Add the commands below to run locally on Jenkins, testing only the tests tagged with `@Category(shallow.class`), using the default environment:
+* Scroll down to the **Build** section and select **Add build step.**
+* Select **Execute shell.**.
+* Add the commands below to run locally on Jenkins, testing only the tests tagged with `@Category(shallow.class`), using the default environment:
 
 ```
 mvn clean test -Dgroups=tests.groups.Shallow
@@ -786,7 +786,7 @@ Next, configure the test file that you will put the Surefire reports in by typin
  Hit save and you should be ready to run your tests.
 
 
-## Run Your Tests Using Jenkins
+### Run Your Tests Using Jenkins
 
 To run your test, simply click **Build Now** in the menu, then click on the sphere next to the test number on the list to jump to the console output.
 
