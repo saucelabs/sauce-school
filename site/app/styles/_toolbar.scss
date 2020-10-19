@@ -346,11 +346,18 @@
         font-size: .75rem;
         line-height: 1.3125rem;
         color: #ececee;
-        margin-bottom: 10px;
+        margin-bottom: 3px;
         display: block;
         font-weight: bold;
+        text-transform: uppercase;
+      }
+      ul {
+        border-bottom: 1px solid #5e626a;
+        padding: 0 0 15px 0;
+        margin: 0 0 15px 0;
       }
       li {
+        padding: 15px 0 0px 0;
         a {
           font-size: 1rem;
           line-height: 1.3125rem;
@@ -366,9 +373,9 @@
       }
     }
     .header__mobile-bottom {
-      position: absolute;
-      bottom: 0px;
-      left: 0px;
+      //position: absolute;
+      //bottom: 0px;
+      //left: 0px;
       width: 100%;
       display: flex;
       text-align: center;
