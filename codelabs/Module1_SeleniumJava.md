@@ -136,7 +136,10 @@ Download and install [IntelliJ IDEA Community Edition](https://www.jetbrains.com
 
 Even though you can use Maven and Java from within IntelliJ without installing it on your machine, you should install Maven and Java on your machine so that you can run tests you write outside of IntelliJ.
 
-Note: These instructions are for a MacOS operating system. If you are using another system, use the [documents here for setup instructions](https://github.com/saucelabs-training/demo-java/blob/master/docs/prerequisites.md#install-maven).
+
+#### Note
+Negative
+: These instructions are for a MacOS operating system. If you are using another system, use the [documents here for setup instructions](https://github.com/saucelabs-training/demo-java/blob/master/docs/prerequisites.md#install-maven).
 
 Check and see if you have a JDK (Java Development Kit) installed on your computer by opening terminal and typing `echo $JAVA_HOME.`
 
@@ -191,8 +194,8 @@ export PATH=$M2:$JAVA_HOME/bin:$PATH
 
 
 ### NOTE
-
-The version of the apache-maven variable needs to reflect which version you downloaded. For example, if you downloaded maven version 3.6.3, it would read `export M2_HOME=$HOME/Applications/apache-maven-3.6.3`
+Negative
+: The version of the apache-maven variable needs to reflect which version you downloaded. For example, if you downloaded maven version 3.6.3, it would read `export M2_HOME=$HOME/Applications/apache-maven-3.6.3`
 
 --
 
@@ -317,12 +320,9 @@ This sets up all the dependencies, however, you may need to research to make sur
 
 ### NOTE
 
-How to Find Dependencies Using IntelliJ Video:
-
-If your .pom file doesn’t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out.
-
-
-
+Negative
+: How to Find Dependencies Using IntelliJ Video:
+ If your .pom file doesn’t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out.
 1. Hover over a red word in IDE
 2. Click the red light bulb to import maven dependencies.
 3. Click the Maven tab and refresh.

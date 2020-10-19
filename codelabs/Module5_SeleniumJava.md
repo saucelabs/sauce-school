@@ -11,7 +11,7 @@ feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-6735579-1
 
 <!-- ------------------------ -->
-# Module X – Title of codelab
+# Module 5 – Title of codelab
 Add Sections and Durations
 Then for each section use Header 2 or '##' and specify an optional duration beneath for time remaining calculations Optional section times will be used to automatically total and remaining tutorial times In markdown I've found that the time is formatted hh:mm:ss
 
