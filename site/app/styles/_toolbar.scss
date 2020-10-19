@@ -355,6 +355,19 @@
         border-bottom: 1px solid #5e626a;
         padding: 0 0 15px 0;
         margin: 0 0 15px 0;
+        ul.sub-children-links {
+          border-bottom: none;
+          li {
+            padding: 1px 0 0 10px;
+            a {
+              color: #fff;
+              font-size: 12px;
+              &:hover {
+                color: #f83838;
+              }
+            }
+          }
+        }
       }
       li {
         padding: 15px 0 0px 0;
