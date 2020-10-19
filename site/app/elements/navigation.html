@@ -7,11 +7,11 @@
       <img onclick="menuOpen()" class="mobile__menu-icon" id="mobileMenuIcon" src="/images/mobile_menu.svg" />
       <img onclick="menuClose()" class="mobile__menu-icon --hide" id="mobileClose" src="/images/mobile_close.svg" />
     </div>
-    <div class="header__mobile-nav --mobile">
-      <div class="header__mobile-item">
-        <span><img src="/images/nav-carrot.png" /> Solutions</span>
+    <div class="header__mobile-nav --mobile --hide">
+      <div id="solutionsEvent" class="header__mobile-item" onclick="openMenuItem('solutions')">
+        <span><img src="/images/nav-carrot.png" class="--closed" /> Solutions</span>
       </div>
-      <div id="solutionsChild" class="header__mobile-item--child">
+      <div id="solutionsChild" class="header__mobile-item--child --hide">
         <span class="header__mobile-sub-title">Solutions For</span>
         <ul>
           <li>
@@ -43,10 +43,10 @@
           </li>
         </ul>
       </div>
-      <div class="header__mobile-item">
-        <span><img src="/images/nav-carrot.png" /> Platform</span>
+      <div id="platformEvent" class="header__mobile-item" onclick="openMenuItem('platform')">
+        <span><img src="/images/nav-carrot.png" class="--closed" /> Platform</span>
       </div>
-      <div id="platformChild" class="header__mobile-item--child">
+      <div id="platformChild" class="header__mobile-item--child --hide">
 
         <span class="header__mobile-sub-title">CONTINUOUS TESTING CLOUD</span>
         <ul>
@@ -119,10 +119,10 @@
       <div class="header__mobile-item">
         <span class="--no-children-elements"><a href="https://saucelabs.com/pricing">Pricing</a></span>
       </div>
-      <div class="header__mobile-item">
-        <span><img src="/images/nav-carrot.png" /> Resources</span>
+      <div id="resourcesEvent" class="header__mobile-item" onclick="openMenuItem('resources')">
+        <span><img src="/images/nav-carrot.png" class="--closed" /> Resources</span>
       </div>
-      <div id="resourcesChild" class="header__mobile-item--child">
+      <div id="resourcesChild" class="header__mobile-item--child --hide">
         <ul>
           <li>
             <a href="https://saucelabs.com/blog">Sauce Labs Blog</a>
@@ -167,10 +167,10 @@
         </ul>
       </div>
 
-      <div class="header__mobile-item">
-        <span><img src="/images/nav-carrot.png" /> Company</span>
+      <div id="companyEvent" class="header__mobile-item" onclick="openMenuItem('company')">
+        <span><img src="/images/nav-carrot.png" class="--closed" /> Company</span>
       </div>
-      <div id="companyChild" class="header__mobile-item--child">
+      <div id="companyChild" class="header__mobile-item--child --hide">
         <ul>
           <li>
             <a href="https://saucelabs.com/company">About Us</a>
@@ -193,11 +193,11 @@
           </li>
         </ul>
       </div>
-      <div class="header__mobile-item">
-        <span><img src="/images/nav-carrot.png" /> Contact</span>
+      <div id="contactEvent" class="header__mobile-item" onclick="openMenuItem('contact')">
+        <span><img src="/images/nav-carrot.png" class="--closed" /> Contact</span>
       </div>
 
-      <div id="solutionsChild" class="header__mobile-item--child">
+      <div id="contactChild" class="header__mobile-item--child --hide">
         <span class="header__mobile-sub-title">Solutions For</span>
         <ul>
           <li>
@@ -487,10 +487,77 @@
     function menuOpen() {
       document.getElementById('mobileClose').classList.remove("--hide")
       document.getElementById('mobileMenuIcon').classList.add("--hide")
+      document.getElementsByClassName('header__mobile-nav')[0].classList.remove("--hide")
     }
     function menuClose() {
       document.getElementById('mobileClose').classList.add("--hide")
       document.getElementById('mobileMenuIcon').classList.remove("--hide")
+      document.getElementsByClassName('header__mobile-nav')[0].classList.add("--hide")
+    }
+
+    //mobile menu child functions
+    function openMenuItem(i){
+      let solutionsChild = document.getElementById('solutionsChild');
+      let solutionsEvent = document.getElementById('solutionsEvent');
+      let platformChild = document.getElementById('platformChild');
+      let platformEvent = document.getElementById('platformEvent');
+      let resourcesChild = document.getElementById('resourcesChild');
+      let resourcesEvent = document.getElementById('resourcesEvent');
+      let companyChild = document.getElementById('companyChild');
+      let companyEvent = document.getElementById('companyEvent');
+      let contactChild = document.getElementById('contactChild');
+      let contactEvent = document.getElementById('contactEvent');
+
+      if (i == 'solutions') {
+        if(solutionsEvent.className.match('--opened')) {
+          solutionsChild.classList.add("--hide");
+          solutionsEvent.classList.remove("--opened");
+        }
+        else {
+          solutionsChild.classList.remove("--hide");
+          solutionsEvent.classList.add("--opened");
+        }
+      }
+      if (i == 'platform') {
+        if(platformEvent.className.match('--opened')) {
+          platformChild.classList.add("--hide");
+          platformEvent.classList.remove("--opened");
+        }
+        else {
+          platformChild.classList.remove("--hide");
+          platformEvent.classList.add("--opened");
+        }
+      }
+      if (i == 'resources') {
+        if(resourcesEvent.className.match('--opened')) {
+          resourcesChild.classList.add("--hide");
+          resourcesEvent.classList.remove("--opened");
+        }
+        else {
+          resourcesChild.classList.remove("--hide");
+          resourcesEvent.classList.add("--opened");
+        }
+      }
+      if (i == 'company') {
+        if(companyEvent.className.match('--opened')) {
+          companyChild.classList.add("--hide");
+          companyEvent.classList.remove("--opened");
+        }
+        else {
+          companyChild.classList.remove("--hide");
+          companyEvent.classList.add("--opened");
+        }
+      }
+      if (i == 'contact') {
+        if(contactEvent.className.match('--opened')) {
+          contactChild.classList.add("--hide");
+          contactEvent.classList.remove("--opened");
+        }
+        else {
+          contactChild.classList.remove("--hide");
+          contactEvent.classList.add("--opened");
+        }
+      }
     }
 
     //solutions menu item

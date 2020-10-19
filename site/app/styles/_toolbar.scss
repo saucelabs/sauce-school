@@ -327,11 +327,12 @@
       cursor: pointer;
       img {
         position: relative;
-        top: -2px;
+        top: 1px;
         margin: 0 10px 5px 10px;
       }
       .--no-children-elements {
         margin: 0 0 0 35px;
+        display: block;
       }
     }
     .header__mobile-item--child {
