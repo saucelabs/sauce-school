@@ -1,5 +1,5 @@
 summary: Module 4 of the Selenium JavaScript course. Learn to write Selenium tests in the JavaScript programming language with Mocha.
-id: Module4-SeleniumJS
+id: ../site/codelabs/Module4-SeleniumJS
 categories: advanced
 tags: javaScript
 environments: Web

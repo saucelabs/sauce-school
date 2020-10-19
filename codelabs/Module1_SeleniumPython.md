@@ -1,5 +1,5 @@
 summary: Module 1 Introduction to Selenium with Python
-id: Module1-SeleniumPython
+id: ../site/codelabs/Module1-SeleniumPython
 categories: beginner
 tags: python  
 environments: Web

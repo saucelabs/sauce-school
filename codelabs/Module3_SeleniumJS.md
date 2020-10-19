@@ -1,5 +1,5 @@
 summary: Module 3 Writing Reusable Test Code
-id: Module3-SeleniumJS
+id: ../site/codelabs/Module3-SeleniumJS
 categories: advanced
 tags: javascript
 status: Work in Progress

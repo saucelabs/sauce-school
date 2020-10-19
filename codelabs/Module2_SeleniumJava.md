@@ -1,5 +1,5 @@
 summary: Module 2 of the Selenium Java course. Learn to write Selenium tests in Java using the JUnit framework, Maven, and the IntelliJ IDE.
-id: Module2-SeleniumJava
+id: ../site/codelabs/Module2-SeleniumJava
 categories: intermediate
 tags: java
 environments: Web
@@ -265,7 +265,7 @@ Let's put these elements to use in our first test.
 ### Setup Your Project File
 
 
-First we will need to create a new project directory called `Selenium??` (your main project directory), and inside create a folder named `test` inside that project directory. This is a default folder that Mocha will know to look for.
+First we will need to create a new project directory called `SeleniumJava` (your main project directory), and inside create a folder named `tests` inside that project directory. This is a default folder that Maven will know to look for.
 
 
 You can see all of the files here.

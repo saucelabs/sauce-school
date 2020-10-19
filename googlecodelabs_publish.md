@@ -23,7 +23,7 @@ curl https://sdk.cloud.google.com | bash
 ```sh
 exec -l $SHELL
 ```
-* [Run `gcloud init`](https://cloud.google.com/storage/docs/gsutil_install) in order to intialize your `gloud` environment and link to the appropriate project:
+* [Run `gcloud init`](https://cloud.google.com/storage/docs/gsutil_install) in order to intialize your `gcloud` environment and link to the appropriate project:
 ```sh
 gcloud init
 ```
@@ -48,19 +48,31 @@ pip3 install -U crcmod
 ```
 > This is a VERY important tool for `gsutil`. Without `crcmod`, Google is not able to verify object integrity. For more details please refer to this doc: [CRC32 and Installing crcmod](https://cloud.google.com/storage/docs/gsutil/addlhelp/CRC32CandInstallingcrcmod)
 
-4. Build the website using `gulp.js`. You must specify the `codelabs-dir`, otherwise you may not see your modules in the site:
+4. Use `claat export` in the _/sauce-schools/codelabs_ directory
+  * Option 1: Manually move exported file into _../site/codelabs_.
+  * Option 2: change the `id` in the markdown file to export to the correct dir. Old `Module5_SeleniumJs.md` New `../site/codelabs/Module5_SeleniumJava`
+
+After the export, back out and go to the site directory:
+
+```
+cd ..
+cd site
+```
+
+
+5. Build the website using `gulp.js`. You must specify the `codelabs-dir`, otherwise you may not see your modules in the site: (_Note that you must commit first_)
 ```sh
 npm run gulp -- dist --codelabs-dir=codelabs
 ```
-5. Test the site locally with `gulp serve`:
+6. Test the site locally with `gulp serve`:
 ```sh
 npm run gulp serve:dist
 ```
-6. Publish the `views` directory (the frontend stuff) with `publish:staging:views`:
+7. Publish the `views` directory (the frontend stuff) with `publish:staging:views`:
 ```sh
 npm run gulp -- publish:staging:views --staging-bucket=$GCS_STAGING_BUCKET
 ```
-7. Publish the `codelabs` directory with `publish:staging:codelabs`:
+8. Publish the `codelabs` directory with `publish:staging:codelabs`:
 ```sh
 npm run gulp -- publish:staging:codelabs --staging-bucket=$GCS_STAGING_BUCKET
 ```
