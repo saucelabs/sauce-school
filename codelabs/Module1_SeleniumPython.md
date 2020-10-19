@@ -178,7 +178,7 @@ You can exit the python interpreter by typing _control + D_  or typing in your t
 quit()
 ```
 
-Next, create a project folder and install pip so that later on we can install other dependencies. The dependencies include the Selenium Webdriver, web drivers that communicate with different browsers (such as chromium), as well as other frameworks and libraries.
+Next, create a project folder and install pip3so that later on we can install other dependencies. The dependencies include the Selenium Webdriver, web drivers that communicate with different browsers (such as chromium), as well as other frameworks and libraries.
 
 
 ### Install PyCharm
@@ -201,7 +201,7 @@ You should see an output like this:
  <img src="assets/1.05R.png" alt="PIP 3" width="550"/>
 
  #### NOTE
- If you don't have pip3 installed, or you are using an older version of Python, you may want to check to see if you have pip installed by typing `pip --version` into your terminal. You can also [use this website](https://pip.pypa.io/en/latest/installing/)  get get pip installed. It's not recommended that you use Python 2.7 and pip, as it's not supported, but it may be a reason `pip3`  isn't working.
+ If you don't have pip3 installed, or you are using an older version of Python, you may want to check to see if you have pip3installed by typing `pip3--version` into your terminal. You can also [use this website](https://pip.pypa.io/en/latest/installing/)  get get pip3installed. It's not recommended that you use Python 2.7 and pip, as it's not supported, but it may be a reason `pip3`  isn't working.
 
  --
 
@@ -327,7 +327,7 @@ pytest-randomly
  This repository contains a file called [requirements.txt](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/python/Mod1/1.05/requirements.txt) that can be used in the PyCharm IDE to automatically install the dependencies from the previous lesson, and make sure they are available in this particular virtual environment. All you need to do is open the terminal in the PyCharm IDE and type in the command:
 
  ```
- pip install -r requirements.txt
+ pip3install -r requirements.txt
  ```
  Some of the dependencies, such as pytest might need updating to the latest version.
 
