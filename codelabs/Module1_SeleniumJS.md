@@ -1,5 +1,5 @@
 summary: Module 1 Introduction to Selenium with JavaScript
-id: Module1-SeleniumJS
+id: ../site/codelabs/Module1-SeleniumJS
 categories: beginner
 environments: Web
 tags: javascript

@@ -48,7 +48,11 @@ pip3 install -U crcmod
 ```
 > This is a VERY important tool for `gsutil`. Without `crcmod`, Google is not able to verify object integrity. For more details please refer to this doc: [CRC32 and Installing crcmod](https://cloud.google.com/storage/docs/gsutil/addlhelp/CRC32CandInstallingcrcmod)
 
-4. Use `claat export` in the _/sauce-schools/codelabs_ directory, then move exported file into _../site/codelabs_. Then back out and go to the site directory
+4. Use `claat export` in the _/sauce-schools/codelabs_ directory
+  * Option 1: Manually move exported file into _../site/codelabs_.
+  * Option 2: change the `id` in the markdown file to export to the correct dir. Old `Module5_SeleniumJs.md` New `../site/codelabs/Module5_SeleniumJava`
+
+After the export, back out and go to the site directory:
 ```
 cd ..
 cd site

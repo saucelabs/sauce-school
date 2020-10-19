@@ -1,5 +1,5 @@
 summary: Module 2 of the Selenium Python Course using pip3 with Pytest.
-id: Module2-SeleniumPython
+id: ../site/codelabs/Module2-SeleniumPython
 categories: intermediate
 tags: python
 environments: Web

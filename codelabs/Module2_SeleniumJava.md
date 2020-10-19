@@ -1,5 +1,5 @@
 summary: Module 2 of the Selenium Java course. Learn to write Selenium tests in Java using the JUnit framework, Maven, and the IntelliJ IDE.
-id: Module2-SeleniumJava
+id: ../site/codelabs/Module2-SeleniumJava
 categories: intermediate
 tags: java
 environments: Web
