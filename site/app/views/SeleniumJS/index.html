@@ -17,7 +17,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="application-name" content="{{view.title}}">
   <link rel="canonical" href="{{canonicalViewUrl(view)}}" />
   <link rel="preconnect" href="https://www.google-analytics.com" />
-
+  <link rel="stylesheet" href="https://use.typekit.net/uws2znl.css">
   <script>
     window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
     ga('create', '{{ga}}', 'auto');
@@ -129,9 +129,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <div class="banner-description">
             <img id="logo" src="{{view.logoUrl}}" alt="Event logo">
             <div class="banner-meta">
-              <h3>{{view.title}}</h3>
+              <h2 class="banner-title">{{view.title}}</h3>
               {% if view.description -%}
-                <p>{{view.description}}</p>
+                <p class="banner-info">{{view.description}}</p>
               {%- endif %}
             </div>
         {%- endif %}
@@ -233,88 +233,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </div>
     </main>
 
-    <footer id="footer">
-      <div class="footer-column">
-        <p class="link-title">Solutions</p>
-
-        <div class="link-list">
-            <ul>
-                <li><a class="link" href="/solutions/enterprise" target="" data-ta="click" data-tc="Text" data-tl="">Enterprise</a></li>
-                <li><a class="link" href="/solutions/startup-medium-teams" target="" data-ta="click" data-tc="Text" data-tl="">Start-ups &amp; SMB Teams</a></li>
-                <li><a class="link" href="/solutions/open-source" target="" data-ta="click" data-tc="Text" data-tl="">Open Source</a></li>
-                <li><a class="link" href="/solutions/continuous-testing" target="" data-ta="click" data-tc="Text" data-tl="">Continuous Testing</a></li>
-                <li><a class="link" href="/solutions/automated-testing" target="" data-ta="click" data-tc="Text" data-tl="">Automated Testing</a></li>
-                <li><a class="link" href="/solutions/live-testing" target="" data-ta="click" data-tc="Text" data-tl="">Live Testing</a></li>
-            </ul>
-        </div>
-    </div>
-    <!-- end solutions-->
-
-    <div class="footer-column">
-
-        <p class="link-title">Platform</p>
-
-        <div class="link-list">
-            <ul>
-                <li><a class="link" href="/platform" target="" data-ta="click" data-tc="Text" data-tl="">Overview</a></li>
-                <li><a class="link" href="/platform/real-device-cloud" target="" data-ta="click" data-tc="Text" data-tl="">Real Device Cloud</a></li>
-                <li><a class="link" href="/platform/mobile-emulators-and-simulators" target="" data-ta="click" data-tc="Text" data-tl="">Emulators &amp; Simulators</a></li>
-                <li><a class="link" href="/platform/cross-browser-testing" target="" data-ta="click" data-tc="Text" data-tl="">Cross-browser Testing</a></li>
-                <li><a class="link" href="/platform/sauce-headless" target="" data-ta="click" data-tc="Text" data-tl="">Sauce Headless</a></li>
-                <li><a class="link" href="/platform/analytics-performance/sauce-performance" target="" data-ta="click" data-tc="Text" data-tl="">Sauce Performance</a></li>
-                <li><a class="link" href="/platform/visual-testing" target="" data-ta="click" data-tc="Text" data-tl="">Visual Testing</a></li>
-                <li><a class="link" href="/platform/integrations-plugins" target="" data-ta="click" data-tc="Text" data-tl="">Supported Integrations</a></li>
-                <li><a class="link" href="/platform/supported-browsers-devices" target="" data-ta="click" data-tc="Text" data-tl="">Supported Browsers &amp; Devices</a></li>
-                <li><a class="link" href="/platform/analytics-performance/advanced-debugging-tools" target="" data-ta="click" data-tc="Text" data-tl="">Debugging Tools</a></li>
-                <li><a class="link" href="/platform/analytics-performance/sauce-insights" target="" data-ta="click" data-tc="Text" data-tl="">Sauce Insights</a></li>
-                <li><a class="link" href="/platform/automation-tools" target="" data-ta="click" data-tc="Text" data-tl="">Automation Tools</a></li>
-                <li><a class="link" href="/pricing" target="" data-ta="click" data-tc="Text" data-tl="">Pricing</a></li>
-            </ul>
-        </div>
-    </div>
-    <!-- end platform 2 col-->
-
-    <div class="footer-column">
-
-        <p class="link-title">Resources</p>
-
-        <div class="link-list">
-            <ul>
-                <li><a class="link" href="/community" target="" data-ta="click" data-tc="Text" data-tl="">Community</a></li>
-                <li><a class="link" href="/blog" target="" data-ta="click" data-tc="Text" data-tl="">Sauce Labs Blog</a></li>
-                <li><a class="link" href="/training-support" target="" data-ta="click" data-tc="Text" data-tl="">Training &amp; Support</a></li>
-                <li><a class="link" href="/resources" target="" data-ta="click" data-tc="Text" data-tl="">Resource Center</a></li>
-            </ul>
-        </div>
-
-    </div>
-    <!-- end Resources-->
-
-    <div class="footer-column">
-
-        <p class="link-title">Company</p>
-
-        <div class="link-list">
-            <ul>
-                <li><a class="link" href="/company/partners" target="" data-ta="click" data-tc="Text" data-tl="">Partners</a></li>
-                <li><a class="link" href="/company" target="" data-ta="click" data-tc="Text" data-tl="">About Us</a></li>
-                <li><a class="link" href="/company/careers" target="" data-ta="click" data-tc="Text" data-tl="">Careers</a></li>
-                <li><a class="link" href="/security" target="" data-ta="click" data-tc="Text" data-tl="">Security</a></li>
-                <li><a class="link" href="/news" target="" data-ta="click" data-tc="Text" data-tl="">News</a></li><li>
-                <a class="link" href="/contact" target="" data-ta="click" data-tc="Text" data-tl="">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-    <!-- end Company-->
-    </footer>
-
-    <div class="footerbar">
-      <div class="site-width layout horizontal center justified">
-        <span>
-          <a href="https://saucelabs.com/contact" target ="_blank">Copyright © 2020 Sauce Labs, Inc. Built with Google Code Labs</a>
-          &nbsp; | &nbsp;
-      </div>
-    </div>
+    <footer-element></footer-element>
 
   </paper-header-panel>
 

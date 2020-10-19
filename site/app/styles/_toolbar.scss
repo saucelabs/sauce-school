@@ -241,6 +241,12 @@
 .--hide {
   display: none!important;
 }
+.--mobile {
+  display: none;
+}
+.--desktop {
+  display: inherit;
+}
 
 #searchbar {
   border-radius: $radius;
@@ -277,6 +283,12 @@
   #searchbar paper-input-container {
     display: none;
   }
+  .--mobile {
+    display: inherit;
+  }
+  .--desktop {
+    display: none;
+  }
   ul.header__primary-nav {
     display: none;
   }
@@ -296,6 +308,115 @@
     paper-icon-button[icon="menu"] {
       width: 40px;
       margin-right: $keyline;
+    }
+  }
+  .header__mobile-nav {
+    position: absolute;
+    width: 100%;
+    display: inline-block;
+    top: 55px;
+    left: 0px;
+    background-color: $pureWhite;
+    color: $greyDark;
+    text-align: left;
+    z-index: 5;
+    height: calc(100% - 55px);
+    .header__mobile-item {
+      font-size: 20px;
+      padding: 20px 0 20px 0;
+      cursor: pointer;
+      img {
+        position: relative;
+        top: 1px;
+        margin: 0 10px 5px 10px;
+      }
+      .--no-children-elements {
+        margin: 0 0 0 35px;
+        display: block;
+      }
+    }
+    .header__mobile-item--child {
+      background-color: #464b54;
+      padding: 30px;
+      width: 100%;
+      color: $pureWhite;
+      a {
+        color: $sauceRedAlt;
+      }
+      .header__mobile-sub-title {
+        font-size: .75rem;
+        line-height: 1.3125rem;
+        color: #ececee;
+        margin-bottom: 3px;
+        display: block;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      ul {
+        border-bottom: 1px solid #5e626a;
+        padding: 0 0 15px 0;
+        margin: 0 0 15px 0;
+        ul.sub-children-links {
+          border-bottom: none;
+          li {
+            padding: 1px 0 0 10px;
+            a {
+              color: #fff;
+              font-size: 12px;
+              &:hover {
+                color: #f83838;
+              }
+            }
+          }
+        }
+      }
+      li {
+        padding: 15px 0 0px 0;
+        a {
+          font-size: 1rem;
+          line-height: 1.3125rem;
+          letter-spacing: .015em;
+          color: #f83838;
+          font-weight: bold;
+        }
+        span {
+          font-size: .75rem;
+          line-height: .9375rem;
+          color: #fff;
+        }
+      }
+    }
+    .header__mobile-bottom {
+      //position: absolute;
+      //bottom: 0px;
+      //left: 0px;
+      width: 100%;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      padding: 40px 50px;
+      background-color: $darkRed;
+      .btn {
+        font-size: 1rem;
+        line-height: 2.375rem;
+        letter-spacing: .025em;
+        background: $pureWhite;
+        color: #ff221a;
+        font-weight: bold;
+        display: inline-block!important;
+        border-radius: 25px;
+        text-align: center!important;
+        padding: 5px 25px 5px 25px;
+      }
+      .btn-link {
+        color: $pureWhite;
+        width: inherit;
+        padding: 0 0 0 30%;
+        margin: 15px 0 15px 0;
+      }
+      .header__mobile-bottom-inner {
+        position: relative;
+      }
     }
   }
 }
