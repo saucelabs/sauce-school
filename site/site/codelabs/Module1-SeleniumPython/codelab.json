@@ -1,0 +1,21 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2020-10-20T06:59:46-07:00",
+  "id": "../site/codelabs/Module1-SeleniumPython",
+  "duration": 46,
+  "title": "Module 1- Introduction to Selenium with Python",
+  "summary": "Module 1 Introduction to Selenium with Python",
+  "source": "/Users/caseyhald/Documents/sauce-school/codelabs/Module1_SeleniumPython.md",
+  "theme": "",
+  "status": null,
+  "category": [
+    "beginner"
+  ],
+  "tags": [
+    "python"
+  ],
+  "url": "../site/codelabs/Module1-SeleniumPython"
+}

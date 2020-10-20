@@ -1,0 +1,283 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Module 1- Introduction to Selenium with Python</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="../site/codelabs/Module1-SeleniumPython"
+                  title="Module 1- Introduction to Selenium with Python"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="1.01 What You&#39;ll Learn" duration="3">
+        <ul>
+<li>Learn to install and use Selenium WebDriver in conjunction with Python tools (pip3, Pytest, and Pycharm) to write tests.<br></li>
+<li>Use Pycharm and Pip3 to set up, run tests, and manage dependencies on your machine</li>
+<li>Use the Selenium WebDriver in conjunction with a Pytest test runner to write tests</li>
+<li>Understand what the Selenium WebDriver is and the basics of how it is used to automate testing</li>
+<li>Understand the role a test runner, such as Pytest, plays in creating tests</li>
+<li>Differentiate between the Selenium language bindings and the web drivers for different browsers</li>
+<li>Know how Pip3 manages and updates packages and tools used for Selenium testing in Python.</li>
+<li>Explain how Selenium bindings, web drivers, and Pytest work together to create tests and test suites</li>
+<li>Understand that good tests are atomic: They have tests grouped by functionality and are named descriptively. Good tests also use test runners, and are maintained in version control systems.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="1.02 What is Selenium?" duration="5">
+        <p>Selenium is an open source tool used for automating testing of web applications. Without  automated testing, each time a web application was updated, a human would have to go onto the website and try various combinations of clicks, interactions, and submissions. If you  automate your testing with a tool like Selenium, when an update is made, you can write and run tests with the &#34;robot&#34; that is Selenium, which performs programmed sets of interactions for you to test new features and functionality before an updated version of a web app is released into the wild.</p>
+<p class="image-container"><img alt="Automation bot" style="width: 200.00px" src="img/b21839a1687a814.png"></p>
+<p>Selenium is a robotic testing tool, not a framework. It expresses no judgement, nor does it help you test. In order to orchestrate how tests are run, and report on the things that Selenium does, you need a framework, which will be covered later on.</p>
+<h2 is-upgraded>The Seven Basic Steps of Selenium Tests</h2>
+<p>There are seven basic elements of a Selenium test script, which apply to any test case and any application under test (AUT):</p>
+<ol type="1">
+<li>Create a WebDriver instance.</li>
+<li>Navigate to a Web page.</li>
+<li>Locate an HTML element on the Web page.</li>
+<li>Perform an action on the HTML element.</li>
+<li>Anticipate the browser response to the action.</li>
+<li>Run tests and record test results using a test framework.</li>
+<li>Conclude the test.</li>
+</ol>
+<p>The Selenium Grid allows you to run parallel tests on multiple combinations of machines (Mac, Windows, or Unix-based systems) using multiple web browsers (versions of Chrome, Edge, Firefox, or Safari). These different machines can exist virtually on a server in a cloud environment, or as a network of real devices. JSON is used to communicate test requirements and route those requirements to different nodes, which have different environments to test on.</p>
+<p class="image-container"><img alt="Selenium Computer" style="width: 350.00px" src="img/67fdd10360c35b36.png"></p>
+<p>The <a href="https://saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link" target="_blank">Sauce Labs</a> platform enables you to use a Selenium Grid at scale to run thousands of tests at once, on our suite of different test environments in the cloud. Sauce also has a robust dashboard for easy viewing of test outcomes and increased velocity of debugging tests. This dashboard includes tracking of errors and even a visual record of what occurred in different environments.</p>
+<p>As your test suite grows, your test runs will take longer to complete. To speed them up, you will want to run them in parallel, which is where the benefit of having your own servers or using a cloud provider comes in – that, and the ability to have numerous browser and operating system combinations to run your tests on.</p>
+<p>This course focuses on the fourth version of Selenium, which supports communication via the W3C WebDriver protocol. All modern web browsers are also built in compliance with this protocol (a set of rules on how to communicate), which means Selenium 4 can be used with any programming language and any browser and OS combination in your environment. With the W3C protocol, you can discover and manipulate elements on a page in order to test their functionality.</p>
+<p>Selenium is really good at a specific set of things. If you know what those are and stick to them, then you can easily write reliable, scalable, and maintainable tests that you and your team can trust.</p>
+<h2 is-upgraded>What Selenium Is and Is Not Good At</h2>
+<p>Selenium is built to automate browsers and human interaction with them. This can include things like navigating to pages, clicking on elements, typing text into input fields, etc.</p>
+<p>It is less ideal for checking lower-level functionality, like HTTP status codes or HTTP headers. While you can use Selenium this way, it requires third-party tools.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="1.03 What is the W3C WebDriver Protocol?" duration="5">
+        <p>The WebDriver protocol consists of rules for communication between the client on the local end, – which uses languages and libraries like Java, Ruby, Python, or JavaScript – and a web browser. The local end (your computer) communicates with the remote end node on the server side. The web driver defines how the remote end can behave, and the method for how the remote end receives information. As an example, the Selenium WebDriver provides instructions to the browser on how to click or type into elements on a page. This is then communicated to specific browser drivers, such as Chromedriver (for the Chrome browser) or Geckodriver (for the Firefox browser) and the commands are carried out.</p>
+<p>The code that Selenium provides to you as a developer (as libraries) is called a Selenium language binding. It binds together the Python code you write for actions and tests with things that WebDriver can understand.</p>
+<p><img alt="Selenium Diagram" style="width: 550.00px" src="img/fbaa51ff62598d6f.png">`</p>
+<p>Python uses the driver method to interact with Selenium. When you use it, you instantiate a web driver, and then you have access to methods allowed by the web driver. Selenium uses the driver to automate and manipulate elements in the browser. Some examples of drivers include Chromedriver for the Chrome browser or Geckodriver for the Firefox browser.</p>
+<p>The Pytest dependencies are a set of Python library/package that allow you to communicate with Selenium and run unit tests. It also helps orchestrate test execution. The <a href="https://selenium-python.readthedocs.io/installation.html#downloading-python-bindings-for-selenium" target="_blank">Python language binding</a>, which are Selenium WebDriver methods written in python, allow you to leverage the features specified by the W3C WebDriver protocol.</p>
+<h3 is-upgraded>Quiz</h3>
+<iframe class="embedded-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSf_99aRNED76XGNnhRkIvQJZ1oh_ONVfQHvRw2kb6V2xsgO9A/viewform?embedded=true"></iframe>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="1.04 Test Frameworks and Dependencies" duration="5">
+        <p>A test framework includes code libraries as well as rules and conventions for setting up tests. When it comes to testing frameworks, there are three basic pieces that go into creating a framework.</p>
+<p><strong>Test Runner –</strong> A library or tool that takes the tests you write, along with settings you have configured in your tests, and executes them. It orchestrates the execution of the tests, controlling what is run when and in what order. For this course, we will be using the Pytest test runner.</p>
+<p><strong>Robot –</strong> Performs the actual actions on the browser. In this case, Selenium is the robot used to perform the interactions. It is a protocol that tells the browser to locate elements and perform actions on a page.</p>
+<p><strong>Reporting –</strong> This is the mechanism for providing information to the humans who have run the automated tests. It provides a summary of test activities and results.</p>
+<p>A good framework combines best practices for structuring and writing code, along with structure for how data is handled and stored, enabling you to write test code that is reusable and will have less need for maintenance.</p>
+<p>Frameworks provide both tools and guidelines for creating and designing test suites. They can include coding standards, test-data handling methods, Page Object Models, processes for storing test results, and information on how to access external resources.</p>
+<p>So far, you&#39;ve learned a bit about how the code on your end communicates with the W3C WebDriver using Selenium. This isn&#39;t the whole picture, however. There are other tools that enable you to write and implement test code. Usually, runners and frameworks are used alongside the base programming language that help give structure, create commands, manage and organize files, store data, and more. In this course, we will use Python and methods with ——– and Selenium to write our tests.</p>
+<p class="image-container"><img alt="Framework Diagram" style="width: 650.00px" src="img/e2e2c43dbc4a0c63.png"></p>
+<p>Above is an example of how you might connect a framework with the Selenium grid that then executes tests with the Selenium WebDriver.</p>
+<p>In the exercises that follow, you will learn more about the different tools you use when you write code, and the roles that the different elements play in your test suites and the execution of tests will become more clear.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="1.05  Installing Dependencies" duration="15">
+        <p>You will need several dependencies dependencies in order for our test to run as planned, and now we will get set up to do that. In this module, you&#39;re going to install a program called Homebrew, which will help install Python version 3 and manage it&#39;s dependencies.</p>
+<p>If you are installing Python on a Widows or Linux machine, you can follow the instructions found on <a href="https://docs.python-guide.org/starting/installation/" target="_blank"><em>The Hitchikers Guide to Python</em></a>.</p>
+<h3 is-upgraded>NOTE</h3>
+<p>The easiest way to install Python dependencies on Mac is to enlist the help of another tool called <a href="https://brew.sh/" target="_blank">Homebrew</a>. Homebrew makes it easier to install and keep other files and software up to date on your machine. To install brew, copy and paste the command on there into your terminal:</p>
+<pre><code>/bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&#34;
+</code></pre>
+<p>If you type <code>brew info</code> in your terminal, and you have homebrew installed correctly, you should see something like this:</p>
+<p class="image-container"><img alt="Pencil" style="width: 350.00px" src="img/1708d5cc72456360.png"></p>
+<p>The Homebrew installation should also update the PATH variable when you install it, so other programs on your computer know how to access <code>brew</code> commands</p>
+<p>–</p>
+<h2 is-upgraded>Install Python</h2>
+<p>Once you have <a href="https://brew.sh/" target="_blank">Homebrew</a> installed, it&#39;s easy to install python by typing this command into your terminal:</p>
+<pre><code>$ brew install python
+</code></pre>
+<p>The nice thing about Homebrew is that it will automatically download the the latest version of Python, as well as update dependencies for Python 2.7, which is automatically installed on Mac. You shouldn&#39;t, however use Python version 2.7 for your test code as it&#39;s no longer supported.</p>
+<p class="image-container"><img alt="Selenium Computer" style="width: 550.00px" src="img/2788b91d67bd0966.png"></p>
+<p>Homebrew may have updated several versions of Python. You can check which version you are using by typing</p>
+<pre><code> python --version
+</code></pre>
+<p>Since you may have other versions on your machine, you will want to specify which version to use with your tests, you will want to type in the command to get :</p>
+<pre><code>python3
+</code></pre>
+<p>This will take you into the interface that will allow you to interact and write programs on the Python interpreter.</p>
+<p class="image-container"><img alt="Selenium Computer" style="width: 450.00px" src="img/35d8437b98bd5cbc.png"></p>
+<p>You can exit the python interpreter by typing <em>control + D</em>  or typing in your terminal:</p>
+<pre><code>quit()
+</code></pre>
+<p>Next, create a project folder and install pip3so that later on we can install other dependencies. The dependencies include the Selenium Webdriver, web drivers that communicate with different browsers (such as chromium), as well as other frameworks and libraries.</p>
+<h2 is-upgraded>Install PyCharm</h2>
+<p>In order to write and edit your test code, you will need an  <strong>I</strong>ntegrated <strong>D</strong>evelopment <strong>E</strong>nvironments (IDE) to edit code and manage your project. <a href="https://www.jetbrains.com/pycharm/" target="_blank">Pycharm</a> is a good option for this. Download and install the community version for this project.</p>
+<p><img alt="PSelenium Diagram" style="width: 550.00px" src="img/6e81030efbbf5dfc.png">`</p>
+<h2 is-upgraded>Install Pip</h2>
+<p>The first thing you will need is the standard package manager for Python. It allows you to install and manage tools and libraries that don&#39;t come with the regular Python package you installed. When you installed the python package above, a version of pip, called <code>pip3</code> was installed. Check that you have it on your machine by typing:</p>
+<pre><code>pip3 --versions
+
+</code></pre>
+<p>You should see an output like this:</p>
+<p class="image-container"><img alt="PIP 3" style="width: 550.00px" src="img/7fb3feced978136a.png"></p>
+<p>#### NOTE  If you don&#39;t have pip3 installed, or you are using an older version of Python, you may want to check to see if you have pip3installed by typing <code>pip3--version</code> into your terminal. You can also <a href="https://pip.pypa.io/en/latest/installing/" target="_blank">use this website</a>  get get pip3installed. It&#39;s not recommended that you use Python 2.7 and pip, as it&#39;s not supported, but it may be a reason <code>pip3</code>  isn&#39;t working.</p>
+<p>–</p>
+<h2 is-upgraded>Install Libraries from PyPI</h2>
+<p>While the Python standard library come well equipped with many of the things you will need, the Python community is constantly adding new and useful tools which can be found in the Python Package Index, or <a href="https://pypi.org/" target="_blank">PyPI</a>. We will install the following libraries by typing each of the following into your terminal:</p>
+<pre><code>pip3 install pytest
+</code></pre>
+<pre><code>pip 3 install pytest-randomly
+</code></pre>
+<pre><code>pip3 install pytest-xdist
+</code></pre>
+<pre><code>pip3 install Selenium
+</code></pre>
+<p>For each of these installs you should see the processes processing an output on the terminal, and a success message for each:</p>
+<p class="image-container"><img alt="PIP 3" style="width: 450.00px" src="img/fd063c5cab08dc27.png"></p>
+<h2 is-upgraded>Install A Virtual Environment</h2>
+<p>Since there may be more than one version of Python on your machine (being used by different software for different purposes) we want to create a sandbox environment where you can run your tests written for the latest version of Python where you can set up all the dependencies use with that version of Python.</p>
+<p>You can install the virtual environment by typing the following command into your terminal:</p>
+<pre><code>python3 -m venv venv3
+</code></pre>
+<p>Next, run the command to start the virtual environment:</p>
+<pre><code>source venv3/bin/activate
+</code></pre>
+<p>In your terminal, you should see the following to indicate that the venv3 environment is running. This environment allows you to run Python 3 and the related dependencies, without the problems of getting mixed up with dependencies meant for other versions of Python.</p>
+<p class="image-container"><img alt="PIP 3" style="width: 350.00px" src="img/ebf50c23b20c7ae0.png"></p>
+<p>If you type in <code>python --version</code> you will now see that you have Python 3 running on your machine, in the virtual environemtn.</p>
+<p class="image-container"><img alt="PIP 3" style="width: 350.00px" src="img/c89b626ee2ae6ad7.png"></p>
+<p>You will have to run the command <code>source venv3/bin/activate</code> run the command to start your virtual environment any time you would like to run tests outside of the PyCharm IDE. You can then enter the directory your test suite is kept, and run the command <code>pytest</code>.</p>
+<p>To exit the virtual environment in your terminal, type <code>deactivate</code>.</p>
+<h2 is-upgraded>Dependency Overview</h2>
+<p><strong>Python–</strong> A dynamically-typed, interpreted language used in conjunction with libraries like Pytest that allow you to run tests on all parts of an application.</p>
+<p><strong>Pip3 Package Manager –</strong> Manages other required dependencies, installing and managing tools and libraries from cloud repositories like <a href="https://pypi.org/" target="_blank">PiPY</a>.</p>
+<p><strong>Pytest Test Runner –</strong> An open-source tool that executes the test with commands that allow you to do things like run tests in parallel, run specific sets of tests, and more.</p>
+<p><strong>PyCharm IDE –</strong> This tool helps with the writing, debugging, and organization of your code. It includes features that make your code easier to read and organize, start a virtual environment, as well as update dependencies and run test all in one tool.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="1.06 Project Directory Setup" duration="0">
+        <h2 is-upgraded>Create a Project Directory</h2>
+<p>If you have never used an IDE like Pycharm, I highly recommend you read the docs, and <a href="https://www.jetbrains.com/help/pycharm/quick-start-guide.html#ui" target="_blank">take a look</a> at what the different tools are that exist in the window.</p>
+<p>The first thing we will need to do is create a project directory. Open up PyCharm and choose the location on your local machine for your project. Name the project folder <strong>SeleniumPython</strong></p>
+<p class="image-container"><img alt="PIP 3" style="width: 550.00px" src="img/f7eaaed9385e8d78.png"></p>
+<p>You will want to make sure you have the following options chosen:</p>
+<ol type="1">
+<li>You have chosen the <strong>Location</strong> on you Machines file directory and typed <strong>SeleniumPython</strong> at the end for the name of you Python Test suite.</li>
+<li>You chose a <strong>New environment using Virtualenv</strong>, located within the <strong>SeleniumPython</strong> directory you just created.</li>
+<li>Check the box to <strong>Inherit global site-packages</strong>.</li>
+</ol>
+<p>It&#39;s up to you if you want to create a <code>main.py</code> welcome script, you will delete it later.</p>
+<p>Click <strong>Create</strong> and you should see a project like this:</p>
+<p class="image-container"><img alt="Create file" style="width: 650.00px" src="img/9b7506b1a8b3f5c2.png"></p>
+<p>If you have a <code>main.py</code> file, then right click on it in the Projects tool window, choose delete and perform a safe delete</p>
+<p class="image-container"><img alt="Safe delete" style="width: 550.00px" src="img/cd1286c4029b66f1.png"></p>
+<p>Right click on the main Seleniun Python project folder and choose <strong>New &gt; DIrectory</strong> Name it <code>tests</code>.</p>
+<p class="image-container"><img alt="new directory" style="width: 550.00px" src="img/3a434a8f5c8af0d2.png"></p>
+<p>Right click on the <code>tests</code> directory you created and choose <strong>New &gt; Python File</strong>. Name the file <code>login_test</code>.</p>
+<p class="image-container"><img alt="New python file" style="width: 550.00px" src="img/16596f75317c820f.png"><img alt="login test" style="width: 350.00px" src="img/f8799b762e7b03bc.png"></p>
+<p>Last, you are going to add a requirements file that woeks with <code>pip3</code> install, update, and manage the dependencies. In the top level <strong>SeleniumJava</strong> directory right click and choose <strong>New &gt; File</strong> and name it <code>requirements.txt</code></p>
+<p class="image-container"><img alt="New file" style="width: 550.00px" src="img/9cf0a488b61488f4.png"><img alt="requirements.txt" style="width: 350.00px" src="img/81c22c2f1851601d.png"></p>
+<p>Double click to open this file in the editor window, and copy-paste in the following:</p>
+<pre><code>selenium==3.14.0
+sauceclient&gt;=0.2.1
+pytest==4.4.0
+pytest-xdist
+pytest-randomly
+</code></pre>
+<p>You should now have a project directory that looks like this:</p>
+<p class="image-container"><img alt="requirements.txt" style="width: 750.00px" src="img/a115155e9d4fdf59.png"></p>
+<h2 is-upgraded>The Requirements File</h2>
+<p>This repository contains a file called <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/python/Mod1/1.05/requirements.txt" target="_blank">requirements.txt</a> that can be used in the PyCharm IDE to automatically install the dependencies from the previous lesson, and make sure they are available in this particular virtual environment. All you need to do is open the terminal in the PyCharm IDE and type in the command:</p>
+<pre><code> pip3install -r requirements.txt
+</code></pre>
+<p>Some of the dependencies, such as pytest might need updating to the latest version.</p>
+<p class="image-container"><img alt="PIP 3" style="width: 750.00px" src="img/ea6d41a4ffc2845.png"></p>
+<h2 is-upgraded>Use GitHub Repository (Optional)</h2>
+<p>If you are familiar with using GitHub to write your code, you can fork/ branch this repository here for the first set of code:</p>
+<p><a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod1/1.05" target="_blank"><strong>Module 1 Project Directory</strong></a></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="1.07 Editing Code and Python Summary" duration="10">
+        <p>Take a look at the first test code we will be creating in the next module inside the file <code>test-login.py</code>. There are several things at play:</p>
+<pre><code># filename: tests/login_test.py
+import pytest
+import os
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+@pytest.fixture
+def driver(request):
+    _chromedriver= os.path.join(os.getcwd(), &#39;vendor&#39;, &#39;chromedriver&#39;)
+    if os.path.isfile(_chromedriver):
+        driver_ = webdriver.Chrome(_chromedriver)
+
+    else:
+        driver_ = webdriver.Chrome()
+
+    def quit():
+        driver_.quit()
+
+    request.addfinalizer(quit)
+    return driver_
+
+
+def test_valid_credentials(driver):
+    driver.get(&#34;http://the-internet.herokuapp.com/login&#34;)
+    driver.find_element(By.ID, &#34;username&#34;).send_keys(&#34;tomsmith&#34;)
+    driver.find_element(By.ID, &#34;password&#34;).send_keys(&#34;SuperSecretPassword!&#34;)
+    driver.find_element(By.CSS_SELECTOR, &#34;button&#34;).click()
+
+</code></pre>
+<h2 is-upgraded>Python Methods</h2>
+<p><strong>os</strong> – The imported <a href="https://docs.python.org/3/library/os.html" target="_blank"><code>os</code> module</a> allows Python to interact with the operating system that the tests are running on. In this case getting the filepath (<code>os.path</code>) from the current working directory and appending <code>/vendor/chromedriver</code> to provide a path to the Chromedriver file that will instantiate a webdriver for the test.</p>
+<p><strong>def</strong> – The keyword that defines a function in Python.</p>
+<h2 is-upgraded>Pytest Methods</h2>
+<p><strong>[test_*]–</strong> By naming the <a href="https://docs.pytest.org/en/stable/" target="_blank">method test_*</a>, Pytest will know it&#39;s a test method and execute it accordingly. The current code only contains Selenium commands to locate elements on the page, but Pytest also provides <code>assertions</code>.</p>
+<p><strong>Fixture</strong> – The <a href="https://www.tutorialspoint.com/pytest/pytest_fixtures.htm" target="_blank">fixture</a> is a type of function are run before a test, and provides input, or data to the test you choose to run(<code>test_valid_credentials</code>). In this case it is providing the information about the driver to the <code>driver</code> method. Fixtures help define when you should (and should not) use certain methods defined in a function by passing the fixture function in as a parameter.</p>
+<p><strong>Assert</strong> – Not used yet in this code sample, however <a href="https://docs.pytest.org/en/3.0.2/assert.html" target="_blank">assertions</a> are important to check is elements are present (<code>assert true&#39; or &#39;false</code>), or if the outcome to a certain action has a certain value. (<code>assert a == b</code>)</p>
+<h2 is-upgraded>Selenium Elements</h2>
+<p><strong>Driver</strong> – To create an instance of Selenium we call <code>webdriver.Chrome()</code> and store the response in a variable. Since the name of the method is already driver, we refer to this variable as <code>driver_</code>.</p>
+<p><strong>driver.get(), driver.findElement, etc. –</strong> The driver variable instantiates a WebDriver session/ object, and you can combine Python commands with these driver commands.</p>
+<p><a href="https://artoftesting.com/difference-between-driver-close-and-driver-quit-command-in-selenium-webdriver" target="_blank"><strong>Driver.quit</strong></a><strong> –</strong> An important Selenium command to use within <strong>quit()</strong> annotations, this closes any browser windows that may be open and terminates the WebDriver session.</p>
+<p>You can see an example of the project we will begin to be setting up in the next module <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/python/Mod2/2.05/tests/login_test.py" target="_blank">here.</a></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="1.08 Module 1 Quiz" duration="3">
+        <iframe class="embedded-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfGvau9FXl3laJq0BD6kTJLdj7yfkg8tRrnCIGno3KQBWg9bw/viewform?embedded=true"></iframe>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

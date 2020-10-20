@@ -1,0 +1,291 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Module 1- Introduction to Selenium with Java</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid="UA-6735579-1"
+                  id="../site/codelabs/Module1-SeleniumJava"
+                  title="Module 1- Introduction to Selenium with Java"
+                  environment="web"
+                  feedback-link="https://forms.gle/CGu4QchgBxxWnNJK8">
+    
+      <google-codelab-step label="1.01 What You&#39;ll Learn" duration="3">
+        <ul>
+<li>Learn to install and use Selenium WebDriver in conjunction with Java tools (IntelliJ and Maven) to write tests.<br></li>
+<li>Use Maven and IntelliJ to compile and run tests and manage dependencies on your machine</li>
+<li>Use the Selenium WebDriver in conjunction with a Java test runner (JUnit) to write tests</li>
+<li>Understand what the Selenium WebDriver is and the basics of how it is used to automate testing</li>
+<li>Understand the role a test runner, such as JUnit, plays in creating tests</li>
+<li>Differentiate between the Selenium language bindings and the web drivers for different browsers</li>
+<li>Know how Maven manages and updates packages and tools used for Selenium testing in Java</li>
+<li>Explain how Selenium bindings, web drivers, and JUnit work together to create tests and test suites</li>
+<li>Understand that good tests are atomic: They have tests grouped by functionality and are named descriptively. Good tests also use test runners, and are maintained in version control systems.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="1.02 What is Selenium?" duration="5">
+        <p>Selenium is an open source tool used for automating testing of web applications. Without  automated testing, each time a web application was updated, a human would have to go onto the website and try various combinations of clicks, interactions, and submissions. If you  automate your testing with a tool like Selenium, when an update is made, you can write and run tests with the &#34;robot&#34; that is Selenium, which performs programmed sets of interactions for you to test new features and functionality before an updated version of a web app is released into the wild.</p>
+<p class="image-container"><img alt="Automation bot" style="width: 200.00px" src="img/b21839a1687a814.png"></p>
+<p>Selenium is a robotic testing tool, not a framework. It expresses no judgement, nor does it help you test. In order to orchestrate how tests are run, and report on the things that Selenium does, you need a framework, which will be covered later on.</p>
+<h2 is-upgraded>The Seven Basic Steps of Selenium Tests</h2>
+<p>There are seven basic elements of a Selenium test script, which apply to any test case and any application under test (AUT):</p>
+<ol type="1">
+<li>Create a WebDriver instance.</li>
+<li>Navigate to a Web page.</li>
+<li>Locate an HTML element on the Web page.</li>
+<li>Perform an action on the HTML element.</li>
+<li>Anticipate the browser response to the action.</li>
+<li>Run tests and record test results using a test framework.</li>
+<li>Conclude the test.</li>
+</ol>
+<p>The Selenium Grid allows you to run parallel tests on multiple combinations of machines (Mac, Windows, or Unix-based systems) using multiple web browsers (versions of Chrome, Edge, Firefox, or Safari). These different machines can exist virtually on a server in a cloud environment, or as a network of real devices. JSON is used to communicate test requirements and route those requirements to different nodes, which have different environments to test on.</p>
+<p class="image-container"><img alt="Selenium Computer" style="width: 350.00px" src="img/67fdd10360c35b36.png"></p>
+<p>The <a href="https://saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link" target="_blank">Sauce Labs</a> platform enables you to use a Selenium Grid at scale to run thousands of tests at once, on our suite of different test environments in the cloud. Sauce also has a robust dashboard for easy viewing of test outcomes and increased velocity of debugging tests. This dashboard includes tracking of errors and even a visual record of what occurred in different environments.</p>
+<p>As your test suite grows, your test runs will take longer to complete. To speed them up, you will want to run them in parallel, which is where the benefit of having your own servers or using a cloud provider comes in – that, and the ability to have numerous browser and operating system combinations to run your tests on.</p>
+<p>This course focuses on the fourth version of Selenium, which supports communication via the W3C WebDriver protocol. All modern web browsers are also built in compliance with this protocol (a set of rules on how to communicate), which means Selenium 4 can be used with any programming language and any browser and OS combination in your environment. With the W3C protocol, you can discover and manipulate elements on a page in order to test their functionality.</p>
+<p>Selenium is really good at a specific set of things. If you know what those are and stick to them, then you can easily write reliable, scalable, and maintainable tests that you and your team can trust.</p>
+<h2 is-upgraded>What Selenium Is and Is Not Good At</h2>
+<p>Selenium is built to automate browsers and human interaction with them. This can include things like navigating to pages, clicking on elements, typing text into input fields, etc.</p>
+<p>It is less ideal for checking lower-level functionality, like HTTP status codes or HTTP headers. While you can use Selenium this way, it requires third-party tools.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="1.03 What is the W3C WebDriver Protocol?" duration="5">
+        <p>The WebDriver protocol consists of rules for communication between the client on the local end, – which uses languages and libraries like Java, Ruby, or JavaScript – and a web browser. The local end (your computer) communicates with the remote end node on the server side. The web driver defines how the remote end can behave, and the method for how the remote end receives information. As an example, the Selenium WebDriver provides instructions to the browser on how to click or type into elements on a page. This is then communicated to specific browser drivers, such as Chromedriver (for the Chrome browser) or Geckodriver (for the Firefox browser) and the commands are carried out.</p>
+<p>The code that Selenium provides to you as a developer (the libraries) is called a Selenium language binding. It binds together the Java code you write for actions and tests with things that WebDriver can understand.</p>
+<p><img alt="PSelenium Diagram" style="width: 450.00px" src="img/fbaa51ff62598d6f.png">`</p>
+<p>Java uses the driver method to interact with Selenium. When you use it, you instantiate a web driver, and then you have access to methods allowed by the web driver. Selenium uses the driver to automate and manipulate elements in the browser. Some examples of drivers include Chromedriver for the Chrome browser or Geckodriver for the Firefox browser.</p>
+<p>JUnit is a Java library/package that allows you to communicate with Selenium and run unit tests. It also helps orchestrate test execution. This Java language binding (Selenium WebDriver methods written in Java) allows you to leverage the features specified by the W3C WebDriver protocol.</p>
+<h3 is-upgraded>Quiz</h3>
+<iframe class="embedded-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSeVipqyrEAf1oDn8zaKStANDRQ94Ih6ZevtpZTrA9dqL39rLA/viewform?embedded=true"></iframe>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="1.04 Test Frameworks and Dependencies" duration="5">
+        <p>A test framework includes code libraries as well as rules and conventions for setting up tests. When it comes to testing frameworks, there are three basic pieces that go into creating a framework.</p>
+<p><strong>Test Runner –</strong> A library or tool that takes the tests you write, along with settings you have configured in your tests, and executes them. It orchestrates the execution of the tests, controlling what is run when and in what order. For this course, we will be using the JUnit test runner.</p>
+<p><strong>Robot –</strong> Performs the actual actions on the browser. In this case, Selenium is the robot used to perform the interactions. It is a protocol that tells the browser to locate elements and perform actions on a page.</p>
+<p><strong>Reporting –</strong> This is the mechanism for providing information to the humans who have run the automated tests. It provides a summary of test activities and results.</p>
+<p>A good framework combines best practices for structuring and writing code, along with structure for how data is handled and stored, enabling you to write test code that is reusable and will have less need for maintenance.</p>
+<p>Frameworks provide both tools and guidelines for creating and designing test suites. They can include coding standards, test-data handling methods, Page Object Models, processes for storing test results, and information on how to access external resources.</p>
+<p>So far, you&#39;ve learned a bit about how the code on your end communicates with the W3C WebDriver using Selenium. This isn&#39;t the whole picture, however. There are other tools that enable you to write and implement test code. Usually, runners and frameworks are used alongside the base programming language that help give structure, create commands, manage and organize files, store data, and more. In this course, we will use JUnit annotations and methods with Java and Selenium to write our tests.</p>
+<p class="image-container"><img alt="Framework" style="width: 650.00px" src="img/ad3127dc408f995f.png"></p>
+<p>Above is an example of how you might connect a framework with the Selenium grid that then executes tests with the Selenium WebDriver.</p>
+<p>In the exercises that follow, you will learn more about the different tools you use when you write code, and the roles that the different elements play in your test suites and the execution of tests will become more clear.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="1.05  Installing Dependencies" duration="15">
+        <p>Download and install <a href="https://www.jetbrains.com/idea/download/#section=mac" target="_blank">IntelliJ IDEA Community Edition</a>, a free version of the  IDE. It includes the entire ecosystem that you&#39;ll need, tools to test and debug your code, and a sandbox environment that includes Java and Maven.  This tool makes it easy to download and include the Java Development Kit and that makes the basis for your code, as well as the Maven build tool.</p>
+<p><strong>Java –</strong> A high-level, statically typed language that needs to be compiled to machine language before you are able to run Selenium tests locally or in the cloud. Java is the foundational programming language that the test runner is built on, and can include Selenium and JUnit commands.</p>
+<p><strong>Maven –</strong> Manages other required dependencies, as well as builds any application code you create. Maven helps organize and perform the tasks needed to build and execute your test suite.</p>
+<p><strong>JUnit –</strong> An open-source, Java-based framework used primarily to create unit tests. This tool includes an assertion library used to write tests, as well as annotations that allow you to run test methods (instead of building them out yourself).</p>
+<p><strong>IntelliJ IDE &amp; Debugger –</strong> This tool helps with the writing, debugging, and organization of your code. This includes features that make your code easier to read and organize. IntelliJ  provides  an interface where you can interact with other tools, such as Maven and JUnit, as well as test and debug code.</p>
+<h2 is-upgraded>Install JDK and Maven Globally</h2>
+<p>Even though you can use Maven and Java from within IntelliJ without installing it on your machine, you should install Maven and Java on your machine so that you can run tests you write outside of IntelliJ.</p>
+<h3 is-upgraded>Note</h3>
+<aside class="warning"><p>These instructions are for a MacOS operating system. If you are using another system, use the <a href="https://github.com/saucelabs-training/demo-java/blob/master/docs/prerequisites.md#install-maven" target="_blank">documents here for setup instructions</a>.</p>
+</aside>
+<p>Check and see if you have a JDK (Java Development Kit) installed on your computer by opening terminal and typing <code>echo $JAVA_HOME.</code></p>
+<p>If no file path is shown, you need to install Java and set the environment variable with the file path to access it.</p>
+<p>Go to <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">the JDK downloads</a> page, locate the latest release, select the download button for the .dmg file.</p>
+<p class="image-container"><img alt="JDK Download" style="width: 350.00px" src="img/6003476ea7c3aa03.png"></p>
+<p>Open the file then unzip it</p>
+<ul>
+<li>Once the file is  double clicked &amp; open, then follow the installation instructions.</li>
+</ul>
+<p class="image-container"><img alt="JDK Install" style="width: 350.00px" src="img/5b17b15ff7519ebd.png"></p>
+<h2 is-upgraded>Install Maven</h2>
+<p>Download the latest version of the<code>.tar.gz</code> file from here: (<a href="https://maven.apache.org/download.cgi" target="_blank">https://maven.apache.org/download.cgi</a>)</p>
+<p>Move the zipped file to your Applications folder.</p>
+<p class="image-container"><img alt="JDK Directory" style="width: 350.00px" src="img/76d77717fa0df55e.png"></p>
+<p>In terminal, open the file in your downloads directory in terminal and run the command:</p>
+<pre><code>`tar xzvf apache-maven-3.6.3-bin.tar.gz`.
+</code></pre>
+<p>(Replace <code>maven-3.6.3-bin.tar.gz</code> with the version you downloaded.)  This will unzip the project file.</p>
+<p>Next, you will need to <a href="https://medium.com/macoclock/how-to-create-delete-update-bash-profile-in-macos-5f99999ed1e7" target="_blank">update your bash profile</a> to tell your computer where to look for files that you will need to run your test (Maven and Java).</p>
+<p>Open your <code>.bash_profile</code>in your user directory (if you are running MacOS Catalina 10 or above, update the<code>.zshrc</code>), and add in the following environment variables.</p>
+<pre><code>//filename: userdirectory/.bash_profile
+##Java Home path
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+##Maven Env Variables
+export M2_HOME=$HOME/Applications/apache-maven-&lt;version&gt;
+export M2=$M2_HOME/bin
+
+##Add to PATH variable
+export PATH=$M2:$JAVA_HOME/bin:$PATH
+</code></pre>
+<h2 is-upgraded>NOTE</h2>
+<aside class="warning"><p>The version of the apache-maven variable needs to reflect which version you downloaded. For example, if you downloaded maven version 3.6.3, it would read <code>export M2_HOME=$HOME/Applications/apache-maven-3.6.3</code></p>
+</aside>
+<p>–</p>
+<p>From the terminal, inside of your project folder (or in the IntelliJ IDEA),run the command <code>source ~/.bash_profile</code> (if you are running MacOS Catalina 10 or above, run <code>source  ~/.zshrc</code>) from the terminal inside of your project folder (or in the IntelliJ IDEA) so your machine knows to look at the .<code>bash_profile</code>for where to access Java and Maven (setting the <code>HOME</code>variables)</p>
+<h2 is-upgraded>Install IntelliJ</h2>
+<p>On the <a href="https://www.jetbrains.com/idea/download/#section=mac" target="_blank">IntelliJ page</a>, download the IntelliJ IDEA community edition.</p>
+<p class="image-container"><img alt="IntelliJ IDEA" style="width: 350.00px" src="img/30fedd06f2de005f.png"></p>
+<p>Open the .msi  or .dmg file, and then install it as an application.</p>
+<h2 is-upgraded>Create a New Project Directory with IntelliJ</h2>
+<p>Use IntelliJ to create a new project directory. Click on <strong>Create New Project.</strong></p>
+<p class="image-container"><img alt="IntelliJ Project" style="width: 350.00px" src="img/529107169b797a6a.png"></p>
+<p>In the left panel, select <strong>Maven</strong> as your build tool.</p>
+<p class="image-container"><img alt="IntelliJ Maven Build" style="width: 350.00px" src="img/ee6eace9a9b4e246.png"></p>
+<p>We will download JDK (Java Development Kit) and choose the latest version. This will download that JDK in the IntelliJ environment.</p>
+<p class="image-container"><img alt="IntelliJ JDK" style="width: 350.00px" src="img/22c6e203c69baf8b.png"></p>
+<p><em>Skip creating from an archetype</em></p>
+<p>If you leave the **Location **blank, it will create this project in the root user folder. You can add in another directory name if you wish.  Our project will be called SeleniumJava.</p>
+<p class="image-container"><img alt="Selenium Project Directory" style="width: 350.00px" src="img/eae4c9f3a0c97df2.png"></p>
+<p>If you look in the project file, you should notice that there is a <strong>pom.xml</strong> file in the directory, the <code>pom.xml</code>file is used with Maven to configure dependencies and project features.</p>
+<p class="image-container"><img alt="pom.xml" style="width: 350.00px" src="img/2a8249a5907dd560.png"></p>
+<h2 is-upgraded>Update .pom File</h2>
+<p>For now, update the .pom file with the following dependencies. Maven will install and use these dependencies alongside the test code. Note that the versions may be out of date and you may want to use a more updated version of JUnit, Selenium, or Selenium drivers.</p>
+<pre><code>?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
+&lt;project xmlns=&#34;http://maven.apache.org/POM/4.0.0&#34;
+         xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;
+         xsi:schemaLocation=&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;groupId&gt;org.example&lt;/groupId&gt;
+    &lt;artifactId&gt;SeleniumJava&lt;/artifactId&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+    &lt;name&gt;SeleniumJava Course Code&lt;/name&gt;
+    &lt;description&gt;An example project to be used along with the Sauce labs Selenium with Java course using IntelliJ IDE, JUnit test runner.
+    &lt;/description&gt;
+
+    &lt;properties&gt;
+        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;4.12&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+            &lt;artifactId&gt;selenium-java&lt;/artifactId&gt;
+            &lt;version&gt;4.0.0-alpha-1&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+            &lt;artifactId&gt;selenium-chrome-driver&lt;/artifactId&gt;
+            &lt;version&gt;3.141.59&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+                &lt;version&gt;3.0&lt;/version&gt;
+                &lt;configuration&gt;
+                    &lt;source&gt;1.9&lt;/source&gt;
+                    &lt;target&gt;1.9&lt;/target&gt;
+                &lt;/configuration&gt;
+            &lt;/plugin&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+                &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+                &lt;configuration&gt;
+                    &lt;parallel&gt;methods&lt;/parallel&gt;
+                    &lt;threadCount&gt;40&lt;/threadCount&gt;
+                &lt;/configuration&gt;
+                &lt;version&gt;2.22.0&lt;/version&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+
+&lt;/project&gt;
+</code></pre>
+<p>This sets up all the dependencies, however, you may need to research to make sure you have the most updated or correct version of these dependencies. Each <code>&amp;lt;dependency&gt; &amp;lt;version&gt;</code>may need to be updated. See the section below for more details.</p>
+<p>–</p>
+<h2 is-upgraded>NOTE</h2>
+<aside class="warning"><p>How to Find Dependencies Using IntelliJ Video: If your .pom file doesn&#39;t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out.</p>
+</aside>
+<ol type="1">
+<li>Hover over a red word in IDE</li>
+<li>Click the red light bulb to import maven dependencies.</li>
+<li>Click the Maven tab and refresh.</li>
+<li>Check the .pom file to make sure the updated version was added.</li>
+<li>Words should no longer appear red in the test.java file.</li>
+</ol>
+<h3 is-upgraded>Video</h3>
+<p><a href="https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/view?usp=sharing" target="_blank">1.05_IntelliJ_Dependencies </a>– Using IntelliJ to install dependencies and update the .pom file</p>
+<h3 is-upgraded>Cheat Sheet</h3>
+<iframe class="embedded-iframe" src="https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/preview"></iframe>
+<h2 is-upgraded>Use GitHub Repository (Optional)</h2>
+<p>If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:</p>
+<p><a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod1/1.06/src/test/java/companyname/TestLogin.java" target="_blank"><strong>Module 1 Project Folder</strong></a></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="1.06 Editing Code and Java Summary" duration="10">
+        <p>Take a look at the first test code we will be creating in the next module. There are several things at play:</p>
+<p><a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod1/1.06/src/test/java/companyname/TestLogin.java" target="_blank"><strong>Module 1 Project Folder</strong></a></p>
+<p class="image-container"><img alt="IntelliJ JDK" style="width: 550.00px" src="img/c9543de1147b3523.png"></p>
+<h2 is-upgraded>Java Methods</h2>
+<p><strong>public class</strong>– A command that instantiates a Java Class.</p>
+<p><strong>private</strong> – A command used to declare a variable whose scope is to be used only within the class or method it is defined within.</p>
+<p><strong>public void</strong> – A command used to declare a method accessible to other objects in your test suite, that also does not return a value.</p>
+<p><strong>Import</strong> – A command used to allow your code to communicate with the dependencies needed.</p>
+<h2 is-upgraded>JUnit Annotations</h2>
+<p><a href="https://www.lambdatest.com/blog/tutorial-on-junit-annotations-in-selenium-with-examples/#:~:text=Automation%20%E2%80%A2%20Selenium%20Tutorial%20%E2%80%A2,your%20code%20runs%20as%20intended." target="_blank"><strong>@Before </strong></a><strong> –</strong> Used to initialize any object (test, page, etc.) and set up the test environment.</p>
+<p><strong>@Test –</strong> Communicates with the public void() method and tells it that the following statements can be run as a test case.</p>
+<p><strong>@After –</strong> The annotation that is used to tear down a test case, used at the end of every case, along with the @Before annotation.</p>
+<p><strong>assertTrue(‘Failure message&#39;, &amp;lt;Boolean condition&gt; ) –</strong> JUnit method that checks if something is true and throws an error message (passed as first parameter) if the following command returns false (second parameter).</p>
+<h2 is-upgraded>Selenium Elements</h2>
+<p><strong>driver variable with</strong> driver.get(), driver.findElement, driver.* **– The driver variable instantiates a WebDriver session/ object, and then you can use Java commands for that driver.</p>
+<p><a href="https://artoftesting.com/difference-between-driver-close-and-driver-quit-command-in-selenium-webdriver" target="_blank"><strong>Driver.quit</strong></a><strong> –</strong> An important Selenium command to use within <strong>@After</strong>s annotations, this closes any browser windows that may be open and terminates the WebDriver session.</p>
+<p>You can see an example of the project we will begin to be setting up in the next module <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod1/SeleniumJava%20copy/src/test/java/companyname" target="_blank">here.</a></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="1.07 Module 1 Quiz" duration="3">
+        <iframe class="embedded-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSd39ROQpSKm7_M0FFEuBP24cBPM_AjZ_bcbrKuMe0F31GDRcg/viewform?embedded=true"></iframe>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

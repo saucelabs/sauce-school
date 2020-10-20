@@ -1,0 +1,26 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2020-10-20T06:59:47-07:00",
+  "id": "../site/codelabs/Module4-SeleniumJS",
+  "duration": 70,
+  "title": "Module 4 – Scaling Tests to the Cloud",
+  "summary": "Module 4 of the Selenium JavaScript course. Learn to write Selenium tests in the JavaScript programming language with Mocha.",
+  "source": "/Users/caseyhald/Documents/sauce-school/codelabs/Module4_SeleniumJS.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "advanced"
+  ],
+  "tags": [
+    "javascript",
+    "web"
+  ],
+  "feedback": "https://forms.gle/CGu4QchgBxxWnNJK8",
+  "ga": "UA-6735579-1",
+  "url": "../site/codelabs/Module4-SeleniumJS"
+}

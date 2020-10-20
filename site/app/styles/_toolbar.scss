@@ -310,6 +310,11 @@
       margin-right: $keyline;
     }
   }
+  .--bottomPosition {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+  }
   .header__mobile-nav {
     position: absolute;
     width: 100%;

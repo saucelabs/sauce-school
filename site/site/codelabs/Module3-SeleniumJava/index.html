@@ -1,0 +1,735 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Module 3 — Writing Reusable Test Code</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid="UA-6735579-1"
+                  id="../site/codelabs/Module3-SeleniumJava"
+                  title="Module 3 — Writing Reusable Test Code"
+                  environment="web"
+                  feedback-link="https://forms.gle/CGu4QchgBxxWnNJK8">
+    
+      <google-codelab-step label="3.01 What You&#39;ll Learn" duration="3">
+        <p>This module is derived from content in chapters 8-10 of <em>The Selenium Guidebook: Java Edition</em> By Dave Haeffner. This module focuses on writing tests in Selenium that follow the Page Object Model (POM) for organizing test suites and abstracting imperative code into separate classes from the page and test classes. In this module, you will also add error handling to your test suite to detect and debug more easily, as well as learn about explicit and implicit waits and how they should be used.</p>
+<h2 is-upgraded>Objectives</h2>
+<ul>
+<li>Create a base page and use the simplified commands created in the base page within test code to write test that are easier to read and maintain</li>
+<li>Create tests that have separate code for the page and test objects, with pages that draw on one or more tests to perform desired actions on that specific page</li>
+<li>Add elements into your test suite for error handling, to alert test runner to common reasons for tests to fail, such as invalid credentials or failure of a page to load</li>
+<li>Apply a <code>try...catch</code>statement in your code to allow all tests to run (without throwing an exceptions that stop your test suite)</li>
+<li>Write code with explicit waits that are applied to individual actions, not entire functions or classes, and that doesn&#39;t rely on implicit waits</li>
+<li>Create a <em>facade layer</em> that separates and defines simple commands that are used by all tests and page objects</li>
+<li>Identify and fix problems in test suites such as poor locators, silent failures, and too much functionality in a single class</li>
+<li>Choose and separate imperative language into separate objects and pages, and use the simplified commands created in that class with other tests to write code that is easier to read, maintain, and declarative in nature</li>
+<li>Analyze and plan test suites, learning how to balance the size and maintainability (ability to check failed tests) against the amount of features you want to test, as well as the level of abstraction you want to use to make modular objects to use in your test suite</li>
+<li>Use the Page Object Model (POM) and create separate directories and files that are for page objects and test objects, and understand how they work together to make a full test suite</li>
+<li>Understand how the latency that naturally occurs when you test in the cloud can impact the usability of test suites, and what you can do to ensure your tests can be run in any environment</li>
+<li>Understand what implicit and explicit waits are, and the effects that occur along with latency when test suites are moved from a local machine to the public cloud.</li>
+</ul>
+<h2 is-upgraded>Base Code</h2>
+<p>If you skipped Modules 1 &amp; 2, make sure you have a project folder set up and have created the following files, as well as have Java 11, Maven, the JUnit Library, and ideally the IntelliJ IDE for this project:</p>
+<p><a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2" target="_blank"><strong>Final Module 2 Project Code</strong></a></p>
+<h2 is-upgraded>Use GitHub Repository (Optional)</h2>
+<p>If you are familiar with using GitHub to write your code, you can also fork/ branch this repository for the first set of code.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="3.02 The POM and Imperative vs. Declarative Tests" duration="8">
+        <p><strong>Pages</strong> and <strong>Test Cases</strong>. The <strong>Page</strong> classes set up and navigate items on the page, using class members to represent web elements, an <strong>Test</strong> classes perform the actual assertions and tests.</p>
+<p class="image-container"><img alt="POM Structure" style="width: 650.00px" src="img/95ca64695013327e.png"></p>
+<p>Rather than integrate the calls to Selenium directly into your test methods, you can create separate classes. The POM allows you to write your tests using user-centric language, rather than Selenium-centric language.</p>
+<p>Some general guidelines for creating page objects (or classes) include:</p>
+<ul>
+<li>Public methods represent the services that the page offers</li>
+<li>Try not to expose the internals of the page</li>
+<li>Generally don&#39;t make assertions</li>
+<li>Need not represent an entire page</li>
+</ul>
+<p>(Source: <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects" target="_blank">https://github.com/SeleniumHQ/selenium/wiki/PageObjects</a>)</p>
+<p>Different results for the same action are modelled as different methods. Using strategies like this means that when your application changes and your tests break, you only have to update your page objects in one place in order to accommodate the changes. This gives us reusable functionality across our suite of tests, as well as more readable tests.</p>
+<h2 is-upgraded>Imperative vs. Declarative Test Language</h2>
+<p><em>Imperative language</em> is language that gives you the step-by-step directions for how to do something. As an example, instead of telling someone to make a peanut butter and jelly sandwich (which is a declarative statement), imperative language would tell you to lay down two pieces of bread, spread peanut butter on one, spread jelly on the other, then put the pieces together.</p>
+<p>What is the problem with this? It doesn&#39;t give a good sense of the purpose of the task. An alien from outer space may put the sandwich together with the jelly-side facing out, since they don&#39;t know what the end result is supposed to be.</p>
+<h3 is-upgraded>Video</h3>
+<p>Take a look at this snippet of a Sauce Labs meetup talk by Titus Fortner to see an example of imperative and declarative language.</p>
+<p><a href="https://drive.google.com/file/d/1zq2JBVjFwupuq2NbsrkW5vHrIOFR3xer/view?usp=sharing" target="_blank">3.02_Imperative_Declarative</a></p>
+<iframe class="embedded-iframe" src="https://drive.google.com/file/d/1zq2JBVjFwupuq2NbsrkW5vHrIOFR3xer/preview"></iframe>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="3.03 Your First Page Object" duration="12">
+        <p>One of the biggest challenges with Selenium tests is that they can be brittle and challenging to maintain over time. This is largely due to the fact that things in the application you&#39;re testing change, like to elements that appear on the screen, or even the flow &amp; layout of your website — causing your tests to break.</p>
+<p>But the reality of a software project is that <em>change is a constant</em>. So you need to account for this reality somehow in our test code in order to be successful.</p>
+<p>Enter Page Objects.</p>
+<h2 is-upgraded>Create Page Objects</h2>
+<h2 is-upgraded>Part 1: Separate Tests and Page Objects</h2>
+<p>Let&#39;s take our login example from earlier, create a page object for it, and update our test suite structure.</p>
+<p>First we&#39;ll need to rename the <code>&amp;lt;companyname&gt;</code> folder to <code>tests</code> by right clicking on the <strong>companyname</strong> folder in IntelliJ and choosing <strong>Refactor &gt; Rename</strong>. Type in <code>tests</code>, then click the <strong>Refactor</strong> button.</p>
+<p class="image-container"><img alt="Refactor Rename" style="width: 650.00px" src="img/498c303482ca721f.png"></p>
+<p>Create a new folder by right clicking on the <strong>java</strong> folder and choosing a new <strong>package</strong>. Name it  <code>pageobjects.</code></p>
+<p class="image-container"><img alt="New Package" style="width: 650.00px" src="img/415b79f325a30ce1.png"></p>
+<p>In the new pageobjects folder, add in a new class called <code>Login.java</code> file by right clicking on the <strong>pageobjects</strong> folder.</p>
+<p class="image-container"><img alt="New Class" style="width: 350.00px" src="img/47714fc5f1b65ac5.png"></p>
+<p>When you&#39;re done, your directory structure should look like this:</p>
+<p class="image-container"><img alt="3.03 File Structure" style="width: 650.00px" src="img/e7cc89c3f96132af.png"></p>
+<p>Open<code>pageobjects</code>/<code>Login.java</code> in your text editor and add in the following code:</p>
+<pre><code>// filename: pageobjects/Login.java
+
+package pageobjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class Login {
+
+    private WebDriver driver;
+    By usernameLocator  = By.id(&#34;username&#34;);
+    By passwordLocator  = By.id(&#34;password&#34;);
+    By submitButton     = By.cssSelector(&#34;button&#34;);
+    By successMessageLocator = By.cssSelector(&#34;.flash.success&#34;);
+
+    public Login(WebDriver driver) {
+        this.driver = driver;
+        driver.get(&#34;http://the-internet.herokuapp.com/login&#34;);
+    }
+
+    public void with(String username, String password) {
+        driver.findElement(usernameLocator).sendKeys(username);
+        driver.findElement(passwordLocator).sendKeys(password);
+        driver.findElement(submitButton).click();
+    }
+
+    public Boolean successMessagePresent() {
+        return driver.findElement(successMessageLocator).isDisplayed();
+    }
+
+}
+</code></pre>
+<p>At the top of the file you specify the package where it lives and import the <code>By</code> and <code>WebDriver</code>classes from our libraries. you then declare the class <code>public class Login</code>, create variables for the four items you are using on the <a href="https://the-internet.herokuapp.com/login" target="_blank">login page</a>, and add three methods.</p>
+<p>The first method, <code>public Login(WebDriver driver),</code> is a constructor that will run whenever a new instance of the class is created. This class accesses  the Selenium driver object, and stores it in the <code>driver</code> field (so other methods can access it). Then the login page is visited (with <code>driver.get</code>).</p>
+<p>The second method, <code>public void with(String username, String password)</code>, is the core functionality of the login page. It fills in the login form and submits the data using the variables you just created. you will later put these variables in a separate class so they can be used by several page objects.</p>
+<p>The last method, <code>public Boolean successMessagePresent(,)</code> checks to see that the final success message is present on the screen after you login.</p>
+<p class="image-container"><img alt="Success Message" style="width: 650.00px" src="img/525141d41a177fb5.png"></p>
+<p>Now let&#39;s update our test to use this page object.</p>
+<h2 is-upgraded>Part 2: Update TestLogin.java to use the Page Object</h2>
+<p>Now open the file <code>tests/TestLogin.java</code> You will be adding a few things into the test so that it can work with the <code>LoginPage.js</code> file you just created.</p>
+<p>You can remove the import of the <code>By</code> class since it will now be done with the <code>Login</code> page object, you will import it from the Login page object.</p>
+<pre><code>//filename: tests/TestLogin.java
+// ...
+//import org.openqa.selenium.By;
+// ...
+</code></pre>
+<p>Next, before the <code>import static org.junit.Assert.assertTrue;</code>, add in the import statement so you can use the Login page object.</p>
+<pre><code>//filename: tests/TestLogin.java
+package tests;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import pageobjects.Login;
+import static org.junit.Assert.assertTrue;
+// ...
+</code></pre>
+<p>Within the<code>TestLogin {}</code> class in <code>TestLogin.java</code>, create a login variable using the <code>Login</code> page object:</p>
+<pre><code>//filename: tests/TestLogin.java
+// ...
+ private Login login;
+// ...
+</code></pre>
+<p>Next, edit the <code>setUp()</code>method  in the<code>@Before</code>annotation to use the driver instance using the <code>Login</code>page object, right after the Webdriver instance:</p>
+<pre><code>//filename: tests/TestLogin.java
+// ...
+login = new Login(driver);
+// ...
+</code></pre>
+<p>Now you will update your <code>succeed()</code>method. Since you did the work of retrieving <a href="https://the-internet.herokuapp.com/login" target="_blank">the-internet </a>app and locating items on the page in the<code>Login</code> page object, you can delete all of those, and use the<code>with()</code> method that was defined to enter a username and password, and also use the <code>successMessagePresent()</code>defined in the<code>Login</code> page object:</p>
+<pre><code>//filename: tests/TestLogin.java
+// ...
+@Test
+    public void succeeded() {
+//        driver.get(&#34;http://the-internet.herokuapp.com/login&#34;);
+//        driver.findElement(By.id(&#34;username&#34;)).sendKeys(&#34;tomsmith&#34;);
+//       driver.findElement(By.id(&#34;password&#34;)).sendKeys(&#34;SuperSecretPassword!&#34;);
+//        driver.findElement(By.cssSelector(&#34;button&#34;)).click();
+//        assertTrue(&#34;success message not present&#34;,
+//                driver.findElement(By.cssSelector(&#34;.flash.success&#34;)).isDisplayed());
+        login.with(&#34;tomsmith&#34;, &#34;SuperSecretPassword!&#34;);
+        assertTrue(&#34;success message not present&#34;,
+                login.successMessagePresent());
+
+    }
+
+</code></pre>
+<p>Source Code for this project can be found <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod3/3.03" target="_blank">here.</a></p>
+<h3 is-upgraded>Final Code</h3>
+<p>Your new code in <code>TestLogin.js</code> should look like this:</p>
+<p class="image-container"><img alt="First Login Code" style="width: 750.00px" src="img/4369636dcf2189ca.png"></p>
+<p>Run your test code as was shown in Module 2.03, and look for a success message:</p>
+<p class="image-container"><img alt="First Build Success" style="width: 750.00px" src="img/d703ac524a93ce82.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="3.04 Writing Code with Error Handling" duration="10">
+        <p>When you write tests, you are checking for one specific thing to occur. In the last example, you were checking for a specific situation where the user logs into the login page, enters their username and password, and then they get a message indicating their success.</p>
+<p>There is more than one reason, however, that that test can fail. The test you wrote kind of assumes that the user and server for the website did everything right, and is testing to see if the app is responding with a success message as expected. Some other reasons that the success message might not display include:</p>
+<ul>
+<li>The user enters the wrong username and/ or password</li>
+<li>The page fails to load properly in the first place</li>
+</ul>
+<p>The term _Error Handling** **_refers to creating cases that check for (predictable) unexpected outcomes or conditions so when the test is run, there are other possible errors or reasons for a failed test accounted for.</p>
+<h2 is-upgraded>Part 1: Test for Invalid Login Credentials</h2>
+<p>Creating a page object may feel like more work than what you started with initially, but it&#39;s well worth the effort; now that you have the entire process for things like the <code>with()</code> method which completes several actions with one method, you can use it over and over again in multiple tests, and only have to make changes in one place.</p>
+<p>Let&#39;s add a test that checks for a failed login to demonstrate.</p>
+<p>First, let&#39;s<a href="https://the-internet.herokuapp.com/login" target="_blank"> take a look </a>at the markup that gets rendered when you provide invalid credentials:</p>
+<p class="image-container"><img alt="Login Page Markup" style="width: 750.00px" src="img/3c266abcad75287e.png"></p>
+<p>We will use the <code>flash error</code>classes in our assertion. Open<code>Login.java</code>. Underneath the other <code>By</code> methods, You will add in a new variable underneath <code>successMessageLocator</code>:</p>
+<pre><code>//filename: pageobjects/Login.java
+// ...
+By failureMessageLocator = By.cssSelector(&#34;.flash.error&#34;);
+</code></pre>
+<p>Underneath the method<code>successMessagePresent(){}</code> add in a new method:</p>
+<pre><code>//filename: tests/TestLogin.java
+// ...
+public Boolean failureMessagePresent() {
+        return driver.findElement(failureMessageLocator).isDisplayed();
+    }
+</code></pre>
+<p>Next, go to<code>test/TestLogin.java.</code> Under the <code>@Test</code>annotation, after the <code>succeeded()</code>method,  add another annotation that says:</p>
+<pre><code>//filename: tests/TestLogin.java
+//filename: tests/TestLogin.java
+// ...
+ @Test
+    public void succeeded() {
+        login.with(&#34;tomsmith&#34;, &#34;SuperSecretPassword!&#34;);
+        assertTrue(&#34;success message not present&#34;,
+                login.successMessagePresent());
+    }
+
+// ...
+</code></pre>
+<p>Run <strong>clean</strong> and <strong>test</strong> with Maven and you should get three passing tests</p>
+<p class="image-container"><img alt="Build Success" style="width: 750.00px" src="img/2e50c039930a9d55.png"></p>
+<h3 is-upgraded>NOTE</h3>
+<aside class="warning"><p><strong>Why?</strong>  Now you have a test added into your suite that will check to see that a failure message was not present. This is important once you start running your test suites so whomever is evaluating the test results knows that a failure was because of a lack of a failure message showing up. With the<code>failed()</code> test, you are checking that it is true that you can locate the failure message on the page, otherwise the message <code>&#39;Failure message wasn&#39;t present after providing bogus credentials&#34;</code> will be returned.</p>
+</aside>
+<p>–</p>
+<h3 is-upgraded>Final Code</h3>
+<p>The updated <code>Login.java</code> code should look like this:</p>
+<p class="image-container"><img alt="Updated Login Java" style="width: 750.00px" src="img/1b00a15a7b672b8a.png"></p>
+<p>The code in <code>test/TestLogin.java</code> should look like this:</p>
+<p class="image-container"><img alt="Updated Test Login Java" style="width: 750.00px" src="img/5aae1514b668809b.png"></p>
+<h2 is-upgraded>Part 2: Check the Page</h2>
+<p>Before you can call our page object complete, there&#39;s one more addition you should make. We&#39;ll want to add a check to make sure that Selenium is on the right page before proceeding, which will in turn, add some resiliency to our tests.</p>
+<p>Before in your test suite, you&#39;ve only used assertions in your test object, but this time you will add one in the page object.</p>
+<p>In order for this to work, you need to add the elements in the following order to  <code>pages/Login.java</code>:</p>
+<ol type="1">
+<li>At the end of the list of By methods, add in:  <pre><code>//filename: pageobjects/Login.java
+// ...
+ By loginFormLocator = By.id(&#34;login&#34;);
+// ...
+</code></pre>
+</li>
+<li>Within the<code>Login()</code> method, add in an<br> <code>assertTrue()</code> method underneath the <code>driver.get</code> method:  <pre><code>//filename: pageobjects/Login.java
+// ...
+assertTrue(&#34;The login form is not present&#34;,
+            driver.findElement(loginFormLocator).isDisplayed());
+//...
+</code></pre>
+</li>
+<li>At the top of the page, at then end of list of imports, add in:  <pre><code>//filename: pageobjects/Login.java
+// ...
+import static org.junit.Assert.assertTrue;
+//...
+</code></pre>
+</li>
+</ol>
+<p>Now, each time an instance of the Login page is accessed, the test suite will check that it is in fact on the login page. An example of why you might want to do this: it could easily be the case that the URL for that page is changed, and any test that depends on that page would fail, however this test will now tell you why.</p>
+<p>If you run your code (<code>mvn clean test</code> in terminal or use the IntelliJ UI), you won&#39;t see any new tests, however know that whenever the <code>Login()</code> method is being run, it will check to see that the login form is there before other tests in <code>TestLogin.java</code> are run.</p>
+<p>See the complete <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod3/3.04" target="_blank">source code here</a>.</p>
+<h3 is-upgraded>Final Code</h3>
+<p>The code for the the login page object should now look like this:</p>
+<p class="image-container"><img alt="Updated Login Page Object Java" style="width: 750.00px" src="img/e15ed55d84a3270f.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="3.05  Common Issues with Test Code Reuse" duration="17">
+        <p>In the previous lesson, you stepped through creating a simple page object to capture the behavior of the page you were interacting with. While this is a good start, there&#39;s more you can do.</p>
+<p>As our test suite grows, and you add more page objects, you will start to see common behavior that you will want to use over and over again throughout your suite. If you leave this unchecked you will end up with duplicative code which will slowly make our page objects harder to maintain.</p>
+<p>Right now you are using Selenium actions directly in our page object. While on the face of it this may seem fine, it has some long term impacts, like:</p>
+<ul>
+<li>It can slow page creation &amp; rendering due to the way the JavaScript or other library loads things on the page</li>
+<li>You may need to update your test code (added maintenance for each page) because of updates and changes to the <a href="https://www.selenium.dev/selenium/docs/api/javascript/index.html" target="_blank">Selenium API</a></li>
+<li>The inability to swap out the driver for your tests. You may in the future, for instance, want to swap out commands in Selenium for commands in Appium (for mobile testing)</li>
+</ul>
+<p>What you will do now is set up a Base Page that will create descriptive variables and methods, then use those methods to interact with other pages. This way, if you need to swap out, say, a Selenium method for an Appium method, instead of having to do it in each and every page, you can change the BasePage.js methods to Appium-specific ones, and not have to change all of your other pages.</p>
+<h2 is-upgraded>Deleting Tests</h2>
+<p>Even though you may have grown attached to tests, it can often be a huge help to your testing suite to just delete tests that aren&#39;t worth your time. Ask yourself the following questions:</p>
+<ul>
+<li>How important is this test? (Do you really need to locate &amp; return what that button says?)</li>
+<li>How likely is this test to fail if the code changes? (High likelihood? Delete or refactor!)</li>
+<li>How likely is this test due to fail if things run slowly?</li>
+<li>How likely is this test to take up a lot of QA time figuring out why it failed?</li>
+<li>How many individual pieces of functionality does this test actually check? (if it&#39;s more than one it&#39;s time to delete or refactor it into separate tests)</li>
+</ul>
+<p>Too many tests can be an even bigger problem for a QA team than too few. Figuring out how and why a test fails takes up more time than it is worth, and impedes the feedback a dev team needs to push a feature into production. Take the time to consider the balance between testAllTheThings() © and testing efficiently and effectively, and don&#39;t be afraid to delete tests and or useless objects and start fresh.</p>
+<p class="image-container"><img alt="Bye" src="img/3685213d411cedf8.gif"></p>
+<p>Source: <a href="https://giphy.com/gifs/baby-bye-slide-m9eG1qVjvN56H0MXt8" target="_blank">Giphy</a></p>
+<h2 is-upgraded>Part 1 Create a Facade Layer</h2>
+<p>A _facade layer  _is when a page or class is created that helps you simplify the language to carry out simple commands like <code>return driver.findElement(locator);</code> or  <code>find(locator).sendKeys(inputText);</code> as well as check an assertion after, and simplify this process into a single command like<code>type()</code>or <code>find()</code> so that these methods can be easily used by the rest of the test suite. In this lesson, you are going to create a simplified interface called <code>Base.java</code>, which you will then use within our <code>LoginPage.js</code>class.</p>
+<p>First let&#39;s add a new class called <code>Base.java</code>in the<code>pageobjects</code>directory.  See Part one of module 3.03 if you need help. At this point, you can also delete<code>LocatorTest.js</code> by right clicking on it and choosing <strong>Refactor &gt; Safe Delete</strong>, as you won&#39;t be using it any longer.</p>
+<p class="image-container"><img alt="Refactor and safe delete" style="width: 550.00px" src="img/b0a34296ed8ddbf2.png"></p>
+<p>Next let&#39;s open <code>Base.java</code>in your IDE and add in the following code:</p>
+<pre><code>// filename: pageobjects/Base.java
+
+package pageobjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class Base {
+
+    private WebDriver driver;
+
+    public Base(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public void visit(String url) {
+        driver.get(url);
+    }
+
+    public WebElement find(By locator) {
+        return driver.findElement(locator);
+    }
+
+    public void click(By locator) {
+        find(locator).click();
+    }
+
+    public void type(String inputText, By locator) {
+        find(locator).sendKeys(inputText);
+    }
+
+    public Boolean isDisplayed(By locator) {
+        return find(locator).isDisplayed();
+    }
+
+}
+</code></pre>
+<p>What you have just done is declare a <code>Base</code> class along with methods for all of the common behavior you use with Selenium (<code>visit, find, click, type,</code>and<code>isDisplayed</code>). You also call an instance of the <code>Base</code> class that enables us to pass in and store an instance of the driver, so you don&#39;t have to explicitly pass it to the methods whenever you call them.</p>
+<p>Now open<code>pageobjects/Login.java</code>from the same folder, and use the base page class you just created by putting <code>extends Base</code> to the <code>public class Login</code>.</p>
+<pre><code>// filename: pageobjects/Login.java
+// ...
+
+public class Login extends Base {
+// ...
+</code></pre>
+<p>Under the<code>public Login()</code>class, change <code>this.driver = driver;</code> to <code>super(driver);</code>so it references the parent Base class, and change<code>driver.get()</code>to<code>visit()</code> from the base page.</p>
+<pre><code>// filename: pageobjects/Login.java
+// ...
+
+  public Login(WebDriver driver) {
+        super(driver);
+        visit(&#34;http://the-internet.herokuapp.com/login&#34;);
+// ...
+</code></pre>
+<p>Next, update the <code>with()</code> method to use the <code>type()</code> and <code>click()</code> methods you created in the Base class.</p>
+<pre><code>// filename: pageobjects/Login.java
+// ...
+  public void with(String username, String password) {
+        type(username, usernameLocator);
+        type(password, passwordLocator);
+        click(submitButton);
+    }
+// ...
+</code></pre>
+<p>Lastly, update the <code>successMessagePresent()</code> and <code>failureMessagePresent()</code> methods to use the <code>isDisplayed</code> method.</p>
+<pre><code>// filename: pageobjects/Login.java
+// ...
+  public Boolean successMessagePresent() {
+        return isDisplayed(successMessageLocator);
+    }
+    public Boolean failureMessagePresent() {
+        return isDisplayed(failureMessageLocator);
+    }
+
+    }
+// ...
+</code></pre>
+<p>Lastly, since the driver member is defined in the <code>Base.java</code> class, the driver member in <code>Login.java</code> can be safely deleted</p>
+<pre><code>// filename: pageobjects/Login.java
+// public class Login extends Base {
+
+       By usernameLocator = By.id(&#34;username&#34;);
+       ...
+    }
+// ...
+</code></pre>
+<p>Now much of your code has been abstracted into the facade layer called Base.java, making it easier to read, reuse, and eventually maintain.</p>
+<h2 is-upgraded>Inheriting from the Base Page</h2>
+<p>To establish inheritance, you use the<code>extends</code>keyword when declaring the class (example;<code>class Login extends Base,</code>and call<code>super</code>from the constructor, <code>super(driver)</code>. This passes the instance of the Selenium webdriver to the base page object, and makes all of the base page object&#39;s methods available to our login page object and any other page objects we eventually create).</p>
+<p>–</p>
+<p>If you save everything and run your tests they will run and pass just like before, but now our page objects are more readable, simpler to write, and easier to maintain and extend.</p>
+<h3 is-upgraded>Final Code</h3>
+<p>Your final code should look like this:</p>
+<p class="image-container"><img alt="Extend Base" style="width: 550.00px" src="img/539acf1a145aaf1b.png"></p>
+<h2 is-upgraded>Part 2: Fix No Such Element Exception</h2>
+<p>Before you add in any permanent code, lets try out an experiment. In <code>tests/TestLogin.java</code>, update <code>import static org.junit.Assert.assertTrue</code>, changing<code>True</code>to <code>*</code> so all assertions are imported.</p>
+<pre><code>//filename: tests/TestLogin.java
+// ...
+import static org.junit.Assert.*;
+// ...
+</code></pre>
+<p>After the second <code>@test</code>, add in a third:</p>
+<pre><code>//filename: tests/TestLogin.java
+// ...
+@Test
+    public void failed2() {
+        login.with(&#34;tomsmith&#34;, &#34;bad password&#34;);
+        assertFalse(&#34;success message was present after providing bogus credentials&#34;,
+                login.successMessagePresent());
+    }
+
+// ...
+</code></pre>
+<p>Run the test. You should get an error for the new test you created, in the <code>target/surefire-reports</code>folder in your project directory. <code>failed2()</code>. Click the link generated for the error report, then open the text file:</p>
+<p class="image-container"><img alt="Finding failure reports" style="width: 850.00px" src="img/8fed0c910fc8281e.png"></p>
+<p>Notice the <strong>NoSuchElementException.</strong> Selenium can&#39;t handle trying to find something that doesn&#39;t exist on the page (even if it&#39;s supposed to be false) and throws an exception, exiting the program.</p>
+<p>Resolve this by modifying the <code>isDisplayed()</code> method in <code>Base.java</code> to handle the exception with a <code>try.. catch</code> statement  and instead of throwing an error, return <code>false</code>. Update it like so:</p>
+<pre><code>// filename: pageobjects/Base.java
+// ...
+    public Boolean isDisplayed(By locator) {
+        try {
+            return find(locator).isDisplayed();
+        } catch (org.openqa.selenium.NoSuchElementException    
+          exception) {
+            return false;
+        }
+    }
+
+// ...
+</code></pre>
+<h3 is-upgraded>Cheat Sheet</h3>
+<p><a href="https://docs.google.com/document/d/14xudXyawbOmGiLi8K-v0fzxMBYPllygNyIPZbjthlN4/edit?usp=sharing" target="_blank">3.05 Exception Handling Cheat Sheet</a></p>
+<p>Now you can go back to<code>test/TestLogin.java</code> and update, deleting the old failed() test, and renaming <code>failed2()</code>to <code>failed(</code>). When you run your tests, you should have two successful tests run.</p>
+<h3 is-upgraded>Final Code</h3>
+<p class="image-container"><img alt="isDisplayed in base test" style="width: 650.00px" src="img/4734c183299fd4cb.png"></p>
+<p class="image-container"><img alt="Test annotation failed" style="width: 650.00px" src="img/a0b92165c800592c.png"></p>
+<p>See the complete <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod3/3.05" target="_blank">source code here</a>.</p>
+<h2 is-upgraded>Quiz</h2>
+<iframe class="embedded-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSeItXEZY4iTGFmwlQ17krA_ZscL01HuAXeniXtjLvG5oZmJtQ/viewform?embedded=true"></iframe>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="3.06  Resilient Test Code with Explicit Waits" duration="12">
+        <p>Ideally you should be able to write your tests once and run them across all supported browsers. More often than not, however, you will run into unexpected problems running a test in all environments.</p>
+<p>Choosing high quality locators will help with this, but there are still some issues to deal with; most notably, timing. This is especially true when working with dynamic, JavaScript heavy pages, which is a majority of web applications you&#39;ll deal with.</p>
+<p>There is a simple way to design the bedrock of reliable and resilient Selenium tests — and that&#39;s how you wait for elements you want to interact with. The best way to do this is through the use of explicit waits.</p>
+<h2 is-upgraded>Test Commands</h2>
+<p>One important thing to understand with the Selenium framework is that each method you write requires a round-trip communication between the tests and the devices. When you use these tests in the cloud, and to test remote devices, the round trips can start to take a very long time.</p>
+<p class="image-container"><img alt="Pencil" style="width: 650.00px" src="img/2173188a139990eb.png"></p>
+<p>A function like the authenticate function here has a total of six &#34;round trips&#34; to do.</p>
+<pre><code>public void with(String username, String password) {
+    find(usernameLocator).sendKeys(username);
+    find(passwordLocator).sendKeys(password);
+    find(submitButton).click();
+  }
+</code></pre>
+<p>In this example, each method is a separate communication between the location the test is stored and the location where the devices you are testing are stored, with a total of six round trips executed in the <code>with()</code>function above.</p>
+<h2 is-upgraded>Implicit vs. Explicit Waits</h2>
+<p>Explicit waits help solve the problem of errors occurring because of lags in loading and communication with the webpage. An explicit wait instructs your test to halt the program execution until something specific happens. For example, you can ask your code to wait until something is clicked, until something loads on the page, and much more.</p>
+<p>This is different from implicit waits, which are commands that cause your code to stop and wait for a given amount of time, no matter what, and take a timeout before continuing to the next function or class. There are also sleep commands, which tell the program to stop executing completely (including any asynchronous commands within the program).</p>
+<p class="image-container"><img alt="sleep" style="width: 450.00px" src="img/118d077012b78236.png"></p>
+<p>Source: <a href="https://www.flickr.com/photos/giraffecereal/5860286735" target="_blank">Kristin Schmit, Flickr</a></p>
+<p>Explicit waits are applied to individual test actions. Each time you want to use one you specify an amount of time (in seconds) and the Selenium action action you want to accomplish. Implicit waits are generally not recommended, and also mixing explicit waits with implicit waits cause negative consequences. Many classes or functions have default timeouts, or they may change or interfere with one another.</p>
+<p>The only time you would want to use an implicit wait is to make sure your tests have enough time to run, especially when you move them to the cloud. When using waits, Selenium will repeatedly try an action until either it can be accomplished, or until the amount of time specified has been reached. If the latter occurs, a timeout exception is thrown.</p>
+<h3 is-upgraded>Cheat Sheet</h3>
+<p><a href="https://docs.google.com/document/d/19__NsZX1kxbcW-vFWMpUYGqRKpXfUC6kdFh1S1BxGZg/edit?usp=sharing" target="_blank">3.05 Waits Cheat Sheet</a></p>
+<h2 is-upgraded>Create a Page with Explicit Waits</h2>
+<p>You&#39;re going to use this page as an example that demonstrates using waits against <a href="http://the-internet.herokuapp.com/dynamic_loading/1" target="_blank">a dynamic page on the-internet.</a> The functionality is pretty simple — there is a button, and when you click it a loading bar appears for five seconds. After that, it disappears and is replaced with the text Hello World!</p>
+<p class="image-container"><img alt="Dynamic Page Load Wait" style="width: 600.00px" src="img/e60acede3fec4ea3.png"></p>
+<p class="image-container"><img alt="Page Loading" style="width: 400.00px" src="img/f5a82731cda7945d.png"></p>
+<p class="image-container"><img alt="Page Loaded" style="width: 600.00px" src="img/4e1152a18874fe9b.png"></p>
+<p>We will create a new</p>
+<p>class named <code>DynamicLoading.java</code> in the pageobjects directory.</p>
+<p class="image-container"><img alt="Pencil" style="width: 350.00px" src="img/ebda74a872b2d219.png"></p>
+<p>Paste in the following code:</p>
+<pre><code>// filename: pageobjects/DynamicLoading.java
+
+package pageobjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class DynamicLoading extends Base {
+
+    By startButton = By.cssSelector(&#34;#start button&#34;);
+    By finishText  = By.id(&#34;finish&#34;);
+
+    public DynamicLoading(WebDriver driver) {
+        super(driver);
+    }
+
+    public void loadExample(String exampleNumber) {
+        visit(&#34;http://the-internet.herokuapp.com/dynamic_loading/&#34; + exampleNumber);
+        click(startButton);
+    }
+
+    public Boolean finishTextPresent() {
+        return isDisplayed(finishText, 10);
+    }
+}
+</code></pre>
+<p>We will use the locator of the start <code>&amp;lt;button&gt;</code> in the HTML page, as well as the <code>id = &#39;finish&#39;</code> for the &#34;Hello World!&#34; test that appears on the page for the<code>startButton</code> and <code>finishText</code> variables.</p>
+<p>Since there are two dynamic loading page examples to choose from on the-internet, you created the method<code>loadExample()</code>. It accepts a number as an argument, so you can specify which of the examples you want to visit and start.</p>
+<p>Similar to our Login page object, you have a function to check for the finish text, <code>isDisplayed(finishedText, 10)</code>. This check is slightly different though. Notice that it has a second argument (an integer value of 10). This bit of code is how we&#39;ll tell Selenium to wait (in seconds) for an element to be displayed before giving up.</p>
+<p>First you will need to import the java<code>Duration</code>and Selenium<code>WebDriverWait and ExpectedConditions</code>classes at the top of <code>Base.java</code>:</p>
+<pre><code>// filename: pageobjects/Base.java
+// ...
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
+// ...
+</code></pre>
+<p>Now you will add in a second version of the <code>isDisplayed()</code>method in <code>Base.java</code> to allow for explicit waits with a time parameter.</p>
+<pre><code>// filename: pageobjects/Base.java
+// ...
+public Boolean isDisplayed(By locator, Integer timeout) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout).getSeconds());
+            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        } catch (org.openqa.selenium.TimeoutException exception) {
+            return false;
+        }
+        return true;
+// ...
+</code></pre>
+<p>In this new <code>isDisplayed()</code> function, you have a try, catch block so, again, if the method times out it won&#39;t throw an exception. The <a href="https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/support/ui/WebDriverWait.html" target="_blank">WebDriverWait</a>class allows you to create a method with an explicit wait. The<a href="https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/support/ui/ExpectedConditions.html" target="_blank">ExpectedConditions</a> class allows you to wait for an element to appear with an explicit wait (the other one doesn&#39;t allow an explicit wait)</p>
+<p>It&#39;s important to do these in order so that first you locate the element (wait until that is completed), then you check (and wait) that the element is visible before you click a button, or read the text (in this case <strong>Hello World!</strong>)</p>
+<p class="image-container"><img alt="Page Waits Diagram" style="width: 700.00px" src="img/4edd2ed1d533d204.png"></p>
+<h3 is-upgraded>NOTE</h3>
+<aside class="warning"><p>The <code>timeout</code> parameter in both the <code>isDisplayed()</code> method using <code>WebDriverWait</code>is set to 10 seconds. This allows time for a slowly loading page and plenty of time to check to see that the element has been located and check if it is visible. In this case, if the <code>isDisplayed()</code> function is called without the<code>timeout</code> parameter, it will try the same test without the locator (the code in the first<code>isDisplayed()</code>in <code>Base.java</code>).</p>
+</aside>
+<aside class="warning"><p class="image-container"><img alt="timeout parameter" style="width: 750.00px" src="img/5703d2e818bb4c07.png"></p>
+</aside>
+<p>–</p>
+<h2 is-upgraded>Don&#39;t Combine Explicit and Implicit Waits</h2>
+<p>The major benefit of explicit waits is that if the behavior on the page takes longer than you expect (e.g., due to slow load times, or a feature change), you can simply adjust a single wait time to fix the test — rather than increase a blanket, implicit wait time (which impacts every method of the test). And since the wait is dynamic, it won&#39;t take the full amount of time to complete (like a hard-coded sleep would).</p>
+<p>If you&#39;re thinking about mixing explicit waits with an implicit wait, reconsider.  If you use both together you could run into issues later on due to inconsistent implementations of the implicit wait functionality across local and remote browser drivers. Long story short, you could end up with randomly failing tests that will be hard to debug. You can read more about the specifics <a href="https://stackoverflow.com/questions/15164742/combining-implicit-wait-and-explicit-wait-together-results-in-unexpected-wait-ti#answer-15174978" target="_blank">here</a>.</p>
+<p>In this lesson you created <code>DynamicLoading.java</code>, but have yet to create a test you can run against it, which you will do in the next lesson.</p>
+<p>You can see the <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod3/3.06" target="_blank">code examples here</a>.</p>
+<h3 is-upgraded>Final Code</h3>
+<p>The changes to Base.java should look like this:</p>
+<p class="image-container"><img alt="Imports in Base Page" style="width: 550.00px" src="img/f1e5e14d66e18aea.png"></p>
+<p class="image-container"><img alt="Id Dieplayed method in base page" style="width: 750.00px" src="img/264cd573c440fc49.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="3.07  Testing with Explicit Waits" duration="8">
+        <p>Now that you have our new page object and an updated base page, it&#39;s time to write our test to use it. If you noticed in your <code>DynamicLoading.java</code> page object from the last lesson, the methods like <code>loadExample()</code>were grey in the IDE because they weren&#39;t being used.</p>
+<h2 is-upgraded>Part 1: Dynamic Loading Test</h2>
+<p>Let&#39;s create a new file called <code>TestDynamicLoading.java</code> in the <code>tests</code> package.</p>
+<p class="image-container"><img alt="new Test Dynamic Loading" style="width: 350.00px" src="img/8b162665326afbd5.png"></p>
+<p>The contents of this test file are similar to <code>TestLogin.java</code> with regards to its setup and structure. Open <code>TestDynamicLoading.java</code> in your IDE and paste in the following:</p>
+<pre><code>// filename: tests/TestDynamicLoading.java
+package tests;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import pageobjects.DynamicLoading;
+
+import static org.junit.Assert.assertTrue;
+
+public class TestDynamicLoading {
+
+    private WebDriver driver;
+    private DynamicLoading dynamicLoading;
+
+    @Before
+    public void setUp() {
+        System.setProperty(&#34;webdriver.chrome.driver&#34;, &#34;/Users/lindsaywalker/Documents/chromedriver&#34;);
+        ChromeOptions browserOptions = new ChromeOptions();
+        driver = new ChromeDriver();
+        dynamicLoading = new DynamicLoading(driver);
+    }
+
+    @Test
+    public void hiddenElementLoads() {
+        dynamicLoading.loadExample(&#34;1&#34;);
+        assertTrue(&#34;finish text didn&#39;t display after loading&#34;,
+                dynamicLoading.finishTextPresent());
+    }
+
+    @After
+    public void tearDown() {
+        driver.quit();
+    }
+}
+</code></pre>
+<p>In our test, <code>hiddenElementLoads()</code>,  you are visiting the first dynamic loading example and clicking the start button (which is accomplished in <code>dynamicLoading.loadExample(&#39;1&#39;);).</code> We&#39;re then checking that the finish text gets displayed and reporting an error if it doesn&#39;t.</p>
+<h3 is-upgraded>NOTE</h3>
+<aside class="warning"><p>Remember that you have the Chrome driver installed in this case on your local machine. This code will break if you move this to another location like a docker container or virtual machine, and needs to be updated in any <code>setUp()</code> function in the <code>System.setProperty()</code>you have created in any test. You also need to remember to update the <code>System.setProperty()</code>to whatever you had created in <code>TestLogin.java</code>.</p>
+</aside>
+<p>–</p>
+<p>When you save this and run it with  <code>mvn clean test</code> (or from IntelliJ) it will:</p>
+<ul>
+<li>Launch a browser</li>
+<li>Visit the page</li>
+<li>Click the start button</li>
+<li>Wait for the loading bar to complete</li>
+<li>Find the finish text</li>
+<li>Assert that it is displayed.</li>
+<li>Close the browser</li>
+</ul>
+<p class="image-container"><img alt="Dynamic Loading Build Success" style="width: 450.00px" src="img/2fc7d1b2f639abbe.png"></p>
+<p>The Login test will be run as well. Notice that this time the tests took over 14 seconds, so the 10 second wait for the <code>isDisplayed</code> methods was put to good use.</p>
+<h2 is-upgraded>Part 2: Use the Test with Another Page</h2>
+<p>Time to step through one more example to see if our explicit wait holds up.</p>
+<p class="image-container"><img alt="Element Rendered" style="width: 600.00px" src="img/1ef8b71559dfe49d.png"></p>
+<p>Now that you have our new page object and an updated base page, it&#39;s time to write our test to use it. If you noticed in your <code>DynamicLoading.java</code> page object from the last lesson, the methods like <code>loadExample()</code>were grey in the IDE because they weren&#39;t being used.</p>
+<h2 is-upgraded>Part 1: Dynamic Loading Test</h2>
+<p>Let&#39;s create a new file called <code>TestDynamicLoading.java</code> in the <code>tests</code> package.</p>
+<p class="image-container"><img alt="Terminal Command" style="width: 460.00px" src="img/60cb9f9a86a386f6.png"></p>
+<p>The contents of this test file are similar to <code>TestLogin.java</code> with regards to its setup and structure. Open <code>TestDynamicLoading.java</code> in your IDE and paste in the following:</p>
+<pre><code>// filename: tests/TestDynamicLoading.java
+package tests;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import pageobjects.DynamicLoading;
+
+import static org.junit.Assert.assertTrue;
+
+public class TestDynamicLoading {
+
+    private WebDriver driver;
+    private DynamicLoading dynamicLoading;
+
+    @Before
+    public void setUp() {
+        System.setProperty(&#34;webdriver.chrome.driver&#34;, &#34;/Users/lindsaywalker/Documents/chromedriver&#34;);
+        ChromeOptions browserOptions = new ChromeOptions();
+        driver = new ChromeDriver();
+        dynamicLoading = new DynamicLoading(driver);
+    }
+
+    @Test
+    public void hiddenElementLoads() {
+        dynamicLoading.loadExample(&#34;1&#34;);
+        assertTrue(&#34;finish text didn&#39;t display after loading&#34;,
+                dynamicLoading.finishTextPresent());
+    }
+
+    @After
+    public void tearDown() {
+        driver.quit();
+    }
+}
+</code></pre>
+<p>In our test, <code>hiddenElementLoads()</code>,  you are visiting the first dynamic loading example and clicking the start button (which is accomplished in <code>dynamicLoading.loadExample(&#39;1&#39;);).</code> We&#39;re then checking that the finish text gets displayed and reporting an error if it doesn&#39;t.</p>
+<h3 is-upgraded>NOTE</h3>
+<aside class="warning"><p>Remember that you have the Chrome driver installed in this case on your local machine. This code will break if you move this to another location like a docker container or virtual machine, and needs to be updated in any <code>setUp()</code> function in the <code>System.setProperty()</code>you have created in any test. You also need to remember to update the <code>System.setProperty()</code>to whatever you had created in <code>TestLogin.java</code>.</p>
+</aside>
+<p>–</p>
+<p>When you save this and run it with  <code>mvn clean test</code> (or from IntelliJ) it will:</p>
+<ul>
+<li>Launch a browser</li>
+<li>Visit the page</li>
+<li>Click the start button</li>
+<li>Wait for the loading bar to complete</li>
+<li>Find the finish text</li>
+<li>Assert that it is displayed.</li>
+<li>Close the browser</li>
+</ul>
+<p class="image-container"><img alt="Build Success" style="width: 460.00px" src="img/2fc7d1b2f639abbe.png"></p>
+<p>The Login test will be run as well. Notice that this time the tests took over 14 seconds, so the 10 second wait for the <code>isDisplayed</code> methods was put to good use.</p>
+<h2 is-upgraded>Part 2: Use the Test with Another Page</h2>
+<p>Time to step through one more example to see if our explicit wait holds up.</p>
+<p class="image-container"><img alt="Build Success" style="width: 650.00px" src="img/1ef8b71559dfe49d.png"></p>
+<p><a href="http://the-internet.herokuapp.com/dynamic_loading/2" target="_blank">The second dynamic loading example</a> is laid out similarly to the last one. The difference is that it renders the final text after the progress bar completes (whereas the previous example had the element on the page but it was hidden until the progress bar finished). In other words, in the first test, the text was there but hidden, but in this test the text doesn&#39;t even exist until after the loading image disappears.</p>
+<p>Notice that it has the same start <code>&amp;lt;button&gt;</code> and <code>id=&#39;finished&#39;</code> at the beginning and end of the test. Will our same test work for the second page?</p>
+<p>Let&#39;s add a nearly identical second test to<code>DynamicLoadingTest.js</code> called <code>elementAppeared</code> that will load this second example and perform the same check (on the other page) as you did in the previous test.</p>
+<pre><code>// filename: tests/TestDynamicLoading.java
+// ...
+  @Test
+    public void elementAppears() {
+        dynamicLoading.loadExample(&#34;2&#34;);
+        assertTrue(&#34;finish text didn&#39;t render after loading&#34;,
+                dynamicLoading.finishTextPresent());
+    }
+// ...
+</code></pre>
+<p>Run the test. You can run the tests by typing <code>mvn clean test</code> in your terminal. To run just the tests in<code>TestDynamicLoading.java</code>, run the command  <code>mvn test -Dtest=TestDynamicLoading</code></p>
+<p class="image-container"><img alt="Maven Test in Terminal" style="width: 550.00px" src="img/60cb9f9a86a386f6.png"></p>
+<h3 is-upgraded>NOTE</h3>
+<aside class="warning"><p>The <code>-Dtests=</code>flag allows you to search for a certain set of characters when you run the JUnit test. In this case, you are searching for and running the name of the test class **TestDynamicLoading, **and only two tests should be run.</p>
+</aside>
+<aside class="warning"><p class="image-container"><img alt="Run test dynamic Loading" style="width: 650.00px" src="img/bd3ec301349155fd.png"></p>
+</aside>
+<p>–</p>
+<p>See the complete <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod3/3.07" target="_blank">source code here.</a></p>
+<h2 is-upgraded>Browser Timing</h2>
+<p>Using explicit waits gets you pretty far. But there are a few things you&#39;ll want to think about when it comes to writing your tests to work on various browsers.</p>
+<p>It&#39;s simple enough to write your tests locally against one browser and assume you&#39;re all set. But once you start to run things against other browsers you may be in for a surprise. The first thing you&#39;re likely to run into is the speed of execution. A lot of your tests may start to fail when you point them at either Chrome or Internet Explorer, and likely for different reasons.</p>
+<p>The best approach to solve this is an iterative one. Run your tests in a target browser and see which ones fail. Take each failed test, adjust your code as needed, and re-run it against the target browser until they all pass. Repeat for each browser you care about until everything is green.</p>
+<h2 is-upgraded>Closing Thoughts</h2>
+<p>By explicitly waiting to complete an action, our tests are in a much more resilient position because Selenium will keep trying for a reasonable amount of time rather than trying just once. And each action can be tuned to meet the needs of each circumstance. Couple that with the dynamic nature of explicit waits, and you have something that will work in a multitude of circumstances — helping you endure even the toughest of browsers to automate.</p>
+<p>This is one of the most important concepts in testing with Selenium. <em>Use explicits waits often.</em></p>
+<h3 is-upgraded>Final Code</h3>
+<p class="image-container"><img alt="Run test dynamic Loading" style="width: 750.00px" src="img/abe658a14323a89f.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="3.08 Quiz" duration="0">
+        <iframe class="embedded-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSf8c9mILwdP_LaAV5YcUdWOF5jszBfUX6bXR9HsUuJuTt4q1Q/viewform?embedded=true"></iframe>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,562 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Module 4 – Scaling Tests to the Cloud</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid="UA-6735579-1"
+                  id="../site/codelabs/Module4-SeleniumJS"
+                  title="Module 4 – Scaling Tests to the Cloud"
+                  environment="web"
+                  feedback-link="https://forms.gle/CGu4QchgBxxWnNJK8">
+    
+      <google-codelab-step label="4.01 What You&#39;ll Learn" duration="2">
+        <p>This module is derived from content in chapters 11-13 of <em>The Selenium Guidebook JavaScript Edition</em> By Dave Haeffner._ _This module guides you through creating a separate <code>spec_helper</code> file where the root level <code>beforeEach()</code>and<code>afterEach()</code> hooks will live for each test, as well as a _Driver Factory _which creates the <code>build()</code> and <code>quit()</code> functions used for each instance of a test.  Users will work through creating a config file to store the environment variables for where (in which environment) your test is run on, and modify the DriverFactory to check &amp; pull environment variables from config. Last but not least, add in some features to make your tests results easier to read and debug using the Sauce Labs platform</p>
+<h2 is-upgraded>Objectives</h2>
+<ul>
+<li>Analyze and plan test suites, learning how to balance the size and maintainability (ability to check failed tests) against the amount of features you want to test, as well as the level of abstraction you want to use to make modular objects to use in your test suite</li>
+<li>Learn about the different categories and types of tests. Understand which types of functional tests one uses Selenium for and how the different types and categories of tests are related</li>
+<li>Learn about Root Level Hooks that handle the universal methods <code>beforeEach()</code>and <code>afterEach()</code>that all tests use, and that you can separate the common functionality that all test use with these methods in a separate file (such as <code>spec_helper.js</code>) to be used with each test.</li>
+<li>Understand how to create a file that configures a test environment, and how it is used with a <em>Driver Factory</em> from a file such as <code>spec_helper.js</code> to create a template that each test is built off of.</li>
+<li>Identify and fix problems in test suites such as poor locators, silent failures, and too much functionality in a single class</li>
+<li>Choose and separate imperative language into separate objects and pages, and use the simplified commands created in that class with other tests to write code that is easier to read, maintain, and declarative in nature</li>
+<li>Create a_ Driver Factory _that creates all of the <code>build()</code> and<code>quit()</code>functionality each test uses</li>
+<li>Create a <code>spec_helper.js</code> file that uses the <em>Driver Factory</em> and works to set up each test, allowing tests to use the _Driver Factory _and a config file that specifies where and on which environment tests are run<br></li>
+<li>Set up a <code>baseURL</code> variable in <code>config.js</code> that points to the app you are running tests on in the BasePage, and remove hard-coded URLs from other page objects, allowing you to specify just a sub-domain from page objects</li>
+<li>Update your Sauce Labs credentials on your machine, then add functionality in your config file, using the sauce object in <code>config.js</code>, to run your tests on Sauce Labs with the <em>Driver Factory</em>.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="4.02 Types of Tests" duration="5">
+        <p>In testing, both automated and manual, there are several different types of tests. Not all types of tests are mutually exclusive. For example, when doing regression testing, you may use unit tests, and unit tests can be used as a piece for an integration test.</p>
+<h2 is-upgraded>Functional vs Non-Functional Tests</h2>
+<p>These two types of tests are ways to categorize tests by what they are testing. Functional tests check to see if a feature is or is not working, nothing more (e.g. did I log in or not log in?). Non-functional testing typically gives a value or amount that helps engineering and product teams do <strong>performance testing</strong> and understand and predict whether the software and features will work as expected, at scale. An example would be load testing, to see if the test runs as expected with many simultaneous users or volume testing.  <a href="https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link" target="_blank">Sauce Labs</a>   does front-end functional testing, as well as non-functional testing.</p>
+<p class="image-container"><img alt="DDOS Attack" style="width: 450.00px" src="img/1c3be118ef09c1b4.gif"></p>
+<p>Source <a href="https://imgur.com/Ksjm2D3" target="_blank">imgur</a></p>
+<p>Selenium is most used for functional testing  Types of functional tests include unit testing, UI testing, regression testing, integration testing, and more.</p>
+<h2 is-upgraded>Unit Tests</h2>
+<p>Unit tests are the smallest, simplest possible type of a test you can do. They test one single action on one single page/ application, and nothing more. Often these tests are written and executed on your local machine to validate that each ‘piece&#39; of a more complex test works.</p>
+<p>The typical structure for a unit test is</p>
+<ol type="1">
+<li>Set up the test data. (Given &#34;x&#34; condition&#34;.)</li>
+<li>Call the class you are testing (When &#34;y&#34; behavior happens.)</li>
+<li>Assert that the expected results are returned. (Then &#34;z&#34; expected change is returned.)</li>
+</ol>
+<h2 is-upgraded>Integration Tests (Service Tests)</h2>
+<p>Much of the time, when you write test code, it&#39;s not just one application you are testing, but many. As an example, if you were to sign up for Netflix, you would have to sign up on their website, send and receive information from their user management software (store user information to a database), as well as send and receive information from the software that processes their payments. Integration tests if and how these different services function together as a whole.</p>
+<p>Many times integration tests can be formed from groups of unit tests. You can think of an integration as combining API tests with unit and UI tests to test how the entire service works.</p>
+<h2 is-upgraded>UI Tests</h2>
+<p>A UI Test is a test of the visual interface a human user would interact with. Selenium is very well suited to these kinds of tasks.  You can test the layout and behavior of a test easily, as well as track the usability of user flows. Many times the UI test can give insight into how well a test is functioning. As an example, if you see an ‘error message&#39; in the UI when you log in, you can tell that something went wrong when trying to submit the username and password for authentication.</p>
+<h2 is-upgraded>Regression Tests</h2>
+<p>A specific set of tests that verify that the changes being made (features) don&#39;t break your application. Integration is more of a methodology than a specific way to write a test. These tests can include unit and integration tests, but the difference here is this set of tests is created with the purpose of checking to make sure a change doesn&#39;t break the application.</p>
+<h2 is-upgraded>End-to-End Tests</h2>
+<p>Similar to system testing,can include just follow a users&#39; workflow in a visual interface, or include everything that occurs in an application environment, doing a situation that mimics real-world use. This includes actions such as interacting with a database, using network communications, or interacting with other hardware, applications, or systems if appropriate along a specific user flow.</p>
+<h2 is-upgraded>Black Box vs. White Box Testing</h2>
+<p>White Box testing is a type of testing you do when you can see and understand all of the inner workings of an application and it&#39;s source code. Black Box testing is testing that is done from the end-user perspective, without any knowledge of the internal structure of application code. A good example of this is testing a workflow on the user interface of a web application. It is reasonable to assume for a login test, that if you put the correct username and password, click submit, then get access to the platform that the code for making this happen on the back end is also working.</p>
+<h2 is-upgraded><a href="https://saucelabs.com/blog/headless-browser-testing-101" target="_blank">Headless Testing</a></h2>
+<p>This type of testing refers to a code-based approach to testing web applications. When a human user is manually testing an application, they are looking at the visual browser interface with items you can see, click, and interact with. Headless testing is done by a robot that doesn&#39;t use the visual component of a browser, and instead does all interactions through communication with the codebase and other services that make up an application. <a href="https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link" target="_blank">Sauce Labs</a> also provides headless user testing.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="4.03 Scaling your Tests" duration="16">
+        <p>Now that we have some tests and page objects, we&#39;ll want to start thinking about how to structure our test code to be more flexible. Ensuring that our code is reusable, and can scale to as many tests as we need requires some additional elements &amp; abstractions.</p>
+<h2 is-upgraded>Part 1: Global Setup &amp; Teardown</h2>
+<p>We&#39;ll start by using a separate class for Selenium setup and teardown out of our tests, placing the file in a central directory.</p>
+<p>We&#39;ll create three things.</p>
+<ul>
+<li>A class that will contain the creation and destruction of our Selenium instances (known as a <em>Driver Factory</em>)</li>
+<li>A helper that all tests will pull from to do the basic things each test should do such as <code>build()</code> and <code>quit()</code></li>
+<li>Change a configuration in <code>package.json</code> to set the automatic timeout for a longer duration.</li>
+</ul>
+<p>Create a new directory called <code>lib</code>. In the <code>lib</code>directory we&#39;ll create a new file called <code>DriverFactory.js</code>, and in the <code>test</code> directory we&#39;ll create a file called <code>spec_helper.js</code>.</p>
+<p class="image-container"><img alt="Directory setup" src="img/5bff5e6af8568230.png"></p>
+<h2 is-upgraded>NOTE</h2>
+<p>If you want to use terminal to set this up, simply type (from your project directory):</p>
+<pre><code>mkdir lib
+cd lib
+touch DriverFactory.js
+cd ..
+cd test
+Touch spec_helper.js
+</code></pre>
+<p>–</p>
+<p>Open <code>DriverFactory.js</code> in your IDE and paste in the following:</p>
+<pre><code>// filename: lib/DriverFactory.js
+// const path = require(&#39;path&#39;)
+const { Builder } = require(&#39;selenium-webdriver&#39;)
+
+class DriverFactory {
+  async build() {
+    //process.env.PATH += path.delimiter + path.join(__dirname, &#39;..&#39;,   
+    &#39;vendor&#39;)
+    this.driver = await new Builder().forBrowser(&#39;firefox&#39;).build()
+  }
+
+  async quit() {
+    await this.driver.quit()
+  }
+}
+
+module.exports = DriverFactory
+
+</code></pre>
+<p>After adding our requisite libraries, we declare a class along with two methods; <code>build()</code>, and <code>quit()</code>.<code>build()</code> is responsible for spinning up an instance of Selenium each time it is called by a test or page class, and quit is responsible for closing out that Selenium instance once the class has finished it&#39;s interactions or tests.</p>
+<p>The class ends with <code>module.exports</code>, so that other classes can call and use the methods defined here.</p>
+<p>Next, open the <code>spec_helper.js</code> file in the test folder and paste in the following:</p>
+<pre><code>// filename: test/spec_helper.js
+const DriverFactory = require(&#39;../lib/DriverFactory&#39;)
+const driverFactory = new DriverFactory()
+
+beforeEach(async function() {
+  await driverFactory.build()
+  this.driver = driverFactory.driver
+})
+
+afterEach(async function() {
+  await driverFactory.quit()
+})
+</code></pre>
+<p>Finally, update your <code>package.json</code> file. This allows you to change settings for mocha, in this case setting the default timeout to 30 seconds. This way a test will be given 30 seconds to run, then will quit (timeout).</p>
+<p>After the last object, add a comma at the end of the curly braces, and put this inside of the final closing curly braces.</p>
+<pre><code>// filename: package.json
+//...
+
+    },
+    &#34;mocha&#34;:{
+        &#34;timeout&#34;: 30000
+    }
+}
+</code></pre>
+<h3 is-upgraded>NOTE</h3>
+<p>Including the <code>quit()</code>function is extremely important for the speed &amp; passability of your tests. Without the quit method, the test will keep running even once all other methods have been executed until the default timeout has expired. This will not only slow down your ability to run many parallel tests at once, it will also send timeout error messages that could abort the test build.  Configuring timeouts appropriately in the package.json file is important to ensure that all tests run correctly the first time and are returning valuable feedback.</p>
+<p>–</p>
+<h2 is-upgraded>Root Level Hooks</h2>
+<p>In Mocha, when you specify before and after hooks outside of a test class they are used globally for all tests. These are referred to as root-level hooks. Every test that you write will use the <code>BeforeEach()</code> and <code>AfterEach()</code>methods to perform the same set of actions to set up and tear down the test, so it makes sense to store these in one place so we can make changes in one place, instead of within each and every test.</p>
+<p>At the top of <code>spec_helper.js</code> we require <code>DriverFactory</code> and create a new instance of it, storing it in a variable.</p>
+<p>In <code>beforeEach()</code> we create a driver instance and store it in a variable on this. (which will make it accessible when we use it).</p>
+<p>In <code>afterEach()</code>we call the quit method in the Driver Factory to destroy the Selenium instance.</p>
+<p>Since we now have the <code>build()</code> method, and <code>driver</code> from <code>beforeEach()</code> in <code>spec_helper.js</code>, and everything we need from the <code>afterEach()</code> method also defined, we can pare down the code in our test classes.</p>
+<p>First at the top of both <code>LoginTest.js</code>and<code>DynamicLoadingTest.js</code>, add at the very top:</p>
+<pre><code>// filename: test/LoginTest.js &amp; filename test/DynamicLoadingTest.js
+require(&#39;./spec_helper&#39;)
+...
+</code></pre>
+<p>Then, from each test (<code>DynamicLoadingTest.js</code> and<code>LoginTest.js</code>)** delete or comment out** the following:</p>
+<p>The <code>{Builder}</code>for Selenium Webdriver for both:</p>
+<pre><code>// filename: test/LoginTest.js &amp; // filename: LoginTest.js
+//...
+//const { Builder } = require(&#39;selenium-webdriver&#39;)
+</code></pre>
+<p>The driver instantiation in <code>LoginPage.js</code>within the <code>beforeEach()</code> method:</p>
+<pre><code>//let driver
+</code></pre>
+<p>The driver creation <code>timeout</code>as part of the describe function:</p>
+<pre><code>//this.timeout(30000)
+</code></pre>
+<p>The<code>vendorDirectory</code> variable and the <code>driver</code> instantiation inside the <code>BeforeEach()</code> method in:</p>
+<pre><code>// filename: test/DynamicLoadingTest.js
+...
+//const vendorDirectory =
+      // path.delimiter + path.join(__dirname, &#39;..&#39;, &#39;vendor&#39;)
+      // process.env.PATH += vendorDirectory
+      //driver = await new Builder().forBrowser(&#39;firefox&#39;).build()
+
+</code></pre>
+<pre><code>// filename: test/LoginTest.js
+// ...
+//driver = await new Builder().forBrowser(&#39;firefox&#39;).build()
+</code></pre>
+<p>The entire <code>afterEach()</code> method as everything you need was created in <code>DriverFactory.js.</code></p>
+<pre><code> // afterEach(async function() {
+  //   await driver.quit()
+// })
+</code></pre>
+<p>Finally, update the login and dynamicLoading variables on your test pages in the <code>beforeEach()</code>function using the <code>this.</code>method to inherit from the accompanying page object.</p>
+<pre><code>// filename: test/LoginTest.js
+//...
+
+  beforeEach(async function() {
+    login = new LoginPage(this.driver)
+    await login.load()
+   })
+// ...
+
+</code></pre>
+<pre><code>// filename: test/DynamicLoadingTest.js
+//...
+
+  beforeEach(async function() {
+    dynamicLoading = new DynamicLoadingPage(this.driver)
+})
+//...
+</code></pre>
+<p>See the complete <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod4/4.03" target="_blank">source code here</a>. Note that you have to run <code>npm install</code> in the root project folder before being able to use code pulled down from a repository.</p>
+<h3 is-upgraded>Final Code</h3>
+<p>The two test classes should now look like this:</p>
+<p class="image-container"><img alt="Final Login test" style="width: 450.00px" src="img/75229e454e823bbc.png"></p>
+<p class="image-container"><img alt="Final Dymaic Loading test" style="width: 450.00px" src="img/9070cb8c8ab06efc.png"></p>
+<p class="image-container"><img alt="Final package.json" style="width: 450.00px" src="img/af493426095d864d.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="4.04 Running Tests in Different Browsers" duration="15">
+        <h2 is-upgraded>Review- Abstraction and Non-Duplication</h2>
+<p>Thus far we have prepared our test suite well to be reusable. When you have things like the setup and teardown used for all tests in one place, making changes to this becomes a lot easier. Not duplicating (re-writing the same) code and abstracting into files like the driver factory, spec helper, and base page mean that you won&#39;t have to re-write that code each time you write a new page or test object, or go make changes to all those files when you need to modify something.</p>
+<h3 is-upgraded>Video</h3>
+<p>Watch the video <a href="https://drive.google.com/file/d/1LkSIpQ7QBT0Uq5NyTgf0aUnALPy0e3jb/view?usp=sharing" target="_blank">4.04 Non-Duplication</a> an excerpt from <a href="https://www.youtube.com/watch?v=ZLS9sU2A9QA&t=24s" target="_blank">Sauce Labs&#39; Tech Talk</a> by Nikolay Advolodkin</p>
+<iframe class="embedded-iframe" src="https://drive.google.com/file/d/1LkSIpQ7QBT0Uq5NyTgf0aUnALPy0e3jb/preview"></iframe>
+<h2 is-upgraded>Creating a Config File</h2>
+<p>The config file is an important part of any test suite. This file will specify things for your tests like what web address you test uses to perform the test, what browser it uses, and later on, will store methods for logging into the Sauce Labs grid, as well as instructions as to which environment you should run your tests in.</p>
+<p>The whole point of setting up a test suite is that you can run your tests against different environments (e.g., localhost, test, staging, production, etc.).</p>
+<p>So let&#39;s make it so you can specify a different base URL for our tests at runtime.</p>
+<p>First, create a file called <code>config.js</code> in the <code>lib</code> directory. You can use these commands from the project directory in your terminal:</p>
+<pre><code>cd lib
+touch config.js
+</code></pre>
+<p>Your file directory should look like this:</p>
+<p class="image-container"><img alt="Directory with Config.js" style="width: 350.00px" src="img/38c752a1d25a8b2b.png"></p>
+<h2 is-upgraded>Create a baseURL</h2>
+<p>Next, what we will do is create a separate file for setting the browser that your test will run in, and store it in a variable called baseURL.</p>
+<p>Open <code>config.js</code> with your IDE and paste in the following:</p>
+<pre><code>// filename: lib/config.js
+module.exports = {
+  baseUrl: process.env.BASE_URL || &#39;http://the-internet.herokuapp.com&#39;
+};
+</code></pre>
+<p>Next, find the<code>visit()</code> function in the <code>BasePage</code>class. You will delete what is in there (<code>await this.driver.get(url)</code>) and add in the following:</p>
+<pre><code>// filename: pages/BasePage.js
+//...
+async function visit(url) {
+  if (url.startsWith(&#39;http&#39;)) {
+    await this.driver.get(url)
+  } else {
+    await this.driver.get(config.baseUrl + url)
+  }
+}
+</code></pre>
+<p>This looks for the ‘http&#39; characters to detect if a valid URL for a website can be passed in (one can reasonably assume all web addresses start with that. Otherwise, the base URL will be the one we are writing these tests for, which you just entered in <code>config.js</code>, ‘<a href="http://the-internet.herokuapp.com" target="_blank">http://the-internet.herokuapp.com</a>&#39;.</p>
+<h2 is-upgraded>Remove URLs from Page Objects</h2>
+<p>In order to use our new <code>config</code> file, add in the following at the top of your base page, it will apply to all other page objects:</p>
+<pre><code>// filename: pages/BasePage.js
+const config = require(&#39;../lib/config.js&#39;)
+//...
+</code></pre>
+<p>Now you need to go into the page objects (<code>BasePage.js</code> and <code>DynamicLoadingPage.js</code>) and take out the hard-coded URL inside the <code>visit()</code>method. Instead we will only have the sub-pages that will append on to the baseURL from the-internet <a href="https://the-internet.herokuapp.com/" target="_blank">heroku app</a>.</p>
+<pre><code>// filename: pages/LoginPage.js
+// ...
+  async load() {
+    await this.visit(&#39;/login&#39;)
+// ...
+
+</code></pre>
+<pre><code>// filename: pages/DynamicLoadingPage.js
+// ...
+    await this.visit(&#39;/dynamic_loading/&#39; + exampleNumber)
+
+// ...
+</code></pre>
+<p>Now when running our tests, we can specify a different base URL in <code>config.js</code> by providing some extra information at run-time, setting the variable <code>BASE_URL=url mocha</code>. Now we&#39;re in a better position now with our setup and teardown abstracted into a central location.</p>
+<p>Now we can easily extend our test framework to run our tests on other browsers.</p>
+<h3 is-upgraded>Final Code</h3>
+<p>Your new code should look like this:</p>
+<p class="image-container"><img alt="4.04 Final Code Part 1" style="width: 450.00px" src="img/2045a81d6cc25be9.png"></p>
+<p class="image-container"><img alt="4.04 Final Code Part 1" style="width: 450.00px" src="img/b7e6b8d5247cc70d.png"></p>
+<p class="image-container"><img alt="4.04 Final Code Part 1" style="width: 450.00px" src="img/db645d9609724f23.png"></p>
+<h2 is-upgraded>Running Different Browsers Locally</h2>
+<p>WebDriver works with each of the major browsers through a browser driver which is (ideally but not always) maintained by the browser creator such as Chrome or Firefox. It is an executable file (consider it a thin layer) that acts as a bridge between Selenium and the browser.</p>
+<p>By using <code>npm</code> with the <code>package.json</code> file, the updated version will be fetched for you without manual install and setting of the PATH variable. If you don&#39;t use <code>npm</code>, you need to manually install each driver and update the path</p>
+<h2 is-upgraded>Running Tests in Different Browsers</h2>
+<p>The first thing we will do is set the browser with the <code>BROWSER</code>variable inside <code>module.exports</code> in  <code>lib/Config.js</code> for the browser, that will be passed into <code>DriverFactory.js</code> (which is in turn used in <code>spec_helper</code> and your test objects such as <code>Logintest.js</code>). Make sure there is a comma after the<code>BASE_URL</code>variable declaration.</p>
+<pre><code>// filename: lib/config.js
+module.exports = {
+  baseUrl: process.env.BASE_URL || &#39;http://the-internet.herokuapp.com&#39;,
+  browser: process.env.BROWSER || &#39;firefox&#39;,
+}
+</code></pre>
+<p>Go into <code>spec_helper.js</code> and require the <code>config</code> file, then pass it into <code>DriverFactory.js</code> each time a new <code>driverFactory</code>instance is created.</p>
+<pre><code>// filename: test/spec_helper.js
+const DriverFactory = require(&#39;../lib/DriverFactory&#39;)
+const config = require(&#39;../lib/config.js&#39;)
+const driverFactory = new DriverFactory(config)
+
+</code></pre>
+<p>Now, go into <code>DriverFactory.js.</code> We are going to use the <code>config</code> variable passed into DriverFactory each time a new instance is created. We will create a<code>constructor</code> to construct a new config instance for the test. Next, update the <code>build()</code> method so that the browser isn&#39;t hard coded in, and can take the variable from config.js.</p>
+<pre><code>// filename: lib/DriverFactory.js
+//...
+class DriverFactory {
+  constructor(config) {
+    this.config = config
+  }
+
+  async build() {
+    //process.env.PATH += path.delimiter + path.join(__dirname, &#39;..&#39;, &#39;vendor&#39;)
+    this.driver = await new Builder().forBrowser(this.config.browser).build()
+  }
+
+//...
+</code></pre>
+<p>Run your code with <code>npm test</code>, and you should see your tests working when you enter either ‘chrome&#39; or ‘firefox in config.js. Complete course code can be found <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod4/4.04" target="_blank">here</a>.</p>
+<h3 is-upgraded>Final Code</h3>
+<p>The new code should look like this: <img alt="4.04 Final Code Part 2" style="width: 450.00px" src="img/51c758a3dc198aa5.png"></p>
+<p class="image-container"><img alt="4.04 Final Code Part 22 width=" src="img/b6f8ac659e55a36d.png"></p>
+<p class="image-container"><img alt="4.04 Final Code Part 2" style="width: 450.00px" src="img/3001da3591f2f59c.png"></p>
+<p class="image-container"><img alt="4.04 Final Code Part 2" style="width: 450.00px" src="img/e0d39e9e3e15c15.png"></p>
+<h3 is-upgraded>Quiz</h3>
+<iframe class="embedded-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSeWTDK-_oLget_3rqXgVCd915k3_miYf0cjognlUOrHFJLWjw/viewform?embedded=true"></iframe>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="4.05  Testing on Sauce Labs" duration="15">
+        <p>In this lesson you are going to learn how to move the test suite that you have written from your local machine onto the <a href="https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link" target="_blank">Sauce Labs</a> cloud provider. They maintain a set of real and virtual devices, as well as a Selenium grid that you can use to run your test in almost any environment. There are many reasons this is advantageous:</p>
+<ul>
+<li>You can use virtual machines (without having to set it up on your own machine)  <ul>
+<li>To test older versions of operating systems</li>
+<li>Test browsers that only run on older operating systems.</li>
+</ul>
+</li>
+<li>You don&#39;t have to provision all the different kinds of virtual machines you will need yourself.</li>
+<li>You don&#39;t have to set up and maintain the Selenium Grid that will coordinate the test across all of these different machines.</li>
+</ul>
+<h2 is-upgraded>Update Config</h2>
+<p>We are going to use the <code>config.js</code> file that you used earlier to set up the the capabilities. <a href="https://wiki.saucelabs.com/display/DOCS/W3C+Capabilities+Support" target="_blank">Capabilities</a> are a way of communicating information to other services, such as Sauce Labs, that you need to covey in order to run your Tests.</p>
+<p>Open <code>config.js</code> and update it to look like the following:</p>
+<pre><code>// filename: lib/config.js
+module.exports = {
+  baseUrl: process.env.BASE_URL || &#39;http://the-internet.herokuapp.com&#39;,
+  host: process.env.HOST || &#39;saucelabs&#39;,
+  sauce: {
+    &#34;browserName&#34;: process.env.BROWSER_NAME || &#39;chrome&#39;,
+    &#34;browserVersion&#34;: process.env.BROWSER_VERSION || &#39;75.0&#39;,
+    &#34;platformName&#34;: process.env.PLATFORM_NAME || &#39;Windows 10&#39;,
+    &#34;sauce:options&#34;: {
+      &#34;username&#34;: process.env.SAUCE_USERNAME,
+      &#34;accessKey&#34;: process.env.SAUCE_ACCESS_KEY,
+    }
+  },
+}
+</code></pre>
+<p>Notice the new variables you have added:</p>
+<ul>
+<li><code>host</code>enables us to specify whether our tests run locally or on Sauce Labs. The others are stored under a key sauce key to make their use explicit.</li>
+<li>The <code>sauce</code> object contains the information for each specific test. We assume you may pass in unique usernames and access keys  <ul>
+<li><code>username</code> is the username you have created for Sauce Labs</li>
+<li><code>accessKey</code> is generated (and can be regenerated) in your user settings</li>
+<li><code>platformName</code> specifies the operating system for a test.<br></li>
+<li><code>sauce:options</code> contain capabilities with options for information you can pass to Sauce Labs  <ul>
+<li><code>browserName</code> specifies the browser for a test.</li>
+<li><code>browserVersion</code> specifies which version of the browser for a test</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 is-upgraded>Setting up your Sauce Labs Account</h2>
+<p>You&#39;ll need an account to use Sauce Labs. Their <a href="https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link" target="_blank">free trial</a> offers enough to get you started. And if you&#39;re signing up because you want to test an open source project, then be sure to check out their <a href="https://saucelabs.com/open-source" target="_blank">Open Sauce account</a>.</p>
+<p>Visit <a href="https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link" target="_blank">http://app.saucelabs.com/</a>. You can create a free trial account if you haven&#39;t been assigned one.</p>
+<p class="image-container"><img alt="Sauce Labs Account" style="width: 450.00px" src="img/2671b7c651736e0d.png"></p>
+<p>Go to <strong>Account &gt; User Settings</strong> to find your username and access key.</p>
+<p class="image-container"><img alt="Sauce Labs User Name Access Key" style="width: 450.00px" src="img/15746d8eaf43260d.png"></p>
+<p>You will need to set up your username and access key on your machine&#39;s environment variables either in your bash profile (Mac/Linux) or in the system properties (Windows).</p>
+<p>To learn more about setting up environment variables, you can see the article <a href="https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials#BestPractice:UseEnvironmentVariablesforAuthenticationCredentials-SettingUpEnvironmentVariablesonMacOSX/LinuxSystems" target="_blank">here</a>.</p>
+<h3 is-upgraded>Video</h3>
+<p>Watch This Video to See how to set up your Sauce Credentials as environment variables on MacOS <a href="https://drive.google.com/file/d/1RilJKEMT4sTkmglbwxOuqybg5X5CgBJi/view?usp=sharing" target="_blank">4.05 Sauce Credentials</a></p>
+<iframe class="embedded-iframe" src="https://drive.google.com/file/d/1RilJKEMT4sTkmglbwxOuqybg5X5CgBJi/preview"></iframe>
+<h2 is-upgraded>Set a Source for Sauce Credentials</h2>
+<p>If you get a failing test such as this, Sauce Labs doesn&#39;t know to look at the updated SAUCE_USERNAME and SAUCE_ACCESS_KEY that you put in your .bash_profile. (First make sure <code>npm</code> is correctly installed as well)</p>
+<p class="image-container"><img alt="Sauce Labs Authentication Error" style="width: 450.00px" src="img/26e8402a0aeb5da5.png"></p>
+<p>You can tell your machine (Mac only)  to look for the correct credentials and type in your terminal:</p>
+<pre><code>source ~/.bash_profile
+</code></pre>
+<p>Now, when you run a program it will have the updated username and access key. !IMPORTANT you need to do this with any new project file you create, and also any time you update your bash profile.</p>
+<h2 is-upgraded>Update DriverFactory</h2>
+<p>Now we can update DriverFactory.js to work with these new values and connect to <a href="https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link" target="_blank">Sauce Labs</a>.</p>
+<pre><code>// filename: lib/DriverFactory.js
+// ...
+class DriverFactory {
+  constructor(config) {
+    this.config = config
+  }
+
+  _configure() {
+    let builder = new Builder()
+    switch (this.config.host) {
+      case &#39;saucelabs&#39;:
+        const url = &#39;https://ondemand.saucelabs.com/wd/hub&#39;
+        builder.usingServer(url)
+        builder.withCapabilities(this.config.sauce)
+        break
+      case &#39;localhost&#39;:
+        // process.env.PATH +=
+          // path.delimiter + path.join(__dirname, &#39;..&#39;, &#39;vendor&#39;)
+        builder.forBrowser(this.config.browser)
+        break
+    }
+    return builder
+  }
+// ...
+</code></pre>
+<p>Inside of DriverFactory we will also change the build method to use the new private method _configure.</p>
+<pre><code>// filename: lib/DriverFactory.js
+//...
+     async build() {
+       this.driver = await this._configure().build()
+}
+// ...
+</code></pre>
+<p>We create a method to configure the builder object for Selenium, <code>_configure()</code>, wrapping everything in a conditional check against <code>config.host</code>. If it&#39;s set to <code>&#39;saucelabs&#39;</code> then we specify the <code>url</code> for their on-demand end-point and pass in the capabilities that we want (e.g., everything specified under <code>sauce</code> in config.js). If <code>config.host</code> is set to <code>&#39;localhost&#39;</code> then we handle browser execution just like before (adding the path to the vendor directory to the execution path and launching a browser locally).</p>
+<h3 is-upgraded>NOTE</h3>
+<p>In JavaScript, functions or methods prefixed with a _ are intended to be private. This means that the<code>_config(</code>) function can only be used inside of the <code>DriverFactory {}</code> class. In this case it is only used by <code>build()</code>, and can&#39;t be used once the <code>DriverFactory {}</code>instance has finished running.</p>
+<p>–</p>
+<h2 is-upgraded>Update Timeout</h2>
+<p>Now that you are running tests on the Sauce Labs platform, you may notice that they are taking longer. We will go in and update the timeout in the package.json file to 60000 (60 seconds) from 30000 so each of your tests has a minute to run before they are timed out.</p>
+<pre><code>// filename: package.json
+
+&#34;mocha&#34;: {
+    &#34;timeout&#34;: 60000
+  }
+// ...
+</code></pre>
+<p>Now when you run <code>npm test</code>, you should see a confirmation that your test ran. It should have taken longer than it did on your local machine. Remember to set the <code>source ~/.bash_profile</code> for your project folder if you have made any changes.</p>
+<p class="image-container"><img alt="4 Passing Tests" style="width: 350.00px" src="img/7012de463abc9974.png"></p>
+<p>You should also visit <a href="http://app.saucelabs.com/" target="_blank">http://app.saucelabs.com/</a>. Go to the left hand menu and choose <strong>Automated → Test Results</strong>. There you will see your tests with icons indicating they were run on the operating system &amp; browser that you chose:</p>
+<p class="image-container"><img alt="Jobs Run on Sauce" style="width: 550.00px" src="img/e5d7183e09871866.png"></p>
+<h2 is-upgraded>NOTE</h2>
+<p>What did we do? At this point to create an instance of a test, you are dependent on several different objects in your test suite. The <code>config.js</code> file and <code>DriverFactory.js</code> are pulled in each time by spec_helper.js. When one of your tests is run (<code>LoginTest</code> or <code>DynamicLoadingTest)</code> they use spec_helper to help build that test, which in turn instantiates DriverFactory for each test.</p>
+<p class="image-container"><img alt="Test Suite Structure" style="width: 550.00px" src="img/d84856a4ddfa2643.png"></p>
+<p>–</p>
+<p>Complete course code can be found <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod4/4.05" target="_blank">here</a>.</p>
+<h3 is-upgraded>Final Code</h3>
+<p>Your final code will look like this:</p>
+<p class="image-container"><img alt="4.05 Final Code" style="width: 550.00px" src="img/b945f9f30f590f43.png"></p>
+<p class="image-container"><img alt="4.05 Final Code" style="width: 550.00px" src="img/298827835f90ab5f.png"></p>
+<p class="image-container"><img alt="4.05 Final Code" style="width: 550.00px" src="img/2e24b3d673a70b5c.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="4.06  Setup for Sauce Labs Reporting" duration="12">
+        <p>In this lesson you will add in some elements for better reporting to understand the status of test run on the<a href="https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link" target="_blank"> Sauce Labs automated web testing platform</a>.</p>
+<p>Now that your tests are up and running on the Sauce Labs platform, you&#39;ll notice it&#39;s hard to tell one apart from the other. The tests you should have run will show up as <strong>Unnamed job</strong> with a hash identifier- not easy to use for testing and debugging.</p>
+<p class="image-container"><img alt="Unnamed Job" style="width: 550.00px" src="img/880ba3c69a244afb.png"></p>
+<p>To fix this issue, you can pull in the name and the status from the test and send it to the <a href="https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link" target="_blank">Sauce Labs dashboard </a>so we can use our tests to effectively debug and improve our application.</p>
+<p>In addition, right now regardless of the outcome of a test, the job in Sauce Labs will register as <strong>Finished.</strong> Ideally we want to know if the job was a <strong>Pass</strong> or a <strong>Fail</strong>. That way we can tell at a glance if a test failed or not. With a couple of tweaks we can make this happen easily enough.</p>
+<h2 is-upgraded>Add a Test Name</h2>
+<p>It&#39;s great that our tests are running on Sauce Labs. But we&#39;re not done yet because the test name in each Sauce job is getting set to an unnamed job. This makes it extremely challenging to know what tests were run in each job. To remedy this we&#39;ll need to pass the test name to Sauce Labs.</p>
+<p>Given the order of operations of our test code, we only have access to the test name after the test has completed. So we&#39;ll account for this in both the quit method of our driver factory and the global <code>afterEach()</code>in our Base Test. Let&#39;s start with the driver factory first.</p>
+<pre><code>// filename: lib/DriverFactory.js
+  async build(testName) {
+		this.testName = testName
+    this.driver = await this._configure().build()
+  }
+// ...
+  async quit() {
+    if (this.config.host === &#39;saucelabs&#39;) {
+      this.driver.executeScript(&#39;sauce:job-name=&#39; + this.testName)
+    }
+    await this.driver.quit()
+  }
+}
+module.exports = DriverFactory
+</code></pre>
+<p>We need to add the parameter <code>testName</code>to the <code>build()</code> method so it will receive a testName and store it for later use.</p>
+<p>With Selenium we have access to execute JavaScript directly in the browser session. When executing tests in Sauce Labs we have access to pass information to them about the current job through JavaScript calls. We take advantage of this fact by specifying the name of the job for the session. We only want this to happen when our tests are executing in Sauce Labs, so we wrap this in a conditional check.</p>
+<p>Now to update our <code>spec_helper.js</code> to pass the testName.</p>
+<pre><code>// filename: test/spec_helper.js
+// ...
+beforeEach(async function() {
+	const testName = this.currentTest.fullTitle()
+  await driverFactory.build(testName)
+  this.driver = driverFactory.driver
+})
+// ...
+
+</code></pre>
+<p>Run <code>npm test</code> to see if it works. (If you have a new project file, don&#39;t forget to run s<code>ource ~/.bash_profile</code>).  Now when we run our tests in Sauce Labs, the <a href="https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link" target="_blank">account dashboard</a> will show the tests running with a name in the dashboard</p>
+<p class="image-container"><img alt="Tests with Names" style="width: 550.00px" src="img/a9a9073c5acb894f.png"></p>
+<h2 is-upgraded>Add a Test Status</h2>
+<p>After adding a test name, we will add in an id and status for each unique test that you create. First, you will need to update our <code>build</code> method in the <code>DriverFactory.js</code>to grab the session ID from Selenium.</p>
+<pre><code>//filename lib/DriverFactory.js
+//...
+async build(testName) {
+    this.testName = testName
+    this.driver = await this._configure().build()
+    const { id_ } = await this.driver.getSession()
+    this.sessionId = id_
+  }
+//...
+</code></pre>
+<p>In <code>DriverFactory.js,</code>in the <code>quit()</code>function,  we are also going to add a parameter which will be passed to <code>spec_helper.js</code> when you call <code>DriverFactory</code>. Inside the {} brackets for the first <code>if</code>statement in the <code>quit()</code>function that reports the name, add an <code>if</code>statement to see if the test has passed. This will send the job result as <code>testPased</code> if it does pass, and if it does not pass, it will direct you to the app to check to see where it failed.</p>
+<pre><code>// filename: lib/DriverFactory.js
+// ...
+  async quit(testPassed) {
+    if (this.config.host === &#39;saucelabs&#39;) {
+      this.driver.executeScript(&#39;sauce:job-name=&#39; + this.testName)
+      this.driver.executeScript(&#39;sauce:job-result=&#39; + testPassed)
+      if (!testPassed)
+        console.log(
+          &#39;See a video of the run at https://saucelabs.com/tests/&#39; +
+            this.sessionId
+        )
+    }
+    await this.driver.quit()
+  }
+}
+
+module.exports = DriverFactory
+
+</code></pre>
+<p>Add in to <code>spec_helper.js</code>code that will check if the test has passed and pass the parameter so that we can tell Sauce labs that it has in fact passed.</p>
+<pre><code>afterEach(async function() {
+  const testPassed = this.currentTest.state === &#39;passed&#39;
+  await driverFactory.quit(testPassed)
+})
+</code></pre>
+<p>Now when you run <code>npm test</code> in terminal (if your test fails try <code>source ~/.bash_profile</code>), then check your <a href="https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link" target="_blank">Sauce Labs dashboard</a>. On the left you should be able to see a status of passed with each test.</p>
+<p class="image-container"><img alt="Passed Tests" style="width: 550.00px" src="img/8200652afc611406.png"></p>
+<p>You can see an example of the completed code<a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod4/4.06" target="_blank"> here.</a></p>
+<h3 is-upgraded>Final Code</h3>
+<p class="image-container"><img alt="4.06 Final Code" style="width: 550.00px" src="img/5fd22812fa8cc16.png"></p>
+<p class="image-container"><img alt="4.06 Final Code" style="width: 550.00px" src="img/17e0bd57a8caa083.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="4.07 Quiz" duration="5">
+        <p><strong>Quiz</strong></p>
+<iframe class="embedded-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLScFE50Q0R2YZ91OxGkOcuuiWjuCE3cm1CSK2NfQtlPkeJ2m_w/viewform?embedded=true"></iframe>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

@@ -218,7 +218,7 @@
         </ul>
       </div>
 
-      <div class="header__mobile-bottom">
+      <div id="bottomActions" class="header__mobile-bottom --bottomPosition">
         <div class="header__mobile-bottom-inner">
           <a class="btn" href="https://saucelabs.com/sign-up" target="_blank" data-ta="click" data-tl="">Try it free</a>
           <a class="btn-link" href="https://accounts.saucelabs.com/" target="_blank" data-ta="click" data-tl="">Sign in</a>
@@ -516,6 +516,7 @@
         else {
           solutionsChild.classList.remove("--hide");
           solutionsEvent.classList.add("--opened");
+          document.getElementById('bottomActions').classList.remove("--bottomPosition");
         }
       }
       if (i == 'platform') {
@@ -526,6 +527,7 @@
         else {
           platformChild.classList.remove("--hide");
           platformEvent.classList.add("--opened");
+          document.getElementById('bottomActions').classList.remove("--bottomPosition");
         }
       }
       if (i == 'resources') {
@@ -536,6 +538,7 @@
         else {
           resourcesChild.classList.remove("--hide");
           resourcesEvent.classList.add("--opened");
+          document.getElementById('bottomActions').classList.remove("--bottomPosition");
         }
       }
       if (i == 'company') {
@@ -546,6 +549,7 @@
         else {
           companyChild.classList.remove("--hide");
           companyEvent.classList.add("--opened");
+          document.getElementById('bottomActions').classList.remove("--bottomPosition");
         }
       }
       if (i == 'contact') {
@@ -556,6 +560,7 @@
         else {
           contactChild.classList.remove("--hide");
           contactEvent.classList.add("--opened");
+          document.getElementById('bottomActions').classList.remove("--bottomPosition");
         }
       }
     }

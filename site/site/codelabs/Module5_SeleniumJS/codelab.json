@@ -1,0 +1,26 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2020-10-20T06:59:47-07:00",
+  "id": "../site/codelabs/Module5_SeleniumJS",
+  "duration": 97,
+  "title": "Module 5 – Sauce Connect, Sauce OnDemand, and Continuous Integration",
+  "summary": "Module 5 of Selenium JavaScript course . Learn to write Selenium tests in the JavaScript programming language with Mocha.",
+  "source": "/Users/caseyhald/Documents/sauce-school/codelabs/Module5_SeleniumJS.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "advanced"
+  ],
+  "tags": [
+    "javascript",
+    "web"
+  ],
+  "feedback": "https://forms.gle/CGu4QchgBxxWnNJK8",
+  "ga": "UA-6735579-1",
+  "url": "../site/codelabs/Module5_SeleniumJS"
+}
