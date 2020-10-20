@@ -1,6 +1,6 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 summary: Module 5 of Selenium JavaScript course . Learn to write Selenium tests in the JavaScript programming language with Mocha.
-id: Module5_SeleniumJS
+id: ../site/codelabs/Module5_SeleniumJS
 categories: advanced
 tags: javascript
 environments: Web
@@ -234,7 +234,7 @@ module.exports = {
 
 ### Run Tests Using Sauce Connect Proxy
 
-Once your tunnel is up and running, (you should see the message Sauce Connect is up in terminal)  and you have updated your `config.js` and `DriverFactory.js` files, you can run your tests in Sauce Labs using Sauce Connect Proxy. First, update your` .bash_profile `with an environment variable (it must match the` tunnel id `your use to start the tunnel with).
+Once your tunnel is up and running, (you should see the message Sauce Connect is up in terminal)  and you have updated your `config.js` and `DriverFactory.js` files, you can run your tests in Sauce Labs using Sauce Connect Proxy. First, update your `.bash_profile ` with an environment variable (`export SAUCE_TUNNEL=`) and name it with the` tunnel id ` you used to start the tunnel with.
 
 <img src="assets/5.03H.png" alt="Tunnel Tests running on Sauce Labs" width="750"/>
 
@@ -789,7 +789,7 @@ Once the plugin is installed, you can check under the **Installed **tab on the s
 
 You can set up your Sauce Labs credentials to be passed into tests as variables running on Jenkins in the same way that you set up your tests to get the credentials stored on your personal machine as variables. The nice thing about this is that you can control which Jenkins users have access to these credentials, and allow or disallow certain people that use the same Jenkins instance to use these credentials.
 
-Go to **Security **> **Manage Jenkins **>** Manage Credentials**.
+Go to **Security > Manage Jenkins > Manage Credentials**.
 
 Depending on how Jenkins is set up, other instances of Jenkins may have different domains. In this example, you can set things up in the** global **domain:
 
@@ -810,6 +810,8 @@ Once you click **Save**, you should see your new access key listed under **Globa
 <img src="assets/5.07G.png" alt="See Global Credentials" width="650"/>
 
 Now you can go to your project and set up your credentials. Go back to your Jenkins dashboard, choose the project you created, and then **Configure **in the menu. Scroll down, and under **Build Environment**, click the **Sauce Labs Options** checkbox. Make sure the credentials you just set up are listed here.
+
+You can configure a failed build to trigger things like e-mail messages or send information directly to Jira tickets. You can find out more[ here](https://plugins.jenkins.io/email-ext/). All you need to do to get started is go to Manage Jenkins > Manage Plugins and search for an email plugin in available plugins
 
 
 ### Run Tests with Sauce OnDemand
@@ -848,7 +850,7 @@ Open `config.js`. Below the `sauceW3C `object, create a` jenkins `object (don’
 ```
 
 
-In this example, you are setting up our test with Chrome 75 and you need to use the new capabilities that are compliant with the latest W3C capabilities. First, change the name of the project from the Jenkins** Dashboard**:
+In this example, you are setting up our test with Chrome 75 and you need to use the new capabilities that are compliant with the latest W3C capabilities. First, change the name of the project from the Jenkins **Dashboard**:
 
 <img src="assets/5.07H.png" alt="Rename Test" width="650"/>
 

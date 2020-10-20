@@ -1,5 +1,5 @@
 summary: Module 2 of the Selenium Java course. Learn to write Selenium tests in Java using the JUnit framework, Maven, and the IntelliJ IDE.
-id: Module2-SeleniumJava
+id: ../site/codelabs/Module2-SeleniumJava
 categories: intermediate
 tags: java
 environments: Web
@@ -265,7 +265,7 @@ Let's put these elements to use in our first test.
 ### Setup Your Project File
 
 
-First we will need to create a new project directory called `Selenium??` (your main project directory), and inside create a folder named `test` inside that project directory. This is a default folder that Mocha will know to look for.
+First we will need to create a new project directory called `SeleniumJava` (your main project directory), and inside create a folder named `tests` inside that project directory. This is a default folder that Maven will know to look for.
 
 
 You can see all of the files here.
@@ -273,7 +273,8 @@ You can see all of the files here.
 **_[Selenium_Course_Example_Code ](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2/2.05)_**
 
 ### NOTE
-If you are a first-time user of IntelliJ with Java, I highly recommend checking out the YouTube channel by JetBrains. [This is a great first video.](https://www.youtube.com/watch?v=H_XxH66lm3U)
+Negative
+: If you are a first-time user of IntelliJ with Java, I highly recommend checking out the YouTube channel by JetBrains. [This is a great first video.](https://www.youtube.com/watch?v=H_XxH66lm3U)
 
 --
 
@@ -316,8 +317,8 @@ Next, (download the Chromedriver)[https://chromedriver.chromium.org/downloads] (
 ![https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/preview](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
 
 ### NOTE
- If you are testing on an older version of Firefox (e.g., 47 or earlier) then you don't need to download Geckodriver. You will be able to use the legacy FirefoxDriver implementation. To do that you just need to disable Marionette (the new Firefox WebDriver implementation that Geckodriver connects to) which would look like this:
-
+Negative
+: If you are testing on an older version of Firefox (e.g., 47 or earlier) then you don't need to download Geckodriver. You will be able to use the legacy FirefoxDriver implementation. To do that you just need to disable Marionette (the new Firefox WebDriver implementation that Geckodriver connects to) which would look like this:
 `System.setProperty("webdriver.firefox.marionette", "false");`
 
 --
@@ -388,8 +389,8 @@ public class TestLogin {
 ```
 
 ### NOTE
-The two imported classes may delete themselves or turn grey – the IntelliJ IDE will intentionally clean up code and remove the import of unnecessary classes to speed up the running of your code.
-
+Negative
+: The two imported classes may delete themselves or turn grey – the IntelliJ IDE will intentionally clean up code and remove the import of unnecessary classes to speed up the running of your code.
 <img src="assets/2.05O.png" alt="Chrome Version" width="550"/>
 
 --
@@ -412,9 +413,11 @@ This abstraction using the JUnit annotations library enables us to write our tes
 
 ### NOTE
 
-If you notice that some of the dependencies at the top are red, it means you need to install those dependencies. Refer to module 1.05 Video on [using IntelliJ to install dependencies](https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/view?usp=sharing), and the [Cheat Sheet ](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)for web drivers.
+Negative
+: If you notice that some of the dependencies at the top are red, it means you need to install those dependencies. Refer to module 1.05 Video on [using IntelliJ to install dependencies](https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/view?usp=sharing), and the [Cheat Sheet ](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)for web drivers.
 
- We're able to do this by specifying a system property with `System.setProperty("webdriver.chrome.driver")` and providing the full path to the file which we find by using the project directory path and appending /vendor/geckodriver to it.
+Negative
+: We're able to do this by specifying a system property with `System.setProperty("webdriver.chrome.driver")` and providing the full path to the file which we find by using the project directory path and appending /vendor/geckodriver to it.
 
 --
 
@@ -488,13 +491,13 @@ public class TestLogin {
 
 ### NOTE
 
-When using the IntelliJ IDE, classes and libraries must be instantiated within the code before they can be added to the list of imported elements at the top. Watch this video (gif?) to see how this is done.
+Negative
+: When using the IntelliJ IDE, classes and libraries must be instantiated within the code before they can be added to the list of imported elements at the top. Watch this video (gif?) to see how this is done.
 
 
 #### Video
-
-Importing Classes and Methods with IntelliJ
-
+Negative
+: Importing Classes and Methods with IntelliJ
 <img src="assets/2.06_IntelliJ_Import.gif" alt="Pencil" width="800"/>
 
 
@@ -511,19 +514,28 @@ With `assertTrue` we are checking for a true (Boolean) response. If one is not r
 
 ### NOTE
 
-If you find that your tests are failing, try running the command `source ~/bash_profile `(or `source ~/.zhsrc `for MacOS Catalina) in the command line. This tells your machine to look at your bash profile to find the path to Maven and other dependencies.
+Negative
+: If you find that your tests are failing, try running the command `source ~/bash_profile `(or `source ~/.zhsrc `for MacOS Catalina) in the command line. This tells your machine to look at your bash profile to find the path to Maven and other dependencies.
 
-In order to avoid doing that each time, you can edit your profile with the following steps:
-
-
-
-1. In terminal, run `cd .. `and hit enter until you are at the top directory
-2. Once you are in the top directory, run the command `ls`, and you should see a directory named `/bin`
-3. Run `cd bin` to enter that directory and run` ls` again. In that list of files, you should see one called profile. Open it in edit mode by running the command` sudo vi profile `(you may have to enter your password)
-4. Type `i `to enter insert mode. Next, copy and paste in `source ~/bash_profile `in the second line of code. Hit escape twice, then you should be able to type in `:wq!` At the bottom to save the changes. Now your machine knows where to look for your environment and PATH variables
+Negative
+: In order to avoid doing that each time, you can edit your profile with the following steps:
 
 
-<img src="assets/2.06A.png" alt="Bash Profile" width="450"/>
+
+Negative
+: 1. In terminal, run `cd .. `and hit enter until you are at the top directory
+
+Negative
+: 2. Once you are in the top directory, run the command `ls`, and you should see a directory named `/bin`
+
+Negative
+: 3. Run `cd bin` to enter that directory and run` ls` again. In that list of files, you should see one called profile. Open it in edit mode by running the command` sudo vi profile `(you may have to enter your password)
+
+Negative
+: 4. Type `i `to enter insert mode. Next, copy and paste in `source ~/bash_profile `in the second line of code. Hit escape twice, then you should be able to type in `:wq!` At the bottom to save the changes. Now your machine knows where to look for your environment and PATH variables
+
+Negative
+: <img src="assets/2.06A.png" alt="Bash Profile" width="450"/>
 
 
 
@@ -582,12 +594,15 @@ Next, we will create a new test file, named `TestLocator.java.` Place it in the 
 
 #### NOTE
 
-This can be done in IntelliJ by right clicking within the **companyname **folder in the project window and creating a** New → Java Class **then naming it **TestLocator.**
+Negative
+: This can be done in IntelliJ by right clicking within the **companyname **folder in the project window and creating a** New → Java Class **then naming it **TestLocator.**
 
-<img src="assets/2.08E.png" alt="New Java Class" width="650"/>
+Negative
+: <img src="assets/2.08E.png" alt="New Java Class" width="650"/>
 
 
-<img src="assets/2.08F.png" alt="Test Locator Class" width="350"/>
+Negative
+: <img src="assets/2.08F.png" alt="Test Locator Class" width="350"/>
 
 
 --

@@ -1,5 +1,5 @@
 summary: Module 3 Writing Reusable Test Code
-id: Module3-SeleniumJava
+id: ../site/codelabs/Module3-SeleniumJava
 categories: advanced
 tags: java
 status: published
@@ -339,9 +339,8 @@ Run **clean** and **test** with Maven and you should get three passing tests
 
 #### NOTE
 
-**Why?**
-
-Now you have a test added into your suite that will check to see that a failure message was not present. This is important once you start running your test suites so whomever is evaluating the test results knows that a failure was because of a lack of a failure message showing up. With the` failed()` test, you are checking that it is true that you can locate the failure message on the page, otherwise the message `'Failure message wasn't present after providing bogus credentials"` will be returned.
+Negative
+: **Why?**  Now you have a test added into your suite that will check to see that a failure message was not present. This is important once you start running your test suites so whomever is evaluating the test results knows that a failure was because of a lack of a failure message showing up. With the` failed()` test, you are checking that it is true that you can locate the failure message on the page, otherwise the message `'Failure message wasn't present after providing bogus credentials"` will be returned.
 
 --
 
@@ -377,7 +376,7 @@ In order for this to work, you need to add the elements in the following order t
 ```
 
 
-1. Within the` Login()` method, add in an<code><em> </em>assertTrue()</code> method underneath the <code>driver.get </code>method:
+2. Within the` Login()` method, add in an<code><em> </em>assertTrue()</code> method underneath the <code>driver.get </code>method:
 
 ```
 //filename: pageobjects/Login.java
@@ -388,7 +387,7 @@ In order for this to work, you need to add the elements in the following order t
 ```
 
 
-2. At the top of the page, at then end of list of imports, add in:
+3. At the top of the page, at then end of list of imports, add in:
 
 ```
 //filename: pageobjects/Login.java
@@ -580,9 +579,6 @@ Lastly, since the driver member is defined in the `Base.java` class, the driver 
 
 
 Now much of your code has been abstracted into the facade layer called Base.java, making it easier to read, reuse, and eventually maintain.
-
-
-### NOTE–
 
 
 ### Inheriting from the Base Page
@@ -828,9 +824,11 @@ It’s important to do these in order so that first you locate the element (wait
 
 #### NOTE
 
-The `timeout` parameter in both the `isDisplayed()` method using `WebDriverWait `is set to 10 seconds. This allows time for a slowly loading page and plenty of time to check to see that the element has been located and check if it is visible. In this case, if the `isDisplayed()` function is called without the` timeout` parameter, it will try the same test without the locator (the code in the first` isDisplayed() `in `Base.java`).
+Negative
+: The `timeout` parameter in both the `isDisplayed()` method using `WebDriverWait `is set to 10 seconds. This allows time for a slowly loading page and plenty of time to check to see that the element has been located and check if it is visible. In this case, if the `isDisplayed()` function is called without the` timeout` parameter, it will try the same test without the locator (the code in the first` isDisplayed() `in `Base.java`).
 
-<img src="assets/3.06M.png" alt="timeout parameter" width="750"/>
+Negative
+: <img src="assets/3.06M.png" alt="timeout parameter" width="750"/>
 
 --
 
@@ -921,7 +919,8 @@ In our test, `hiddenElementLoads()`,  you are visiting the first dynamic loading
 
 #### NOTE
 
-Remember that you have the Chrome driver installed in this case on your local machine. This code will break if you move this to another location like a docker container or virtual machine, and needs to be updated in any `setUp()` function in the `System.setProperty() `you have created in any test. You also need to remember to update the `System.setProperty() `to whatever you had created in `TestLogin.java`.
+Negative
+: Remember that you have the Chrome driver installed in this case on your local machine. This code will break if you move this to another location like a docker container or virtual machine, and needs to be updated in any `setUp()` function in the `System.setProperty() `you have created in any test. You also need to remember to update the `System.setProperty() `to whatever you had created in `TestLogin.java`.
 
 --
 
@@ -1011,7 +1010,8 @@ In our test, `hiddenElementLoads()`,  you are visiting the first dynamic loading
 
 #### NOTE
 
-Remember that you have the Chrome driver installed in this case on your local machine. This code will break if you move this to another location like a docker container or virtual machine, and needs to be updated in any `setUp()` function in the `System.setProperty() `you have created in any test. You also need to remember to update the `System.setProperty() `to whatever you had created in `TestLogin.java`.
+Negative
+: Remember that you have the Chrome driver installed in this case on your local machine. This code will break if you move this to another location like a docker container or virtual machine, and needs to be updated in any `setUp()` function in the `System.setProperty() `you have created in any test. You also need to remember to update the `System.setProperty() `to whatever you had created in `TestLogin.java`.
 
 --
 
@@ -1070,9 +1070,11 @@ Run the test. You can run the tests by typing `mvn clean test` in your terminal.
 
 #### NOTE
 
-The `-Dtests= `flag allows you to search for a certain set of characters when you run the JUnit test. In this case, you are searching for and running the name of the test class **TestDynamicLoading, **and only two tests should be run.
+Negative
+: The `-Dtests= `flag allows you to search for a certain set of characters when you run the JUnit test. In this case, you are searching for and running the name of the test class **TestDynamicLoading, **and only two tests should be run.
 
-<img src="assets/3.07J.png" alt="Run test dynamic Loading" width="650"/>
+Negative
+: <img src="assets/3.07J.png" alt="Run test dynamic Loading" width="650"/>
 
 
 --

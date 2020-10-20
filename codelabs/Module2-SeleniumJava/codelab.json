@@ -1,0 +1,26 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2020-10-19T15:03:39-05:00",
+  "id": "Module2-SeleniumJava",
+  "duration": 95,
+  "title": "Module 2 — Locators and Java Tests",
+  "summary": "Module 2 of the Selenium Java course. Learn to write Selenium tests in Java using the JUnit framework, Maven, and the IntelliJ IDE.",
+  "source": "Module2_SeleniumJava.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "intermediate"
+  ],
+  "tags": [
+    "java",
+    "web"
+  ],
+  "feedback": "https://forms.gle/CGu4QchgBxxWnNJK8",
+  "ga": "UA-6735579-1",
+  "url": "Module2-SeleniumJava"
+}
