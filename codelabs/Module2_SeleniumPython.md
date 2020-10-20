@@ -293,13 +293,56 @@ Next, right click on the **tests** folder and create a **New > Python File**. na
 
 Last, right click in the top-level folder and create a **New > File**. Name is **requirements.txt**. This file will contain the instructions for the dependencies that will be installed in your virtual environment.
 
-<img src="assets/2.05T.png" alt="Create requirements.txt" width="450"/
+<img src="assets/2.05T.png" alt="Create requirements.txt" width="450"/>
 
 ### Test and Requirements
 
-Go into the SeleniumJava (your main project) directory using your terminal, then open up the `requirements.txt` and `login_test.py` files by double clicking on them.
+Go into the SeleniumJava (your main project) directory using your terminal, then open up the `requirements.txt` and `login_test.py` files by double clicking on them. Copy and paste the following into requirements.txt:
 
- 
+```
+selenium==3.14.0
+sauceclient>=0.2.1
+pytest==4.4.0
+pytest-xdist
+pytest-randomly
+
+```
+
+After you add those files, PyCharm will prompt you to install the plugins and requirements - click on the links to install the dependencies listed.
+
+<img src="assets/2.05U.png" alt="install dependencies" width="750"/>
+
+Next, you will set up the base for your first test. In `login_test.py` copy and paste the following (you will have to install requirements in this file as well):
+
+```
+# filename: tests/login_test.py
+import pytest
+import os
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+@pytest.fixture
+def driver(request):
+    _chromedriver= os.path.join(os.getcwd(), 'vendor', 'chromedriver')
+    if os.path.isfile(_chromedriver):
+        driver_ = webdriver.Chrome(_chromedriver)
+
+    else:
+        driver_ = webdriver.Chrome()
+
+    def quit():
+        driver_.quit()
+
+    request.addfinalizer(quit)
+    return driver_
+
+
+def test_valid_credentials(driver):
+    driver.get("http://the-internet.herokuapp.com/login")
+    driver.find_element(By.ID, "username").send_keys("tomsmith")
+    driver.find_element(By.ID, "password").send_keys("SuperSecretPassword!")
+    driver.find_element(By.CSS_SELECTOR, "button").click()
+```
 
 Essentially, Selenium works with two pieces of information, the element on page you will use and what you want to do with it. In this example test you will
 //...
