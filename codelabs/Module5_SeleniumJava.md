@@ -391,10 +391,10 @@ In order to do this with Java, you will need to use categories: _Shallow, deep, 
 
 For each category, You will need to create an [interface ](https://www.tutorialspoint.com/java/java_interfaces.htm)file. Create a new package (right click in the directory **Test > New > Package**) called `groups` inside of the `tests` package. Inside `groups` (right click in the directory **groups > New > Class**) you'll create three interface files -- `All.java`, `Deep.java`, and `Shallow.java`.
 
-<img src="assets/5.05D.png" alt="New Interface files" width="650"/>
+<img src="assets/5.05D.png" alt="New Interface files" width="450"/>
 
 
-<img src="assets/5.05E.png" alt="New Interface files" width="650"/>
+<img src="assets/5.05E.png" alt="New Interface files" width="450"/>
 
 
 In each of the interface files, add in the following code:
@@ -586,7 +586,7 @@ Negative
 
 --
 
-Let's start by setting up Jenkins on your local machine and using the test code from your computer as well. Keep in mind that this isn’t the proper way to go about this — it's merely beneficial for this example. To do it right, the Jenkins server (i.e., master node) would live on a machine of its own, or in a Virtual Machine (VM) like a Docker container.
+Let's start by setting up Jenkins on your local machine and using the test code from your computer as well. Keep in mind that this isn’t the proper way to go about this — it's merely beneficial for this example. To do it right, the Jenkins server (i.e., master node) would live on a machine of its own, or in a Virtual Machine (VM).
 
 These instructions give you the step-by-step for how to set up on MacOS, however there are instructions for other operating systems, as well as the option for setup using a Docker container with other operating systems [here](https://www.jenkins.io/doc/book/installing/).
 

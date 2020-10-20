@@ -323,11 +323,13 @@ This sets up all the dependencies, however, you may need to research to make sur
 Negative
 : How to Find Dependencies Using IntelliJ Video:
  If your .pom file doesn’t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out.
-1. Hover over a red word in IDE
-2. Click the red light bulb to import maven dependencies.
-3. Click the Maven tab and refresh.
-4. Check the .pom file to make sure the updated version was added.
-5. Words should no longer appear red in the test.java file.
+ Negative
+
+: 1. Hover over a red word in IDE
+:  2. Click the red light bulb to import maven dependencies.
+: 3. Click the Maven tab and refresh.
+: 4. Check the .pom file to make sure the updated version was added.
+: 5. Words should no longer appear red in the test.java file.
 
 
 #### Video
@@ -374,14 +376,14 @@ Take a look at the first test code we will be creating in the next module. There
 
 **@After –** The annotation that is used to tear down a test case, used at the end of every case, along with the @Before annotation.
 
-**assertTrue(‘Failure message’, &lt;Boolean condition> ) –** JUnit method that checks if something is true and throws an error message (passed as first parameter) if the following command returns false (second parameter).
+**assertTrue(failureMessage, condition) –** JUnit method that checks if something is true and throws an error message (passed as first parameter) if the following command returns false (second parameter).
 
 
 ### Selenium Elements
 
 **driver variable with** driver.get(), driver.findElement, driver.* **– The driver variable instantiates a WebDriver session/ object, and then you can use Java commands for that driver.
 
-**[Driver.quit](https://artoftesting.com/difference-between-driver-close-and-driver-quit-command-in-selenium-webdriver) –** An important Selenium command to use within **@After**s annotations, this closes any browser windows that may be open and terminates the WebDriver session.
+**[Driver.quit](https://artoftesting.com/difference-between-driver-close-and-driver-quit-command-in-selenium-webdriver) –** An important Selenium command to use within **@After** annotations, this closes any browser windows that may be open and terminates the WebDriver session.
 
 You can see an example of the project we will begin to be setting up in the next module [here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod1/SeleniumJava%20copy/src/test/java/companyname)
 
