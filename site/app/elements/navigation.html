@@ -488,11 +488,13 @@
       document.getElementById('mobileClose').classList.remove("--hide")
       document.getElementById('mobileMenuIcon').classList.add("--hide")
       document.getElementsByClassName('header__mobile-nav')[0].classList.remove("--hide")
+      document.getElementsByClassName('header__mobile-nav')[0].classList.add("--fade-in-intro")
     }
     function menuClose() {
       document.getElementById('mobileClose').classList.add("--hide")
       document.getElementById('mobileMenuIcon').classList.remove("--hide")
       document.getElementsByClassName('header__mobile-nav')[0].classList.add("--hide")
+      document.getElementsByClassName('header__mobile-nav')[0].classList.remove("--fade-in-intro")
     }
 
     //mobile menu child functions
