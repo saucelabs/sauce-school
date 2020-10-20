@@ -239,9 +239,9 @@ If you look in the project file, you should notice that there is a **pom.xml** f
 
 <img src="assets/1.05N.png" alt="pom.xml" width="350"/>
 
-### Update .pom File
+### The pom.mxl File
 
-For now, update the .pom file with the following dependencies. Maven will install and use these dependencies alongside the test code. Note that the versions may be out of date and you may want to use a more updated version of JUnit, Selenium, or Selenium drivers.
+The `pom.xml` file is what Maven uses to identify which dependencies to install and update. To start off, you will updated `pom.xml` with your dependencies. Maven will install and use these dependencies alongside the test code. Note that the versions may be out of date and you may want to use a more updated version of JUnit, Selenium, or Selenium drivers.
 
 
 ```
@@ -313,7 +313,7 @@ For now, update the .pom file with the following dependencies. Maven will instal
 ```
 
 
-This sets up all the dependencies, however, you may need to research to make sure you have the most updated or correct version of these dependencies. Each `&lt;dependency> &lt;version> `may need to be updated. See the section below for more details.
+This sets up all the dependencies, however, you may need to research to make sure you have the most updated or correct version of these dependencies. Each dependency's `<version>` may need to be updated. See the section below for more details.
 
 --
 

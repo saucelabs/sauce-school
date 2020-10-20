@@ -262,7 +262,6 @@ Notice the element attributes on the form. The username input field has a unique
 
 Let's put these elements to use in our first test.
 
-
 ### Setup Your Project File
 
 First we will need to create a new project directory called `SeleniumPython` (your main project directory), and inside create a folder named `test` inside that project directory. This is a default folder that Mocha will know to look for.
@@ -344,10 +343,61 @@ def test_valid_credentials(driver):
     driver.find_element(By.CSS_SELECTOR, "button").click()
 ```
 
-Essentially, Selenium works with two pieces of information, the element on page you will use and what you want to do with it. In this example test you will
-//...
+Essentially, Selenium works with two pieces of information, the element on page you will use and what you want to do with it.
+
+In this example test you will login to the app, find the username and password fields (and fill them in),and click the login button.
+
+In a later module you will add an assertion that things went as expected.
+
+### Install Chromedriver
+Before you can run this test code, you will need to install the Chromedriver so that your test code can communicate with the browser.
+
+Start by creating a new directory in the top level folder by right clicking on it and choosing **New > Directory**.  Name that directory **vendor**:
+
+<img src="assets/2.05V.png" alt="install dependencies" width="350"/>
+
+In order for your test to run on a browser on your local machine, you need to install the driver for the browser, and update your code. A similar set of steps can be followed for any browser.
+
+First, check which version of chrome you are using by opening Chrome on your machine and checking the version.  
+
+<img src="assets/2.05K.png" alt="Chrome Version" width="550"/>
+
+Next, [download the Chromedriver](https://chromedriver.chromium.org/downloads). If you want to test on a different browser, you can also download [Geckodriver](https://github.com/mozilla/geckodriver) for Firefox, or [any other driver here](https://automationintesting.com/selenium/java/lessons/drivers.html). The driver version should match the version of the browser you have on your machine. In this example, you would need to download version 84 of the Chromedriver, since you have version 84 of Chrome on your machine.
+
+#### Cheat Sheet
+
+![]()
+
+### NOTE
+Negative
+: If you are testing on an older version of Firefox (e.g., 47 or earlier) then you don't need to download Geckodriver. You will be able to use the legacy FirefoxDriver implementation. To do that you just need to disable Marionette (the new Firefox WebDriver implementation that Geckodriver connects to) which would look like this:
+`System.setProperty("webdriver.firefox.marionette", "false");`
+
+--
 
 
+
+Download the file, move it into the **vendor directory**, and double-click to expand the file.
+
+<img src="assets/2.05K.png" alt="Chrome Version" width="550"/>
+
+#### NOTE
+
+Negative
+: Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, go to **System Preferences** on your Mac **> Security & Privacy**, then under the **General** tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers.
+
+Negative
+: <img src="assets/2.05W.png" alt="Chromedriver in the vendor directory" width="750"/>
+
+Negative
+: On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver** or **geckodriver** manually.
+
+Negative
+: Another option is to simply look through your file directories on your computer and double click on the files to manually open them with terminal or command line. After you have allowed them to be opened once, your computer should allow the drivers to be run by your tests.
+
+--
+
+<!-- --------------- -->
 
 
 // ...
