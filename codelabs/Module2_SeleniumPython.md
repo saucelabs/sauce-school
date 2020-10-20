@@ -345,6 +345,10 @@ def test_valid_credentials(driver):
 
 Essentially, Selenium works with two pieces of information, the element on page you will use and what you want to do with it.
 
+Notice how your test method starts with the word `test_` (that's how pytest knows it's a test) and it has two parameters (`self` and `driver`). `driver` accesses the driver instantiated for this test at the top of the class.
+
+ Since it returns a browser instance we can reference this variable directory to use Selenium commands.
+
 In this example test you will login to the app, find the username and password fields (and fill them in),and click the login button.
 
 In a later module you will add an assertion that things went as expected.
@@ -393,14 +397,19 @@ Negative
 : On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver** or **geckodriver** manually.
 
 Negative
-: Another option is to simply look through your file directories on your computer and double click on the files to manually open them with terminal or command line. After you have allowed them to be opened once, your computer should allow the drivers to be run by your tests.
+: Once you have allowed this, find the Chromedriver in your file directory, double click on it, and force terminal to open it.
 
 --
 
-<!-- --------------- -->
+### Run Your Tests
+Strictly speaking, this isn't a test yet, since you haven't used an assertion, however we can still run your file and see it interact with the browser, if everything has been installed correctly.
 
+At the bottom of the PyCharm IDE, you should see a button labeled **Terminal**. CLick to open it, then in the terminal, type the command `pytest` to run your suite.
 
-// ...
+<img src="assets/2.05X.png" alt="AFirst test" width="850"/>
+
+If your code is correct, you driver has been given permission to open, you should see an output similar to what is above. You have successfully ran your first test!
+
 
 <!-- ------------------------ -->
 
