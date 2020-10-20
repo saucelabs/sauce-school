@@ -199,14 +199,13 @@ Find more on [XPath here](https://yizeng.me/2014/03/23/evaluate-and-validate-xpa
 
 You want to find an element that is unique, descriptive, and unlikely to change.
 
-Ripe candidates for this are `id` and `class `attributes. Whereas text (e.g., the text of a link) is less ideal since it is more apt to change. If the elements you are attempting to work with don't have unique `id` or `class` attributes directly on them, look at the element that houses them (a.k.a. the parent element). Oftentimes the parent element has a unique element that you can use to start with and walk down to the child element you want to use.
+Ripe candidates for this are `id` and `class `attributes. Whereas text (e.g., the text of a link) is less ideal since it is more apt to change. If the elements you are attempting to work with don't have unique `id` or `class` attributes directly on them, look at the element that houses them (a.k.a. the parent element). Often times the parent element has a unique element that you can use to start with and walk down to the child element you want to use.
 
-When you can't find any unique elements have a conversation with your development team letting them know what you are trying to accomplish. It's typically a trivial thing for them to add helpful semantic markup to a page to make it more testable. This is especially true when they know the use case you're trying to automate. The alternative can be a lengthy and painful process which might yield working test code but it will be brittle and hard to maintain.
+When you can't find any unique elements have a conversation with your development team letting them know what you are trying to accomplish. It's typically fairly simple to add markup to a page to make it more testable. This is especially true when they know the use case you're trying to automate.
 
 Once you've identified the target elements and attributes you'd like to use for your test, you’ll need to craft locators using one of Selenium's strategies.
 
 Selenium is able to find and interact with elements on a page by way of various locator strategies. The list includes (sorted alphabetically):
-
 
 
 *   Class  in the HTML
@@ -221,7 +220,7 @@ Selenium is able to find and interact with elements on a page by way of various 
 
 ### Quiz
 
-<!-- ![Embed URL](share URL) -->
+![https://docs.google.com/forms/d/e/1FAIpQLSe6DK02jjCHiMR5-L-NrxNsPIWDfpBvYfgY59X_loJb-8Q_Jg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSe6DK02jjCHiMR5-L-NrxNsPIWDfpBvYfgY59X_loJb-8Q_Jg/viewform?usp=sf_link)
 
 
 
@@ -266,18 +265,41 @@ Let's put these elements to use in our first test.
 
 ### Setup Your Project File
 
-
 First we will need to create a new project directory called `SeleniumPython` (your main project directory), and inside create a folder named `test` inside that project directory. This is a default folder that Mocha will know to look for.
 
 
-You can see all of the files here.
+You can see all of the files here. It is recommended that you follow the steps in this module to correctly configure your test in PyCharm if you don't have experience setting up this type of project before.
 
 **_[Selenium_Course_Example_Code ](http://example.com)_**
 
+When you Open PyCharm, choose New project
+
+<img src="assets/2.05P.png" alt="First Passed Test" width="450"/>
+
+In the next window, name the project **SeleniumJava**, choose which directory you want to store it in (the example is in **Users/lindsaywalker**), and create a **new environment using Virtualenv**. Make sure you uncheck **create a main.py welcome script** then click **Create**.
+
+<img src="assets/2.05Q.png" alt="First Passed Test" width="650"/>
+
+
+Virtualenv will create a 'sandbox' virtual environment for your project with only Python version 3 and the dependencies that go with it.
+
+Right click in the top-level folder and create a **New > Directory**. name the director **tests**.
+
+<img src="assets/2.05R.png" alt="First Passed Test" width="450"/>
+
+Next, right click on the **tests** folder and create a **New > Python File**. name the director **login_test**.
+
+<img src="assets/2.05S.png" alt="First Passed Test" width="450"/>
+
+Last, right click in the top-level folder and create a **New > File**. Name is **requirements.txt**. This file will contain the instructions for the dependencies that will be installed in your virtual environment.
+
+<img src="assets/2.05T.png" alt="First Passed Test" width="450"/
+
+### Test and Requirements
 
 Go into the SeleniumJava (your main project) directory using your terminal.
 
-Essentially, Selenium works with two pieces of information, the element on apage you will use and what you want to do with it. In this example test you will
+Essentially, Selenium works with two pieces of information, the element on page you will use and what you want to do with it. In this example test you will
 //...
 
 
