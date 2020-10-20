@@ -124,12 +124,19 @@ ul.footer__sublinks {
       display: flex;
       flex-wrap: wrap;
     }
-    .footer-column {
-      flex: 0 50%;
+  }
+  .footer-column {
+    flex: 0 50%;
+  }
+  .footerbar {
+    .site-width.layout.horizontal.center.justified {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
     }
     .footer__sublinks, .footer__copyright {
-      width: 100%!important;
-      display: block!important;
+      flex: 0 100%;
+      padding: 5px 0 5px 0;
     }
   }
 }
