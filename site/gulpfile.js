@@ -123,7 +123,8 @@ gulp.task('clean', gulp.parallel(
 gulp.task('build:codelabs', async (done) => {
   gulp.series([
       'codelabs:export',
-      'override:build:scss',
+      //commenting out until this process is cleaned up
+      //'override:build:scss',
       'override:modules'
   ])(() => {
     copyFilteredCodelabs('build');
@@ -152,7 +153,6 @@ gulp.task('build:css', () => {
 gulp.task('override:build:scss', () => {
   return gulp.src('./app/styles/overrides.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./codelabs/**/styles'))
     .pipe(gulp.dest(glob.sync('./codelabs/**/styles')));
 });
 
@@ -163,12 +163,26 @@ gulp.task('override:modules', function() {
       let htmlDoc = this;
       let linkOverrideCss = htmlDoc.createElement('link');
       let newOverrideStyles = htmlDoc.createElement('link');
+      let newFontStyles = htmlDoc.createElement('link');
       let header = htmlDoc.getElementsByTagName('head')[0];
       let numberOfChildren = header.getElementsByTagName('link').length
       newOverrideStyles.rel = 'stylesheet';
+      newFontStyles.rel = 'stylesheet';
+      //link to overrides
       newOverrideStyles.href = './styles/overrides.css';
-      if (numberOfChildren = 3) {
-        return htmlDoc.getElementsByTagName('head')[0].appendChild(newOverrideStyles);
+      //link to museo sans
+      newFontStyles.href = 'https://use.typekit.net/uws2znl.css';
+      //add override.css to header
+      return runOverrides()
+      function runOverrides() {
+        if (numberOfChildren = 4) {
+          //get override styles
+          htmlDoc.getElementsByTagName('head')[0].appendChild(newOverrideStyles);
+          //get museo sans web safe
+          htmlDoc.getElementsByTagName('head')[0].appendChild(newFontStyles);
+        }
+        //console.log(htmlDoc)
+        //need to come back to this. Cannot grab html elements. protected by an object.
       }
     }))
     .pipe(gulp.dest('./codelabs/'));

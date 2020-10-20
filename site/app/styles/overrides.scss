@@ -1,17 +1,17 @@
 body h1.title {
-  font-family: 'Museo-Sans', sans-serif!important;
+  font-family: museo-sans, sans-serif!important;
 }
 body {
-  font-family: 'Museo-Sans', sans-serif!important;
+  font-family: museo-sans, sans-serif!important;
 }
 google-codelab #drawer ol li[completed] .step:before {
   background-color: #E12726;
 }
 google-codelab-step h2.step-title {
-  font-family: 'Museo-Sans', sans-serif!important;
+  font-family: museo-sans, sans-serif!important;
 }
 google-codelab #drawer ol li a {
-  font-family: 'Museo-Sans', sans-serif!important;
+  font-family: museo-sans, sans-serif!important;
 }
 google-codelab #drawer ol ::-webkit-scrollbar-thumb {
   border-radius: 4px;
@@ -21,9 +21,12 @@ google-codelab #drawer ol ::-webkit-scrollbar-thumb {
 #next-step {
   color: #fff;
   background: #E12726;
-  font-family: 'Museo-Sans', sans-serif!important;
+  font-family: museo-sans, sans-serif!important;
 }
 #previous-step, #done {
-  font-family: 'Museo-Sans', sans-serif!important;
+  font-family: museo-sans, sans-serif!important;
   color: #464B54;
+}
+google-codelab #drawer ol li .step:before {
+  content: "";
 }

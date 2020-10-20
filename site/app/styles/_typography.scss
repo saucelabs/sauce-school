@@ -17,6 +17,7 @@
 @import "material";
 body {
   @include md-font-body1();
+  font-family: museo-sans, sans-serif;
 }
 
 h1 {
