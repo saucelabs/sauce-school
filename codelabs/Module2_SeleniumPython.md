@@ -379,7 +379,7 @@ Negative
 
 Download the file, move it into the **vendor directory**, and double-click to expand the file.
 
-<img src="assets/2.05K.png" alt="Chrome Version" width="550"/>
+<img src="assets/2.05W.png" alt="Chrome Version" width="550"/>
 
 #### NOTE
 
@@ -387,7 +387,7 @@ Negative
 : Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, go to **System Preferences** on your Mac **> Security & Privacy**, then under the **General** tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers.
 
 Negative
-: <img src="assets/2.05W.png" alt="Chromedriver in the vendor directory" width="750"/>
+: <img src="assets/4.04K.png" alt="Allow Unidentified FIles in Security and Privacy" width="450"/>
 
 Negative
 : On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver** or **geckodriver** manually.
