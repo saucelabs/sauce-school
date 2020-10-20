@@ -278,26 +278,28 @@ When you Open PyCharm, choose New project
 
 In the next window, name the project **SeleniumJava**, choose which directory you want to store it in (the example is in **Users/lindsaywalker**), and create a **new environment using Virtualenv**. Make sure you uncheck **create a main.py welcome script** then click **Create**.
 
-<img src="assets/2.05Q.png" alt="First Passed Test" width="650"/>
+<img src="assets/2.05Q.png" alt="New PyCharm Project" width="650"/>
 
 
 Virtualenv will create a 'sandbox' virtual environment for your project with only Python version 3 and the dependencies that go with it.
 
 Right click in the top-level folder and create a **New > Directory**. name the director **tests**.
 
-<img src="assets/2.05R.png" alt="First Passed Test" width="450"/>
+<img src="assets/2.05R.png" alt="New Directory" width="450"/>
 
 Next, right click on the **tests** folder and create a **New > Python File**. name the director **login_test**.
 
-<img src="assets/2.05S.png" alt="First Passed Test" width="450"/>
+<img src="assets/2.05S.png" alt="Create Login test" width="450"/>
 
 Last, right click in the top-level folder and create a **New > File**. Name is **requirements.txt**. This file will contain the instructions for the dependencies that will be installed in your virtual environment.
 
-<img src="assets/2.05T.png" alt="First Passed Test" width="450"/
+<img src="assets/2.05T.png" alt="Create requirements.txt" width="450"/
 
 ### Test and Requirements
 
-Go into the SeleniumJava (your main project) directory using your terminal.
+Go into the SeleniumJava (your main project) directory using your terminal, then open up the `requirements.txt` and `login_test.py` files by double clicking on them.
+
+ 
 
 Essentially, Selenium works with two pieces of information, the element on page you will use and what you want to do with it. In this example test you will
 //...
