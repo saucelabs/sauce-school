@@ -120,5 +120,16 @@ ul.footer__sublinks {
     .link-list {
       margin: 0 0 $keyline*3 0;
     }
+    .footer__inner {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .footer-column {
+      flex: 0 50%;
+    }
+    .footer__sublinks, .footer__copyright {
+      width: 100%!important;
+      display: block!important;
+    }
   }
 }
