@@ -9,7 +9,7 @@
     </div>
     <div class="header__mobile-nav --mobile --hide">
       <div id="solutionsEvent" class="header__mobile-item" onclick="openMenuItem('solutions')">
-        <span><img src="/images/nav-carrot.png" class="--closed" /> Solutions</span>
+        <span><img id="solutionsCarrot" src="/images/nav-carrot.png"  /> Solutions</span>
       </div>
       <div id="solutionsChild" class="header__mobile-item--child --hide">
         <span class="header__mobile-sub-title">Solutions For</span>
@@ -44,7 +44,7 @@
         </ul>
       </div>
       <div id="platformEvent" class="header__mobile-item" onclick="openMenuItem('platform')">
-        <span><img src="/images/nav-carrot.png" class="--closed" /> Platform</span>
+        <span><img id="platformCarrot" src="/images/nav-carrot.png"  /> Platform</span>
       </div>
       <div id="platformChild" class="header__mobile-item--child --hide">
 
@@ -120,7 +120,7 @@
         <span class="--no-children-elements"><a href="https://saucelabs.com/pricing">Pricing</a></span>
       </div>
       <div id="resourcesEvent" class="header__mobile-item" onclick="openMenuItem('resources')">
-        <span><img src="/images/nav-carrot.png" class="--closed" /> Resources</span>
+        <span><img id="resourcesCarrot" src="/images/nav-carrot.png"  /> Resources</span>
       </div>
       <div id="resourcesChild" class="header__mobile-item--child --hide">
         <ul>
@@ -168,7 +168,7 @@
       </div>
 
       <div id="companyEvent" class="header__mobile-item" onclick="openMenuItem('company')">
-        <span><img src="/images/nav-carrot.png" class="--closed" /> Company</span>
+        <span><img id="companyCarrot" src="/images/nav-carrot.png"  /> Company</span>
       </div>
       <div id="companyChild" class="header__mobile-item--child --hide">
         <ul>
@@ -194,7 +194,7 @@
         </ul>
       </div>
       <div id="contactEvent" class="header__mobile-item" onclick="openMenuItem('contact')">
-        <span><img src="/images/nav-carrot.png" class="--closed" /> Contact</span>
+        <span><img id="contactCarrot" src="/images/nav-carrot.png"  /> Contact</span>
       </div>
 
       <div id="contactChild" class="header__mobile-item--child --hide">
@@ -508,59 +508,95 @@
       let contactChild = document.getElementById('contactChild');
       let contactEvent = document.getElementById('contactEvent');
 
+      let solutionsOpened;
+      let platformOpened;
+      let resourcesOpened;
+      let companyOpened;
+      let contactOpened;
+
+      if(
+      !solutionsOpened &&
+      !platformOpened &&
+      !resourcesOpened &&
+      !companyOpened &&
+      !contactOpened
+      ) {
+        document.getElementById('bottomActions').classList.add("--bottomPosition");
+      }
+
       if (i == 'solutions') {
         if(solutionsEvent.className.match('--opened')) {
           solutionsChild.classList.add("--hide");
           solutionsEvent.classList.remove("--opened");
+          document.getElementById('solutionsCarrot').classList.remove("--closed");
+          solutionsOpened = false;
         }
         else {
           solutionsChild.classList.remove("--hide");
           solutionsEvent.classList.add("--opened");
           document.getElementById('bottomActions').classList.remove("--bottomPosition");
+          document.getElementById('solutionsCarrot').classList.add("--closed");
+          solutionsOpened = true;
         }
       }
       if (i == 'platform') {
         if(platformEvent.className.match('--opened')) {
           platformChild.classList.add("--hide");
           platformEvent.classList.remove("--opened");
+          document.getElementById('platformCarrot').classList.remove("--closed");
+          platformOpened = false;
         }
         else {
           platformChild.classList.remove("--hide");
           platformEvent.classList.add("--opened");
           document.getElementById('bottomActions').classList.remove("--bottomPosition");
+          document.getElementById('platformCarrot').classList.add("--closed");
+          platformOpened = true;
         }
       }
       if (i == 'resources') {
         if(resourcesEvent.className.match('--opened')) {
           resourcesChild.classList.add("--hide");
           resourcesEvent.classList.remove("--opened");
+          document.getElementById('resourcesCarrot').classList.remove("--closed");
+          resourcesOpened = false;
         }
         else {
           resourcesChild.classList.remove("--hide");
           resourcesEvent.classList.add("--opened");
           document.getElementById('bottomActions').classList.remove("--bottomPosition");
+          document.getElementById('resourcesCarrot').classList.add("--closed");
+          resourcesOpened = true;
         }
       }
       if (i == 'company') {
         if(companyEvent.className.match('--opened')) {
           companyChild.classList.add("--hide");
           companyEvent.classList.remove("--opened");
+          document.getElementById('companyCarrot').classList.remove("--closed");
+          companyOpened = false;
         }
         else {
           companyChild.classList.remove("--hide");
           companyEvent.classList.add("--opened");
           document.getElementById('bottomActions').classList.remove("--bottomPosition");
+          document.getElementById('companyCarrot').classList.add("--closed");
+          platformOpened = true;
         }
       }
       if (i == 'contact') {
         if(contactEvent.className.match('--opened')) {
           contactChild.classList.add("--hide");
           contactEvent.classList.remove("--opened");
+          document.getElementById('contactCarrot').classList.remove("--closed");
+          contactOpened = false;
         }
         else {
           contactChild.classList.remove("--hide");
           contactEvent.classList.add("--opened");
           document.getElementById('bottomActions').classList.remove("--bottomPosition");
+          document.getElementById('contactCarrot').classList.add("--closed");
+          contactOpened = true;
         }
       }
     }
@@ -626,18 +662,18 @@
     }
 
     //search function
-    window.addEventListener('click', function(e){
-      if (document.getElementsByClassName('search__icon')[0].contains(e.target)){
-        document.getElementsByClassName('search__overlay-input')[0].classList.add("--show")
-        document.getElementById("navSearchInput").focus();
-      }
-      else if (document.getElementsByClassName('search__input')[0].contains(e.target)) {
-        document.getElementsByClassName('search__overlay-input')[0].classList.add("--show")
-      }
-      else{
-        document.getElementsByClassName('search__overlay-input')[0].classList.remove("--show")
-      }
-    });
+    //window.addEventListener('click', function(e){
+    //  if (document.getElementsByClassName('search__icon')[0].contains(e.target)){
+    //    document.getElementsByClassName('search__overlay-input')[0].classList.add("--show")
+    //    document.getElementById("navSearchInput").focus();
+    //  }
+    //  else if (document.getElementsByClassName('search__input')[0].contains(e.target)) {
+    //    document.getElementsByClassName('search__overlay-input')[0].classList.add("--show")
+    //  }
+    //  else{
+    //    document.getElementsByClassName('search__overlay-input')[0].classList.remove("--show")
+    //  }
+    //});
 
     //search input
     //function searchInputNavigation(e) {

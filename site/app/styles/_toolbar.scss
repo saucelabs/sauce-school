@@ -315,6 +315,9 @@
     bottom: 0px;
     left: 0px;
   }
+  .--closed {
+    transform: rotate(180deg);
+  }
   .header__mobile-nav {
     position: absolute;
     width: 100%;
