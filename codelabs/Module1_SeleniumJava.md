@@ -1,6 +1,6 @@
 author:Lindsay Walker
 summary: Module 1 of the Selenium Java Test Automation. Learn to write Selenium tests in Java language using the JUnit framework, IntelliJ, and Jenkins.
-id: ../site/codelabs/Module1-SeleniumJava
+id: Module1-SeleniumJava
 categories: beginner
 tags: java
 environments: Web
