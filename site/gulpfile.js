@@ -19,6 +19,7 @@ const useref = require('gulp-useref');
 const vulcanize = require('gulp-vulcanize');
 const watch = require('gulp-watch');
 const webserver = require('gulp-webserver');
+const replace = require('gulp-replace');
 
 // Uglify ES6
 const uglifyes = require('uglify-es');
@@ -45,8 +46,8 @@ const dom = require('gulp-dom');
 // DEFAULT_GA is the default Google Analytics tracker ID
 const DEFAULT_GA = 'UA-49880327-14';
 
-// DEFAULT_SEGMENTIO is the default SegmentIO tracker ID which is staging
-const DEFAULT_SEGMENTIO = 'vBOoUyfeZUYAdP1nVo9dRPSJGmPM9NOE';
+// DEFAULT_SEGMENTIO is the default SegmentIO tracker ID which is production
+const DEFAULT_SEGMENTIO = 'bN0FzXcAdsq0J5ZHbn5M3UbkLPynLJu8';
 
 // DEFAULT_VIEW_META_PATH is the default path to view metadata.
 const DEFAULT_VIEW_META_PATH = 'app/views/default/view.json';
@@ -164,7 +165,6 @@ gulp.task('override:modules', function() {
   return gulp.src('./codelabs/*/index.html')
     .pipe(dom(function(){
       let htmlDoc = this;
-      let linkOverrideCss = htmlDoc.createElement('link');
       let newOverrideStyles = htmlDoc.createElement('link');
       let header = htmlDoc.getElementsByTagName('head')[0];
       let numberOfChildren = header.getElementsByTagName('link').length
@@ -185,6 +185,7 @@ gulp.task('build:html', () => {
   streams.push(gulp.src(`app/views/${VIEWS_FILTER}/view.json`, { base: 'app/' })
     .pipe(generateView())
     .pipe(useref({ searchPath: ['app'] }))
+    .pipe(replace('SEGMENT_IO_KEY', DEFAULT_SEGMENTIO)) // Segment.io in app/scripts/app.js
     .pipe(gulpif('*.js', babel(opts.babel())))
     .pipe(gulp.dest('build'))
     .pipe(gulpif(['*.html', '!index.html'], generateDirectoryIndex()))
@@ -604,7 +605,6 @@ const generateView = () => {
 
     // Aanalytics information.
     const ga = DEFAULT_GA;
-    const segmentIO = DEFAULT_SEGMENTIO;
 
     // Full list of views
     const all = collectMetadata();
@@ -626,7 +626,6 @@ const generateView = () => {
       categories: categories,
       codelabs: codelabs,
       ga: ga,
-      segmentIO: segmentIO,
       showcats: categories.length > 1,
       view: view,
       views: all.views,
