@@ -227,7 +227,7 @@ Selenium is able to find and interact with elements on a page by way of various 
 <!-- ------------------------ -->
 
 ## 2.05 Setting Up Your First Test
-Duration: 0:10:00
+Duration: 0:12:00
 
 Here's the markup for a standard login form (pulled from the login example app on [the-internet](http://the-internet.herokuapp.com/login).
 
@@ -401,87 +401,41 @@ Negative
 
 --
 
-### Run Your Tests
+### Run Your Code
 Strictly speaking, this isn't a test yet, since you haven't used an assertion, however we can still run your file and see it interact with the browser, if everything has been installed correctly.
 
 At the bottom of the PyCharm IDE, you should see a button labeled **Terminal**. CLick to open it, then in the terminal, type the command `pytest` to run your suite.
 
 <img src="assets/2.05X.png" alt="AFirst test" width="850"/>
 
-If your code is correct, you driver has been given permission to open, you should see an output similar to what is above. You have successfully ran your first test!
+If your code is correct, you driver has been given permission to open, you should see a browser open, and an output similar to what is above. You have successfully ran your first test code!
 
 
 <!-- ------------------------ -->
 
-## 2.06 Writing & Configuring Your First Test
+## 2.06 Test Assertions
 Duration: 0:10:00
 
-Start by opening the blank ...
+In this module, you will add an assertion to the code you have created in `login_test.py`, run your first test, and see if changes to the code cause a test failure.
+
+Open `login_test.py` and locate the method `def test_valid_credentials`. At the bottom (after `driver.find_element(By.CSS_SELECTOR, "button").click()`), add inthe following:
+
+```
+# filename: tests/login_test.py
+#  ...
+        assert driver.find_element(By.CSS_SELECTOR, ".flash.success").is_displayed()
+```
+With assert we are checking for a True Boolean response. If one is not received the test will fail if the element with the HTML element `.flash_success` isn't displayed on the webpage after you click login.
 
 // ..
 
+Click  **Terminal** at the bottom of the PyCharm interface, then in the terminal, type the command `pytest` to run your suite. You should again see a browser open, and an output similar to what is below. You have successfully ran your first test.
 
-//....
-
-### Breaking Down the Elements
-
-At the top of the file, we import some dependencies. ...
-
-// ...
-
-// ...
-#### **NOTE**
-
-If you used
-
-// ...
-
-// ...
---
-
-// ...
-
-
-
-### Test Your Code with XXX
-
-// ...
-
-<!-- ------------------------ -->
-
-## 2.07 Adding an XXX (Assertion?)
-Duration: 0:08:00
-
-Assertions are ...
-
-// ...
-
-### Add an XX (Assertion?)
-
-Now it’s time to add in an ..
-// ...
-
-![login success message](assets/?.png)
-
-
-//...
-
-The code should look like this:
-
-
-![Assertion](assets/?.png)
-
-
-// ...
-
-<img src="assets/?.png" alt="First Passed Test" width="450"/>
-<!-- ![First Passed Test](assets/2.07C.png) -->
-
-
+<img src="assets/2.06B.png" alt="First test" width="650"/>
 
 ### Double Check
 
-If your test passed, we want to double check and make sure it is in fact checking what it is supposed to be checking (the `flash.success` class), and see if we get a failed test if we do locate the `flash.success` class on the page.
+If your test passed, we want to double check and make sure it is in fact checking what it is supposed to be checking (the `flash.success` class), and see if we get a failed test if we don't locate the `flash.success` class on the page.
 
 // ...
 
