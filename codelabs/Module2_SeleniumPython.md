@@ -1,5 +1,5 @@
 summary: Module 2 of the Selenium Python Course using pip3 with Pytest.
-id: ../site/codelabs/Module2-SeleniumPython
+id: Module2-SeleniumPython
 categories: intermediate
 tags: python
 environments: Web
@@ -199,14 +199,13 @@ Find more on [XPath here](https://yizeng.me/2014/03/23/evaluate-and-validate-xpa
 
 You want to find an element that is unique, descriptive, and unlikely to change.
 
-Ripe candidates for this are `id` and `class `attributes. Whereas text (e.g., the text of a link) is less ideal since it is more apt to change. If the elements you are attempting to work with don't have unique `id` or `class` attributes directly on them, look at the element that houses them (a.k.a. the parent element). Oftentimes the parent element has a unique element that you can use to start with and walk down to the child element you want to use.
+Ripe candidates for this are `id` and `class `attributes. Whereas text (e.g., the text of a link) is less ideal since it is more apt to change. If the elements you are attempting to work with don't have unique `id` or `class` attributes directly on them, look at the element that houses them (a.k.a. the parent element). Often times the parent element has a unique element that you can use to start with and walk down to the child element you want to use.
 
-When you can't find any unique elements have a conversation with your development team letting them know what you are trying to accomplish. It's typically a trivial thing for them to add helpful semantic markup to a page to make it more testable. This is especially true when they know the use case you're trying to automate. The alternative can be a lengthy and painful process which might yield working test code but it will be brittle and hard to maintain.
+When you can't find any unique elements have a conversation with your development team letting them know what you are trying to accomplish. It's typically fairly simple to add markup to a page to make it more testable. This is especially true when they know the use case you're trying to automate.
 
 Once you've identified the target elements and attributes you'd like to use for your test, you’ll need to craft locators using one of Selenium's strategies.
 
 Selenium is able to find and interact with elements on a page by way of various locator strategies. The list includes (sorted alphabetically):
-
 
 
 *   Class  in the HTML
@@ -221,14 +220,14 @@ Selenium is able to find and interact with elements on a page by way of various 
 
 ### Quiz
 
-<!-- ![Embed URL](share URL) -->
+![https://docs.google.com/forms/d/e/1FAIpQLSe6DK02jjCHiMR5-L-NrxNsPIWDfpBvYfgY59X_loJb-8Q_Jg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSe6DK02jjCHiMR5-L-NrxNsPIWDfpBvYfgY59X_loJb-8Q_Jg/viewform?usp=sf_link)
 
 
 
 <!-- ------------------------ -->
 
 ## 2.05 Setting Up Your First Test
-Duration: 0:10:00
+Duration: 0:12:00
 
 Here's the markup for a standard login form (pulled from the login example app on [the-internet](http://the-internet.herokuapp.com/login).
 
@@ -263,99 +262,180 @@ Notice the element attributes on the form. The username input field has a unique
 
 Let's put these elements to use in our first test.
 
-
 ### Setup Your Project File
-
 
 First we will need to create a new project directory called `SeleniumPython` (your main project directory), and inside create a folder named `test` inside that project directory. This is a default folder that Mocha will know to look for.
 
 
-You can see all of the files here.
+You can see all of the files here. It is recommended that you follow the steps in this module to correctly configure your test in PyCharm if you don't have experience setting up this type of project before.
 
 **_[Selenium_Course_Example_Code ](http://example.com)_**
 
+When you Open PyCharm, choose New project
 
-Go into the SeleniumJava (your main project) directory using your terminal.
+<img src="assets/2.05P.png" alt="First Passed Test" width="450"/>
 
-Essentially, Selenium works with two pieces of information, the element on apage you will use and what you want to do with it. In this example test you will
-//...
+In the next window, name the project **SeleniumJava**, choose which directory you want to store it in (the example is in **Users/lindsaywalker**), and create a **new environment using Virtualenv**. Make sure you uncheck **create a main.py welcome script** then click **Create**.
+
+<img src="assets/2.05Q.png" alt="New PyCharm Project" width="650"/>
+
+
+Virtualenv will create a 'sandbox' virtual environment for your project with only Python version 3 and the dependencies that go with it.
+
+Right click in the top-level folder and create a **New > Directory**. name the director **tests**.
+
+<img src="assets/2.05R.png" alt="New Directory" width="450"/>
+
+Next, right click on the **tests** folder and create a **New > Python File**. name the director **login_test**.
+
+<img src="assets/2.05S.png" alt="Create Login test" width="450"/>
+
+Last, right click in the top-level folder and create a **New > File**. Name is **requirements.txt**. This file will contain the instructions for the dependencies that will be installed in your virtual environment.
+
+<img src="assets/2.05T.png" alt="Create requirements.txt" width="450"/>
+
+### Test and Requirements
+
+Go into the SeleniumJava (your main project) directory using your terminal, then open up the `requirements.txt` and `login_test.py` files by double clicking on them. Copy and paste the following into requirements.txt:
+
+```
+selenium==3.14.0
+sauceclient>=0.2.1
+pytest==4.4.0
+pytest-xdist
+pytest-randomly
+
+```
+
+After you add those files, PyCharm will prompt you to install the plugins and requirements - click on the links to install the dependencies listed.
+
+<img src="assets/2.05U.png" alt="install dependencies" width="750"/>
+
+Next, you will set up the base for your first test. In `login_test.py` copy and paste the following (you will have to install requirements in this file as well):
+
+```
+# filename: tests/login_test.py
+import pytest
+import os
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+@pytest.fixture
+def driver(request):
+    _chromedriver= os.path.join(os.getcwd(), 'vendor', 'chromedriver')
+    if os.path.isfile(_chromedriver):
+        driver_ = webdriver.Chrome(_chromedriver)
+
+    else:
+        driver_ = webdriver.Chrome()
+
+    def quit():
+        driver_.quit()
+
+    request.addfinalizer(quit)
+    return driver_
+
+
+def test_valid_credentials(driver):
+    driver.get("http://the-internet.herokuapp.com/login")
+    driver.find_element(By.ID, "username").send_keys("tomsmith")
+    driver.find_element(By.ID, "password").send_keys("SuperSecretPassword!")
+    driver.find_element(By.CSS_SELECTOR, "button").click()
+```
+
+Essentially, Selenium works with two pieces of information, the element on page you will use and what you want to do with it.
+
+Notice how your test method starts with the word `test_` (that's how pytest knows it's a test) and it has two parameters (`self` and `driver`). `driver` accesses the driver instantiated for this test at the top of the class.
+
+ Since it returns a browser instance we can reference this variable directory to use Selenium commands.
+
+In this example test you will login to the app, find the username and password fields (and fill them in),and click the login button.
+
+In a later module you will add an assertion that things went as expected.
+
+### Install Chromedriver
+Before you can run this test code, you will need to install the Chromedriver so that your test code can communicate with the browser.
+
+Start by creating a new directory in the top level folder by right clicking on it and choosing **New > Directory**.  Name that directory **vendor**:
+
+<img src="assets/2.05V.png" alt="install dependencies" width="350"/>
+
+In order for your test to run on a browser on your local machine, you need to install the driver for the browser, and update your code. A similar set of steps can be followed for any browser.
+
+First, check which version of chrome you are using by opening Chrome on your machine and checking the version.  
+
+<img src="assets/2.05K.png" alt="Chrome Version" width="550"/>
+
+Next, [download the Chromedriver](https://chromedriver.chromium.org/downloads). If you want to test on a different browser, you can also download [Geckodriver](https://github.com/mozilla/geckodriver) for Firefox, or [any other driver here](https://automationintesting.com/selenium/java/lessons/drivers.html). The driver version should match the version of the browser you have on your machine. In this example, you would need to download version 84 of the Chromedriver, since you have version 84 of Chrome on your machine.
+
+#### Cheat Sheet
+
+![]()
+
+### NOTE
+Negative
+: If you are testing on an older version of Firefox (e.g., 47 or earlier) then you don't need to download Geckodriver. You will be able to use the legacy FirefoxDriver implementation. To do that you just need to disable Marionette (the new Firefox WebDriver implementation that Geckodriver connects to) which would look like this:
+`System.setProperty("webdriver.firefox.marionette", "false");`
+
+--
 
 
 
+Download the file, move it into the **vendor directory**, and double-click to expand the file.
 
-// ...
+<img src="assets/2.05W.png" alt="Chrome Version" width="550"/>
+
+#### NOTE
+
+Negative
+: Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, go to **System Preferences** on your Mac **> Security & Privacy**, then under the **General** tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers.
+
+Negative
+: <img src="assets/4.04K.png" alt="Allow Unidentified FIles in Security and Privacy" width="450"/>
+
+Negative
+: On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver** or **geckodriver** manually.
+
+Negative
+: Once you have allowed this, find the Chromedriver in your file directory, double click on it, and force terminal to open it.
+
+--
+
+### Run Your Code
+Strictly speaking, this isn't a test yet, since you haven't used an assertion, however we can still run your file and see it interact with the browser, if everything has been installed correctly.
+
+At the bottom of the PyCharm IDE, you should see a button labeled **Terminal**. CLick to open it, then in the terminal, type the command `pytest` to run your suite.
+
+<img src="assets/2.05X.png" alt="AFirst test" width="850"/>
+
+If your code is correct, you driver has been given permission to open, you should see a browser open, and an output similar to what is above. You have successfully ran your first test code!
+
 
 <!-- ------------------------ -->
 
-## 2.06 Writing & Configuring Your First Test
+## 2.06 Test Assertions
 Duration: 0:10:00
 
-Start by opening the blank ...
+In this module, you will add an assertion to the code you have created in `login_test.py`, run your first test, and see if changes to the code cause a test failure.
+
+Open `login_test.py` and locate the method `def test_valid_credentials`. At the bottom (after `driver.find_element(By.CSS_SELECTOR, "button").click()`), add inthe following:
+
+```
+# filename: tests/login_test.py
+#  ...
+        assert driver.find_element(By.CSS_SELECTOR, ".flash.success").is_displayed()
+```
+With assert we are checking for a True Boolean response. If one is not received the test will fail if the element with the HTML element `.flash_success` isn't displayed on the webpage after you click login.
 
 // ..
 
+Click  **Terminal** at the bottom of the PyCharm interface, then in the terminal, type the command `pytest` to run your suite. You should again see a browser open, and an output similar to what is below. You have successfully ran your first test.
 
-//....
-
-### Breaking Down the Elements
-
-At the top of the file, we import some dependencies. ...
-
-// ...
-
-// ...
-#### **NOTE**
-
-If you used
-
-// ...
-
-// ...
---
-
-// ...
-
-
-
-### Test Your Code with XXX
-
-// ...
-
-<!-- ------------------------ -->
-
-## 2.07 Adding an XXX (Assertion?)
-Duration: 0:08:00
-
-Assertions are ...
-
-// ...
-
-### Add an XX (Assertion?)
-
-Now it’s time to add in an ..
-// ...
-
-![login success message](assets/?.png)
-
-
-//...
-
-The code should look like this:
-
-
-![Assertion](assets/?.png)
-
-
-// ...
-
-<img src="assets/?.png" alt="First Passed Test" width="450"/>
-<!-- ![First Passed Test](assets/2.07C.png) -->
-
-
+<img src="assets/2.06B.png" alt="First test" width="650"/>
 
 ### Double Check
 
-If your test passed, we want to double check and make sure it is in fact checking what it is supposed to be checking (the `flash.success` class), and see if we get a failed test if we do locate the `flash.success` class on the page.
+If your test passed, we want to double check and make sure it is in fact checking what it is supposed to be checking (the `flash.success` class), and see if we get a failed test if we don't locate the `flash.success` class on the page.
 
 // ...
 
