@@ -1,5 +1,5 @@
 summary: Module 3 Writing Reusable Test Code
-id: ../site/codelabs/Module3-SeleniumJava
+id: Module3-SeleniumJava
 categories: advanced
 tags: java
 status: published

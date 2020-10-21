@@ -1,7 +1,7 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
 summary: Module 4 of the Selenium Java Course. Learn to write Selenium tests in Java with Maven and JUnit.
-id: ../site/codelabs/Module4_SeleniumJava
+id: Module4_SeleniumJava
 categories: advanced
 tags: java
 environments: Web
