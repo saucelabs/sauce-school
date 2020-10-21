@@ -19,6 +19,7 @@ Users who complete all modules of this course can expect to complete tasks descr
 
 ### Users Will Be Able To:
 
+<<<<<<< HEAD
 * Read and understand basic Selenium tests that use the language and framework combination addressed by the course.
 * Write simple tests that follow patterns covered in the course.
 * Understand, edit, and maintain test code written with the same or similar languages, frameworks, and tools
@@ -31,3 +32,14 @@ Users who complete all modules of this course can expect to complete tasks descr
 * Run a test suite using the Jenkins CI server and Sauce OnDemand
 
 Users will also experience challenges specific to their local environments. Sauce Labs ability to assist with these issues is limited. However, we encourage you to report such issues through The ‘Report an Issue’ link so that we can work to add content to help future users
+=======
+* Write simple tests that follow patterns covered in the course.
+If their organization has automated tests that use the language and framework from the course, they should be able to understand, edit, and
+maintain test code.
+
+### Sauce Labs-specific tasks including:
+
+* Connect those tests to the Sauce Labs cloud and passing names and pass/fail status
+* Run a simple test using Sauce Connect proxy
+Run a test suite using the Jenkins CI server and SauceOnDemand
+>>>>>>> master

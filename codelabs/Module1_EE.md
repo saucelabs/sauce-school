@@ -14,12 +14,21 @@ author:Lindsay Walker
 
 <!-- ------------------------ -->
 ## Basic Information
+<<<<<<< HEAD
 Duration: 0:01:00
 
 ### Time Required
 6-8 hours of basic instruction on Selenium using the language and framework specified in the course.
 
 ## Recommended Experience Level
+=======
+
+### Time Required
+Duration: 0:01:00
+6-8 hours of basic instruction on Selenium using the language and framework specified in the course.
+
+### Recommended Experience Level
+>>>>>>> master
 
 This course is designed for users with some coding experience who want to learn automation.
 * Users should have experience with setting up and troubleshooting the required development environment and should expect to do so without assistance from Sauce Labs.

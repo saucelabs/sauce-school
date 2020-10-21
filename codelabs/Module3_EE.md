@@ -1,7 +1,11 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
 summary: Basic information about the Sauce Labs Early Access training program.
+<<<<<<< HEAD
 id: early_access_issues
+=======
+id: early_access_Issues
+>>>>>>> master
 categories:
 tags: ee  
 environments: Web
@@ -20,7 +24,11 @@ Because this is an early access program, users should expect to encounter issues
 
 ### Reporting Issues
 
+<<<<<<< HEAD
 To report defects, use The **Report a Mistake** link at the bottom of the lessons screen.
+=======
+To report defects, use The ‘Report and Issue’ link at the bottom of the lessons screen.
+>>>>>>> master
 Sauce Labs personnel will respond to issues from Sauce Labs customers as follows:
 
 * High priority issues within 2 business days.
