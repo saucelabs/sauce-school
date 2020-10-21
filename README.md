@@ -104,7 +104,7 @@ Images can mess things up. Make sure you list an image as `assets/imagename.png`
 
     More on how to convert markdown files is [here](https://docs.google.com/document/d/1C7CunszYBCTAgzwYbDdtHS7yjwLEYQJuvKVC2ff4MZY/edit?usp=sharing)
 
-## Option 2 Setup in Docker Container
+## Option 2 Setup in Visual Studio Container
 As I was going through the README I wanted to codify my dependencies and task definitions so that I don’t have to refresh myself the next time I contribute to the repository.
 
 ### Dependencies:
