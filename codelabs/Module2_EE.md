@@ -30,4 +30,4 @@ Users who complete all modules of this course can expect to complete tasks descr
 * Run a simple test using Sauce Connect proxy
 * Run a test suite using the Jenkins CI server and Sauce OnDemand
 
-Users will also experience challenges specific to their local environments. Sauce Labs ability to assist with these issues is limited. However, we encourage you to report such issues through The ‘Report an Issue’ link so that we can work to add content to help future users
+Users will also experience challenges specific to their local environments. Sauce Labs ability to assist with these issues is limited. However, we encourage you to report such issues through The **Report a Mistake** link so that we can work to add content to help future users.
