@@ -14,6 +14,7 @@ author:Lindsay Walker
 
 <!-- ------------------------ -->
 ## Early Access Issues
+Duration: 0:01:00
 
 Because this is an early access program, users should expect to encounter issues with the content or user experience.
 
@@ -27,8 +28,7 @@ Sauce Labs personnel will respond to issues from Sauce Labs customers as follows
 * Medium priority issues within 5 business days
 * Low priority issues will be added to our development backlog
 
-### Important
-Because training is not mission-critical work, resolution of any issue will be based on availability of support resources.
+**!Important**– Because training is not mission-critical work, resolution of any issue will be based on availability of support resources.
 
 Users might also experience challenges specific to their local environments. Sauce Labs ability to assist with these is limited. However, we encourage you to report these through The **Report a Mistake** link so that we can work to circumvent them  for future users
 
