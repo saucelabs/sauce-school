@@ -15,18 +15,18 @@ author:Lindsay Walker
 <!-- ------------------------ -->
 ## Outcome Expectations
 
-Users who complete all modules of this course can expect to complete tasks described below.
+Users who complete all modules of this course can expect to complete tasks described below.  These courses do not represent an endorsement by Sauce Labs of a particular language or framework or combination of the two.
 
 ### Users Will Be Able To:
 
-* Read and understand basic Selenium tests that use the language and framework combination addressed by the course.
-* Write simple tests that follow patterns covered in the course.
+* Read and understand basic Selenium tests that use the language and framework combination addressed by the course
+* Write simple tests that follow patterns covered in the course
 * Understand, edit, and maintain test code written with the same or similar languages, frameworks, and tools
 
 ### Sauce Labs-specific Tasks Including:
 
-* Connect tests to the Sauce Labs cloud for automated web browser testing.
-* Passing test information to Sauce Labs such as names and pass/fail status.
+* Connect tests to the Sauce Labs cloud for automated web browser testing
+* Passing test information to Sauce Labs such as names and pass/fail status
 * Run a simple test using Sauce Connect proxy
 * Run a test suite using the Jenkins CI server and Sauce OnDemand
 
