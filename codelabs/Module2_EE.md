@@ -23,7 +23,7 @@ Users who complete all modules of this course can expect to complete tasks descr
 * Write simple tests that follow patterns covered in the course
 * Understand, edit, and maintain test code written with the same or similar languages, frameworks, and tools
 
-### Sauce Labs-specific Tasks Including:
+### Sauce Labs-Specific Tasks Including:
 
 * Connect tests to the Sauce Labs cloud for automated web browser testing
 * Passing test information to Sauce Labs such as names and pass/fail status
