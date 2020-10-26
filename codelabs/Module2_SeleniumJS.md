@@ -563,10 +563,9 @@ You should see the Firefox browser open briefly, enter the username, password, a
 
 If your test passed, we want to double check and make sure it is in fact checking what it is supposed to be checking (the `flash.success` class), and see if we get a failed test if we do locate the `flash.success` class on the page.
 
-Find the assertion below and add in the` ! `character before the `driver.findelement() `method.
+Find the assertion below and add in parentheses around the entire `await` statement, and the` ! `character before the `driver.findelement() `method.
 
-![exclamation point](assets/2.07D.png)
-
+<img src="assets/2.07D.png" alt="First Passed Test" width="650"/>
 
 Run `npm test` for your project folder with the terminal.
 
