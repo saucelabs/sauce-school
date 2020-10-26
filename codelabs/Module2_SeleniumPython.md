@@ -416,6 +416,16 @@ If your code is correct, you driver has been given permission to open, you shoul
 ## 2.06 Test Assertions
 Duration: 0:10:00
 
+Assertions are statements that are used at a certain point in the test code (usually following a certain sequence of events) that check to see if some condition is true or false. The test code you created thus far simply tells your test what elements to look for on the page, and what to do with those elements.
+
+
+### Add an Assertion
+
+Now it’s time to add in an assertion to see if your actions had the desired effect. We want to check that the div that pops up when you have successfully logged in with the `class = "flash_success" `does in fact appear after you enter the login credentials.
+
+<img src="assets/2.07A.png" alt="Pencil" width="550"/>
+
+
 In this module, you will add an assertion to the code you have created in `login_test.py`, run your first test, and see if changes to the code cause a test failure.
 
 Open `login_test.py` and locate the method `def test_valid_credentials`. At the bottom (after `driver.find_element(By.CSS_SELECTOR, "button").click()`), add inthe following:
@@ -433,16 +443,35 @@ Click  **Terminal** at the bottom of the PyCharm interface, then in the terminal
 
 <img src="assets/2.06B.png" alt="First test" width="650"/>
 
+### CSS selectors
+
+In web design CSS (Cascading Style Sheets) are used to apply styles to the markup (HTML) on a page. CSS is able to do this by declaring which bits of the markup it wants to alter through the use of selectors. Selenium operates in a similar manner but instead of changing the style of elements, it interacts with them by clicking, getting values, typing, sending keys, etc.
+
+CSS selectors are a good way to write locators, especially for hard to reach elements.
+
+For right now, here's what you need to know. In CSS, class names start with a dot (.). For classes with multiple words, put a dot in front of each word, and remove the space between them (e.g., .flash.success for class='flash success'). [Learn more on Sauce Labs](https://saucelabs.com/resources/articles/selenium-tips-css-selectors) about CSS selectors.
+
 ### Double Check
 
 If your test passed, we want to double check and make sure it is in fact checking what it is supposed to be checking (the `flash.success` class), and see if we get a failed test if we don't locate the `flash.success` class on the page.
 
-// ...
+Just to make certain that this test is doing what we think it should, let's change the locator in the assertion to attempt to force a failure and run it again. go into your test and change the CSS locator.
 
-![exclamation point](assets/?.png)
+```
+assert driver.find_element(By.CSS_SELECTOR, ".flash.successBroken").is_displayed()
+```
+
+Type the command `pytest` to run your suite. You should see a failed test with a failed locator. Now you can be sure that the test you wrote is correctly checking for the CSS locator.
+
+<img src="assets/2.06C.png" alt="First test" width="650"/>
+
+_Remember to change the selector back to `.flash.success` when you're done_
+
+#### Final Code
+
+<img src="assets/2.06D.png" alt="First test" width="750"/>
 
 
-// ...
 <!-- ------------------------ -->
 
 ## 2.08 Verifying Locators with Selenium
