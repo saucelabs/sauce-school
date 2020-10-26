@@ -279,6 +279,16 @@
   }
 }
 
+//custom nav tablet override
+@media only screen and (max-device-width: 1050px),
+only screen and (max-device-width: 1050px),
+only screen and (max-width: 1050px) {
+  #mainToolbar ul.header__primary-nav li a.btn.btn-primary {
+    display: none!important;
+  }
+}
+
+
 @media (max-width: $phone-breakpoint-max) {
   #searchbar paper-input-container {
     display: none;
