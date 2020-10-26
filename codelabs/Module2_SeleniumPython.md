@@ -391,7 +391,7 @@ Negative
 : Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, go to **System Preferences** on your Mac **> Security & Privacy**, then under the **General** tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers.
 
 Negative
-: <img src="assets/4.04K.png" alt="Allow Unidentified FIles in Security and Privacy" width="450"/>
+: <img src="assets/4.04K.png" alt="Allow Unidentified Files in Security and Privacy" width="450"/>
 
 Negative
 : On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver** or **geckodriver** manually.
@@ -404,9 +404,19 @@ Negative
 ### Run Your Code
 Strictly speaking, this isn't a test yet, since you haven't used an assertion, however we can still run your file and see it interact with the browser, if everything has been installed correctly.
 
-At the bottom of the PyCharm IDE, you should see a button labeled **Terminal**. CLick to open it, then in the terminal, type the command `pytest` to run your suite.
+The first thing you want to make sure of is that you have PyCharm configured torun **pytest** as the test runner (instead of **unittest**)
 
-<img src="assets/2.05X.png" alt="AFirst test" width="850"/>
+ * Go to **Preferences** in the Pycharm menu
+
+<img src="assets/2.07H.png" alt="Pycharm preferences" width="350"/>
+
+* In the **Tools** menu, choose **Python Integrated Tools** and under **Testing** make the **Defaul test runner** **pytest**
+
+<img src="assets/2.07I.png" alt="Pycharm preferences pytest test runner" width="650"/>
+
+At the bottom of the PyCharm IDE, you should see a button labeled **Terminal**. Click to open it, then in the terminal, type the command `pytest` to run your suite.
+
+<img src="assets/2.05X.png" alt="First test" width="850"/>
 
 If your code is correct, you driver has been given permission to open, you should see a browser open, and an output similar to what is above. You have successfully ran your first test code!
 
@@ -415,6 +425,16 @@ If your code is correct, you driver has been given permission to open, you shoul
 
 ## 2.06 Test Assertions
 Duration: 0:10:00
+
+Assertions are statements that are used at a certain point in the test code (usually following a certain sequence of events) that check to see if some condition is true or false. The test code you created thus far simply tells your test what elements to look for on the page, and what to do with those elements.
+
+
+### Add an Assertion
+
+Now it’s time to add in an assertion to see if your actions had the desired effect. We want to check that the div that pops up when you have successfully logged in with the `class = "flash_success" `does in fact appear after you enter the login credentials.
+
+<img src="assets/2.07A.png" alt="flash success message" width="550"/>
+
 
 In this module, you will add an assertion to the code you have created in `login_test.py`, run your first test, and see if changes to the code cause a test failure.
 
@@ -427,48 +447,96 @@ Open `login_test.py` and locate the method `def test_valid_credentials`. At the 
 ```
 With assert we are checking for a True Boolean response. If one is not received the test will fail if the element with the HTML element `.flash_success` isn't displayed on the webpage after you click login.
 
-// ..
+
 
 Click  **Terminal** at the bottom of the PyCharm interface, then in the terminal, type the command `pytest` to run your suite. You should again see a browser open, and an output similar to what is below. You have successfully ran your first test.
 
 <img src="assets/2.06B.png" alt="First test" width="650"/>
 
+### CSS selectors
+
+In web design CSS (Cascading Style Sheets) are used to apply styles to the markup (HTML) on a page. CSS is able to do this by declaring which bits of the markup it wants to alter through the use of selectors. Selenium operates in a similar manner but instead of changing the style of elements, it interacts with them by clicking, getting values, typing, sending keys, etc.
+
+CSS selectors are a good way to write locators, especially for hard to reach elements.
+
+For right now, here's what you need to know. In CSS, class names start with a dot (.). For classes with multiple words, put a dot in front of each word, and remove the space between them (e.g., .flash.success for class='flash success'). [Learn more on Sauce Labs](https://saucelabs.com/resources/articles/selenium-tips-css-selectors) about CSS selectors.
+
 ### Double Check
 
 If your test passed, we want to double check and make sure it is in fact checking what it is supposed to be checking (the `flash.success` class), and see if we get a failed test if we don't locate the `flash.success` class on the page.
 
-// ...
+Just to make certain that this test is doing what we think it should, let's change the locator in the assertion to attempt to force a failure and run it again. go into your test and change the CSS locator.
 
-![exclamation point](assets/?.png)
+```
+assert driver.find_element(By.CSS_SELECTOR, ".flash.successBroken").is_displayed()
+```
+
+Type the command `pytest` to run your suite. You should see a failed test with a failed locator. Now you can be sure that the test you wrote is correctly checking for the CSS locator.
+
+<img src="assets/2.06C.png" alt="flash success test" width="650"/>
+
+_Remember to change the selector back to `.flash.success` when you're done_
+
+#### Final Code
+
+<img src="assets/2.06D.png" alt="First test" width="750"/>
 
 
-// ...
 <!-- ------------------------ -->
 
-## 2.08 Verifying Locators with Selenium
+## 2.07 Verifying Locators with Selenium
 Duration: 0:15:00
 
 Selenium uses locators to find elements on the page and interact with them.  
 
 Instead of the painful and tedious process of trying out various locators in your tests until you get what you're looking for, try verifying them in the browser instead.
 
-Once you have identified a class, id, name, link text, Xpath, etc. for an element, you can use the Selenium findElement() method along with the driver object in your JavaScript test code.
+Once you have identified a class, id, name, link text, Xpath, etc. for an element, you can use the Selenium `findElement()` method along with the driver object in your JavaScript test code.
 
 In this exercise we can create a similar test using another page from the _the-internet _app called
 
 **[Challenging DOM](https://the-internet.herokuapp.com/challenging_dom)**
 
-Next, we will create a new test file, named ....
+Create a new test file by right clicking on the tests folder in the PyChrm project window and choosing **New > Python File**. Name the new file **locator_test**.
 
-<img src="assets/?.png" alt="Locator Test Dir" width="250"/>
-<!-- ![Locator Test Dir](assets/2.08A.png) -->
+<img src="assets/2.07G.png" alt="First test" width="350"/>
 
-
-Next, enter the following starter code ...
+Copy and paste the following code into that file to create the outline for your test.
 
 ```
-// ...
+# filename: tests/locator_test.py
+import pytest
+import os
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+class TestLocator():
+
+    @pytest.fixture
+    def driver(request):
+        _chromedriver= os.path.join(os.getcwd(), 'vendor', 'chromedriver')
+        if os.path.isfile(_chromedriver):
+            driver_ = webdriver.Chrome(_chromedriver)
+
+        else:
+            driver_ = webdriver.Chrome()
+
+        def quit():
+            driver_.quit()
+
+        request.addfinalizer(quit)
+        return driver_
+
+    def test_valid_credentials(driver):
+        driver.get("https://the-internet.herokuapp.com/challenging_dom")
+        driver.find_element(By.ID, ".button.success").click()
+        driver.find_element(By.CSS_SELECTOR, ".button").click()
+        assert driver.find_element(By.CSS_SELECTOR, ".button").is_displayed()
 ```
+
+### Add a New Test
+To add a test into a new
+
 
 Navigate to [https://the-internet.herokuapp.com/challenging_dom](https://the-internet.herokuapp.com/challenging_dom) and right click on a button to open the inspector.
 
@@ -484,7 +552,7 @@ Watch [2.08 Locator Test](?) to help you understand how this test works.
 
 #### Cheat Sheet
 
-[2.08 Selenium Locators Cheat Sheet](?)
+[2.07 Selenium Locators Cheat Sheet](?)
 
 Our test should test clicking first the green button, then the blue button, the see check to make sure both have been clicked (Check CSS/ id) Using the code above, complete and run the test.  This is not your typical test, as there is no assertion but we do return a value.
 
@@ -503,7 +571,7 @@ See the complete [source code here](?).
 
 <!-- ------------------------ -->
 
-## 2.09 Module 2 Quiz
+## 2.08 Module 2 Quiz
 Duration: 0:05:00
 
 ![?](assets/?.png)
