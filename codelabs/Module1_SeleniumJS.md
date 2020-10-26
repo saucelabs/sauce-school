@@ -168,15 +168,15 @@ Now we are going to install npm. When we run the command `npm install`, it will 
 
 --
 
-1. Navigate to the folder you just made from the terminal.
+* Navigate to the folder you just made from the terminal.
 
 <img src="assets/1.05B.png" alt="cd SeleniumJS" width="250"/>
 
-2. Run `npm init` to create an npm package in your project. You should see a `node-moldules` folder appear in your project, as well as a `package.json` file.
+* Run `npm init` to create an npm package in your project. You should see a `node-moldules` folder appear in your project, as well as a `package.json` file.
 
 <img src="assets/2.05B.png" alt="npm init" width="200"/>
 
-3. Run `npm install` from the terminal.
+* Run `npm install` from the terminal.
 
 <img src="assets/1.05C.png" alt="npm install" width="200"/>
 
@@ -187,7 +187,7 @@ Negative
 : <img src="assets/2.05C.png" alt="npm install" width="600"/>  
 
 
-4. If you open your file folder, you should see the folder ‘node_modules’ as well as package.json and package-lock.json.
+* If you open your file folder, you should see the folder `node_modules` as well as `package.json` and `package-lock.json`.
 
 <img src="assets/1.05D.png" alt="directory structure" width="230"/>
 
