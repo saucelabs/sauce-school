@@ -2,7 +2,7 @@
 
 summary: Basic information about the Sauce Labs Early Access training program.
 id: basic_information
-categories:
+categories: ee-info
 tags: ee  
 environments: Web
 status: Published
