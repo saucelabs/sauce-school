@@ -24,7 +24,7 @@ This module will focus on topics from _The Selenium Guidebook_ _JavaScript Editi
 
 
 *   Be able to install and learn how to use Selenium
-*   Use NodeJS along with npm to run local tests and manage dependencies on your machineWebDriver in conjunction with a JavaScript framework (Mocha) to write tests
+*   Use NodeJS along with `npm` to run local tests and manage dependencies on your machineWebDriver in conjunction with a JavaScript framework (Mocha) to write tests
 *   Understand what the Selenium WebDriver is and the basics of how it is used to automate testing
 *   Understand the role a test runner such as Mocha plays in creating tests
 *   Differentiate between the Selenium language bindings and the web drivers for different browsers
@@ -84,7 +84,7 @@ Duration: 0:05:00
 
 The WebDriver protocol consists of rules for communication between the client on the local end, which use languages and libraries like Java, Ruby, JavaScript, etc. and a web browser. The local end (your computer) communicates with the remote end node on the server side. The web driver defines how the remote end can behave, and the method for how the remote end receives information. As an example, the Selenium WebDriver provides instructions to the browser on how to click or type into elements on a page. This is then communicated to specific browser drivers, such as Chromedriver (for the Chrome browser) or Geckodriver (for the Firefox browser) and the commands are carried out.
 
-The code that Selenium provides to you as a developer (the Selnium library) is called a Selenium language binding. It ‘binds’ together the JavaScript code you write for actions and tests with things that WebDriver can understand. You also need to use web drivers such as Chromedriver and Geckodriver.
+The code that Selenium provides to you as a developer (the Selenium library) is called a Selenium language binding. It ‘binds’ together the JavaScript code you write for actions and tests with things that WebDriver can understand. You also need to use web drivers such as Chromedriver and Geckodriver.
 
 
  ![Selenium Diagram](assets/1.03A.png "SeleniumDiagram")
@@ -169,12 +169,25 @@ Now we are going to install npm. When we run the command `npm install`, it will 
 --
 
 1. Navigate to the folder you just made from the terminal.
+
 <img src="assets/1.05B.png" alt="cd SeleniumJS" width="250"/>
 
-2. Run `npm install` from the terminal.
+2. Run `npm init` to create an npm package in your project. You should see a `node-moldules` folder appear in your project, as well as a `package.json` file.
+
+<img src="assets/2.05B.png" alt="npm init" width="200"/>
+
+3. Run `npm install` from the terminal.
+
 <img src="assets/1.05C.png" alt="npm install" width="200"/>
 
-3. If you open your file folder, you should see the folder ‘node_modules’ as well as package.json and package-lock.json.
+Negative
+: This will set up a new node package in the folder. Hit enter (and enter any information you wish to add) to run the init. If you are creating this in the repo, make sure you put it in the ‘code-examples’ file.
+
+Negative
+: <img src="assets/2.05C.png" alt="npm install" width="600"/>  
+
+
+4. If you open your file folder, you should see the folder ‘node_modules’ as well as package.json and package-lock.json.
 
 <img src="assets/1.05D.png" alt="directory structure" width="230"/>
 

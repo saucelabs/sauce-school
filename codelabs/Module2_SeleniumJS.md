@@ -314,14 +314,12 @@ You can see all of the files here.
 **_[Selenium_Course_Example_Code ](https://github.com/walkerlj0/Selenium_Course_Example_Code)_**
 
 
-Go into the SeleniumJS (your main project) directory using your terminal. Type the command npm init.
+Go into the SeleniumJS (your main project) directory using your terminal.Recall that before you ran `npm init` then `npm install` within this directory. If npm is installed, you should see the `node-modules` directory and `package.json file`. It won't hurt to run npm install again:
 
-<img src="assets/2.05B.png" alt="npm init" width="200"/>
-<!-- ![npm init](assets/2.05B.png) -->
 
-This will set up a new node package in the folder. Hit enter (and enter any information you wish to add) to run the init. If you are creating this in the repo, make sure you put it in the ‘code-examples’ file.
+<img src="assets/2.05Y.png" alt="npm init" width="200"/>
 
-![npm init output](assets/2.05C.png)
+
 
 
 
@@ -412,7 +410,7 @@ describe('Login', function() {
         /* const vendorDirectory =
         path.delimiter + path.join(__dirname, '..', 'vendor')
         process.env.PATH += vendorDirectory */
-    driver = await new Builder().forBrowser('firefox').build()
+        driver = await new Builder().forBrowser('firefox').build()
     })
     afterEach(async function() {
         await driver.quit()
