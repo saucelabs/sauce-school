@@ -1,5 +1,5 @@
 summary: Module 2 of the Selenium Java course. Learn to write Selenium tests in Java using the JUnit framework, Maven, and the IntelliJ IDE.
-id: ../site/codelabs/Module2-SeleniumJava
+id: Module2-SeleniumJava
 categories: intermediate
 tags: java
 environments: Web
@@ -328,6 +328,20 @@ Negative
 Download the file, then unzip it and move it somewhere outside of your downloads folder. Here, I chose to move it inside of the Documents folder.
 
 <img src="assets/2.05M.png" alt="Driver Folder" width="550"/>
+
+#### NOTE
+
+Negative
+: Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, go to **System Preferences** on your Mac **> Security & Privacy**, then under the **General** tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers.
+
+Negative
+: <img src="assets/4.04K.png" alt="Allow Unidentified Files in Security and Privacy" width="450"/>
+
+Negative
+: On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver** or **geckodriver** manually.
+
+Negative
+: Once you have allowed this, find the Chromedriver in your file directory, double click on it, and force terminal to open it.
 
 <!-- --------------- -->
 ## 2.06 Create Your Project File

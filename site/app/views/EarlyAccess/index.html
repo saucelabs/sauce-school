@@ -1,13 +1,14 @@
-<!-- @license
+<!--
+@license
 Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
 The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
- -->
+-->
 
-<doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -26,11 +27,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     ga('create', '{{view.ga}}', 'auto', { name: 'view' });
     ga('view.send', 'pageview');
     {% endif %}
-
   </script>
   <script async src='https://www.google-analytics.com/analytics.js'></script>
-
-  <script src="https://use.typekit.net/zmt8tam.js"></script><script>try{Typekit.load({ async: false });}catch(e){}</script>
 
   <title>{{view.title}}</title>
 
@@ -68,7 +66,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="icon" type="image/png" sizes="194x194" href="/images/favicons/favicon-194x194.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/images/favicons/android-chrome-192x192.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
-  <link rel="manifest" href="site.webmanifest">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#455a64">
   <meta name="msapplication-TileColor" content="#455a64">
   <meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png">
@@ -99,7 +97,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <paper-header-panel id="main" mode="standard" main>
     {% raw %}
     <div id="mainToolbar" class="paper-header">
-      <div class="site-width layout horizontal justified">
+      <div class="site-width layout horizontal">
         <a href="/">
           <img src="/images/logo.png" class="logo-devs" alt="Codelabs Logo">
         </a>
@@ -119,7 +117,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <header id="banner" {% if view.id != 'default' -%}down{%- else %}down$="[[_toBoolean(selectedFilter)]]"{%- endif %}>
       <div class="site-width">
         {% if view.id == 'default' %}
-        <h2 class="banner-title">Elemental Selenium with JavaScript</h2>
+        <h2 class="banner-title">Elemental Selenium with Java</h2>
         <div class="banner-description"
              data-filter-selected$="{% raw %}[[_toBoolean(selectedFilter)]]{% endraw %}">
           <p class="banner-info">
@@ -238,8 +236,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </paper-header-panel>
 
   <!-- build:js /scripts/main.js -->
-  <script src="bower_components/url-search-params-polyfill/build/url-search-params.js"></script>
-  <script src="scripts/app.js"></script>
+  <script src="/scripts/app.js"></script>
   <!-- endbuild-->
 </body>
 </html>

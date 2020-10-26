@@ -1,6 +1,6 @@
 author:Lindsay Walker
 summary: Module 1 of the Selenium Java Test Automation. Learn to write Selenium tests in Java language using the JUnit framework, IntelliJ, and Jenkins.
-id: ../site/codelabs/Module1-SeleniumJava
+id: Module1-SeleniumJava
 categories: beginner
 tags: java
 environments: Web
@@ -239,9 +239,9 @@ If you look in the project file, you should notice that there is a **pom.xml** f
 
 <img src="assets/1.05N.png" alt="pom.xml" width="350"/>
 
-### Update .pom File
+### The pom.mxl File
 
-For now, update the .pom file with the following dependencies. Maven will install and use these dependencies alongside the test code. Note that the versions may be out of date and you may want to use a more updated version of JUnit, Selenium, or Selenium drivers.
+The `pom.xml` file is what Maven uses to identify which dependencies to install and update. To start off, you will updated `pom.xml` with your dependencies. Maven will install and use these dependencies alongside the test code. Note that the versions may be out of date and you may want to use a more updated version of JUnit, Selenium, or Selenium drivers.
 
 
 ```
@@ -313,7 +313,7 @@ For now, update the .pom file with the following dependencies. Maven will instal
 ```
 
 
-This sets up all the dependencies, however, you may need to research to make sure you have the most updated or correct version of these dependencies. Each `&lt;dependency> &lt;version> `may need to be updated. See the section below for more details.
+This sets up all the dependencies, however, you may need to research to make sure you have the most updated or correct version of these dependencies. Each dependency's `<version>` may need to be updated. See the section below for more details.
 
 --
 
@@ -323,11 +323,13 @@ This sets up all the dependencies, however, you may need to research to make sur
 Negative
 : How to Find Dependencies Using IntelliJ Video:
  If your .pom file doesn’t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out.
-1. Hover over a red word in IDE
-2. Click the red light bulb to import maven dependencies.
-3. Click the Maven tab and refresh.
-4. Check the .pom file to make sure the updated version was added.
-5. Words should no longer appear red in the test.java file.
+ Negative
+
+: 1. Hover over a red word in IDE
+:  2. Click the red light bulb to import maven dependencies.
+: 3. Click the Maven tab and refresh.
+: 4. Check the .pom file to make sure the updated version was added.
+: 5. Words should no longer appear red in the test.java file.
 
 
 #### Video
@@ -374,14 +376,14 @@ Take a look at the first test code we will be creating in the next module. There
 
 **@After –** The annotation that is used to tear down a test case, used at the end of every case, along with the @Before annotation.
 
-**assertTrue(‘Failure message’, &lt;Boolean condition> ) –** JUnit method that checks if something is true and throws an error message (passed as first parameter) if the following command returns false (second parameter).
+**assertTrue(failureMessage, condition) –** JUnit method that checks if something is true and throws an error message (passed as first parameter) if the following command returns false (second parameter).
 
 
 ### Selenium Elements
 
 **driver variable with** driver.get(), driver.findElement, driver.* **– The driver variable instantiates a WebDriver session/ object, and then you can use Java commands for that driver.
 
-**[Driver.quit](https://artoftesting.com/difference-between-driver-close-and-driver-quit-command-in-selenium-webdriver) –** An important Selenium command to use within **@After**s annotations, this closes any browser windows that may be open and terminates the WebDriver session.
+**[Driver.quit](https://artoftesting.com/difference-between-driver-close-and-driver-quit-command-in-selenium-webdriver) –** An important Selenium command to use within **@After** annotations, this closes any browser windows that may be open and terminates the WebDriver session.
 
 You can see an example of the project we will begin to be setting up in the next module [here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod1/SeleniumJava%20copy/src/test/java/companyname)
 

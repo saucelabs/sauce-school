@@ -1,6 +1,6 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 summary: Module 5 of Selenium JavaScript course . Learn to write Selenium tests in the JavaScript programming language with Mocha.
-id: ../site/codelabs/Module5_SeleniumJS
+id: Module5_SeleniumJS
 categories: advanced
 tags: javascript
 environments: Web
@@ -688,7 +688,7 @@ Watch [5.06 Run Jenkins with Homebrew ](https://drive.google.com/file/d/1gkwQRLi
 
 #### NOTE
 
-Ideally, your test code would live in a version control system such as Git. The first thing you will need to do is get the plugin under **Manage Jenkins **>** Manage Plugins.** You can configure this under **Manage** **Jenkins **>** Global Tools Configuration**. To use a Git project, create a new project from the Jenkins homepage, then under the configuration of that project, choose Git for Source Code Management.
+Ideally, your test code would live in a version control system such as Git. The first thing you will need to do is get the plugin under **Manage Jenkins **>** Manage Plugins.** You can configure this under **Manage** Jenkins > Global Tools Configuration**. To use a Git project, create a new project from the Jenkins homepage, then under the configuration of that project, choose Git for Source Code Management.
 
 <img src="assets/5.06U.png" alt="NodeJS Configuration" width="750"/>
 

@@ -1,7 +1,7 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
 summary: Module 4 of the Selenium Java Course. Learn to write Selenium tests in Java with Maven and JUnit.
-id: ../site/codelabs/Module4_SeleniumJava
+id: Module4_SeleniumJava
 categories: advanced
 tags: java
 environments: Web
@@ -432,7 +432,7 @@ Negative
 : <img src="assets/4.04K.png" alt="Allow Unidentified FIles in Security and Privacy" width="450"/>
 
 Negative
-: On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver **or **geckodriver **manually.
+: On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver** or **geckodriver** manually.
 
 Negative
 : Another option is to simply look through your file directories on your computer and double click on the files to manually open them with terminal or command line. After you have allowed them to be opened once, your computer should allow the drivers to be run by your tests.
