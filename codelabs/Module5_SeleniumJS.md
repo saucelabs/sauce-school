@@ -1,4 +1,4 @@
-<!-- Copy this file into tools/site/coursenameFolder & start editing -->
+  <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 summary: Module 5 of Selenium JavaScript course . Learn to write Selenium tests in the JavaScript programming language with Mocha.
 id: Module5_SeleniumJS
 categories: advanced
@@ -545,7 +545,7 @@ Once you have all dependencies (Java 8 or 11 and Homebrew) with Jenkins download
 
 
 ```
-brew services start jenkins
+brew services start jenkins-lts
 ```
 
 
@@ -579,7 +579,7 @@ To stop the Jenkins process running on your machine with Homebrew, simply type:
 
 
 ```
-brew services stop jenkins
+brew services stop jenkins-lts
 ```
 
 
@@ -648,7 +648,7 @@ For those updates to take effect, you need to type in terminal:
 
 <img src="assets/5.06R.png" alt="Global Tools Config" width="750"/>
 
-Brew services restart jenkins
+Brew services restart jenkins-lts
 
 
 --
@@ -778,7 +778,7 @@ Install and restart Jenkins in the terminal with Homebrew (which is quicker) by 
 
 
 ```
-brew services restart jenkins
+brew services restart jenkins-lts
 ```
 
 

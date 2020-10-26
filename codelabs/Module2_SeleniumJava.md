@@ -349,7 +349,7 @@ Duration: 0:15:00
 
 Now we are ready to start writing the code for your first test. Create a new project directory called **SeleniumJava** (in your main project directory on your computer), and inside create the directory **java**. This is a default folder that Maven will know to look for.
 
-Inside of your Java file create a folder with your company name. Mine is named **companyname.** Inside of that create a file called **TestLogin.java**.
+Inside of your Java file create a package with your company name. Mine is named **companyname.** Inside of that create a file called **TestLogin.java**.
 
 <img src="assets/2.05N.png" alt="Directory Structure" width="350"/>
 
