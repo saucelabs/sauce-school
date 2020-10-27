@@ -468,7 +468,6 @@ For right now, here's what you need to know. In CSS, class names start with a do
 If your test passed, we want to double check and make sure it is in fact checking what it is supposed to be checking (the `flash.success` class), and see if we get a failed test if we don't locate the `flash.success` class on the page.
 
 Just to make certain that this test is doing what we think it should, let's change the locator in the assertion to attempt to force a failure and run it again. go into your test and change the CSS locator.
-<<<<<<< HEAD
 
 ```
 assert driver.find_element(By.CSS_SELECTOR, ".flash.successBroken").is_displayed()
@@ -478,7 +477,7 @@ Type the command `pytest` to run your suite. You should see a failed test with a
 
 <img src="assets/2.06C.png" alt="First test" width="650"/>
 
-_Remember to change the selector back to `.flash.success` when you're done_
+_Remember to change the selector back to `.flash.success` when you're done trying a failed test_
 
 #### Final Code
 

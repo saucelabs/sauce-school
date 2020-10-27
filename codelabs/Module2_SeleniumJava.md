@@ -674,9 +674,6 @@ public class TestLocator {
         driver.quit();
     }
 }
-
-
-
 ```
 
 
