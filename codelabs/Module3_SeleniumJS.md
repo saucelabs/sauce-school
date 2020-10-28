@@ -2,7 +2,7 @@ summary: Module 3 Writing Reusable Test Code
 id: Module3-SeleniumJS
 categories: advanced
 tags: javascript
-status: Work in Progress
+status: Published 
 authors: Lindsay Walker
 Feedback Link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-6735579-1
@@ -263,7 +263,7 @@ Next, go to `test/loginTest.js`. Under the first `it()` statement, insert anothe
 
 Run `npm test` and you should get this error message:
 
-<img src="assets/3.04B.png" alt="Resized Login Failure Response" width="600"/>
+<img src="assets/3.04c.png" alt="Resized Login Failure Response" width="600"/>
 
 
 > **NOTE:** Why does this work? Think about the page interaction. After you click the login, if it was successful, then the error message (with the class `.flash.error`) will not show up, only the success message is displayed, and that element will not exist to interact with, therefore the test will fail.
@@ -273,7 +273,7 @@ Run `npm test` and you should get this error message:
 
 The updated `LoginPage.js` code should look like this:
 
-<img src="assets/3.04C.png" alt="Final Code 3.04" width="600"/>
+<img src="assets/3.04B.png" alt="Final Code 3.04" width="600"/>
 
 
 ### Part 2: Check the Page

@@ -349,7 +349,7 @@ Duration: 0:15:00
 
 Now we are ready to start writing the code for your first test. Create a new project directory called **SeleniumJava** (in your main project directory on your computer), and inside create the directory **java**. This is a default folder that Maven will know to look for.
 
-Inside of your Java file create a folder with your company name. Mine is named **companyname.** Inside of that create a file called **TestLogin.java**.
+Inside of your Java file create a package with your company name. Mine is named **companyname.** Inside of that create a file called **TestLogin.java**.
 
 <img src="assets/2.05N.png" alt="Directory Structure" width="350"/>
 
@@ -526,6 +526,14 @@ First, we had to import the JUnit assertion class. By importing it as static we'
 With `assertTrue` we are checking for a true (Boolean) response. If one is not received, a failure will be raised and the text we provided (`"success message not present"`) will be displayed in the failure output. With Selenium we are seeing if the success message is displayed with `.isDisplayed()`. This Selenium command returns a true or false value. So if the element is visible in the browser, true will be returned, and our test will pass.
 
 
+### CSS selectors
+
+In web design CSS (Cascading Style Sheets) are used to apply styles to the markup (HTML) on a page. CSS is able to do this by declaring which bits of the markup it wants to alter through the use of selectors. Selenium operates in a similar manner but instead of changing the style of elements, it interacts with them by clicking, getting values, typing, sending keys, etc.
+
+CSS selectors are a good way to write locators, especially for hard to reach elements.
+
+For right now, here's what you need to know. In CSS, class names start with a dot (.). For classes with multiple words, put a dot in front of each word, and remove the space between them (e.g., .flash.success for class='flash success'). [Learn more on Sauce Labs](https://saucelabs.com/resources/articles/selenium-tips-css-selectors)
+
 ### NOTE
 
 Negative
@@ -666,9 +674,6 @@ public class TestLocator {
         driver.quit();
     }
 }
-
-
-
 ```
 
 
@@ -706,7 +711,7 @@ See the complete [source code here](https://github.com/walkerlj0/Selenium_Course
 
 <!-- ------------------------ -->
 
-## 2.09 Module 2 Quiz
+## 2.08 Module 2 Quiz
 Duration: 0:05:00
 
-![https://docs.google.com/forms/d/e/1FAIpQLSe-_eb_bCY1dd9pNXrbAFL4Zrc-vl1DIrTinGazhYTpBKvJww/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSe-_eb_bCY1dd9pNXrbAFL4Zrc-vl1DIrTinGazhYTpBKvJww/viewform?usp=sf_link)
+![]()
