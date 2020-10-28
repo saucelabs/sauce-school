@@ -126,9 +126,9 @@ gulp.task('clean', gulp.parallel(
 // build:codelabs copies the codelabs from the directory into build.
 gulp.task('build:codelabs', async (done) => {
   gulp.series([
-      'codelabs:export',
+      //'codelabs:export',
       //commenting out until this process is cleaned up
-      //'override:build:scss',
+      'override:build:scss',
       'override:modules'
   ])(() => {
     copyFilteredCodelabs('build');
@@ -157,7 +157,7 @@ gulp.task('build:css', () => {
 gulp.task('override:build:scss', () => {
   return gulp.src('./app/styles/overrides.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(glob.sync('./codelabs/**/styles')));
+    .pipe(gulp.dest(glob.sync('./codelabs')));
 });
 
 //override module css with custom styles
@@ -172,7 +172,7 @@ gulp.task('override:modules', function() {
       newOverrideStyles.rel = 'stylesheet';
       newFontStyles.rel = 'stylesheet';
       //link to overrides
-      newOverrideStyles.href = './styles/overrides.css';
+      newOverrideStyles.href = '../overrides.css';
       //link to museo sans
       newFontStyles.href = 'https://use.typekit.net/uws2znl.css';
       //add override.css to header
