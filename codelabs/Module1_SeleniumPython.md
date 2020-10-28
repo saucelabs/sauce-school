@@ -201,7 +201,7 @@ You should see an output like this:
  <img src="assets/1.05R.png" alt="PIP 3" width="550"/>
 
  #### NOTE
- If you don't have pip3 installed, or you are using an older version of Python, you may want to check to see if you have pip3  installed by typing `pip3 -version` into your terminal. You can also [use this website](https://pip.pypa.io/en/latest/installing/)  get get pip3 installed. It's not recommended that you use Python 2.7 and pip, as it's not supported, but it may be a reason `pip3`  isn't working.
+ If you don't have pip3 installed, or you are using an older version of Python, you may want to check to see if you have pip3installed by typing `pip3--version` into your terminal. You can also [use this website](https://pip.pypa.io/en/latest/installing/)  get get pip3installed. It's not recommended that you use Python 2.7 and pip, as it's not supported, but it may be a reason `pip3`  isn't working.
 
  --
 
@@ -213,7 +213,7 @@ While the Python standard library come well equipped with many of the things you
 pip3 install pytest
 ```
 ```
-pip3 install pytest-randomly
+pip 3 install pytest-randomly
 ```
 ```
 pip3 install pytest-xdist
@@ -291,11 +291,11 @@ Click **Create** and you should see a project like this:
 
 <img src="assets/1.06C.png" alt="Create file" width="650"/>
 
-If you have a `main.py` file, then right click on it in the Projects tool window, choose delete and perform a safe delete.
+If you have a `main.py` file, then right click on it in the Projects tool window, choose delete and perform a safe delete
 
 <img src="assets/1.06D.png" alt="Safe delete" width="550"/>
 
-Right click on the main Seleniun Python project folder and choose **New > Directory** Name it `tests`.
+Right click on the main Seleniun Python project folder and choose **New > DIrectory** Name it `tests`.
 
 <img src="assets/1.06E.png" alt="new directory" width="550"/>
 
@@ -304,7 +304,7 @@ Right click on the `tests` directory you created and choose **New > Python File*
 <img src="assets/1.06F.png" alt="New python file" width="550"/>
 <img src="assets/1.06G.png" alt="login test" width="350"/>
 
-Last, you are going to add a requirements file that woeks with `pip3` install, update, and manage the dependencies. In the top level **SeleniumJava** directory right click and choose **New > File** and name it `requirements.txt`.
+Last, you are going to add a requirements file that woeks with `pip3` install, update, and manage the dependencies. In the top level **SeleniumJava** directory right click and choose **New > File** and name it `requirements.txt`
 
 <img src="assets/1.06H.png" alt="New file" width="550"/>
 <img src="assets/1.06I.png" alt="requirements.txt" width="350"/>
@@ -411,5 +411,4 @@ You can see an example of the project we will begin to be setting up in the next
 
 ## 1.08 Module 1 Quiz
 Duration: 0:03:00
-
 ![https://docs.google.com/forms/d/e/1FAIpQLSfGvau9FXl3laJq0BD6kTJLdj7yfkg8tRrnCIGno3KQBWg9bw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSfGvau9FXl3laJq0BD6kTJLdj7yfkg8tRrnCIGno3KQBWg9bw/viewform?usp=sf_link)
