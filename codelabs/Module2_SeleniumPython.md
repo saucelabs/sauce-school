@@ -370,7 +370,7 @@ Next, [download the Chromedriver](https://chromedriver.chromium.org/downloads). 
 
 #### Cheat Sheet
 
-![]()
+Learn more about using different drivers for different browsers, and how to configure them using the [Driver Configuration Cheat Sheet](https://docs.google.com/document/d/1UGaHbNeOJl_Az5rqPAOPgHsFWWu-LUuTsfAFoeOpGnA/edit?usp=sharing).
 
 ### NOTE
 Negative
@@ -461,7 +461,7 @@ In web design CSS (Cascading Style Sheets) are used to apply styles to the marku
 
 CSS selectors are a good way to write locators, especially for hard to reach elements.
 
-For right now, here's what you need to know. In CSS, class names start with a dot (.). For classes with multiple words, put a dot in front of each word, and remove the space between them (e.g., .flash.success for class='flash success'). [Learn more on Sauce Labs](https://saucelabs.com/resources/articles/selenium-tips-css-selectors) about CSS selectors.
+For right now, here's what you need to know. In CSS, class names start with a dot (.). For classes with multiple words, put a dot in front of each word, and remove the space between them (e.g., `.flash.success` for `class='flash success' `). [Learn more on Sauce Labs](https://saucelabs.com/resources/articles/selenium-tips-css-selectors) about CSS selectors.
 
 ### Double Check
 
@@ -475,7 +475,7 @@ assert driver.find_element(By.CSS_SELECTOR, ".flash.successBroken").is_displayed
 
 Type the command `pytest` to run your suite. You should see a failed test with a failed locator. Now you can be sure that the test you wrote is correctly checking for the CSS locator.
 
-<img src="assets/2.06C.png" alt="First test" width="650"/>
+<img src="assets/2.06C.png" alt="First test" width="850"/>
 
 _Remember to change the selector back to `.flash.success` when you're done trying a failed test_
 
@@ -562,6 +562,7 @@ Our test should test clicking first the green button, then the blue button, the 
 <img src="assets/2.07J.png" alt="Add locators and HTML elements" width="550"/>
 
 
+
 Use the documentation here on using the[ By Selenium class ](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_By.html)to figure out how to complete the code. You can also use the **[Cheat Sheet](?)** to help.
 
 If you were successful, you should see both the locator and login tests (both are in the test folder) run, and below your locator, you should see the text that appeared on the red button when it was run:
@@ -582,4 +583,4 @@ You can see the [Solution Here](https://github.com/walkerlj0/Selenium_Course_Exa
 ## 2.08 Module 2 Quiz
 Duration: 0:05:00
 
-![?](assets/?.png)
+![https://docs.google.com/forms/d/e/1FAIpQLSegVIfMs-pUxt0Fq2a_lQ7pocT7PqcfAkLtPSZ7lk5JFPAMCQ/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSegVIfMs-pUxt0Fq2a_lQ7pocT7PqcfAkLtPSZ7lk5JFPAMCQ/viewform?usp=sf_link)
