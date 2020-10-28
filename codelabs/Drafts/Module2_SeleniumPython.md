@@ -370,7 +370,7 @@ Next, [download the Chromedriver](https://chromedriver.chromium.org/downloads). 
 
 #### Cheat Sheet
 
-![]()
+Learn more about using different drivers for different browsers, and how to configure them using the [Driver Configuration Cheat Sheet](https://docs.google.com/document/d/1UGaHbNeOJl_Az5rqPAOPgHsFWWu-LUuTsfAFoeOpGnA/edit?usp=sharing).
 
 ### NOTE
 Negative
@@ -433,7 +433,9 @@ Assertions are statements that are used at a certain point in the test code (usu
 
 Now it’s time to add in an assertion to see if your actions had the desired effect. We want to check that the div that pops up when you have successfully logged in with the `class = "flash_success" `does in fact appear after you enter the login credentials.
 
+
 <img src="assets/2.07A.png" alt="flash success message" width="550"/>
+
 
 
 In this module, you will add an assertion to the code you have created in `login_test.py`, run your first test, and see if changes to the code cause a test failure.
@@ -459,7 +461,7 @@ In web design CSS (Cascading Style Sheets) are used to apply styles to the marku
 
 CSS selectors are a good way to write locators, especially for hard to reach elements.
 
-For right now, here's what you need to know. In CSS, class names start with a dot (.). For classes with multiple words, put a dot in front of each word, and remove the space between them (e.g., .flash.success for class='flash success'). [Learn more on Sauce Labs](https://saucelabs.com/resources/articles/selenium-tips-css-selectors) about CSS selectors.
+For right now, here's what you need to know. In CSS, class names start with a dot (.). For classes with multiple words, put a dot in front of each word, and remove the space between them (e.g., `.flash.success` for `class='flash success' `). [Learn more on Sauce Labs](https://saucelabs.com/resources/articles/selenium-tips-css-selectors) about CSS selectors.
 
 ### Double Check
 
@@ -473,11 +475,12 @@ assert driver.find_element(By.CSS_SELECTOR, ".flash.successBroken").is_displayed
 
 Type the command `pytest` to run your suite. You should see a failed test with a failed locator. Now you can be sure that the test you wrote is correctly checking for the CSS locator.
 
-<img src="assets/2.06C.png" alt="flash success test" width="650"/>
+<img src="assets/2.06C.png" alt="First test" width="850"/>
 
-_Remember to change the selector back to `.flash.success` when you're done_
+_Remember to change the selector back to `.flash.success` when you're done trying a failed test_
 
 #### Final Code
+
 
 <img src="assets/2.06D.png" alt="First test" width="750"/>
 
@@ -510,29 +513,29 @@ import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-class TestLocator():
+@pytest.fixture
+def driver(request):
+    _chromedriver= os.path.join(os.getcwd(), 'vendor', 'chromedriver')
+    if os.path.isfile(_chromedriver):
+        driver_ = webdriver.Chrome(_chromedriver)
 
-    @pytest.fixture
-    def driver(request):
-        _chromedriver= os.path.join(os.getcwd(), 'vendor', 'chromedriver')
-        if os.path.isfile(_chromedriver):
-            driver_ = webdriver.Chrome(_chromedriver)
+    else:
+        driver_ = webdriver.Chrome()
 
-        else:
-            driver_ = webdriver.Chrome()
+    def quit():
+        driver_.quit()
 
-        def quit():
-            driver_.quit()
+    request.addfinalizer(quit)
+    return driver_
 
-        request.addfinalizer(quit)
-        return driver_
-
-    def test_valid_credentials(driver):
-        driver.get("https://the-internet.herokuapp.com/challenging_dom")
-        driver.find_element(By.ID, ".button.success").click()
-        driver.find_element(By.CSS_SELECTOR, ".button").click()
-        assert driver.find_element(By.CSS_SELECTOR, ".button").is_displayed()
+def test_valid_credentials(driver):
+    driver.get("https://the-internet.herokuapp.com/challenging_dom")
+    driver.find_element(          , "      ").click()
+    driver.find_element(     , "        ").click()
+    printredbutton = driver.find_element(        , "       ").text
+    assert (printredbutton == 'foo'), print(printredbutton)
 ```
+
 
 ### Add a New Test
 To add a test into a new
@@ -545,33 +548,39 @@ Use the inspector to locate and test finding elements. In this test we are going
 
 #### Video
 
-Watch [2.08 Locator Test](?) to help you understand how this test works.
+Watch [2.07 Locator Test](https://drive.google.com/file/d/1U2cyakp5FUweBrHYqqiAvOZ6E2UTzadU/view?usp=sharing) to help you understand how this test works.
 
-![?](assets/?.png)
+![https://drive.google.com/file/d/1U2cyakp5FUweBrHYqqiAvOZ6E2UTzadU/preview](https://drive.google.com/file/d/1U2cyakp5FUweBrHYqqiAvOZ6E2UTzadU/view?usp=sharing)
 
 
 #### Cheat Sheet
 
-[2.07 Selenium Locators Cheat Sheet](?)
+[2.07 Selenium Locators Cheat Sheet](https://docs.google.com/document/d/18Gyd31KeQRbIKBzQfbbKA7o3bta_cdA6VVryDti5R2E/edit?usp=sharing)
 
 Our test should test clicking first the green button, then the blue button, the see check to make sure both have been clicked (Check CSS/ id) Using the code above, complete and run the test.  This is not your typical test, as there is no assertion but we do return a value.
 
-![Add Element Locators](assets/?.png)
+<img src="assets/2.07J.png" alt="Add locators and HTML elements" width="550"/>
+
 
 
 Use the documentation here on using the[ By Selenium class ](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_By.html)to figure out how to complete the code. You can also use the **[Cheat Sheet](?)** to help.
 
 If you were successful, you should see both the locator and login tests (both are in the test folder) run, and below your locator, you should see the text that appeared on the red button when it was run:
 
-<img src="assets/?.png" alt="Success message" width="250"/>
-<!-- ![Locate Test success](assets/2.08C.png) -->
+<img src="assets/2.07K.png" alt="Success message" width="550"/>
 
 
-See the complete [source code here](?).
+If the test failed (e.g. the red button didn't contain the word 'foo'), then you would have a failed test that prints what actually appeared on the red button.
+
+<img src="assets/2.07L.png" alt="Failure message" width="750"/>
+
+See the complete [Source Code](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod2/2.07) for the outilne of the test.
+
+You can see the [Solution Here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod2/2.07_solutions).
 
 <!-- ------------------------ -->
 
 ## 2.08 Module 2 Quiz
 Duration: 0:05:00
 
-![?](assets/?.png)
+![https://docs.google.com/forms/d/e/1FAIpQLSegVIfMs-pUxt0Fq2a_lQ7pocT7PqcfAkLtPSZ7lk5JFPAMCQ/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSegVIfMs-pUxt0Fq2a_lQ7pocT7PqcfAkLtPSZ7lk5JFPAMCQ/viewform?usp=sf_link)
