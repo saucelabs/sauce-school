@@ -23,13 +23,13 @@ This module is derived from content in chapters 6-7 of _The Selenium Guidebook_ 
 
 
 
-*   Use _____ along with Pip3 and Python to run local tests and manage dependencies on your machine
+*   Use Pytest along with Pip3 and Python to run local tests and manage dependencies on your machine
 *   Understand that good tests are atomic: They have test grouped by functionality, and are named descriptively. Good tests also use test runners, and are maintained in version control systems
 *   Create and maintain a project folder with your test suite & dependencies, with separate folders for page and test classes
 *   Be able to define a test strategy and use a testing strategy like BDD and TDD to create test cases
 *   Use the browser dev tools console to test locators on the page using elements such as class, id, XPath, and more
 *   Demonstrate the ability to choose and verify locators for a test class and write code that successfully uses the locators
-*   Write a test case with `-----------` and `--------` ---------- and an --------, then run it successfully on your local machine
+*   Write a test case created with `def()` and an assertion, then run it successfully on your local machine
 *   Write and validate tests that can both succeed and fail, while planning for different failure scenarios (and methods that generate error messages) for those different scenarios
 *   Analyze and plan test suites, learning how to balance the size and maintainability (ability to check failed tests) against the amount of features you want to test, as well as the level of abstraction you want to use to make modular objects to use in your test suite
 
@@ -38,11 +38,8 @@ This module is derived from content in chapters 6-7 of _The Selenium Guidebook_ 
 
 If you skipped Module 1, make sure you have a project folder set up and have created the following files, as well as have NodeJS installed and init for this project:
 
-<img src="assets/----.png" alt="Directory Structure" width="400"/>
--
 
-
-### Use GitHub Repository (Optional)
+#### Use GitHub Repository (Optional)
 
 If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
 
@@ -580,7 +577,7 @@ You can see the [Solution Here](https://github.com/walkerlj0/Selenium_Course_Exa
 
 <!-- ------------------------ -->
 
-## 2.08 Module 2 
+## 2.08 Module 2
 Duration: 0:05:00
 
 ![https://docs.google.com/forms/d/e/1FAIpQLSegVIfMs-pUxt0Fq2a_lQ7pocT7PqcfAkLtPSZ7lk5JFPAMCQ/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSegVIfMs-pUxt0Fq2a_lQ7pocT7PqcfAkLtPSZ7lk5JFPAMCQ/viewform?usp=sf_link)
