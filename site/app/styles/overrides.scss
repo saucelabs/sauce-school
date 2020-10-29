@@ -18,12 +18,12 @@ google-codelab #drawer ol ::-webkit-scrollbar-thumb {
   background-color: #EDEDEF;
   -webkit-box-shadow: none!important;
 }
-#next-step {
+#next-step, #done {
   color: #fff;
   background: #E12726;
   font-family: museo-sans, sans-serif!important;
 }
-#previous-step, #done {
+#previous-step {
   font-family: museo-sans, sans-serif!important;
   color: #464B54;
 }
