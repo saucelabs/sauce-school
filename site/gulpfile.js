@@ -178,12 +178,13 @@ gulp.task('override:modules', function() {
       //add override.css to header
       return runOverrides()
       function runOverrides() {
-        if (numberOfChildren = 4) {
-          //get override styles
+
+        if(numberOfChildren < 5) {
           htmlDoc.getElementsByTagName('head')[0].appendChild(newOverrideStyles);
-          //get museo sans web safe
           htmlDoc.getElementsByTagName('head')[0].appendChild(newFontStyles);
         }
+
+
         //console.log(htmlDoc.getElementsByClassName('.step-title'))
         //need to come back to this. Cannot grab html elements. protected by an object.
       }
