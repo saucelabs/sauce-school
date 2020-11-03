@@ -2,7 +2,7 @@ summary: Module 3 Writing Reusable Test Code
 id: Module3-SeleniumJS
 categories: advanced
 tags: javascript
-status: Published 
+status: Published
 authors: Lindsay Walker
 Feedback Link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-6735579-1
