@@ -450,13 +450,17 @@ Too many tests can be an even bigger problem for a QA team than too few. Figurin
 
 Source: [Giphy](https://giphy.com/gifs/baby-bye-slide-m9eG1qVjvN56H0MXt8)
 
-### Part 1 Create a Facade Layer
+Since you are not really using `TestLocator.java`, now would be a good time to delete that test before adding in the new classes in this module.
 
-A _facade layer  _is when a page or class is created that helps you simplify the language to carry out simple commands like `return driver.findElement(locator);` or  `find(locator).sendKeys(inputText);` as well as check an assertion after, and simplify this process into a single command like` type() `or `find()` so that these methods can be easily used by the rest of the test suite. In this lesson, you are going to create a simplified interface called `Base.java`, which you will then use within our `LoginPage.js `class.
-
-First let's add a new class called `Base.java `in the` pageobjects `directory.  See Part one of module 3.03 if you need help. At this point, you can also delete` LocatorTest.js` by right clicking on it and choosing **Refactor > Safe Delete**, as you won’t be using it any longer.
+To delete` LocatorTest.js`, right click on it in the project window in IntelliJ and choose **Refactor > Safe Delete**, as you won’t be using it any longer.
 
 <img src="assets/3.05I.png" alt="Refactor and safe delete" width="550"/>
+
+### Part 1 Create a Facade Layer
+
+Creating a _facade layer_ involved creating a separate page or class from your test page, that helps you simplify the language to carry out simple commands like `return driver.findElement(locator);` or  `find(locator).sendKeys(inputText);` as well as check an assertion after, and simplify this process into a single command like` type() `or `find()` so that these methods can be easily used by the rest of the test suite. In this lesson, you are going to create a simplified interface called `Base.java`, which you will then use within our `LoginPage.js `class.
+
+First let's add a new class called `Base.java `in the` pageobjects `directory.  See Part one of module 3.03 if you need help.
 
 
 Next let's open `Base.java `in your IDE and add in the following code:
