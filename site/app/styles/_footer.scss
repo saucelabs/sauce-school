@@ -84,6 +84,20 @@ footer {
     }
   }
 }
+ul.footer__sublinks {
+  float: right;
+  margin: 0px;
+  padding: 0px;
+  display: inline-block;
+  clear: both;
+  position: relative;
+  li {
+    float: left;
+    display: inline-block;
+    margin: 0 10px 0 0;
+    padding: 0px;
+  }
+}
 
 .footerbar {
   background-color: #000;
@@ -91,7 +105,6 @@ footer {
   font-size: 13px;
   padding: 10px 0;
   max-height: 10%;
-
   a {
     color: currentcolor;
   }
@@ -106,6 +119,24 @@ footer {
     }
     .link-list {
       margin: 0 0 $keyline*3 0;
+    }
+    .footer__inner {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  .footer-column {
+    flex: 0 50%;
+  }
+  .footerbar {
+    .site-width.layout.horizontal.center.justified {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+    .footer__sublinks, .footer__copyright {
+      flex: 0 100%;
+      padding: 5px 0 5px 0;
     }
   }
 }

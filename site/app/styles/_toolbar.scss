@@ -279,6 +279,16 @@
   }
 }
 
+//custom nav tablet override
+@media only screen and (max-device-width: 1050px),
+only screen and (max-device-width: 1050px),
+only screen and (max-width: 1050px) {
+  #mainToolbar ul.header__primary-nav li a.btn.btn-primary {
+    display: none!important;
+  }
+}
+
+
 @media (max-width: $phone-breakpoint-max) {
   #searchbar paper-input-container {
     display: none;
@@ -309,6 +319,14 @@
       width: 40px;
       margin-right: $keyline;
     }
+  }
+  .--bottomPosition {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+  }
+  .--closed {
+    transform: rotate(180deg);
   }
   .header__mobile-nav {
     position: absolute;
@@ -419,4 +437,30 @@
       }
     }
   }
+}
+
+//animations
+.--fade-in-intro {
+  animation-name: FadeIn;
+	-webkit-animation-name: FadeIn;
+  animation-duration: 0.5s;
+	-webkit-animation-duration: 0.5s;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+	transition-timing-function: ease;
+}
+//animations
+@keyframes FadeIn {
+	0% {
+    opacity: 0;
+    top: 25px;
+    position: absolute;
+    top: -55px;
+	}
+	100% {
+    opacity: 1;
+    top: 0px;
+    position: absolute;
+    top: 55px;
+	}
 }
