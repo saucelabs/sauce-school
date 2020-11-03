@@ -1,7 +1,7 @@
 summary: Module 3 Writing Reusable Test Code
 id: Module3-SeleniumJava
 categories: advanced
-tags: java
+tags: javasc
 status: published
 authors: Lindsay Walker
 Feedback Link: https://forms.gle/CGu4QchgBxxWnNJK8
