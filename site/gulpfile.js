@@ -12,14 +12,12 @@ const gulpif = require('gulp-if');
 const htmlmin = require('gulp-htmlmin');
 const merge = require('merge-stream');
 const postcss = require('gulp-html-postcss');
-const rename = require('gulp-rename');
 const sass = require('gulp-sass');
 const through = require('through2');
 const useref = require('gulp-useref');
 const vulcanize = require('gulp-vulcanize');
-const watch = require('gulp-watch');
-const webserver = require('gulp-webserver');
 const replace = require('gulp-replace');
+const connect = require('gulp-connect');
 
 // Uglify ES6
 const uglifyes = require('uglify-es');
@@ -36,10 +34,8 @@ const gcs = require('./tasks/helpers/gcs');
 const glob = require('glob');
 const opts = require('./tasks/helpers/opts');
 const path = require('path');
-const serveStatic = require('serve-static');
 const spawn = childprocess.spawn;
 const swig = require('swig-templates');
-const url = require('url');
 
 const dom = require('gulp-dom');
 
@@ -127,8 +123,7 @@ gulp.task('clean', gulp.parallel(
 gulp.task('build:codelabs', async (done) => {
   gulp.series([
       'codelabs:export',
-      //commenting out until this process is cleaned up
-      //'override:build:scss',
+      'override:build:scss',
       'override:modules'
   ])(() => {
     copyFilteredCodelabs('build');
@@ -157,7 +152,7 @@ gulp.task('build:css', () => {
 gulp.task('override:build:scss', () => {
   return gulp.src('./app/styles/overrides.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(glob.sync('./codelabs/**/styles')));
+    .pipe(gulp.dest(glob.sync('./codelabs')));
 });
 
 //override module css with custom styles
@@ -172,19 +167,20 @@ gulp.task('override:modules', function() {
       newOverrideStyles.rel = 'stylesheet';
       newFontStyles.rel = 'stylesheet';
       //link to overrides
-      newOverrideStyles.href = './styles/overrides.css';
+      newOverrideStyles.href = '../overrides.css';
       //link to museo sans
       newFontStyles.href = 'https://use.typekit.net/uws2znl.css';
       //add override.css to header
       return runOverrides()
       function runOverrides() {
-        if (numberOfChildren = 4) {
-          //get override styles
+
+        if(numberOfChildren < 5) {
           htmlDoc.getElementsByTagName('head')[0].appendChild(newOverrideStyles);
-          //get museo sans web safe
           htmlDoc.getElementsByTagName('head')[0].appendChild(newFontStyles);
         }
-        //console.log(htmlDoc)
+
+
+        //console.log(htmlDoc.getElementsByClassName('.step-title'))
         //need to come back to this. Cannot grab html elements. protected by an object.
       }
     }))
@@ -402,17 +398,16 @@ gulp.task('watch', gulp.parallel(
   'watch:codelabs',
 ));
 
+// connect serve the site
+gulp.task('connect', () => {
+  connect.server({
+    root: 'build',
+    livereload: true
+  });
+});
+
 // serve builds the website, starts the webserver, and watches for changes.
-gulp.task('serve', gulp.series(
-  'build',
-  gulp.parallel(
-    'watch',
-    () => {
-      return gulp.src('build')
-        .pipe(webserver(opts.webserver()));
-    }
-  )
-));
+gulp.task('serve', gulp.series('build', gulp.parallel(['connect', 'watch'])));
 
 // serve:dist serves the built and minified website from dist. It does not
 // support live-reloading and should be used to verify final output before
