@@ -1,5 +1,5 @@
 summary: Module 5 Using Sauce Connect proxy, Sauce OnDemand, and CI
-id: ../site/codelabs/Module5_SeleniumJS
+id: Module5_SeleniumJS
 categories: advanced
 tags: javascript
 environments: Web
