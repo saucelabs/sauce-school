@@ -12,14 +12,12 @@ const gulpif = require('gulp-if');
 const htmlmin = require('gulp-htmlmin');
 const merge = require('merge-stream');
 const postcss = require('gulp-html-postcss');
-const rename = require('gulp-rename');
 const sass = require('gulp-sass');
 const through = require('through2');
 const useref = require('gulp-useref');
 const vulcanize = require('gulp-vulcanize');
-const watch = require('gulp-watch');
-const webserver = require('gulp-webserver');
 const replace = require('gulp-replace');
+const connect = require('gulp-connect');
 
 // Uglify ES6
 const uglifyes = require('uglify-es');
@@ -36,10 +34,8 @@ const gcs = require('./tasks/helpers/gcs');
 const glob = require('glob');
 const opts = require('./tasks/helpers/opts');
 const path = require('path');
-const serveStatic = require('serve-static');
 const spawn = childprocess.spawn;
 const swig = require('swig-templates');
-const url = require('url');
 
 const dom = require('gulp-dom');
 
@@ -126,8 +122,7 @@ gulp.task('clean', gulp.parallel(
 // build:codelabs copies the codelabs from the directory into build.
 gulp.task('build:codelabs', async (done) => {
   gulp.series([
-      //'codelabs:export',
-      //commenting out until this process is cleaned up
+      'codelabs:export',
       'override:build:scss',
       'override:modules'
   ])(() => {
@@ -403,17 +398,16 @@ gulp.task('watch', gulp.parallel(
   'watch:codelabs',
 ));
 
+// connect serve the site
+gulp.task('connect', () => {
+  connect.server({
+    root: 'build',
+    livereload: true
+  });
+});
+
 // serve builds the website, starts the webserver, and watches for changes.
-gulp.task('serve', gulp.series(
-  'build',
-  gulp.parallel(
-    'watch',
-    () => {
-      return gulp.src('build')
-        .pipe(webserver(opts.webserver()));
-    }
-  )
-));
+gulp.task('serve', gulp.series('build', gulp.parallel(['connect', 'watch'])));
 
 // serve:dist serves the built and minified website from dist. It does not
 // support live-reloading and should be used to verify final output before
