@@ -100,12 +100,12 @@ Let's take our login example from earlier, create a page object for it, and upda
 First we'll need to create a new folder called `pages` in the root of our project directory.
 
 In both the **tests** and **pages** directory, you will want to create a blank file called `_init_.py`. The purpose of this file is to let Python and Pycharm know that these directories should be treated as packages.
- * Right click on the top-level folder and choose **New > Directory**. Name the directory **pages**.
- <img src="assets/3.03J.png" alt="Page Object Directory" width="450"/>
+ * Right click on the top-level folder and choose **New > Python Package**. Name the directory **pages**.
+ <img src="assets/3.03J.png" alt="New Python Package" width="450"/>
 
  * Right click on the **pages** package and create a file names **login_page.py**.
 
- * Within both the **pages** and **tests** directories, and add in a file that will remain blank, called **\_init_\.py**.
+ * Within both the **pages** and **tests** directories, there should be a file that will remain blank, called **\_init_\.py**.
  <img src="assets/3.03K.png" alt="Pages Directory" width="450"/>
 
  * Once you are done, your directory structure should look like the following:
@@ -163,20 +163,30 @@ Lastly, the different types of test methods are created at the bottom of the pag
 
 #### Part 2: Update the Login Test to use the Page Object
 
-Now open the file in the test folder named `login_test.py`. You will add a few things into the test so that it can work with the `-------` file you just created.
+Now open the file in the test folder named `login_test.py`. Now we can simplify the code in `test_invalid_credentials` method since much of the work has already been done in `login_page.py`. You no longer have to use methods like `get()`, `findElement()`, or  `sendKeys()`, and you can take out the hardcoded username and password since those are all defined in the page object.   
 
-Under the `----------`, add
+Within the `test_valid_credentials`, logic, replace the `driver` parameter with `login` and add the new simplified logic:
 
+```
+# filename: tests/login_test.py
+// ...
+def test_valid_credentials(login):
+    login.with_("tomsmith", "SuperSecretPassword!")
+    assert login.success_message_present()
+```
+Last but not least, in the list of `imports` delete the method that imports the `By` class, and replace it with an import of the Login page where the `By` methods were moved to:
+
+```
+# filename: tests/login_test.py
+import pytest
+import os
+from selenium import webdriver
+from pages.login_page import LoginPage
+```
 
 #### Final Code
 
-Your new code in `LoginTest.js` should look like this:
-
-<img src="assets/.png" alt="LoginTest Code" width="600"/>
-
-Run `-----test` and you should get this success message:
-
-<img src="assets/.png" alt="LoginTest Success" width="600"/>
+Your new code in `test_login.py` should look like this:
 
 See the complete [source code here]().
 

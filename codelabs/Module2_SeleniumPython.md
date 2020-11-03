@@ -279,11 +279,11 @@ In the next window, name the project **SeleniumJava**, choose which directory yo
 
 Virtualenv will create a 'sandbox' virtual environment for your project with only Python version 3 and the dependencies that go with it.
 
-Right click in the top-level folder and create a **New > Directory**. name the director **tests**.
+Right click in the top-level folder and create a **New > Python Package**. name the director **tests**.
 
 <img src="assets/2.05R.png" alt="New Directory" width="450"/>
 
-Next, right click on the **tests** folder and create a **New > Python File**. name the director **login_test**.
+Next, right click on the **tests** folder and create a **New > Python Package**. name the director **login_test**. There should be a blank file automatically created called `_init_.py` since it is a Python package.
 
 <img src="assets/2.05S.png" alt="Create Login test" width="450"/>
 
