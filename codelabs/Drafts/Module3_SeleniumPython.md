@@ -38,12 +38,12 @@ This module is derived from content in chapters 8-10 of _The Selenium Guidebook 
 
 If you skipped Modules 1 & 2, make sure you have a project folder set up and have created the following files, as well as have NodeJS installed and init for this project:
 
-**[Final Module 2 Project Code]()**
+**[Final Module 2 Project Code](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod2/2.07_solutions)**
 
 
 ### Use GitHub Repository (Optional)
 
-If you are familiar with using GitHub to write your code, you can also fork/branch the aforementioned repository for the first set of code.
+If you are familiar with using GitHub to write your code, you can also clone or download the repository above to use as the base to write your test from.
 
 
 
@@ -88,35 +88,82 @@ One of the biggest challenges with Selenium tests is that they can be brittle an
 
 But the reality of a software project is that _change is a constant_. So you need to account for this reality somehow in our test code in order to be successful.
 
-This is where page objects come in, to help reduce duplicate code, and make maintaining a test suite easier.
+This is where page objects come in, to help reduce duplicate code, and make maintaining a test suite easier. Instead of writing the code to navigate the page and run a test in the same place, you can separate those two types of actions into page and test objects.
+
+That way, if you have written several tests on the same page, you only have to change the code in one place.
 
 
-### Create Page Objects
-
-
-#### Part 1: Create A Page Object And Update Test
+#### Part 1: Create A Page Object
 
 Let's take our login example from earlier, create a page object for it, and update our test suite structure.
 
-First we'll need to create a new folder called `pages` in the root of our project directory. In it we'll add a `LoginPage.js` file. When we're done, our directory structure should look like this:
+First we'll need to create a new folder called `pages` in the root of our project directory.
 
-<img src="assets/png" alt="Page Object Directory" width="450"/>
+In both the **tests** and **pages** directory, you will want to create a blank file called `_init_.py`. The purpose of this file is to let Python and Pycharm know that these directories should be treated as packages.
+ * Right click on the top-level folder and choose **New > Directory**. Name the directory **pages**.
+ <img src="assets/3.03J.png" alt="Page Object Directory" width="450"/>
 
-Open `filename.ext` in your text editor and add in the following code:
+ * Right click on the **pages** package and create a file names **login_page.py**.
 
-// ...
+ * Within both the **pages** and **tests** directories, and add in a file that will remain blank, called **\_init_\.py**.
+ <img src="assets/3.03K.png" alt="Pages Directory" width="450"/>
 
-The last method, `-------`, checks to see that the final success message is present on the screen after you log in.
+ * Once you are done, your directory structure should look like the following:
+ <img src="assets/3.03L.png" alt="Page Object Directory" width="450"/>
 
+
+Open `login_page.py` in your text editor and add in the following code:
+```
+# filename: pages/login_page.py
+from selenium.webdriver.common.by import By
+
+class LoginPage():
+    _username_input = {"by": By.ID, "value": "username"}
+    _password_input = {"by": By.ID, "value": "password"}
+    _submit_button = {"by": By.CSS_SELECTOR, "value": "button"}
+    _success_message = {"by": By.CSS_SELECTOR, "value": ".flash.success"}
+    _failure_message = {"by": By.CSS_SELECTOR, "value": ".flash.error"}
+
+    def _init_(self, driver):
+        self.driver = driver
+        self.driver.get("http://the-internet.herokuapp.com/login")
+
+    def with_(self, username, password):
+        self.driver.find_element(self._username_input["by"],
+                                 self._username_input["value"]).send_keys(username)
+        self.driver.find_element(self._password_input["by"],
+                                 self._password_input["value"]).send_keys(password)
+        self.driver.find_element(self._submit_button["by"],
+                                 self._submit_button["value"]).click()
+
+    def success_message_present(self):
+        return self.driver.find_element(
+            self._success_message["by"], self._success_message["value"]).is_displayed()
+
+    def failure_message_present(self):
+        return self.driver.find_element(
+            self._failure_message["by"], self._failure_message["value"]).is_displayed()
+
+    def test_invalid_credentials(self, login):
+        login.with_("tomsmith", "bad password")
+        assert login.failure_message_present()
+```
+
+Notice how this new page object creates variables for all the elements you will interact with on the page, from the username files to the success message.
+
+It also defines a constructor in `__init__` that will create a new instance of the page each time a test is run. (_Note the double underscore before and after \_\_init\_\__). The `self` parameters that you see in the functions are to let python know that it should use the attributes and methods defined in the method itself, as there is no way to define private methods & attributes with Python and you want to make sure your function is using the correct one.
+
+
+The `with_` method contains the core functionality of entering the information and logging into the page. If the login flow changes, you would only have to change this method to be able to reflect that in all your tests.
+
+Lastly, the different types of test methods are created at the bottom of the page in able to perform any checks you may with to perform. `success_message_present`, takes parameters for the type of locator and value of the locator (such as CSS selector) to check to see that the final success message is present on the screen after you log in.
 
 <img src="assets/3.03B.png" alt="Resized Message Present Example" width="500"/>
 
-T
 
+#### Part 2: Update the Login Test to use the Page Object
 
-#### Part 2: Update --------- to use the Page Object
-
-Now open the file in the test folder named `-----------`. You will add a few things into the test so that it can work with the `-------` file you just created.
+Now open the file in the test folder named `login_test.py`. You will add a few things into the test so that it can work with the `-------` file you just created.
 
 Under the `----------`, add
 
