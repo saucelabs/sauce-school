@@ -37,7 +37,10 @@ const path = require('path');
 const spawn = childprocess.spawn;
 const swig = require('swig-templates');
 
-const dom = require('gulp-dom');
+const cheerio = require('gulp-cheerio');
+const posthtml = require('gulp-posthtml');
+const posthtmlOutlinks = require('posthtml-outlinks');
+let posthtmlPlugins = [posthtmlOutlinks({ excludeHosts: [], noTarget: [], noRel: [] })];
 
 // DEFAULT_GA is the default Google Analytics tracker ID
 const DEFAULT_GA = 'UA-49880327-14';
@@ -119,18 +122,6 @@ gulp.task('clean', gulp.parallel(
   'clean:dist',
 ));
 
-// build:codelabs copies the codelabs from the directory into build.
-gulp.task('build:codelabs', async (done) => {
-  gulp.series([
-      'codelabs:export',
-      'override:build:scss',
-      'override:modules'
-  ])(() => {
-    copyFilteredCodelabs('build');
-    done();
-  });
-});
-
 // build:scss builds all the scss files into the dist dir
 gulp.task('build:scss', () => {
   return gulp.src('app/**/*.scss')
@@ -147,46 +138,6 @@ gulp.task('build:css', () => {
   return gulp.src(srcs, { base: 'app/' })
     .pipe(gulp.dest('build'));
 });
-
-// override:build:scss builds the scss file inside the app/styles/overrides.scss file and creates style folders inside modules
-gulp.task('override:build:scss', () => {
-  return gulp.src('./app/styles/overrides.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(glob.sync('./codelabs')));
-});
-
-//override module css with custom styles
-gulp.task('override:modules', function() {
-  return gulp.src('./codelabs/*/index.html')
-    .pipe(dom(function(){
-      let htmlDoc = this;
-      let newOverrideStyles = htmlDoc.createElement('link');
-      let newFontStyles = htmlDoc.createElement('link');
-      let header = htmlDoc.getElementsByTagName('head')[0];
-      let numberOfChildren = header.getElementsByTagName('link').length
-      newOverrideStyles.rel = 'stylesheet';
-      newFontStyles.rel = 'stylesheet';
-      //link to overrides
-      newOverrideStyles.href = '../overrides.css';
-      //link to museo sans
-      newFontStyles.href = 'https://use.typekit.net/uws2znl.css';
-      //add override.css to header
-      return runOverrides()
-      function runOverrides() {
-
-        if(numberOfChildren < 5) {
-          htmlDoc.getElementsByTagName('head')[0].appendChild(newOverrideStyles);
-          htmlDoc.getElementsByTagName('head')[0].appendChild(newFontStyles);
-        }
-
-
-        //console.log(htmlDoc.getElementsByClassName('.step-title'))
-        //need to come back to this. Cannot grab html elements. protected by an object.
-      }
-    }))
-    .pipe(gulp.dest('./codelabs/'));
-});
-
 
 // build:html builds all the HTML files
 gulp.task('build:html', () => {
@@ -213,6 +164,11 @@ gulp.task('build:html', () => {
   streams.push(gulp.src(otherSrcs, { base: 'app/' })
     .pipe(gulp.dest('build'))
   );
+
+  streams.push(gulp.src('codelabs/*/index.html')
+    .pipe(cheerio(($) => $('head').append('<link rel="stylesheet" href="/styles/overrides.css">')))
+    .pipe(posthtml(posthtmlPlugins))
+    .pipe(gulp.dest('build/codelabs')));
 
   return merge(...streams);
 });
@@ -282,12 +238,32 @@ gulp.task('build:vulcanize', () => {
     .pipe(gulp.dest('build'));
 });
 
+// codelabs:export exports the codelabs
+gulp.task('codelabs:export', (callback) => {
+  const rcallback = () => {
+    copyFilteredCodelabs('build');
+    callback();
+  };
+  const source = fs.readdirSync(CODELABS_SRC_DIR)
+      .filter(file => file.endsWith('.md'))
+      .map(file => path.join(__dirname, CODELABS_SRC_DIR, file));
+  const outDir = path.join(__dirname, CODELABS_DIR);
+
+  if (source !== undefined) {
+    const sources = Array.isArray(source) ? source : [source];
+    claat.run(CODELABS_DIR, 'export', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, outDir, sources, rcallback);
+  } else {
+    const codelabIds = collectCodelabs().map((c) => { return c.id });
+    claat.run(CODELABS_DIR, 'update', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, outDir, codelabIds, rcallback);
+  }
+});
+
 // build builds all the assets
 gulp.task('build', gulp.series(
   'clean',
-  'build:codelabs',
-  'build:css',
+  'codelabs:export',
   'build:scss',
+  'build:css',
   'build:html',
   'build:images',
   'build:js',
@@ -386,7 +362,7 @@ gulp.task('watch:js', () => {
 // watch:codelabs watches codelabs files for changes and updates them
 gulp.task('watch:codelabs', () => {
   const watchPath = path.join(__dirname, CODELABS_SRC_DIR, '*.md');
-  gulp.watch(watchPath, gulp.series('build:codelabs'));
+  gulp.watch(watchPath, gulp.series('codelabs:export'));
 });
 
 // watch starts all watchers
@@ -435,8 +411,6 @@ gulp.task('codelabs:export', (callback) => {
     claat.run(CODELABS_DIR, 'update', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, outDir, codelabIds, callback);
   }
 });
-
-
 
 //
 // Helpers
