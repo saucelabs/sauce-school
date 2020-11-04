@@ -394,25 +394,6 @@ gulp.task('serve:dist', gulp.series('dist', () => {
 }));
 
 //
-// Codelabs
-//
-// codelabs:export exports the codelabs
-gulp.task('codelabs:export', (callback) => {
-  const source = fs.readdirSync(CODELABS_SRC_DIR)
-      .filter(file => file.endsWith('.md'))
-      .map(file => path.join(__dirname, CODELABS_SRC_DIR, file));
-  const outDir = path.join(__dirname, CODELABS_DIR);
-
-  if (source !== undefined) {
-    const sources = Array.isArray(source) ? source : [source];
-    claat.run(CODELABS_DIR, 'export', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, outDir, sources, callback);
-  } else {
-    const codelabIds = collectCodelabs().map((c) => { return c.id });
-    claat.run(CODELABS_DIR, 'update', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, outDir, codelabIds, callback);
-  }
-});
-
-//
 // Helpers
 //
 
