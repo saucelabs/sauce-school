@@ -177,7 +177,7 @@ Within the `test_valid_credentials`, logic, replace the `driver` parameter with 
 
 ```
 # filename: tests/login_test.py
-// ...
+# ...
 def test_valid_credentials(login):
     login.with_("tomsmith", "SuperSecretPassword!")
     assert login.success_message_present()
@@ -196,7 +196,7 @@ Lastly, above the `quit()` method, instantiate a driver to the variable `loginPa
 
 ```
 # filename: tests/login_test.py
-// ...
+# ...
 loginPage = LoginPage(driver_)
 
     def quit():
@@ -280,7 +280,7 @@ First, let's take a look at [the element that renders](https://the-internet.hero
 <img src="assets/3.04A.png" alt="Login Failure Markup" width="600"/>
 
 
-We will use the `flash error` classes in our assertion.  Add a locator for this element to our page object along with a new method to perform a display check against it. Open `login_test.py.` and add instantiate the `test invalid_credentials` method to use it in the test.
+you will use the `flash error` classes in our assertion.  Add a locator for this element to our page object along with a new method to perform a display check against it. Open `login_test.py.` and add instantiate the `test invalid_credentials` method to use it in the test.
 
 ```
 # filename: tests/login_test.py
@@ -289,19 +289,51 @@ We will use the `flash error` classes in our assertion.  Add a locator for this 
         login.with_("tomsmith", "bad password")
         assert login.failure_message_present()
 ```
-If we save these changes and run our tests (type `pytest` in terminal) we will see two browser windows open (one after the other) testing for successful and failure login scenarios.
+If we save these changes and run our tests (type `pytest` in terminal) you will see two browser windows open (one after the other) testing for successful and failure login scenarios. Notice how the `assert` statement checked to make sure that when you used invalid credentials there was a failure message.
 
 <img src="assets/3.04J.png" alt="run check for invalid credentials" width="600"/>
 
-### Part 2 
- .......
-
-Run `------ test` and you should get this error message:
-
-<img src="assets/c.png" alt="Resized Login Failure Response" width="600"/>
 
 
+### Part 2: Check for Login Page Elements
 
+Time to add one last last thing to your page object. Generally you want to keep assertions out of page objects, but in this case you want to add an assertion to make sure that are on the right page before running your test. This will help add some resiliency to your test, since it will let you know that the issue is the login page elements aren't present before running other tests.
+
+In the list of members (variables) on `login_page.py` where the `LoginPage` class is created, add a new member called _login_form:
+
+```
+# filename: pages/login_page.py
+class LoginPage():
+    _login_form = {"by": By.ID, "value": "login"}
+# ...
+```
+In the `\_\_init\_\_.py` method, underneath the `self.driver.get` statement that points you to the URL for the application you are testing, add in the following:
+
+```
+# filename: pages/login_page.py
+# ...
+        assert self.driver.find_element(
+            self._login_form["by"], self._login_form["value"]).is_displayed()
+# ...
+```
+
+Run `pytest` in terminal, and you should see the tests run exactly as they did before, with an extra check in the beginning.
+
+You can force a failure by modifying the URL in the `\_\_init\_\_.py` method:
+```
+# filename: pages/login_page.py
+# ...
+def __init__(self, driver):
+    self.driver = driver
+    self.driver.get("http://the-internet.herokua.com/login")
+    assert self.driver.find_element(
+        self._login_form["by"], self._login_form["value"]).is_displayed()
+# ...
+```
+
+<img src="assets/3.04P.png" alt="Failed to find login page" width="600"/>
+
+Change the URL back to `http://the-internet.herokua.com/login`. You can check the [source code here]() to make your test look the same.
 
 
 #### Final Code
@@ -311,20 +343,12 @@ The updated `-----` code should look like this:
 <img src="assets/.png" alt="Final Code 3.04" width="600"/>
 
 
-### Part 2: Check the Page
 
-Before you can call our page object complete, there's one more addition you should make.
-
-#### Final Code
-
-The code for the the `--------` should now look like this:
-
-<img src="assets/.png" alt="Page Object Directory" width="600"/>
 
 ## 3.05  Common Issues with Test Code Reuse
 Duration: 0:17:00
 
-In the previous lesson, you stepped through creating a simple page object to capture the behavior of the page you were interacting with. While this is a good start, there's more you can do.
+In the previous lesson, you stepped through creating a simple page object to capture the behavior of the page you youre interacting with. While this is a good start, there's more you can do.
 
 As our test suite grows, and you add more page objects, you will start to see common behavior that you will want to use over and over again throughout our suite. If you leave this unchecked you will end up with duplicative code which will slowly make our page objects harder to maintain.
 
@@ -348,7 +372,7 @@ First let's add a new file
 ### Part 1 Create a Facade Layer
 
 Next let's open `----- `in your IDE and insert the following code:
-// ...
+# ...
 
 
 In this module, you declare a BasePage class along with methods for all of the common behavior you use with Selenium  (`visit`, `find`, `click`, `type`, and `isDisplayed`). // ...
@@ -365,9 +389,25 @@ Your final code at this stage should look like this:
 
 ### Part 2: Exception Handling........
 
+You may be wondering why we didn't just check to see if the success message wasn't present by checking for a false condition in our assertion.
+
+```
+        assert login.success_message_present() == False
+```
+There are two problems with this approach. First, our test will fail and throw an exception, interrupting test execution. This is because Selenium errors when it looks for an element that's not present on the page -- which looks like this:
+
+```
+NoSuchElementException: Message: Unable to locate element: {"method":"css selector","selector":".flash.success"}
+But don't worry, we'll address this in the next chapter.
+```
+
+Second, the absence of a success message doesn't necessarily indicate a failed login. This is why checking for the presence of the failure message is more effective.
+
+[3.05 Exception Handling Cheat Sheet]()
+
 ##### Cheat Sheet
 
-[3.04 Exception Handling Cheat Sheet]()
+
 
 Next, in  `------` make a change
 
