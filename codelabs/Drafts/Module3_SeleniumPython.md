@@ -195,6 +195,8 @@ from pages.login_page import LoginPage
 Lastly, above the `quit()` method, instantiate a driver to the variable `loginPage` and return it after the `addfinalizer` teardown test fixture.
 
 ```
+# filename: tests/login_test.py
+// ...
 loginPage = LoginPage(driver_)
 
     def quit():
@@ -218,12 +220,18 @@ Negative
 * Go to the **PyCharm** menu then > **Preferences**. (On Windows it's **File > Settings**). Find the auto import settings, and make sure that your imports are set up to use the **from \<module\>** syntax:
 <img src="assets/3.03M.png" alt="Login Failure Markup" width="600"/>
 
+When you run pytest in the terminal, you should get results like this. (locator-test may or may not fail)
+<img src="assets/3.03O.png" alt="Login Failure Markup" width="600"/>
+
+See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.03).
 
 #### Final Code
 
-Your new code in `test_login.py` should look like this:
 
-See the complete [source code here]().
+Your new code in `test_login.py` should look like this:
+<img src="assets/3.03P.png" alt="Login Failure Markup" width="600"/>
+
+
 
 ## 3.04 Writing Code with Error Handling
 Duration: 0:10:00
@@ -237,18 +245,56 @@ There is more than one reason, however, why that test might fail. The test you w
 
 The term _Error Handling_ refers to creating cases that check for predictable negative outcomes or conditions so when the test is run, it accounts for other possible errors or failure cases.
 
+As you may have noticed in `login_test.py` there are methods for checking what happens when a user enters invalid credentials and a test to check that an error message is present. We will use these methods to
+### Deleting Tests
+
+Even though you may have grown attached to test that you worked hard to create, it can often be a huge help to your testing suite to just delete tests that aren’t worth your time. Ask yourself the following questions:
+
+*   How important is this test? (Do you really need to locate & return what that button says?)
+*   How likely is this test to fail if the code changes? (High likelihood? Delete or refactor!)
+*   How likely is this test due to fail if things run slowly?
+*   How likely is this test to take up a lot of QA time figuring out why it failed?
+*   How many individual pieces of functionality does this test actually check? (if it’s more than one it’s time to delete or refactor it into separate tests)
+
+Too many tests can be an even bigger problem for a QA team than too few. Figuring out how and why a test fails takes up more time than it is worth, and impedes the feedback a dev team needs to push a feature into production. Take the time to consider the balance between `testAllTheThings()` and testing efficiently and effectively, and don’t be afraid to delete tests and or useless objects and start fresh.
+
+![Bye](assets/3.05Bye.gif)
+
+Source: [Giphy](https://giphy.com/gifs/baby-bye-slide-m9eG1qVjvN56H0MXt8)
+
+Since you are not really using `locator_test.py`, now would be a good time to delete that test before adding in the new classes in this module.
+
+To delete `locator_test.py`, right click on it and choose **Delete**. Choose the **Safe Delete** option in the dialogue box that pops up.
+
+<img src="assets/3.04I.png" alt="Refactor and safe delete" width="550"/>
+
+
 ### Part 1: Test for Invalid Login Credentials
 
-Creating a page object may feel like more work than what you started with initially, but it's well worth the effort. Now that you have the entire process for things like the `authenticate()` method which completes several actions with one method, you can use it over and over again in multiple tests, and only have to make changes in one place.
+Creating a page object may feel like more work than what you started with initially, but it's worth the effort once you start analyzing test results.
 
 Let's add a test that checks for a failed login to demonstrate.
 
-First, let's take a look at [the markup](https://the-internet.herokuapp.com/login) that renders when you provide invalid credentials:
+First, let's take a look at [the element that renders](https://the-internet.herokuapp.com/login)  when you provide invalid credentials:
 
-<img src="assets/.png" alt="Login Failure Markup" width="600"/>
+<img src="assets/3.04A.png" alt="Login Failure Markup" width="600"/>
 
 
-We will use the `flash error` classes in our assertion. Open `------------`. .......
+We will use the `flash error` classes in our assertion.  Add a locator for this element to our page object along with a new method to perform a display check against it. Open `login_test.py.` and add instantiate the `test invalid_credentials` method to use it in the test.
+
+```
+# filename: tests/login_test.py
+# ...
+    def test_invalid_credentials(login):
+        login.with_("tomsmith", "bad password")
+        assert login.failure_message_present()
+```
+If we save these changes and run our tests (type `pytest` in terminal) we will see two browser windows open (one after the other) testing for successful and failure login scenarios.
+
+<img src="assets/3.04J.png" alt="run check for invalid credentials" width="600"/>
+
+### Part 2 
+ .......
 
 Run `------ test` and you should get this error message:
 
@@ -298,28 +344,6 @@ Creating a _facade layer_ involved creating a separate page or class from your t
 First let's add a new file
 //...
 
-
-### Deleting Tests
-
-Even though you may have grown attached to test that you worked hard to create, it can often be a huge help to your testing suite to just delete tests that aren’t worth your time. Ask yourself the following questions:
-
-*   How important is this test? (Do you really need to locate & return what that button says?)
-*   How likely is this test to fail if the code changes? (High likelihood? Delete or refactor!)
-*   How likely is this test due to fail if things run slowly?
-*   How likely is this test to take up a lot of QA time figuring out why it failed?
-*   How many individual pieces of functionality does this test actually check? (if it’s more than one it’s time to delete or refactor it into separate tests)
-
-Too many tests can be an even bigger problem for a QA team than too few. Figuring out how and why a test fails takes up more time than it is worth, and impedes the feedback a dev team needs to push a feature into production. Take the time to consider the balance between `testAllTheThings()` and testing efficiently and effectively, and don’t be afraid to delete tests and or useless objects and start fresh.
-
-![Bye](assets/3.05Bye.gif)
-
-Source: [Giphy](https://giphy.com/gifs/baby-bye-slide-m9eG1qVjvN56H0MXt8)
-
-Since you are not really using `--------`, now would be a good time to delete that test before adding in the new classes in this module.
-
-To delete `--------`, right click on it........
-
-<img src="assets/.png" alt="Refactor and safe delete" width="550"/>
 
 ### Part 1 Create a Facade Layer
 
