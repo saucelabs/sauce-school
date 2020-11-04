@@ -174,7 +174,7 @@ def test_valid_credentials(login):
     login.with_("tomsmith", "SuperSecretPassword!")
     assert login.success_message_present()
 ```
-Last but not least, in the list of `imports` delete the method that imports the `By` class, and replace it with an import of the Login page where the `By` methods were moved to:
+In the list of `imports` delete the method that imports the `By` class, and replace it with an import of the Login page where the `By` methods were moved to:
 
 ```
 # filename: tests/login_test.py
@@ -183,6 +183,27 @@ import os
 from selenium import webdriver
 from pages.login_page import LoginPage
 ```
+
+Lastly, above the `quit()` method, instantiate a driver to the variable `loginPage` and return it after the `addfinalizer` teardown test fixture.
+
+```
+loginPage = LoginPage(driver_)
+
+    def quit():
+        driver_.quit()
+
+    request.addfinalizer(quit)
+    return loginPage
+```
+
+Go to the terminal at the bottom of the PyCharm IDE and run the command `pytest`. Your login test should pass. If it doesn't pass, try running `python -m pytest` so that the [current directory is added to the filepath.](https://docs.pytest.org/en/stable/usage.html#calling-pytest-through-python-m-pytest)
+
+
+#### Note
+Negative
+: If you have issues getting your test to run, go to the **PyCharm** menu then > **Preferences**. (On Windows it's **File > Settings**). Find the auto import settings, and make sure that your imports are set up to use the **from \<module\>** syntax:
+<img src="assets/3.03M.png" alt="Login Failure Markup" width="600"/>
+
 
 #### Final Code
 

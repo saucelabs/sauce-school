@@ -1,11 +1,10 @@
-summary: Module 3 Writing Reusable Test Code
-id: Module3-SeleniumJava
+summary: Module 3 of the Selenium JavaScript course. Learn to write Selenium tests in the JavaScript programming language with Mocha.
+id: Module3-SeleniumJS
 categories: advanced
 tags: javascript
 environments: Web
 status: Published
-authors: Lindsay Walker
-Feedback Link: https://forms.gle/CGu4QchgBxxWnNJK8
+feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-6735579-1
 author:Lindsay Walker
 

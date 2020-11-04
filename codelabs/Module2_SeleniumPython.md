@@ -281,9 +281,9 @@ Virtualenv will create a 'sandbox' virtual environment for your project with onl
 
 Right click in the top-level folder and create a **New > Python Package**. name the director **tests**.
 
-<img src="assets/2.05R.png" alt="New Directory" width="450"/>
+<img src="assets/2.05S.png" alt="Create Login test" width="450"/>
 
-Next, right click on the **tests** folder and create a **New > Python Package**. name the director **login_test**. There should be a blank file automatically created called `_init_.py` since it is a Python package.
+Next, right click on the **tests** folder and create a **New > Python File**. name the file **login_test**. There should be a blank file automatically created called `_init_.py` since it is a Python package.
 
 <img src="assets/2.05S.png" alt="Create Login test" width="450"/>
 
