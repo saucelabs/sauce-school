@@ -45,6 +45,14 @@ If you are familiar with using GitHub to write your code, you can also fork/ bra
 
 **[Module 1 Project Folder](http://example.com)**
 
+
+#### NOTE
+Negative
+: If you are cloning ot downloading the GitHub repo, make sure you do the following:
+  * Ensure there is no `.pytest_cache` file in the project (delete it!)
+  * You have Pip3 and Pytest installed
+  * You run `pip3 install -r requirements.txt` to install all the other dependencies.
+
 <!-- ------------------------ -->
 ## 2.02 Writing Good Acceptance Tests
 Duration: 0:10:00
@@ -261,7 +269,7 @@ Let's put these elements to use in our first test.
 
 ### Setup Your Project File
 
-First we will need to create a new project directory called `SeleniumPython` (your main project directory), and inside create a folder named `test` inside that project directory. This is a default folder that Mocha will know to look for.
+First we will need to create a new project directory called `SeleniumPython` (your main project directory), and inside create a new Python package named `tests` inside that project directory. This is a default folder that Mocha will know to look for.
 
 
 You can see all of the files here. It is recommended that you follow the steps in this module to correctly configure your test in PyCharm if you don't have experience setting up this type of project before.
@@ -281,13 +289,13 @@ Virtualenv will create a 'sandbox' virtual environment for your project with onl
 
 Right click in the top-level folder and create a **New > Python Package**. name the director **tests**.
 
+<img src="assets/2.05T.png" alt="Create tests package" width="450"/>
+
+Next, right click on the **tests** folder and create a **New > Python File**. name the file **login_test**. There should be a blank file automatically created called `__init__.py` since it is a Python package.
+
 <img src="assets/2.05S.png" alt="Create Login test" width="450"/>
 
-Next, right click on the **tests** folder and create a **New > Python File**. name the file **login_test**. There should be a blank file automatically created called `_init_.py` since it is a Python package.
-
-<img src="assets/2.05S.png" alt="Create Login test" width="450"/>
-
-Last, right click in the top-level folder and create a **New > File**. Name is **requirements.txt**. This file will contain the instructions for the dependencies that will be installed in your virtual environment.
+Last, right click in the top-level folder and create a **New > File**. Name it **requirements.txt**. This file will contain the instructions for the dependencies that will be installed in your virtual environment.
 
 <img src="assets/2.05T.png" alt="Create requirements.txt" width="450"/>
 
@@ -307,6 +315,10 @@ pytest-randomly
 After you add those files, PyCharm will prompt you to install the plugins and requirements - click on the links to install the dependencies listed.
 
 <img src="assets/2.05U.png" alt="install dependencies" width="750"/>
+
+#### NOTE
+Negative
+: Another option is to run `pip3 install -r requirements` to ensure all the requirements have been installed.
 
 Next, you will set up the base for your first test. In `login_test.py` copy and paste the following (you will have to install requirements in this file as well):
 
@@ -355,7 +367,7 @@ Before you can run this test code, you will need to install the Chromedriver so 
 
 Start by creating a new directory in the top level folder by right clicking on it and choosing **New > Directory**.  Name that directory **vendor**:
 
-<img src="assets/2.05V.png" alt="install dependencies" width="350"/>
+<img src="assets/2.05V.png" alt="Vendor directory" width="350"/>
 
 In order for your test to run on a browser on your local machine, you need to install the driver for the browser, and update your code. A similar set of steps can be followed for any browser.
 

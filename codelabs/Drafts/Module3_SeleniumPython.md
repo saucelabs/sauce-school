@@ -41,6 +41,14 @@ If you skipped Modules 1 & 2, make sure you have a project folder set up and hav
 **[Final Module 2 Project Code](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod2/2.07_solutions)**
 
 
+#### NOTE
+Negative
+: If you are cloning ot downloading the GitHub repo, make sure you do the following:
+  * Ensure there is no `.pytest_cache` file in the project (delete it!)
+  * You have [Python 3](https://help.dreamhost.com/hc/en-us/articles/115000699011-Using-pip3-to-install-Python3-modules) (including Pip3) and Pytest installed
+  * You run `pip3 install -r requirements.txt` to install all the other dependencies.
+
+
 ### Use GitHub Repository (Optional)
 
 If you are familiar with using GitHub to write your code, you can also clone or download the repository above to use as the base to write your test from.
@@ -201,7 +209,13 @@ Go to the terminal at the bottom of the PyCharm IDE and run the command `pytest`
 
 #### Note
 Negative
-: If you have issues getting your test to run, go to the **PyCharm** menu then > **Preferences**. (On Windows it's **File > Settings**). Find the auto import settings, and make sure that your imports are set up to use the **from \<module\>** syntax:
+: If you have issues getting your test to run, check the following:
+* Make sure you have Python 3.7+ with pip 3 installed
+* You dependencies are correctly installed from requirements.txt `pip3 install -r requirements.txt`
+* There is no `.pytest_cache` file installed from a repo.
+* Both the **tests** and **page** Packages have an `\_\_init\_\_.py` file with double underscores before and after.
+<img src="assets/3.03N.png" alt="Login Failure Markup" width="600"/>
+* Go to the **PyCharm** menu then > **Preferences**. (On Windows it's **File > Settings**). Find the auto import settings, and make sure that your imports are set up to use the **from \<module\>** syntax:
 <img src="assets/3.03M.png" alt="Login Failure Markup" width="600"/>
 
 
