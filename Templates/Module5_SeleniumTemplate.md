@@ -252,21 +252,22 @@ In the next couple lessons, you will dip your toes into adding and running your 
 
 #### NOTE
 
-In order to install Jenkins on the Mac, Jenkins has opted to enlist the help of another tool called [Homebrew](https://brew.sh/). Homebrew makes it easier to install and keep other files and software up to date on your machine. To install brew, [go to the website](https://brew.sh/) to view instructions. Copy and paste the command on there into your terminal:
-
-
+Negative
+: In order to install Jenkins on the Mac, Jenkins has opted to enlist the help of another tool called [Homebrew](https://brew.sh/). Homebrew makes it easier to install and keep other files and software up to date on your machine. To install brew, [go to the website](https://brew.sh/) to view instructions. Copy and paste the command on there into your terminal:
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
 
-If you type in `brew info` in your terminal, and you have homebrew installed correctly, you should see something like this:
+Negative
+: If you type in `brew info` in your terminal, and you have homebrew installed correctly, you should see something like this:
 
-<img src="assets/5.06C.png" alt="Running Brew" width="450"/>
+Negative
+: <img src="assets/5.06C.png" alt="Running Brew" width="450"/>
 
 --
 
-Let's start by setting up Jenkins on your local machine and using the test code from your computer as well. Keep in mind that this isn’t the proper way to go about this — it's merely beneficial for this example. To do it right, the Jenkins server (i.e., master node) would live on a machine of its own, or in a Virtual Machine (VM) like a Docker container.
+Let's start by setting up Jenkins on your local machine and using the test code from your computer as well. Keep in mind that this isn’t the proper way to go about this — it's merely beneficial for this example. To do it right, the Jenkins server (i.e., master node) would live on a machine of its own, or in a Virtual Machine (VM).
 
 These instructions give you the step-by-step for how to set up on MacOS, however there are instructions for other operating systems, as well as the option for setup using a Docker container with other operating systems [here](https://www.jenkins.io/doc/book/installing/).
 
@@ -289,20 +290,25 @@ Jenkins was built on Java, and in order for your program to work, you will also 
 
 #### NOTE
 
-To Install JDK 8, visit the [Java 8 download page](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) from Oracle. You may have to create an account.
+Negative
+: To Install JDK 8, visit the [Java 8 download page](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) from Oracle. You may have to create an account.
 
-<img src="assets/5.06E.png" alt="JDK 8" width="650"/>
-
-
-Download the file, then open and follow the instructions to install Java.
-
-
-<img src="assets/5.06F.png" alt="Install JDK 8" width="650"/>
+Negative
+: <img src="assets/5.06E.png" alt="JDK 8" width="650"/>
 
 
-If you haven’t installed Java before, you’ll need to update your `.bash_profle `(or your `.zshrc` file on MacOS Catalina) with the system variables and PATH:
+Negative
+: Download the file, then open and follow the instructions to install Java.
 
-<img src="assets/5.06G.png" alt="Java Path Variable" width="650"/>
+Negative
+: <img src="assets/5.06F.png" alt="Install JDK 8" width="650"/>
+
+
+Negative
+: If you haven’t installed Java before, you’ll need to update your `.bash_profle `(or your `.zshrc` file on MacOS Catalina) with the system variables and PATH:
+
+Negative
+: <img src="assets/5.06G.png" alt="Java Path Variable" width="650"/>
 
 
 --
@@ -353,7 +359,7 @@ brew services stop jenkins
 
 
 
-### Create a Project
+### Part 2: Create a Project
 
 Keep in mind that you typically would not be the one setting up Jenkins to run your tests; your administrator or DevOps team would be adding your test code as a part of the pipeline to put code into production, typically on a staging server. Three typical jobs that are in almost every pipeline are build, test, and deploy. One of the Sauce Lab sweet spots is the ability to create the _test _project piece of the pipeline.
 
@@ -361,16 +367,16 @@ Now that Jenkins is loaded in the browser, let's create a **Project **and config
 
 
 
-1. Click **New Item** from the Dashboard menu.
+* Click **New Item** from the Dashboard menu.
 
 <img src="assets/5.06L.png" alt="New Project" width="350"/>
 
-2. Give it a name based on what it’s testing (**-------------**).
-3. Select the **Freestyle** project option.
+* Give it a name based on what it’s testing (example: `Shallow Test Chrome 75`)
+* Select the **Freestyle** project option.
 
 <img src="assets/5.06M.png" alt="New Project" width="550"/>
 
-4. Click **OK**.
+* Click **OK**.
 
 This will load a configuration screen for the Jenkins project.
 
@@ -381,18 +387,18 @@ Once you have clicked on a project and chosen **Configure** from the menu, go to
 
 <img src="assets/5.06N.png" alt="Advanced Configurations" width="650"/>
 
-1. Choose the checkbox for **Use custom workspace.** This is where your test files are stored on your computer. When setting up a real CI pipeline, you would direct this to the local copy of your GitHub repo.
-2. Provide the full path to your test code.
-3. Leave the **Display Name** field blank.
+* Choose the checkbox for **Use custom workspace.** This is where your test files are stored on your computer. When setting up a real CI pipeline, you would direct this to the local copy of your GitHub repo.
+* Provide the full path to your test code.
+* Leave the **Display Name** field blank.
 
 <img src="assets/5.06O.png" alt="Test Code Path" width="650"/>
 
-4. Scroll down to the **Build** section and select **Add build step.**
-5. Select **Execute shell.**.
-6. Add the commands below to run a test on only the tests tagged with `@shallow`, using Chrome 50 and Windows 10 for your environment:
+* Scroll down to the **Build** section and select **Add build step.**
+* Select **Execute shell.**.
+* Add the commands below to run locally on Jenkins, testing only the tests tagged with `@Category(shallow.class`), using the default environment:
 
 ```
-BROWSER=chrome BROWSER_VERSION=50 PLATFORM='Windows 10' npm test -- --grep=@shallow
+mvn clean test -Dgroups=tests.groups.Shallow
 ```
 
 
@@ -402,51 +408,92 @@ To return to the dashboard and see the list of projects, you can click **Back to
 <img src="assets/5.06P.png" alt="Back to Dashboard or Configure" width="750"/>
 
 
-### Add Plugin
+### Install JUnit Jenkins Plugin
 
-//....
+Since you are using the JUnit library, you need to set up [the JUnit Jenkins plugin](https://plugins.jenkins.io/junit) as a Global Tool so Jenkins can use it to report the result of tests.
+
+First, return to the dashboard (You can do this by clicking the** Jenkins** icon in the menu at any time). Next, click on **Manage Jenkins** > **Manage Plugins**.
+
+<img src="assets/5.06W.png" alt="Manage Jenkins Plugins" width="750"/>
 
 
-First, return to the dashboard (You can do this by clicking the** Jenkins** icon in the menu at any time). Next, click on **Manage Jenkins** > **Global Tool Configuration**.
 
-<img src="assets/5.06Q.png" alt="Manage Jenkins Global Tools Configuration" width="750"/>
+### NOTE
 
-NOTE
-If you see a warning at the top of your Global Tool Configuration dashboard, you can go to the plugin manager, choose the **Available** tab, and install necessary updates.
+Negative
+: If you see a warning at the top of your Global Tool Configuration dashboard, you can **go to plugin manager**, choose the** Updates **tab, and install necessary updates.
 
-For those updates to take effect, you need to type in terminal:
+Negative
+: <img src="assets/5.06X.png" alt="Plugin Manager" width="750"/>
 
-<img src="assets/5.06R.png" alt="Global Tools Config" width="750"/>
 
+Negative
+: For those updates to take effect, you need to type in terminal:
+
+
+```
 Brew services restart jenkins
+```
 
 
 --
 
+Under either the **Updates** or **Available** tab, you can search for JUnit, then check the box next to the **Build Reports** plugin, and click the button to **Download now and install after restart**.
 
-Scroll down to the bottom where you will see the --------------
+ <img src="assets/5.06Y.png" alt="Plugin Manager" width="550"/>
+
+For the updates to take effect, you should wait until the download is finished.
+
+ <img src="assets/5.06Z.png" alt="Install plugins/ upgrades" width="550"/>
+
+To restart (quickly), type in terminal:
+
+
+```
+brew services restart jenkins
+```
+
+
+Now that you have the JUnit Reporter plugin installed, you can go back to your test, then choose configure in the menu. Scroll down to the bottom of the configuration options to find **Post-build Actions**, and from the dropdown menu, choose **Publish JUnit test result report**.
+
+ <img src="assets/5.06AA.png" alt="Post Build Actions" width="750"/>
+
+
+Next, configure the test file that you will put the Surefire reports in by typing `target/surefire-reports/*.xml `into the **Test report XMLs** field.
+
+ <img src="assets/5.06BB.png" alt="Test Report Publish Destination" width="750"/>
+
+
+ Hit save and you should be ready to run your tests.
+
 
 ### Run Your Tests Using Jenkins
 
-To run your test, simply click **Build Now** in the menu, then click on the sphere next to the test number on the list to jump to the console output. Since Mocha has a built-in test reporter in the console, you can view the test results there.
+To run your test, simply click **Build Now** in the menu, then click on the sphere next to the test number on the list to jump to the console output.
 
-<img src="assets/5.06T.png" alt="Test Result Output" width="750"/>
+ <img src="assets/5.06CC.png" alt="Build Now" width="750"/>
+
 
 
 #### Video
 
-Watch [5.06 Run Jenkins with Homebrew ](https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/view?usp=sharing)for a walk through of how to run and check the configuration of your test job and Node environment in Jenkins.
+Watch [5.06 Run Jenkins with Homebrew and Java ](https://drive.google.com/file/d/1YPKk1b1HdiWavNxTuR4m5QvPcTu7PCfn/view?usp=sharing)for a walk through of how to run and check the configuration of your test job with the JUnit reporter for Jenkins.
 
-![https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/preview](https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/view?usp=sharing)
+![https://drive.google.com/file/d/1YPKk1b1HdiWavNxTuR4m5QvPcTu7PCfn/preview](https://drive.google.com/file/d/1YPKk1b1HdiWavNxTuR4m5QvPcTu7PCfn/view?usp=sharing)
 
 
 #### NOTE
 
-Ideally, your test code would live in a version control system such as Git. The first thing you will need to do is get the plugin under **Manage Jenkins > Manage Plugins.** You can configure this under **Manage Jenkins > Global Tools Configuration**. To use a Git project, create a new project from the Jenkins homepage, then under the configuration of that project, choose Git for Source Code Management.
+Negative
+: Ideally, your test code would live in a version control system such as Git. The first thing you will need to do is get the plugin under **Manage Jenkins > Manage Plugins.** You can configure this under **Manage Jenkins > Global Tools Configuration**. To use a Git project, create a new project from the Jenkins homepage, then under the configuration of that project, choose Git for Source Code Management.
 
-<img src="assets/5.06.png" alt="--- Configuration" width="750"/>
 
-Learn more about setting up GitHub source control in [this tutorial.](http://www.mastertheboss.com/cool-stuff/jenkins/jenkins-source-code-management-with-git)
+Negative
+:  <img src="assets/5.06DD.png" alt="Build Now" width="750"/>
+
+
+Negative
+: Learn more about setting up Git source control in [this tutorial.](http://www.mastertheboss.com/cool-stuff/jenkins/jenkins-source-code-management-with-git)
 
 --
 
@@ -466,14 +513,12 @@ You have been running your tests and observing the output in the console, howeve
 *   [JUnit Results Reporter](https://www.jenkins.io/doc/pipeline/steps/junit/#:~:text=Jenkins%20understands%20the%20JUnit%20test,tracking%20failures%2C%20and%20so%20on.) plugin
 *   [JUnit Reporter for Mocha](https://www.npmjs.com/package/mocha-junit-reporter)
 
-Note that there are plugins/additional configurations you’ll have to modify in the **Manage Jenkins **section to get these working as well. In these examples, you will not be using a reporter;instead you’ll use the reporter that is built in with mocha on the console/ terminal.
+Note that there are plugins/additional configurations you’ll have to modify in the **Manage Jenkins** section to get these working as well. In these examples, you will not be using a reporter;instead you’ll use the reporter that is built in with mocha on the console/ terminal.
 
 
 ### Force a Failed Test
 
-We want to run a test with Jenkins that has a failed test so that you can see an example of the output provided to a reporter.
-
-// ....
+// ...
 
 
 
@@ -481,8 +526,7 @@ We want to run a test with Jenkins that has a failed test so that you can see an
 ### Set Up Sauce Labs OnDemand
 
 The full reference for configuring Sauce OnDemand and support can be found [here.](https://wiki.saucelabs.com/display/DOCS/Jenkins+and+Sauce+OnDemand+Plugin+Quickstart+Guide)
-
-The first thing you will need to do is install the Git Jenkins plugin, then go to **Manage Jenkins **>**  Manage Plugin**s. Search for **Sauce **under the **Available **tab.
+The first thing you will need to do is install the Git Jenkins plugin, then go to **Manage Jenkins >  Manage Plugin**s. Search for **Sauce** under the **Available** tab.
 
 <img src="assets/5.07C.png" alt="Sauce On Demand Plugin" width="650"/>
 
@@ -494,7 +538,7 @@ brew services restart jenkins
 ```
 
 
-Once the plugin is installed, you can check under the **Installed **tab on the same page.
+Once the plugin is installed, you can check under the **Installed** tab on the same page.
 
 
 ### Configure Credentials with Sauce OnDemand
@@ -503,7 +547,7 @@ You can set up your Sauce Labs credentials to be passed into tests as variables 
 
 Go to **Security > Manage Jenkins > Manage Credentials**.
 
-Depending on how Jenkins is set up, other instances of Jenkins may have different domains. In this example, you can set things up in the** global **domain:
+Depending on how Jenkins is set up, other instances of Jenkins may have different domains. In this example, you can set things up in the **global** domain:
 
 <img src="assets/5.07D.png" alt="Sauce On Demand Plugin" width="450"/>
 
@@ -512,7 +556,7 @@ Click on the link for **adding some credentials**:
 
 <img src="assets/5.07E.png" alt="Global Credentials" width="450"/>
 
-You can look on [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) under **Account **> **User Settings** to find your username and profile or look at the variables you set up in your .bash_profile. From the **Kind** dropdown, choose **Sauce Labs**, then enter your username and Sauce Access Key. Give it a logical tag and name as well.
+You can look on [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) under **Account > User Settings** to find your username and profile or look at the variables you set up in your .bash_profile. From the **Kind** dropdown, choose **Sauce Labs**, then enter your username and Sauce Access Key. Give it a logical tag and name as well.
 
 <img src="assets/5.07F.png" alt="Add Username and Sauce Access Key" width="650"/>
 
@@ -521,39 +565,36 @@ Once you click **Save**, you should see your new access key listed under **Globa
 
 <img src="assets/5.07G.png" alt="See Global Credentials" width="650"/>
 
-Now you can go to your project and set up your credentials. Go back to your Jenkins dashboard, choose the project you created, and then **Configure **in the menu. Scroll down, and under **Build Environment**, click the **Sauce Labs Options** checkbox. Make sure the credentials you just set up are listed here.
+Now you can go to your project and set up your credentials. Go back to your Jenkins dashboard, choose the project you created, and then **Configure** in the menu. Scroll down, and under **Build Environment**, click the **Sauce Labs Options** checkbox. Make sure the credentials you just set up are listed here.
 
-
-### Run Tests with Sauce OnDemand
-
-You can now run a test with [Sauce OnDemand](https://wiki.saucelabs.com/display/DOCS/Installing+and+Configuring+the+Sauce+OnDemand+Plugin+for+Jenkins) with just a couple of tweaks to the code.
-
-// ....
+You can configure a failed build to trigger things like e-mail messages or send information directly to Jira tickets. You can find out more[ here](https://plugins.jenkins.io/email-ext/). All you need to do to get started is go to **Manage Jenkins > Manage Plugins** and search for an email plugin in available plugins
 
 
 ### Running a Test with Sauce OnDemand and Sauce Connect
 
 This part is simple: to get a Sauce Connect Proxy tunnel up and running, all you’ll need to do is change one Jenkins configuration in your job. All of your tests will be routed through that tunnel.
 
-Go to **Shallow Test Chrome 75 Windows 10 **>** Configure**. Under** Build Environment, **check the box that says** Sauce Labs Support**,** **then** **check the **Enable Sauce Connect **checkbox, and choose the global credentials you set up (or add new ones).
+Click on your project name from your Jenkins dashboard (example: **Shallow Test Chrome 84 Windows 10) > Configure**. Under **Build Environment**, check the box that says **Sauce Labs Support**,then check the **Enable Sauce Connect** checkbox, and choose the global credentials you set up (or add new ones).
 
+<img src="assets/5.07O.png" alt="Enable Sauce Connect" width="650"/>
 
-<img src="assets/5.07J.png" alt="Enable Sauce Connect" width="750">
 
 You don’t have to do anything to set the variable, or install any software or run commands to get the tunnel running—Sauce OnDemand creates a tunnel and runs the tests in it for you.
 
-Now you can run your tests.// ....
+Run your tests in Jenkins using **Build Now** (You can change the build configuration with the `mvn `commands back to `-Dgroups=tests.groups.All`)
+
+If you look on the Sauce Labs dashboard, you should see tests being run, an active tunnel, and even past builds listed:
+
+<img src="assets/5.07P.png" alt="Sauce Labs Builds" width="450"/>
 
 
-#### Final Code
-
-// ...
+Congratulations!  You now have the skills to create a basic test suite, plan your test strategy using testing best practices, and even work with your team to add testing to your software development pipeline. There is a lot more to explore both with tests and with Jenkins, so after the quiz, take a look at Module 5.09 for more resources, and visit the [Sauce Labs Documentation](https://wiki.saucelabs.com/display/DOCS/The+Sauce+Labs+Cookbook+Home) for more information.
 
 <!-- ------------------------ -->
 ## 5.08 Quiz
 Duration: 0:05:00
 
-!Embed URL](Share URL)
+![https://docs.google.com/forms/d/e/1FAIpQLSeocbRwtbK8cGMsQ-1tLjwg0qj_w-bKCmuaXZyUXAvGwt1yFw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSeocbRwtbK8cGMsQ-1tLjwg0qj_w-bKCmuaXZyUXAvGwt1yFw/viewform?usp=sf_link)
 
 <!-- ------------------------ -->
 ## 5.09 Resources and Community
@@ -565,6 +606,14 @@ Here is a list breaking down a majority of the Selenium resources available, alo
 
 ### Documentation & Tips
 
+
+#### [Sauce Labs Wiki](https://wiki.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link )
+
+This is the official Sauce Labs documentation. You can find updated and maintained tips and tricks regarding web/mobile automated testing.
+
+#### [Sauce Labs Whitepapers](https://saucelabs.com/resources/white-papers/?utm_source=referral&utm_medium=LMS&utm_campaign=link )
+
+A collection on advanced topics and testing best practices.
 
 #### [Selenium HQ](http://bit.ly/se-info-1)
 
@@ -580,10 +629,24 @@ This is where all the good stuff is — mainly, documentation about the various 
 
 These are tips that will help you expand your Selenium skills to write tests for nearly anything you can imagine using Selenium for. There are over 70 different Selenium problems and solutions covered. They're in Ruby, but the code has been open-sourced with a fair number of them being ported into other programming languages. You can find the code for them [here](https://github.com/tourdedave/elemental-selenium-tips).
 
+### Videos
 
-#### [Sauce Labs Wiki](https://wiki.saucelabs.com/)
+#### [Sauce Labs YouTube Channel](https://www.youtube.com/user/saucelabs)
 
-This is the official Sauce Labs documentation. You can find updated and maintained tips and tricks regarding web/mobile automated testing.
+A wealth of information about Sauce Labs tools, products, and related technologies
+
+#### [Sauec Labs Video Archive](https://saucelabs.com/resources/videos)
+
+A curated collection of the best, featuring tech talks, feature Selenium meetups, and industry talks.
+
+#### [Selenium Conference Talks](http://bit.ly/se-info-15)
+
+All of the talks from The Selenium Conference are recorded and made freely available online.
+
+
+#### [Selenium Meetup Talks](http://bit.ly/se-info-16)
+
+Some of the Selenium Meetup Groups record their talks and publish them afterwards.
 
 
 ### Blogs
@@ -599,7 +662,7 @@ This is where Selenium announces project updates and the occasional round-ups of
 At some point, someone rounded up a large list of blogs from Selenium practitioners and committers. It's a pretty good list.
 
 
-#### [The Sauce Labs blog](https://saucelabs.com/blog)
+#### [The Sauce Labs blog](https://saucelabs.com/blog/?utm_source=referral&utm_medium=LMS&utm_campaign=link )
 
 This is where you can find product announcements and great articles regarding Sauce Labs and the automated testing space.
 
@@ -607,7 +670,7 @@ This is where you can find product announcements and great articles regarding Sa
 ### Other Books
 
 
-#### _[Selenium Testing Tools Cookbook](http://bit.ly/se-info-18)_
+#### [Selenium Testing Tools Cookbook](http://bit.ly/se-info-18)_
 
 This book outlines some great ways to leverage Selenium, using a pragmatic approach.
 
@@ -646,19 +709,6 @@ A helpful website that lists all of the testing conferences out there.
 #### [SauceCon](https://saucecon.com/)
 
 This is the Sauce Labs annual conference, where they invite speakers from the industry to impart their knowledge and techniques on the testing community. This conference also offers the opportunity to talk to Sauce Labs employees and other platform users.
-
-
-### Videos
-
-
-#### [Selenium Conference Talks](http://bit.ly/se-info-15)
-
-All of the talks from The Selenium Conference are recorded and made freely available online.
-
-
-#### [Selenium Meetup Talks](http://bit.ly/se-info-16)
-
-Some of the Selenium Meetup Groups record their talks and publish them afterwards.
 
 
 ### Mailing Lists

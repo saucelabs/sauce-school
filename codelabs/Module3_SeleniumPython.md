@@ -220,7 +220,8 @@ Negative
 * Go to the **PyCharm** menu then > **Preferences**. (On Windows it's **File > Settings**). Find the auto import settings, and make sure that your imports are set up to use the **from \<module\>** syntax:
 <img src="assets/3.03M.png" alt="Login Failure Markup" width="600"/>
 
-When you run pytest in the terminal, you should get results like this. (locator-test may or may not fail)
+When you run pytest in the terminal, you should get results like this. (locator-test may or may not fail):
+
 <img src="assets/3.03O.png" alt="Login Failure Markup" width="600"/>
 
 See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.03).
@@ -229,6 +230,7 @@ See the complete [source code here](https://github.com/walkerlj0/Selenium_Course
 
 
 Your new code in `test_login.py` should look like this:
+
 <img src="assets/3.03P.png" alt="Login Failure Markup" width="600"/>
 
 
@@ -331,16 +333,18 @@ def __init__(self, driver):
 # ...
 ```
 
-<img src="assets/3.04P.png" alt="Failed to find login page" width="600"/>
+<img src="assets/3.04K.png" alt="Failed to find login page" width="600"/>
 
-Change the URL back to `http://the-internet.herokua.com/login`. You can check the [source code here]() to make your test look the same.
+Change the URL back to `http://the-internet.herokua.com/login`. You can check the [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.04) to make your test looks the same.
 
 
 #### Final Code
 
-The updated `-----` code should look like this:
+The updated code should look like this:
 
-<img src="assets/.png" alt="Final Code 3.04" width="600"/>
+<img src="assets/3.04L.png" alt="Final login page code 3.04" width="700"/>
+
+<img src="assets/3.04M.png" alt="Final login test code 3.04" width="700"/>
 
 
 

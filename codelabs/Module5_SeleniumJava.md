@@ -690,7 +690,7 @@ Now that Jenkins is loaded in the browser, let's create a **Project **and config
 
 <img src="assets/5.06L.png" alt="New Project" width="350"/>
 
-* Give it a name based on what it’s testing (example: **
+* Give it a name based on what it’s testing (example: `Shallow Test Chrome 75`)
 * Select the **Freestyle** project option.
 
 <img src="assets/5.06M.png" alt="New Project" width="550"/>
@@ -804,7 +804,7 @@ Watch [5.06 Run Jenkins with Homebrew and Java ](https://drive.google.com/file/d
 #### NOTE
 
 Negative
-: Ideally, your test code would live in a version control system such as Git. The first thing you will need to do is get the plugin under **Manage Jenkins **>** Manage Plugins.** You can configure this under **Manage** **Jenkins **>** Global Tools Configuration**. To use a Git project, create a new project from the Jenkins homepage, then under the configuration of that project, choose Git for Source Code Management.
+: Ideally, your test code would live in a version control system such as Git. The first thing you will need to do is get the plugin under **Manage Jenkins > Manage Plugins.** You can configure this under **Manage Jenkins > Global Tools Configuration**. To use a Git project, create a new project from the Jenkins homepage, then under the configuration of that project, choose Git for Source Code Management.
 
 
 Negative
@@ -863,8 +863,7 @@ If you use the password ‘bad password’, the success message should not show 
 ### Set Up Sauce Labs OnDemand
 
 The full reference for configuring Sauce OnDemand and support can be found [here.](https://wiki.saucelabs.com/display/DOCS/Jenkins+and+Sauce+OnDemand+Plugin+Quickstart+Guide)
-
-The first thing you will need to do is install the Git Jenkins plugin, then go to **Manage Jenkins **>**  Manage Plugin**s. Search for **Sauce **under the **Available **tab.
+The first thing you will need to do is install the Git Jenkins plugin, then go to **Manage Jenkins >  Manage Plugin**s. Search for **Sauce** under the **Available** tab.
 
 <img src="assets/5.07C.png" alt="Sauce On Demand Plugin" width="650"/>
 
@@ -885,7 +884,7 @@ You can set up your Sauce Labs credentials to be passed into tests as variables 
 
 Go to **Security > Manage Jenkins > Manage Credentials**.
 
-Depending on how Jenkins is set up, other instances of Jenkins may have different domains. In this example, you can set things up in the** global **domain:
+Depending on how Jenkins is set up, other instances of Jenkins may have different domains. In this example, you can set things up in the **global** domain:
 
 <img src="assets/5.07D.png" alt="Sauce On Demand Plugin" width="450"/>
 
@@ -894,7 +893,7 @@ Click on the link for **adding some credentials**:
 
 <img src="assets/5.07E.png" alt="Global Credentials" width="450"/>
 
-You can look on [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) under **Account **> **User Settings** to find your username and profile or look at the variables you set up in your .bash_profile. From the **Kind** dropdown, choose **Sauce Labs**, then enter your username and Sauce Access Key. Give it a logical tag and name as well.
+You can look on [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) under **Account > User Settings** to find your username and profile or look at the variables you set up in your .bash_profile. From the **Kind** dropdown, choose **Sauce Labs**, then enter your username and Sauce Access Key. Give it a logical tag and name as well.
 
 <img src="assets/5.07F.png" alt="Add Username and Sauce Access Key" width="650"/>
 
@@ -903,16 +902,16 @@ Once you click **Save**, you should see your new access key listed under **Globa
 
 <img src="assets/5.07G.png" alt="See Global Credentials" width="650"/>
 
-Now you can go to your project and set up your credentials. Go back to your Jenkins dashboard, choose the project you created, and then **Configure **in the menu. Scroll down, and under **Build Environment**, click the **Sauce Labs Options** checkbox. Make sure the credentials you just set up are listed here.
+Now you can go to your project and set up your credentials. Go back to your Jenkins dashboard, choose the project you created, and then **Configure** in the menu. Scroll down, and under **Build Environment**, click the **Sauce Labs Options** checkbox. Make sure the credentials you just set up are listed here.
 
-You can configure a failed build to trigger things like e-mail messages or send information directly to Jira tickets. You can find out more[ here](https://plugins.jenkins.io/email-ext/). All you need to do to get started is go to Manage Jenkins > Manage Plugins and search for an email plugin in available plugins
+You can configure a failed build to trigger things like e-mail messages or send information directly to Jira tickets. You can find out more[ here](https://plugins.jenkins.io/email-ext/). All you need to do to get started is go to **Manage Jenkins > Manage Plugins** and search for an email plugin in available plugins
 
 
 ### Running a Test with Sauce OnDemand and Sauce Connect
 
 This part is simple: to get a Sauce Connect Proxy tunnel up and running, all you’ll need to do is change one Jenkins configuration in your job. All of your tests will be routed through that tunnel.
 
-Click on your project name from your Jenkins dashboard (example: **Shallow Test Chrome 84 Windows 10) **>** Configure**. Under** Build Environment, **check the box that says** Sauce Labs Support**,** **then** **check the **Enable Sauce Connect **checkbox, and choose the global credentials you set up (or add new ones).
+Click on your project name from your Jenkins dashboard (example: **Shallow Test Chrome 84 Windows 10) > Configure**. Under **Build Environment**, check the box that says **Sauce Labs Support**,then check the **Enable Sauce Connect** checkbox, and choose the global credentials you set up (or add new ones).
 
 <img src="assets/5.07O.png" alt="Enable Sauce Connect" width="650"/>
 
@@ -945,6 +944,14 @@ Here is a list breaking down a majority of the Selenium resources available, alo
 ### Documentation & Tips
 
 
+#### [Sauce Labs Wiki](https://wiki.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link )
+
+This is the official Sauce Labs documentation. You can find updated and maintained tips and tricks regarding web/mobile automated testing.
+
+#### [Sauce Labs Whitepapers](https://saucelabs.com/resources/white-papers/?utm_source=referral&utm_medium=LMS&utm_campaign=link )
+
+A collection on advanced topics and testing best practices.
+
 #### [Selenium HQ](http://bit.ly/se-info-1)
 
 This is the official Selenium project documentation site. It doesn’t always have the most up-to-date version, but there is loads of helpful information here.
@@ -959,10 +966,24 @@ This is where all the good stuff is — mainly, documentation about the various 
 
 These are tips that will help you expand your Selenium skills to write tests for nearly anything you can imagine using Selenium for. There are over 70 different Selenium problems and solutions covered. They're in Ruby, but the code has been open-sourced with a fair number of them being ported into other programming languages. You can find the code for them [here](https://github.com/tourdedave/elemental-selenium-tips).
 
+### Videos
 
-#### [Sauce Labs Wiki](https://wiki.saucelabs.com/)
+#### [Sauce Labs YouTube Channel](https://www.youtube.com/user/saucelabs)
 
-This is the official Sauce Labs documentation. You can find updated and maintained tips and tricks regarding web/mobile automated testing.
+A wealth of information about Sauce Labs tools, products, and related technologies
+
+#### [Sauec Labs Video Archive](https://saucelabs.com/resources/videos)
+
+A curated collection of the best, featuring tech talks, feature Selenium meetups, and industry talks.
+
+#### [Selenium Conference Talks](http://bit.ly/se-info-15)
+
+All of the talks from The Selenium Conference are recorded and made freely available online.
+
+
+#### [Selenium Meetup Talks](http://bit.ly/se-info-16)
+
+Some of the Selenium Meetup Groups record their talks and publish them afterwards.
 
 
 ### Blogs
@@ -978,7 +999,7 @@ This is where Selenium announces project updates and the occasional round-ups of
 At some point, someone rounded up a large list of blogs from Selenium practitioners and committers. It's a pretty good list.
 
 
-#### [The Sauce Labs blog](https://saucelabs.com/blog)
+#### [The Sauce Labs blog](https://saucelabs.com/blog/?utm_source=referral&utm_medium=LMS&utm_campaign=link )
 
 This is where you can find product announcements and great articles regarding Sauce Labs and the automated testing space.
 
@@ -986,7 +1007,7 @@ This is where you can find product announcements and great articles regarding Sa
 ### Other Books
 
 
-#### _[Selenium Testing Tools Cookbook](http://bit.ly/se-info-18)_
+#### [Selenium Testing Tools Cookbook](http://bit.ly/se-info-18)_
 
 This book outlines some great ways to leverage Selenium, using a pragmatic approach.
 
@@ -1025,19 +1046,6 @@ A helpful website that lists all of the testing conferences out there.
 #### [SauceCon](https://saucecon.com/)
 
 This is the Sauce Labs annual conference, where they invite speakers from the industry to impart their knowledge and techniques on the testing community. This conference also offers the opportunity to talk to Sauce Labs employees and other platform users.
-
-
-### Videos
-
-
-#### [Selenium Conference Talks](http://bit.ly/se-info-15)
-
-All of the talks from The Selenium Conference are recorded and made freely available online.
-
-
-#### [Selenium Meetup Talks](http://bit.ly/se-info-16)
-
-Some of the Selenium Meetup Groups record their talks and publish them afterwards.
 
 
 ### Mailing Lists
