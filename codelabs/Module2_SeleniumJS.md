@@ -580,6 +580,9 @@ This trick will save you more trouble that you know. Practice it often.
 
 See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod2/2.07). Note that you have to run `npm install` then `npm i mocha` in terminal from within the root project folder before being able to use code pulled from a GitHub repository.
 
+#### Cheat Sheet
+To learn more about locators you can use with Selenium and Java, see the [Selenium Actions Cheat Sheet](https://docs.google.com/document/d/1ymM1Qj1yAf4mNDDRjkdH_RHY7uJhdHGbVks_YQJXwYc/edit?usp=sharing)
+
 <!-- ------------------------ -->
 
 ## 2.08 Verifying Locators with Selenium

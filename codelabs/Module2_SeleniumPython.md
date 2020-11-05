@@ -488,6 +488,9 @@ Type the command `pytest` to run your suite. You should see a failed test with a
 
 _Remember to change the selector back to `.flash.success` when you're done trying a failed test_
 
+#### Cheat Sheet
+To learn more about locators you can use with Selenium and Java, see the [Selenium Actions Cheat Sheet](https://docs.google.com/document/d/1xAOgJ7mAVYK7xom268RLbBWPdv9AUgfzopWCMEw_v6E/edit?usp=sharing)
+
 #### Final Code
 
 
