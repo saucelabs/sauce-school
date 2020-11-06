@@ -47,6 +47,7 @@ If you skipped Modules 1 & 2, make sure you have a project folder set up and hav
 
 If you are familiar with using GitHub to write your code, you can also fork/ branch this repository for the first set of code.
 
+
 <!--- ------------------------ -->
 ## 3.02 The POM and Imperative vs. Declarative Tests
 Duration: 0:08:00

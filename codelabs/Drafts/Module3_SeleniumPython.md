@@ -41,6 +41,14 @@ If you skipped Modules 1 & 2, make sure you have a project folder set up and hav
 **[Final Module 2 Project Code](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod2/2.07_solutions)**
 
 
+#### NOTE
+Negative
+: If you are cloning ot downloading the GitHub repo, make sure you do the following:
+  * Ensure there is no `.pytest_cache` file in the project (delete it!)
+  * You have [Python 3](https://help.dreamhost.com/hc/en-us/articles/115000699011-Using-pip3-to-install-Python3-modules) (including Pip3) and Pytest installed
+  * You run `pip3 install -r requirements.txt` to install all the other dependencies.
+
+
 ### Use GitHub Repository (Optional)
 
 If you are familiar with using GitHub to write your code, you can also clone or download the repository above to use as the base to write your test from.
@@ -169,7 +177,7 @@ Within the `test_valid_credentials`, logic, replace the `driver` parameter with 
 
 ```
 # filename: tests/login_test.py
-// ...
+# ...
 def test_valid_credentials(login):
     login.with_("tomsmith", "SuperSecretPassword!")
     assert login.success_message_present()
@@ -187,6 +195,8 @@ from pages.login_page import LoginPage
 Lastly, above the `quit()` method, instantiate a driver to the variable `loginPage` and return it after the `addfinalizer` teardown test fixture.
 
 ```
+# filename: tests/login_test.py
+# ...
 loginPage = LoginPage(driver_)
 
     def quit():
@@ -201,15 +211,29 @@ Go to the terminal at the bottom of the PyCharm IDE and run the command `pytest`
 
 #### Note
 Negative
-: If you have issues getting your test to run, go to the **PyCharm** menu then > **Preferences**. (On Windows it's **File > Settings**). Find the auto import settings, and make sure that your imports are set up to use the **from \<module\>** syntax:
+: If you have issues getting your test to run, check the following:
+* Make sure you have Python 3.7+ with pip 3 installed
+* You dependencies are correctly installed from requirements.txt `pip3 install -r requirements.txt`
+* There is no `.pytest_cache` file installed from a repo.
+* Both the **tests** and **page** Packages have an `\_\_init\_\_.py` file with double underscores before and after.
+<img src="assets/3.03N.png" alt="Login Failure Markup" width="600"/>
+* Go to the **PyCharm** menu then > **Preferences**. (On Windows it's **File > Settings**). Find the auto import settings, and make sure that your imports are set up to use the **from \<module\>** syntax:
 <img src="assets/3.03M.png" alt="Login Failure Markup" width="600"/>
 
+When you run pytest in the terminal, you should get results like this. (locator-test may or may not fail):
+
+<img src="assets/3.03O.png" alt="Login Failure Markup" width="600"/>
+
+See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.03).
 
 #### Final Code
 
+
 Your new code in `test_login.py` should look like this:
 
-See the complete [source code here]().
+<img src="assets/3.03P.png" alt="Login Failure Markup" width="600"/>
+
+
 
 ## 3.04 Writing Code with Error Handling
 Duration: 0:10:00
@@ -223,48 +247,112 @@ There is more than one reason, however, why that test might fail. The test you w
 
 The term _Error Handling_ refers to creating cases that check for predictable negative outcomes or conditions so when the test is run, it accounts for other possible errors or failure cases.
 
+As you may have noticed in `login_test.py` there are methods for checking what happens when a user enters invalid credentials and a test to check that an error message is present. We will use these methods to
+### Deleting Tests
+
+Even though you may have grown attached to test that you worked hard to create, it can often be a huge help to your testing suite to just delete tests that aren’t worth your time. Ask yourself the following questions:
+
+*   How important is this test? (Do you really need to locate & return what that button says?)
+*   How likely is this test to fail if the code changes? (High likelihood? Delete or refactor!)
+*   How likely is this test due to fail if things run slowly?
+*   How likely is this test to take up a lot of QA time figuring out why it failed?
+*   How many individual pieces of functionality does this test actually check? (if it’s more than one it’s time to delete or refactor it into separate tests)
+
+Too many tests can be an even bigger problem for a QA team than too few. Figuring out how and why a test fails takes up more time than it is worth, and impedes the feedback a dev team needs to push a feature into production. Take the time to consider the balance between `testAllTheThings()` and testing efficiently and effectively, and don’t be afraid to delete tests and or useless objects and start fresh.
+
+![Bye](assets/3.05Bye.gif)
+
+Source: [Giphy](https://giphy.com/gifs/baby-bye-slide-m9eG1qVjvN56H0MXt8)
+
+Since you are not really using `locator_test.py`, now would be a good time to delete that test before adding in the new classes in this module.
+
+To delete `locator_test.py`, right click on it and choose **Delete**. Choose the **Safe Delete** option in the dialogue box that pops up.
+
+<img src="assets/3.04I.png" alt="Refactor and safe delete" width="550"/>
+
+
 ### Part 1: Test for Invalid Login Credentials
 
-Creating a page object may feel like more work than what you started with initially, but it's well worth the effort. Now that you have the entire process for things like the `authenticate()` method which completes several actions with one method, you can use it over and over again in multiple tests, and only have to make changes in one place.
+Creating a page object may feel like more work than what you started with initially, but it's worth the effort once you start analyzing test results.
 
 Let's add a test that checks for a failed login to demonstrate.
 
-First, let's take a look at [the markup](https://the-internet.herokuapp.com/login) that renders when you provide invalid credentials:
+First, let's take a look at [the element that renders](https://the-internet.herokuapp.com/login)  when you provide invalid credentials:
 
-<img src="assets/.png" alt="Login Failure Markup" width="600"/>
-
-
-We will use the `flash error` classes in our assertion. Open `------------`. .......
-
-Run `------ test` and you should get this error message:
-
-<img src="assets/c.png" alt="Resized Login Failure Response" width="600"/>
+<img src="assets/3.04A.png" alt="Login Failure Markup" width="600"/>
 
 
+you will use the `flash error` classes in our assertion.  Add a locator for this element to our page object along with a new method to perform a display check against it. Open `login_test.py.` and add instantiate the `test invalid_credentials` method to use it in the test.
 
+```
+# filename: tests/login_test.py
+# ...
+    def test_invalid_credentials(login):
+        login.with_("tomsmith", "bad password")
+        assert login.failure_message_present()
+```
+If we save these changes and run our tests (type `pytest` in terminal) you will see two browser windows open (one after the other) testing for successful and failure login scenarios. Notice how the `assert` statement checked to make sure that when you used invalid credentials there was a failure message.
+
+<img src="assets/3.04J.png" alt="run check for invalid credentials" width="600"/>
+
+
+
+### Part 2: Check for Login Page Elements
+
+Time to add one last last thing to your page object. Generally you want to keep assertions out of page objects, but in this case you want to add an assertion to make sure that are on the right page before running your test. This will help add some resiliency to your test, since it will let you know that the issue is the login page elements aren't present before running other tests.
+
+In the list of members (variables) on `login_page.py` where the `LoginPage` class is created, add a new member called _login_form:
+
+```
+# filename: pages/login_page.py
+class LoginPage():
+    _login_form = {"by": By.ID, "value": "login"}
+# ...
+```
+In the `\_\_init\_\_.py` method, underneath the `self.driver.get` statement that points you to the URL for the application you are testing, add in the following:
+
+```
+# filename: pages/login_page.py
+# ...
+        assert self.driver.find_element(
+            self._login_form["by"], self._login_form["value"]).is_displayed()
+# ...
+```
+
+Run `pytest` in terminal, and you should see the tests run exactly as they did before, with an extra check in the beginning.
+
+You can force a failure by modifying the URL in the `\_\_init\_\_.py` method:
+```
+# filename: pages/login_page.py
+# ...
+def __init__(self, driver):
+    self.driver = driver
+    self.driver.get("http://the-internet.herokua.com/login")
+    assert self.driver.find_element(
+        self._login_form["by"], self._login_form["value"]).is_displayed()
+# ...
+```
+
+<img src="assets/3.04K.png" alt="Failed to find login page" width="600"/>
+
+Change the URL back to `http://the-internet.herokua.com/login`. You can check the [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.04) to make your test looks the same.
 
 
 #### Final Code
 
-The updated `-----` code should look like this:
+The updated code should look like this:
 
-<img src="assets/.png" alt="Final Code 3.04" width="600"/>
+<img src="assets/3.04L.png" alt="Final login page code 3.04" width="700"/>
+
+<img src="assets/3.04M.png" alt="Final login test code 3.04" width="700"/>
 
 
-### Part 2: Check the Page
 
-Before you can call our page object complete, there's one more addition you should make.
-
-#### Final Code
-
-The code for the the `--------` should now look like this:
-
-<img src="assets/.png" alt="Page Object Directory" width="600"/>
 
 ## 3.05  Common Issues with Test Code Reuse
 Duration: 0:17:00
 
-In the previous lesson, you stepped through creating a simple page object to capture the behavior of the page you were interacting with. While this is a good start, there's more you can do.
+In the previous lesson, you stepped through creating a simple page object to capture the behavior of the page you youre interacting with. While this is a good start, there's more you can do.
 
 As our test suite grows, and you add more page objects, you will start to see common behavior that you will want to use over and over again throughout our suite. If you leave this unchecked you will end up with duplicative code which will slowly make our page objects harder to maintain.
 
@@ -285,32 +373,10 @@ First let's add a new file
 //...
 
 
-### Deleting Tests
-
-Even though you may have grown attached to test that you worked hard to create, it can often be a huge help to your testing suite to just delete tests that aren’t worth your time. Ask yourself the following questions:
-
-*   How important is this test? (Do you really need to locate & return what that button says?)
-*   How likely is this test to fail if the code changes? (High likelihood? Delete or refactor!)
-*   How likely is this test due to fail if things run slowly?
-*   How likely is this test to take up a lot of QA time figuring out why it failed?
-*   How many individual pieces of functionality does this test actually check? (if it’s more than one it’s time to delete or refactor it into separate tests)
-
-Too many tests can be an even bigger problem for a QA team than too few. Figuring out how and why a test fails takes up more time than it is worth, and impedes the feedback a dev team needs to push a feature into production. Take the time to consider the balance between `testAllTheThings()` and testing efficiently and effectively, and don’t be afraid to delete tests and or useless objects and start fresh.
-
-![Bye](assets/3.05Bye.gif)
-
-Source: [Giphy](https://giphy.com/gifs/baby-bye-slide-m9eG1qVjvN56H0MXt8)
-
-Since you are not really using `--------`, now would be a good time to delete that test before adding in the new classes in this module.
-
-To delete `--------`, right click on it........
-
-<img src="assets/.png" alt="Refactor and safe delete" width="550"/>
-
 ### Part 1 Create a Facade Layer
 
 Next let's open `----- `in your IDE and insert the following code:
-// ...
+# ...
 
 
 In this module, you declare a BasePage class along with methods for all of the common behavior you use with Selenium  (`visit`, `find`, `click`, `type`, and `isDisplayed`). // ...
@@ -327,9 +393,25 @@ Your final code at this stage should look like this:
 
 ### Part 2: Exception Handling........
 
+You may be wondering why we didn't just check to see if the success message wasn't present by checking for a false condition in our assertion.
+
+```
+        assert login.success_message_present() == False
+```
+There are two problems with this approach. First, our test will fail and throw an exception, interrupting test execution. This is because Selenium errors when it looks for an element that's not present on the page -- which looks like this:
+
+```
+NoSuchElementException: Message: Unable to locate element: {"method":"css selector","selector":".flash.success"}
+But don't worry, we'll address this in the next chapter.
+```
+
+Second, the absence of a success message doesn't necessarily indicate a failed login. This is why checking for the presence of the failure message is more effective.
+
+[3.05 Exception Handling Cheat Sheet]()
+
 ##### Cheat Sheet
 
-[3.04 Exception Handling Cheat Sheet]()
+
 
 Next, in  `------` make a change
 
