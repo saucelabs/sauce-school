@@ -8,5 +8,8 @@ debug.test
 *pb.go
 node_modules
 **node_modules/
-site/codelabs/
+site/codelabs
+site/build
+site/site
 /tools
+site/.bundle
