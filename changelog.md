@@ -10,7 +10,7 @@ All of these styles were created in a new css file in _app/elements/navigation.h
 ### Created a task in gulp to overrride styles
 To override styles, used gulp to build a css directory/ file in each module folder that is generated with the build
 * updated dependencies in package.json `gulp-inline-css`
-* created _site_app_styles/_override.scss_
+* created _site/app/styles/_override.scss_
 
 #### Gulpfile.js changes
 * ln 43 `require ('gulp-dom')``
