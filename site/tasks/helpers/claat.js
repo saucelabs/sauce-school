@@ -1,6 +1,7 @@
 'use strict';
 
 const childprocess = require('child_process');
+const PluginError = require('plugin-error');
 const spawn = childprocess.spawn;
 
 // claat is a wrapper around the claat tool.
@@ -15,10 +16,15 @@ const spawn = childprocess.spawn;
 exports.run = (cwd, cmd, env, fmt, ga, outdir, args, callback) => {
   args.unshift(cmd, '-e', env, '-f', fmt, '-ga', ga, '-o', outdir);
   const proc = spawn('claat',  args);
+  proc.stdout.on('data', (d) => process.stdout.write(d.toString()))
+  proc.stderr.on('data', (d) => process.stdout.write((d.toString())))
 
   proc.on('close', (e) => {
     if (e) {
-      throw new Error(e);
+      throw new PluginError({
+        plugin: 'claat',
+        message: 'claat processing failed',
+      });
     }
     callback();
   })
