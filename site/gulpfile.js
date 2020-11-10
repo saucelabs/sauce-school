@@ -167,6 +167,8 @@ gulp.task('build:html', () => {
 
   streams.push(gulp.src('codelabs/*/index.html')
     .pipe(cheerio(($) => $('head').append('<link rel="stylesheet" href="/styles/overrides.css">')))
+    .pipe(cheerio(($) => $('head').append('<script type="text/javascript" src="/scripts/main.js"></script>')))
+    .pipe(replace('SEGMENT_IO_KEY', DEFAULT_SEGMENTIO)) // Segment.io in app/scripts/app.js
     .pipe(posthtml(posthtmlPlugins))
     .pipe(gulp.dest('build/codelabs')));
 
