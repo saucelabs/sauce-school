@@ -96,7 +96,7 @@ jobs:
       - name: Run saucectl
         run: |
           # Install saucectl
-          curl -L -s  https://github.com/saucelabs/saucectl/releases/download/v0.14.0/saucectl_0.14.0_linux_64-bit.tar.gz | sudo tar -xvz -C /usr/bin/
+          curl -L -s  https://github.com/saucelabs/saucectl/releases/download/v0.18.0/saucectl_0.18.0_linux_64-bit.tar.gz | sudo tar -xvz -C /usr/bin/
           # Expose website
           cd site/dist && python3 -m http.server 8000 &
           # Run skipping ci-mode
