@@ -167,6 +167,8 @@ gulp.task('build:html', () => {
 
   streams.push(gulp.src('codelabs/*/index.html')
     .pipe(cheerio(($) => $('head').append('<link rel="stylesheet" href="/styles/overrides.css">')))
+    .pipe(cheerio(($) => $('head').append('<script type="text/javascript" src="/scripts/main.js"></script>')))
+    .pipe(replace('SEGMENT_IO_KEY', DEFAULT_SEGMENTIO)) // Segment.io in app/scripts/app.js
     .pipe(posthtml(posthtmlPlugins))
     .pipe(gulp.dest('build/codelabs')));
 
@@ -382,16 +384,19 @@ gulp.task('connect', () => {
   });
 });
 
+gulp.task('connect:dist', () => {
+  connect.server({
+    root: 'dist'
+  });
+});
+
 // serve builds the website, starts the webserver, and watches for changes.
 gulp.task('serve', gulp.series('build', gulp.parallel(['connect', 'watch'])));
 
 // serve:dist serves the built and minified website from dist. It does not
 // support live-reloading and should be used to verify final output before
 // publishing.
-gulp.task('serve:dist', gulp.series('dist', () => {
-  return gulp.src('dist')
-    .pipe(webserver(opts.webserver()));
-}));
+gulp.task('serve:dist', gulp.series(['dist', 'connect:dist']));
 
 //
 // Helpers

@@ -6,6 +6,9 @@
     // and give it some initial binding values
     // Learn more about auto-binding templates at http://goo.gl/Dx1u2g
     let app = document.querySelector('#app');
+    if (!app) {
+      return;
+    }
 
     app.categoryStartCards = {};
     // Tags which should always be kept for filtering,
@@ -257,6 +260,9 @@
   // Wait for web components to be ready and then load the app.
   document.addEventListener('WebComponentsReady', () => {
     const a = app();
+    if (a === undefined) {
+      return;
+    }
 
     // TODO: handle forward/backward and filter cards
     window.addEventListener('popstate', () => {
