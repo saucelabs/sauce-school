@@ -43,6 +43,7 @@ footer {
     list-style: none;
     margin: 0;
     padding: 0;
+    padding-top: 2px;
   }
 
   .footer-column {
@@ -91,6 +92,7 @@ ul.footer__sublinks {
   display: inline-block;
   clear: both;
   position: relative;
+  font-size: 12px;
   li {
     float: left;
     display: inline-block;
@@ -102,9 +104,9 @@ ul.footer__sublinks {
 .footerbar {
   background-color: #000;
   color: #fff;
-  font-size: 13px;
+  font-size: 8px;
   padding: 10px 0;
-  max-height: 10%;
+  max-height: 13%;
   a {
     color: currentcolor;
   }

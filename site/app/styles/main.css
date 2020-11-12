@@ -613,11 +613,11 @@ ul, li {
           background-color: #E12726;
           color: #FFFFFF;
           border-radius: 50px;
-          padding: 12px 25px 12px 25px;
+          padding: 12px 15px 12px 15px;
           margin-top: -13px;
           font-size: 14px;
           font-weight: 600;
-          letter-spacing: 2px; }
+          }
           #mainToolbar ul.header__primary-nav li a.btn.btn-primary:hover {
             background-color: #F85757; }
         #mainToolbar ul.header__primary-nav li a.sign__in {
@@ -638,7 +638,7 @@ ul, li {
     width: 30px;
     height: 24px; }
   #mainToolbar .logo-devs {
-    width: 15em;
+    width: 18em;
     height: auto;
     margin-top: 5px; }
 
