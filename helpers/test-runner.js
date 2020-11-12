@@ -6,10 +6,6 @@ const path = require('path');
 
 const testPort = 9999;
 
-const wait = (time) => new Promise((resolve) => {
-    setTimeout(() => resolve(), time * 1000);
-});
-
 const main = async () => {
     const testAddr = await new Promise((resolve) => {
         lookup(hostname(), (err, add) => resolve(add));

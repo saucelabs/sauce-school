@@ -1,6 +1,7 @@
 {
   "scripts": {
     "local-test": "node ./helpers/test-runner.js",
+    "test": "node ./helpers/test-runner.js",
     "install-deps": "npm install && cd ./site/ && npm install"
   },
   "private": true,

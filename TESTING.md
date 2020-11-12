@@ -22,5 +22,5 @@ $>
 ## Run the tests
 
 ```
-$> npm run local-test
+$> npm test
 ```
