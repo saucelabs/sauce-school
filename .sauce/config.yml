@@ -7,10 +7,14 @@ metadata:
 files:
   - tests/integration/
 suites:
-  - name: "Saucy Tests"
+  - name: "Chrome Tests"
     match: ".*.(spec|test).js$"
     settings:
       browserName: chrome
+  - name: "Firefox Tests"
+    match: ".*.(spec|test).js$"
+    settings:
+      browserName: firefox
 image:
   base: saucelabs/stt-cypress-mocha-node
   version: v0.1.17
