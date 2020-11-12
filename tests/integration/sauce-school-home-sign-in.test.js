@@ -1,6 +1,6 @@
 describe('Click Sign in on Home Page', function () {
   it('Visits Sauce School Landing Click Sign In', function (){
-    cy.visit('https://training.staging.saucelabs.net/')
+    cy.visit(`${Cypress.env('HOST_URL')}`)
 
     cy.get('a').contains('Sign In').click()
 

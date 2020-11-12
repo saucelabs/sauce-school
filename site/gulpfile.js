@@ -380,13 +380,18 @@ gulp.task('watch', gulp.parallel(
 gulp.task('connect', () => {
   connect.server({
     root: 'build',
-    livereload: true
+    livereload: true,
+    host: '0.0.0.0',
+    debug: true
   });
 });
 
 gulp.task('connect:dist', () => {
   connect.server({
-    root: 'dist'
+    root: 'dist',
+    host: '0.0.0.0',
+    port: args.port || 8080,
+    debug: true
   });
 });
 
