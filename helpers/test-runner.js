@@ -29,6 +29,7 @@ const main = async () => {
     procTest.on('exit', (exitCode) => {
         console.log(`saucectl: ExitCode=${exitCode}`)
         procWeb.kill('SIGTERM');
+        process.exit(exitCode);
     })
 };
 
