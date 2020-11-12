@@ -37,10 +37,15 @@ jobs:
         id: cache-npm-packages
         with:
           path: |
-            **/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+            node_modules
+            site/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('site/package-lock.json') }}
 
-      - name: Install NPN dependencies
+      - name: Install NPM dependencies (/)
+        if: steps.cache-npm-packages.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Install NPM dependencies (/site)
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         working-directory: ./site/
         run: npm ci
@@ -72,10 +77,15 @@ jobs:
         id: cache-npm-packages
         with:
           path: |
-            **/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+            node_modules
+            site/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('site/package-lock.json') }}
 
-      - name: Install NPN dependencies
+      - name: Install NPM dependencies (/)
+        if: steps.cache-npm-packages.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Install NPM dependencies (/site)
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         working-directory: ./site/
         run: npm ci
@@ -132,10 +142,15 @@ jobs:
         id: cache-npm-packages
         with:
           path: |
-            **/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+            node_modules
+            site/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('site/package-lock.json') }}
 
-      - name: Install NPN dependencies
+      - name: Install NPM dependencies (/)
+        if: steps.cache-npm-packages.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Install NPM dependencies (/site)
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         working-directory: ./site/
         run: npm ci
@@ -186,10 +201,15 @@ jobs:
         id: cache-npm-packages
         with:
           path: |
-            **/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+            node_modules
+            site/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('site/package-lock.json') }}
 
-      - name: Install NPN dependencies
+      - name: Install NPM dependencies (/)
+        if: steps.cache-npm-packages.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Install NPM dependencies (/site)
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         working-directory: ./site/
         run: npm ci
