@@ -6,7 +6,7 @@
   "exclude": [
     "^lang-.*"
   ],
-  "logoUrl": "/images/logo.png",
+  "logoUrl": "/default/trainingBot.png",
   "toolbarBgColor": "#EDEDEF",
   "sort": "mainCategory",
   "pins": []
