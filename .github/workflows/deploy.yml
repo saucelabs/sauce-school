@@ -37,9 +37,8 @@ jobs:
         id: cache-npm-packages
         with:
           path: |
-            node_modules
-            site/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('site/package-lock.json') }}
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install NPM dependencies (/)
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
@@ -80,9 +79,8 @@ jobs:
         id: cache-npm-packages
         with:
           path: |
-            node_modules
-            site/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('site/package-lock.json') }}
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install NPM dependencies (/)
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
@@ -106,17 +104,17 @@ jobs:
         working-directory: ./site/
         run: npm run gulp -- dist --codelabs-dir=codelabs
 
-      - name: Install saucectl
+      - name: Run saucectl
         run: |
           # Install saucectl
           curl -L -s  https://github.com/saucelabs/saucectl/releases/download/v0.18.0/saucectl_0.18.0_linux_64-bit.tar.gz | sudo tar -xvz -C /usr/bin/
-
-      - name: Install test dependencies
-        run: npm ci
-
-      - name: Run tests
-        run: npm test
-
+          # Expose website
+          cd site/dist && python3 -m http.server 8080 &
+          # Run skipping ci-mode
+          export SKIP_CI=true
+          export CYPRESS_HOST_IP=`hostname -i`
+          echo "Injection CYPRESS_HOST_IP=${CYPRESS_HOST_IP}"
+          saucectl run --env CYPRESS_HOST_URL=http://${CYPRESS_HOST_IP}:8080 -c ./.sauce/config.yml
 
   deploy-staging:
     needs: test
@@ -145,9 +143,8 @@ jobs:
         id: cache-npm-packages
         with:
           path: |
-            node_modules
-            site/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('site/package-lock.json') }}
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install NPM dependencies (/)
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
@@ -204,9 +201,8 @@ jobs:
         id: cache-npm-packages
         with:
           path: |
-            node_modules
-            site/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('site/package-lock.json') }}
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install NPM dependencies (/)
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
