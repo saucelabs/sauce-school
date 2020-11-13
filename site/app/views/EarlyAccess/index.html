@@ -29,6 +29,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     {% endif %}
   </script>
   <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6735579-1">
+  </script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-6735579-1');
+  </script>
 
   <title>{{view.title}}</title>
 
@@ -58,7 +68,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
   </style>
 
-  
+
 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="#455a64">
