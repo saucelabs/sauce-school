@@ -1,5 +1,5 @@
 {
-  "title": "Selenium Python",
+  "title": "Selenium Python | Sauce Lab Training",
   "description": "In this course, you will learn to use Python with the Pytest test runner to develop an automated testing suite. Both beginners and advanced testers will create autonomous, easy to maintain test code, and use npm, Jenkins, SauceConnect, and SauceOnDemand along with Selenium, Python, and Pytest to write a test suite and to gain test automation skills.",
   "logoUrl": "/seleniumpython/logo.png",
   "tags": ["python"],
