@@ -587,8 +587,10 @@ If it fails, then we can feel confident that it's doing what we expect, and can 
 
 This is a key debugging strategy, and for each test you create, you should check to make sure you can run a failed test each time by entering unexpected or incorrect values.
 
+#### Cheat Sheet
+To learn more about locators you can use with Selenium and Java, see the [Selenium Actions Cheat Sheet](https://docs.google.com/document/d/1tDS_M9ltC73Ghii1WdKzuH2PAAAo0kLk1JsGuyqJjNA/edit?usp=sharing)
 
-### Final Code
+#### Final Code
 
 <img src="assets/2.07F.png" alt="Final Test Code" width="650"/>
 
