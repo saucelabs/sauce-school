@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://training.saucelabs.com/</loc>
+  <lastmod>2020-11-14T17:11:24+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://training.saucelabs.com/EarlyAccess/</loc>
+  <lastmod>2020-11-14T17:11:24+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://training.saucelabs.com/SeleniumJava/</loc>
+  <lastmod>2020-11-14T17:11:24+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://training.saucelabs.com/SeleniumJS/</loc>
+  <lastmod>2020-11-14T17:11:24+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://training.saucelabs.com/seleniumpython/</loc>
+  <lastmod>2020-11-14T17:11:24+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://training.saucelabs.com/codelabs/basic_information/index.html?index=..%2F..EarlyAccess</loc>
+  <lastmod>2020-11-11T15:13:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://training.saucelabs.com/codelabs/early_access_issues/index.html?index=..%2F..EarlyAccess</loc>
+  <lastmod>2020-11-11T15:13:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://training.saucelabs.com/codelabs/outcome_expectations/index.html?index=..%2F..EarlyAccess</loc>
+  <lastmod>2020-11-11T15:13:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava</loc>
+  <lastmod>2020-11-11T15:13:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://training.saucelabs.com/codelabs/Module2-SeleniumJava/index.html?index=..%2F..SeleniumJava</loc>
+  <lastmod>2020-11-13T16:49:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://training.saucelabs.com/codelabs/Module3-SeleniumJava/index.html?index=..%2F..SeleniumJava</loc>
+  <lastmod>2020-11-11T15:13:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://training.saucelabs.com/codelabs/Module4_SeleniumJava/index.html?index=..%2F..SeleniumJava</loc>
+  <lastmod>2020-11-11T15:13:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://training.saucelabs.com/codelabs/Module5_SeleniumJava/index.html?index=..%2F..SeleniumJava</loc>
+  <lastmod>2020-11-11T15:13:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://training.saucelabs.com/codelabs/Module1-SeleniumJS/index.html?index=..%2F..SeleniumJS</loc>
+  <lastmod>2020-11-11T15:13:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://training.saucelabs.com/codelabs/Module2-SeleniumJS/index.html?index=..%2F..SeleniumJS</loc>
+  <lastmod>2020-11-13T16:49:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://training.saucelabs.com/codelabs/Module3-SeleniumJS/index.html?index=..%2F..SeleniumJS</loc>
+  <lastmod>2020-11-11T15:13:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://training.saucelabs.com/codelabs/Module4-SeleniumJS/index.html?index=..%2F..SeleniumJS</loc>
+  <lastmod>2020-11-11T15:13:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://training.saucelabs.com/codelabs/Module5_SeleniumJS/index.html?index=..%2F..SeleniumJS</loc>
+  <lastmod>2020-11-11T15:13:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://training.saucelabs.com/codelabs/Module1-SeleniumPython/index.html?index=..%2F..seleniumpython</loc>
+  <lastmod>2020-11-11T15:13:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://training.saucelabs.com/codelabs/Module2-SeleniumPython/index.html?index=..%2F..seleniumpython</loc>
+  <lastmod>2020-11-13T16:49:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://training.saucelabs.com/codelabs/Module2-SeleniumPython/index.html?</loc>
+  <lastmod>2020-11-13T16:49:48+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>
