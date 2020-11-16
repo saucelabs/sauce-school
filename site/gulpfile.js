@@ -260,6 +260,11 @@ gulp.task('codelabs:export', (callback) => {
   }
 });
 
+gulp.task('copy', () => {
+  return gulp.src('app/public/**/*')
+    .pipe(gulp.dest('build'));
+});
+
 // build builds all the assets
 gulp.task('build', gulp.series(
   'clean',
@@ -271,6 +276,7 @@ gulp.task('build', gulp.series(
   'build:js',
   'build:elements_js',
   'build:vulcanize',
+  'copy'
 ));
 
 // copy copies the built artifacts in build into dist/
