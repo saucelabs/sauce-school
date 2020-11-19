@@ -227,7 +227,7 @@ Share live test results with your team/organization. When your team is working t
 
 Adjust your test results visibility permissions to include your team and/or specific people:
 
-<img src="assets/QS1.06A.png" alt="Test Results Visibility" width="400"/>
+<!-- <img src="assets/QS1.06A.png" alt="Test Results Visibility" width="400"/> -->
 
 Invite someone to watch your Live Test session (while it’s running) to observe along with you. Click the **Share** icon (mobile) or **Invite** icon (desktop), copy the URL, and share it with your recipient:
 
