@@ -12,10 +12,6 @@ on:
     branches: ['*']
 
 env:
-  GCS_STAGING_BUCKET: ${{ secrets.GCS_STAGING_BUCKET }}
-  GCS_PRODUCTION_BUCKET: ${{ secrets.GCS_PRODUCTION_BUCKET }}
-  SEGMENTIO_STAGING: ${{ secrets.SEGMENTIO_STAGING }}
-  SEGMENTIO_PRODUCTION: ${{ secrets.SEGMENTIO_PRODUCTION }}
   SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
   SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
   CLOUDSDK_PYTHON: python3.7
@@ -171,11 +167,14 @@ jobs:
         run: npx gulp dist --codelabs-dir=codelabs
 
       - name: Deploy
+        env:
+          GCS_BUCKET: ${{ secrets.GCS_STAGING_BUCKET }}
+          SEGMENTIO_KEY: ${{ secrets.SEGMENTIO_STAGING }}
         working-directory: ./site/
         run: |
-          sed -i "s/SEGMENT_IO_KEY/$SEGMENTIO_STAGING/" ./dist/scripts/main.js
-          npx gulp publish:staging:views --staging-bucket=$GCS_STAGING_BUCKET
-          npx gulp publish:staging:codelabs --staging-bucket=$GCS_STAGING_BUCKET
+          sed -i "s/SEGMENT_IO_KEY/$SEGMENTIO_KEY/" ./dist/scripts/main.js
+          npx gulp publish:staging:views --staging-bucket=$GCS_BUCKET
+          npx gulp publish:staging:codelabs --staging-bucket=$GCS_BUCKET
 
   deploy-production:
     needs: test
@@ -230,8 +229,11 @@ jobs:
         run: npx gulp dist --codelabs-dir=codelabs
 
       - name: Deploy
+        env:
+          GCS_BUCKET: ${{ secrets.GCS_PRODUCTION_BUCKET }}
+          SEGMENTIO_KEY: ${{ secrets.SEGMENTIO_PRODUCTION }}
         working-directory: ./site/
         run: |
-          sed -i s/SEGMENT_IO_KEY/$SEGMENTIO_PRODUCTION/ ./dist/scripts/main.js
-          npx gulp publish:staging:views --staging-bucket=$GCS_PRODUCTION_BUCKET
-          npx gulp publish:staging:codelabs --staging-bucket=$GCS_PRODUCTION_BUCKET
+          sed -i s/SEGMENT_IO_KEY/$SEGMENTIO_KEY/ ./dist/scripts/main.js
+          npx gulp publish:staging:views --staging-bucket=$GCS_BUCKET
+          npx gulp publish:staging:codelabs --staging-bucket=$GCS_BUCKET
