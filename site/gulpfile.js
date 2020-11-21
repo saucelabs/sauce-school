@@ -45,9 +45,6 @@ let posthtmlPlugins = [posthtmlOutlinks({ excludeHosts: [], noTarget: [], noRel:
 // DEFAULT_GA is the default Google Analytics tracker ID
 const DEFAULT_GA = 'UA-49880327-14';
 
-// DEFAULT_SEGMENTIO is the default SegmentIO tracker ID which is production
-const DEFAULT_SEGMENTIO = 'bN0FzXcAdsq0J5ZHbn5M3UbkLPynLJu8';
-
 // DEFAULT_VIEW_META_PATH is the default path to view metadata.
 const DEFAULT_VIEW_META_PATH = 'app/views/default/view.json';
 
@@ -146,7 +143,6 @@ gulp.task('build:html', () => {
   streams.push(gulp.src(`app/views/${VIEWS_FILTER}/view.json`, { base: 'app/' })
     .pipe(generateView())
     .pipe(useref({ searchPath: ['app'] }))
-    .pipe(replace('SEGMENT_IO_KEY', DEFAULT_SEGMENTIO)) // Segment.io in app/scripts/app.js
     .pipe(gulpif('*.js', babel(opts.babel())))
     .pipe(gulp.dest('build'))
     .pipe(gulpif(['*.html', '!index.html'], generateDirectoryIndex()))
@@ -168,7 +164,6 @@ gulp.task('build:html', () => {
   streams.push(gulp.src('codelabs/*/index.html')
     .pipe(cheerio(($) => $('head').append('<link rel="stylesheet" href="/styles/overrides.css">')))
     .pipe(cheerio(($) => $('head').append('<script type="text/javascript" src="/scripts/main.js"></script>')))
-    .pipe(replace('SEGMENT_IO_KEY', DEFAULT_SEGMENTIO)) // Segment.io in app/scripts/app.js
     .pipe(posthtml(posthtmlPlugins))
     .pipe(gulp.dest('build/codelabs')));
 
