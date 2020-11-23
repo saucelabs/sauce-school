@@ -160,8 +160,8 @@ jobs:
             site/codelabs
             site/dist
           key: ${{ runner.os }}-${{ github.sha }}-staging
-          restore-keys:
-            - ${{ runner.os }}-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-${{ github.sha }}
 
       - name: Build
         if: steps.cache-build.outputs.cache-hit != 'true'
@@ -225,8 +225,8 @@ jobs:
             site/codelabs
             site/dist
           key: ${{ runner.os }}-${{ github.sha }}-production
-          restore-keys:
-            - ${{ runner.os }}-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-${{ github.sha }}
 
       - name: Build
         if: steps.cache-build.outputs.cache-hit != 'true'
