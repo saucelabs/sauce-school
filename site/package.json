@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "gulp": "node_modules/.bin/gulp"
+    "gulp": "echo 'You should use \"npx gulp\" instead of \"npm run gulp --\"'; node_modules/.bin/gulp"
   },
   "private": true,
   "devDependencies": {

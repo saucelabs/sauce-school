@@ -81,7 +81,7 @@ analytics account: Google Analytics ID
 ### 6. Serve it Locally
  To serve it up locally, ensure you are in `site` folder:
 ```
-npm run -- gulp serve --codelabs-dir=codelabs`
+npx gulp serve --codelabs-dir=codelabs`
 ```
 It will automatically regenerate the codelabs when they are modified.
 

@@ -62,19 +62,19 @@ cd site
 
 5. Build the website using `gulp.js`. You must specify the `codelabs-dir`, otherwise you may not see your modules in the site: (_Note that you must commit first_)
 ```sh
-npm run gulp -- dist --codelabs-dir=codelabs
+npx gulp dist --codelabs-dir=codelabs
 ```
 6. Test the site locally with `gulp serve`:
 ```sh
-npm run gulp serve:dist
+npx gulp serve:dist
 ```
 7. Publish the `views` directory (the frontend stuff) with `publish:staging:views`:
 ```sh
-npm run gulp -- publish:staging:views --staging-bucket=$GCS_STAGING_BUCKET
+npx gulp publish:staging:views --staging-bucket=$GCS_STAGING_BUCKET
 ```
 8. Publish the `codelabs` directory with `publish:staging:codelabs`:
 ```sh
-npm run gulp -- publish:staging:codelabs --staging-bucket=$GCS_STAGING_BUCKET
+npx gulp publish:staging:codelabs --staging-bucket=$GCS_STAGING_BUCKET
 ```
 > :warning: if you receive errors during this fnal step, it's most likely due to:
 > * `gsutil init` didn't properly run or you don't have access to the GCS_STAGING_BUCKET.

@@ -12,8 +12,6 @@ on:
     branches: ['*']
 
 env:
-  GCS_STAGING_BUCKET: ${{ secrets.GCS_STAGING_BUCKET }}
-  GCS_PRODUCTION_BUCKET: ${{ secrets.GCS_PRODUCTION_BUCKET }}
   SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
   SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
   CLOUDSDK_PYTHON: python3.7
@@ -60,7 +58,7 @@ jobs:
       - name: Build
         if: steps.cache-build.outputs.cache-hit != 'true'
         working-directory: ./site/
-        run: npm run gulp -- dist --codelabs-dir=codelabs
+        run: npx gulp dist --codelabs-dir=codelabs
 
   test:
     needs: build
@@ -102,7 +100,7 @@ jobs:
       - name: Build
         if: steps.cache-build.outputs.cache-hit != 'true'
         working-directory: ./site/
-        run: npm run gulp -- dist --codelabs-dir=codelabs
+        run: npx gulp dist --codelabs-dir=codelabs
 
       - name: Run saucectl
         run: |
@@ -161,18 +159,25 @@ jobs:
           path: |
             site/codelabs
             site/dist
-          key: ${{ runner.os }}-${{ github.sha }}
+          key: ${{ runner.os }}-${{ github.sha }}-staging
+          restore-keys: |
+            ${{ runner.os }}-${{ github.sha }}
 
       - name: Build
         if: steps.cache-build.outputs.cache-hit != 'true'
         working-directory: ./site/
-        run: npm run gulp -- dist --codelabs-dir=codelabs
+        run: npx gulp dist --codelabs-dir=codelabs
 
       - name: Deploy
+        env:
+          GCS_BUCKET: ${{ secrets.GCS_STAGING_BUCKET }}
+          SEGMENTIO_KEY: ${{ secrets.SEGMENTIO_STAGING }}
+          GOOGLE_GA: ${{ secrets.GA_STAGING }}
         working-directory: ./site/
         run: |
-          npm run gulp -- publish:staging:views --staging-bucket=$GCS_STAGING_BUCKET
-          npm run gulp -- publish:staging:codelabs --staging-bucket=$GCS_STAGING_BUCKET
+          npx gulp update:trackers --ga $GOOGLE_GA --segmentIoKey $SEGMENTIO_KEY
+          npx gulp publish:staging:views --staging-bucket=$GCS_BUCKET
+          npx gulp publish:staging:codelabs --staging-bucket=$GCS_BUCKET
 
   deploy-production:
     needs: test
@@ -219,15 +224,22 @@ jobs:
           path: |
             site/codelabs
             site/dist
-          key: ${{ runner.os }}-${{ github.sha }}
+          key: ${{ runner.os }}-${{ github.sha }}-production
+          restore-keys: |
+            ${{ runner.os }}-${{ github.sha }}
 
       - name: Build
         if: steps.cache-build.outputs.cache-hit != 'true'
         working-directory: ./site/
-        run: npm run gulp -- dist --codelabs-dir=codelabs
+        run: npx gulp dist --codelabs-dir=codelabs
 
       - name: Deploy
+        env:
+          GCS_BUCKET: ${{ secrets.GCS_PRODUCTION_BUCKET }}
+          SEGMENTIO_KEY: ${{ secrets.SEGMENTIO_PRODUCTION }}
+          GOOGLE_GA: ${{ secrets.GA_PRODUCTION }}
         working-directory: ./site/
         run: |
-          npm run gulp -- publish:staging:views --staging-bucket=$GCS_PRODUCTION_BUCKET
-          npm run gulp -- publish:staging:codelabs --staging-bucket=$GCS_PRODUCTION_BUCKET
+          npx gulp update:trackers --ga $GOOGLE_GA --segmentIoKey $SEGMENTIO_KEY
+          npx gulp publish:staging:views --staging-bucket=$GCS_BUCKET
+          npx gulp publish:staging:codelabs --staging-bucket=$GCS_BUCKET
