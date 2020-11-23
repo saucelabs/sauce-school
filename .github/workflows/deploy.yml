@@ -159,7 +159,9 @@ jobs:
           path: |
             site/codelabs
             site/dist
-          key: ${{ runner.os }}-${{ github.sha }}
+          key: ${{ runner.os }}-${{ github.sha }}-staging
+          restore-keys:
+            - ${{ runner.os }}-${{ github.sha }}
 
       - name: Build
         if: steps.cache-build.outputs.cache-hit != 'true'
@@ -170,9 +172,10 @@ jobs:
         env:
           GCS_BUCKET: ${{ secrets.GCS_STAGING_BUCKET }}
           SEGMENTIO_KEY: ${{ secrets.SEGMENTIO_STAGING }}
+          GOOGLE_GA: ${{ secrets.GA_STAGING }}
         working-directory: ./site/
         run: |
-          sed -i "s/SEGMENT_IO_KEY/$SEGMENTIO_KEY/" ./dist/scripts/main.js
+          npx gulp update:trackers --ga $GOOGLE_GA --segmentIoKey $SEGMENTIO_KEY
           npx gulp publish:staging:views --staging-bucket=$GCS_BUCKET
           npx gulp publish:staging:codelabs --staging-bucket=$GCS_BUCKET
 
@@ -221,7 +224,9 @@ jobs:
           path: |
             site/codelabs
             site/dist
-          key: ${{ runner.os }}-${{ github.sha }}
+          key: ${{ runner.os }}-${{ github.sha }}-production
+          restore-keys:
+            - ${{ runner.os }}-${{ github.sha }}
 
       - name: Build
         if: steps.cache-build.outputs.cache-hit != 'true'
@@ -232,8 +237,9 @@ jobs:
         env:
           GCS_BUCKET: ${{ secrets.GCS_PRODUCTION_BUCKET }}
           SEGMENTIO_KEY: ${{ secrets.SEGMENTIO_PRODUCTION }}
+          GOOGLE_GA: ${{ secrets.GA_PRODUCTION }}
         working-directory: ./site/
         run: |
-          sed -i s/SEGMENT_IO_KEY/$SEGMENTIO_KEY/ ./dist/scripts/main.js
+          npx gulp update:trackers --ga $GOOGLE_GA --segmentIoKey $SEGMENTIO_KEY
           npx gulp publish:staging:views --staging-bucket=$GCS_BUCKET
           npx gulp publish:staging:codelabs --staging-bucket=$GCS_BUCKET

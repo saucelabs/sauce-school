@@ -43,7 +43,8 @@ const posthtmlOutlinks = require('posthtml-outlinks');
 let posthtmlPlugins = [posthtmlOutlinks({ excludeHosts: [], noTarget: [], noRel: [] })];
 
 // DEFAULT_GA is the default Google Analytics tracker ID
-const DEFAULT_GA = 'UA-49880327-14';
+const DEFAULT_GA = 'DEFAULT_GA';
+const DEFAULT_SEGMENT_IO_KEY = 'SEGMENT_IO_KEY';
 
 // DEFAULT_VIEW_META_PATH is the default path to view metadata.
 const DEFAULT_VIEW_META_PATH = 'app/views/default/view.json';
@@ -330,6 +331,23 @@ gulp.task('dist', gulp.series(
   'copy',
   'minify',
 ));
+
+// Update GA / SegmentIO file
+gulp.task('update:trackers', () => {
+  const segmentIoKey = args.segmentIoKey || DEFAULT_SEGMENT_IO_KEY;
+  const ga = args.ga || DEFAULT_GA;
+
+  const srcs = [
+    'dist/**/*.html',
+    'dist/codelabs/**/*.html',
+    'dist/**/*.json',
+    'dist/scripts/main.js',
+  ];
+  return gulp.src(srcs, { base: 'dist/'})
+    .pipe(replace(DEFAULT_GA, ga))
+    .pipe(replace(DEFAULT_SEGMENT_IO_KEY, segmentIoKey))
+    .pipe(gulp.dest('dist/'));
+});
 
 // watch:css watches css files for changes and re-builds them
 gulp.task('watch:css', () => {

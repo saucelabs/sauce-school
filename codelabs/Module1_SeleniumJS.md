@@ -6,7 +6,6 @@ tags: javascript
 status: Published
 authors: Lindsay Walker
 Feedback Link: https://forms.gle/CGu4QchgBxxWnNJK8
-analytics account: UA-6735579-1
 author: Lindsay Walker  
 
 # Module 1 — Introduction to Selenium with JavaScript
