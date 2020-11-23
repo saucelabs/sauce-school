@@ -234,6 +234,13 @@ Invite someone to watch your Live Test session (while it’s running) to observe
 
 <img src="assets/QS1.06B.png" alt="Test Results Visibility" width="700"/>
 
+**More on Sharing Test Results**
+
+*   [Sharing the Results of Sauce Labs Tests](https://wiki.saucelabs.com/display/DOCS/Sharing+the+Results+of+Sauce+Labs+Tests?utm_source=referral&utm_medium=LMS&utm_campaign=link)
+*   [Share Test Results in Slack](https://wiki.saucelabs.com/display/DOCS/Sharing+Test+Results+in+Slack?utm_source=referral&utm_medium=LMS&utm_campaign=link)
+*   [Generate Shareable External Links to Test Results](https://wiki.saucelabs.com/display/DOCS/Building+Sharable+Links+to+Test+Results?utm_source=referral&utm_medium=LMS&utm_campaign=link)
+*   [Viewing and Managing Test Results](https://wiki.saucelabs.com/display/DOCS/Viewing+and+Managing+Test+Results?utm_source=referral&utm_medium=LMS&utm_campaign=link)
+
 
 
 ### Video Demos
@@ -267,13 +274,5 @@ Watch the following videos to get a taste of what live testing has to offer.
 
 ![https://drive.google.com/file/d/1ZsNwNu61rD5oH55VUJ4S1_nAjT9zIuFe/preview](https://drive.google.com/file/d/1ZsNwNu61rD5oH55VUJ4S1_nAjT9zIuFe/view?usp=sharing)
 
-**More on Sharing Test Results**
-
-
-
-*   [Sharing the Results of Sauce Labs Tests](https://wiki.saucelabs.com/display/DOCS/Sharing+the+Results+of+Sauce+Labs+Tests?utm_source=referral&utm_medium=LMS&utm_campaign=link)
-*   [Share Test Results in Slack](https://wiki.saucelabs.com/display/DOCS/Sharing+Test+Results+in+Slack?utm_source=referral&utm_medium=LMS&utm_campaign=link)
-*   [Generate Shareable External Links to Test Results](https://wiki.saucelabs.com/display/DOCS/Building+Sharable+Links+to+Test+Results?utm_source=referral&utm_medium=LMS&utm_campaign=link)
-*   [Viewing and Managing Test Results](https://wiki.saucelabs.com/display/DOCS/Viewing+and+Managing+Test+Results?utm_source=referral&utm_medium=LMS&utm_campaign=link)
 
 Follow us on YouTube for more tips and demos: [Sauce Labs on YouTube](https://www.youtube.com/channel/UCzUaF3G8L5rfoh9xR6a51kg).
