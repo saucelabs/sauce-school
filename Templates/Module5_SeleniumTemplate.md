@@ -8,7 +8,6 @@ tags: java
 environments: Web
 status: Hidden
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
-analytics account: UA-6735579-1
 
 <!-- ------------------------ -->
 # Module 5 – Title of codelab
