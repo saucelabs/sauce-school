@@ -226,22 +226,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               {%- endif -%}
               <div class="description">{{codelab.title}}</div>
 
-
               <div class="card__summary">
+
                 {%- if codelab.summary -%}{{codelab.summary}}{%- endif -%}
 
                 {%- if codelab.id == 'early_access_issues' -%}
-                <p>This exists for a particular id.</p>
-                <p>Third paragraph.</p>
+                  <p>This exists for a particular id.</p>
+                  <p>Third paragraph.</p>
                 {%- endif -%}
+
+                {%- if codelab.id == 'basic_information' -%}
+                  <p>This exists for a basic information id.</p>
+                  <p>Third paragraph.</p>
+                {%- endif -%}
+
               </div>
-
-
-
-              <div class="card__summary">
-
-              </div>
-
 
               <div class="card-duration">
                 <span>{%- if codelab.duration -%}{{codelab.duration}} min {%- endif -%}</span>
