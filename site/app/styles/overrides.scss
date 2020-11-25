@@ -30,3 +30,6 @@ google-codelab #drawer ol ::-webkit-scrollbar-thumb {
 google-codelab #drawer ol li .step:before {
   content: "";
 }
+google-codelab google-codelab-step .instructions {
+  min-height: 95%;
+}
