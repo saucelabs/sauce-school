@@ -193,11 +193,11 @@ export PATH=$M2:$JAVA_HOME/bin:$PATH
 
 
 
-### NOTE
+### Note
 Negative
 : The version of the apache-maven variable needs to reflect which version you downloaded. For example, if you downloaded maven version 3.6.3, it would read `export M2_HOME=$HOME/Applications/apache-maven-3.6.3`
 
---
+
 
 From the terminal, inside of your project folder (or in the IntelliJ IDEA),run the command `source ~/.bash_profile` (if you are running MacOS Catalina 10 or above, run `source  ~/.zshrc`) from the terminal inside of your project folder (or in the IntelliJ IDEA) so your machine knows to look at the .`bash_profile `for where to access Java and Maven (setting the `HOME `variables)
 
@@ -228,9 +228,7 @@ We will download JDK (Java Development Kit) and choose the latest version. This 
 <img src="assets/1.05L.png" alt="IntelliJ JDK" width="350"/>
 
 
-_Skip creating from an archetype_
-
-If you leave the **Location **blank, it will create this project in the root user folder. You can add in another directory name if you wish.  Our project will be called SeleniumJava.
+If you leave the **Location** blank, it will create this project in the root user folder. You can add in another directory name if you wish.  Our project will be called SeleniumJava.
 
 <img src="assets/1.05M.png" alt="Selenium Project Directory" width="350"/>
 
@@ -315,21 +313,27 @@ The `pom.xml` file is what Maven uses to identify which dependencies to install 
 
 This sets up all the dependencies, however, you may need to research to make sure you have the most updated or correct version of these dependencies. Each dependency's `<version>` may need to be updated. See the section below for more details.
 
---
 
-
-### NOTE
+### Note
 
 Negative
 : How to Find Dependencies Using IntelliJ Video:
  If your .pom file doesn’t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out.
- Negative
 
-: 1. Hover over a red word in IDE
-:  2. Click the red light bulb to import maven dependencies.
-: 3. Click the Maven tab and refresh.
-: 4. Check the .pom file to make sure the updated version was added.
-: 5. Words should no longer appear red in the test.java file.
+ Negative
+: * Hover over a red word in IDE
+
+Negative
+: * Click the red light bulb to import maven dependencies.
+
+Negative
+: * Click the Maven tab and refresh.
+
+Negative
+: * Check the .pom file to make sure the updated version was added.
+
+Negative
+: * Words should no longer appear red in the test.java file.
 
 
 #### Video
@@ -381,7 +385,7 @@ Take a look at the first test code we will be creating in the next module. There
 
 ### Selenium Elements
 
-**driver variable with** driver.get(), driver.findElement, driver.* **– The driver variable instantiates a WebDriver session/ object, and then you can use Java commands for that driver.
+**driver** variable with **driver.get(), driver.findElement, driver –** The driver variable instantiates a WebDriver session/ object, and then you can use Java commands for that driver.
 
 **[Driver.quit](https://artoftesting.com/difference-between-driver-close-and-driver-quit-command-in-selenium-webdriver) –** An important Selenium command to use within **@After** annotations, this closes any browser windows that may be open and terminates the WebDriver session.
 

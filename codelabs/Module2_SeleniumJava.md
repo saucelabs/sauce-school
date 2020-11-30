@@ -27,9 +27,9 @@ This module is derived from content in chapters 6-7 of _The Selenium Guidebook_ 
 * Be able to define a test strategy and use a testing strategy like BDD and TDD to create test cases
 * Use the browser dev tools console to test locators on the page using elements such as class, id, XPath, and more
 * Choose and verify locators for a test class and write code that successfully uses the locators
-* Write a test case with @Before, @After annotations from the JUnit library, and a @Test assertion, then run it successfully on your local machine
+* Write a test case with @Before, @After annotations from the JUnit library, and an @Test assertion, then run it successfully on your local machine
 * Write and validate tests that can both succeed and fail, while accounting for different possible failure scenarios. Write versions of tests with methods and configurations that intentionally generate error messages.
-* Analyze and plan test suites, learning how to balance the size and maintainability (ability to check failed tests) against the amount of features you want to test, as well as the level of abstraction you want to use to make modular objects to use in your test suite
+* Analyze and plan test suites, learning how to balance the size and maintainability (ability to update and modify testst) against the amount of features you want to test, as well as the level of abstraction you want to use to make modular objects to use in your test suite
 
 
 
@@ -270,13 +270,13 @@ First we will need to create a new project directory called `SeleniumJava` (your
 
 You can see all of the files here.
 
-**_[Selenium_Course_Example_Code ](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2/2.05)_**
+**[Selenium Course Example Code](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2/2.05)_**
 
-### NOTE
+### Note
 Negative
 : If you are a first-time user of IntelliJ with Java, I highly recommend checking out the YouTube channel by JetBrains. [This is a great first video.](https://www.youtube.com/watch?v=H_XxH66lm3U)
 
---
+
 
 
 If you pull down a project file from Github instead of creating it as outlined below, and want to test it on your machine, you will have to use IntelliJ to set up your environment with Maven to manage your files and specify which Java Development Kit (aka Software Development Kit)  you use (both of these should be installed on your computer ahead of time). If you download the source code, first open the project.
@@ -302,7 +302,7 @@ Under **Project Settings**, choose **Project**, then choose your SDK in the drop
 
 <img src="assets/2.05J.png" alt="Choose SDK" width="450"/>
 
---
+
 ### Installing Chromedriver
 In order for your test to run on a browser on your local machine, you need to install the driver for the browser, and update your code. A similar set of steps can be followed for any browser.
 
@@ -310,18 +310,18 @@ First, check which version of chrome you are using by opening Chrome on your mac
 
 <img src="assets/2.05K.png" alt="Chrome Version" width="550"/>
 
-Next, (download the Chromedriver)[https://chromedriver.chromium.org/downloads] (you can also download (Geckodriver)[https://github.com/mozilla/geckodriver] for Firefox or (any other driver)[https://automationintesting.com/selenium/java/lessons/drivers.html] you will need for popular browsers) The driver version should match the version of the browser you have on your machine.
+Next, [download Chromedriver](https://chromedriver.chromium.org/downloads]. You can also download [Geckodriver](https://github.com/mozilla/geckodriver) for Chrome browser or [any other driver.](https://automationintesting.com/selenium/java/lessons/drivers.html] you will need for popular browsers) The driver version should match the version of the browser you have on your machine.
 
 #### Cheat Sheet
 
-![https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/preview](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
+[Driver Configuration Cheat Sheet](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
 
-### NOTE
+### Note
 Negative
 : If you are testing on an older version of Firefox (e.g., 47 or earlier) then you don't need to download Geckodriver. You will be able to use the legacy FirefoxDriver implementation. To do that you just need to disable Marionette (the new Firefox WebDriver implementation that Geckodriver connects to) which would look like this:
 `System.setProperty("webdriver.firefox.marionette", "false");`
 
---
+
 
 
 
@@ -329,7 +329,7 @@ Download the file, then unzip it and move it somewhere outside of your downloads
 
 <img src="assets/2.05M.png" alt="Driver Folder" width="550"/>
 
-#### NOTE
+#### Note
 
 Negative
 : Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, go to **System Preferences** on your Mac **> Security & Privacy**, then under the **General** tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers.
@@ -339,9 +339,7 @@ Negative
 
 Negative
 : On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver** or **geckodriver** manually.
-
-Negative
-: Once you have allowed this, find the Chromedriver in your file directory, double click on it, and force terminal to open it.
+Once you have allowed this, find the Chromedriver in your file directory, double click on it, and force terminal to open it.
 
 <!-- --------------- -->
 ## 2.06 Create Your Project File
@@ -402,13 +400,10 @@ public class TestLogin {
 
 ```
 
-### NOTE
+### Note
 Negative
 : The two imported classes may delete themselves or turn grey – the IntelliJ IDE will intentionally clean up code and remove the import of unnecessary classes to speed up the running of your code.
 <img src="assets/2.05O.png" alt="Chrome Version" width="550"/>
-
---
-
 
 
 The top of the file is where the dependencies go. In order for the instantiation of Selenium to work with Firefox, we need to specify the path to the Chromedriver we downloaded into the vendor directory.
@@ -425,7 +420,7 @@ After creating the class, we add setup and teardown methods using what is known 
 This abstraction using the JUnit annotations library enables us to write our test with behavior we want to exercise in the browser, rather than clutter it up with setup and teardown details written in Java.
 
 
-### NOTE
+### Note
 
 Negative
 : If you notice that some of the dependencies at the top are red, it means you need to install those dependencies. Refer to module 1.05 Video on [using IntelliJ to install dependencies](https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/view?usp=sharing), and the [Cheat Sheet ](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)for web drivers.
@@ -433,12 +428,6 @@ Negative
 Negative
 : We're able to do this by specifying a system property with `System.setProperty("webdriver.chrome.driver")` and providing the full path to the file which we find by using the project directory path and appending /vendor/geckodriver to it.
 
---
-
-
-#### Cheat Sheet
-
-[2.05 Driver Configuration](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
 
 
 ### Run a Test with IntelliJ
@@ -503,19 +492,16 @@ public class TestLogin {
 
 
 
-### NOTE
+### Note
 
 Negative
-: When using the IntelliJ IDE, classes and libraries must be instantiated within the code before they can be added to the list of imported elements at the top. Watch this video (gif?) to see how this is done.
+: When using the IntelliJ IDE, classes and libraries must be instantiated within the code before they can be added to the list of imported elements at the top. Watch this video to see how this is done.
 
 
 #### Video
-Negative
-: Importing Classes and Methods with IntelliJ
-<img src="assets/2.06_IntelliJ_Import.gif" alt="Pencil" width="800"/>
+Watch this [video](https://drive.google.com/file/d/1qmyVp1ndCiJZ3fh_DyTdlpbIru3k39AU/view?usp=sharing) to understand importing classes and methods with IntelliJ
+![https://drive.google.com/file/d/1qmyVp1ndCiJZ3fh_DyTdlpbIru3k39AU/preview](https://drive.google.com/file/d/1qmyVp1ndCiJZ3fh_DyTdlpbIru3k39AU/view?usp=sharing)
 
-
---
 
 Our test is a method as well, `public void succeeded()`. JUnit knows this is a test because of the `@Test` annotation. In this test we're visiting the login page by it's URL with `driver.get(); `,finding the input fields by their ID with `driver.findElement(By.id()`), sending them text with `.sendKeys(); , `and submitting the form by clicking the submit button `with By.cssSelector("button")).click();`.
 
@@ -534,15 +520,11 @@ CSS selectors are a good way to write locators, especially for hard to reach ele
 
 For right now, here's what you need to know. In CSS, class names start with a dot (.). For classes with multiple words, put a dot in front of each word, and remove the space between them (e.g., .flash.success for class='flash success'). [Learn more on Sauce Labs](https://saucelabs.com/resources/articles/selenium-tips-css-selectors)
 
-### NOTE
+### Note
 
 Negative
 : If you find that your tests are failing, try running the command `source ~/bash_profile `(or `source ~/.zhsrc `for MacOS Catalina) in the command line. This tells your machine to look at your bash profile to find the path to Maven and other dependencies.
-
-Negative
-: In order to avoid doing that each time, you can edit your profile with the following steps:
-
-
+In order to avoid doing that each time, you can edit your profile with the following steps:
 
 Negative
 : 1. In terminal, run `cd .. `and hit enter until you are at the top directory
@@ -554,20 +536,13 @@ Negative
 : 3. Run `cd bin` to enter that directory and run` ls` again. In that list of files, you should see one called profile. Open it in edit mode by running the command` sudo vi profile `(you may have to enter your password)
 
 Negative
-: 4. Type `i `to enter insert mode. Next, copy and paste in `source ~/bash_profile `in the second line of code. Hit escape twice, then you should be able to type in `:wq!` At the bottom to save the changes. Now your machine knows where to look for your environment and PATH variables
-
-Negative
-: <img src="assets/2.06A.png" alt="Bash Profile" width="450"/>
+: 4. Type `i `to enter insert mode. Next, copy and paste in `source ~/bash_profile `in the second line of code. Hit escape twice, then you should be able to type in `:wq!` At the bottom to save the changes. Now your machine knows where to look for your environment and PATH variables <img src="assets/2.06A.png" alt="Bash Profile" width="450"/>
 
 
 
---
+### Video
 
-
-
-### Run Your Code
-
-[See Video](https://drive.google.com/file/d/1FlQ75pcOR37FEMCPKQEk6SeihA6d_Z1f/view?usp=sharing)
+[See this video](https://drive.google.com/file/d/1FlQ75pcOR37FEMCPKQEk6SeihA6d_Z1f/view?usp=sharing) to learn the steps for running a test using the IntelliJ Interface and Maven.
 ![https://drive.google.com/file/d/1FlQ75pcOR37FEMCPKQEk6SeihA6d_Z1f/preview](https://drive.google.com/file/d/1FlQ75pcOR37FEMCPKQEk6SeihA6d_Z1f/view?usp=sharing)
 
 ### Test Your Code with a Failure
@@ -605,9 +580,7 @@ Instead of the painful and tedious process of trying out various locators in you
 
 Once you have identified a class, id, name, link text, Xpath, etc. for an element, you can use the Selenium `findElement() `method along with the driver object in your Java test code.
 
-In this exercise we can create a similar test using another page from the _the-internet _app called
-
-**[Challenging DOM](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2/2.07)**
+In this exercise we can create a similar test using another page from the [the-internet app](https://the-internet.herokuapp.com/) called **[Challenging DOM](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2/2.07)**
 
 Next, we will create a new test file, named `TestLocator.java.` Place it in the same ‘test’ folder as the other test we created:
 
@@ -616,7 +589,7 @@ Next, we will create a new test file, named `TestLocator.java.` Place it in the 
 
 
 
-#### NOTE
+#### Note
 
 Negative
 : This can be done in IntelliJ by right clicking within the **companyname **folder in the project window and creating a** New → Java Class **then naming it **TestLocator.**
@@ -628,8 +601,6 @@ Negative
 Negative
 : <img src="assets/2.08F.png" alt="Test Locator Class" width="350"/>
 
-
---
 
 Copy and paste the code below into your test file.  Above the `public class {}` declaration, you will `import` all of your dependencies. You will also instantiate the driver, then create the code to set up, test, then tear down your test within the `@Before, @Test, and @After `code.
 
@@ -679,12 +650,12 @@ public class TestLocator {
 ```
 
 
-You challenge, should you choose to accept it, is to add the locator
+Your challenge, should you choose to accept it, is to add the locator
 
 
 
-1. Navigate to [https://the-internet.herokuapp.com/challenging_dom](https://the-internet.herokuapp.com/challenging_dom) and right click on a button to open the inspector.
-2. Use the inspector to locate and test finding elements. In this test we are going to click the green button, then the blue button, and then check to see what is on the red button at the end.
+* Navigate to [https://the-internet.herokuapp.com/challenging_dom](https://the-internet.herokuapp.com/challenging_dom) and right click on a button to open the inspector.
+* Use the inspector to locate and test finding elements. In this test we are going to click the green button, then the blue button, and then check to see what is on the red button at the end.
 
 #### Video
 Watch the video below to understand how the LocatorTest works:
@@ -698,12 +669,12 @@ Watch the video below to understand how the LocatorTest works:
 
 
 
-3. Your test should test clicking first the green button, then the blue button, then check to make sure both have been clicked (Check CSS/ id). Using the code above, complete and run the test.  This is not a typical functional test, as there is no assertion, but we do return a value.
-4. Use the documentation here on using the[ By Selenium class ](https://github.com/saucelabs-training/advanced-selenium/blob/charlotte/src/docs/locators.md)to figure out how to complete the code. You can also use the [Cheat Sheet](https://docs.google.com/document/d/1tDS_M9ltC73Ghii1WdKzuH2PAAAo0kLk1JsGuyqJjNA/edit?usp=sharing) to help.
+* Your test should test clicking first the green button, then the blue button, then check to make sure both have been clicked (Check CSS/ id). Using the code above, complete and run the test.  This is not a typical functional test, as there is no assertion, but we do return a value.
+* Use the documentation here on using the[ By Selenium class ](https://github.com/saucelabs-training/advanced-selenium/blob/charlotte/src/docs/locators.md)to figure out how to complete the code. You can also use the [Cheat Sheet](https://docs.google.com/document/d/1tDS_M9ltC73Ghii1WdKzuH2PAAAo0kLk1JsGuyqJjNA/edit?usp=sharing) to help.
 
 <img src="assets/2.08G.png" alt="Locators Code" width="550"/>
 
-5. If you were successful, you should see both the locator and login tests (both are in the test folder) run, and below your locator, you should see the text that appeared on the red button when it was run:
+* If you were successful, you should see both the locator and login tests (both are in the test folder) run, and below your locator, you should see the text that appeared on the red button when it was run:
 
 <img src="assets/2.08H.png" alt="Locators Success" width="550"/>
 
@@ -716,4 +687,4 @@ See the complete [source code here](https://github.com/walkerlj0/Selenium_Course
 ## 2.08 Module 2 Quiz
 Duration: 0:05:00
 
-![]()
+![https://docs.google.com/forms/d/e/1FAIpQLSe-_eb_bCY1dd9pNXrbAFL4Zrc-vl1DIrTinGazhYTpBKvJww/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSe-_eb_bCY1dd9pNXrbAFL4Zrc-vl1DIrTinGazhYTpBKvJww/viewform?usp=sf_link)
