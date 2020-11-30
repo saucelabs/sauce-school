@@ -18,12 +18,12 @@ Duration: 0:03:00
 
 *   Learn to install and use Selenium WebDriver in conjunction with Java tools (IntelliJ and Maven) to write tests.  
 *   Use Maven and IntelliJ to compile and run tests and manage dependencies on your machine
-*   Use the Selenium WebDriver in conjunction with a Java test runner (JUnit) to write tests
+*   Use the Selenium WebDriver in conjunction with a Java test runner (JUnit4) to write tests
 *   Understand what the Selenium WebDriver is and the basics of how it is used to automate testing
-*   Understand the role a test runner, such as JUnit, plays in creating tests
+*   Understand the role a test runner, such as JUnit4, plays in creating tests
 *   Differentiate between the Selenium language bindings and the web drivers for different browsers
 *   Know how Maven manages and updates packages and tools used for Selenium testing in Java
-*   Explain how Selenium bindings, web drivers, and JUnit work together to create tests and test suites
+*   Explain how Selenium bindings, web drivers, and JUnit4 work together to create tests and test suites
 *   Understand that good tests are atomic: They have tests grouped by functionality and are named descriptively. Good tests also use test runners, and are maintained in version control systems.
 
 <!-- ------------------------ -->
@@ -86,7 +86,7 @@ The code that Selenium provides to you as a developer (the libraries) is called 
 
 Java uses the driver method to interact with Selenium. When you use it, you instantiate a web driver, and then you have access to methods allowed by the web driver. Selenium uses the driver to automate and manipulate elements in the browser. Some examples of drivers include Chromedriver for the Chrome browser or Geckodriver for the Firefox browser.
 
-JUnit is a Java library/package that allows you to communicate with Selenium and run unit tests. It also helps orchestrate test execution. This Java language binding (Selenium WebDriver methods written in Java) allows you to leverage the features specified by the W3C WebDriver protocol.
+JUnit4 is a Java library/package that allows you to communicate with Selenium and run unit tests. It also helps orchestrate test execution. This Java language binding (Selenium WebDriver methods written in Java) allows you to leverage the features specified by the W3C WebDriver protocol.
 
 
 #### Quiz
@@ -98,7 +98,7 @@ Duration: 0:05:00
 
 A test framework includes code libraries as well as rules and conventions for setting up tests. When it comes to testing frameworks, there are three basic pieces that go into creating a framework.
 
-**Test Runner –** A library or tool that takes the tests you write, along with settings you have configured in your tests, and executes them. It orchestrates the execution of the tests, controlling what is run when and in what order. For this course, we will be using the JUnit test runner.
+**Test Runner –** A library or tool that takes the tests you write, along with settings you have configured in your tests, and executes them. It orchestrates the execution of the tests, controlling what is run when and in what order. For this course, we will be using the JUnit4 test runner.
 
 **Robot –** Performs the actual actions on the browser. In this case, Selenium is the robot used to perform the interactions. It is a protocol that tells the browser to locate elements and perform actions on a page.
 
@@ -108,7 +108,7 @@ A good framework combines best practices for structuring and writing code, along
 
 Frameworks provide both tools and guidelines for creating and designing test suites. They can include coding standards, test-data handling methods, Page Object Models, processes for storing test results, and information on how to access external resources.
 
-So far, you’ve learned a bit about how the code on your end communicates with the W3C WebDriver using Selenium. This isn’t the whole picture, however. There are other tools that enable you to write and implement test code. Usually, runners and frameworks are used alongside the base programming language that help give structure, create commands, manage and organize files, store data, and more. In this course, we will use JUnit annotations and methods with Java and Selenium to write our tests.
+So far, you’ve learned a bit about how the code on your end communicates with the W3C WebDriver using Selenium. This isn’t the whole picture, however. There are other tools that enable you to write and implement test code. Usually, runners and frameworks are used alongside the base programming language that help give structure, create commands, manage and organize files, store data, and more. In this course, we will use JUnit4 annotations and methods with Java and Selenium to write our tests.
 
 <img src="assets/1.04B.png" alt=Framework Diagram width="650"/>
 
@@ -123,13 +123,13 @@ Duration: 0:15:00
 
 Download and install [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/#section=mac), a free version of the  IDE. It includes the entire ecosystem that you’ll need, tools to test and debug your code, and a sandbox environment that includes Java and Maven.  This tool makes it easy to download and include the Java Development Kit and that makes the basis for your code, as well as the Maven build tool.
 
-**Java –** A high-level, statically typed language that needs to be compiled to machine language before you are able to run Selenium tests locally or in the cloud. Java is the foundational programming language that the test runner is built on, and can include Selenium and JUnit commands.
+**Java –** A high-level, statically typed language that needs to be compiled to machine language before you are able to run Selenium tests locally or in the cloud. Java is the foundational programming language that the test runner is built on, and can include Selenium and JUnit4 commands.
 
 **Maven –** Manages other required dependencies, as well as builds any application code you create. Maven helps organize and perform the tasks needed to build and execute your test suite.
 
-**JUnit –** An open-source, Java-based framework used primarily to create unit tests. This tool includes an assertion library used to write tests, as well as annotations that allow you to run test methods (instead of building them out yourself).
+**JUnit4 –** An open-source, Java-based framework used primarily to create unit tests. This tool includes an assertion library used to write tests, as well as annotations that allow you to run test methods (instead of building them out yourself).
 
-**IntelliJ IDE & Debugger –** This tool helps with the writing, debugging, and organization of your code. This includes features that make your code easier to read and organize. IntelliJ  provides  an interface where you can interact with other tools, such as Maven and JUnit, as well as test and debug code.
+**IntelliJ IDE & Debugger –** This tool helps with the writing, debugging, and organization of your code. This includes features that make your code easier to read and organize. IntelliJ  provides  an interface where you can interact with other tools, such as Maven and JUnit4, as well as test and debug code.
 
 
 ### Install JDK and Maven Globally
@@ -239,7 +239,7 @@ If you look in the project file, you should notice that there is a **pom.xml** f
 
 ### The pom.mxl File
 
-The `pom.xml` file is what Maven uses to identify which dependencies to install and update. To start off, you will updated `pom.xml` with your dependencies. Maven will install and use these dependencies alongside the test code. Note that the versions may be out of date and you may want to use a more updated version of JUnit, Selenium, or Selenium drivers.
+The `pom.xml` file is what Maven uses to identify which dependencies to install and update. To start off, you will updated `pom.xml` with your dependencies. Maven will install and use these dependencies alongside the test code. Note that the versions may be out of date and you may want to use a more updated version of JUnit4, Selenium, or Selenium drivers.
 
 
 ```
@@ -372,7 +372,7 @@ Take a look at the first test code we will be creating in the next module. There
 **Import** – A command used to allow your code to communicate with the dependencies needed.
 
 
-### JUnit Annotations
+### JUnit4 Annotations
 
 **[@Before ](https://www.lambdatest.com/blog/tutorial-on-junit-annotations-in-selenium-with-examples/#:~:text=Automation%20%E2%80%A2%20Selenium%20Tutorial%20%E2%80%A2,your%20code%20runs%20as%20intended.) –** Used to initialize any object (test, page, etc.) and set up the test environment.
 

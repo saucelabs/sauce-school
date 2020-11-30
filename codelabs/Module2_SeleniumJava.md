@@ -1,4 +1,4 @@
-summary: Module 2 of the Selenium Java course. Learn to write Selenium tests in Java using the JUnit framework, Maven, and the IntelliJ IDE.
+summary: Module 2 of the Selenium Java course. Learn to write Selenium tests in Java using the JUnit4 framework, Maven, and the IntelliJ IDE.
 id: Module2-SeleniumJava
 categories: intermediate
 tags: java
@@ -27,7 +27,7 @@ This module is derived from content in chapters 6-7 of _The Selenium Guidebook_ 
 * Be able to define a test strategy and use a testing strategy like BDD and TDD to create test cases
 * Use the browser dev tools console to test locators on the page using elements such as class, id, XPath, and more
 * Choose and verify locators for a test class and write code that successfully uses the locators
-* Write a test case with @Before, @After annotations from the JUnit library, and an @Test assertion, then run it successfully on your local machine
+* Write a test case with @Before, @After annotations from the JUnit4 library, and an @Test assertion, then run it successfully on your local machine
 * Write and validate tests that can both succeed and fail, while accounting for different possible failure scenarios. Write versions of tests with methods and configurations that intentionally generate error messages.
 * Analyze and plan test suites, learning how to balance the size and maintainability (ability to update and modify testst) against the amount of features you want to test, as well as the level of abstraction you want to use to make modular objects to use in your test suite
 
@@ -35,7 +35,7 @@ This module is derived from content in chapters 6-7 of _The Selenium Guidebook_ 
 
 ### Base Code
 
-If you skipped Module 1, make sure you have a project folder set up and have created the following files, as well as have Maven, IntelliJ, and Junit installed
+If you skipped Module 1, make sure you have a project folder set up and have created the following files, as well as have IntelliJ, Maven, and a `pom.xml` installed and included
 
 <img src="assets/2.00A.png" alt="Directory Structure" width="800"/>
 <!-- ![Directory Structure](assets/2.00.png) -->
@@ -408,16 +408,16 @@ Negative
 
 The top of the file is where the dependencies go. In order for the instantiation of Selenium to work with Firefox, we need to specify the path to the Chromedriver we downloaded into the vendor directory.
 
-Here you will notice JUnit annotations being imported, as well as the Selenium and Chrome drivers.
+Here you will notice JUnit4 annotations being imported, as well as the Selenium and Chrome drivers.
 
-After importing the drivers and tools classes for JUnit and Selenium we create a class, `public class TestLogin {}`,  and declare a field variable to store and reference an instance of Selenium WebDriver, `private WebDriver driver;`.
+After importing the drivers and tools classes for JUnit4 and Selenium we create a class, `public class TestLogin {}`,  and declare a field variable to store and reference an instance of Selenium WebDriver, `private WebDriver driver;`.
 
 
 ### @Before and @After Annotations
 
 After creating the class, we add setup and teardown methods using what is known as annotations, using `@Before` and `@After`. In them we're creating an instance of Selenium (storing it in driver) and closing it with `driver.quit();`. Thanks to the `@Before` annotation, the` public void setUp()` method will load before the test and the `@After` annotation will make the `public void tearDown()` method load after the test.
 
-This abstraction using the JUnit annotations library enables us to write our test with behavior we want to exercise in the browser, rather than clutter it up with setup and teardown details written in Java.
+This abstraction using the JUnit4 annotations library enables us to write our test with behavior we want to exercise in the browser, rather than clutter it up with setup and teardown details written in Java.
 
 
 ### Note
@@ -432,7 +432,7 @@ Negative
 
 ### Run a Test with IntelliJ
 
-IntelliJ is a comprehensive tool that allows you to work with Maven, JUnit, Github, and many other dependencies all from the same window. It allows you to debug and run portions of a test, see which branch you are on in Github, manage project files, and much more. If you aren’t familiar, you can [learn more here](https://www.jetbrains.com/help/idea/guided-tour-around-the-user-interface.html).
+IntelliJ is a comprehensive tool that allows you to work with Maven, JUnit4, Github, and many other dependencies all from the same window. It allows you to debug and run portions of a test, see which branch you are on in Github, manage project files, and much more. If you aren’t familiar, you can [learn more here](https://www.jetbrains.com/help/idea/guided-tour-around-the-user-interface.html).
 
 
 #### Video
@@ -503,11 +503,11 @@ Watch this [video](https://drive.google.com/file/d/1qmyVp1ndCiJZ3fh_DyTdlpbIru3k
 ![https://drive.google.com/file/d/1qmyVp1ndCiJZ3fh_DyTdlpbIru3k39AU/preview](https://drive.google.com/file/d/1qmyVp1ndCiJZ3fh_DyTdlpbIru3k39AU/view?usp=sharing)
 
 
-Our test is a method as well, `public void succeeded()`. JUnit knows this is a test because of the `@Test` annotation. In this test we're visiting the login page by it's URL with `driver.get(); `,finding the input fields by their ID with `driver.findElement(By.id()`), sending them text with `.sendKeys(); , `and submitting the form by clicking the submit button `with By.cssSelector("button")).click();`.
+Our test is a method as well, `public void succeeded()`. JUnit4 knows this is a test because of the `@Test` annotation. In this test we're visiting the login page by it's URL with `driver.get(); `,finding the input fields by their ID with `driver.findElement(By.id()`), sending them text with `.sendKeys(); , `and submitting the form by clicking the submit button `with By.cssSelector("button")).click();`.
 
 If we save this and run it ( `mvn clean test` from the terminal), it will run and pass. But there's one thing missing -- an assertion. In order to find an element to make an assertion against, we need to see what the markup is after submitting the login form.
 
-First, we had to import the JUnit assertion class. By importing it as static we're able to reference the assertion methods directly (without having to prepend Assert.). Next we add an assertion to the end of our test.
+First, we had to import the JUnit4 assertion class. By importing it as static we're able to reference the assertion methods directly (without having to prepend Assert.). Next we add an assertion to the end of our test.
 
 With `assertTrue` we are checking for a true (Boolean) response. If one is not received, a failure will be raised and the text we provided (`"success message not present"`) will be displayed in the failure output. With Selenium we are seeing if the success message is displayed with `.isDisplayed()`. This Selenium command returns a true or false value. So if the element is visible in the browser, true will be returned, and our test will pass.
 

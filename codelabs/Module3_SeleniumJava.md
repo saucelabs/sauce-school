@@ -38,7 +38,7 @@ This module is derived from content in chapters 8-10 of _The Selenium Guidebook:
 
 ### Base Code
 
-If you skipped Modules 1 & 2, make sure you have a project folder set up and have created the following files, as well as have Java 11, Maven, the JUnit Library, and ideally the IntelliJ IDE for this project:
+If you skipped Modules 1 & 2, make sure you have a project folder set up and have created the following files, as well as have Java Development Kit 11, Maven, an updated `pom.xml`, and ideally the IntelliJ IDE for this project:
 
 **[Final Module 2 Project Code](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2)**
 
