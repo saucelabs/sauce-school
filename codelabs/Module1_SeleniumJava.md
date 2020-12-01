@@ -124,7 +124,7 @@ Duration: 0:15:00
 In order to run a Java test code suite on your local machine, you will need a few dependencies, which include software, tools, and code libraries, before you can write your first test code. You will need the Java Development Kit to write the Java Code, JUnit to write the test commands, Maven to manage the other dependencies that you need for a test suite, and IntelliJ IDE to edit and run all these things together.
 
 
-**Java –** A high-level, statically typed language that needs to be compiled to machine language before you are able to run Selenium tests locally or in the cloud. Java is the foundational programming language that the test runner is built on, and can include Selenium and JUnit4 commands.
+**Java –** Java is a high-level, statically typed language that needs to be compiled to machine language before you are able to run Selenium tests locally or in the cloud. The Java Development Kit (JDK) includes both the Java Runtime Environment (JRE) which creates and runs a virtual machine where java programs can run, as well as other tools and tools necessary to write Java code. It’s important to make sure that as a developer, you install the JDK and not just the JRE.
 
 **Maven –** Manages other required dependencies, as well as builds any application code you create. Maven helps organize and perform the tasks needed to build and execute your test suite.
 
