@@ -292,12 +292,12 @@
   }
 
   // Overrides
-  setTimeout(function () {
+
     //Wait for markup to load then mutate markup
-      for (let i = 0; i < document.getElementsByClassName('step').length; i++) {
-        document.getElementsByClassName('step-title')[i].innerHTML = document.getElementsByClassName('step-title')[i].innerHTML.substring(2);
-      }
-  }, 10);
+  for (let i = 0; i < document.getElementsByClassName('step').length; i++) {
+    document.getElementsByClassName('step-title')[i].innerHTML = document.getElementsByClassName('step-title')[i].innerHTML.substring(2);
+  }
+
 
 
 })(window, document);
