@@ -5,7 +5,6 @@ tags: python
 environments: Web
 status: Hidden
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
-analytics account: Google Analytics ID
 author:Lindsay Walker
 <!-- ------------------------ -->
 

@@ -5,7 +5,6 @@ tags: java
 status: published
 authors: Lindsay Walker
 Feedback Link: https://forms.gle/CGu4QchgBxxWnNJK8
-analytics account: UA-6735579-1
 author:Lindsay Walker
 
 # Module 3 — Writing Reusable Test Code
