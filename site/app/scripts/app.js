@@ -289,6 +289,16 @@
   } else {
     document.addEventListener('DOMContentLoaded', init);
   }
+
+  // Overrides
+  setTimeout(function () {
+    //Wait for markup to load then mutate markup
+      let spliceTitle = document.getElementsByClassName('step-title')[0].innerHTML.substring(2);
+      document.getElementsByClassName('step-title')[0].innerHTML = spliceTitle;
+
+  }, 10);
+
+
 })(window, document);
 
 // Segment.io for Mixpanel Analytics
