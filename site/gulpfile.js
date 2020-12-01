@@ -164,7 +164,7 @@ gulp.task('build:html', () => {
 
   streams.push(gulp.src('codelabs/*/index.html')
     .pipe(cheerio(($) => $('head').append('<link rel="stylesheet" href="/styles/overrides.css">')))
-    .pipe(cheerio(($) => $('head').append('<script type="text/javascript" src="/scripts/main.js"></script>')))
+    .pipe(cheerio(($) => $('body').append('<script type="text/javascript" src="/scripts/main.js"></script>')))
     .pipe(posthtml(posthtmlPlugins))
     .pipe(gulp.dest('build/codelabs')));
 

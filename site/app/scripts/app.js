@@ -1,6 +1,5 @@
 ((window, document) => {
   'use strict';
-
   const app = () => {
     // Grab a reference to our auto-binding template
     // and give it some initial binding values
@@ -40,6 +39,7 @@
         codelabUrlParams += '&viewga=' + view.ga;
       }
       return codelab.url + '?' + codelabUrlParams;
+
     };
 
     app.sortBy = function(e, detail) {
@@ -234,6 +234,7 @@
     // fires before the DOM is ready. Re-fire that event.
     if (supported) {
       document.dispatchEvent(new Event('WebComponentsReady'));
+
     } else {
       let script = document.createElement('script');
       script.async = true;
@@ -293,9 +294,9 @@
   // Overrides
   setTimeout(function () {
     //Wait for markup to load then mutate markup
-      let spliceTitle = document.getElementsByClassName('step-title')[0].innerHTML.substring(2);
-      document.getElementsByClassName('step-title')[0].innerHTML = spliceTitle;
-
+      for (let i = 0; i < document.getElementsByClassName('step').length; i++) {
+        document.getElementsByClassName('step-title')[i].innerHTML = document.getElementsByClassName('step-title')[i].innerHTML.substring(2);
+      }
   }, 10);
 
 
