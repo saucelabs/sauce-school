@@ -7,7 +7,6 @@ tags: <enter Language names here from tools/site/app/views what is labeled in th
 environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
-analytics account: UA-6735579-1
 author:Lindsay Walker
 <!-- ------------------------ -->
 # Module 4 – Title of codelab
