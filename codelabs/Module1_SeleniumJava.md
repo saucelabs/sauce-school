@@ -121,7 +121,8 @@ In the exercises that follow, you will learn more about the different tools you 
 ## 1.05  Installing Dependencies
 Duration: 0:15:00
 
-Download and install [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/#section=mac), a free version of the  IDE. It includes the entire ecosystem that you’ll need, tools to test and debug your code, and a sandbox environment that includes Java and Maven.  This tool makes it easy to download and include the Java Development Kit and that makes the basis for your code, as well as the Maven build tool.
+In order to run a Java test code suite on your local machine, you will need a few dependencies, which include software, tools, and code libraries, before you can write your first test code. You will need the Java Development Kit to write the Java Code, JUnit to write the test commands, Maven to manage the other dependencies that you need for a test suite, and IntelliJ IDE to edit and run all these things together.
+
 
 **Java –** A high-level, statically typed language that needs to be compiled to machine language before you are able to run Selenium tests locally or in the cloud. Java is the foundational programming language that the test runner is built on, and can include Selenium and JUnit4 commands.
 
@@ -131,6 +132,10 @@ Download and install [IntelliJ IDEA Community Edition](https://www.jetbrains.com
 
 **IntelliJ IDE & Debugger –** This tool helps with the writing, debugging, and organization of your code. This includes features that make your code easier to read and organize. IntelliJ  provides  an interface where you can interact with other tools, such as Maven and JUnit4, as well as test and debug code.
 
+
+### Install IntelliJ
+
+Download and install [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/#section=mac), a free version of the  IDE. It includes the entire ecosystem that you’ll need, tools to test and debug your code, and a sandbox environment that includes Java and Maven.  This tool makes it easy to download and include the Java Development Kit and that makes the basis for your code, as well as the Maven build tool.
 
 ### Install JDK and Maven Globally
 
