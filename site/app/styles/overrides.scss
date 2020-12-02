@@ -30,3 +30,20 @@ google-codelab #drawer ol ::-webkit-scrollbar-thumb {
 google-codelab #drawer ol li .step:before {
   content: "";
 }
+google-codelab google-codelab-step .instructions {
+  min-height: 95%;
+}
+
+@media only screen
+    and (max-device-width: 740px),
+    only screen and (max-device-width: 740px),
+    only screen and (max-width: 740px)
+  {
+
+    body google-codelab #codelab-nav-buttons #arrow-back {
+      display: inline-block!important;
+      position: absolute;
+      right: 0px;
+      margin-top: 15px;
+    }
+}
