@@ -275,7 +275,6 @@ public class TestDynamicLoading extends BaseTest {
 Negative
 : Including the `quit()` function is extremely important for the speed & passability of your tests. Without the quit method, the test will keep running even once all other methods have been executed until the default timeout has expired. This will not only slow down your ability to run many parallel tests at once, it will also send timeout error messages that could abort the test build.  This is now contained in `Base.java` and should never be excluded from any test.
 
---
 
 #### Final Code
 
@@ -582,10 +581,6 @@ public class Config {
     public static final String sauceUser = System.getenv("SAUCE_USERNAME");
     public static final String sauceKey = System.getenv("SAUCE_ACCESS_KEY");
 }
-
-
-
-
 ```
 
 

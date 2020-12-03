@@ -1,6 +1,32 @@
 # Changelog- Add newest additions in an .md file at top
 ///start typing below this text
 
+##Dec 2 - Casey's CHanges (Lindsay)
+**Text on Module Cards**
+Adding functionality to add text to module cards within a lesson e.g. Module 1 Selenium Java. Go into _site/app/views/<coursename>_ within each folde ryou should find an `index.html` e.g. _site/app/views/SeleniumJava/index.html_. Next, find the `<div class="card_summary">` in the `<p>` tags below. The code should look like this:
+
+```
+<div class="card__summary">
+
+  {%- if codelab.summary -%}{{codelab.summary}}{%- endif -%}
+
+  {%- if codelab.id == 'early_access_issues' -%}
+    <p>This exists for a particular id.</p>
+    <p>Third paragraph.</p>
+  {%- endif -%}
+
+  {%- if codelab.id == 'basic_information' -%}
+    <p>This exists for a basic information id.</p>
+    <p>Third paragraph.</p>
+  {%- endif -%}
+
+</div>
+```
+
+Look in the file in _codelabs/basic_information/codelab.json_. The content in the `summary:` field will be displayed on every single codelab
+
+
+
 ## Oct 13 - Casey's changes (Lindsay)
 ### Updated navigation in Views
 in each of the folder in `site/app/views` before the closing `</div` for the div `id=searchbar` add in `<navigation-element></navigation-element> ` to make the Sauce-style navigation show up on each course page.
