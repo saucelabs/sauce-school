@@ -581,10 +581,6 @@ public class Config {
     public static final String sauceUser = System.getenv("SAUCE_USERNAME");
     public static final String sauceKey = System.getenv("SAUCE_ACCESS_KEY");
 }
-
-
-
-
 ```
 
 
