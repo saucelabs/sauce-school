@@ -51,7 +51,7 @@ Sauce Labs enables automated testers to do [web application testing](https://wik
 
 [Sauce Labs provides mobile testing ](https://wiki.saucelabs.com/display/DOCS/Automated+Mobile+Application+Testing+with+Sauce+Labs/?utm_source=referral&utm_medium=LMS&utm_campaign=link)in two different types of environments. You can test mobile apps and browsers on emulators & simulators, and you can test using the devices on the Sauce Labs Real Device Cloud. Depending on what you would like to test, one or both of the plans may be right for you.
 
-Sauce Labs also offers the option of testing mobile native apps, or testing on mobile web browsers. Learn more about [different plans and pricing ](https://saucelabs.com/pricing/?utm_source=referral&utm_medium=LMS&utm_campaign=link)on the Sauce Labs website
+Sauce Labs also offers the option of testing mobile apps, or testing on mobile web browsers. Learn more about [different plans and pricing ](https://saucelabs.com/pricing/?utm_source=referral&utm_medium=LMS&utm_campaign=link)on the Sauce Labs website
 
 #### Video – Sauce Labs Intro
 
@@ -71,9 +71,9 @@ Though it was designed for mobile testing, Appium has the ability to let you cre
 Other mobile testing frameworks supported by Sauce Labs include [XCUI Test](https://info.saucelabs.com/FY17-ADV-MobileAppTestingeBook_LP.html?gclid=CjwKCAiAtK79BRAIEiwA4OskBtI-iSaHXJ2EPMTaJXeM2gREFzcv1ikm5rKluqw7NCXgKuNZBBt9AxoCh_MQAvD_BwE) for IOS devices, and the [Espresso](https://developer.android.com/training/testing/espresso) Android test framework.
 
 
-### Mobile Native App Testing
+### Mobile App Testing
 
-In order to test a native mobile application, you will need to upload your application to Sauce Labs storage (or another storage location), and indicate where the app is stored in your test code.
+In order to test a native (or hybrid) mobile application, you will need to upload your application to Sauce Labs storage (or another storage location), and indicate where the app is stored in your test code.
 
 First run your application locally to verify the test code is working as anticipated. After that, you can upload the application package (and test code if you are using XCUI or Espresso) to online storage or Sauce Storage. After you upload your application file to Sauce, you can run it all on Sauce Labs.
 
@@ -85,9 +85,9 @@ First run your application locally to verify the test code is working as anticip
 
 ### Mobile Web Tests
 
-Mobile web tests are similar to mobile application tests. Tests can be written with the Appium, Espresso, or XCUI framework, and they have similar capabilities that need to be set to set the environment the test is run on, and to communicate with Sauce Labs.
+Mobile web tests are similar to mobile application tests. Tests can be written with the Appium framework, and they have similar capabilities that need to be set to set the environment the test is run on, and to communicate with Sauce Labs.
 
-Mobile web tests, however, do not need to be uploaded to Sauce Labs, and are instead pointed at the URL where the site is hosted, with results being communicated to Sauce Labs.
+To run a web test on Sauce Labs, all you need to do is set the capabilities and point the test to the URL where the web application is hosted.
 
 Whether you choose to run your tests on real devices, virtual machines with emulators (Android) and simulators (IOS) Sauce Labs has an offering to help improve testing accuracy and efficiency.
 
