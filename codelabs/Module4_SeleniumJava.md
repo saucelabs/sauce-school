@@ -21,7 +21,7 @@ This module is derived from content in chapters 11-13 of _The Selenium Guidebook
 
 
 
-*   ** **Analyze and plan test suites, learning how to balance the size and maintainability (ability to check failed tests) against the amount of features you want to test, as well as the level of abstraction you want to use to make modular objects to use in your test suite
+*  Analyze and plan test suites, learning how to balance the size and maintainability (ability to modify large sets of tests) against the amount of features you want to test, as well as the level of abstraction you want to use to make modular objects to use in your test suite
 *   Learn about the different categories and types of tests. Understand which types of functional tests one uses Selenium for and how the different types and categories of tests are related
 *   Learn about _Root Level Hooks_ that handle the universal rules  `before() `and `after() `that all tests use, and that you can separate the common functionality that all tests use with these methods in a separate file (such as `BaseTest.java`) to be used with each test
 *   Understand how to create a file that configures a test environment, and how it is used with `BaseTest` and` BasePage` objects to create a template from which each test is built
@@ -101,7 +101,7 @@ Duration: 0:20:00
 
 Now that you have some tests and page objects, we'll want to start thinking about how to structure our test code to be more flexible and maintainable. Ensuring that our code is reusable, and can scale to as many tests as you need, requires some additional elements & abstractions.
 
-In a test suite, when you specify before and after hooks outside of a test class they are used globally for all tests. These are referred to as_ root-level hooks_. Every test that you write will use the `before()` and` after() `methods to perform the same set of actions to set up and tear down the test, so it makes sense to store these in one place so you can make changes in one place, instead of within each and every test.
+In a test suite, when you specify before and after hooks outside of a test class they are used globally for all tests. These are referred to as _root-level hooks_. Every test that you write will use the `before()` and` after() `methods to perform the same set of actions to set up and tear down the test, so it makes sense to store these in one place so you can make changes in one place, instead of within each and every test.
 
 
 ### Part 1: Root Level Hooks
@@ -113,7 +113,7 @@ We'll create three things.
 
 
 *   A class that will contain the creation and destruction of our Selenium instances (known as a _Base Test_)
-*   A helper that all tests will pull from to do the basic things each test should do such as `before()` and `after() `from the Junit `ExternalResource` rul`e`
+*   A helper that all tests will pull from to do the basic things each test should do such as `before()` and `after() `from the Junit `ExternalResource` rule
     *   These will be annotated with` @Override `which will execute prior to the` @Before` and` @After `annotations in individual tests
 *   Update your login and dynamic loading tests to inherit from the base class and utilize the setup and teardown from within the base class
 
@@ -277,7 +277,6 @@ Negative
 
 --
 
-
 #### Final Code
 
 <img src="assets/4.03F.png" alt="Test Login Updates" width="750"/>
@@ -363,7 +362,7 @@ Thus far you have prepared our test suite well to be maintainable. When you have
 
 Watch the video [4.04 Non-Duplication](https://drive.google.com/file/d/1LkSIpQ7QBT0Uq5NyTgf0aUnALPy0e3jb/view?usp=sharing) an excerpt from [Sauce Labs’ Tech Talk](https://www.youtube.com/watch?v=ZLS9sU2A9QA&t=24s) by Nikolay Advolodkin
 
-![https://drive.google.com/file/d/1LkSIpQ7QBT0Uq5NyTgf0aUnALPy0e3jb/preview](https://drive.google.com/file/d/1LkSIpQ7QBT0Uq5NyTgf0aUnALPy0e3jb/view?usp=sharing)
+![https://drive.google.com/file/d/1Gyv3tO9I4NanOAoCsPi5sVlqMx0iWcm0/preview](https://drive.google.com/file/d/1Gyv3tO9I4NanOAoCsPi5sVlqMx0iWcm0/view?usp=sharing)
 
 
 ### Part 1: Running Tests in Different Local Browsers
@@ -380,13 +379,13 @@ Since you have been running tests locally, it works just fine to have the driver
 
 
 
-Find the directory in your finder, and download both the most recent [Chromedriver](https://chromedriver.chromium.org/downloads) and the [Geckodoriver](https://github.com/mozilla/geckodriver/releases) for Firefox. First open each browser and check which version you are using for [Chrome](https://support.google.com/chrome/answer/95414?co=GENIE.Platform%3DDesktop&hl=en). For Firefox, download the latest version of the driver and the browser version will be added. _It is important to take note of the version you have of each. Write it down right now! _In this example, I have Chrome 85.0 on my machine, so I will download that driver version.
+Find the directory in your finder, and download both the most recent [Chromedriver](https://chromedriver.chromium.org/downloads) and the [Geckodoriver](https://github.com/mozilla/geckodriver/releases) for Firefox. First open each browser and [check which version](https://support.google.com/chrome/answer/95414?co=GENIE.Platform%3DDesktop&hl=en)you are using for Chrome. For Firefox, download the latest version of the driver and the browser version will be added. _It is important to take note of the version you have of each. Write it down right now! _In this example, I have Chrome 85.0 on my machine, so I will download that driver version.
 
 <img src="assets/4.04H.png" alt="Add Drivers folder" width="750"/>
 
 Download the latest version of each and save them in the drivers directory under where you have your test suite saved. Next, double click on the compressed files to unzip them. You should see **chromedriver** and **geckodriver** in your file directory.
 
-<img src="assets/4.04J.png" alt="Driver Directory" width="750"/>
+<img src="assets/4.04J.png" alt="Driver Directory" width="550"/>
 
 
 ### Set Browser in Config File
@@ -435,8 +434,6 @@ Negative
 
 Negative
 : Another option is to simply look through your file directories on your computer and double click on the files to manually open them with terminal or command line. After you have allowed them to be opened once, your computer should allow the drivers to be run by your tests.
-
---
 
 
 ### Part 2: Run your Tests with Geckodriver
@@ -567,7 +564,7 @@ You tell the Grid which browser and OS you want your test to run on through the 
 
 ### Part 1: Update Desired Capabilities
 
-In the` Config.java` file, you are going to communicate the settings for our test environment with the W3C _[Capabilities](https://wiki.saucelabs.com/display/DOCS/Desired+Capabilities+Required+for+Selenium+and+Appium+Tests/?utm_source=referral&utm_medium=LMS&utm_campaign=link)_, required for every Selenium test.
+In the `Config.java` file, you are going to communicate the settings for our test environment with the W3C [Capabilities](https://wiki.saucelabs.com/display/DOCS/Desired+Capabilities+Required+for+Selenium+and+Appium+Tests/?utm_source=referral&utm_medium=LMS&utm_campaign=link), required for every Selenium test.
 
 In addition, you need to define some variables for your tests to be able to communicate with Sauce Labs:
 
@@ -596,7 +593,7 @@ Notice the new variables you have added:
 
 
 
-*   `host `enables us to specify whether our tests run locally or on Sauce Labs. Right now, the host is either` "saucelabs`” or `"localhost"`
+*   `host `enables you to specify whether our tests run locally or on Sauce Labs. Right now, the host is either` "saucelabs`” or `"localhost"`
 *   The [Sauce Labs Test Configuration Options](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options) contains information for each specific test. You assume you may pass in unique usernames and access keys
     *   `browserName` specifies the browser for a test.
     *   `browserVersion` specifies which version of the browser for a test
@@ -607,7 +604,7 @@ Notice the new variables you have added:
 
 ### Final Code
 
-Notice how many of the capabilities are grey in this example, since they aren’t yet use in the code:
+Notice how many of the capabilities are grey in this example, since they aren’t yet used in the test code:
 <img src="assets/4.05J.png" alt="Capabilities for your test" width="750"/>
 
 
@@ -626,7 +623,7 @@ Go to **Account> User Settings** to find your username and access key.
 
 You will need to set up your username and access key on your machine’s environment variables either in your bash profile (Mac/Linux) or in the system properties (Windows).
 
-To learn more about setting up environment variables, you can see the article [here](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials#BestPractice:UseEnvironmentVariablesforAuthenticationCredentials-SettingUpEnvironmentVariablesonMacOSX/LinuxSystems).
+To learn more about setting up environment variables, you can see the article [here](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials#BestPractice:UseEnvironmentVariablesforAuthenticationCredentials-SettingUpEnvironmentVariablesonMacOSX/LinuxSystems/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
 
 
 #### Video
@@ -638,7 +635,7 @@ Watch This Video to See how to set up your Sauce Credentials as environment vari
 
 ### Part 2: Use the Remote Web Driver
 
-Now you need to update `BaseTest.java `to work with these new values and connect to Sauce Labs. Note that these are called _[Capabilities](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options), _and the format they are in here is compatible with the Selenium 4.0 web driver and backwards compatible. They set the options for setting up the environment for your tests.
+Now you need to update `BaseTest.java `to work with these new values and connect to Sauce Labs. Note that these are called [Capabilities](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options), and the format they are in here is compatible with the Selenium 4.0 web driver, as well as all prevous Selenium versions. They set the options for setting up the environment for your tests.
 
 
 ```
@@ -678,7 +675,7 @@ This has two if/ else statements:
 
 
 
-*   The first one checks to see if you have set your test to run on the `"localhost"` or` "saucelabs".`
+*   The first one checks to see if you have set your test to run on the `"localhost"` or `"saucelabs".`
 *   The second, nested in the localhost condition, sets your test up to use the Geckodriver or Chromedriver saved in your project folder, depending on which browser you have set your test to use.
 
 Now you can import the `MutableCapabilities `and` RemoteWebDriver` Selenium classes, as well as the` URL` java class. Add these imports in `BaseTest.java`:
@@ -719,11 +716,7 @@ Negative
 : What did you do? At this point to create an instance of a test, you are dependent on several different objects in your test suite. First, `Base` sets up methods used by your page objects and instantiates a Selenium Webdriver instance. The page objects like `Login` and `Dynamic Loading` use the Base class (and the methods) to interact with the pages.
 
 Negative
-: Once the interactions with the webpage are taken care of, the tests come into play.` BaseTest` imports the settings from `Config`, then the tests use the `Base` class and define the specific tests run on the page.
-
-
-Negative
-: <img src="assets/4.05K.png" alt="Test Suite Structure" width="750"/>
+: Once the interactions with the webpage are taken care of, the tests come into play.` BaseTest` imports the settings from `Config`, then the tests use the `Base` class and define the specific tests run on the page. <img src="assets/4.05K.png" alt="Test Suite Structure" width="750"/>
 
 --
 
@@ -750,7 +743,7 @@ Now that your tests are up and running on the Sauce Labs platform, you’ll noti
 
 To fix this issue, you can pull in the name and the status from the test and send it to the [Sauce Labs dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)so you can use our tests to effectively debug and improve our application.
 
-In addition, right now regardless of the outcome of a test, the job in Sauce Labs will register as **Finished.** Ideally you want to know if the job was a **Pass** or a **Fail**. That way we can tell at a glance if a test failed or not. With a couple of tweaks we can make this happen easily enough.
+In addition, right now regardless of the outcome of a test, the job in Sauce Labs will register as **Finished** or **Error**. Ideally you want to know if the job was a **Pass** or a **Fail**. That way we can tell at a glance if a test failed or not. With a couple of tweaks we can make this happen easily enough.
 
 
 ### Part 1 Add a Test Name
@@ -814,7 +807,7 @@ sauceOptions.setCapability("name", testName);
 
 Run `mvn clean test -Dhost=saucelabs` to see if it works. Now when you run our tests in Sauce Labs, the [account dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) will show the tests running with the name of the test outside of the parentheses, and the class inside of the parentheses:
 
-### Add a Test Status
+### Part 2: Add a Test Status
 
 After adding a test name, youwill add in an id and status for each unique test that you create. First, you will need to update our tests. If you noticed before, the only status was **Complete** or had an **Error**. You will now add in whether a test has passed or failed.
 
@@ -845,12 +838,9 @@ You’ll first need install the `saucerest` library by adding it to our `pom.xml
 ### NOTE
 
 Negative
-: If you add a dependency and the text appears in red (Maven isn’t recognizing it) you can right click on the pom.xml file in the project directory in IntelliJ then choose **Maven > Reload project**:
+: If you add a dependency and the text appears in red (Maven isn’t recognizing it) you can right click on the pom.xml file in the project directory in IntelliJ then choose **Maven > Reload project**: <img src="assets/4.06G.png" alt="Reload project with Maven" width="750"/>
 
-Negative
-: <img src="assets/4.06G.png" alt="Reload project with Maven" width="750"/>
 
---
 
 In the variable list of the` BaseTest` class (below `private string testName;`) add in the following:
 
@@ -921,9 +911,9 @@ Once a Sauce job is established we're able to get the session ID from `RemoteWeb
 
 With a conditional check in each you make sure the sauceClient commands only trigger when a Sauce session has been established.
 
-When a test is successful the `succeeded()` method will fire, marking the Sauce job for the test as `passed`. When a test fails the failed method will trigger, and the job will be marked as `failed`. When there's a failure, we'll want to know the URL to view the job on [SauceLabs ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)so you concatenate the URL and output it to the console using the `System.out.println` command.
+When a test is successful the `succeeded()` method will fire, marking the Sauce job for the test as `passed`. When a test fails the failed method will trigger, and the job will be marked as `failed`. When there's a failure, we'll want to know the URL to view the job on [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)so you concatenate the URL and output it to the console using the `System.out.println` command.
 
-Now when you run `mvn clean test -Dhost=saucelabs `in terminal, then check your [Sauce Labs dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). On the right you should be able to see a status of passed with each test.
+Now when you run `mvn clean test -Dhost=saucelabs` in terminal, then check your [Sauce Labs dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). On the right you should be able to see a status of passed with each test.
 
 <img src="assets/4.06C.png" alt="Passed Tests" width="550"/>
 
