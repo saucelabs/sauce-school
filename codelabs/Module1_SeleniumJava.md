@@ -131,18 +131,16 @@ In order to run a Java test code suite on your local machine, you will need a fe
 
 **IntelliJ IDE & Debugger –** This tool helps with the writing, debugging, and organization of your code. This includes features that make your code easier to read and organize. IntelliJ  provides  an interface where you can interact with other tools, such as Maven and JUnit4, as well as test and debug code.
 
-#### Windows Installation instructions
+
+Negative
+: Even though you can use Maven and Java from within IntelliJ without installing it on your machine, you should install Maven and Java on your machine so that you can run tests you write outside of IntelliJ.
+
+### Environment Setup
+
+#### Windows Setup
 Follow [these instructions](https://docs.google.com/document/d/1herzHbTJdQpa-hAIR5llTfbbw20PeM99-BAoVTeuC8U/edit?usp=sharing) to install and set up a JDK, Maven, and IntelliJ on Windows 10.
 
-
-### Install JDK and Maven Globally
-
-Even though you can use Maven and Java from within IntelliJ without installing it on your machine, you should install Maven and Java on your machine so that you can run tests you write outside of IntelliJ.
-
-
-#### Note
-Negative
-: These instructions are for a MacOS operating system. If you are using another system, use the [documents here for setup instructions](https://github.com/saucelabs-training/demo-java/blob/master/docs/prerequisites.md#install-maven).
+#### Mac OS Setup
 
 Check and see if you have a JDK (Java Development Kit) installed on your computer by opening terminal and typing `echo $JAVA_HOME.`
 
@@ -161,7 +159,7 @@ Open the file then unzip it
 <img src="assets/1.05G.png" alt="JDK Install" width="350"/>
 
 
-### Install Maven
+#### Install Maven
 
 Download the latest version of the` .tar.gz` file from here: ([https://maven.apache.org/download.cgi](https://maven.apache.org/download.cgi))
 
@@ -196,7 +194,7 @@ export PATH=$M2:$JAVA_HOME/bin:$PATH
 
 
 
-### Note
+#### Note
 Negative
 : The version of the apache-maven variable needs to reflect which version you downloaded. For example, if you downloaded maven version 3.6.3, it would read `export M2_HOME=$HOME/Applications/apache-maven-3.6.3`
 
@@ -205,7 +203,7 @@ Negative
 From the terminal, inside of your project folder (or in the IntelliJ IDEA),run the command `source ~/.bash_profile` (if you are running MacOS Catalina 10 or above, run `source  ~/.zshrc`) from the terminal inside of your project folder (or in the IntelliJ IDEA) so your machine knows to look at the .`bash_profile `for where to access Java and Maven (setting the `HOME `variables)
 
 
-### Install IntelliJ
+#### Install IntelliJ
 
 On the [IntelliJ page](https://www.jetbrains.com/idea/download/#section=mac), download the IntelliJ IDEA community edition.
 
