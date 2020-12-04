@@ -44,7 +44,7 @@ You can categorize the types of tests run in two main categories- automated test
 
 ### Desktop Testing
 
-Sauce Labs enables automated testers to do [web application testing](https://wiki.saucelabs.com/display/DOCS/Web+Application+Testing/?utm_source=referral&utm_medium=LMS&utm_campaign=link) on all of the modern desktop operating system versions and the different browsers that run on them. [Headless ](https://wiki.saucelabs.com/display/DOCS/Getting+Started+with+Sauce+Headless//?utm_source=referral&utm_medium=LMS&utm_campaign=link )testing is available for chrome and firefox browsers for testers who want to run quick tests without having to lead and wait for visual components.
+Sauce Labs enables automated testers to do [web application testing](https://wiki.saucelabs.com/display/DOCS/Web+Application+Testing/?utm_source=referral&utm_medium=LMS&utm_campaign=link) on all of the modern desktop operating system versions and the different browsers that run on them. [Headless ](https://wiki.saucelabs.com/display/DOCS/Getting+Started+with+Sauce+Headless//?utm_source=referral&utm_medium=LMS&utm_campaign=link )testing is available for chrome and firefox browsers for testers who want to run quick tests without having to load and wait for visual components.
 
 
 ### Mobile Testing
@@ -78,14 +78,14 @@ In order to test a native (or hybrid) mobile application, you will need to uploa
 First run your application locally to verify the test code is working as anticipated. After that, you can upload the application package (and test code if you are using XCUI or Espresso) to online storage or Sauce Storage. After you upload your application file to Sauce, you can run it all on Sauce Labs.
 
 
-#### Video – Mobile Test
+#### Video – Mobile App Test
 
 ![https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/preview](https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/view?usp=sharing)
 
 
 ### Mobile Web Tests
 
-Mobile web tests are similar to mobile application tests. Tests can be written with the Appium framework, and they have similar capabilities that need to be set to set the environment the test is run on, and to communicate with Sauce Labs.
+Mobile web tests are similar to mobile application tests. Tests can be written with the Appium framework, and they have similar capabilities that need to be set for the environment the test is run on, and to communicate with Sauce Labs.
 
 To run a web test on Sauce Labs, all you need to do is set the capabilities and point the test to the URL where the web application is hosted.
 
