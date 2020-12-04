@@ -131,10 +131,9 @@ In order to run a Java test code suite on your local machine, you will need a fe
 
 **IntelliJ IDE & Debugger –** This tool helps with the writing, debugging, and organization of your code. This includes features that make your code easier to read and organize. IntelliJ  provides  an interface where you can interact with other tools, such as Maven and JUnit4, as well as test and debug code.
 
+#### Windows Installation instructions
+Follow [these instructions](https://docs.google.com/document/d/1herzHbTJdQpa-hAIR5llTfbbw20PeM99-BAoVTeuC8U/edit?usp=sharing) to install and set up a JDK, Maven, and IntelliJ on Windows 10.
 
-### Install IntelliJ
-
-Download and install [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/#section=mac), a free version of the  IDE. It includes the entire ecosystem that you’ll need, tools to test and debug your code, and a sandbox environment that includes Java and Maven.  This tool makes it easy to download and include the Java Development Kit and that makes the basis for your code, as well as the Maven build tool.
 
 ### Install JDK and Maven Globally
 
