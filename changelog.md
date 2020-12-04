@@ -1,7 +1,7 @@
 # Changelog- Add newest additions in an .md file at top
 ///start typing below this text
 
-##Dec 2 - Casey's CHanges (Lindsay)
+##Dec 2 - Casey's Changes (Lindsay)
 **Text on Module Cards**
 Adding functionality to add text to module cards within a lesson e.g. Module 1 Selenium Java. Go into _site/app/views/<coursename>_ within each folde ryou should find an `index.html` e.g. _site/app/views/SeleniumJava/index.html_. Next, find the `<div class="card_summary">` in the `<p>` tags below. The code should look like this:
 
@@ -23,7 +23,7 @@ Adding functionality to add text to module cards within a lesson e.g. Module 1 S
 </div>
 ```
 
-Look in the file in _codelabs/basic_information/codelab.json_. The content in the `summary:` field will be displayed on every single codelab
+Look in the file in _site/codelabs/basic_information/codelab.json_. The content in the `summary:` field will be displayed on every single codelab
 
 
 
