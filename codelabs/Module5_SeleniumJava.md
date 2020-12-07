@@ -109,7 +109,7 @@ In many cases, testers need to run their tests on internal sites. These can be d
 
 ### Download Sauce Connect Proxy
 
-The first step is to download The Sauce Connect Proxy software -- available on the **[Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy) **page in the Sauce Labs Cookbook -- and extract the contents of the **.zip** or **.gz** download package. You can also get the software on the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform under **Tunnels.**
+The first step is to download The Sauce Connect Proxy software -- available on the **[Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy)** page in the Sauce Labs Cookbook -- and extract the contents of the **.zip** or **.gz** download package. You can also get the software on the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform under **Tunnels.**
 
 
 <img src="assets/5.03A.png" alt="Tunnels Software" width="750"/>
@@ -235,9 +235,9 @@ Negative
 
 
 Negative
-: Then run  `mvn clean test`.
+: Finally, run  `mvn clean test`.
 
---
+
 
 You will run your test through the tunnel, and when you log into the SauceLabs UI, you should see the tests being run, and that there is an active tunnel:
 
@@ -281,7 +281,7 @@ Clearly these tests aren’t autonomous when you are doing User Interface (UI) t
 
 ### Avoid the Static Keyword
 
-As an example, if the SauceClient  was declared as `private static SauceRest sauceClient;`, then only one API communication would be allowed to occur at once, which would make running tests in parallel impossible. Same thing if you declared before as `protected static void before()`.
+As an example, if the SauceClient  was declared as `private static SauceRest sauceClient;`, since it is a static instance, only one API communication would be allowed to occur at once, which would make running tests in parallel impossible. Same thing if you declared the`before` method as `protected static void before()`.
 
 <img src="assets/5.04F.png" alt="No Static keywords" width="750"/>
 
@@ -347,7 +347,7 @@ Before you get started, head to the [Sauce Labs Dashboard](https://accounts.sauc
 
 Once you are sure that you are able to run tests in parallel (you should have less tests than your concurrency limit), you can run your tests. If you send more jobs than your concurrency limit, Sauce Labs will queue the excess and run them as the initial batch of jobs finish.
 
-Run` maven clean test -Dhost=saucelabs `and visit the [Sauce Labs Dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)while your tests are running. You should see more than one test running at the same time, and notice that your test suite as a whole runs more quickly! You can see the completed code [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod5/5.04).
+Run `mvn clean test -Dhost=saucelabs` and visit the [Sauce Labs Dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)while your tests are running. You should see more than one test running at the same time, and notice that your test suite as a whole runs more quickly! You can see the completed code [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod5/5.04).
 
 <img src="assets/5.04H.png" alt="Concurrent tests running" width="650"/>
 
@@ -383,7 +383,7 @@ Duration: 0:08:00
 
 In order to get the most out of your tests, you'll want a way to break them up into relevant, targeted chunks. Running tests in smaller groupings (along with parallel execution) will help keep test run times to a minimum and help you quickly sift through test results and target your tests.
 
-In order to do this with Java, you will need to use categories: _Shallow, deep, _and_ all._ _Shallow tests_ are equivalent to _smoke _(or _sanity_) _tests_. These should pass before you can consider running the _deep tests_. Running all will run all the tests in your suite.
+In order to do this with Java, you will need to use categories: _Shallow, Deep,_ and _All_. Shallow tests are equivalent to smoke (or _sanity_) tests. These should pass before you can consider running the deep tests. Running the _All_ interface will run all the tests in your suite.
 
 
 ### Part 1: Adding Test Interfaces
@@ -496,7 +496,7 @@ Before you can run your tests with these categories, you need to be able to spec
 ```
 
 
-This will set a default group to run when you tests are run, however you can also specify which groups you want to run using the maven `-Dgroups `execution commands:
+This will set a default group to run when you tests are run, however you can also specify which groups you want to run using the maven `-Dgroups` execution commands:
 
 
 ```
@@ -544,12 +544,12 @@ You'll probably get a lot of mileage out of your test suite in its current form 
 
 The real goal in test automation is to find issues reliably, quickly, and automatically. We've built things to be reliable and quick. Now you need to make them run on their own, and ideally, in sync with the development workflow you are a part of.
 
-To do that you need to use a _Continuous Integration server_.
+To do that you need to use a Continuous Integration server.
 
 
 ### CI Servers
 
-A _Continuous Integration_ server (CI server) makes it possible for several developers to merge their code into a central repository, then automate the process of building, testing, and deploying the set of code with the entire team’s contributions. As an example, In GitHub, this would be a certain branch of a shared repository. A CI server can be set up so that it takes updated code through the process several times a month, week, or even a day.
+A _Continuous Integration server_ (_CI server_) makes it possible for several developers to merge their code into a central repository, then automate the process of building, testing, and deploying the set of code with the entire team’s contributions. As an example, In GitHub, this would be a certain branch of a shared repository. A CI server can be set up so that it takes updated code through the process several times a month, week, or even a day.
 
 The great thing about doing this is that code from several teams or developers can be brought together into the same working project quickly and tested, instead of developers trying to test their code in isolation (and not know what could break when all contributors’ code is built together).  
 
@@ -583,7 +583,6 @@ Negative
 Negative
 : <img src="assets/5.06C.png" alt="Running Brew" width="450"/>
 
---
 
 Let's start by setting up Jenkins on your local machine and using the test code from your computer as well. Keep in mind that this isn’t the proper way to go about this — it's merely beneficial for this example. To do it right, the Jenkins server (i.e., master node) would live on a machine of its own, or in a Virtual Machine (VM).
 
@@ -606,7 +605,7 @@ Jenkins was built on Java, and in order for your program to work, you will also 
 
 <img src="assets/5.06D.png" alt="Wrong Java Error" width="550"/>
 
-#### NOTE
+#### Note
 
 Negative
 : To Install JDK 8, visit the [Java 8 download page](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) from Oracle. You may have to create an account.
@@ -629,9 +628,6 @@ Negative
 : <img src="assets/5.06G.png" alt="Java Path Variable" width="650"/>
 
 
---
-
-
 ### Run Jenkins
 
 Once you have all dependencies (Java 8 or 11 and Homebrew) with Jenkins downloaded, launch it from the terminal with the command:
@@ -652,7 +648,7 @@ Next, set up Jenkins by visiting `localhost:8080` by typing it into your chrome 
 <img src="assets/5.06I.png" alt="Unlock Jenkins" width="750"/>
 
 
-Now use your terminal to navigate to the folder above, written in red. Once you are in the folder `/Users/username/.jenkins/secrets, `you can run the command in the terminal:
+Now use your terminal to navigate to the folder above, written in red. Once you are in the folder `/Users/username/.jenkins/secrets`, you can run the command in the terminal:
 
 
 ```
@@ -666,7 +662,7 @@ You will see the contents of the file with the password in the terminal. Copy an
 
 <img src="assets/5.06K.png" alt="Welcome to Jenkins" width="750"/>
 
-### Stopping Jenkins
+#### Stopping Jenkins
 
 To stop the Jenkins process running on your machine with Homebrew, simply type:
 
@@ -713,7 +709,7 @@ Once you have clicked on a project and chosen **Configure** from the menu, go to
 
 * Scroll down to the **Build** section and select **Add build step.**
 * Select **Execute shell.**.
-* Add the commands below to run locally on Jenkins, testing only the tests tagged with `@Category(shallow.class`), using the default environment:
+* Add the commands below to run locally on Jenkins, testing only the tests tagged with `@Category(shallow.class)`, using the default environment:
 
 ```
 mvn clean test -Dgroups=tests.groups.Shallow
@@ -736,10 +732,10 @@ First, return to the dashboard (You can do this by clicking the** Jenkins** icon
 
 
 
-### NOTE
+#### Note
 
 Negative
-: If you see a warning at the top of your Global Tool Configuration dashboard, you can **go to plugin manager**, choose the** Updates **tab, and install necessary updates.
+: If you see a warning at the top of your Global Tool Configuration dashboard, you can **go to plugin manager**, choose the **Updates** tab, and install necessary updates.
 
 Negative
 : <img src="assets/5.06X.png" alt="Plugin Manager" width="750"/>
@@ -748,13 +744,11 @@ Negative
 Negative
 : For those updates to take effect, you need to type in terminal:
 
-
 ```
 Brew services restart jenkins
 ```
 
 
---
 
 Under either the **Updates** or **Available** tab, you can search for JUnit, then check the box next to the **Build Reports** plugin, and click the button to **Download now and install after restart**.
 
@@ -800,7 +794,7 @@ Watch [5.06 Run Jenkins with Homebrew and Java ](https://drive.google.com/file/d
 ![https://drive.google.com/file/d/1YPKk1b1HdiWavNxTuR4m5QvPcTu7PCfn/preview](https://drive.google.com/file/d/1YPKk1b1HdiWavNxTuR4m5QvPcTu7PCfn/view?usp=sharing)
 
 
-#### NOTE
+#### Note
 
 Negative
 : Ideally, your test code would live in a version control system such as Git. The first thing you will need to do is get the plugin under **Manage Jenkins > Manage Plugins.** You can configure this under **Manage Jenkins > Global Tools Configuration**. To use a Git project, create a new project from the Jenkins homepage, then under the configuration of that project, choose Git for Source Code Management.
@@ -813,7 +807,7 @@ Negative
 Negative
 : Learn more about setting up Git source control in [this tutorial.](http://www.mastertheboss.com/cool-stuff/jenkins/jenkins-source-code-management-with-git)
 
---
+
 
 <!-- ------------------------ -->
 ## 5.07 Jenkins and Sauce OnDemand
@@ -903,7 +897,7 @@ Once you click **Save**, you should see your new access key listed under **Globa
 
 Now you can go to your project and set up your credentials. Go back to your Jenkins dashboard, choose the project you created, and then **Configure** in the menu. Scroll down, and under **Build Environment**, click the **Sauce Labs Options** checkbox. Make sure the credentials you just set up are listed here.
 
-You can configure a failed build to trigger things like e-mail messages or send information directly to Jira tickets. You can find out more[ here](https://plugins.jenkins.io/email-ext/). All you need to do to get started is go to **Manage Jenkins > Manage Plugins** and search for an email plugin in available plugins
+You can configure a failed build to trigger things like e-mail messages or send information directly to Jira tickets. You can find out more [here](https://plugins.jenkins.io/email-ext/). All you need to do to get started is go to **Manage Jenkins > Manage Plugins** and search for an email plugin in available plugins
 
 
 ### Running a Test with Sauce OnDemand and Sauce Connect
