@@ -346,7 +346,7 @@ Duration: 0:15:00
 
 Now we are ready to start writing the code for your first test. Create a new project directory called **SeleniumJava** (in your main project directory on your computer), and inside create the directory **java**. This is a default folder that Maven will know to look for.
 
-Inside of your Java file create a package with your company name. Mine is named **companyname.** Inside of that create a file called **TestLogin.java**.
+Inside of your Java file create a package with your company name. This example is named **companyname.** Inside of that create a file called **TestLogin.java**.
 
 <img src="assets/2.05N.png" alt="Directory Structure" width="350"/>
 
@@ -430,8 +430,7 @@ Negative
 : If you notice that some of the dependencies at the top are red, it means you need to install those dependencies. Refer to module 1.05 Video on [using IntelliJ to install dependencies](https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/view?usp=sharing), and the [Cheat Sheet ](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)for web drivers.
 
 Negative
-: We're able to do this by specifying a system property with `System.setProperty("webdriver.chrome.driver")` and providing the full path to the file which we find by using the project directory path and appending /vendor/geckodriver to it.
-
+: **Check driver path and browser version–** If your tests aren't running correctly, double check that the `System.setProperty("webdriver.chrome.driver")` has the full path to where you installed the chromedriver, and that the `browserOptions.setCapability("browserVersion", "XX.0");` matches the version of both the browser you have on your computer, and the version of the chromedriver you installed.
 
 
 ### Run a Test with IntelliJ
