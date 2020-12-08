@@ -373,10 +373,10 @@ public class TestLogin {
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver",   
-        "<insert filepath to chromedriver here>");
-          ChromeOptions browserOptions = new ChromeOptions();
-          driver = new ChromeDriver();
+        System.setProperty("webdriver.chrome.driver",  "<insert filepath to chromedriver here>");
+        ChromeOptions browserOptions = new ChromeOptions();
+        browserOptions.setCapability("browserVersion", "86.0");
+        driver = new ChromeDriver(browserOptions);
     }
 
     @Test
@@ -418,6 +418,11 @@ After creating the class, we add setup and teardown methods using what is known 
 
 This abstraction using the JUnit4 annotations library enables us to write our test with behavior we want to exercise in the browser, rather than clutter it up with setup and teardown details written in Java.
 
+### Capabilities & Properties
+
+Capabilities are an essential part of any test. When we instantiate a chromedriver for a test, whether it's locally or on our own machine, we can pass information, such as the environment we want the test to run on, in these capabilities. In this example, the only capability that is set is the `browserOptions.setCapability("browserVersion", "86.0");`. Remember when you installed your chromedriver? You want the browserVersion to match the version of the chromedriver you set.
+
+You will also need to set the path to the place on your computer where you unzipped the chromedriver. in the example, If you had your chromedriver unzipped in a user's Documents directory you would replace `System.setProperty("webdriver.chrome.driver",  "<insert filepath to chromedriver here>");` with `System.setProperty("webdriver.chrome.driver",  "/Users/username/Documents/chromedriver");` .
 
 ### Note
 
