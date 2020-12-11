@@ -375,7 +375,7 @@ public class TestLogin {
     public void setUp() {
         System.setProperty("webdriver.chrome.driver",  "<insert filepath to chromedriver here>");
         ChromeOptions browserOptions = new ChromeOptions();
-        browserOptions.setCapability("browserVersion", "86.0");
+        browserOptions.setCapability("browserVersion", "86.0"); //replace this with your version
         driver = new ChromeDriver(browserOptions);
     }
 
@@ -636,12 +636,12 @@ public class TestLocator {
     @Test
     public void locator_test() {
         driver.get("http://the-internet.herokuapp.com/challenging_dom");
-//        driver.findElement(By.id("    ")).click();
-//        driver.findElement(By.id("")).click();
+//        driver.findElement(By.id("    ")).click(); //add here
+//        driver.findElement(By.id("")).click(); //add here
 
         // Return the text of the red button id=button alert contains 'foo', 'bar', 'baz', or 'qux'
-        String output = driver.findElement(By.cssSelector(".button.alert")).getText();
-        System.out.println("The button reads: " + output);
+        String redButtonMessage = driver.findElement(        ).getText(); //add here
+        System.out.println("The button reads: " + redButtonMessage);
 
 }
 
