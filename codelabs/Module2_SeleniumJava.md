@@ -585,6 +585,8 @@ Once you have identified a class, id, name, link text, Xpath, etc. for an elemen
 
 In this exercise we can create a similar test using another page from the [the-internet app](https://the-internet.herokuapp.com/) called **[Challenging DOM](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2/2.07)**
 
+You can get the [test code that you will be adding to from the Github repo](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod2/2.07/src/test/java/companyname/TestLocator.java)
+
 Next, we will create a new test file, named `TestLocator.java.` Place it in the same ‘test’ folder as the other test we created:
 
 
@@ -595,7 +597,7 @@ Next, we will create a new test file, named `TestLocator.java.` Place it in the 
 #### Note
 
 Negative
-: This can be done in IntelliJ by right clicking within the **companyname **folder in the project window and creating a** New → Java Class **then naming it **TestLocator.**
+: This can be done in IntelliJ by right clicking within the **companyname** folder in the project window and creating a **New → Java Class** then naming it **TestLocator.**
 
 Negative
 : <img src="assets/2.08E.png" alt="New Java Class" width="650"/>
