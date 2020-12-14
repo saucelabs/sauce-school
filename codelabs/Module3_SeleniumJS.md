@@ -434,14 +434,23 @@ Now open `LoginPage.js` from the same folder, and import the base page class you
 // filename: pages/LoginPage.js
 const BasePage = require('./BasePage')
 
-const ...
-/Users/lindsaywalker/selenium-guidebook/book/javascript/content/chapters/09.md
+const LOGIN_FORM = { id: 'login' }
+const USERNAME_INPUT = { id: 'username' }
+const PASSWORD_INPUT = { id: 'password' }
+const SUBMIT_BUTTON = { css: 'button' }
+const SUCCESS_MESSAGE = { css: '.flash.success' }
+const FAILURE_MESSAGE = {css: '.flash.error'}
 
 class LoginPage extends BasePage {
   constructor(driver) {
     super(driver)
   }
+// ...
 ```
+### Note
+
+Negative
+: **Inheriting from the Base Page –** To establish inheritance, you used the` extends `keyword when declaring the class (example; class `LoginPage extends BasePage {}), `and call` super `from the constructor, `super(driver)`. This passes the instance of Selenium to the base page object, and makes all of the base page object's methods available to our login page object (through `this`.).
 
 
 You will first modify the class `LoginPage.js `to inherit from BasePage and the command in the class. Inside of the functions `async load(), async authenticate(), successMessagePresent(), and failureMessagePresent()` you are going to replace the methods that interact with the page.
@@ -500,11 +509,7 @@ Negative
 : It’s easier to read and understand that `this.type `wants you to type this in there, without having to specify the `driver`, `findElement `and `sendKeys`, method, etc.
 
 
-### Note
 
-**Inheriting from the Base Page –** To establish inheritance, you used the` extends `keyword when declaring the class (example; class `LoginPage extends BasePage {}), `and call` super `from the constructor, `super(driver)`. This passes the instance of Selenium to the base page object, and makes all of the base page object's methods available to our login page object (through `this`.).
-
-If you save everything and run our tests they will run and pass just like before. But now our page objects are more readable, simpler to write, and easier to maintain and extend.
 
 
 ### Final Code
