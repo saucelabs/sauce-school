@@ -1,7 +1,7 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
-summary: Basic information about the Sauce Labs Early Access training program.
-id: outcome_expectations
+summary: Sauce Labs Early Access
+id: Module2-EE-Outcome-Expectations
 categories: ee-info
 tags: ee  
 environments: Web
