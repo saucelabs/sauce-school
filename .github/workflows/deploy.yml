@@ -15,6 +15,7 @@ env:
   SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
   SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
   CLOUDSDK_PYTHON: python3.7
+  SAUCECTL_VERSION: "0.21.1"
 
 jobs:
   build:
@@ -105,7 +106,7 @@ jobs:
       - name: Run saucectl
         run: |
           # Install saucectl
-          curl -L -s  https://github.com/saucelabs/saucectl/releases/download/v0.18.0/saucectl_0.18.0_linux_64-bit.tar.gz | sudo tar -xvz -C /usr/bin/
+          curl -L -s  https://github.com/saucelabs/saucectl/releases/download/v${SAUCECTL_VERSION}/saucectl_${SAUCECTL_VERSION}_linux_64-bit.tar.gz | sudo tar -xvz -C /usr/bin/
           # Expose website
           cd site/dist && python3 -m http.server 8080 &
           # Run skipping ci-mode
