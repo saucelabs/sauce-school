@@ -130,6 +130,9 @@ Simply write your test with your chosen language bindings, framework, and Seleni
 
 ![https://drive.google.com/file/d/1CEy43CEYkAnATcbYxKblZU3PNoqc68AH/preview](https://drive.google.com/file/d/1CEy43CEYkAnATcbYxKblZU3PNoqc68AH/view?usp=sharing)
 
+### Quiz
+![https://docs.google.com/forms/d/e/1FAIpQLSfLQIrxtDvTREtpBzqhe-CkkbGMOJFmhBgjQ0fGpUN7vuuMMg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSfLQIrxtDvTREtpBzqhe-CkkbGMOJFmhBgjQ0fGpUN7vuuMMg/viewform?usp=sf_link)
+
 <!-- ------------------------ -->
 ## 1.05 Automated Test Results
 Duration: 0:05:00
@@ -183,7 +186,7 @@ Front-end performance metrics, which are typically not tested until an applicati
 
 <!-- ------------------------ -->
 ## 1.06 Sauce Live Testing
-Duration: 0:15:00
+Duration: 0:10:00
 
 With our Live Testing solution, you can test your websites and mobile apps interactively on thousands of real mobile devices, virtual mobile devices (simulators and emulators), and desktop browser/OS/resolution combinations.
 
@@ -275,3 +278,8 @@ Watch the following videos to get a taste of what live testing has to offer.
 
 
 Follow us on YouTube for more tips and demos: [Sauce Labs on YouTube](https://www.youtube.com/channel/UCzUaF3G8L5rfoh9xR6a51kg).
+
+<!-- ------------------------ -->
+## 1.07 Quiz
+Duration: 0:02:00
+![https://docs.google.com/forms/d/e/1FAIpQLSdZQysKo6x97Im-dpRWaLkhSEdCR9COeWAeKiYu2UUhLVxA6Q/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSdZQysKo6x97Im-dpRWaLkhSEdCR9COeWAeKiYu2UUhLVxA6Q/viewform?usp=sf_link)
