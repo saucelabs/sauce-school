@@ -1,7 +1,7 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
-summary: Basic information about the Sauce Labs Early Access training program.
-id: basic_information
+summary: Sauce Labs Early Access
+id: Module1-EE-Basic-Information
 categories: ee-info
 tags: ee  
 environments: Web

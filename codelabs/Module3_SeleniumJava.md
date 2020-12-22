@@ -946,6 +946,31 @@ Time to step through one more example to see if our explicit wait holds up.
 
 Now that you have our new page object and an updated base page, it's time to write our test to use it. If you noticed in your `DynamicLoading.java` page object from the last lesson, the methods like `loadExample() `were grey in the IDE because they weren’t being used.
 
+[The second dynamic loading example](http://the-internet.herokuapp.com/dynamic_loading/2) is laid out similarly to the last one. The difference is that it renders the final text after the progress bar completes (whereas the previous example had the element on the page but it was hidden until the progress bar finished). In other words, in the first test, the text was there but hidden, but in this test the text doesn’t even exist until after the loading image disappears.
+
+Notice that it has the same start `&lt;button>` and `id='finished'` at the beginning and end of the test. Will our same test work for the second page?
+
+Let's add a nearly identical second test to` DynamicLoadingTest.js` called `elementAppeared` that will load this second example and perform the same check (on the other page) as you did in the previous test.
+
+
+```
+
+// filename: tests/TestDynamicLoading.java
+// ...
+  @Test
+    public void elementAppears() {
+        dynamicLoading.loadExample("2");
+        assertTrue("finish text didn't render after loading",
+                dynamicLoading.finishTextPresent());
+    }
+// ...
+```
+
+
+Run the test. You can run the tests by typing `mvn clean test` in your terminal. To run just the tests in` TestDynamicLoading.java`, run the command  `mvn test -Dtest=TestDynamicLoading`
+
+<img src="assets/3.07I.png" alt="Run test dynamic Loading" width="550"/>
+
 
 #### NOTE
 
