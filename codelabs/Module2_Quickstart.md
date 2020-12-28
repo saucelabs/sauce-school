@@ -7,7 +7,7 @@ tags: quickstart
 environments: Web
 status: Draft
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
-author:Lindsay Walker
+author:Lindsay Walker, Eyal Yovel
 <!-- ------------------------ -->
 # Module 2 – Android Mobile Emulator Tests
 
@@ -155,6 +155,7 @@ The local Apium test is made up of a few basic files. We will use and edit all o
 
 
 ### Test Code Overview
+You can see an [example of the project code here.](https://github.com/walkerlj0/Quickstart_Android/tree/master/Mod2/2.03)
 
 The first thing you need to know is which capabilities are required to run a test using Appium and a local Android Device:
 
@@ -1330,7 +1331,7 @@ You can see an [example of the project code here.](https://github.com/walkerlj0/
 
 
 <!-- ------------------------ -->
-### 2.07 Run Tests in Parallel
+## 2.07 Run Tests in Parallel
 Duration: 0:10:
 
 The last thing we will do in this module is show you how to modify your TestNG test so that it can be run in parallel. To do this, we will add a couple elements to your TestNG xml file, as well as refactor the driver instantiation for each test so each test can run in it’s own thread.
@@ -1601,5 +1602,12 @@ If you would like, you can copy paste the two `@Test` annotations, renaming them
 
 
 #### Final Code
+You can see an [example of the project code here.](https://github.com/walkerlj0/Quickstart_Android/tree/master/Mod2/2.07)
+
+<img src="assets/QS2.07E.png" alt="Paralllel tests TestNG xml file" width="650"/>
 
 <img src="assets/QS2.07B.png" alt="Paralllel tests code" width="850"/>
+
+<img src="assets/QS2.07C.png" alt="Paralllel tests code" width="850"/>
+
+<img src="assets/QS2.07D.png" alt="Paralllel tests code" width="850"/>
