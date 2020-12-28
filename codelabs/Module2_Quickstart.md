@@ -184,7 +184,7 @@ You can use the **Start Inspector Session** button to test your capabilities in 
 
 #### pom.xml
 
-This file contains the libraries and configurations used by Maven to build the project. The versions for important dependencies, such as Appium, TestNG, logging, and Sauce Labs are included in this file. Any dependency you want to import in your project classes are specified here. You can easily update the variable with the version number in the `&lt;properties> `tag at the top.
+This file contains the libraries and configurations used by Maven to build the project. The versions for important dependencies, such as Appium, TestNG, logging, and Sauce Labs are included in this file. Any dependency you want to import in your project classes are specified here. You can easily update the variable with the version number in the `<properties>` tag at the top.
 
 <img src="assets/QS2.03B.png" alt="Appium Doctor" width="750"/>
 
