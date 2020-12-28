@@ -190,7 +190,7 @@ This file contains the libraries and configurations used by Maven to build the p
 <img src="assets/QS2.03B.png" alt="Appium Doctor" width="750"/>
 
 
-**mobile_native_local_test.xml –** This file contains information about which dependencies will be included in the Java & Maven project file, and which versions of these dependencies are used. This is a file used by the TestNG framework to organize tests. With this file you can set the order of tests run, add parallelization, reporting, [and more](https://www.softwaretestinghelp.com/testng-example-to-create-testng-xml/#:~:text=xml%3F-,TestNG.,it%20under%20one%20XML%20file.).  
+**mobile_native_local_test.xml –** This is a file used by the TestNG framework to organize how tests are executed, and which tests in your suite are run.  With this file you can set the order of tests run, add parallelization, reporting, [and more](https://www.softwaretestinghelp.com/testng-example-to-create-testng-xml/#:~:text=xml%3F-,TestNG.,it%20under%20one%20XML%20file.).  
 
 **Mobile_Native_Local_Test.java –** This is the main test file where all capabilities are set. Although it is not good practice, for the sake of a simple example, this includes all capabilities that communicate information about where and how the test is run, as well as all test method declaration and implementation.
 
@@ -764,6 +764,8 @@ You can see an [example of the project code here.](https://github.com/walkerlj0/
 
 <img src="assets/QS2.04M.png" alt="Quickstart 2.04 final code" width="850"/>
 
+### Quiz
+![https://docs.google.com/forms/d/e/1FAIpQLScjcAmkaZ8vc2I016VscegVEOEwHSt9ESRe15gi6WTVMqm5cg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScjcAmkaZ8vc2I016VscegVEOEwHSt9ESRe15gi6WTVMqm5cg/viewform?usp=sf_link)
 
 <!-- ------------------------ -->
 ## 2.05 Android Web Browser Test on Sauce Labs
