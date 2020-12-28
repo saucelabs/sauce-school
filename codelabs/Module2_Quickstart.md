@@ -1325,11 +1325,11 @@ Now when you run your tests, you will see the test names as well as a passing or
 
 You can see an [example of the project code here.](https://github.com/walkerlj0/Quickstart_Android/tree/master/Mod2/2.06)
 
-<!--
+
 <img src="assets/QS2.06D.png" alt="Final Android Appium Reporting test code part 1" width="850"/>
 
 <img src="assets/QS2.06E.png" alt="Final Android Appium Reporting test code part 2" width="850"/>
--->
+
 
 <!-- ------------------------ -->
 ## 2.07 Run Tests in Parallel
