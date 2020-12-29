@@ -780,6 +780,8 @@ To do this tutorial, start with the **[Basic Test](http://BasicTestLink.com)** a
 
 [Sauce Labs Mobile Browser Test](https://drive.google.com/file/d/1-M-S3lMh1Jvs__DPMvOlnzWW_-QLLxqa/view?usp=sharing)
 
+![https://drive.google.com/file/d/1-M-S3lMh1Jvs__DPMvOlnzWW_-QLLxqa/preview](https://drive.google.com/file/d/1-M-S3lMh1Jvs__DPMvOlnzWW_-QLLxqa/view?usp=sharing)
+
 
 #### Note
 Negative
@@ -1335,7 +1337,7 @@ You can see an [example of the project code here.](https://github.com/walkerlj0/
 
 <!-- ------------------------ -->
 ## 2.07 Run Tests in Parallel
-Duration: 0:10:
+Duration: 0:10:00
 
 The last thing we will do in this module is show you how to modify your TestNG test so that it can be run in parallel. To do this, we will add a couple elements to your TestNG xml file, as well as refactor the driver instantiation for each test so each test can run in it’s own thread.
 
@@ -1614,3 +1616,9 @@ You can see an [example of the project code here.](https://github.com/walkerlj0/
 <img src="assets/QS2.07C.png" alt="Paralllel tests code" width="850"/>
 
 <img src="assets/QS2.07D.png" alt="Paralllel tests code" width="850"/>
+
+<!-- ------------------------ -->
+## 2.08 Quiz
+Duration: 0:10:00
+
+![https://docs.google.com/forms/d/e/1FAIpQLScQI9FCIbgbN_ugLt8zMq9fGtEUk7NrzY3qsI3_Dzn0doPkpQ/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScQI9FCIbgbN_ugLt8zMq9fGtEUk7NrzY3qsI3_Dzn0doPkpQ/viewform?usp=sf_link)
