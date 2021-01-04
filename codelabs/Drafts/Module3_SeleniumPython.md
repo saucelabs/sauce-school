@@ -28,7 +28,7 @@ This module is derived from content in chapters 8-10 of _The Selenium Guidebook 
 *   Identify and fix problems in test suites such as poor locators, silent failures, and too much functionality in a single class
 *   Choose and separate imperative language into separate objects and pages, and use the simplified commands created in that class with other tests to write code that is easier to read, maintain, and declarative in nature
 *   Analyze and plan test suites, learning how to balance the size and maintainability (ability to check failed tests) against the amount of features you want to test, as well as the level of abstraction you want to use to make modular objects to use in your test suite
-*   Use the Page Object Model and create separate directories and files that are for Page objects and Test objects, and understand how they work together to make a full test suite
+*   Use the _Page Object Model_ and create separate directories and files that are for Page objects and Test objects, and understand how they work together to make a full test suite
 *   Understand how the latency that naturally occurs when you test in the cloud can impact the usability of test suites, and what you can do to ensure your tests can be run in any environment
 *   Understand what implicit and explicit waits are, and the effects that occur along with latency when test suites are moved from a local machine to the public cloud
 
