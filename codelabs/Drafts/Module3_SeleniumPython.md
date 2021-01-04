@@ -42,7 +42,7 @@ If you skipped Modules 1 & 2, make sure you have a project folder set up and hav
 
 #### NOTE
 Negative
-: If you are cloning ot downloading the GitHub repo, make sure you do the following:
+: If you are cloning or downloading the GitHub repo, make sure you do the following:
   * Ensure there is no `.pytest_cache` file in the project (delete it!)
   * You have [Python 3](https://help.dreamhost.com/hc/en-us/articles/115000699011-Using-pip3-to-install-Python3-modules) (including Pip3) and Pytest installed
   * You run `pip3 install -r requirements.txt` to install all the other dependencies.
