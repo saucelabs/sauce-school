@@ -57,23 +57,13 @@ If you are familiar with using GitHub to write your code, you can also clone or 
 ## 3.02 The POM and Imperative vs. Declarative Tests
 Duration: 0:08:00
 
-The Page Object Model (POM) is a design pattern that can be used with Selenium with any kind of framework. Using this pattern for tests means that you create two separate types of classes; **Pages** and **Test Cases**. The **Page** classes set up and navigate items on the page, using variables to represent web elements, and **Test** classes perform the actual assertions and tests.
+The Page Object Model (POM) is a design pattern that can be used with Selenium with any kind of framework. Using this pattern for tests means that you create two separate types of classes; **Pages** and **Test Cases**. The **Page** classes set up and navigate items on the page, using variables to represent web elements, and **Test** classes perform the actual assertions and tests. There is also a **base test** called `conftest.py`, which contains the fixture used to set up and tear down each test, and a **base page** which defines methods used in each test.
 
-<img src="assets/.png" alt="Resized POM Diagram" width="500"/>
+<img src="assets/3.02C.png" alt="Resized POM Diagram" width="550"/>
 
-Rather than integrate the calls to Selenium directly into your test methods, you can create separate classes. The POM allows you to write your tests using user-centric language, rather than Selenium-centric language.
+Rather than integrate the calls to Selenium directly (such as `driver.find_element()`) into your test or page methods, you can create them in a class, and call them later. Now you can use the methods with easier to understand language in your tests, making it easier for humans to read.
 
-Some general guidelines for creating page objects ( classes) include:
-
-*   The public methods represent the services that the page offers
-*   Try not to expose the internals of the page
-*   Generally don't make assertions
-*   Methods return other PageObjects
-*   Need not represent an entire page
-
-(Source: [https://github.com/SeleniumHQ/selenium/wiki/PageObjects](https://github.com/SeleniumHQ/selenium/wiki/PageObjects))
-
-Different results for the same action are modeled as different methods. Using strategies like this means that when your application changes and your tests break, you only have to update your page objects in one place in order to accommodate the changes. This gives us reusable functionality across our suite of tests, as well as more readable tests.
+Using strategies like this means that when your application changes and your tests break, you only have to update your page objects in one place in order to make the changes. This makes our tests easier to reuse.
 
 ### Imperative vs. Declarative Test Language
 
@@ -113,7 +103,6 @@ In both the **tests** and **pages** directory, you will want to create a blank f
  * Right click on the **pages** package and create a file names **login_page.py**.
 
  * Within both the **pages** and **tests** directories, there should be a file that will remain blank, called **\_init_\.py**.
- <img src="assets/3.03K.png" alt="Pages Directory" width="450"/>
 
  * Once you are done, your directory structure should look like the following:
  <img src="assets/3.03L.png" alt="Page Object Directory" width="450"/>
@@ -156,14 +145,18 @@ class LoginPage():
         assert login.failure_message_present()
 ```
 
-Notice how this new page object creates variables for all the elements you will interact with on the page, from the username files to the success message.
+Notice how this new page object creates variables for all the elements you will interact with on the page, from the username files to the success message. The `LoginPage` class is what will be used to contain all of this.
 
-It also defines a constructor in `__init__` that will create a new instance of the page each time a test is run. (_Note the double underscore before and after \_\_init\_\__). The `self` parameters that you see in the functions are to let python know that it should use the attributes and methods defined in the method itself, as there is no way to define private methods & attributes with Python and you want to make sure your function is using the correct one.
+It also defines a constructor in `__init__` (_Note the double underscore before and after `init`_) that will run each time a new instance of the `LoginPage` class is created. The driver is stored in the driver variable so other methods can access it with `self.driver`  
+
+#### NOTE
+Negative
+: The `self` parameters that you see in the functions are to let python know that it should use the attributes and methods defined in the method itself, as there is no way to define private methods & attributes with Python and you want to make sure your function is using the correct one.
 
 
 The `with_` method contains the core functionality of entering the information and logging into the page. If the login flow changes, you would only have to change this method to be able to reflect that in all your tests.
 
-Lastly, the different types of test methods are created at the bottom of the page in able to perform any checks you may with to perform. `success_message_present`, takes parameters for the type of locator and value of the locator (such as CSS selector) to check to see that the final success message is present on the screen after you log in.
+Lastly, the different types of locator methods are created at the bottom of the page in able to perform any checks you may with to perform. `success_message_present`, takes parameters for the type of locator and value of the locator (such as CSS selector) to check to see that the final success message is present on the screen after you log in.
 
 <img src="assets/3.03B.png" alt="Resized Message Present Example" width="500"/>
 
@@ -211,24 +204,32 @@ Go to the terminal at the bottom of the PyCharm IDE and run the command `pytest`
 #### Note
 Negative
 : If you have issues getting your test to run, check the following:
-* Make sure you have Python 3.7+ with pip 3 installed
-* You dependencies are correctly installed from requirements.txt `pip3 install -r requirements.txt`
-* There is no `.pytest_cache` file installed from a repo.
-* Both the **tests** and **page** Packages have an `\_\_init\_\_.py` file with double underscores before and after.
+
+Negative
+:* Make sure you have Python 3.7+ with pip 3 installed
+
+Negative
+: * You dependencies are correctly installed from requirements.txt `pip3 install -r requirements.txt`
+
+Negative
+:* There is no `.pytest_cache` file installed from a repo.
+
+Negative
+: * Both the **tests** and **page** Packages have an `\_\_init\_\_.py` file with double underscores before and after.
 <img src="assets/3.03N.png" alt="Login Failure Markup" width="600"/>
-* Go to the **PyCharm** menu then > **Preferences**. (On Windows it's **File > Settings**). Find the auto import settings, and make sure that your imports are set up to use the **from \<module\>** syntax:
-<img src="assets/3.03M.png" alt="Login Failure Markup" width="600"/>
 
-When you run pytest in the terminal, you should get results like this. (locator-test may or may not fail):
+Negative
+: * Go to the **PyCharm** menu then > **Preferences**. (On Windows it's **File > Settings**). Find the auto import settings, and make sure that your imports are set up to use the **from \<module\>** syntax: <img src="assets/3.03M.png" alt="Login Failure Markup" width="600"/>
 
-<img src="assets/3.03O.png" alt="Login Failure Markup" width="600"/>
+Negative
+: When you run pytest in the terminal, you should get results like this. The locator-test may or may not fail. This is what we call a lfaky test since the output changes. Sometimes you get the right respons, `baz`, and sometimes you do not: <img src="assets/3.03O.png" alt="Login Failure Markup" width="600"/>
 
-See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.03).
+
 
 #### Final Code
 
 
-Your new code in `test_login.py` should look like this:
+Your new code in `test_login.py` should look like this. See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.03).
 
 <img src="assets/3.03P.png" alt="Login Failure Markup" width="600"/>
 
@@ -246,7 +247,9 @@ There is more than one reason, however, why that test might fail. The test you w
 
 The term _Error Handling_ refers to creating cases that check for predictable negative outcomes or conditions so when the test is run, it accounts for other possible errors or failure cases.
 
-As you may have noticed in `login_test.py` there are methods for checking what happens when a user enters invalid credentials and a test to check that an error message is present. We will use these methods to
+As you may have noticed in `login_test.py` there are methods for checking what happens when a user enters invalid credentials and a test to check that an error message is present. You can also check to ensure that element are present before running a test to avoid exception being thrown for unknown reasons.
+
+
 ### Deleting Tests
 
 Even though you may have grown attached to test that you worked hard to create, it can often be a huge help to your testing suite to just delete tests that aren’t worth your time. Ask yourself the following questions:
@@ -305,10 +308,11 @@ In the list of members (variables) on `login_page.py` where the `LoginPage` clas
 ```
 # filename: pages/login_page.py
 class LoginPage():
+# ...
     _login_form = {"by": By.ID, "value": "login"}
 # ...
 ```
-In the `\_\_init\_\_.py` method, underneath the `self.driver.get` statement that points you to the URL for the application you are testing, add in the following:
+In the `__init__` method, underneath the `self.driver.get` statement that points you to the URL for the application you are testing, add in the following:
 
 ```
 # filename: pages/login_page.py
@@ -320,7 +324,7 @@ In the `\_\_init\_\_.py` method, underneath the `self.driver.get` statement that
 
 Run `pytest` in terminal, and you should see the tests run exactly as they did before, with an extra check in the beginning.
 
-You can force a failure by modifying the URL in the `\_\_init\_\_.py` method:
+You can force a failure by modifying the URL in the `__init__` method:
 ```
 # filename: pages/login_page.py
 # ...
@@ -334,7 +338,7 @@ def __init__(self, driver):
 
 <img src="assets/3.04K.png" alt="Failed to find login page" width="600"/>
 
-Change the URL back to `http://the-internet.herokua.com/login`. You can check the [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.04) to make your test looks the same.
+Change the URL back to `http://the-internet.herokuapp.com/login`. You can check the [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.04) to make your test looks the same.
 
 
 #### Final Code
@@ -351,14 +355,14 @@ The updated code should look like this:
 ## 3.05  Common Issues with Test Code Reuse
 Duration: 0:17:00
 
-In the previous lesson, you stepped through creating a simple page object to capture the behavior of the page you youre interacting with. While this is a good start, there's more you can do.
+In the previous lesson, you stepped through creating a simple page object to for all of the interactions your tests performs with the login page. While this is a good start, there's more you can do.
 
-As our test suite grows, and you add more page objects, you will start to see common behavior that you will want to use over and over again throughout our suite. If you leave this unchecked you will end up with duplicative code which will slowly make our page objects harder to maintain.
+As our test suite grows, and you add more page objects, you will start to see common behavior that you will want to use over and over again throughout our suite. You will want to abstract out common actions into a base page.
 
 Right now you are using Selenium actions directly in your page object. While on the face of it this may seem fine, it has some long term impacts, like:
 
 *   It can slow page creation & rendering due to the way the JavaScript or other library loads things on the page
-*   You may need to update your test code (added maintenance for each page) because of updates and changes to the [Selenium API](https://www.selenium.dev/selenium/docs/api/javascript/index.html)
+*   You may need to update your test code (added maintenance for each page) because of updates and changes to the [Selenium API](https://www.selenium.dev/documentation/en/webdriver/)
 *   The inability to swap out the driver for your tests. You may in the future, for instance, want to swap out commands in Selenium for commands in Appium (for mobile testing)
 
 What you will do now is set up a Base Page that will create descriptive variables and methods, then use those created methods to interact with other pages. This way, if you need to swap out, say, a Selenium method for an Appium method, instead of having to do it in each and every page, you can change the BasePage.js methods to Appium-specific ones, and not have to change all of your other pages.
@@ -366,29 +370,97 @@ What you will do now is set up a Base Page that will create descriptive variable
 
 ### Part 1: Create a Facade Layer
 
-Creating a _facade layer_ involved creating a separate page or class from your test page, that helps you simplify the language to carry out simple commands like `-------`, as well as check an assertion after, and simplify this process into a single command like `type()` or `find()` so that these methods can be easily used by the rest of the test suite. In this lesson, you will create a simplified interface called `---------`, which you will then use within our `----------` class.
+Creating a _facade layer_ or a **Base Page**  involves creating a separate page or class from your test page, that helps you simplify the language to carry out simple commands like `self.driver.get(url)`, check an assertion after, and simplify this process into a single command like `find()` or `click()` so that these methods can be easily used by the rest of the test suite. In this lesson, you will create a simplified member called `base_page.py`, which you will then use to create your `login_page` class.
 
-First let's add a new file
-//...
+First let's add a new file in the **pages** directory called `base_page.py`.
 
+```
+#  filename: pages/base_page.py
+class BasePage():
+    def __init__(self, driver):
+        self.driver = driver
 
-### Part 1 Create a Facade Layer
+    def _visit(self, url):
+        self.driver.get(url)
 
-Next let's open `----- `in your IDE and insert the following code:
+    def _find(self, locator):
+        return self.driver.find_element(locator["by"], locator["value"])
+
+    def _click(self, locator):
+        self._find(locator).click()
+
+    def _type(self, locator, input_text):
+        self._find(locator).send_keys(input_text)
+
+    def _is_displayed(self, locator):
+        return self._find(locator).is_displayed()
+```
+
+After declaring the class `BasePage()` you receive and store an instance of the Selenium `driver` just like in our Login page object does. Next, define methods to be used by other page objects; _visit, _find, _click, _type, and _is_displayed. We can reuse these methods as we need for certain behaviors.
+
+Now that we have all of our Selenium actions in one place, let's update our login page object to leverage this facade.
+
+At the top of the `base_page.py` object, you can now import the `BasePage` class:
+
+```
+#  filename: pages/login_page.py
+from selenium.webdriver.common.by import By
+from base_page import BasePage
 # ...
+```
 
+You will also want to create the LoginPage class by inheriting the BasePage object:
 
-In this module, you declare a BasePage class along with methods for all of the common behavior you use with Selenium  (`visit`, `find`, `click`, `type`, and `isDisplayed`). // ...
+```
+#  filename: pages/login_page.py
+# ...
+class LoginPage(BasePage):
+# ...
+```
 
-Now open `LoginPage.js` from the same folder, and import the base page class you just created by putting ......
+In the `__init__` method replace the  logic using the `_visit` and `_is_displayed` methods:
 
-A few things have changed in our Login page object. We've imported the base page class you want to use, established inheritance between the two classes, and we've swapped out all of our Selenium commands with calls to the methods in the base page object (e.g., `this.visit, this.type, this.click`).
+```
+#  filename: pages/login_page.py
+#...
+def __init__(self, driver):
+    self.driver = driver
+    self._visit("http://the-internet.herokuapp.com/login")
+    assert self._is_displayed(self._login_form)
+#...
+```
+Update the `_with` method useing the `_type` and `_click` methods:
+
+```
+#  filename: pages/login_page.py
+#...
+def with_(self, username, password):
+    self._type(self._username_input, username)
+    self._type(self._password_input, password)
+    self._click(self._submit_button)
+#...
+```
+
+Lastly, use the `_is_displayed` method in both of the methods that check for failure of success messages:
+
+```
+#  filename: pages/login_page.py
+#...
+    def success_message_present(self):
+        return self._is_displayed(self._success_message)
+
+    def failure_message_present(self):
+        return self._is_displayed(self._failure_message)
+#...
+```
+Test out running your test code with the `pytest` command, and they should run just like before.
+
 
 #### Final Code
 
 Your final code at this stage should look like this:
 
-<img src="assets/.png" alt="Final Code 3.05" width="600"/>
+<img src="assets/3.05N.png" alt="Final Code 3.05" width="800"/>
 
 ### Part 2: Exception Handling........
 
