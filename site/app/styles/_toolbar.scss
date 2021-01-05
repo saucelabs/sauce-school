@@ -154,6 +154,9 @@
         }
         .sub-nav__link {
           display: inline-block;
+          img {
+            height: 5px;
+          }
         }
       }
       .sub-nav__inner--left {
