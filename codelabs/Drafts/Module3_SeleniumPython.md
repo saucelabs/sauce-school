@@ -206,13 +206,13 @@ Negative
 : If you have issues getting your test to run, check the following:
 
 Negative
-:* Make sure you have Python 3.7+ with pip 3 installed
+: * Make sure you have Python 3.7+ with pip 3 installed
 
 Negative
 : * You dependencies are correctly installed from requirements.txt `pip3 install -r requirements.txt`
 
 Negative
-:* There is no `.pytest_cache` file installed from a repo.
+: * There is no `.pytest_cache` file installed from a repo.
 
 Negative
 : * Both the **tests** and **page** Packages have an `\_\_init\_\_.py` file with double underscores before and after.
@@ -462,7 +462,7 @@ Your final code at this stage should look like this:
 
 <img src="assets/3.05N.png" alt="Final Code 3.05" width="800"/>
 
-### Part 2: Exception Handling........
+### Part 2: Add Error Handling
 
 You may be wondering why we didn't just check to see if the success message wasn't present by checking for a false condition in our assertion.
 
@@ -473,42 +473,80 @@ There are two problems with this approach. First, our test will fail and throw a
 
 ```
 NoSuchElementException: Message: Unable to locate element: {"method":"css selector","selector":".flash.success"}
-But don't worry, we'll address this in the next chapter.
 ```
 
 Second, the absence of a success message doesn't necessarily indicate a failed login. This is why checking for the presence of the failure message is more effective.
 
-[3.05 Exception Handling Cheat Sheet]()
 
-##### Cheat Sheet
+In the `_is_displayed` method declaration in `base_page.py` make a change that will check to see if will try and find a locator, then instead of throwing an exception if it fails, it will throw a `False` condition. You will also need to import the `NoSuchElementException` at the top.
+
+```
+#  filename: pages/base_page.py
+from selenium.common.exceptions import NoSuchElementException
+#  ...
+    def _is_displayed(self, locator):
+        try:
+            return self._find(locator).is_displayed()
+        except NoSuchElementException:
+            return False
+```
 
 
+Now, to test out this new exception handling, revisit your `test_invalid_credentials)` test and alter it so it checks to see if the success message is not present (which would normally trigger a NoSuchElementException exception) to make sure things work as we expect.
 
-Next, in  `------` make a change
+```
+#  filename: tests/login_test.py
+#  ...
+    def test_invalid_credentials(self, login):
+        login.with_("tomsmith", "bad password")
+        assert login.success_message_present() == False
+```
 
-Now when you run your test (`-------` in terminal from your project folder), you should see one passing and one failing test. ........
 
-<img src="assets/.png" alt="Failed Login Error Handling" width="600"/>
+Now when you run your test with the command `pytest` in terminal from your project folder, you should see two passing tests, and no exceptions.
 
-Let's change the password back to `--------` and r
-
-//...
-
-When you run your test, you should get two success messages:
-
-<img src="assets/.png" alt="Success messages for both tests" width="500"/>
-
-Review the [final code]() for the project in this lesson.
+<img src="assets/3.05O.png" alt="Failed Login Error Handling" width="600"/>
 
 #### Final Code
+Review the [complete source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.05).
+<img src="assets/3.05P.png" alt="Final Code" width="600"/>
+<img src="assets/3.05Q.png" alt="Final Code" width="600"/>
 
-<img src="assets/.png" alt="Final Code" width="600"/>
 
 
-Review the [complete source code]().
 
 ### Quiz
-![EmbedURL](SareURL)
+![https://docs.google.com/forms/d/e/1FAIpQLSfUgz1Gnz8mv8WF4elflytHTBs62MQ2hgy3gDGFlredsmvdYQ/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSfUgz1Gnz8mv8WF4elflytHTBs62MQ2hgy3gDGFlredsmvdYQ/viewform?usp=sf_link)
+
+<!--
+Quiz
+What are the reasons you created base_page.py? Pick the most correct answer.
+1. You are lazy and don’t want to have to write code as many times, and you know the code will never change, so you can just put it all in a base page and forget about it.
+2. You want to give people writing tests only five options to create tests with, (visit, find, click, type, isDiplayed) so they don’t make overly complex tests, so you created these in BasePage.
+3. You aren’t using the functionality of this.driver.get() or this.driver.FindElement(), so you put it in a separate document that won’t be used in our test suite.
+4. You want to be able to make other pages you make, like LoginPage.java  more readable, as well as reuse basic code so it’s easier to update in one place, and take effect everywhere.*
+
+*Creating a base page makes tests more readable and maintainable. It does also reduce the amount of code that you write, though this isn't the main reason for creating a base page.
+
+Why does is the following code not usable in a test?
+
+```
+assert login.success_message_present() == False
+-----------------------------------------------------
+def success_message_present(self):
+    return self._is_displayed(self._success_message)
+----------------------------------------------------
+def _is_displayed(self, locator):
+        return self._find(locator).is_displayed()
+```
+
+1. When you need to have a try, except statement in the _is_displayed method otherwise an exception will be thrown and the test will stop running.*
+2. It isn't possible to check for Boolean conditions in a test without an if, else statement.
+3. If the login was successful with bad credentials, they wouldn’t be able to see it was occurring.
+4. When you need to have a try, except statement in the _is_displayed method otherwise it won't detect a Boolean condition.
+
+*The try, except statement  in required int he _is_displayed method so that,  instead of an error, a 'False' condition can be returned instead of throwing an exception, and interrupt the running of the test.
+-->
 
 ## 3.06  Resilient Test Code and Timing — Page with Explicit Waits
 Duration: 0:12:00
@@ -552,7 +590,7 @@ The only time you would want to use an implicit wait is to make sure your tests 
 
 #### Cheat Sheet
 
-[3.06 Waits Cheat Sheet]()
+[3.06 Exception Handling Cheat Sheet]()
 
 
 ### Create a Page with Explicit Waits
