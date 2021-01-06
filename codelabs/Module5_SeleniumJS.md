@@ -545,7 +545,7 @@ Once you have all dependencies (Java 8 or 11 and Homebrew) with Jenkins download
 
 
 ```
-brew services start jenkins-lts
+brew services start jenkins
 ```
 
 
@@ -579,7 +579,7 @@ To stop the Jenkins process running on your machine with Homebrew, simply type:
 
 
 ```
-brew services stop jenkins-lts
+brew services stop jenkins
 ```
 
 
@@ -637,21 +637,14 @@ To return to the dashboard and see the list of projects, you can click **Back to
 
 Since you are using `npm` to manage dependencies, including Mocha and the `npm test `command, you need to set up **NodeJS **as a **Global Tool **so Jenkins can use it in the same way your machine does to run tests.
 
-First, return to the dashboard (You can do this by clicking the** Jenkins** icon in the menu at any time). Next, click on **Manage Jenkins** > **Global Tool Configuration**.
+First, return to the dashboard (You can do this by clicking the **Jenkins** icon in the menu at any time). Next, click on **Manage Jenkins > Global Tool Configuration**.
 
 <img src="assets/5.06Q.png" alt="Manage Jenkins Global Tools Configuration" width="750"/>
 
 NOTE
-If you see a warning at the top of your Global Tool Configuration dashboard, you can go to the plugin manager, choose the **Available** tab, and install necessary updates.
-
-For those updates to take effect, you need to type in terminal:
-
-<img src="assets/5.06R.png" alt="Global Tools Config" width="750"/>
-
-Brew services restart jenkins-lts
+If you see a warning at the top of your Global Tool Configuration dashboard, you can go to the plugin manager, choose the **Available** tab, and install necessary updates.<img src="assets/5.06R.png" alt="Global Tools Config" width="750"/> For those updates to take effect, you need to type in terminal: `Brew services restart jenkins`
 
 
---
 
 
 Scroll down to the bottom where you will see the NodeJS section. Open it up and choose **Add NodeJS**. Give this one a name, and pick your version of NodeJS. We also need to make sure it installs the most recent version of mocha. You will do this by typing `mocha@&lt;x.x.x`>. This should be the same as the version in your `package.json` file. Hit** Save**.
@@ -778,7 +771,7 @@ Install and restart Jenkins in the terminal with Homebrew (which is quicker) by 
 
 
 ```
-brew services restart jenkins-lts
+brew services restart jenkins
 ```
 
 

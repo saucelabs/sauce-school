@@ -548,7 +548,7 @@ def _is_displayed(self, locator):
 *The try, except statement  in required int he _is_displayed method so that,  instead of an error, a 'False' condition can be returned instead of throwing an exception, and interrupt the running of the test.
 -->
 
-## 3.06  Resilient Test Code and Timing — Page with Explicit Waits
+## 3.06  Resilient Test Code and Timing
 Duration: 0:12:00
 
 
@@ -562,21 +562,27 @@ There is a simple way to design the bedrock of reliable and resilient Selenium t
 
 One important thing to understand with the Selenium framework is that each method you write requires a round-trip communication between the tests and the devices. When you use these tests on the cloud, and to test remote devices, the round trips can start to take a very long time.
 
-<img src="assets/.png" alt="Page Waits Diagram" width="500"/>
+<img src="assets/3.06P.png" alt="Page Waits Diagram" width="500"/>
 
-A function like the `--------` function here has a total of ------ “round trips” to do.
+A function like the `_with` function here has a total of six “round trips” to do.
 
 ```
--
+def with_(self, username, password):
+    self.driver.find_element(self._username_input["by"],
+                             self._username_input["value"]).send_keys(username)
+    self.driver.find_element(self._password_input["by"],
+                             self._password_input["value"]).send_keys(password)
+    self.driver.find_element(self._submit_button["by"],
+                             self._submit_button["value"]).click()
 ```
 
-In this example....
+In this example you locate the username filed, input a username, locate a password page, input a password, and locate the submit button, then click the submit button, which means there are six separate signals sent to the driver, which can add significate time when you are sending it to a remote browser.
 
 ### Implicit vs. Explicit Waits
 
 Explicit waits pause your test execution until a specified event triggers, which prevents errors due to lag. For example, you can ask your code to wait until something is clicked, until something loads on the page, and much more.
 
-Implicit waits pause your test execution for a specified amount of time before continuing to the next function or class. You can also pause your test execution indefinitely (including any asynchronous commands within the program) with a `sleep` command, which would then require an additional command to "wake up" and continue.
+Implicit waits pause your test execution for a specified amount of time for all functions or classes, before continuing to the next function or class. You can also pause your test execution indefinitely (including any asynchronous commands within the program) with a `sleep` command, which would then require an additional command to "wake up" and continue.
 
 <img src="assets/3.06B.png" alt="sleep" width="450"/>
 
@@ -590,7 +596,7 @@ The only time you would want to use an implicit wait is to make sure your tests 
 
 #### Cheat Sheet
 
-[3.06 Exception Handling Cheat Sheet]()
+[3.06 Exception Handling Cheat Sheet](https://docs.google.com/document/d/1AZPbWbIITwAQ9hJxSUxT53sr2U7ofq1i3FIEiOU5OBk/edit?usp=sharing)
 
 
 ### Create a Page with Explicit Waits
@@ -603,14 +609,40 @@ We’re going to use this page as an example that demonstrates waits against [a 
 
 <img src="assets/3.06E.png" alt="Page Loaded" width="600"/>
 
-First we'll create a page object named `--------` in the pages directory.
+First we'll create a new python file in the **pages** directory named `dynamic_loading_page.py` .
 
-<img src="assets/.png" alt="Page Wait Directory" width="400"/>
+<img src="assets/3.06Q.png" alt="Page Wait Directory" width="400"/>
 
 Paste in the following code:
 
 ```
+# filename: pages/dynamic_loading_page.py
+from selenium.webdriver.common.by import By
+from . base_page import BasePage
+
+
+class DynamicLoadingPage(BasePage):
+    _start_button = {"by": By.CSS_SELECTOR, "value": "#start button"}
+    _finish_text = {"by": By.ID, "value": "finish"}
+
+    def ___init___(self, driver):
+        self.driver = driver
+
+    def load_example(self, example_number):
+        self._visit("http://the-internet.herokuapp.com/dynamic_loading/" + example_number)
+        self._click(self._start_button)
+
+    def finish_text_present(self):
+        return self._is_displayed(self._finish_text, 10)
 ```
+Again, you inherit from the `BasePage`, then creat two variables to locate the start button, then locate the finish message.
+
+There is the `__init__` method to instantiate a driver, then two methods. The `load_example` method loads the [Dynamic Loading page from the-internet app](https://the-internet.herokuapp.com/dynamic_loading) and clicks the **Start** button, then the `finish_text_present` checks for the text that appears after the **Loading...** finishes.
+
+Since there are two different **Dynamimc Loading** pages, you will pass in either a `1` or `2` when you call `load_example`.
+
+Next, we will modify the `BasePage` to take a timeout as a parameter, and 
+
 // ...
 
 ### Don’t Combine Explicit and Implicit Waits
