@@ -808,7 +808,8 @@ This is one of the most important concepts in testing with Selenium: _use explic
 
 
 #### Final Code
-See an example of [the final code here]()
+See an example of [the final code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.07)
+
 <img src="assets/3.07O.png" alt="Final Code 3.07" width="550"/>
 
 
