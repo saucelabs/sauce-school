@@ -36,12 +36,10 @@ This module is created to walk you through the steps you need to take to get a t
 
 
 ### Resources
-Download the following resourceson your computer.
-
-
-*   Clone or download [Android Test Code](https://github.com/walkerlj0/Quickstart_Android)
-*   Swag Labs [Android Native Demo App](https://github.com/saucelabs/sample-app-mobile/releases)
-    *   Scroll down and find the **Android.SauceLabs.Mobile.Sample.app.x.x.x.apk** file. Choose the latest version you can find.
+Download the following resources on your computer:
+* [Android Test Code](https://github.com/walkerlj0/Quickstart_Android). See the _/Mod2/2.03_ to follow along starting on the next module.
+* Swag Labs [Android Native Demo App](https://github.com/saucelabs/sample-app-mobile/releases)
+    * Scroll down and find the **Android.SauceLabs.Mobile.Sample.app.x.x.x.apk** file. Choose the latest version you can find.
 
 <img src="assets/QS2.02A.png" alt="Swag Labs Mobile App Repo" width="650"/>
 
@@ -61,24 +59,25 @@ To run a local test, you will need to set up and install the following:
 
 
 
-*   Appium
-    *  The [Appium Desktop App](https://github.com/appium/appium-desktop/releases) or
-    *   Appium Server: [Set it up ](https://www.swtestacademy.com/how-to-install-appium-on-mac/)with Android Studio
-*   [Java Development Kit 8 ](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)or higher
-*   [Android Studio](https://developer.android.com/studio)
-*   [Appium Doctor](https://github.com/appium/appium-doctor)
-    *   `npm install appium-doctor -g`
-*   [Maven build tool](https://maven.apache.org/)
-*   An IDE to edit test code like IntelliJ Community Edition
+* Appium
+    * [Appium Desktop App](https://github.com/appium/appium-desktop/releases) or
+    * Appium Server: [Set it up ](https://www.swtestacademy.com/how-to-install-appium-on-mac/)with Android Studio
+* JDK 8 or higher
+* [Android Studio](https://developer.android.com/studio)
+* [Appium Doctor](https://github.com/appium/appium-doctor)
+    * `npm install appium-doctor -g`
+* [Maven build tool](https://maven.apache.org/)
+* An IDE to edit test code like [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
 
 If you would like step-by-step instructions to help with the dependencies above, there are lessons in the Selenium Java Course:
 
 
 
-*   [How to set up your environment ](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4)with Java, Maven, and IntelliJ
-*   [Create your first project file in IntelliJ](https://training.saucelabs.com/codelabs/Module2-SeleniumJava/index.html?index=..%2F..SeleniumJava#5)
+* [How to set up your environment ](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4)with Java, Maven, and IntelliJ
+* [Create your first project file in IntelliJ](https://training.saucelabs.com/codelabs/Module2-SeleniumJava/index.html?index=..%2F..SeleniumJava#5)
 
 See instructions for [setting up your Windows environment here](https://docs.google.com/document/d/1herzHbTJdQpa-hAIR5llTfbbw20PeM99-BAoVTeuC8U/edit?usp=sharing).
+
 
 ### Appium
 
