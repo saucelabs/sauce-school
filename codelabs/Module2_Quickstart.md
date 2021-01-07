@@ -32,6 +32,7 @@ There are many possibilities for testing in[ Sauce Labs](http://app.saucelabs.co
 <!-- ------------------------ -->
 ## 2.02 Set Up a Local Android Test Environment
 Duration: 0:010:00
+
 This module is created to walk you through the steps you need to take to get a test running on [Sauce Labs.](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link) You will start with a local test running on the Appium Server, using the Android Studio device emulator. If you would like to follow along, you can start here with the example application and Appium Test code to run on your local machine, or skip ahead to the next module to start running tests on Sauce Labs.
 
 
