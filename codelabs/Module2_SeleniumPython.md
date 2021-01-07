@@ -3,7 +3,7 @@ id: Module2-SeleniumPython
 categories: intermediate
 tags: python
 environments: Web
-status: Hidden
+status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 author:Lindsay Walker
 <!-- ------------------------ -->

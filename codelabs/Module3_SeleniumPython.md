@@ -1,7 +1,7 @@
 summary: Module 3 Writing Reusable Test Code
-id: Module3-SeleniumJS
+id: Module3-SeleniumPython
 categories: advanced
-tags: javascript
+tags: python
 environments: Web
 status: Published
 authors: Lindsay Walker
@@ -222,7 +222,7 @@ Negative
 : * Go to the **PyCharm** menu then > **Preferences**. (On Windows it's **File > Settings**). Find the auto import settings, and make sure that your imports are set up to use the **from \<module\>** syntax: <img src="assets/3.03M.png" alt="Login Failure Markup" width="600"/>
 
 Negative
-: When you run pytest in the terminal, you should get results like this. The locator-test may or may not fail. This is what we call a lfaky test since the output changes. Sometimes you get the right respons, `baz`, and sometimes you do not: <img src="assets/3.03O.png" alt="Login Failure Markup" width="600"/>
+: When you run pytest in the terminal, you should get results like this. The locator-test may or may not fail. This is what we call a lfaky test since the output changes. Sometimes you get the right respons, `baz`, and sometimes you do not:   <img src="assets/3.03O.png" alt="Login Failure Markup" width="600"/>
 
 
 
@@ -815,4 +815,4 @@ See an example of [the final code here](https://github.com/walkerlj0/Selenium_Co
 
 ## 3.08 Quiz
 
-![EmbedURL](ShareURL)
+<!-- ![EmbedURL](ShareURL) -->
