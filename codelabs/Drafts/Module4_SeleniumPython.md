@@ -1,20 +1,20 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
-summary: Module X of the course X. Learn to write Selenium tests in X programming language with X Test runner and X framework
-id: ModuleX_SeleniumLang
-categories: <enter a single category for drop-down filter>
-tags: <enter Language names here from tools/site/app/views what is labeled in the view.json tag: attribute>  
+summary: Module 4 Scaling Tests to the Cloud
+id: Module4-SeleniumPython
+categories: advanced
+tags: python
 environments: Web
-status: One or more of (Draft, Published, Deprecated, Hidden)
+status: Draft
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 author:Lindsay Walker
 <!-- ------------------------ -->
-# Module 4 – Title of codelab
+# Module 4 – Scaling Tests to the Cloud
 <!-- ------------------------ -->
-## 4.01 What You'll Lern
+## 4.01 What You'll Learn
 Duration: 0:03:00
 
-This module is derived from content in chapters 11-13 of _The Selenium Guidebook_ ________ Edition_ By Dave Haeffner._ _This module guides you through creating a separate `spec_helper` file where the root level` --------------  `and` ---------` hooks will live for each test, as well as a _Driver Factory _which creates th`e------------ `and `--------` functions used for each instance of a test.  Users will work through creating a `-------` file to store the environment variables for where (in which environment) your test is run on, and modify the DriverFactory to check & pull environment variables from `-------` Last but not least, add in some features to make your tests results easier to read and debug using the Sauce Labs platform
+This module is derived from content in chapters 11-13 of _The Selenium Guidebook Python Edition_ By Dave Haeffner. This module guides you through creating a separate test object called `conftest`  ...... where ......, as well as a _Driver Factory_ which creates the `------------ `and `--------` functions used for each instance of a test.  Users will work through creating a `-------` file to store the environment variables for where (in which environment) your test is run on, and modify the DriverFactory to check & pull environment variables from `-------` Last but not least, add in some features to make your tests results easier to read and debug using the Sauce Labs platform
 
 
 ### Objectives
@@ -110,20 +110,19 @@ We'll create three things.
 
 *   A class that will contain the creation and destruction of our Selenium instances (known as a `-------`)
 *   A helper that all tests will pull from to do the basic things each test should do such as `-------` and `-------`
-*   Change a configuration in `------- `to -------
+*   Change a configuration in `------- `to `-------`
 
-Create a new directory called `-------`In the `------- `directory we'll create a new file called `-------`and in the `test` directory we'll create a file called `------- `
 
-&lt;img src="assets/XXX.png" alt="Image Name" width="550"/>`
+<img src="assets/4.03L.png" alt="conftest.py" width="550"/>
 
 
 #### NOTE
 
 If you want to use terminal to set this up, simply type (from your project directory):
 
-
 ```
-mkdir -----
+cd ../SeleniumPython/tests
+touch conftest.py
 ```
 
 
@@ -181,7 +180,9 @@ Thus far we have prepared our test suite well to be reusable. When you have thin
 
 #### Video
 
-Watch the video [4.04 Non-Duplication](https://drive.google.com/file/d/1Rb1svBenpDT-ADUeniVbLtWJPdTzrXQl/view?usp=sharing) an excerpt from [Sauce Labs’ Tech Talk](https://www.youtube.com/watch?v=ZLS9sU2A9QA&t=24s) by Nikolay Advolodkin
+Watch the video below, an excerpt from [Sauce Labs’ Tech Talk](https://www.youtube.com/watch?v=ZLS9sU2A9QA&t=24s) by Nikolay Advolodkin
+![https://drive.google.com/file/d/1Gyv3tO9I4NanOAoCsPi5sVlqMx0iWcm0/preview](https://drive.google.com/file/d/1Rb1svBenpDT-ADUeniVbLtWJPdTzrXQl/view?usp=sharing)
+
 
 
 ### Part 1: Creating a Config File
@@ -192,34 +193,105 @@ The whole point of setting up a test suite is that you can run your tests agains
 
 So let's make it so you can specify a different base URL for our tests at runtime.
 
-First, create a file called `----------` in the `--------` directory. You can use these commands from the project directory in your terminal:
+First, create a file called `conf.py` in the `tests` directory. You can use these commands from the project directory in your terminal:
 
 
 ```
-cd -------
-touch ----------
+cd SeleniumPython/tests
+touch conftes.py
 ```
 
 
 Your file directory should look like this:
 
-&lt;img src="assets/XXX.png" alt="Image Name" width="550"/>`
+<img src="assets/4.03L.png" alt="Image Name" width="550"/>
+
+Copy and paste the following code into `conftest.py`:
+
+```
+# filename: tests/conftest.py
+import pytest
+import os
+from selenium import webdriver
 
 
-### Create a baseURL
+@pytest.fixture
+def driver(request):
+    _chromedriver = os.path.join(os.getcwd(), 'vendor', 'chromedriver')
+    if os.path.isfile(_chromedriver):
+        driver_ = webdriver.Chrome(_chromedriver)
+    else:
+        driver_ = webdriver.Chrome()
 
-Next, what we will do is create a separate file for setting the browser that your test will run in, and store it in a variable called baseURL.
+    def quit():
+        driver_.quit()
 
-Open `---------- `with your IDE and paste in the following:
+    request.addfinalizer(quit)
+    return driver_
+```
+Now, since we have this created in a separate file, we can go in and delet everthing in the login method, and replace the `login(request)` parameter with `login(driver)` as well as all the login in the login method:
 
 
 ```
-// filename:
+# filename: tests/login_test.py
+# ...
+@pytest.fixture
+def login(request):
+    return pages.login_page.LoginPage(driver
+# ...
+```
 
+You will also delete the imports that arte now in `conftest.py` such as selenium, web driver and os, leaving you with simply:
+
+```
+# filename: tests/login_test.py
+import pytest
+from pages import login_page
+# ...
+```
+
+Do the same with `dynamic_loading_test..py` and replace the request parameter with driver and the dynamic_loading method like so:
+
+```
+# filename: tests/dynamic_loading_test.py
+# ...
+@pytest.fixture
+    def dynamic_loading(driver):
+        return dynamic_loading_page.DynamicLoadingPage(driver)
+
+    request.addfinalizer(quit)
+    return dynamic_loading
+```
+Finally, update the imports in `dynamic_loading_test.py`:
+
+```
+# filename: tests/dynamic_loading_test.py
+import pytest
+from pages import dynamic_loading_page
+# ...
+```
+
+#### Final Code
+
+<img src="assets/4.03M.png" alt="Image Name" width="550"/>
+
+<img src="assets/4.03N.png" alt="Image Name" width="550"/>
+
+### Part 2: Create a Base URL
+
+Next, what we will do is create a separate file for setting the URL that your test will run against, and store it in a variable called `baseurl` so you can easily change it to test against staging or production
+
+Create a file called `config.py` in the **tests** directory. Inside of it, create the variable:
+
+
+```
+# filename: config.py
+baseurl = ""
 ```
 
 
-Next, find the` // ...`
+Next, above the test fixture in
+///.....
 
 
 ### Remove URLs from Page Objects
