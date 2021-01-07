@@ -117,18 +117,12 @@ We'll create three things.
 
 
 #### NOTE
-
-If you want to use terminal to set this up, simply type (from your project directory):
-
-```
-cd ../SeleniumPython/tests
-touch conftest.py
-```
+Negative
+: If you want to use terminal to set this up, simply type (from your project directory): `cd ../SeleniumPython/tests` then `touch conftest.py`.
 
 
---
 
-Open `-------` in your IDE and paste in the following:
+Open `conftest.py` in your IDE and paste in the following:
 
 
 ```
@@ -141,7 +135,25 @@ After requiring our requisite libraries, we declare a class along with two metho
 
 
 ```
-// filename:
+# filename: tests/conftest.py
+import pytest
+import os
+from selenium import webdriver
+
+
+@pytest.fixture
+def driver(request):
+    _chromedriver = os.path.join(os.getcwd(), 'vendor', 'chromedriver')
+    if os.path.isfile(_chromedriver):
+        driver_ = webdriver.Chrome(_chromedriver)
+    else:
+        driver_ = webdriver.Chrome()
+
+    def quit():
+        driver_.quit()
+
+    request.addfinalizer(quit)
+    return driver_
 
 ```
 
