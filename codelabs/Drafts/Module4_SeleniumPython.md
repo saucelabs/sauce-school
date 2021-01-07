@@ -43,8 +43,7 @@ In testing, both automated and manual, there are several different types of test
 
 These two types of tests are ways to categorize tests by what they are testing. Functional tests check to see if a feature is or is not working, nothing more (e.g. did I log in or not log in?). Non-functional testing typically gives a value or amount that helps engineering and product teams do **performance testing** and understand and predict whether the software and features will work as expected, at scale. An example would be load testing, to see if the test runs as expected with many simultaneous users or volume testing. Sauce Labs does front-end
 
-&lt;blockquote class="imgur-embed-pub" lang="en" data-id="Ksjm2D3">&lt;a href="//imgur.com/Ksjm2D3">DDoS Attack&lt;/a>&lt;/blockquote>&lt;script async src="//s.imgur.com/min/embed.js" charset="utf-8">&lt;/script>
-
+<img src="assets/DDoS.gif" alt="DDOS Attack" width="450"/>
 (DDOS attack GIF on imgur: [https://imgur.com/Ksjm2D3](https://imgur.com/Ksjm2D3))
 
 Selenium is most used for functional testing  Types of functional tests include unit testing, UI testing, regression testing, integration testing, and more.
@@ -126,15 +125,6 @@ Open `conftest.py` in your IDE and paste in the following:
 
 
 ```
-// filename:
-
-```
-
-
-After requiring our requisite libraries, we declare a class along with two methods;
-
-
-```
 # filename: tests/conftest.py
 import pytest
 import os
@@ -154,6 +144,15 @@ def driver(request):
 
     request.addfinalizer(quit)
     return driver_
+
+```
+
+
+After requiring the `pytest`, `os`, and `webdriver` libraries, you created the same thing you have at the beginning of both of your tests (login and dynamic loading) which means you can now abstract it out.
+
+
+```
+
 
 ```
 
