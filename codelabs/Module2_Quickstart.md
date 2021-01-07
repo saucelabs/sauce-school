@@ -183,14 +183,12 @@ You can use the **Start Inspector Session** button to test your capabilities in 
 <img src="assets/QS2.03A.png" alt="Appium Doctor" width="750"/>
 
 
-#### pom.xml
-
-This file contains the libraries and configurations used by Maven to build the project. The versions for important dependencies, such as Appium, TestNG, logging, and Sauce Labs are included in this file. Any dependency you want to import in your project classes are specified here. You can easily update the variable with the version number in the `<properties>` tag at the top.
+**pom.xml –** This file contains the libraries and configurations used by Maven to build the project. The versions for important dependencies, such as Appium, TestNG, logging, and Sauce Labs are included in this file. Any dependency you want to import in your project classes are specified here. You can easily update the variable with the version number in the `<properties>` tag at the top.
 
 <img src="assets/QS2.03B.png" alt="Appium Doctor" width="750"/>
 
 
-**mobile_native_local_test.xml –** This file contains information about which dependencies will be included in the Java & Maven project file, and which versions of these dependencies are used. This is a file used by the TestNG framework to organize tests. With this file you can set the order of tests run, add parallelization, reporting, [and more](https://www.softwaretestinghelp.com/testng-example-to-create-testng-xml/#:~:text=xml%3F-,TestNG.,it%20under%20one%20XML%20file.).  
+**mobile_native_local_test.xml –** This is a file used by the TestNG framework to organize how tests are executed, and which tests in your suite are run.  With this file you can set the order of tests run, add parallelization, reporting, [and more](https://www.softwaretestinghelp.com/testng-example-to-create-testng-xml/#:~:text=xml%3F-,TestNG.,it%20under%20one%20XML%20file.).  
 
 **Mobile_Native_Local_Test.java –** This is the main test file where all capabilities are set. Although it is not good practice, for the sake of a simple example, this includes all capabilities that communicate information about where and how the test is run, as well as all test method declaration and implementation.
 
@@ -764,6 +762,8 @@ You can see an [example of the project code here.](https://github.com/walkerlj0/
 
 <img src="assets/QS2.04M.png" alt="Quickstart 2.04 final code" width="850"/>
 
+### Quiz
+![https://docs.google.com/forms/d/e/1FAIpQLScjcAmkaZ8vc2I016VscegVEOEwHSt9ESRe15gi6WTVMqm5cg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScjcAmkaZ8vc2I016VscegVEOEwHSt9ESRe15gi6WTVMqm5cg/viewform?usp=sf_link)
 
 <!-- ------------------------ -->
 ## 2.05 Android Web Browser Test on Sauce Labs
@@ -777,6 +777,8 @@ To do this tutorial, start with the **[Basic Test](http://BasicTestLink.com)** a
 #### Video
 
 [Sauce Labs Mobile Browser Test](https://drive.google.com/file/d/1-M-S3lMh1Jvs__DPMvOlnzWW_-QLLxqa/view?usp=sharing)
+
+![https://drive.google.com/file/d/1-M-S3lMh1Jvs__DPMvOlnzWW_-QLLxqa/preview](https://drive.google.com/file/d/1-M-S3lMh1Jvs__DPMvOlnzWW_-QLLxqa/view?usp=sharing)
 
 
 #### Note
@@ -1333,7 +1335,7 @@ You can see an [example of the project code here.](https://github.com/walkerlj0/
 
 <!-- ------------------------ -->
 ## 2.07 Run Tests in Parallel
-Duration: 0:10:
+Duration: 0:10:00
 
 The last thing we will do in this module is show you how to modify your TestNG test so that it can be run in parallel. To do this, we will add a couple elements to your TestNG xml file, as well as refactor the driver instantiation for each test so each test can run in it’s own thread.
 
@@ -1612,3 +1614,9 @@ You can see an [example of the project code here.](https://github.com/walkerlj0/
 <img src="assets/QS2.07C.png" alt="Paralllel tests code" width="850"/>
 
 <img src="assets/QS2.07D.png" alt="Paralllel tests code" width="850"/>
+
+<!-- ------------------------ -->
+## 2.08 Quiz
+Duration: 0:10:00
+
+![https://docs.google.com/forms/d/e/1FAIpQLScQI9FCIbgbN_ugLt8zMq9fGtEUk7NrzY3qsI3_Dzn0doPkpQ/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScQI9FCIbgbN_ugLt8zMq9fGtEUk7NrzY3qsI3_Dzn0doPkpQ/viewform?usp=sf_link)

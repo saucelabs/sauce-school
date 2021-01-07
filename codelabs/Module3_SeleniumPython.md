@@ -1,7 +1,7 @@
 summary: Module 3 Writing Reusable Test Code
-id: Module3-SeleniumJS
+id: Module3-SeleniumPython
 categories: advanced
-tags: javascript
+tags: python
 environments: Web
 status: Published
 authors: Lindsay Walker
@@ -28,7 +28,7 @@ This module is derived from content in chapters 8-10 of _The Selenium Guidebook 
 *   Identify and fix problems in test suites such as poor locators, silent failures, and too much functionality in a single class
 *   Choose and separate imperative language into separate objects and pages, and use the simplified commands created in that class with other tests to write code that is easier to read, maintain, and declarative in nature
 *   Analyze and plan test suites, learning how to balance the size and maintainability (ability to check failed tests) against the amount of features you want to test, as well as the level of abstraction you want to use to make modular objects to use in your test suite
-*   Use the Page Object Model and create separate directories and files that are for Page objects and Test objects, and understand how they work together to make a full test suite
+*   Use the _Page Object Model_ and create separate directories and files that are for Page objects and Test objects, and understand how they work together to make a full test suite
 *   Understand how the latency that naturally occurs when you test in the cloud can impact the usability of test suites, and what you can do to ensure your tests can be run in any environment
 *   Understand what implicit and explicit waits are, and the effects that occur along with latency when test suites are moved from a local machine to the public cloud
 
@@ -42,7 +42,7 @@ If you skipped Modules 1 & 2, make sure you have a project folder set up and hav
 
 #### NOTE
 Negative
-: If you are cloning ot downloading the GitHub repo, make sure you do the following:
+: If you are cloning or downloading the GitHub repo, make sure you do the following:
   * Ensure there is no `.pytest_cache` file in the project (delete it!)
   * You have [Python 3](https://help.dreamhost.com/hc/en-us/articles/115000699011-Using-pip3-to-install-Python3-modules) (including Pip3) and Pytest installed
   * You run `pip3 install -r requirements.txt` to install all the other dependencies.
@@ -57,23 +57,13 @@ If you are familiar with using GitHub to write your code, you can also clone or 
 ## 3.02 The POM and Imperative vs. Declarative Tests
 Duration: 0:08:00
 
-The Page Object Model (POM) is a design pattern that can be used with Selenium with any kind of framework. Using this pattern for tests means that you create two separate types of classes; **Pages** and **Test Cases**. The **Page** classes set up and navigate items on the page, using variables to represent web elements, and **Test** classes perform the actual assertions and tests.
+The Page Object Model (POM) is a design pattern that can be used with Selenium with any kind of framework. Using this pattern for tests means that you create two separate types of classes; **Pages** and **Test Cases**. The **Page** classes set up and navigate items on the page, using variables to represent web elements, and **Test** classes perform the actual assertions and tests. There is also a **base test** called `conftest.py`, which contains the fixture used to set up and tear down each test, and a **base page** which defines methods used in each test.
 
-<img src="assets/.png" alt="Resized POM Diagram" width="500"/>
+<img src="assets/3.02C.png" alt="Resized POM Diagram" width="550"/>
 
-Rather than integrate the calls to Selenium directly into your test methods, you can create separate classes. The POM allows you to write your tests using user-centric language, rather than Selenium-centric language.
+Rather than integrate the calls to Selenium directly (such as `driver.find_element()`) into your test or page methods, you can create them in a class, and call them later. Now you can use the methods with easier to understand language in your tests, making it easier for humans to read.
 
-Some general guidelines for creating page objects ( classes) include:
-
-*   The public methods represent the services that the page offers
-*   Try not to expose the internals of the page
-*   Generally don't make assertions
-*   Methods return other PageObjects
-*   Need not represent an entire page
-
-(Source: [https://github.com/SeleniumHQ/selenium/wiki/PageObjects](https://github.com/SeleniumHQ/selenium/wiki/PageObjects))
-
-Different results for the same action are modeled as different methods. Using strategies like this means that when your application changes and your tests break, you only have to update your page objects in one place in order to accommodate the changes. This gives us reusable functionality across our suite of tests, as well as more readable tests.
+Using strategies like this means that when your application changes and your tests break, you only have to update your page objects in one place in order to make the changes. This makes our tests easier to reuse.
 
 ### Imperative vs. Declarative Test Language
 
@@ -113,7 +103,6 @@ In both the **tests** and **pages** directory, you will want to create a blank f
  * Right click on the **pages** package and create a file names **login_page.py**.
 
  * Within both the **pages** and **tests** directories, there should be a file that will remain blank, called **\_init_\.py**.
- <img src="assets/3.03K.png" alt="Pages Directory" width="450"/>
 
  * Once you are done, your directory structure should look like the following:
  <img src="assets/3.03L.png" alt="Page Object Directory" width="450"/>
@@ -156,14 +145,18 @@ class LoginPage():
         assert login.failure_message_present()
 ```
 
-Notice how this new page object creates variables for all the elements you will interact with on the page, from the username files to the success message.
+Notice how this new page object creates variables for all the elements you will interact with on the page, from the username files to the success message. The `LoginPage` class is what will be used to contain all of this.
 
-It also defines a constructor in `__init__` that will create a new instance of the page each time a test is run. (_Note the double underscore before and after \_\_init\_\__). The `self` parameters that you see in the functions are to let python know that it should use the attributes and methods defined in the method itself, as there is no way to define private methods & attributes with Python and you want to make sure your function is using the correct one.
+It also defines a constructor in `__init__` (_Note the double underscore before and after `init`_) that will run each time a new instance of the `LoginPage` class is created. The driver is stored in the driver variable so other methods can access it with `self.driver`  
+
+#### NOTE
+Negative
+: The `self` parameters that you see in the functions are to let python know that it should use the attributes and methods defined in the method itself, as there is no way to define private methods & attributes with Python and you want to make sure your function is using the correct one.
 
 
 The `with_` method contains the core functionality of entering the information and logging into the page. If the login flow changes, you would only have to change this method to be able to reflect that in all your tests.
 
-Lastly, the different types of test methods are created at the bottom of the page in able to perform any checks you may with to perform. `success_message_present`, takes parameters for the type of locator and value of the locator (such as CSS selector) to check to see that the final success message is present on the screen after you log in.
+Lastly, the different types of locator methods are created at the bottom of the page in able to perform any checks you may with to perform. `success_message_present`, takes parameters for the type of locator and value of the locator (such as CSS selector) to check to see that the final success message is present on the screen after you log in.
 
 <img src="assets/3.03B.png" alt="Resized Message Present Example" width="500"/>
 
@@ -211,24 +204,32 @@ Go to the terminal at the bottom of the PyCharm IDE and run the command `pytest`
 #### Note
 Negative
 : If you have issues getting your test to run, check the following:
-* Make sure you have Python 3.7+ with pip 3 installed
-* You dependencies are correctly installed from requirements.txt `pip3 install -r requirements.txt`
-* There is no `.pytest_cache` file installed from a repo.
-* Both the **tests** and **page** Packages have an `\_\_init\_\_.py` file with double underscores before and after.
+
+Negative
+: * Make sure you have Python 3.7+ with pip 3 installed
+
+Negative
+: * You dependencies are correctly installed from requirements.txt `pip3 install -r requirements.txt`
+
+Negative
+: * There is no `.pytest_cache` file installed from a repo.
+
+Negative
+: * Both the **tests** and **page** Packages have an `\_\_init\_\_.py` file with double underscores before and after.
 <img src="assets/3.03N.png" alt="Login Failure Markup" width="600"/>
-* Go to the **PyCharm** menu then > **Preferences**. (On Windows it's **File > Settings**). Find the auto import settings, and make sure that your imports are set up to use the **from \<module\>** syntax:
-<img src="assets/3.03M.png" alt="Login Failure Markup" width="600"/>
 
-When you run pytest in the terminal, you should get results like this. (locator-test may or may not fail):
+Negative
+: * Go to the **PyCharm** menu then > **Preferences**. (On Windows it's **File > Settings**). Find the auto import settings, and make sure that your imports are set up to use the **from \<module\>** syntax: <img src="assets/3.03M.png" alt="Login Failure Markup" width="600"/>
 
-<img src="assets/3.03O.png" alt="Login Failure Markup" width="600"/>
+Negative
+: When you run pytest in the terminal, you should get results like this. The locator-test may or may not fail. This is what we call a lfaky test since the output changes. Sometimes you get the right respons, `baz`, and sometimes you do not:   <img src="assets/3.03O.png" alt="Login Failure Markup" width="600"/>
 
-See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.03).
+
 
 #### Final Code
 
 
-Your new code in `test_login.py` should look like this:
+Your new code in `test_login.py` should look like this. See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.03).
 
 <img src="assets/3.03P.png" alt="Login Failure Markup" width="600"/>
 
@@ -246,7 +247,9 @@ There is more than one reason, however, why that test might fail. The test you w
 
 The term _Error Handling_ refers to creating cases that check for predictable negative outcomes or conditions so when the test is run, it accounts for other possible errors or failure cases.
 
-As you may have noticed in `login_test.py` there are methods for checking what happens when a user enters invalid credentials and a test to check that an error message is present. We will use these methods to
+As you may have noticed in `login_test.py` there are methods for checking what happens when a user enters invalid credentials and a test to check that an error message is present. You can also check to ensure that element are present before running a test to avoid exception being thrown for unknown reasons.
+
+
 ### Deleting Tests
 
 Even though you may have grown attached to test that you worked hard to create, it can often be a huge help to your testing suite to just delete tests that aren’t worth your time. Ask yourself the following questions:
@@ -305,10 +308,11 @@ In the list of members (variables) on `login_page.py` where the `LoginPage` clas
 ```
 # filename: pages/login_page.py
 class LoginPage():
+# ...
     _login_form = {"by": By.ID, "value": "login"}
 # ...
 ```
-In the `\_\_init\_\_.py` method, underneath the `self.driver.get` statement that points you to the URL for the application you are testing, add in the following:
+In the `__init__` method, underneath the `self.driver.get` statement that points you to the URL for the application you are testing, add in the following:
 
 ```
 # filename: pages/login_page.py
@@ -320,7 +324,7 @@ In the `\_\_init\_\_.py` method, underneath the `self.driver.get` statement that
 
 Run `pytest` in terminal, and you should see the tests run exactly as they did before, with an extra check in the beginning.
 
-You can force a failure by modifying the URL in the `\_\_init\_\_.py` method:
+You can force a failure by modifying the URL in the `__init__` method:
 ```
 # filename: pages/login_page.py
 # ...
@@ -334,7 +338,7 @@ def __init__(self, driver):
 
 <img src="assets/3.04K.png" alt="Failed to find login page" width="600"/>
 
-Change the URL back to `http://the-internet.herokua.com/login`. You can check the [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.04) to make your test looks the same.
+Change the URL back to `http://the-internet.herokuapp.com/login`. You can check the [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.04) to make your test looks the same.
 
 
 #### Final Code
@@ -351,14 +355,14 @@ The updated code should look like this:
 ## 3.05  Common Issues with Test Code Reuse
 Duration: 0:17:00
 
-In the previous lesson, you stepped through creating a simple page object to capture the behavior of the page you youre interacting with. While this is a good start, there's more you can do.
+In the previous lesson, you stepped through creating a simple page object to for all of the interactions your tests performs with the login page. While this is a good start, there's more you can do.
 
-As our test suite grows, and you add more page objects, you will start to see common behavior that you will want to use over and over again throughout our suite. If you leave this unchecked you will end up with duplicative code which will slowly make our page objects harder to maintain.
+As our test suite grows, and you add more page objects, you will start to see common behavior that you will want to use over and over again throughout our suite. You will want to abstract out common actions into a base page.
 
 Right now you are using Selenium actions directly in your page object. While on the face of it this may seem fine, it has some long term impacts, like:
 
 *   It can slow page creation & rendering due to the way the JavaScript or other library loads things on the page
-*   You may need to update your test code (added maintenance for each page) because of updates and changes to the [Selenium API](https://www.selenium.dev/selenium/docs/api/javascript/index.html)
+*   You may need to update your test code (added maintenance for each page) because of updates and changes to the [Selenium API](https://www.selenium.dev/documentation/en/webdriver/)
 *   The inability to swap out the driver for your tests. You may in the future, for instance, want to swap out commands in Selenium for commands in Appium (for mobile testing)
 
 What you will do now is set up a Base Page that will create descriptive variables and methods, then use those created methods to interact with other pages. This way, if you need to swap out, say, a Selenium method for an Appium method, instead of having to do it in each and every page, you can change the BasePage.js methods to Appium-specific ones, and not have to change all of your other pages.
@@ -366,31 +370,99 @@ What you will do now is set up a Base Page that will create descriptive variable
 
 ### Part 1: Create a Facade Layer
 
-Creating a _facade layer_ involved creating a separate page or class from your test page, that helps you simplify the language to carry out simple commands like `-------`, as well as check an assertion after, and simplify this process into a single command like `type()` or `find()` so that these methods can be easily used by the rest of the test suite. In this lesson, you will create a simplified interface called `---------`, which you will then use within our `----------` class.
+Creating a _facade layer_ or a **Base Page**  involves creating a separate page or class from your test page, that helps you simplify the language to carry out simple commands like `self.driver.get(url)`, check an assertion after, and simplify this process into a single command like `find()` or `click()` so that these methods can be easily used by the rest of the test suite. In this lesson, you will create a simplified member called `base_page.py`, which you will then use to create your `login_page` class.
 
-First let's add a new file
-//...
+First let's add a new file in the **pages** directory called `base_page.py`.
 
+```
+#  filename: pages/base_page.py
+class BasePage():
+    def __init__(self, driver):
+        self.driver = driver
 
-### Part 1 Create a Facade Layer
+    def _visit(self, url):
+        self.driver.get(url)
 
-Next let's open `----- `in your IDE and insert the following code:
+    def _find(self, locator):
+        return self.driver.find_element(locator["by"], locator["value"])
+
+    def _click(self, locator):
+        self._find(locator).click()
+
+    def _type(self, locator, input_text):
+        self._find(locator).send_keys(input_text)
+
+    def _is_displayed(self, locator):
+        return self._find(locator).is_displayed()
+```
+
+After declaring the class `BasePage()` you receive and store an instance of the Selenium `driver` just like in our Login page object does. Next, define methods to be used by other page objects; _visit, _find, _click, _type, and _is_displayed. We can reuse these methods as we need for certain behaviors.
+
+Now that we have all of our Selenium actions in one place, let's update our login page object to leverage this facade.
+
+At the top of the `base_page.py` object, you can now import the `BasePage` class:
+
+```
+#  filename: pages/login_page.py
+from selenium.webdriver.common.by import By
+from base_page import BasePage
 # ...
+```
 
+You will also want to create the LoginPage class by inheriting the BasePage object:
 
-In this module, you declare a BasePage class along with methods for all of the common behavior you use with Selenium  (`visit`, `find`, `click`, `type`, and `isDisplayed`). // ...
+```
+#  filename: pages/login_page.py
+# ...
+class LoginPage(BasePage):
+# ...
+```
 
-Now open `LoginPage.js` from the same folder, and import the base page class you just created by putting ......
+In the `__init__` method replace the  logic using the `_visit` and `_is_displayed` methods:
 
-A few things have changed in our Login page object. We've imported the base page class you want to use, established inheritance between the two classes, and we've swapped out all of our Selenium commands with calls to the methods in the base page object (e.g., `this.visit, this.type, this.click`).
+```
+#  filename: pages/login_page.py
+#...
+def __init__(self, driver):
+    self.driver = driver
+    self._visit("http://the-internet.herokuapp.com/login")
+    assert self._is_displayed(self._login_form)
+#...
+```
+Update the `_with` method useing the `_type` and `_click` methods:
+
+```
+#  filename: pages/login_page.py
+#...
+def with_(self, username, password):
+    self._type(self._username_input, username)
+    self._type(self._password_input, password)
+    self._click(self._submit_button)
+#...
+```
+
+Lastly, use the `_is_displayed` method in both of the methods that check for failure of success messages:
+
+```
+#  filename: pages/login_page.py
+#...
+    def success_message_present(self):
+        return self._is_displayed(self._success_message)
+
+    def failure_message_present(self):
+        return self._is_displayed(self._failure_message)
+#...
+```
+Test out running your test code with the `pytest` command, and they should run just like before.
+
 
 #### Final Code
 
 Your final code at this stage should look like this:
 
-<img src="assets/.png" alt="Final Code 3.05" width="600"/>
+<img src="assets/3.05N.png" alt="Final Code 3.05" width="800"/>
 
-### Part 2: Exception Handling........
+### Part 2: Add Error Handling
 
 You may be wondering why we didn't just check to see if the success message wasn't present by checking for a false condition in our assertion.
 
@@ -401,44 +473,82 @@ There are two problems with this approach. First, our test will fail and throw a
 
 ```
 NoSuchElementException: Message: Unable to locate element: {"method":"css selector","selector":".flash.success"}
-But don't worry, we'll address this in the next chapter.
 ```
 
 Second, the absence of a success message doesn't necessarily indicate a failed login. This is why checking for the presence of the failure message is more effective.
 
-[3.05 Exception Handling Cheat Sheet]()
 
-##### Cheat Sheet
+In the `_is_displayed` method declaration in `base_page.py` make a change that will check to see if will try and find a locator, then instead of throwing an exception if it fails, it will throw a `False` condition. You will also need to import the `NoSuchElementException` at the top.
+
+```
+#  filename: pages/base_page.py
+from selenium.common.exceptions import NoSuchElementException
+#  ...
+    def _is_displayed(self, locator):
+        try:
+            return self._find(locator).is_displayed()
+        except NoSuchElementException:
+            return False
+```
 
 
+Now, to test out this new exception handling, revisit your `test_invalid_credentials)` test and alter it so it checks to see if the success message is not present (which would normally trigger a NoSuchElementException exception) to make sure things work as we expect.
 
-Next, in  `------` make a change
+```
+#  filename: tests/login_test.py
+#  ...
+    def test_invalid_credentials(self, login):
+        login.with_("tomsmith", "bad password")
+        assert login.success_message_present() == False
+```
 
-Now when you run your test (`-------` in terminal from your project folder), you should see one passing and one failing test. ........
 
-<img src="assets/.png" alt="Failed Login Error Handling" width="600"/>
+Now when you run your test with the command `pytest` in terminal from your project folder, you should see two passing tests, and no exceptions.
 
-Let's change the password back to `--------` and r
-
-//...
-
-When you run your test, you should get two success messages:
-
-<img src="assets/.png" alt="Success messages for both tests" width="500"/>
-
-Review the [final code]() for the project in this lesson.
+<img src="assets/3.05O.png" alt="Failed Login Error Handling" width="600"/>
 
 #### Final Code
+Review the [complete source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.05).
+<img src="assets/3.05P.png" alt="Final Code" width="600"/>
+<img src="assets/3.05Q.png" alt="Final Code" width="600"/>
 
-<img src="assets/.png" alt="Final Code" width="600"/>
 
 
-Review the [complete source code]().
 
 ### Quiz
-![EmbedURL](SareURL)
+![https://docs.google.com/forms/d/e/1FAIpQLSfUgz1Gnz8mv8WF4elflytHTBs62MQ2hgy3gDGFlredsmvdYQ/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSfUgz1Gnz8mv8WF4elflytHTBs62MQ2hgy3gDGFlredsmvdYQ/viewform?usp=sf_link)
 
-## 3.06  Resilient Test Code and Timing — Page with Explicit Waits
+<!--
+Quiz
+What are the reasons you created base_page.py? Pick the most correct answer.
+1. You are lazy and don’t want to have to write code as many times, and you know the code will never change, so you can just put it all in a base page and forget about it.
+2. You want to give people writing tests only five options to create tests with, (visit, find, click, type, isDiplayed) so they don’t make overly complex tests, so you created these in BasePage.
+3. You aren’t using the functionality of this.driver.get() or this.driver.FindElement(), so you put it in a separate document that won’t be used in our test suite.
+4. You want to be able to make other pages you make, like LoginPage.java  more readable, as well as reuse basic code so it’s easier to update in one place, and take effect everywhere.*
+
+*Creating a base page makes tests more readable and maintainable. It does also reduce the amount of code that you write, though this isn't the main reason for creating a base page.
+
+Why does is the following code not usable in a test?
+
+```
+assert login.success_message_present() == False
+-----------------------------------------------------
+def success_message_present(self):
+    return self._is_displayed(self._success_message)
+----------------------------------------------------
+def _is_displayed(self, locator):
+        return self._find(locator).is_displayed()
+```
+
+1. When you need to have a try, except statement in the _is_displayed method otherwise an exception will be thrown and the test will stop running.*
+2. It isn't possible to check for Boolean conditions in a test without an if, else statement.
+3. If the login was successful with bad credentials, they wouldn’t be able to see it was occurring.
+4. When you need to have a try, except statement in the _is_displayed method otherwise it won't detect a Boolean condition.
+
+*The try, except statement  in required int he _is_displayed method so that,  instead of an error, a 'False' condition can be returned instead of throwing an exception, and interrupt the running of the test.
+-->
+
+## 3.06  Resilient Test Code and Timing
 Duration: 0:12:00
 
 
@@ -452,21 +562,27 @@ There is a simple way to design the bedrock of reliable and resilient Selenium t
 
 One important thing to understand with the Selenium framework is that each method you write requires a round-trip communication between the tests and the devices. When you use these tests on the cloud, and to test remote devices, the round trips can start to take a very long time.
 
-<img src="assets/.png" alt="Page Waits Diagram" width="500"/>
+<img src="assets/3.06P.png" alt="Page Waits Diagram" width="500"/>
 
-A function like the `--------` function here has a total of ------ “round trips” to do.
+A function like the `_with` function here has a total of six “round trips” to do.
 
 ```
--
+def with_(self, username, password):
+    self.driver.find_element(self._username_input["by"],
+                             self._username_input["value"]).send_keys(username)
+    self.driver.find_element(self._password_input["by"],
+                             self._password_input["value"]).send_keys(password)
+    self.driver.find_element(self._submit_button["by"],
+                             self._submit_button["value"]).click()
 ```
 
-In this example....
+In this example you locate the username filed, input a username, locate a password page, input a password, and locate the submit button, then click the submit button, which means there are six separate signals sent to the driver, which can add significate time when you are sending it to a remote browser.
 
 ### Implicit vs. Explicit Waits
 
 Explicit waits pause your test execution until a specified event triggers, which prevents errors due to lag. For example, you can ask your code to wait until something is clicked, until something loads on the page, and much more.
 
-Implicit waits pause your test execution for a specified amount of time before continuing to the next function or class. You can also pause your test execution indefinitely (including any asynchronous commands within the program) with a `sleep` command, which would then require an additional command to "wake up" and continue.
+Implicit waits pause your test execution for a specified amount of time for all functions or classes, before continuing to the next function or class. You can also pause your test execution indefinitely (including any asynchronous commands within the program) with a `sleep` command, which would then require an additional command to "wake up" and continue.
 
 <img src="assets/3.06B.png" alt="sleep" width="450"/>
 
@@ -480,7 +596,7 @@ The only time you would want to use an implicit wait is to make sure your tests 
 
 #### Cheat Sheet
 
-[3.06 Waits Cheat Sheet]()
+[3.06 Exception Handling Cheat Sheet](https://docs.google.com/document/d/1AZPbWbIITwAQ9hJxSUxT53sr2U7ofq1i3FIEiOU5OBk/edit?usp=sharing)
 
 
 ### Create a Page with Explicit Waits
@@ -493,15 +609,74 @@ We’re going to use this page as an example that demonstrates waits against [a 
 
 <img src="assets/3.06E.png" alt="Page Loaded" width="600"/>
 
-First we'll create a page object named `--------` in the pages directory.
+First we'll create a new python file in the **pages** directory named `dynamic_loading_page.py` .
 
-<img src="assets/.png" alt="Page Wait Directory" width="400"/>
+<img src="assets/3.06Q.png" alt="Page Wait Directory" width="400"/>
 
 Paste in the following code:
 
 ```
+# filename: pages/dynamic_loading_page.py
+from selenium.webdriver.common.by import By
+from . base_page import BasePage
+
+
+class DynamicLoadingPage(BasePage):
+    _start_button = {"by": By.CSS_SELECTOR, "value": "#start button"}
+    _finish_text = {"by": By.ID, "value": "finish"}
+
+    def ___init___(self, driver):
+        self.driver = driver
+
+    def load_example(self, example_number):
+        self._visit("http://the-internet.herokuapp.com/dynamic_loading/" + example_number)
+        self._click(self._start_button)
+
+    def finish_text_present(self):
+        return self._is_displayed(self._finish_text, 10)
 ```
-// ...
+
+Again, you inherit from the `BasePage`, then create two variables to locate the start button, then locate the finish message.
+
+There is the `__init__` method to instantiate a driver, then two methods. The `load_example` method loads the [Dynamic Loading page from the-internet app](https://the-internet.herokuapp.com/dynamic_loading) and clicks the **Start** button, then the `finish_text_present` checks for the text that appears after the **Loading...** finishes. Notice how it takes a number parameter, which expresses the number of seconds Selenium will wait (10) for that element to be displayed before timing out.
+
+Since there are two different **Dynamimc Loading** pages, you will pass in either a `1` or `2` when you call `load_example`.
+
+Next, we will modify the `BasePage`. First you need to import three packages, on extra from `seslnium.comon exceptions`, and two new ones::
+
+```
+# filename: pages/base_page.py
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
+# ....
+```
+
+Next, update the `_is_displayed` method to add timeouts, a locator, and exception handling:
+
+```
+# filename: pages/base_page.py
+# ....
+def _is_displayed(self, locator, timeout=0):
+    if timeout > 0:
+        try:
+            wait = WebDriverWait(self.driver, timeout)
+            wait.until(
+                expected_conditions.visibility_of_element_located(
+                    (locator['by'], locator['value'])))
+        except TimeoutException:
+            return False
+        return True
+    else:
+        try:
+            return self._find(locator).is_displayed()
+        except NoSuchElementException:
+            return False
+```
+
+The `_is_displayed` method now takes a locator and a timeout. If a timeout is provided, we create an instance of WebDriverWait, pass in the timeout (which is assumed to be in seconds), and then call `wait.until`. With `wait.until` we specify the condition and locator we want to wait for. In this case the expected condition we want to wait for is `visibility_of_element_located`. You can see a full list of Selenium's [ExpectedConditions](https://www.selenium.dev/selenium/docs/api/py/webdriver_support/selenium.webdriver.support.expected_conditions.html) to learn more about the other explicit waits.
+
+If all goes well then we return `True` for the method. If the condition is not met by Selenium in the amount of time provided it will throw a timeout exception. So we catch it and return  (with a try/except block) and return `False` instead.
 
 ### Don’t Combine Explicit and Implicit Waits
 
@@ -509,41 +684,77 @@ The major benefit of explicit waits is that if the behavior on the page takes lo
 
 If you're thinking about mixing explicit waits with an implicit wait, reconsider.  If you use both together you could run into issues later on due to inconsistent implementations of the implicit wait functionality across local and remote browser drivers. Long story short, you could end up with randomly failing tests that will be hard to debug. You can read more about the specifics [here](https://stackoverflow.com/questions/15164742/combining-implicit-wait-and-explicit-wait-together-results-in-unexpected-wait-ti#answer-15174978).
 
-In this lesson you created `DynamicLoading-------`, but have yet to create a test you can run against it, which you will do in the next lesson.
+In this lesson you created the `dynamic_loading` page, but have yet to create a test you can run against it, which you will do in the next lesson.
 
-You can see the [code examples here](h).
 
 #### Final Code
+You can see the [code examples here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.06)
 
 The changes to the code at this point should look like this:
 
-<img src="assets/.png" alt="Final Code 3.06a" width="550"/>
+<img src="assets/3.06R.png" alt="Final Code 3.06" width="650"/>
 
 
 
-## 3.07  Testing with Explicit Waits
+## 3.07 Testing with Explicit Waits
 Duration: 0:08:00
 
-Now that you have our new page object and an updated base page, it's time to write our test to use it.
+Now that you have our new page object called `dynamic_loading_page` and an updated base page, it's time to write our test to use it.
 
 ### Part 1: Dynamic Loading Test
 
-Let's create a new file called `DynamicLoadingTest.js` in the test directory.
+Let's create a new file called `dynamic_loading_test.py` in the test directory.
 
-<img src="assets/3.07A.png" alt="DynamicLoadingTest Directory" width="450"/>
+<img src="assets/3.07L.png" alt="DynamicLoadingTest Directory" width="350"/>
 
-The contents of this test file are similar to `LoginTest.js` with regards to its setup and structure. Open `DynamicLoadingTest-------` in your IDE and paste in the following:
+The contents of this test file are similar to `login_test.py` with regards to its setup and structure. Open `dynamic_loading_test.py` in your IDE and paste in the following:
 
 ```
+## filename: tests/dynamic_loading_test.py
+import pytest
+import os
+from selenium import webdriver
+from pages.dynamic_loading_page import DynamicLoadingPage
+
+
+@pytest.fixture
+def dynamic_loading(request):
+    _chromedriver = os.path.join(os.getcwd(), 'vendor', 'chromedriver')
+    if os.path.isfile(_chromedriver):
+        driver_ = webdriver.Chrome(_chromedriver)
+
+    else:
+        driver_ = webdriver.Chrome()
+
+    dynamic_loading = DynamicLoadingPage(driver_)
+    def quit():
+        driver_.quit()
+
+    request.addfinalizer(quit)
+    return dynamic_loading
+
+def test_hidden_element(dynamic_loading):
+    dynamic_loading.load_example("1")
+    assert dynamic_loading.finish_text_present()
 ```
 
 In our test, `'hidden element'`,  you are visiting the first dynamic loading example and clicking the start button (which is accomplished in `dynamicLoading.loadExample('1');)`. We're then checking that the finish text gets displayed, and reporting an error if it doesn’t
 
-#### NOTE
+#### Update Login Page
+Now that the `_is_displayed` method is updated to take a timeout, you can update the `success_message_present` methods in `login_page.py`:
 
-You have included the path variable in the test code, and commented out the code for the path because if you are using `---`, you don’t need it, but you will need it if you are managing dependencies yourself.
+```
+# filename: pages/base_page.py
+# ....
+def success_message_present(self):
+    return self._is_displayed(self._success_message, 1)
 
-When you save this and run it with `---- test` from the command-line it will:
+def failure_message_present(self):
+    return self._is_displayed(self._failure_message, 1)
+# ...
+```
+
+When you save this and run it with `pytest` from the command-line it will run `login_test` tests, then it will run `dynamic_loading_test` which does the following:
 
 *   Launch a browser
 *   Visit the page
@@ -553,9 +764,7 @@ When you save this and run it with `---- test` from the command-line it will:
 *   Assert that it is displayed.
 *   Close the browser
 
-<img src="assets/.png" alt="Dynamic Loading" width="500"/>
-
-The `Login` test will be run as well.
+<img src="assets/3.07M.png" alt="Dynamic Loading" width="800"/>
 
 
 ### Part 2: Use the Test with Another Page
@@ -566,11 +775,20 @@ Let's step through one more example to see if our explicit wait holds up.
 
 [The second dynamic loading example](http://the-internet.herokuapp.com/dynamic_loading/2) is laid out similarly to the last one. The difference is that it renders the final text after the progress bar completes (whereas the previous example had the element on the page but it was hidden until the progress bar finished). In other words, in the first test, the text was there but hidden, but in this test the text doesn’t even exist until after the loading image disappears.
 
-Notice that it has the same start `<button>` element and `id='finished'` at the beginning and end of the test. Will our same test work for the second page?
+Notice that it has the same start `<button>` element and `id='finished'` at the beginning and end of the test, therefore our `dynamic_loading_page` code will work with the second page as well.
 
-Let's add a nearly identical second test // ...
+Let's add a nearly identical second test called `test_rendered_element` after `test_hidden_element`:
 
-//...
+```
+# filename: tests/dynamic_loading_test.py
+# ...
+    def test_rendered_element(dynamic_loading):
+        dynamic_loading.load_example("2")
+        assert dynamic_loading.finish_text_present()
+```
+now when you run the `pytest` you should see 4 separate tests running. This new suite should also take a bit longer, as the new test dynamic loading will wait up to 10 seconds for the rendered output to appear.
+
+<img src="assets/3.07N.png" alt="Element Rendered" width="600"/>
 
 ### Browser Timing
 
@@ -590,14 +808,57 @@ This is one of the most important concepts in testing with Selenium: _use explic
 
 
 #### Final Code
+See an example of [the final code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.07)
 
-<img src="assets/.png" alt="Final Code 3.07" width="550"/>
-
-Run the test. This time you are going to use a different command that allows us to run specific test objects...
-
-<img src="assets/.png" alt="Run Specific Test" width="550"/>
+<img src="assets/3.07O.png" alt="Final Code 3.07" width="550"/>
 
 
 ## 3.08 Quiz
 
-![EmbedURL](ShareURL)
+![https://docs.google.com/forms/d/e/1FAIpQLScZ5NZcrKnPNqPaC9vs0pB81unyQHTOdg_Liq-cFQhMm0Jwng/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScZ5NZcrKnPNqPaC9vs0pB81unyQHTOdg_Liq-cFQhMm0Jwng/viewform?usp=sf_link)
+
+<!--
+Quiz
+Which of the objects is the _is_displayed() method implemented (called)
+1. In base_page.py
+2. in login_page.py and dynamic_loading_page.py *
+3. in login_test.py and dynamic_loading_test.py
+4. in base_page.py and login_page.py
+
+*The -is-displayed method is declared in base_page.py, but iut isn't actually called, the two methods _is_displayed is called in are base_page.py and dynamic_loading_page.py
+
+What is the difference between these two tests (on the two different dynamic loading pages on the-internet)?
+
+1. The two different pages load and display elements differently, and you also need to have unique error codes so you can tell which has failed.*
+2. There are two different pages, and you must always have different tests for different pages.
+3. There are different ids for the elements on the page you are trying to locate, so you had to write different tests & assertions for each one.
+4. We need to use a different Selenium method for each test, _is_diaplayed and _find elementLocated(), so you write two different tests.
+
+*The second page needs to take advantage of a timeout of 10 seconds to wait for the image to render, so we created a different tests for the two different pages so we can test both conditions and see if the one requiring the timeout fails.
+
+Which of the following best describes a facade layer like base_page.py?
+1. An object that is created to separate code for implicit and explicit waits, so that one can avoid problems created by having both of these types of wait.
+2. An object that is created to handle interactions that will occur on any page you test, like setting up the testing environment, and getting the test name & session ID, and quitting after the test concludes.*
+3. An object that is created for use with a specific programming language such as JavaScript or Python, so that the same test code can be used with different programming languages.
+4. An object that is created to be easy to read, with very declarative testing language.
+
+*Like the word facade, the base page allows you to create page objects that provide an easy to read layer that declares all the methods used throughout your test suite. It is a facade that hides the more difficult to read language where methods are declared.
+
+Which of the following is the biggest reason to use explicit waits instead of implicit waits?
+1. Explicit waits will run no matter what, so you can be sure that all the waits in all the tests will be used.
+2. Explicit waits help you run tests on all elements in a codebase, even if they are not visible, and are not as dynamic, so you do not have to worry about them not running.
+3.Explicit waits are run in parallel and will run all waits at the same time, an are also dynamic, meaning they will never run out of order.
+4. Explicit waits are dynamic, and will run only when they need to be run, and can prevent a test from running before an element is available, which could cause a ElementNotVisibleException.
+
+*Explicits waits are run in explicit situations- for example when you try and load a certain object, an explicit wait tells you to wait for the object before moving on to the next command. They are better to use because they are run only when needed (and for as long as needed) whereas implicit waits will run every single time for the set amount of time, slowing your tests.
+
+Which of the following is required run each time a test is executed, and why? (Choose the most correct answer)
+1. The BasePage class, since it takes care of the set-up of the driver and tear down, or quitting, of the test.
+2. The @pytest.fixture, which declares all the methods used in a test.
+3. The BasePage class which declares all the methods used in a test
+4.The @pytest.fixture, since it takes care of the set-up of the driver and tear down, or quitting, of the test.*
+
+** The @pytest.fixture is responsible for the setup and teardown of each test. The Base Page does declare many of the method used, but technically, this is not required, and it could be defined within the test.
+
+
+-->
