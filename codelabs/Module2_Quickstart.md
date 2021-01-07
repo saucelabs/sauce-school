@@ -36,11 +36,12 @@ This module is created to walk you through the steps you need to take to get a t
 
 
 ### Resources
-Download the following resources on your computer.
+Download the following resourceson your computer.
 
-* [Android Test Code](https://github.com/walkerlj0/Quickstart_Android)
-* Swag Labs [Android Native Demo App](https://github.com/saucelabs/sample-app-mobile/releases)
-    * Scroll down and find the **Android.SauceLabs.Mobile.Sample.app.x.x.x.apk** file. Choose the latest version you can find.
+
+*   Clone or download [Android Test Code](https://github.com/walkerlj0/Quickstart_Android)
+*   Swag Labs [Android Native Demo App](https://github.com/saucelabs/sample-app-mobile/releases)
+    *   Scroll down and find the **Android.SauceLabs.Mobile.Sample.app.x.x.x.apk** file. Choose the latest version you can find.
 
 <img src="assets/QS2.02A.png" alt="Swag Labs Mobile App Repo" width="650"/>
 
@@ -60,29 +61,24 @@ To run a local test, you will need to set up and install the following:
 
 
 
-* Appium
-    * [Appium Desktop App](https://github.com/appium/appium-desktop/releases) or
-    * Appium Server: [Set it up ](https://www.swtestacademy.com/how-to-install-appium-on-mac/)with Android Studio
-* JDK 8 or higher
-* [Android Studio](https://developer.android.com/studio)
-* [NodeJS and npm ](https://nodejs.org/en/)
-* [Homebrew](https://brew.sh/)
-* [Carthage](https://github.com/Carthage/Carthage) dependency manager
-    * `brew install carthage`
-* [Appium Doctor](https://github.com/appium/appium-doctor)
-    * `npm install appium-doctor -g`
-* [Maven build tool](https://maven.apache.org/)
-* An IDE to edit test code like [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
+*   Appium
+    *  The [Appium Desktop App](https://github.com/appium/appium-desktop/releases) or
+    *   Appium Server: [Set it up ](https://www.swtestacademy.com/how-to-install-appium-on-mac/)with Android Studio
+*   [Java Development Kit 8 ](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)or higher
+*   [Android Studio](https://developer.android.com/studio)
+*   [Appium Doctor](https://github.com/appium/appium-doctor)
+    *   `npm install appium-doctor -g`
+*   [Maven build tool](https://maven.apache.org/)
+*   An IDE to edit test code like IntelliJ Community Edition
 
 If you would like step-by-step instructions to help with the dependencies above, there are lessons in the Selenium Java Course:
 
 
 
-* [How to set up your environment ](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4)with Java, Maven, and IntelliJ
-* [Create your first project file in IntelliJ](https://training.saucelabs.com/codelabs/Module2-SeleniumJava/index.html?index=..%2F..SeleniumJava#5)
+*   [How to set up your environment ](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4)with Java, Maven, and IntelliJ
+*   [Create your first project file in IntelliJ](https://training.saucelabs.com/codelabs/Module2-SeleniumJava/index.html?index=..%2F..SeleniumJava#5)
 
 See instructions for [setting up your Windows environment here](https://docs.google.com/document/d/1herzHbTJdQpa-hAIR5llTfbbw20PeM99-BAoVTeuC8U/edit?usp=sharing).
-
 
 ### Appium
 
@@ -121,7 +117,7 @@ Appium Doctor is a useful tool for checking to make sure that the dependencies a
 <img src="assets/QS2.02B.png" alt="Appium Doctor Interface" width="550"/>
 
 
-Check to make sure all your dependencies for Appium are installed, such as `NodeJS `and the `ANDROID_HOME` and` JAVA_HOME` variables are correct. In this example, the` xcrun` dependency isn’t installed, which is a necessary dependency for IOS tests.
+Check to make sure all your dependencies for Appium are installed, such as `NodeJS `and the `ANDROID_HOME` and` JAVA_HOME` variables are correct. In this example, the` xcrun` dependency isn’t installed, which is a necessary dependency for iOS tests.
 
 
 ### Basic Local Run Steps
@@ -151,7 +147,7 @@ Duration: 0:10:00
 
 ### Test Suite Components
 
-The local Apium test is made up of a few basic files. We will use and edit all of them as we add capabilities to the Android app tests. This example uses the Java programming language, the TestNG testing framework, Appium commands, and the Maven resource manager. You will need to update code` tests/BasicTest.java`, `pom.xml`, and `/resources/config/basic_test.xml `to get your tests started.
+The local Appium test is made up of a few basic files. We will use and edit all of them as we add capabilities to the Android app tests. This example uses the Java programming language, the TestNG testing framework, Appium commands, and the Maven resource manager. You will need to update code` tests/BasicTest.java`, `pom.xml`, and `/resources/config/basic_test.xml `to get your tests started.
 
 
 ### Test Code Overview
@@ -192,7 +188,7 @@ You can use the **Start Inspector Session** button to test your capabilities in 
 
 **Mobile_Native_Local_Test.java –** This is the main test file where all capabilities are set. Although it is not good practice, for the sake of a simple example, this includes all capabilities that communicate information about where and how the test is run, as well as all test method declaration and implementation.
 
-Access the Base Code in this [Github repo](https://github.com/walkerlj0/Quickstart_Android), or create a new Maven project like the one pictured below. Note that `/test/java/tests/config` will be added to later. If you are using IntelliJ to set up your project, `pom.xml` should be created for you.
+Access the Base Code in this [GitHub repo](https://github.com/walkerlj0/Quickstart_Android), or create a new Maven project like the one pictured below. Note that `/test/java/tests/config` will be added to later. If you are using IntelliJ to set up your project, `pom.xml` should be created for you.
 
 <img src="assets/QS2.03C.png" alt="AAppium Project" width="250"/>
 
@@ -542,7 +538,7 @@ Lastly, update the `pom.xml` in the `properties` tag where you see the `&lt;test
 
 ### Copy Code
 
-Now, you will copy the code from the original `BasicTest` and the TestNG XML file, and update it to work for the new test. Copy all the `code inside basic_test.xml`, and paste it inside `mobile_android_EMU_test.xml`
+Now, you will copy the code from the original `BasicTest` and the TestNG XML file, and update it to work for the new test. Copy all the code inside `basic_test.xml`, and paste it inside `mobile_android_EMU_test.xml`
 
 Inside the `mobile_android_EMU_text.xml` file in the class name tag, edit the test name to be your new test name:
 
@@ -638,7 +634,7 @@ public class Mobile_Android_EMU_Test {
 ```
 
 
-Later on, in the `@BeforeMethod` annotation, we will set up the url to point to the correct region.
+Later on, in the `@BeforeMethod` annotation, we will set up the `url` to point to the correct region.
 
 Next you are going to change the variables `APP` and `APPIUM`. You will no longer need the `APPIUM` link, since we will be connecting to Sauce Labs and constructing the URL in the `@BeforeMethod`. We will change the `APP` variable to simply read the name of the app that you uploaded to Sauce Lab. The first four lines of the class should now look like this:
 
@@ -654,7 +650,7 @@ public class Mobile_Android_EMU_Test {
 ```
 
 
-Note that your app name may be different- check to see what the name of it is when you upload it to Sauce Labs.
+Note that your app name may be different. Check to see what the name of it is when you upload it to Sauce Labs.
 
 Next you will update the `@BeforeMethod `with some information to print to the console with the `System.out.println()`method and configurations to connect to Sauce Labs. In the `setup()` method, add in the following, above the `DesiredCapabilities`:
 
@@ -719,7 +715,7 @@ The last thing you will do is add some simple outputs for when your test is run,
 <img src="assets/QS2.04I.png" alt="Test suite run" width="650"/>
 
 
-At the beginning of your `setup(`) method, add in a `println()` like so:
+At the beginning of your `setup()` method, add in a `println()` like so:
 
 
 ```
@@ -1064,7 +1060,7 @@ Do the same for your `teardown()` method:
 ```
 
 
-Now you should be able to run your tests by either updating the `testngXmlFile` tag in your `pom.xml `to read;
+Now you should be able to run your tests by either updating the `testngXmlFile` tag in your `pom.xml `to read:
 
 
 
@@ -1112,7 +1108,7 @@ By using a reflection and an interface with your test methods, you will be able 
 
 Without a **Pass** or **Fail** status, you simply see whether or not the test was able to complete without showing an exception (**Complete** or **Error **on Sauce Labs). Without a name, it’s very difficult to understand which test you are debugging.
 
-To follow along with this course, you can use the [Mobile_Android_EMU_Test](https://github.com/walkerlj0/Quickstart_Android/blob/master/Mod2/2.05/src/test/java/tests/Mobile_Android_EMU_Test.java) from the last module, (You can use it with the [Mobile_Android_Browser_Test](https://github.com/walkerlj0/Quickstart_Android/blob/master/Mod2/2.05/src/test/java/tests/Mobile_Android_Browser_Test.java) as well)
+To follow along with this course, you can use the [Mobile_Android_EMU_Test](https://github.com/walkerlj0/Quickstart_Android/blob/master/Mod2/2.05/src/test/java/tests/Mobile_Android_EMU_Test.java) from the last module – you can use it with the [Mobile_Android_Browser_Test](https://github.com/walkerlj0/Quickstart_Android/blob/master/Mod2/2.05/src/test/java/tests/Mobile_Android_Browser_Test.java) as well
 
 
 #### Video
@@ -1123,9 +1119,7 @@ To follow along with this course, you can use the [Mobile_Android_EMU_Test](http
 
 ### Pass the Test Name
 
-In order to pass the test name to Sauce Labs, in the `setUp()` method, pass in the `method` reflection so you can grab the annotation, or `methodName`, of the `setUp()`method and pass it in as the “name” capability.
-
-The parameter `Method method` allows you to use reflection and gather information when your test methods are passed to `setUp()` at the beginning of each test.  First, add the `Method method` parameters to the `setUp` class to use reflection on the [Java Method](https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Method.html) class:
+The parameter `Method method` allows you to use reflection and gather information when your test methods are passed to `setUp()` at the beginning of each test, which you will later use to pass the `"name" capability`. First, add the `Method method` parameters to the `setUp` class to use reflection on the [Java Method](https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Method.html) class:
 
 
 ```
@@ -1433,7 +1427,7 @@ You can also run [classes](https://www.seleniumeasy.com/testng-tutorials/paralle
 
 Since TestNG is not thread safe, you need to instantiate a new driver in a separate thread for each test you run. This will require some refactoring of your test code.
 
-If you try to run more than one test in the same thread, multiple tests will try to access the same driver, and your tests will error and fail, since TestNG isn’t thread safe. In order to make it possible for
+If you try to run more than one test in the same thread, multiple tests will try to access the same driver, and your tests will error and fail, since TestNG isn’t thread safe. In order to make it possible to run tests in parallel, we will need to add ThreadLocal.
 
 First, you will replace the driver instantiation with a new one using the Java ThreadLocal object:
 

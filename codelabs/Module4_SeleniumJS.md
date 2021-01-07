@@ -374,7 +374,7 @@ Your file directory should look like this:
 
 ### Create a baseURL
 
-Next, what we will do is create a separate file for setting the browser that your test will run in, and store it in a variable called baseURL.
+Next, what we will do is create a separate file for setting the url that your test will run against, so you can change it easily for say, testing in development and productiong, and store it in a variable called baseURL.
 
 Open `config.js` with your IDE and paste in the following:
 
