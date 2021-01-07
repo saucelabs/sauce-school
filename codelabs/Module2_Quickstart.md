@@ -38,7 +38,7 @@ This module is created to walk you through the steps you need to take to get a t
 ### Resources
 Download the following resources on your computer.
 
-* [Android Test Code](https://github.com/walkerlj0/Quickstart_Android)
+* [Android Test Code](https://github.com/walkerlj0/Quickstart_Android). See the _/Mod2/2.03_ to follow along starting on the next module.
 * Swag Labs [Android Native Demo App](https://github.com/saucelabs/sample-app-mobile/releases)
     * Scroll down and find the **Android.SauceLabs.Mobile.Sample.app.x.x.x.apk** file. Choose the latest version you can find.
 
@@ -65,10 +65,6 @@ To run a local test, you will need to set up and install the following:
     * Appium Server: [Set it up ](https://www.swtestacademy.com/how-to-install-appium-on-mac/)with Android Studio
 * JDK 8 or higher
 * [Android Studio](https://developer.android.com/studio)
-* [NodeJS and npm ](https://nodejs.org/en/)
-* [Homebrew](https://brew.sh/)
-* [Carthage](https://github.com/Carthage/Carthage) dependency manager
-    * `brew install carthage`
 * [Appium Doctor](https://github.com/appium/appium-doctor)
     * `npm install appium-doctor -g`
 * [Maven build tool](https://maven.apache.org/)

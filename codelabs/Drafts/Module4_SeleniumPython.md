@@ -103,22 +103,18 @@ Now that we have some tests and page objects, we'll want to start thinking about
 
 We'll start by using a separate class for Selenium setup and teardown out of our tests, placing the file in a central directory.
 
-We'll create three things.
+We'll change a couple things:
 
 
 
-*   A class that will contain the creation and destruction of our Selenium instances (known as a `-------`)
+*   Create a class that will contain the `@pytest.fixture` that can be used by every test object.
 *   A helper that all tests will pull from to do the basic things each test should do such as `-------` and `-------`
 *   Change a configuration in `------- `to `-------`
 
+First, create a new file called `conftest.py`. If you want to use terminal to set this up, simply type (from your project directory): `cd ../SeleniumPython/tests` then `touch conftest.py`.
+
 
 <img src="assets/4.03L.png" alt="conftest.py" width="550"/>
-
-
-#### NOTE
-Negative
-: If you want to use terminal to set this up, simply type (from your project directory): `cd ../SeleniumPython/tests` then `touch conftest.py`.
-
 
 
 Open `conftest.py` in your IDE and paste in the following:
