@@ -815,4 +815,50 @@ See an example of [the final code here](https://github.com/walkerlj0/Selenium_Co
 
 ## 3.08 Quiz
 
-<!-- ![EmbedURL](ShareURL) -->
+![https://docs.google.com/forms/d/e/1FAIpQLScZ5NZcrKnPNqPaC9vs0pB81unyQHTOdg_Liq-cFQhMm0Jwng/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScZ5NZcrKnPNqPaC9vs0pB81unyQHTOdg_Liq-cFQhMm0Jwng/viewform?usp=sf_link)
+
+<!--
+Quiz
+Which of the objects is the _is_displayed() method implemented (called)
+1. In base_page.py
+2. in login_page.py and dynamic_loading_page.py *
+3. in login_test.py and dynamic_loading_test.py
+4. in base_page.py and login_page.py
+
+*The -is-displayed method is declared in base_page.py, but iut isn't actually called, the two methods _is_displayed is called in are base_page.py and dynamic_loading_page.py
+
+What is the difference between these two tests (on the two different dynamic loading pages on the-internet)?
+
+1. The two different pages load and display elements differently, and you also need to have unique error codes so you can tell which has failed.*
+2. There are two different pages, and you must always have different tests for different pages.
+3. There are different ids for the elements on the page you are trying to locate, so you had to write different tests & assertions for each one.
+4. We need to use a different Selenium method for each test, _is_diaplayed and _find elementLocated(), so you write two different tests.
+
+*The second page needs to take advantage of a timeout of 10 seconds to wait for the image to render, so we created a different tests for the two different pages so we can test both conditions and see if the one requiring the timeout fails.
+
+Which of the following best describes a facade layer like base_page.py?
+1. An object that is created to separate code for implicit and explicit waits, so that one can avoid problems created by having both of these types of wait.
+2. An object that is created to handle interactions that will occur on any page you test, like setting up the testing environment, and getting the test name & session ID, and quitting after the test concludes.*
+3. An object that is created for use with a specific programming language such as JavaScript or Python, so that the same test code can be used with different programming languages.
+4. An object that is created to be easy to read, with very declarative testing language.
+
+*Like the word facade, the base page allows you to create page objects that provide an easy to read layer that declares all the methods used throughout your test suite. It is a facade that hides the more difficult to read language where methods are declared.
+
+Which of the following is the biggest reason to use explicit waits instead of implicit waits?
+1. Explicit waits will run no matter what, so you can be sure that all the waits in all the tests will be used.
+2. Explicit waits help you run tests on all elements in a codebase, even if they are not visible, and are not as dynamic, so you do not have to worry about them not running.
+3.Explicit waits are run in parallel and will run all waits at the same time, an are also dynamic, meaning they will never run out of order.
+4. Explicit waits are dynamic, and will run only when they need to be run, and can prevent a test from running before an element is available, which could cause a ElementNotVisibleException.
+
+*Explicits waits are run in explicit situations- for example when you try and load a certain object, an explicit wait tells you to wait for the object before moving on to the next command. They are better to use because they are run only when needed (and for as long as needed) whereas implicit waits will run every single time for the set amount of time, slowing your tests.
+
+Which of the following is required run each time a test is executed, and why? (Choose the most correct answer)
+1. The BasePage class, since it takes care of the set-up of the driver and tear down, or quitting, of the test.
+2. The @pytest.fixture, which declares all the methods used in a test.
+3. The BasePage class which declares all the methods used in a test
+4.The @pytest.fixture, since it takes care of the set-up of the driver and tear down, or quitting, of the test.*
+
+** The @pytest.fixture is responsible for the setup and teardown of each test. The Base Page does declare many of the method used, but technically, this is not required, and it could be defined within the test.
+
+
+-->
