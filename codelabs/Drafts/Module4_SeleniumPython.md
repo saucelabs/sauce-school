@@ -14,7 +14,7 @@ author:Lindsay Walker
 ## 4.01 What You'll Learn
 Duration: 0:03:00
 
-This module is derived from content in chapters 11-13 of _The Selenium Guidebook Python Edition_ By Dave Haeffner. This module guides you through creating a separate test object called `conftest`  ...... where ......, as well as a _Driver Factory_ which creates the `------------ `and `--------` functions used for each instance of a test.  Users will work through creating a `-------` file to store the environment variables for where (in which environment) your test is run on, and modify the DriverFactory to check & pull environment variables from `-------` Last but not least, add in some features to make your tests results easier to read and debug using the Sauce Labs platform
+This module is derived from content in chapters 11-13 of _The Selenium Guidebook Python Edition_ by Dave Haeffner. This module guides you through creating a separate test object called `conftest`  ...... where ......, as well as a _Driver Factory_ which creates the `------------ `and `--------` functions used for each instance of a test.  Users will work through creating a `-------` file to store the environment variables for where (in which environment) your test is run on, and modify the DriverFactory to check & pull environment variables from `-------` Last but not least, add in some features to make your tests results easier to read and debug using the Sauce Labs platform
 
 
 ### Objectives
@@ -94,7 +94,7 @@ White Box testing is a type of testing you do when you can see and understand al
 This type of testing refers to a code-based approach to testing web applications. When a human user is manually testing an application, they are looking at the visual browser interface with items you can see, click, and interact with. Headless testing is done by a robot that doesn’t use the visual component of a browser, and instead does all interactions through communication with the codebase and other services that make up an application. [Sauce Labs ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) also provides headless user testing .
 
 
-## 4.03 Scaling your Tests
+## 4.03 Scaling Your Tests
 
 Now that we have some tests and page objects, we'll want to start thinking about how to structure our test code to be more flexible. Ensuring that our code is reusable, and can scale to as many tests as we need requires some additional elements & abstractions.
 
@@ -107,9 +107,9 @@ We'll change a couple things:
 
 
 
-*   Create a class that will contain the `@pytest.fixture` that can be used by every test object.
-*   A helper that all tests will pull from to do the basic things each test should do such as `-------` and `-------`
-*   Change a configuration in `------- `to `-------`
+*   Create a class called `conftest.py` that will contain the `@pytest.fixture` that can be used by every test object
+*   Remove the fixture from the test objects (as well as unnecessary imports)
+*   Change a configuration in `conftest.py` to allow you to pass in the base URL that you run your tests against to all the different test objects with a command line flag
 
 First, create a new file called `conftest.py`. If you want to use terminal to set this up, simply type (from your project directory): `cd ../SeleniumPython/tests` then `touch conftest.py`.
 
@@ -125,6 +125,7 @@ Open `conftest.py` in your IDE and paste in the following:
 import pytest
 import os
 from selenium import webdriver
+from . import config
 
 
 @pytest.fixture
@@ -144,35 +145,157 @@ def driver(request):
 ```
 
 
-After requiring the `pytest`, `os`, and `webdriver` libraries, you created the same thing you have at the beginning of both of your tests (login and dynamic loading) which means you can now abstract it out.
+After requiring the `pytest`, `os`, and `webdriver` libraries, and importing from `config` you created the same thing you have at the beginning of both of your tests (login and dynamic loading) which means you can now abstract it out.
+
+In `login_test.py` remove the unnecessary imports so you only have these two:
 
 
 ```
-
-
+# filename: tests/login_test.py
+import pytest
+from pages import login_page
+# ...
 ```
 
+Next, update the login method definition. Replace the `login(request)` parameter with `login(driver)`, then delete all the logic and replace with the following:
 
-// …
+```
+# filename: tests/login_test.py
+# ...
+@pytest.fixture
+def login(driver):
+    return login_page.LoginPage(driver)
+# ...
+```
 
+In `dynamic_loading_test.py` You will also need to remove imports so only the following appear:
 
-#### NOTE
+```
+# filename: tests/dynamic_loading_test.py
+import pytest
+from pages import dynamic_loading_page
+# ...
+```
 
-Including the` quit() `function is extremely important for the speed & passability of your tests. Without the quit method, the test will keep running even once all other methods have been executed until the default timeout has expired. This will not only slow down your ability to run many parallel tests at once, it will also send timeout error messages that could abort the test build.  Configuring timeouts appropriately in the package.json file is important to ensure that all tests run correctly the first time and are returning valuable feedback.
+Next, replace the parameter for the `dynamic_loading_test()` with `driver`, and replace all the logic:
 
---
-
-
-### Root Level Hooks
-
-In Mocha, when you specify before and after hooks outside of a test class they are used globally for all tests. These are referred to as root-level hooks. Every test that you write will use the `-------  `methods to perform the same set of actions to set up and tear down the test, so it makes sense to store these in one place so we can make changes in one place, instead of within each and every test.
-
+```
+# filename: tests/dynamic_loading_test.py
+# ...
+@pytest.fixture
+def dynamic_loading(driver):
+    return dynamic_loading_page.DynamicLoadingPage(driver)
+# ...
+```
 
 #### Final Code
 
 The two test classes should now look like this:
 
-&lt;img src="assets/XXX.png" alt="Image Name" width="550"/>`
+<img src="assets/4.03M.png" alt="4.03 part 1 code" width="550"/>
+<img src="assets/4.03N.png" alt="4.03 part 1 code" width="550"/>
+
+### Part 2: Adding a Base URL Variable
+
+Now it would be nice if every time you tested on a different version of your app (such as a staging or production version) you wouldn't have to update the code in every sigle test. you can do this by including a BaseURL variable in a new file called `config.py`
+
+The first thing you will add is a pytest helper method called `pytest_addoption(parser)` which allows you to specify the url of the app you are testing against with a command line flag.
+
+First, create a new file in your **tests** directory named `config.py` and inside of it create the `baseurl` variable:
+
+```
+# filename: tests/config.py
+baseurl = ""
+```
+<img src="assets/4.03O.png" alt="config.py" width="550"/>
+
+
+At the top of your test, before the `@pytest.fixture`, import `config.py` so you can use your new variable and add in the following:
+```
+# filename: tests/conftest.py
+# ...
+from . import config
+
+def pytest_addoption(parser):
+    parser.addoption("--baseurl",
+                     action="store",
+                     default="http://the-internet.herokuapp.com",
+                     help="base URL for the application under test")
+
+
+@pytest.fixture
+# ...
+```
+
+This will store the URL in a variable called `--baseurl` that can be changed when you run your test by using the command `pytest --baseurl=url`. At the top of the `driver()` method, before you declare your browser, add in:
+
+```
+filename: tests/conftest.py
+# ...
+@pytest.fixture
+def driver(request):
+   config.baseurl = request.config.getoption("--baseurl")
+# ...
+```
+
+#### Update Base Page
+
+The last thing you need to do is update the code to use this new variable. In basepage, you will import `config.py` to grab the `baseurl` variable:
+
+```
+#  filename: pages/base_page.py
+# ...
+from tests import config
+# ...
+```
+
+Next change the `_visit method` to use the `baseurl`, as long as a full url was not passed in as a parameter of visit (which may be something you want to do for certain tests)
+
+```
+#  filename: pages/base_page.py
+# ...
+def _visit(self, url):
+        if url.startswith("http"):
+            self.driver.get(url)
+        else:
+            self.driver.get(config.baseurl + url)
+# ...
+```
+
+#### Update Page Objects
+
+Lastly, you will need to remove the url (`"http://the-internet.herokuapp.com/login"`) hardcoded into your `login_page.py` and `dynamic_loading_page.py`, and instead, append the subdomain to the base url.
+
+Update `__init__` in the login page like so, simply adding `/login` to the end:
+
+```
+# filename: pages/login_page.py
+# ...
+    def __init__(self, driver):
+        self.driver = driver
+        self._visit("/login")
+        assert self._is_displayed(self._login_form)
+# ...
+```
+
+Update  the dynamic loading page, inside the `load_example` method take out the full url and instead append `/dynamic_loading` to the end of the url.
+
+```
+# filename: pages/dynamic_loading_page.py
+#...
+def load_example(self, example_number):
+    self._visit("/dynamic_loading/" + example_number)
+    self._click(self._start_button)
+#...
+
+```
+Now try running your test. If you would like, delete the url listed in `conftest.py` in the `parser.adoption` method, and run the command `pytest --baseurl=http://the-internet.herokuapp.com`. The tests should all run!
+
+<img src="assets/4.03P.png" alt="Run with pytest baseurl command" width="750"/>
+
+#### Final Code
+See an example of all the changes made to the code in [this repo](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod4/4.03).
+
 
 
 
@@ -297,11 +420,11 @@ baseurl = ""
 ```
 
 
-Next, above the test fixture in
+Next, above the test fixture in `conftest.py`
 ///.....
 
 
-### Remove URLs from Page Objects
+#### Remove URLs from Page Objects
 
 In order to use our new `-----------`  file, add in the following at the top of your base page, it will apply to all other page objects:
 
@@ -330,39 +453,16 @@ Now when running our tests, we can specify a different base URL in `-----------`
 Now we can easily extend our test framework to run our tests on other browsers.
 
 
-#### Final Code
-
-&lt;img src="assets/XXX.png" alt="Image Name" width="550"/>`
 
 
-### Part 2: Running Different Browsers Locally
-
-WebDriver works with each of the major browsers through a browser driver which is (ideally but not always) maintained by the browser creator such as Chrome or Firefox. It is an executable file (consider it a thin layer) that acts as a bridge between Selenium and the browser.
-
-By using `------------- ` with the package.json file, the updated version ……..
-
-
-### Running Tests in Different Browsers
-
-The first thing we will do is set the browser with the `BROWSER `--------------
-
-
-```
-// filename:
-```
-
-
-//...
-
-Run your code with ------------
 
 
 #### Final Code
 
-The new code should look like this:
+The new code should look like this. You can see an example of the [final code here]().
 
-the browser creator such as Chrome or Firefox.
 
+<img src="assets/XXX.png" alt="Image Name" width="550"/>
 
 ### Quiz
 

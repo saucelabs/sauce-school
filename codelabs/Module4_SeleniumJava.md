@@ -371,14 +371,12 @@ Watch the video [4.04 Non-Duplication](https://drive.google.com/file/d/1LkSIpQ7Q
 
 WebDriver works with each of the major browsers through a browser driver which is (ideally but not always) maintained by the browser manufacturer. It is an executable file (consider it a thin layer) that acts as a bridge between Selenium and the browser.
 
-Since you have been running tests locally, it works just fine to have the drivers on our machine, however, we’ll be moving this to the cloud soon, so you should send the driver files with it. Under the driver directory in your project, right click and choose **New > Package**, then name it drivers.
+Since you have been running tests locally, it works just fine to have the drivers on our machine, however, we’ll be adding another driver for another browser, so we will move the drivers into the project directory to make it easier to get to them. Under the driver directory in your project, right click and choose **New > Package**, then name it drivers.
 
 <img src="assets/4.04I.png" alt="Drivers folder" width="450"/>
 
 
-
-
-Find the directory in your finder, and download both the most recent [Chromedriver](https://chromedriver.chromium.org/downloads) and the [Geckodoriver](https://github.com/mozilla/geckodriver/releases) for Firefox. First open each browser and [check which version](https://support.google.com/chrome/answer/95414?co=GENIE.Platform%3DDesktop&hl=en)you are using for Chrome. For Firefox, download the latest version of the driver and the browser version will be added. _It is important to take note of the version you have of each. Write it down right now! _In this example, I have Chrome 85.0 on my machine, so I will download that driver version.
+Find the directory in your finder, and download both the browser driver that matches the browser you are testing against on your machine. You can use [Chromedriver](https://chromedriver.chromium.org/downloads) and the [Geckodoriver](https://github.com/mozilla/geckodriver/releases) for Firefox. First open each browser and [check which version](https://support.google.com/chrome/answer/95414?co=GENIE.Platform%3DDesktop&hl=en)you are using for Chrome. For Firefox, download the latest version of the driver and the browser version will be added. _It is important to take note of the version you have of each. Write it down right now! _In this example, I have Chrome 85.0 on my machine, so I will download that driver version.
 
 <img src="assets/4.04H.png" alt="Add Drivers folder" width="750"/>
 
@@ -437,7 +435,7 @@ Negative
 
 ### Part 2: Run your Tests with Geckodriver
 
-First, at the bottom of the list of dependencies in the `pom.xml` file (right above the closing `&lt;/dependencies>` tag):
+First, at the bottom of the list of dependencies in the `pom.xml` file (right above the closing `</dependencies>` tag):
 
 
 ```
@@ -811,7 +809,7 @@ After adding a test name, youwill add in an id and status for each unique test t
 
 A _failure _is different from an _error_. An error means that you test code is erroneous, and you, as the test writer, need to make a change. You should see this error in your terminal output, and if the code is correct to communicate with Sauce Labs, it should be on your dashboard as well. A failure means a test successfully ran, but the conditions it was checking for were not present – in other words, the code for the app isn’t as expected or needs fixing.
 
-You’ll first need install the `saucerest` library by adding it to our `pom.xml `file within the `&lt;dependencies>` tags.
+You’ll first need install the `saucerest` library by adding it to our `pom.xml `file within the `<dependencies>` tags.
 
 
 ```
