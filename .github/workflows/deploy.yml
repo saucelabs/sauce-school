@@ -105,15 +105,7 @@ jobs:
 
       - name: Run saucectl
         run: |
-          # Install saucectl
-          curl -L -s  https://github.com/saucelabs/saucectl/releases/download/v${SAUCECTL_VERSION}/saucectl_${SAUCECTL_VERSION}_linux_64-bit.tar.gz | sudo tar -xvz -C /usr/bin/
-          # Expose website
-          cd site/dist && python3 -m http.server 8080 &
-          # Run skipping ci-mode
-          export SKIP_CI=true
-          export CYPRESS_HOST_IP=`hostname -i`
-          echo "Injection CYPRESS_HOST_IP=${CYPRESS_HOST_IP}"
-          saucectl run --env CYPRESS_HOST_URL=http://${CYPRESS_HOST_IP}:8080 -c ./.sauce/config.yml
+          ./scripts/test.sh
 
   deploy-staging:
     needs: test

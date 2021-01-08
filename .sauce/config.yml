@@ -1,6 +1,8 @@
 apiVersion: v1alpha
 kind: cypress
 sauce:
+  tunnel:
+    id: dummy-tunnel-id
   region: us-west-1
   metadata:
     name: Sauce School
@@ -11,12 +13,14 @@ cypress:
   configFile: cypress.json
 suites:
   - name: "Chrome Tests"
-    browserName: chrome
+    browser: chrome
+    browserVersion: "87"
     config:
       testFiles:
         - "**/*.js"
   - name: "Firefox Tests"
-    browserName: firefox
+    browser: firefox
+    browserVersion: "latest"
     config:
       testFiles:
         - "**/*.js"
@@ -24,4 +28,4 @@ docker:
   fileMode: copy
   image:
     name: saucelabs/stt-cypress-mocha-node
-    tag: v0.2.3
+    tag: v0.3.2
