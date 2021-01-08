@@ -103,9 +103,9 @@ jobs:
         working-directory: ./site/
         run: npx gulp dist --codelabs-dir=codelabs
 
-      - name: Run saucectl
+      - name: Run on SauceLabs
         run: |
-          ./scripts/test.sh
+          ./helpers/test.sh
 
   deploy-staging:
     needs: test

@@ -4,7 +4,7 @@ const { spawn } = require('child_process');
 const waitPort = require('wait-port');
 const path = require('path');
 
-const testPort = 9999;
+const testPort = 8080;
 
 const main = async () => {
     const testAddr = await new Promise((resolve) => {
@@ -18,7 +18,7 @@ const main = async () => {
 
     await waitPort({host: testAddr, port: testPort});
 
-    const procTest = spawn('saucectl', ['run', '--env', `CYPRESS_HOST_URL=http://${testAddr}:${testPort}/`, '-c', '.sauce/config.yml']);
+    const procTest = spawn('saucectl', ['run', '--env', `CYPRESS_HOST_URL=http://${testAddr}:${testPort}/`, '-c', '.sauce/local.yml']);
     procTest.stdout.pipe(process.stdout);
     procTest.stderr.pipe(process.stderr);
 
