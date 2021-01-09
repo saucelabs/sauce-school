@@ -3,7 +3,7 @@ id: Module2-SeleniumPython
 categories: intermediate
 tags: python
 environments: Web
-status: Hidden
+status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 author:Lindsay Walker
 <!-- ------------------------ -->
@@ -353,13 +353,17 @@ def test_valid_credentials(driver):
 
 Essentially, Selenium works with two pieces of information, the element on page you will use and what you want to do with it.
 
-Notice how your test method starts with the word `test_` (that's how pytest knows it's a test) and it has two parameters (`self` and `driver`). `driver` accesses the driver instantiated for this test at the top of the class.
+To create an instance of Selenium we call `driver_ =webdriver.Chrome` storing it in a variable named with an underscore to avoid naming conflicts with the method `driver()`. The method checks to see if the path defined in the `_chromedriver` exists, and also defaults to Chromedriver if it doesn't find anything.
 
- Since it returns a browser instance we can reference this variable directory to use Selenium commands.
+Notice how your test method starts with the word `test_` (that's how pytest knows it's a test) and it has the `request` fixture. Pytest uses fixtures, instead of setup and tear down methods that you may see in other testing libraries.
 
-In this example test you will login to the app, find the username and password fields (and fill them in),and click the login button.
+Actions in `addfinalizer` get executed after a test method completes. In this example, a test method will create a driver, then the `driver_.quit()` will be run after the test complete, quitting the test.
 
-In a later module you will add an assertion that things went as expected.
+Each time you run a test, such as `test_valid_credentials`, you will
+
+In this example test you will login to the app, find the username and password fields (and fill them in), and click the login button.
+
+In a later module you will add an assertion to check and see that things went as expected.
 
 ### Install Chromedriver
 Before you can run this test code, you will need to install the Chromedriver so that your test code can communicate with the browser.
@@ -407,7 +411,7 @@ Negative
 Negative
 : Once you have allowed this, find the Chromedriver in your file directory, double click on it, and force terminal to open it.
 
---
+
 
 ### Run Your Code
 Strictly speaking, this isn't a test yet, since you haven't used an assertion, however we can still run your file and see it interact with the browser, if everything has been installed correctly.
@@ -448,15 +452,15 @@ Now it’s time to add in an assertion to see if your actions had the desired ef
 
 In this module, you will add an assertion to the code you have created in `login_test.py`, run your first test, and see if changes to the code cause a test failure.
 
-Open `login_test.py` and locate the method `def test_valid_credentials`. At the bottom (after `driver.find_element(By.CSS_SELECTOR, "button").click()`), add inthe following:
+Open `login_test.py` and locate the method `def test_valid_credentials`. Inside this method, after the last `'driver.find_element` command, add in the following:
 
 ```
 # filename: tests/login_test.py
 #  ...
         assert driver.find_element(By.CSS_SELECTOR, ".flash.success").is_displayed()
 ```
-With assert we are checking for a True Boolean response. If one is not received the test will fail if the element with the HTML element `.flash_success` isn't displayed on the webpage after you click login.
 
+With assert we are checking for a `True` Boolean response. If one is not received the test will fail if the element with the HTML element `.flash_success` isn't displayed on the webpage after you click login.
 
 
 Click  **Terminal** at the bottom of the PyCharm interface, then in the terminal, type the command `pytest` to run your suite. You should again see a browser open, and an output similar to what is below. You have successfully ran your first test.
@@ -481,7 +485,7 @@ Just to make certain that this test is doing what we think it should, let's chan
 assert driver.find_element(By.CSS_SELECTOR, ".flash.successBroken").is_displayed()
 ```
 
-Type the command `pytest` to run your suite. You should see a failed test with a failed locator. Now you can be sure that the test you wrote is correctly checking for the CSS locator.
+Type the command `pytest` to run your suite. You should see a failed test with a failed locator, since the class `successBroken` doesn't exist. Now you can be sure that the test you wrote is actually checking for the CSS locator.
 
 <img src="assets/2.06C.png" alt="First test" width="850"/>
 
