@@ -509,12 +509,12 @@ To upload the `.apk` project file, you simply have to visit the [Sauce Labs dash
 
 In the dropdown that appears, click and drag the `.apk` file for your mobile test.
 
-<img src="assets/QS2.04B.png" alt="Add .apk file" width="750"/>
+<img src="assets/QS2.04.png" alt="Add .apk file" width="750"/>
 
 
 Once you have uploaded the .apk file, you can hover over it in the list below and then click **Settings**.
 
-<img src="assets/QS2.04C.png" alt="See App Upload Settings" width="750"/>
+<img src="assets/QS2.04.png" alt="See App Upload Settings" width="750"/>
 
 
 Here you can see the ID for the app, which can be used in your test code to identify the app, though you can also use the name of the file that you uploaded.
