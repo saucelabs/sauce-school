@@ -18,16 +18,12 @@ suites:
     config:
       testFiles:
         - "**/*.js"
-      env:
-        HOST_URL: http://127.0.0.1:8080/
   - name: "Firefox Tests"
     browser: firefox
     browserVersion: "latest"
     config:
       testFiles:
         - "**/*.js"
-      env:
-        HOST_URL: http://127.0.0.1:8080/
 docker:
   fileMode: copy
   image:
