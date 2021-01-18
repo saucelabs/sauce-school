@@ -144,7 +144,9 @@ def driver(request):
 ```
 
 
-After requiring the `pytest`, `os`, and `webdriver` libraries, and importing from `config` you created the same thing you have at the beginning of both of your tests (login and dynamic loading) which means you can now abstract it out.
+After requiring the `pytest`, `os`, and `webdriver` libraries, and importing from `config` you created the same thing in the `driver()` method that you have at the beginning of both of your tests (login and dynamic loading) which means you can now abstract it out.
+
+A [Pytest fixture](https://docs.pytest.org/en/stable/fixture.html) is something that allows you to abstract out the logic that will set up and tear down tests, in a reusable way, without using a class, which can cause issue down the road. [Read more about why you use fixtures.](https://simplythetest.tumblr.com/post/640676369255268352/fixtures-over-classes-why-using-pytest-fixtures)
 
 In `login_test.py` remove the unnecessary imports so you only have these two:
 
