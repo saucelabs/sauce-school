@@ -75,7 +75,7 @@ It is less ideal for checking lower-level functionality, like HTTP status codes 
 ## 1.03 What is the W3C WebDriver Protocol?
 Duration: 0:05:00
 
-The WebDriver protocol consists of rules for communication between the client on the local end, -- which uses languages and libraries like Java, Ruby, or JavaScript -- and a web browser. The local end (your computer) communicates with the remote end node on the server side. The web driver defines how the remote end can behave, and the method for how the remote end receives information. As an example, the Selenium WebDriver provides instructions to the browser on how to click or type into elements on a page. This is then communicated to specific browser drivers, such as Chromedriver (for the Chrome browser) or Geckodriver (for the Firefox browser) and the commands are carried out.
+The WebDriver protocol, used by Selenium, consists of rules for communication between the client on the local end, -- which uses languages and libraries like Java, Ruby, or JavaScript -- and a web browser. The local end (your computer) communicates with the remote end node on the server side. The web driver defines how the remote end can behave, and the method for how the remote end receives information. As an example, the Selenium WebDriver provides instructions to the browser on how to click or type into elements on a page. This is then communicated to specific browser drivers, such as Chromedriver (for the Chrome browser) or Geckodriver (for the Firefox browser) and the commands are carried out.
 
 The code that Selenium provides to you as a developer (the libraries) is called a Selenium language binding. It binds together the Java code you write for actions and tests with things that WebDriver can understand.
 
