@@ -52,7 +52,7 @@ There are seven basic elements of a Selenium test script, which apply to any tes
 6. Run tests and record test results using a test framework.
 7. Conclude the test.
 
-The Selenium Grid allows you to run parallel tests on multiple combinations of machines (Mac, Windows, or Unix-based systems) using multiple web browsers (versions of Chrome, Edge, Firefox, or Safari). These different machines can exist virtually on a server in a cloud environment, or as a network of real devices. JSON is used to communicate test requirements and route those requirements to different nodes, which have different environments to test on.
+The Selenium Grid allows you to run parallel tests on multiple combinations of machines (Mac, Windows, or Unix-based systems) using multiple web browsers (versions of Chrome, Edge, Firefox, or Safari). These different machines can exist virtually on a server in a cloud environment, or as a network of real devices. The JSON/ W3C protocol is used to communicate test commands and configurations and route those requirements to different nodes, which have different environments to test on.
 
 <img src="assets/1.02B.png" alt="Selenium Computer" width="350"/>
 
@@ -60,7 +60,7 @@ The [Sauce Labs](https://saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_c
 
 As your test suite grows, your test runs will take longer to complete. To speed them up, you will want to run them in parallel, which is where the benefit of having your own servers or using a cloud provider comes in -- that, and the ability to have numerous browser and operating system combinations to run your tests on.
 
-This course focuses on the fourth version of Selenium, which supports communication via the W3C WebDriver protocol. All modern web browsers are also built in compliance with this protocol (a set of rules on how to communicate), which means Selenium 4 can be used with any programming language and any browser and OS combination in your environment. With the W3C protocol, you can discover and manipulate elements on a page in order to test their functionality.
+Selenium communicates the commands to the browser using either a JSON wire protocol (Selenium 3.14.15 and below) or the latest W3C protocol (Selenium 4 and above.) The fourth version of Selenium, which supports communication via the W3C WebDriver protocol. All modern web browsers are also built in compliance with this protocol (a set of rules on how to communicate), which means Selenium 4 can be used with any programming language and any browser and OS combination in your environment. With the W3C protocol, you can discover and manipulate elements on a page in order to test their functionality.
 
 Selenium is really good at a specific set of things. If you know what those are and stick to them, then you can easily write reliable, scalable, and maintainable tests that you and your team can trust.
 
