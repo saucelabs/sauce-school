@@ -14,7 +14,7 @@ author: Lindsay Walker
 ## 4.01 What You'll Learn
 Duration: 0:03:00
 
-This module is derived from content in chapters 11-13 of _The Selenium Guidebook_ _Java Edition_ By Dave Haeffner._ _This module guides you through creating a separate `BaseTest` file where the root level `before() `and` after()` hooks will live for each test, as well as a _Driver Factory _which creates the `build()` and `quit()` functions used for each instance of a test.  Users will work through creating a config file to store the environment variables specifying in which environment your test is run, and modify the base page to check & pull environment variables from config. Last but not least, add in some features to make your tests’ results easier to read and debug using the Sauce Labs platform.
+This module is derived from content in chapters 11-13 of _The Selenium Guidebook - Java Edition_ By Dave Haeffner. This module guides you through creating a separate `BaseTest` file where the root level `before() `and` after()` hooks will live for each test, as well as a _Driver Factory_ which creates the `build()` and `quit()` functions used for each instance of a test.  Users will work through creating a config file to store the environment variables specifying in which environment your test is run, and modify the base page to check & pull environment variables from config. Last but not least, add in some features to make your tests’ results easier to read and debug using the Sauce Labs platform.
 
 
 ### Objectives
@@ -290,7 +290,7 @@ Create a new class in the tests directory called `Config.java`:
 
 <img src="assets/4.03H.png" alt="New Config File" width="450"/>
 
-Inside of the class, you specify our` baseUrl` variable and have it fetch a runtime property of the same name. If there isn't one specified, the default will be used: `"http://the-internet.herokuapp.com`".
+Inside of the class, you specify our` baseUrl` variable and have it fetch a runtime property of the same name. If there isn't one specified, the default will be used: "http://the-internet.herokuapp.com".
 
 Notice that the variable is `final` which makes it immutable, since you don't want configuration values to change after our tests start running.
 
@@ -307,7 +307,7 @@ public class Config {
 ```
 
 
-Now you need to update the `Base` page object to use the URL you specified in `Config.java`. FIrst, update the `visit` method tin `Base.java`:
+Now you need to update the `Base` page object to use the URL you specified in `Config.java`. First, update the `visit` method tin `Base.java`:
 
 
 ```

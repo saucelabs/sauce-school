@@ -1,22 +1,35 @@
 apiVersion: v1alpha
-metadata:
-  name: Sauce School
-  tags:
-    - e2e
-  build: Commit $CI_COMMIT_SHORT_SHA
-files:
-  - tests/integration/
+kind: cypress
+sauce:
+  tunnel:
+    id: sauce-ci-tunnel
+  region: us-west-1
+  metadata:
+    name: Sauce School
+    tags:
+      - e2e
+    build: Commit $CI_COMMIT_SHORT_SHA
+cypress:
+  configFile: cypress.json
 suites:
   - name: "Chrome Tests"
-    match: ".*.(spec|test).js$"
-    settings:
-      browserName: chrome
+    browser: chrome
+    browserVersion: "87"
+    config:
+      testFiles:
+        - "**/*.js"
+      env:
+        HOST_URL: http://127.0.0.1:8080/
   - name: "Firefox Tests"
-    match: ".*.(spec|test).js$"
-    settings:
-      browserName: firefox
-image:
-  base: saucelabs/stt-cypress-mocha-node
-  version: v0.1.17
-sauce:
-  region: us-west-1
+    browser: firefox
+    browserVersion: "latest"
+    config:
+      testFiles:
+        - "**/*.js"
+      env:
+        HOST_URL: http://127.0.0.1:8080/
+docker:
+  fileMode: copy
+  image:
+    name: saucelabs/stt-cypress-mocha-node
+    tag: v0.3.2
