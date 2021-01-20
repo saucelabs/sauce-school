@@ -170,7 +170,7 @@ Move the zipped file to your Applications folder.
 In terminal, open the file in your downloads directory in terminal and run the command:
 
 
-    `tar xzvf apache-maven-3.6.3-bin.tar.gz`.
+`tar xzvf apache-maven-3.6.3-bin.tar.gz`
 
 (Replace `maven-3.6.3-bin.tar.gz` with the version you downloaded.)  This will unzip the project file.
 
@@ -244,7 +244,7 @@ The `pom.xml` file is what Maven uses to identify which dependencies to install 
 
 
 ```
-?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -271,11 +271,13 @@ The `pom.xml` file is what Maven uses to identify which dependencies to install 
             <scope>test</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.0.0-alpha-1</version>
         </dependency>
+
 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -290,10 +292,10 @@ The `pom.xml` file is what Maven uses to identify which dependencies to install 
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.0</version>
+                <version>3.8.1</version>
                 <configuration>
-                    <source>1.9</source>
-                    <target>1.9</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -303,7 +305,7 @@ The `pom.xml` file is what Maven uses to identify which dependencies to install 
                     <parallel>methods</parallel>
                     <threadCount>40</threadCount>
                 </configuration>
-                <version>2.22.0</version>
+                <version>2.22.1</version>
             </plugin>
         </plugins>
     </build>
