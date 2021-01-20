@@ -38,7 +38,11 @@ This module is created to walk you through the steps you need to take to get a t
 
 ### Resources
 Download the following resources on your computer:
+<<<<<<< HEAD
+* [Android Test Code](https://github.com/walkerlj0/Quickstart_Android). See the _/Mod2/2.03_ folder to follow along starting on the next module.
+=======
 * [Android Test Code](https://github.com/walkerlj0/Quickstart_Android). See the _/Mod2/2.03_ to follow along starting on the next module.
+>>>>>>> master
 * Swag Labs [Android Native Demo App](https://github.com/saucelabs/sample-app-mobile/releases)
     * Scroll down and find the **Android.SauceLabs.Mobile.Sample.app.x.x.x.apk** file. Choose the latest version you can find.
 
@@ -529,7 +533,7 @@ First, we will create a separate test file, based on `BasicTest.java`. The first
 <img src="assets/QS2.04E.png" alt="New Android Emulator Test" width="250"/>
 
 
-Lastly, update the `pom.xml` in the `properties` tag where you see the `&lt;testNGxml file> `tag to say `mobile_android_EMU_test.xml`. Now, TestNG will run that test when you run the `mvn clean test` command in terminal.
+Lastly, update the `pom.xml` in the `properties` tag where you see the `<testNGxml file> `tag to say `mobile_android_EMU_test.xml`. Now, TestNG will run that test when you run the `mvn clean test` command in terminal.
 
 <img src="assets/QS2.04F.png" alt="Emulator Test TestNG File" width="750"/>
 
@@ -1380,7 +1384,7 @@ Next, make a copy of any of the TestNG xml files, and name this one `mobile_andr
 
 ### Update the TestNG xml File
 
-The first thing you will need to do is update the TestNg xml file to enable your tests to run in parallel. Inside of the `&lt;suite>` tag you will add three fields, `parallel="methods"` to enable you to run the methods in parallel threads, `thread-count="10`” to run 10 threads at once, and `verbose="1"` to run the lowest level of reporting. This allows you to run up to 10 methods in your test suite at once in parallel.
+The first thing you will need to do is update the TestNg xml file to enable your tests to run in parallel. Inside of the `<suite>` tag you will add three fields, `parallel="methods"` to enable you to run the methods in parallel threads, `thread-count="10`” to run 10 threads at once, and `verbose="1"` to run the lowest level of reporting. This allows you to run up to 10 methods in your test suite at once in parallel.
 
 
 ```
@@ -1400,7 +1404,7 @@ The first thing you will need to do is update the TestNg xml file to enable your
 
 TestNG allows you to output report files to be used with other tools to send information when a test fails, however since you are using Sauce Labs for reporting, we won’t cover this in detail.
 
-Next you want to add in the fields `parallel="methods"` and `enabled="true"` to the `&lt;test>` tag so that you can run methods within the same test class in parallel. This is a bit redundant as we are only running one suite at first, but can come in handy later.
+Next you want to add in the fields `parallel="methods"` and `enabled="true"` to the `<test>` tag so that you can run methods within the same test class in parallel. This is a bit redundant as we are only running one suite at first, but can come in handy later.
 
 
 ```
@@ -1418,7 +1422,7 @@ Next you want to add in the fields `parallel="methods"` and `enabled="true"` to 
 ```
 
 
-Once you start to build out your test, you can add different `&lt;tests>` containing multiple `&lt;classes>` and use `enabled="true"` to run them, or switch certain tests off by setting `enabled="false"`.
+Once you start to build out your test, you can add different `<tests>` containing multiple `<classes>` and use `enabled="true"` to run them, or switch certain tests off by setting `enabled="false"`.
 
 You can also run [classes](https://www.seleniumeasy.com/testng-tutorials/parallel-execution-of-classes-in-testng), [tests](https://www.seleniumeasy.com/selenium-tutorials/testing-in-multiple-browsers), and [suites](https://howtodoinjava.com/testng/testng-executing-parallel-tests/#parallel_test_suite) in parallel using TestNG.
 
