@@ -135,7 +135,7 @@ These items will be your highest priority for automation. Start an automation ba
 
 Odds are your application offers a robust set of functionality well beyond your funnel. Your answers to this question will help highlight what it is. And if you're basing these answers on usage data like those obtained from Google Analytics, then you can see which features and functionality are more frequently used than others.
 
-When you data shows certain functions, features, and flows are frequently used, consider adding them as a priority for your automated testing suite.
+When your data shows certain functions, features, and flows are frequently used, consider adding them as a priority for your automated testing suite.
 
 
 #### Question 3: Which Browsers?

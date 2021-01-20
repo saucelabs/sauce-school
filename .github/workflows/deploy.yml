@@ -15,6 +15,7 @@ env:
   SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
   SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
   CLOUDSDK_PYTHON: python3.7
+  SAUCECTL_VERSION: "0.21.1"
 
 jobs:
   build:
@@ -102,17 +103,9 @@ jobs:
         working-directory: ./site/
         run: npx gulp dist --codelabs-dir=codelabs
 
-      - name: Run saucectl
+      - name: Run on SauceLabs
         run: |
-          # Install saucectl
-          curl -L -s  https://github.com/saucelabs/saucectl/releases/download/v0.18.0/saucectl_0.18.0_linux_64-bit.tar.gz | sudo tar -xvz -C /usr/bin/
-          # Expose website
-          cd site/dist && python3 -m http.server 8080 &
-          # Run skipping ci-mode
-          export SKIP_CI=true
-          export CYPRESS_HOST_IP=`hostname -i`
-          echo "Injection CYPRESS_HOST_IP=${CYPRESS_HOST_IP}"
-          saucectl run --env CYPRESS_HOST_URL=http://${CYPRESS_HOST_IP}:8080 -c ./.sauce/config.yml
+          ./helpers/test.sh
 
   deploy-staging:
     needs: test
