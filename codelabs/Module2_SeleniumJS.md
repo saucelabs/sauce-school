@@ -1,4 +1,4 @@
-summary: Module 2 of the Selenium JavaScript course. Learn to write Selenium tests in JavaScript using npm and Mocha.
+summary: Test Automation with Selenium, JavaScript, and Mocha. Learn about test strategies, create a test object, add assertions, and check for failure.
 id: Module2-SeleniumJS
 categories: intermediate
 tags: javascript

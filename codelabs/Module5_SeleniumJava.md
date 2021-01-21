@@ -24,7 +24,7 @@ This module, based off chapters 13-18 of _The Selenium Guidebook:_ _Java Edition
 
 *   Set up and run tests using the Sauce Connect Proxy tunnel with terminal commands and the Sauce Labs application interface. Set up environment variables and access them with the Sauce Connect software to run tests using the tunnel.
 *   Use JUnit and Maven's Surefire Plugin to run tests on the Sauce Platform in parallel and in random order
-*   Create category interfaces for tests and test classes and use the `&lt;groups>` tag in `pom.xm`l, as well as the `mvn -Dgroups `tag in the terminal to run different groups of tests for different purposes
+*   Create category interfaces for tests and test classes and use the `<groups>` tag in `pom.xm`l, as well as the `mvn -Dgroups `tag in the terminal to run different groups of tests for different purposes
 *   Set up the the Jenkins CI server on your local machine and learn how to use the user interface to set up projects that run your tests, as well as configure the Jenkins CI server
 *   Add your credentials to your instance of a Jenkins CI server using Sauce OnDemand and run a test that you can view in both the Jenkins console and the Sauce Labs application
 *   Modify the configuration of a local instance on a Jenkins CI server, add plugins, and update a test to take desired capabilities from a config.java file updated for your Jenkins tests
@@ -293,7 +293,7 @@ As an example, if the SauceClient  was declared as `private static SauceRest sau
 
 ### Part 1: Add Configuration Options to your Surefire Plugin
 
-You should already have the `maven-surefire-plugin` in your `pom.xml` file within the `&lt;build>` tags. If for some reason you don’t, add it in now:
+You should already have the `maven-surefire-plugin` in your `pom.xml` file within the `<build>` tags. If for some reason you don’t, add it in now:
 
 
 ```
@@ -308,7 +308,7 @@ You should already have the `maven-surefire-plugin` in your `pom.xml` file withi
 ```
 
 
-What you will do is add in `&lt;configuration>` options that will allow you to run tests in parallel. Underneath `&lt;artifactID>`, add in a `&lt;configuration>` opening and closing tag, and within that tag add in the all &lt;`parallel>` parameter.
+What you will do is add in `<configuration>` options that will allow you to run tests in parallel. Underneath `<artifactID>`, add in a `<configuration>` opening and closing tag, and within that tag add in the all <`parallel>` parameter.
 
 
 ```
@@ -328,9 +328,9 @@ What you will do is add in `&lt;configuration>` options that will allow you to r
 
 The `all `parameter tells you to run all suites, classes, and methods in parallel. You can also choose to run one or multiple of those options.
 
-Underneath parallel, add in parameters for the number of thread counts for methods, set unlimited thread counts to `true`. This will allow you to use as many threads as CPUs you have available to you, and not run multiple tests in the same thread. `&lt;threadCountMethods>` sets the number of methods (but not classes or suites)  to be tested at once at a limit of `30`. These configurations optimize the running of large test suites.
+Underneath parallel, add in parameters for the number of thread counts for methods, set unlimited thread counts to `true`. This will allow you to use as many threads as CPUs you have available to you, and not run multiple tests in the same thread. `<threadCountMethods>` sets the number of methods (but not classes or suites)  to be tested at once at a limit of `30`. These configurations optimize the running of large test suites.
 
-You also don’t want to put the output for the reporting to be created in a file, otherwise you cannot run tests in parallel, so we set  `&lt;redirectTestOutputToFile>` to` false`.
+You also don’t want to put the output for the reporting to be created in a file, otherwise you cannot run tests in parallel, so we set  `<redirectTestOutputToFile>` to` false`.
 
 
 ```
@@ -359,7 +359,7 @@ Run `mvn clean test -Dhost=saucelabs` and visit the [Sauce Labs Dashboard ](http
 
 You might ask, why randomization? This is a very effective way to see if your tests are truly atomic and independent of one another. As you run more and more tests, it’s important to make sure that they aren’t dependent on the behavior of a different test, because conditions will not always be the same as you use tests for different cases.
 
-In your `pom.xml` file, below the `&lt;redirectTestOutputToFile>, `add in:
+In your `pom.xml` file, below the `<redirectTestOutputToFile>, `add in:
 
 
 ```
@@ -488,7 +488,7 @@ public class TestDynamicLoading extends BaseTest {
 
 ### Part 2: Running Tests with Categories
 
-Before you can run your tests with these categories, you need to be able to specify a category as a runtime property. For that, you'll modify `pom.xml`. In the `&lt;properties>` tags add a `&lt;groups> `tag as a child like so:
+Before you can run your tests with these categories, you need to be able to specify a category as a runtime property. For that, you'll modify `pom.xml`. In the `<properties>` tags add a `<groups> `tag as a child like so:
 
 
 ```

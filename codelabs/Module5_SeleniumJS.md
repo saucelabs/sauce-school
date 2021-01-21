@@ -647,7 +647,7 @@ If you see a warning at the top of your Global Tool Configuration dashboard, you
 
 
 
-Scroll down to the bottom where you will see the NodeJS section. Open it up and choose **Add NodeJS**. Give this one a name, and pick your version of NodeJS. We also need to make sure it installs the most recent version of mocha. You will do this by typing `mocha@&lt;x.x.x`>. This should be the same as the version in your `package.json` file. Hit** Save**.
+Scroll down to the bottom where you will see the NodeJS section. Open it up and choose **Add NodeJS**. Give this one a name, and pick your version of NodeJS. We also need to make sure it installs the most recent version of mocha. You will do this by typing `mocha@x.x.x`. This should be the same as the version in your `package.json` file. Hit** Save**.
 
 <img src="assets/5.06R.png" alt="Add NodeJS" width="750"/>
 
