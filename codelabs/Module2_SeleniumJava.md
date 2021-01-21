@@ -269,14 +269,11 @@ First we will need to create a new project directory called `SeleniumJava` (your
 
 You can see all of the files here.
 
-**[Selenium Course Example Code](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2/2.05)_**
+**[Selenium Course Example Code](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2/2.05)**
 
 ### Note
 Negative
 : If you are a first-time user of IntelliJ with Java, I highly recommend checking out the YouTube channel by JetBrains. [This is a great first video.](https://www.youtube.com/watch?v=H_XxH66lm3U)
-
-
-
 
 If you pull down a project file from Github instead of creating it as outlined below, and want to test it on your machine, you will have to use IntelliJ to set up your environment with Maven to manage your files and specify which Java Development Kit (aka Software Development Kit)  you use (both of these should be installed on your computer ahead of time). If you download the source code, first open the project.
 
@@ -424,10 +421,41 @@ Capabilities are an essential part of any test. When we instantiate a chromedriv
 
 You will also need to set the path to the place on your computer where you unzipped the chromedriver. in the example, If you had your chromedriver unzipped in a user's Documents directory you would replace `System.setProperty("webdriver.chrome.driver",  "<insert filepath to chromedriver here>");` with `System.setProperty("webdriver.chrome.driver",  "/Users/username/Documents/chromedriver");` .
 
-### Note
+#### Note
 
 Negative
-: If you notice that some of the dependencies at the top are red, it means you need to install those dependencies. Refer to module 1.05 Video on [using IntelliJ to install dependencies](https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/view?usp=sharing), and the [Cheat Sheet ](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)for web drivers.
+: How to Find Dependencies Using IntelliJ Video:
+ If your test file doesn’t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out.
+
+ Negative
+: * Hover over a red word in IDE
+
+Negative
+: * Click the red light bulb to import maven dependencies.
+
+Negative
+: * Click the Maven tab and refresh.
+
+Negative
+: * Check the .pom file to make sure the updated version was added.
+
+Negative
+: * Words should no longer appear red in the test.java file.
+
+
+#### Video
+
+[1.05_IntelliJ_Dependencies ](https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/view?usp=sharing)– Using IntelliJ to install dependencies and update the .pom file
+
+![https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/preview](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
+
+
+### Use GitHub Repository (Optional)
+
+If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
+
+**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod1/1.06/src/test/java/companyname/TestLogin.java)**
+
 
 Negative
 : **Check driver path and browser version–** If your tests aren't running correctly, double check that the `System.setProperty("webdriver.chrome.driver")` has the full path to where you installed the chromedriver, and that the `browserOptions.setCapability("browserVersion", "XX.0");` matches the version of both the browser you have on your computer, and the version of the chromedriver you installed.
