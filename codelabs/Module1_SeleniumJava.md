@@ -314,43 +314,9 @@ The `pom.xml` file is what Maven uses to identify which dependencies to install 
 ```
 
 
-This sets up all the dependencies, however, you may need to research to make sure you have the most updated or correct version of these dependencies. Each dependency's `version` may need to be updated. See the section below for more details.
+This sets up all the dependencies, however, you may need to research to make sure you have the most updated or correct version of these dependencies. Each dependency's `version` may need to be updated. You can check Maven 
 
 
-### Note
-
-Negative
-: How to Find Dependencies Using IntelliJ Video:
- If your .pom file doesn’t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out.
-
- Negative
-: * Hover over a red word in IDE
-
-Negative
-: * Click the red light bulb to import maven dependencies.
-
-Negative
-: * Click the Maven tab and refresh.
-
-Negative
-: * Check the .pom file to make sure the updated version was added.
-
-Negative
-: * Words should no longer appear red in the test.java file.
-
-
-#### Video
-
-[1.05_IntelliJ_Dependencies ](https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/view?usp=sharing)– Using IntelliJ to install dependencies and update the .pom file
-
-![https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/preview](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
-
-
-### Use GitHub Repository (Optional)
-
-If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
-
-**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod1/1.06/src/test/java/companyname/TestLogin.java)**
 
 <!-- ------------------------ -->
 ## 1.06 Editing Code and Java Summary
