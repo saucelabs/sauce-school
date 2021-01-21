@@ -412,7 +412,7 @@ browser = ""
 Negative
 : You can set the variables in here at any time for the URL and browser and not have to run a flag when you run `pytest`:      <img src="assets/4.04R.png" alt="Extract geckodriver" width="450"/>
 
-Next, update `conftest.py` using the same `parser.addoption()` method you used earlier:
+Next, update `conftest.py` using the same `parser.addoption()` method you used earlier for the `--browser` flag:
 
 ```
 # filename: config.py
@@ -429,8 +429,8 @@ def pytest_addoption(parser):
 
 ```
 
-After that, you will need to update the code to take the browser variable, and set the correct driver. Add in an else, if statement to switch between chromedriver and geckodriver:
-<<<<<<< HEAD
+After that, you will need to update the code to take the browser variable, and set the correct driver. Add in an `if, elif `statement to switch between Chromedriver and Geckodriver:
+
 
 ```
 # filename: conftest.py
@@ -449,7 +449,7 @@ def driver(request):
     elif config.browser == "firefox":
         _geckodriver = os.path.join(os.getcwd(), 'vendor', 'geckodriver')
         if os.path.isfile(_geckodriver):
-             driver_ = webdriver.Firefox(_geckodriver)
+             driver_ = webdriver.Firefox(executable_path=_geckodriver)
         else:
             driver_ = webdriver.Firefox()
 
@@ -460,40 +460,8 @@ def driver(request):
     return driver_
 
 ```
-=======
+note that in the `_driver` variable created in the option for the Firefox browser, you  
 
-```
-# filename: conftest.py
-# ...
-@pytest.fixture
-def driver(request):
-    config.baseurl = request.config.getoption("--baseurl")
-    config.browser = request.config.getoption("--browser").lower()
-
-    if config.browser == "chrome":
-        _chromedriver = os.path.join(os.getcwd(), 'vendor', 'chromedriver')
-        if os.path.isfile(_chromedriver):
-            driver_ = webdriver.Chrome(_chromedriver)
-        else:
-            driver_ = webdriver.Chrome()
-    elif config.browser == "firefox":
-        _geckodriver = os.path.join(os.getcwd(), 'vendor', 'geckodriver')
-        if os.path.isfile(_geckodriver):
-             driver_ = webdriver.Firefox(_geckodriver)
-        else:
-            driver_ = webdriver.Firefox()
-
-    def quit():
-        driver_.quit()
-
-    request.addfinalizer(quit)
-    return driver_
->>>>>>> master
-
-```
-
-<<<<<<< HEAD
-=======
 ### Quiz
 
 >>>>>>> master
