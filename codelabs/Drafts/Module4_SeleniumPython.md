@@ -429,7 +429,7 @@ def pytest_addoption(parser):
 
 ```
 
-After that, you will need to update the code to take the browser variable, and set the correct driver. Add in an `if, elif `statement to switch between Chromedriver and Geckodriver:
+After that, you will need to update the code to take the browser variable, make it possible to change the `--browser` action when you use the flage, and set the correct driver. Add in an `if, elif `statement to switch between Chromedriver and Geckodriver:
 
 
 ```
@@ -460,7 +460,11 @@ def driver(request):
     return driver_
 
 ```
-note that in the `_driver` variable created in the option for the Firefox browser, you  
+note that in the `_driver` variable created in the option for the Firefox browser, you added `executable_path=_geckodriver` as a parameter. This is because by default, the webdriver may look for a  [Firefox profile](https://www.toolsqa.com/selenium-webdriver/custom-firefox-profile/) instead of the path to the chromedriver.
+
+Now we can specify Chrome as our browser when launching our tests with the command `pytest --browser=chrome`.
+
+#### Final Code
 
 ### Quiz
 

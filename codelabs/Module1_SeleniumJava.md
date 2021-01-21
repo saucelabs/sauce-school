@@ -314,9 +314,8 @@ The `pom.xml` file is what Maven uses to identify which dependencies to install 
 ```
 
 
-This sets up all the dependencies, however, you may need to research to make sure you have the most updated or correct version of these dependencies. Each dependency's `version` may need to be updated. You can check Maven 
+This sets up all the dependencies, however, you may need to research to make sure you have the most updated or correct version of these dependencies. Each dependency's `version` may need to be updated. You can check Maven
 
-<<<<<<< HEAD
 #### Note
 
 Negative
@@ -351,9 +350,6 @@ Negative
 If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
 
 **[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod1/1.06/src/test/java/companyname/TestLogin.java)**
-=======
-
->>>>>>> master
 
 <!-- ------------------------ -->
 ## 1.06 Editing Code and Java Summary
