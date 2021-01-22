@@ -34,7 +34,7 @@ This module is derived from content in chapters 6-7 of _The Selenium Guidebook_ 
 
 ### Base Code
 
-If you skipped Module 1, make sure you have a project folder set up and have created the following files, as well as have IntelliJ, Maven, and a `pom.xml` installed and included
+If you skipped Module 1, make sure you have a project folder set up and have created the following files, as well as have IntelliJ, Maven, and a `pom.xml` installed and included in your test code. ([See 1.05](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) for pom.xml content)
 
 <img src="assets/2.00A.png" alt="Directory Structure" width="800"/>
 <!-- ![Directory Structure](assets/2.00.png) -->
@@ -92,7 +92,7 @@ In order to effectively collaborate with other testers and developers on your te
 
 ### [BDD and TDD](https://saucelabs.com/blog/a-two-minute-bdd-overview)
 <!-- <img align="right" width="200" height="183" alt="pencil" src="assets/2.02C.png"> -->
-Behavior Driven Development and Test Driven Development are two important strategies to help you understand how to write effective tests. [BDD](https://cucumber.io/blog/bdd/bdd-is-not-test-automation/) is a collaborative process that focuses on starting with a business value or need. It’s a feature and epic-centric approach to create a requirements analysis. With both BDD and TDD, you plan to write the code for the test first (application code comes later).
+Behavior Driven Development and Test Driven Development are two important strategies to help you understand how to write effective tests. [BDD](https://cucumber.io/blog/bdd/bdd-is-not-test-automation/) is a collaborative process that focuses on starting with a business value or need. It’s a feature and epic-centric development strategy to create a requirements analysis. With both BDD and TDD, you plan to write the code for the test first (application code comes later).
 
 
 <img src="assets/2.02C.png" alt="Pencil" width="150"/>
@@ -347,7 +347,7 @@ Inside of your Java file create a package with your company name. This example i
 
 <img src="assets/2.05N.png" alt="Directory Structure" width="350"/>
 
-Copy and paste the following code into the file:
+Copy and paste the following code into the file You will have to **Add your own filepath** where you stored your chromedriver: An example of a filepath property in the beofre hook: `System.setProperty("webdriver.chrome.driver", "/Users/lindsaywalker/Documents/chromedriver");`
 
 
 ```

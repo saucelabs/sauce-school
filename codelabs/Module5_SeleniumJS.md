@@ -647,7 +647,7 @@ If you see a warning at the top of your Global Tool Configuration dashboard, you
 
 
 
-Scroll down to the bottom where you will see the NodeJS section. Open it up and choose **Add NodeJS**. Give this one a name, and pick your version of NodeJS. We also need to make sure it installs the most recent version of mocha. You will do this by typing `mocha@x.x.x`. This should be the same as the version in your `package.json` file. Hit** Save**.
+Scroll down to the bottom where you will see the NodeJS section. Open it up and choose **Add NodeJS**. Give this one a name, and pick your version of NodeJS. We also need to make sure it installs the most recent version of mocha. You will do this by typing `mocha@x.x.x`. This should be the same as the version in your `package.json` file. Hit **Save**.
 
 <img src="assets/5.06R.png" alt="Add NodeJS" width="750"/>
 
@@ -681,13 +681,10 @@ Watch [5.06 Run Jenkins with Homebrew ](https://drive.google.com/file/d/1gkwQRLi
 
 #### NOTE
 
-Ideally, your test code would live in a version control system such as Git. The first thing you will need to do is get the plugin under **Manage Jenkins **>** Manage Plugins.** You can configure this under **Manage** Jenkins > Global Tools Configuration**. To use a Git project, create a new project from the Jenkins homepage, then under the configuration of that project, choose Git for Source Code Management.
+Negative
+: Ideally, your test code would live in a version control system such as Git. The first thing you will need to do is get the plugin under **Manage Jenkins > Manage Plugins.** You can configure this under **Manage Jenkins > Global Tools Configuration**. To use a Git project, create a new project from the Jenkins homepage, then under the configuration of that project, choose Git for Source Code Management.  <img src="assets/5.06U.png" alt="NodeJS Configuration" width="750"/>  Learn more about setting up GitHub source control in [this tutorial.](http://www.mastertheboss.com/cool-stuff/jenkins/jenkins-source-code-management-with-git)
 
-<img src="assets/5.06U.png" alt="NodeJS Configuration" width="750"/>
 
-Learn more about setting up GitHub source control in [this tutorial.](http://www.mastertheboss.com/cool-stuff/jenkins/jenkins-source-code-management-with-git)
-
---
 
 <!-- ------------------------ -->
 ## 5.07 Jenkins and Sauce OnDemand
