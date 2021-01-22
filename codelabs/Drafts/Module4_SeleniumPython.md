@@ -143,14 +143,12 @@ def driver(request):
 
 ```
 
-
-<<<<<<< HEAD
 After requiring the `pytest`, `os`, and `webdriver` libraries, and importing from `config` you created the same thing in the `driver()` method that you have at the beginning of both of your tests (login and dynamic loading) which means you can now abstract it out.
 
 A [Pytest fixture](https://docs.pytest.org/en/stable/fixture.html) is something that allows you to abstract out the logic that will set up and tear down tests, in a reusable way, without using a class, which can cause issue down the road. [Read more about why you use fixtures.](https://simplythetest.tumblr.com/post/640676369255268352/fixtures-over-classes-why-using-pytest-fixtures)
-=======
+
 After requiring the `pytest`, `os`, and `webdriver` libraries, and importing from `config` you created the same thing you have at the beginning of both of your tests (login and dynamic loading) which means you can now abstract it out.
->>>>>>> master
+
 
 In `login_test.py` remove the unnecessary imports so you only have these two:
 
@@ -216,6 +214,7 @@ baseurl = ""
 
 
 At the top of your test, before the `@pytest.fixture`, import `config.py` so you can use your new variable and add in the following:
+
 ```
 # filename: tests/conftest.py
 # ...
@@ -244,15 +243,11 @@ def driver(request):
 ```
 
 #### Update Base Page
-<<<<<<< HEAD
 
 The last thing you need to do is update the code to use this new variable. In basepage, you will import `config.py` to grab the `baseurl` variable:
 
-=======
-
 The last thing you need to do is update the code to use this new variable. In basepage, you will import `config.py` to grab the `baseurl` variable:
 
->>>>>>> master
 ```
 #  filename: pages/base_page.py
 # ...
@@ -274,15 +269,9 @@ def _visit(self, url):
 ```
 
 #### Update Page Objects
-<<<<<<< HEAD
 
 Lastly, you will need to remove the url (`"http://the-internet.herokuapp.com/login"`) hardcoded into your `login_page.py` and `dynamic_loading_page.py`, and instead, append the subdomain to the base url.
 
-=======
-
-Lastly, you will need to remove the url (`"http://the-internet.herokuapp.com/login"`) hardcoded into your `login_page.py` and `dynamic_loading_page.py`, and instead, append the subdomain to the base url.
-
->>>>>>> master
 Update `__init__` in the login page like so, simply adding `/login` to the end:
 
 ```
@@ -312,7 +301,7 @@ Now try running your test. If you would like, delete the url listed in `conftest
 
 #### Final Code
 See an example of all the changes made to the code in [this repo](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod4/4.03).
-<<<<<<< HEAD
+
 
 <img src="assets/4.03Q.png" alt="config.py" width="550"/>
 <img src="assets/4.03R.png" alt="config.py" width="750"/>
@@ -460,15 +449,16 @@ def driver(request):
     return driver_
 
 ```
-note that in the `_driver` variable created in the option for the Firefox browser, you added `executable_path=_geckodriver` as a parameter. This is because by default, the webdriver may look for a  [Firefox profile](https://www.toolsqa.com/selenium-webdriver/custom-firefox-profile/) instead of the path to the chromedriver.
+
+Note that in the `_driver` variable created in the option for the Firefox browser, you added `executable_path=_geckodriver` as a parameter. This is because by default, the webdriver may look for a  [Firefox profile](https://www.toolsqa.com/selenium-webdriver/custom-firefox-profile/) instead of the path to the chromedriver.
 
 Now we can specify Chrome as our browser when launching our tests with the command `pytest --browser=chrome`.
 
 #### Final Code
+<img src="assets/4.04S.png" alt="Add Firefox browser Final Code" width="550"/>
 
-### Quiz
+#### Quiz
 
->>>>>>> master
 <!--
 
 1. Fill in the blanks with the best choice for the type of test. The tests that you create for Sauce Labs are typically ______________ tests, in how they test if a feature can or cannot do something (and not values for how much). Many of these tests are considered __________ tests because they have many pieces or services that are combined to do a certain thing.
