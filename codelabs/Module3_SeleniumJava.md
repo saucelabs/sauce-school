@@ -101,7 +101,7 @@ Enter Page Objects.
 
 Let's take our login example from earlier, create a page object for it, and update our test suite structure.
 
-First we'll need to rename the `companyname` folder to `tests` by right clicking on the **companyname** folder in IntelliJ and choosing **Refactor > Rename**. Type in `tests`, then click the **Refactor** button.
+First we'll need to make sure the main folder is named `tests`. If it is not, change it by right clicking on the **testdirectory** directory in IntelliJ and choosing **Refactor > Rename**. Type in `tests`, then click the **Refactor** button.
 
 <img src="assets/3.03D.png" alt="Refactor Rename" width="650"/>
 

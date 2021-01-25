@@ -343,16 +343,16 @@ Duration: 0:15:00
 
 Now we are ready to start writing the code for your first test. Create a new project directory called **SeleniumJava** (in your main project directory on your computer), and inside create the directory **java**. This is a default folder that Maven will know to look for.
 
-Inside of your Java file create a package with your company name. This example is named **companyname.** Inside of that create a file called **TestLogin.java**.
+Inside of your Java file create a package with your company name. This example is named **tests.** Inside of that create a file called **TestLogin.java**.
 
-<img src="assets/2.05N.png" alt="Directory Structure" width="350"/>
+<img src="assets/2.05Z.png" alt="Directory Structure" width="550"/>
 
 Copy and paste the following code into the file You will have to **Add your own filepath** where you stored your chromedriver: An example of a filepath property in the beofre hook: `System.setProperty("webdriver.chrome.driver", "/Users/lindsaywalker/Documents/chromedriver");`
 
 
 ```
 //filename: tests/TestLogin.java
-package companyname;
+package tests;
 
 import org.junit.After;
 import org.junit.Before;
@@ -507,7 +507,7 @@ Copy and paste the following code into your program file, between the `@Before` 
 
 ```
 //filename: tests/TestLogin.java
-package companyname;
+package tests;
 
 import static org.junit.Assert.assertTrue;
 
@@ -564,21 +564,7 @@ For right now, here's what you need to know. In CSS, class names start with a do
 ### Note
 
 Negative
-: If you find that your tests are failing, try running the command `source ~/bash_profile `(or `source ~/.zhsrc `for MacOS Catalina) in the command line. This tells your machine to look at your bash profile to find the path to Maven and other dependencies.
-In order to avoid doing that each time, you can edit your profile with the following steps:
-
-Negative
-: 1. In terminal, run `cd .. `and hit enter until you are at the top directory
-
-Negative
-: 2. Once you are in the top directory, run the command `ls`, and you should see a directory named `/bin`
-
-Negative
-: 3. Run `cd bin` to enter that directory and run` ls` again. In that list of files, you should see one called profile. Open it in edit mode by running the command` sudo vi profile `(you may have to enter your password)
-
-Negative
-: 4. Type `i `to enter insert mode. Next, copy and paste in `source ~/bash_profile `in the second line of code. Hit escape twice, then you should be able to type in `:wq!` At the bottom to save the changes. Now your machine knows where to look for your environment and PATH variables <img src="assets/2.06A.png" alt="Bash Profile" width="450"/>
-
+: If you find that your tests are failing, try running the command `source ~/bash_profile `(or `source ~/.zhsrc `for MacOS Catalina) in the command line. This tells your machine to look at your bash profile to find the path to Maven and other dependencies. If it doesn't return your variable when you run the command `echo $JAVA_HOME` it means you need to upate your PATH and variables for Maven and Java.
 
 
 ### Video
@@ -652,7 +638,7 @@ Copy and paste the code below into your test file.  Above the `public class {}` 
 // filename: test/TestLocator.java
 
 //filename: tests/TestLogin.java
-package companyname;
+package tests;
 
 import org.junit.After;
 import org.junit.Before;
