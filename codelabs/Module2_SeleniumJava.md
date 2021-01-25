@@ -382,8 +382,6 @@ public class TestLogin {
         driver.findElement(By.id("username")).sendKeys("tomsmith");
         driver.findElement(By.id("password")).sendKeys("SuperSecretPassword!");
         driver.findElement(By.cssSelector("button")).click();
-        assertTrue("success message not present",
-                driver.findElement(By.cssSelector(".flash.success")).isDisplayed());
     }
 
     @After
@@ -483,11 +481,23 @@ Duration: 0:10:00
 Assertions are statements that are used at a certain point in the test code (usually following a certain sequence of events) that check to see if some condition is true or false. The test code you created thus far simply tells your test what elements to look for on the page, and what to do with those elements.
 
 
+#### Note
+Negative
+: If you had difficulty before getting your test to run because your test had trouble locating chromedriver, you can create a `/lib` directory in the root of the peojct folder, and place the extracted chromedriver there. <img src="assets/2.06E.png" alt="New lib directory" width="400"/> <img src="assets/2.06F.png" alt="Add chromedriver to lib" width="700"/>
+
+Negative
+: If you do change the location of the chromedriver, you will need ot modify your system.setProperty to the following: <img src="assets/2.06g.png" alt="update path to chromedriver" width="700"/> ```  // Set location of chromedriver
+        if (System.getProperty("os.name").startsWith("Windows")) {
+            System.setProperty("webdriver.chrome.driver", "lib/drivers/chromedriver.exe");
+        } else {
+            System.setProperty("webdriver.chrome.driver", "lib/drivers/chromedriver");
+        }```
+
 ### Add an Assertion
 
 Now it’s time to add in an assertion to see if your actions had the desired effect. We want to check that the div that pops up when you have successfully logged in with the `class = "flash_success" `does in fact appear after you enter the login credentials.
 
-<img src="assets/2.07A.png" alt="Pencil" width="400"/>
+<img src="assets/2.07A.png" alt="check fro login success element" width="400"/>
 
 
 Start by opening the blank `TestLogin.java` file you created in the `tests` directory.
