@@ -108,7 +108,7 @@ In many cases, testers need to run their tests on internal sites. These can be d
 
 ### Download Sauce Connect Proxy
 
-The first step is to download The Sauce Connect Proxy software -- available on the **[Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy) **page in the Sauce Labs Cookbook -- and extract the contents of the **.zip** or **.gz** download package. You can also get the software on the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform under **Tunnels.**
+The first step is to download The Sauce Connect Proxy software -- available on the **[Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy)** page in the Sauce Labs Cookbook -- and extract the contents of the **.zip** or **.gz** download package. You can also get the software on the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform under **Tunnels.**
 
 
 <img src="assets/5.03A.png" alt="Tunnels Software" width="750"/>
@@ -358,7 +358,7 @@ This will allow you to run several tests at the same time. This test runner exec
 
 ### Run Parallel Tests
 
-Before you get started, head to the [Sauce Labs Dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) and look under **Account **>** User settings** and check out how many tests you (and your team) can run at once.
+Before you get started, head to the [Sauce Labs Dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) and look under **Account > User settings** and check out how many tests you (and your team) can run at once.
 
 <img src="assets/5.04C.png" alt="Sauce W3C case" width="650"/>
 
@@ -628,14 +628,14 @@ BROWSER=chrome BROWSER_VERSION=50 PLATFORM='Windows 10' npm test -- --grep=@shal
 
 
 
-To return to the dashboard and see the list of projects, you can click **Back to Dashboard **in the menu. You can also click **Configure** to change or update the changes you just made:
+To return to the dashboard and see the list of projects, you can click **Back to Dashboard** in the menu. You can also click **Configure** to change or update the changes you just made:
 
 <img src="assets/5.06P.png" alt="Back to Dashboard or Configure" width="750"/>
 
 
 ### Add NodeJS as a Global Tool
 
-Since you are using `npm` to manage dependencies, including Mocha and the `npm test `command, you need to set up **NodeJS **as a **Global Tool **so Jenkins can use it in the same way your machine does to run tests.
+Since you are using `npm` to manage dependencies, including Mocha and the `npm test `command, you need to set up **NodeJS as a Global Tool** so Jenkins can use it in the same way your machine does to run tests.
 
 First, return to the dashboard (You can do this by clicking the **Jenkins** icon in the menu at any time). Next, click on **Manage Jenkins > Global Tool Configuration**.
 
@@ -660,7 +660,7 @@ Check the box that says **Provide Node & npm bin/folder to PATH.**
 
 
 *   From the first dropdown, choose the version of node you just set up with the Mocha dependency.
-*   From the third dropdown, choose** Local to the workspace.**
+*   From the third dropdown, choose **Local to the workspace.**
 
 This way the tests you run can also use `npm` to run the tests the way you have been on your local machine, and it will cache temporary files in the Jenkins environment. If you want to cache on your machine, you will have to change the system settings on your computer. Click **Save**. You are now ready to run your tests.
 
@@ -702,7 +702,7 @@ You have been running your tests and observing the output in the console, howeve
 *   [JUnit Results Reporter](https://www.jenkins.io/doc/pipeline/steps/junit/#:~:text=Jenkins%20understands%20the%20JUnit%20test,tracking%20failures%2C%20and%20so%20on.) plugin
 *   [JUnit Reporter for Mocha](https://www.npmjs.com/package/mocha-junit-reporter)
 
-Note that there are plugins/additional configurations you’ll have to modify in the **Manage Jenkins **section to get these working as well. In these examples, you will not be using a reporter;instead you’ll use the reporter that is built in with mocha on the console/ terminal.
+Note that there are plugins/additional configurations you’ll have to modify in the **Manage Jenkins** section to get these working as well. In these examples, you will not be using a reporter;instead you’ll use the reporter that is built in with mocha on the console/ terminal.
 
 
 ### Force a Failed Test
@@ -760,7 +760,7 @@ Now let's run our Jenkins project by clicking **Build Now** from the left-hand s
 
 The full reference for configuring Sauce OnDemand and support can be found [here.](https://wiki.saucelabs.com/display/DOCS/Jenkins+and+Sauce+OnDemand+Plugin+Quickstart+Guide)
 
-The first thing you will need to do is install the Git Jenkins plugin, then go to **Manage Jenkins **>**  Manage Plugin**s. Search for **Sauce **under the **Available **tab.
+The first thing you will need to do is install the Git Jenkins plugin, then go to **Manage Jenkins >  Manage Plugins**. Search for **Sauce** under the **Available** tab.
 
 <img src="assets/5.07C.png" alt="Sauce On Demand Plugin" width="650"/>
 
@@ -772,7 +772,7 @@ brew services restart jenkins
 ```
 
 
-Once the plugin is installed, you can check under the **Installed **tab on the same page.
+Once the plugin is installed, you can check under the **Installed** tab on the same page.
 
 
 ### Configure Credentials with Sauce OnDemand
@@ -781,7 +781,7 @@ You can set up your Sauce Labs credentials to be passed into tests as variables 
 
 Go to **Security > Manage Jenkins > Manage Credentials**.
 
-Depending on how Jenkins is set up, other instances of Jenkins may have different domains. In this example, you can set things up in the** global **domain:
+Depending on how Jenkins is set up, other instances of Jenkins may have different domains. In this example, you can set things up in the **global** domain:
 
 <img src="assets/5.07D.png" alt="Sauce On Demand Plugin" width="450"/>
 
@@ -790,7 +790,7 @@ Click on the link for **adding some credentials**:
 
 <img src="assets/5.07E.png" alt="Global Credentials" width="450"/>
 
-You can look on [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) under **Account **> **User Settings** to find your username and profile or look at the variables you set up in your .bash_profile. From the **Kind** dropdown, choose **Sauce Labs**, then enter your username and Sauce Access Key. Give it a logical tag and name as well.
+You can look on [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) under **Account > User Settings** to find your username and profile or look at the variables you set up in your .bash_profile. From the **Kind** dropdown, choose **Sauce Labs**, then enter your username and Sauce Access Key. Give it a logical tag and name as well.
 
 <img src="assets/5.07F.png" alt="Add Username and Sauce Access Key" width="650"/>
 
@@ -799,9 +799,9 @@ Once you click **Save**, you should see your new access key listed under **Globa
 
 <img src="assets/5.07G.png" alt="See Global Credentials" width="650"/>
 
-Now you can go to your project and set up your credentials. Go back to your Jenkins dashboard, choose the project you created, and then **Configure **in the menu. Scroll down, and under **Build Environment**, click the **Sauce Labs Options** checkbox. Make sure the credentials you just set up are listed here.
+Now you can go to your project and set up your credentials. Go back to your Jenkins dashboard, choose the project you created, and then **Configure** in the menu. Scroll down, and under **Build Environment**, click the **Sauce Labs Options** checkbox. Make sure the credentials you just set up are listed here.
 
-You can configure a failed build to trigger things like e-mail messages or send information directly to Jira tickets. You can find out more[ here](https://plugins.jenkins.io/email-ext/). All you need to do to get started is go to Manage Jenkins > Manage Plugins and search for an email plugin in available plugins
+You can configure a failed build to trigger things like e-mail messages or send information directly to Jira tickets. You can find out more[ here](https://plugins.jenkins.io/email-ext/). All you need to do to get started is go to **Manage Jenkins > Manage Plugins** and search for an email plugin in available plugins
 
 
 ### Run Tests with Sauce OnDemand
@@ -846,7 +846,7 @@ In this example, you are setting up our test with Chrome 75 and you need to use 
 
 Name it **Shallow Test Chrome 75 Windows 10**.
 
-Next, you are going to delete the old `PLATFORM` and `BROWSER` variables. With newer versions of W3C compliant browsers, these [variables have new names](https://wiki.saucelabs.com/display/DOCS/W3C+Capabilities+Support), and you will add them in `config.js`. Delete the old variables from the **Configure **>** Build** page so it simply says `npm test -- --grep @shallow`:
+Next, you are going to delete the old `PLATFORM` and `BROWSER` variables. With newer versions of W3C compliant browsers, these [variables have new names](https://wiki.saucelabs.com/display/DOCS/W3C+Capabilities+Support), and you will add them in `config.js`. Delete the old variables from the **Configure > Build** page so it simply says `npm test -- --grep @shallow`:
 
 
 <img src="assets/5.07I.png" alt="Execute Shell Command" width="750"/>
@@ -922,7 +922,7 @@ module.exports = {
 
 This part is simple: to get a Sauce Connect Proxy tunnel up and running, all you’ll need to do is change one Jenkins configuration in your job. All of your tests will be routed through that tunnel.
 
-Go to **Shallow Test Chrome 75 Windows 10 **>** Configure**. Under** Build Environment, **check the box that says** Sauce Labs Support**,** **then** **check the **Enable Sauce Connect **checkbox, and choose the global credentials you set up (or add new ones).
+Go to **Shallow Test Chrome 75 Windows 10 > Configure**. Under **Build Environment,** check the box that says **Sauce Labs Support**,then check the **Enable Sauce Connect** checkbox, and choose the global credentials you set up (or add new ones).
 
 
 <img src="assets/5.07J.png" alt="Enable Sauce Connect" width="750">
