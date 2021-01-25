@@ -229,6 +229,10 @@ We will download JDK (Java Development Kit) and choose the latest version. This 
 <img src="assets/1.05L.png" alt="IntelliJ JDK" width="350"/>
 
 
+#### Note
+Negative
+: If you already have JDK(s) installed, simply choose the one you would like to use: <img src="assets/1.05X.png" alt="pom.xml" width="550"/>                  If you get a box asking for a GroupId and ArtifactId, you can fill them in with whatever you would like- it will be replaced later in the `pom.xml`. <img src="assets/1.05Y.png" alt="pom.xml" width="450"/>
+
 If you leave the **Location** blank, it will create this project in the root user folder. You can add in another directory name if you wish.  Our project will be called SeleniumJava.
 
 <img src="assets/1.05M.png" alt="Selenium Project Directory" width="350"/>
@@ -314,8 +318,11 @@ The `pom.xml` file is what Maven uses to identify which dependencies to install 
 ```
 
 
-This sets up all the dependencies, however, you may need to research to make sure you have the most updated or correct version of these dependencies. Each dependency's `version` may need to be updated. You can check Maven 
+This sets up all the dependencies, however, you may need to research to make sure you have the most updated or correct version of these dependencies. Each dependency's `version` may need to be updated.
 
+Once you have added your `pom.xml` file update, go to **File > Invalidate Caches and Restart** for everything to take effect and to get Maven to import the dependencies.
+
+<img src="assets/1.05Z.png" alt="pom.xml" width="450"/>
 
 
 <!-- ------------------------ -->
