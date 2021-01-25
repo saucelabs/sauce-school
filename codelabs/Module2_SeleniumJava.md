@@ -486,7 +486,7 @@ Negative
 : If you had difficulty before getting your test to run because your test had trouble locating chromedriver, you can create a `/lib` directory in the root of the peojct folder, and place the extracted chromedriver there. <img src="assets/2.06E.png" alt="New lib directory" width="400"/> <img src="assets/2.06F.png" alt="Add chromedriver to lib" width="700"/>
 
 Negative
-: If you do change the location of the chromedriver, you will need ot modify your system.setProperty to the following: <img src="assets/2.06g.png" alt="update path to chromedriver" width="700"/> ```  // Set location of chromedriver
+: If you do change the location of the chromedriver, you will need to modify your system.setProperty to the following: <img src="assets/2.06G.png" alt="update path to chromedriver" width="700"/> ```  // Set location of chromedriver
         if (System.getProperty("os.name").startsWith("Windows")) {
             System.setProperty("webdriver.chrome.driver", "lib/drivers/chromedriver.exe");
         } else {
