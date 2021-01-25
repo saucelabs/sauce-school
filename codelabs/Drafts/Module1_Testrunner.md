@@ -3,7 +3,7 @@
 summary: The Cyrp
 id: Module1_TestRunnerCypress
 categories: <enter a single category for drop-down filter>
-tags: testrunner-cypress 
+tags: testrunner-cypress
 environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
@@ -92,3 +92,9 @@ Use the same markdown as embedding an iframe:
 
 #### ShareURL
 this can simply be found by clicking on the 'copy link' from the folder the video is in, and use the URL that you would use to share.
+
+### Table
+
+#### | Header One     | Header Two     |
+| :------------- | :------------- |
+| Item One       | Item Two       |
