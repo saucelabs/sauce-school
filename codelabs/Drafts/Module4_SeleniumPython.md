@@ -344,7 +344,7 @@ Once the file is in the vendor directory, simply double-click to extract it
 
 <img src="assets/4.04Q.png" alt="Extract geckodriver" width="550"/>
 
-=======
+
 
 <img src="assets/4.03Q.png" alt="config.py" width="550"/>
 <img src="assets/4.03R.png" alt="config.py" width="750"/>
@@ -498,32 +498,129 @@ In this lesson you are going to learn how to move the test suite that you have w
 *   You don’t have to set up and maintain the Selenium Grid that will coordinate the test across all of these different machines.
 
 
-### Update Config
+### Part 1: Update Config
 
-We are going to use the`----------- ` file that you used earlier to set up the browser and baseURL. Inside `--------------`, underneath the browser, add in the[ capabilities](https://wiki.saucelabs.com/display/DOCS/Desired+Capabilities+Required+for+Selenium+and+Appium+Tests/?utm_source=referral&utm_medium=LMS&utm_campaign=link) to set up the environment for your test:
+We are going to use the`config.py` file that you used earlier to set up the browser and baseURL. Inside `unfig.py`, underneath the browser, add in variables for `host`, `browserversion`, and `platform`. These variables will be used to set the the[ capabilities](https://wiki.saucelabs.com/display/DOCS/Desired+Capabilities+Required+for+Selenium+and+Appium+Tests/?utm_source=referral&utm_medium=LMS&utm_campaign=link) required to run a Selenium test on Sauce Labs:
 
 
-Open `----` and update it to look like the following:
-
+Open `config.py` and update it to look like the following:
 
 ```
-// filename:
+# filename: config.py
+baseurl = ""
+host = ""
+browser = ""
+browserversion = ""
+platform = ""
+```
+
+Next, go in and update `conftest.py` with new `parser.adoption()` methods so you can set these elements in your test using a flag or the config file. After the  `--baseurl`, add in `host`, then add in the other two values for  `browserversion` and `platform`:
+
+```
+# filename: tests/conftest.py
+# ...
+def pytest_addoption(parser):
+    parser.addoption("--baseurl",
+                     action="store",
+                     default="http://the-internet.herokuapp.com",
+                     help="base URL for the application under test")
+    parser.addoption("--host",
+                     action="store",
+                     default="saucelabs",
+                     help="where to run your tests: localhost or saucelabs")
+    parser.addoption("--browser",
+                     action="store",
+                     default="internet explorer",
+                     help="the name of the browser you want to test with")
+    parser.addoption("--browserversion",
+                     action="store",
+                     default="87.0",
+                     help="the browser version you want to test with")
+    parser.addoption("--platform",
+                     action="store",
+                     default="Windows 7",
+                     help="the operating system to run your tests on (saucelabs only)")
+# ...
+```
+
+At the top of the driver method, add in the new configuration methods:
+```
+# filename: tests/conftest.py
+# ...
+@pytest.fixture
+def driver(request):
+    config.baseurl = request.config.getoption("--baseurl")
+    config.host = request.config.getoption("--host").lower()
+    config.browser = request.config.getoption("--browser").lower()
+    config.browserversion = request.config.getoption("--browserversion").lower()
+    config.platform = request.config.getoption("--platform").lower()
+# ...
+```
+
+This part gets a little tricky- It's now time to wrap the logic that adds a browser driver in another `if, else` statement. You want to perform a check first to see whether your test is run locally, and then only use the drivers when it's a local test, then add the capabilities to connect to Sauce Labs:
+
+```
+# filename: tests/conftest.py
+# ...
+@pytest.fixture
+# ...
+
+    if config.host == "saucelabs":
+
+
+    else:
+        if config.browser == "chrome":
+            _chromedriver = os.path.join(os.getcwd(), 'vendor', 'chromedriver')
+            if os.path.isfile(_chromedriver):
+                driver_ = webdriver.Chrome(_chromedriver)
+            else:
+                driver_ = webdriver.Chrome()
+        elif config.browser == "firefox":
+            _geckodriver = os.path.join(os.getcwd(), 'vendor', 'geckodriver')
+            if os.path.isfile(_geckodriver):
+                # driver_ = webdriver.Firefox(_geckodriver)
+                driver_ = webdriver.Firefox(executable_path=_geckodriver)
+            else:
+                driver_ = webdriver.Firefox()
+
+    def quit():
+        driver_.quit()
+```
+Next, inside the new `if` statement, add in the capabilities for Sauce Labs, and create the url to conncet to Sauce Labs using the `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`, and initialize a driver with that url and the capabilities.
+
+```
+# filename: tests/conftest.py
+# ...
+if config.host == "saucelabs":
+    capabilities = {
+        'browserName': config.browser,
+        'browserVersion': config.browserversion,
+        'platformName': config.platform,
+        'sauce:options': {
+
+        }
+    }
+    _credentials = os.environ["SAUCE_USERNAME"] + ":" + os.environ["SAUCE_ACCESS_KEY"]
+    _url = "https://" + _credentials + "@ondemand.saucelabs.com/wd/hub"
+    driver_ = webdriver.Remote(_url, capabilities)
+
+else:
+# ...
 ```
 
 
 Notice the new variables you have added:
 
 *   `host `enables us to specify whether our tests run locally or on Sauce Labs. The others are stored under a key sauce key to make their use explicit.
-*   The `sauce` object contains the information for each specific test. We assume you may pass in unique usernames and access keys
-    *   `username` is the username you have created for Sauce Labs
-    *   `accessKey` is generated (and can be regenerated) in your user settings
-    * `platformName` specifies the operating system for a test.  
- * `sauce:options` contain capabilities with options for information you can pass to Sauce Labs
-      * `browserName` specifies the browser for a test.
-      * `browserVersion` specifies which version of the browser for a test
+*   `_credentials` are created with the username and access key you set in your system environment bariables
+* `platformName` specifies the operating system for a test.  
+* `browserName` specifies the browser for a test.
+* `browserVersion` specifies which version of the browser for a test
+You aren't quite ready yet, however to run on Sauce Labs. You will need to create a driver instance using your Sauce Labs creadentials
+ * `sauce:options` contain capabilities with options for information you can pass to Sauce Labs. Currently this is empty, but you can set any of the [Sauce Options here](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options).
 
 
-### Setting up your Sauce Labs Account
+### Part 2: Setting up your Sauce Labs Account
 
 You'll need an account to use Sauce Labs. Their [free trial](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) offers enough to get you started. And if you're signing up because you want to test an open source project, then be sure to check out their [Open Sauce account](https://saucelabs.com/open-source).
 
@@ -550,48 +647,36 @@ Watch This Video to See how to set up your Sauce Credentials as environment vari
 
 ### Set a Source for Sauce Credentials
 
-IIf you get a failing test such as this, Sauce Labs doesn’t know to look at the updated SAUCE_USERNAME and SAUCE_ACCESS_KEY that you put in your .bash_profile. (First make sure`-----------` is correctly installed as well)
+IIf you get a failing test such as this, Sauce Labs doesn’t know to look at the updated SAUCE_USERNAME and SAUCE_ACCESS_KEY that you put in your .bash_profile (.zshrc for MacOS Catalina 10+) or configure your [environment variables for Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing)
 
-
-<img src="assets/4.05C.png" alt="Sauce Labs Authentication Error" width="450"/>
-
-
-You can tell your machine (Mac only)  to look for the correct credentials and type in your terminal:
-
-
-```
-source ~/.bash_profile
-```
+#### Note
+Negative
+: You can tell your machine (Mac only)  to look for the correct credentials and type in your terminal:  `source ~/.bash_profile`
 
 
 Now, when you run a program it will have the updated username and access key. **IMPORTANT** you need to do this with any new project file you create, and also any time you update your bash profile.
 
-
-### Update -------
-
-Now we can update `-----------` to work with these new values and connect to [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
-
+Now you can update the config file and try out different combinations of platforms. You can use the [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/) to try out different settings. Here is one example:
 
 ```
-// filename:
+# filename: config.py
+baseurl = "http://the-internet.herokuapp.com"
+host = "saucelabs"
+browser = "chrome"
+browserversion = "87.0"
+platform = "macOS 10.15"
 ```
 
-You should also visit [http://app.saucelabs.com/](http://app.saucelabs.com/). Go to the left hand menu and choose **Automated → Test Results**. There you will see your tests with icons indicating they were run on the operating system & browser that you chose:
+Run your test using the command `pytest`. You can still also use flags such as `pytest --browser="internet explorer" --platform="Windows 10" --browserversion="11.285"`
+
+Visit [http://app.saucelabs.com/](http://app.saucelabs.com/). Go to the left hand menu and choose **Automated → Test Results**. There you will see your tests with icons indicating they were run on the operating system & browser that you chose:
 
 
 <img src="assets/4.05E.png" alt="Jobs Run on Sauce" width="550"/>
 
 
 
-### NOTE
-
-What did we do?
-
-<img src="assets/XXXX.png" alt="Test Suite Structure" width="550"/>
-
---
-
-Complete course code can be found [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod4/4.05).
+Complete course code can be found [here]().
 
 
 #### Final Code
