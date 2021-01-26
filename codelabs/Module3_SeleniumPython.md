@@ -338,10 +338,11 @@ def __init__(self, driver):
 
 <img src="assets/3.04K.png" alt="Failed to find login page" width="600"/>
 
-Change the URL back to `http://the-internet.herokuapp.com/login`. You can check the [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.04) to make your test looks the same.
+Change the URL back to `http://the-internet.herokuapp.com/login`.
 
 
 #### Final Code
+You can check the [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.04) to make your test looks the same.
 
 The updated code should look like this:
 

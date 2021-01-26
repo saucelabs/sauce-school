@@ -14,7 +14,7 @@ author:Lindsay Walker
 ## 4.01 What You'll Learn
 Duration: 0:03:00
 
-This module is derived from content in chapters 11-13 of _The Selenium Guidebook Python Edition_ By Dave Haeffner. This module guides you through creating a separate test object called `conftest`  ...... where ......, as well as a _Driver Factory_ which creates the `------------ `and `--------` functions used for each instance of a test.  Users will work through creating a `-------` file to store the environment variables for where (in which environment) your test is run on, and modify the DriverFactory to check & pull environment variables from `-------` Last but not least, add in some features to make your tests results easier to read and debug using the Sauce Labs platform
+This module is derived from content in chapters 11-13 of _The Selenium Guidebook Python Edition_ by Dave Haeffner. This module guides you through creating a separate test object called `conftest`  ...... where ......, as well as a _Driver Factory_ which creates the `------------ `and `--------` functions used for each instance of a test.  Users will work through creating a `-------` file to store the environment variables for where (in which environment) your test is run on, and modify the DriverFactory to check & pull environment variables from `-------` Last but not least, add in some features to make your tests results easier to read and debug using the Sauce Labs platform
 
 
 ### Objectives
@@ -43,8 +43,7 @@ In testing, both automated and manual, there are several different types of test
 
 These two types of tests are ways to categorize tests by what they are testing. Functional tests check to see if a feature is or is not working, nothing more (e.g. did I log in or not log in?). Non-functional testing typically gives a value or amount that helps engineering and product teams do **performance testing** and understand and predict whether the software and features will work as expected, at scale. An example would be load testing, to see if the test runs as expected with many simultaneous users or volume testing. Sauce Labs does front-end
 
-&lt;blockquote class="imgur-embed-pub" lang="en" data-id="Ksjm2D3">&lt;a href="//imgur.com/Ksjm2D3">DDoS Attack&lt;/a>&lt;/blockquote>&lt;script async src="//s.imgur.com/min/embed.js" charset="utf-8">&lt;/script>
-
+<img src="assets/DDoS.gif" alt="DDOS Attack" width="450"/>
 (DDOS attack GIF on imgur: [https://imgur.com/Ksjm2D3](https://imgur.com/Ksjm2D3))
 
 Selenium is most used for functional testing  Types of functional tests include unit testing, UI testing, regression testing, integration testing, and more.
@@ -95,7 +94,7 @@ White Box testing is a type of testing you do when you can see and understand al
 This type of testing refers to a code-based approach to testing web applications. When a human user is manually testing an application, they are looking at the visual browser interface with items you can see, click, and interact with. Headless testing is done by a robot that doesn’t use the visual component of a browser, and instead does all interactions through communication with the codebase and other services that make up an application. [Sauce Labs ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) also provides headless user testing .
 
 
-## 4.03 Scaling your Tests
+## 4.03 Scaling Your Tests
 
 Now that we have some tests and page objects, we'll want to start thinking about how to structure our test code to be more flexible. Ensuring that our code is reusable, and can scale to as many tests as we need requires some additional elements & abstractions.
 
@@ -104,109 +103,22 @@ Now that we have some tests and page objects, we'll want to start thinking about
 
 We'll start by using a separate class for Selenium setup and teardown out of our tests, placing the file in a central directory.
 
-We'll create three things.
+We'll change a couple things:
 
 
 
-*   A class that will contain the creation and destruction of our Selenium instances (known as a `-------`)
-*   A helper that all tests will pull from to do the basic things each test should do such as `-------` and `-------`
-*   Change a configuration in `------- `to `-------`
+*   Create a class called `conftest.py` that will contain the `@pytest.fixture` that can be used by every test object
+*   Remove the fixture from the test objects (as well as unnecessary imports)
+*   Change a configuration in `conftest.py` to allow you to pass in the base URL that you run your tests against to all the different test objects with a command line flag
+
+First, create a new file called `conftest.py`. If you want to use terminal to set this up, simply type (from your project directory): `cd ../SeleniumPython/tests` then `touch conftest.py`.
 
 
 <img src="assets/4.03L.png" alt="conftest.py" width="550"/>
 
 
-#### NOTE
+Open `conftest.py` in your IDE and paste in the following:
 
-If you want to use terminal to set this up, simply type (from your project directory):
-
-```
-cd ../SeleniumPython/tests
-touch conftest.py
-```
-
-
---
-
-Open `-------` in your IDE and paste in the following:
-
-
-```
-// filename:
-
-```
-
-
-After requiring our requisite libraries, we declare a class along with two methods;
-
-
-```
-// filename:
-
-```
-
-
-// …
-
-
-#### NOTE
-
-Including the` quit() `function is extremely important for the speed & passability of your tests. Without the quit method, the test will keep running even once all other methods have been executed until the default timeout has expired. This will not only slow down your ability to run many parallel tests at once, it will also send timeout error messages that could abort the test build.  Configuring timeouts appropriately in the package.json file is important to ensure that all tests run correctly the first time and are returning valuable feedback.
-
---
-
-
-### Root Level Hooks
-
-In Mocha, when you specify before and after hooks outside of a test class they are used globally for all tests. These are referred to as root-level hooks. Every test that you write will use the `-------  `methods to perform the same set of actions to set up and tear down the test, so it makes sense to store these in one place so we can make changes in one place, instead of within each and every test.
-
-
-#### Final Code
-
-The two test classes should now look like this:
-
-&lt;img src="assets/XXX.png" alt="Image Name" width="550"/>`
-
-
-
-<!-- ------------------------ -->
-## 4.04 Running Tests in Different Browsers
-Duration: 0:05:00
-
-### Abstraction and Non-Duplication
-
-Thus far we have prepared our test suite well to be reusable. When you have things like the setup and teardown used for all tests in one place, making changes to this becomes a lot easier. Not duplicating (re-writing the same) code and abstracting into files like the ----------------------------------------------- mean that you won’t have to re-write that code each time you write a new page or test object, or go make changes to all those files when you need to modify something.
-
-
-#### Video
-
-Watch the video below, an excerpt from [Sauce Labs’ Tech Talk](https://www.youtube.com/watch?v=ZLS9sU2A9QA&t=24s) by Nikolay Advolodkin
-![https://drive.google.com/file/d/1Gyv3tO9I4NanOAoCsPi5sVlqMx0iWcm0/preview](https://drive.google.com/file/d/1Rb1svBenpDT-ADUeniVbLtWJPdTzrXQl/view?usp=sharing)
-
-
-
-### Part 1: Creating a Config File
-
-The config file is an important part of any test suite. This file will specify things for your tests like what web address you test uses to perform the test, what browser it uses, and later on, will store methods for logging into the Sauce Labs grid, as well as instructions as to which environment you should run your tests in.
-
-The whole point of setting up a test suite is that you can run your tests against different environments (e.g., localhost, test, staging, production, etc.).
-
-So let's make it so you can specify a different base URL for our tests at runtime.
-
-First, create a file called `conf.py` in the `tests` directory. You can use these commands from the project directory in your terminal:
-
-
-```
-cd SeleniumPython/tests
-touch conftes.py
-```
-
-
-Your file directory should look like this:
-
-<img src="assets/4.03L.png" alt="Image Name" width="550"/>
-
-Copy and paste the following code into `conftest.py`:
 
 ```
 # filename: tests/conftest.py
@@ -228,20 +140,20 @@ def driver(request):
 
     request.addfinalizer(quit)
     return driver_
-```
-Now, since we have this created in a separate file, we can go in and delet everthing in the login method, and replace the `login(request)` parameter with `login(driver)` as well as all the login in the login method:
-
 
 ```
-# filename: tests/login_test.py
-# ...
-@pytest.fixture
-def login(request):
-    return pages.login_page.LoginPage(driver
-# ...
-```
 
-You will also delete the imports that arte now in `conftest.py` such as selenium, web driver and os, leaving you with simply:
+
+<<<<<<< HEAD
+After requiring the `pytest`, `os`, and `webdriver` libraries, and importing from `config` you created the same thing in the `driver()` method that you have at the beginning of both of your tests (login and dynamic loading) which means you can now abstract it out.
+
+A [Pytest fixture](https://docs.pytest.org/en/stable/fixture.html) is something that allows you to abstract out the logic that will set up and tear down tests, in a reusable way, without using a class, which can cause issue down the road. [Read more about why you use fixtures.](https://simplythetest.tumblr.com/post/640676369255268352/fixtures-over-classes-why-using-pytest-fixtures)
+=======
+After requiring the `pytest`, `os`, and `webdriver` libraries, and importing from `config` you created the same thing you have at the beginning of both of your tests (login and dynamic loading) which means you can now abstract it out.
+>>>>>>> master
+
+In `login_test.py` remove the unnecessary imports so you only have these two:
+
 
 ```
 # filename: tests/login_test.py
@@ -250,19 +162,18 @@ from pages import login_page
 # ...
 ```
 
-Do the same with `dynamic_loading_test..py` and replace the request parameter with driver and the dynamic_loading method like so:
+Next, update the login method definition. Replace the `login(request)` parameter with `login(driver)`, then delete all the logic and replace with the following:
 
 ```
-# filename: tests/dynamic_loading_test.py
+# filename: tests/login_test.py
 # ...
 @pytest.fixture
-    def dynamic_loading(driver):
-        return dynamic_loading_page.DynamicLoadingPage(driver)
-
-    request.addfinalizer(quit)
-    return dynamic_loading
+def login(driver):
+    return login_page.LoginPage(driver)
+# ...
 ```
-Finally, update the imports in `dynamic_loading_test.py`:
+
+In `dynamic_loading_test.py` You will also need to remove imports so only the following appear:
 
 ```
 # filename: tests/dynamic_loading_test.py
@@ -271,112 +182,344 @@ from pages import dynamic_loading_page
 # ...
 ```
 
+Next, replace the parameter for the `dynamic_loading_test()` with `driver`, and replace all the logic:
+
+```
+# filename: tests/dynamic_loading_test.py
+# ...
+@pytest.fixture
+def dynamic_loading(driver):
+    return dynamic_loading_page.DynamicLoadingPage(driver)
+# ...
+```
+
 #### Final Code
 
-<img src="assets/4.03M.png" alt="Image Name" width="550"/>
+The two test classes should now look like this:
 
-<img src="assets/4.03N.png" alt="Image Name" width="550"/>
+<img src="assets/4.03M.png" alt="4.03 part 1 code" width="550"/>
+<img src="assets/4.03N.png" alt="4.03 part 1 code" width="550"/>
 
-### Part 2: Create a Base URL
+### Part 2: Adding a Base URL Variable
 
-Next, what we will do is create a separate file for setting the URL that your test will run against, and store it in a variable called `baseurl` so you can easily change it to test against staging or production
+Now it would be nice if every time you tested on a different version of your app (such as a staging or production version) you wouldn't have to update the code in every sigle test. you can do this by including a BaseURL variable in a new file called `config.py`
 
-Create a file called `config.py` in the **tests** directory. Inside of it, create the variable:
+The first thing you will add is a pytest helper method called `pytest_addoption(parser)` which allows you to specify the url of the app you are testing against with a command line flag.
 
+First, create a new file in your **tests** directory named `config.py` and inside of it create the `baseurl` variable:
+
+```
+# filename: tests/config.py
+baseurl = ""
+```
+<img src="assets/4.03O.png" alt="config.py" width="550"/>
+
+
+At the top of your test, before the `@pytest.fixture`, import `config.py` so you can use your new variable and add in the following:
+```
+# filename: tests/conftest.py
+# ...
+from . import config
+
+def pytest_addoption(parser):
+    parser.addoption("--baseurl",
+                     action="store",
+                     default="http://the-internet.herokuapp.com",
+                     help="base URL for the application under test")
+
+
+@pytest.fixture
+# ...
+```
+
+This will store the URL in a variable called `--baseurl` that can be changed when you run your test by using the command `pytest --baseurl=url`. At the top of the `driver()` method, before you declare your browser, add in:
+
+```
+filename: tests/conftest.py
+# ...
+@pytest.fixture
+def driver(request):
+   config.baseurl = request.config.getoption("--baseurl")
+# ...
+```
+
+#### Update Base Page
+<<<<<<< HEAD
+
+The last thing you need to do is update the code to use this new variable. In basepage, you will import `config.py` to grab the `baseurl` variable:
+
+=======
+
+The last thing you need to do is update the code to use this new variable. In basepage, you will import `config.py` to grab the `baseurl` variable:
+
+>>>>>>> master
+```
+#  filename: pages/base_page.py
+# ...
+from tests import config
+# ...
+```
+
+Next change the `_visit method` to use the `baseurl`, as long as a full url was not passed in as a parameter of visit (which may be something you want to do for certain tests)
+
+```
+#  filename: pages/base_page.py
+# ...
+def _visit(self, url):
+        if url.startswith("http"):
+            self.driver.get(url)
+        else:
+            self.driver.get(config.baseurl + url)
+# ...
+```
+
+#### Update Page Objects
+<<<<<<< HEAD
+
+Lastly, you will need to remove the url (`"http://the-internet.herokuapp.com/login"`) hardcoded into your `login_page.py` and `dynamic_loading_page.py`, and instead, append the subdomain to the base url.
+
+=======
+
+Lastly, you will need to remove the url (`"http://the-internet.herokuapp.com/login"`) hardcoded into your `login_page.py` and `dynamic_loading_page.py`, and instead, append the subdomain to the base url.
+
+>>>>>>> master
+Update `__init__` in the login page like so, simply adding `/login` to the end:
+
+```
+# filename: pages/login_page.py
+# ...
+    def __init__(self, driver):
+        self.driver = driver
+        self._visit("/login")
+        assert self._is_displayed(self._login_form)
+# ...
+```
+
+Update  the dynamic loading page, inside the `load_example` method take out the full url and instead append `/dynamic_loading` to the end of the url.
+
+```
+# filename: pages/dynamic_loading_page.py
+#...
+def load_example(self, example_number):
+    self._visit("/dynamic_loading/" + example_number)
+    self._click(self._start_button)
+#...
+
+```
+Now try running your test. If you would like, delete the url listed in `conftest.py` in the `parser.adoption` method, and run the command `pytest --baseurl=http://the-internet.herokuapp.com`. The tests should all run!
+
+<img src="assets/4.03P.png" alt="Run with pytest baseurl command" width="750"/>
+
+#### Final Code
+See an example of all the changes made to the code in [this repo](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod4/4.03).
+<<<<<<< HEAD
+
+<img src="assets/4.03Q.png" alt="config.py" width="550"/>
+<img src="assets/4.03R.png" alt="config.py" width="750"/>
+<img src="assets/4.03S.png" alt="config.py" width="750"/>
+<img src="assets/4.03T.png" alt="config.py" width="650"/>
+
+
+
+<!-- ------------------------ -->
+## 4.04 Running Tests in Different Browsers
+Duration: 0:05:00
+
+### Abstraction and Non-Duplication
+
+Thus far we have prepared our test suite well to be reusable. When you have things like the setup and teardown used for all tests in one place, making changes to this becomes a lot easier. Not duplicating (re-writing the same) code and abstracting into files like `base_page.py` and `conftest.py` mean that you won’t have to re-write that code each time you write a new page or test object, or go make changes to all those files when you need to modify something like the URL.
+
+In this lesson you will update the `config.py` file where you can store information that may change with different test runs. You already stored the URL, and now we will store a browser name as a variable.
+
+#### Video
+
+Watch the video below, an excerpt from [Sauce Labs’ Tech Talk](https://www.youtube.com/watch?v=ZLS9sU2A9QA&t=24s) by Nikolay Advolodkin
+![https://drive.google.com/file/d/1Gyv3tO9I4NanOAoCsPi5sVlqMx0iWcm0/preview](https://drive.google.com/file/d/1Rb1svBenpDT-ADUeniVbLtWJPdTzrXQl/view?usp=sharing)
+
+### Download GeckoDriver
+You may recall tin the beginning, you had to check which version of Chrome you were running on your local machine, then download the appropriate driver. You should do the same with
+
+### Update the Config File
+
+The config file is an important part of any test suite. This file will specify things for your tests like what web address you test uses to perform the test, what browser it uses, and later on, will store methods for logging into the Sauce Labs grid, as well as instructions as to which environment you should run your tests in.
+
+If necessary, [download an install Firefox] (https://github.com/mozilla/geckodriver/releases) web browser on your machine. Once you have it installed, you can check the version by clicking on the menu at the top **> Help > Troubleshooting Information** and check the version of your browser.
+
+<img src="assets/4.04O.png" alt="config.py" width="550"/>
+
+You can download the same version of [Geckodriver](https://github.com/mozilla/geckodriver/releases) that supports the version you have. Navigate to the vendor directory in your project, and place the geckodriver that you downloaded.
+
+<img src="assets/4.04P.png" alt="Move geckodriver.py" width="550"/>
+
+Once the file is in the vendor directory, simply double-click to extract it
+
+<img src="assets/4.04Q.png" alt="Extract geckodriver" width="550"/>
+
+=======
+
+<img src="assets/4.03Q.png" alt="config.py" width="550"/>
+<img src="assets/4.03R.png" alt="config.py" width="750"/>
+<img src="assets/4.03S.png" alt="config.py" width="750"/>
+<img src="assets/4.03T.png" alt="config.py" width="650"/>
+
+
+
+<!-- ------------------------ -->
+## 4.04 Running Tests in Different Browsers
+Duration: 0:05:00
+
+### Abstraction and Non-Duplication
+
+Thus far we have prepared our test suite well to be reusable. When you have things like the setup and teardown used for all tests in one place, making changes to this becomes a lot easier. Not duplicating (re-writing the same) code and abstracting into files like `base_page.py` and `conftest.py` mean that you won’t have to re-write that code each time you write a new page or test object, or go make changes to all those files when you need to modify something like the URL.
+
+In this lesson you will update the `config.py` file where you can store information that may change with different test runs. You already stored the URL, and now we will store a browser name as a variable.
+
+#### Video
+
+Watch the video below, an excerpt from [Sauce Labs’ Tech Talk](https://www.youtube.com/watch?v=ZLS9sU2A9QA&t=24s) by Nikolay Advolodkin
+![https://drive.google.com/file/d/1Gyv3tO9I4NanOAoCsPi5sVlqMx0iWcm0/preview](https://drive.google.com/file/d/1Rb1svBenpDT-ADUeniVbLtWJPdTzrXQl/view?usp=sharing)
+
+### Download GeckoDriver
+You may recall tin the beginning, you had to check which version of Chrome you were running on your local machine, then download the appropriate driver. You should do the same with
+
+### Update the Config File
+
+The config file is an important part of any test suite. This file will specify things for your tests like what web address you test uses to perform the test, what browser it uses, and later on, will store methods for logging into the Sauce Labs grid, as well as instructions as to which environment you should run your tests in.
+
+If necessary, [download an install Firefox] (https://github.com/mozilla/geckodriver/releases) web browser on your machine. Once you have it installed, you can check the version by clicking on the menu at the top **> Help > Troubleshooting Information** and check the version of your browser.
+
+<img src="assets/4.04O.png" alt="config.py" width="550"/>
+
+You can download the same version of [Geckodriver](https://github.com/mozilla/geckodriver/releases) that supports the version you have. Navigate to the vendor directory in your project, and place the geckodriver that you downloaded.
+
+<img src="assets/4.04P.png" alt="Move geckodriver.py" width="550"/>
+
+Once the file is in the vendor directory, simply double-click to extract it
+
+<img src="assets/4.04Q.png" alt="Extract geckodriver" width="550"/>
+
+>>>>>>> master
+### Update Test Configuration
+Next, you will want to add a variable for the browser in the `config.py` file to make it easy to specify which browser you would like.
 
 ```
 # filename: config.py
 baseurl = ""
+browser = ""
 ```
 
+#### Note
+Negative
+: You can set the variables in here at any time for the URL and browser and not have to run a flag when you run `pytest`:      <img src="assets/4.04R.png" alt="Extract geckodriver" width="450"/>
 
-Next, above the test fixture in
-///.....
-
-
-### Remove URLs from Page Objects
-
-In order to use our new `-----------`  file, add in the following at the top of your base page, it will apply to all other page objects:
-
+Next, update `conftest.py` using the same `parser.addoption()` method you used earlier:
 
 ```
-// filename:
-```
-
-
-Now you need to go into the page objects (`-----------` and `-------------`) and take out the hard-coded URL inside the `------------ `method. Instead we will only have the sub-pages that will append on to the baseURL from the-internet [heroku app](https://the-internet.herokuapp.com/).
-
-
-```
-// filename:
-```
-
-
-
-```
-// filename: pages/DynamicLoadingPage.js
-```
-
-
-Now when running our tests, we can specify a different base URL in `-----------` by providing some extra information at run-time, setting the variable `BASE_URL=--------------` Now we’re in a better position now with our setup and teardown abstracted into a central location.
-
-Now we can easily extend our test framework to run our tests on other browsers.
-
-
-#### Final Code
-
-&lt;img src="assets/XXX.png" alt="Image Name" width="550"/>`
-
-
-### Part 2: Running Different Browsers Locally
-
-WebDriver works with each of the major browsers through a browser driver which is (ideally but not always) maintained by the browser creator such as Chrome or Firefox. It is an executable file (consider it a thin layer) that acts as a bridge between Selenium and the browser.
-
-By using `------------- ` with the package.json file, the updated version ……..
-
-
-### Running Tests in Different Browsers
-
-The first thing we will do is set the browser with the `BROWSER `--------------
-
+# filename: config.py
+# ...
+def pytest_addoption(parser):
+    parser.addoption("--baseurl",
+                     action="store",
+                     default="http://the-internet.herokuapp.com",
+                     help="base URL for the application under test")
+    parser.addoption("--browser",
+                     action="store",
+                     default="chrome",
+                     help="the name of the browser you want to test with")
 
 ```
-// filename:
+
+After that, you will need to update the code to take the browser variable, and set the correct driver. Add in an else, if statement to switch between chromedriver and geckodriver:
+<<<<<<< HEAD
+
+```
+# filename: conftest.py
+# ...
+@pytest.fixture
+def driver(request):
+    config.baseurl = request.config.getoption("--baseurl")
+    config.browser = request.config.getoption("--browser").lower()
+
+    if config.browser == "chrome":
+        _chromedriver = os.path.join(os.getcwd(), 'vendor', 'chromedriver')
+        if os.path.isfile(_chromedriver):
+            driver_ = webdriver.Chrome(_chromedriver)
+        else:
+            driver_ = webdriver.Chrome()
+    elif config.browser == "firefox":
+        _geckodriver = os.path.join(os.getcwd(), 'vendor', 'geckodriver')
+        if os.path.isfile(_geckodriver):
+             driver_ = webdriver.Firefox(_geckodriver)
+        else:
+            driver_ = webdriver.Firefox()
+
+    def quit():
+        driver_.quit()
+
+    request.addfinalizer(quit)
+    return driver_
+
+```
+=======
+
+```
+# filename: conftest.py
+# ...
+@pytest.fixture
+def driver(request):
+    config.baseurl = request.config.getoption("--baseurl")
+    config.browser = request.config.getoption("--browser").lower()
+
+    if config.browser == "chrome":
+        _chromedriver = os.path.join(os.getcwd(), 'vendor', 'chromedriver')
+        if os.path.isfile(_chromedriver):
+            driver_ = webdriver.Chrome(_chromedriver)
+        else:
+            driver_ = webdriver.Chrome()
+    elif config.browser == "firefox":
+        _geckodriver = os.path.join(os.getcwd(), 'vendor', 'geckodriver')
+        if os.path.isfile(_geckodriver):
+             driver_ = webdriver.Firefox(_geckodriver)
+        else:
+            driver_ = webdriver.Firefox()
+
+    def quit():
+        driver_.quit()
+
+    request.addfinalizer(quit)
+    return driver_
+>>>>>>> master
+
 ```
 
-
-//...
-
-Run your code with ------------
-
-
-#### Final Code
-
-The new code should look like this:
-
-the browser creator such as Chrome or Firefox.
-
-
+<<<<<<< HEAD
+=======
 ### Quiz
 
-
+>>>>>>> master
+<!--
 
 1. Fill in the blanks with the best choice for the type of test. The tests that you create for Sauce Labs are typically ______________ tests, in how they test if a feature can or cannot do something (and not values for how much). Many of these tests are considered __________ tests because they have many pieces or services that are combined to do a certain thing.
     1. Headless, Unit
     2. Non-Functional, Headless
-    3. UI, End-to-End
+    3. UI, End-to-End*
     4. Functional, Integration
-2. Which object is responsible for the set-up and teardown of all your Selenium instances and tests?
-    5. -----------
-    6. -------------
-    7. ------------
-    8. -------
+
+2. What was conftest.py created to do?
+    5. Create a place where you can manage the methods used in all tests, so you can update & edit all of them at once.
+    6. Create a file where you store the URL that you want to test against, so it can be changed easily.
+    7. Create a place to store the method that sets up and tears down each test so you can make updates easily. *
+    8. Create a bae page for all your page objects that allows you to make changes to all page objects when you want to change something like the URL.
+
+    * The conftest.py is a type of base test object that allows you to abstract out the setup and teardown that every test uses, and make it easier to make changes to universal test configurations (not page objects)
+
 3. In this code sample from 4.03, why are we able to delete the After() method from `--------------`?
     9. Because
     10. Because we added all of the ‘teardown’ functionality to .---------------
     11. Because we set up our root-level hooks in--------------
     12. Because we deleted the timeout and added it in --------------
-
+-
+-->
 
 <!-- ------------------------ -->
 ## 4.05 Testing on Sauce Labs

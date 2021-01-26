@@ -101,7 +101,7 @@ Enter Page Objects.
 
 Let's take our login example from earlier, create a page object for it, and update our test suite structure.
 
-First we'll need to rename the `companyname` folder to `tests` by right clicking on the **companyname** folder in IntelliJ and choosing **Refactor > Rename**. Type in `tests`, then click the **Refactor** button.
+First we'll need to make sure the main folder is named `tests`. If it is not, change it by right clicking on the **testdirectory** directory in IntelliJ and choosing **Refactor > Rename**. Type in `tests`, then click the **Refactor** button.
 
 <img src="assets/3.03D.png" alt="Refactor Rename" width="650"/>
 
@@ -948,7 +948,7 @@ Now that you have our new page object and an updated base page, it's time to wri
 
 [The second dynamic loading example](http://the-internet.herokuapp.com/dynamic_loading/2) is laid out similarly to the last one. The difference is that it renders the final text after the progress bar completes (whereas the previous example had the element on the page but it was hidden until the progress bar finished). In other words, in the first test, the text was there but hidden, but in this test the text doesn’t even exist until after the loading image disappears.
 
-Notice that it has the same start `&lt;button>` and `id='finished'` at the beginning and end of the test. Will our same test work for the second page?
+Notice that it has the same start `<button>` and `id='finished'` at the beginning and end of the test. Will our same test work for the second page?
 
 Let's add a nearly identical second test to` DynamicLoadingTest.js` called `elementAppeared` that will load this second example and perform the same check (on the other page) as you did in the previous test.
 
