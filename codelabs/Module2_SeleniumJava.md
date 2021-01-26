@@ -34,7 +34,7 @@ This module is derived from content in chapters 6-7 of _The Selenium Guidebook_ 
 
 ### Base Code
 
-If you skipped Module 1, make sure you have a project folder set up and have created the following files, as well as have IntelliJ, Maven, and a `pom.xml` installed and included
+If you skipped Module 1, make sure you have a project folder set up and have created the following files, as well as have IntelliJ, Maven, and a `pom.xml` installed and included in your test code. ([See 1.05](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) for pom.xml content)
 
 <img src="assets/2.00A.png" alt="Directory Structure" width="800"/>
 <!-- ![Directory Structure](assets/2.00.png) -->
@@ -92,7 +92,7 @@ In order to effectively collaborate with other testers and developers on your te
 
 ### [BDD and TDD](https://saucelabs.com/blog/a-two-minute-bdd-overview)
 <!-- <img align="right" width="200" height="183" alt="pencil" src="assets/2.02C.png"> -->
-Behavior Driven Development and Test Driven Development are two important strategies to help you understand how to write effective tests. [BDD](https://cucumber.io/blog/bdd/bdd-is-not-test-automation/) is a collaborative process that focuses on starting with a business value or need. It’s a feature and epic-centric approach to create a requirements analysis. With both BDD and TDD, you plan to write the code for the test first (application code comes later).
+Behavior Driven Development and Test Driven Development are two important strategies to help you understand how to write effective tests. [BDD](https://cucumber.io/blog/bdd/bdd-is-not-test-automation/) is a collaborative process that focuses on starting with a business value or need. It’s a feature and epic-centric development strategy to create a requirements analysis. With both BDD and TDD, you plan to write the code for the test first (application code comes later).
 
 
 <img src="assets/2.02C.png" alt="Pencil" width="150"/>
@@ -343,16 +343,16 @@ Duration: 0:15:00
 
 Now we are ready to start writing the code for your first test. Create a new project directory called **SeleniumJava** (in your main project directory on your computer), and inside create the directory **java**. This is a default folder that Maven will know to look for.
 
-Inside of your Java file create a package with your company name. This example is named **companyname.** Inside of that create a file called **TestLogin.java**.
+Inside of your Java file create a package with your company name. This example is named **tests.** Inside of that create a file called **TestLogin.java**.
 
-<img src="assets/2.05N.png" alt="Directory Structure" width="350"/>
+<img src="assets/2.05Z.png" alt="Directory Structure" width="550"/>
 
-Copy and paste the following code into the file:
+Copy and paste the following code into the file You will have to **Add your own filepath** where you stored your chromedriver: An example of a filepath property in the beofre hook: `System.setProperty("webdriver.chrome.driver", "/Users/lindsaywalker/Documents/chromedriver");`
 
 
 ```
 //filename: tests/TestLogin.java
-package companyname;
+package tests;
 
 import org.junit.After;
 import org.junit.Before;
@@ -382,8 +382,6 @@ public class TestLogin {
         driver.findElement(By.id("username")).sendKeys("tomsmith");
         driver.findElement(By.id("password")).sendKeys("SuperSecretPassword!");
         driver.findElement(By.cssSelector("button")).click();
-        assertTrue("success message not present",
-                driver.findElement(By.cssSelector(".flash.success")).isDisplayed());
     }
 
     @After
@@ -483,11 +481,23 @@ Duration: 0:10:00
 Assertions are statements that are used at a certain point in the test code (usually following a certain sequence of events) that check to see if some condition is true or false. The test code you created thus far simply tells your test what elements to look for on the page, and what to do with those elements.
 
 
+#### Note
+Negative
+: If you had difficulty before getting your test to run because your test had trouble locating chromedriver, you can create a `/lib` directory in the root of the peojct folder, and place the extracted chromedriver there. <img src="assets/2.06E.png" alt="New lib directory" width="400"/> <img src="assets/2.06F.png" alt="Add chromedriver to lib" width="700"/>
+
+Negative
+: If you do change the location of the chromedriver, you will need to modify your system.setProperty to the following: <img src="assets/2.06G.png" alt="update path to chromedriver" width="700"/> ```  // Set location of chromedriver
+        if (System.getProperty("os.name").startsWith("Windows")) {
+            System.setProperty("webdriver.chrome.driver", "lib/drivers/chromedriver.exe");
+        } else {
+            System.setProperty("webdriver.chrome.driver", "lib/drivers/chromedriver");
+        }```
+
 ### Add an Assertion
 
 Now it’s time to add in an assertion to see if your actions had the desired effect. We want to check that the div that pops up when you have successfully logged in with the `class = "flash_success" `does in fact appear after you enter the login credentials.
 
-<img src="assets/2.07A.png" alt="Pencil" width="400"/>
+<img src="assets/2.07A.png" alt="check fro login success element" width="400"/>
 
 
 Start by opening the blank `TestLogin.java` file you created in the `tests` directory.
@@ -497,7 +507,7 @@ Copy and paste the following code into your program file, between the `@Before` 
 
 ```
 //filename: tests/TestLogin.java
-package companyname;
+package tests;
 
 import static org.junit.Assert.assertTrue;
 
@@ -554,21 +564,7 @@ For right now, here's what you need to know. In CSS, class names start with a do
 ### Note
 
 Negative
-: If you find that your tests are failing, try running the command `source ~/bash_profile `(or `source ~/.zhsrc `for MacOS Catalina) in the command line. This tells your machine to look at your bash profile to find the path to Maven and other dependencies.
-In order to avoid doing that each time, you can edit your profile with the following steps:
-
-Negative
-: 1. In terminal, run `cd .. `and hit enter until you are at the top directory
-
-Negative
-: 2. Once you are in the top directory, run the command `ls`, and you should see a directory named `/bin`
-
-Negative
-: 3. Run `cd bin` to enter that directory and run` ls` again. In that list of files, you should see one called profile. Open it in edit mode by running the command` sudo vi profile `(you may have to enter your password)
-
-Negative
-: 4. Type `i `to enter insert mode. Next, copy and paste in `source ~/bash_profile `in the second line of code. Hit escape twice, then you should be able to type in `:wq!` At the bottom to save the changes. Now your machine knows where to look for your environment and PATH variables <img src="assets/2.06A.png" alt="Bash Profile" width="450"/>
-
+: If you find that your tests are failing, try running the command `source ~/bash_profile `(or `source ~/.zhsrc `for MacOS Catalina) in the command line. This tells your machine to look at your bash profile to find the path to Maven and other dependencies. If it doesn't return your variable when you run the command `echo $JAVA_HOME` it means you need to upate your PATH and variables for Maven and Java.
 
 
 ### Video
@@ -642,7 +638,7 @@ Copy and paste the code below into your test file.  Above the `public class {}` 
 // filename: test/TestLocator.java
 
 //filename: tests/TestLogin.java
-package companyname;
+package tests;
 
 import org.junit.After;
 import org.junit.Before;
