@@ -676,14 +676,15 @@ Visit [http://app.saucelabs.com/](http://app.saucelabs.com/). Go to the left han
 
 
 
-Complete course code can be found [here]().
+Complete course code can be found [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod4/4.05).
 
 
 #### Final Code
 
 Your final code will look like this:
 
-<img src="assets/XXXX.png" alt="Image Name" width="450"/>
+<img src="assets/4.05N.png" alt="Image Name" width="650"/>
+<img src="assets/4.05O.png" alt="Image Name" width="650"/>
 
 
 <!-- ------------------------ -->
