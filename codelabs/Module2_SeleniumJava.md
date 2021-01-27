@@ -423,29 +423,7 @@ You will also need to set the path to the place on your computer where you unzip
 
 Negative
 : How to Find Dependencies Using IntelliJ Video:
- If your test file doesn’t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out.
-
- Negative
-: * Hover over a red word in IDE
-
-Negative
-: * Click the red light bulb to import maven dependencies.
-
-Negative
-: * Click the Maven tab and refresh.
-
-Negative
-: * Check the .pom file to make sure the updated version was added.
-
-Negative
-: * Words should no longer appear red in the test.java file.
-
-
-#### Video
-
-[1.05_IntelliJ_Dependencies ](https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/view?usp=sharing)– Using IntelliJ to install dependencies and update the .pom file
-
-![https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/preview](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
+ If your test file doesn’t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out. See the video [IntelliJ_Dependencies ](https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/view?usp=sharing)– Using IntelliJ to install dependencies and update the .pom file  ![https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/preview](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
 
 
 ### Use GitHub Repository (Optional)
@@ -455,21 +433,19 @@ If you are familiar with using GitHub to write your code, you can also fork/ bra
 **[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod1/1.06/src/test/java/companyname/TestLogin.java)**
 
 
-Negative
-: **Check driver path and browser version–** If your tests aren't running correctly, double check that the `System.setProperty("webdriver.chrome.driver")` has the full path to where you installed the chromedriver, and that the `browserOptions.setCapability("browserVersion", "XX.0");` matches the version of both the browser you have on your computer, and the version of the chromedriver you installed.
-
-
 ### Run a Test with IntelliJ
 
 IntelliJ is a comprehensive tool that allows you to work with Maven, JUnit4, Github, and many other dependencies all from the same window. It allows you to debug and run portions of a test, see which branch you are on in Github, manage project files, and much more. If you aren’t familiar, you can [learn more here](https://www.jetbrains.com/help/idea/guided-tour-around-the-user-interface.html).
 
 
-#### Video
+#### Video- How to Run a Test
 
 Follow the instructions here in [2.05_IntelliJ_Tests](https://drive.google.com/file/d/1FlQ75pcOR37FEMCPKQEk6SeihA6d_Z1f/view?usp=sharing) to learn how to run a test with the IntelliJ UI
 
 ![https://drive.google.com/file/d/1FlQ75pcOR37FEMCPKQEk6SeihA6d_Z1f/preview](https://drive.google.com/file/d/1FlQ75pcOR37FEMCPKQEk6SeihA6d_Z1f/view?usp=sharing)
 
+Negative
+: **Check driver path and browser version–** If your tests aren't running correctly, double check that the `System.setProperty("webdriver.chrome.driver")` has the full path to where you installed the chromedriver, and that the `browserOptions.setCapability("browserVersion", "XX.0");` matches the version of both the browser you have on your computer, and the version of the chromedriver you installed.
 
 
 <!-- ------------------------ -->
