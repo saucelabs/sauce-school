@@ -422,7 +422,7 @@ You will also need to set the path to the place on your computer where you unzip
 #### Note
 
 Negative
-: How to Find Dependencies Using IntelliJ Video:
+: **How to Find Dependencies Using IntelliJ**:
  If your test file doesn’t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out. See the video [IntelliJ_Dependencies ](https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/view?usp=sharing)– Using IntelliJ to install dependencies and update the .pom file  ![https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/preview](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
 
 
