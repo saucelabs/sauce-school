@@ -308,11 +308,9 @@ See an example of all the changes made to the code in [this repo](https://github
 <img src="assets/4.03S.png" alt="config.py" width="750"/>
 <img src="assets/4.03T.png" alt="config.py" width="650"/>
 
-
-
 <!-- ------------------------ -->
 ## 4.04 Running Tests in Different Browsers
-Duration: 0:05:00
+Duration: 0:10:00
 
 ### Abstraction and Non-Duplication
 
@@ -328,10 +326,6 @@ Watch the video below, an excerpt from [Sauce Labs’ Tech Talk](https://www.you
 ### Download GeckoDriver
 You may recall tin the beginning, you had to check which version of Chrome you were running on your local machine, then download the appropriate driver. You should do the same with
 
-### Update the Config File
-
-The config file is an important part of any test suite. This file will specify things for your tests like what web address you test uses to perform the test, what browser it uses, and later on, will store methods for logging into the Sauce Labs grid, as well as instructions as to which environment you should run your tests in.
-
 If necessary, [download an install Firefox] (https://github.com/mozilla/geckodriver/releases) web browser on your machine. Once you have it installed, you can check the version by clicking on the menu at the top **> Help > Troubleshooting Information** and check the version of your browser.
 
 <img src="assets/4.04O.png" alt="config.py" width="550"/>
@@ -345,50 +339,10 @@ Once the file is in the vendor directory, simply double-click to extract it
 <img src="assets/4.04Q.png" alt="Extract geckodriver" width="550"/>
 
 
-
-<img src="assets/4.03Q.png" alt="config.py" width="550"/>
-<img src="assets/4.03R.png" alt="config.py" width="750"/>
-<img src="assets/4.03S.png" alt="config.py" width="750"/>
-<img src="assets/4.03T.png" alt="config.py" width="650"/>
-
-
-
-<!-- ------------------------ -->
-## 4.04 Running Tests in Different Browsers
-Duration: 0:05:00
-
-### Abstraction and Non-Duplication
-
-Thus far we have prepared our test suite well to be reusable. When you have things like the setup and teardown used for all tests in one place, making changes to this becomes a lot easier. Not duplicating (re-writing the same) code and abstracting into files like `base_page.py` and `conftest.py` mean that you won’t have to re-write that code each time you write a new page or test object, or go make changes to all those files when you need to modify something like the URL.
-
-In this lesson you will update the `config.py` file where you can store information that may change with different test runs. You already stored the URL, and now we will store a browser name as a variable.
-
-#### Video
-
-Watch the video below, an excerpt from [Sauce Labs’ Tech Talk](https://www.youtube.com/watch?v=ZLS9sU2A9QA&t=24s) by Nikolay Advolodkin
-![https://drive.google.com/file/d/1Gyv3tO9I4NanOAoCsPi5sVlqMx0iWcm0/preview](https://drive.google.com/file/d/1Rb1svBenpDT-ADUeniVbLtWJPdTzrXQl/view?usp=sharing)
-
-### Download GeckoDriver
-You may recall tin the beginning, you had to check which version of Chrome you were running on your local machine, then download the appropriate driver. You should do the same with
-
 ### Update the Config File
 
 The config file is an important part of any test suite. This file will specify things for your tests like what web address you test uses to perform the test, what browser it uses, and later on, will store methods for logging into the Sauce Labs grid, as well as instructions as to which environment you should run your tests in.
 
-If necessary, [download an install Firefox] (https://github.com/mozilla/geckodriver/releases) web browser on your machine. Once you have it installed, you can check the version by clicking on the menu at the top **> Help > Troubleshooting Information** and check the version of your browser.
-
-<img src="assets/4.04O.png" alt="config.py" width="550"/>
-
-You can download the same version of [Geckodriver](https://github.com/mozilla/geckodriver/releases) that supports the version you have. Navigate to the vendor directory in your project, and place the geckodriver that you downloaded.
-
-<img src="assets/4.04P.png" alt="Move geckodriver.py" width="550"/>
-
-Once the file is in the vendor directory, simply double-click to extract it
-
-<img src="assets/4.04Q.png" alt="Extract geckodriver" width="550"/>
-
->>>>>>> master
-### Update Test Configuration
 Next, you will want to add a variable for the browser in the `config.py` file to make it easy to specify which browser you would like.
 
 ```
@@ -688,7 +642,7 @@ Your final code will look like this:
 
 
 <!-- ------------------------ -->
-## ## 4.06  Setup for Sauce Labs Reporting
+## 4.06  Setup for Sauce Labs Reporting
 Duration: 0:12:00
 
 In this lesson you will add in some elements for better reporting to understand the status of test run on the[ Sauce Labs automated web testing platform](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
