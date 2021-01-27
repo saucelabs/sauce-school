@@ -473,7 +473,7 @@ Negative
 
 Now it’s time to add in an assertion to see if your actions had the desired effect. We want to check that the div that pops up when you have successfully logged in with the `class = "flash_success" `does in fact appear after you enter the login credentials.
 
-<img src="assets/2.07A.png" alt="check fro login success element" width="400"/>
+<img src="assets/2.07A.png" alt="check fro login success element" width="600"/>
 
 
 Start by opening the blank `TestLogin.java` file you created in the `tests` directory.
