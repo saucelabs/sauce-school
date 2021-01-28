@@ -104,7 +104,7 @@ jobs:
 
       - name: Run locally
         run: |
-          npm test
+          ./helpers/test-local.sh
 
       - name: Run on SauceLabs
         if: github.event_name == 'pull_request'
