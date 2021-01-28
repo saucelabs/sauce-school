@@ -44,7 +44,7 @@ In testing, both automated and manual, there are several different types of test
 These two types of tests are ways to categorize tests by what they are testing. Functional tests check to see if a feature is or is not working, nothing more (e.g. did I log in or not log in?). Non-functional testing typically gives a value or amount that helps engineering and product teams do **performance testing** and understand and predict whether the software and features will work as expected, at scale. An example would be load testing, to see if the test runs as expected with many simultaneous users or volume testing. Sauce Labs does front-end
 
 <img src="assets/DDoS.gif" alt="DDOS Attack" width="450"/>
-(DDOS attack GIF on imgur: [https://imgur.com/Ksjm2D3](https://imgur.com/Ksjm2D3))
+(DDOS attack GIF on imgur) [https://imgur.com/Ksjm2D3](https://imgur.com/Ksjm2D3)
 
 Selenium is most used for functional testing  Types of functional tests include unit testing, UI testing, regression testing, integration testing, and more.
 
@@ -610,16 +610,7 @@ Negative
 
 Now, when you run a program it will have the updated username and access key. **IMPORTANT** you need to do this with any new project file you create, and also any time you update your bash profile.
 
-Now you can update the config file and try out different combinations of platforms. You can use the [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/) to try out different settings. Here is one example:
-
-```
-# filename: config.py
-baseurl = "http://the-internet.herokuapp.com"
-host = "saucelabs"
-browser = "chrome"
-browserversion = "87.0"
-platform = "macOS 10.15"
-```
+Now you can update the config file and try out different combinations of platforms. You can use the [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/) to try out different settings.  
 
 Run your test using the command `pytest`. You can still also use flags such as `pytest --browser="internet explorer" --platform="Windows 10" --browserversion="11.285"`
 
