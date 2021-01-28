@@ -102,12 +102,7 @@ jobs:
         working-directory: ./site/
         run: npx gulp dist --codelabs-dir=codelabs
 
-      - name: Run locally
-        run: |
-          ./helpers/test-local.sh
-
       - name: Run on SauceLabs
-        if: github.event_name == 'pull_request'
         run: |
           ./helpers/test.sh
 
