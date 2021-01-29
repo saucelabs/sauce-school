@@ -18,7 +18,7 @@ const main = async () => {
 
     await waitPort({host: testAddr, port: testPort});
 
-    const procTest = spawn('saucectl', ['run', '--env', `CYPRESS_HOST_URL=http://${testAddr}:${testPort}/`, '-c', '.sauce/local.yml']);
+    const procTest = spawn('saucectl', ['run', '--env', `HOST_URL=http://${testAddr}:${testPort}/`, '-c', '.sauce/local.yml']);
     procTest.stdout.pipe(process.stdout);
     procTest.stderr.pipe(process.stderr);
 

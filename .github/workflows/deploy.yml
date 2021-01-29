@@ -103,7 +103,7 @@ jobs:
         run: npx gulp dist --codelabs-dir=codelabs
 
       - name: Run on SauceLabs
-        if: github.event_name == 'pull_request' || startsWith(github.ref, 'refs/tags/v')
+        if: github.event_name == 'pull_request' || startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/master'
         run: |
           ./helpers/test.sh
 
