@@ -313,8 +313,11 @@ See an example of all the changes made to the code in [this repo](https://github
 
 
 <img src="assets/4.03Q.png" alt="config.py" width="550"/>
+
 <img src="assets/4.03R.png" alt="config.py" width="750"/>
+
 <img src="assets/4.03S.png" alt="config.py" width="750"/>
+
 <img src="assets/4.03T.png" alt="config.py" width="650"/>
 
 <!-- ------------------------ -->
@@ -653,6 +656,7 @@ Negative
 Your final code will look like this:
 
 <img src="assets/4.05N.png" alt="Image Name" width="650"/>
+
 <img src="assets/4.05O.png" alt="Image Name" width="650"/>
 
 
@@ -764,6 +768,7 @@ You can see an example of the completed code[ here.](https://github.com/walkerlj
 #### Final Code
 
 <img src="assets/4.06O.png" alt="Image Name" width="850"/>
+
 <img src="assets/4.06P.png" alt="Image Name" width="650"/>
 
 <!-- ------------------------ -->
