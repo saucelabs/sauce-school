@@ -242,7 +242,7 @@ If you look in the project file, you should notice that there is a **pom.xml** f
 
 <img src="assets/1.05N.png" alt="pom.xml" width="350"/>
 
-### The pom.mxl File
+### The pom.xml File
 
 The `pom.xml` file is what Maven uses to identify which dependencies to install and update. To start off, you will updated `pom.xml` with your dependencies. Maven will install and use these dependencies alongside the test code. Note that the versions may be out of date and you may want to use a more updated version of JUnit4, Selenium, or Selenium drivers.
 

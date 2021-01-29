@@ -1,20 +1,21 @@
 apiVersion: v1alpha
 kind: cypress
 sauce:
+  concurrency: 3
   tunnel:
     id: sauce-ci-tunnel
   region: us-west-1
   metadata:
     name: Sauce School
-    tags:
-      - e2e
+    tags: ["e2e"]
     build: Commit $CI_COMMIT_SHORT_SHA
 cypress:
+  version: 5.6.0
   configFile: cypress.json
 suites:
   - name: "Chrome Tests"
     browser: chrome
-    browserVersion: "87"
+    browserVersion: "88"
     config:
       testFiles:
         - "**/*.js"
@@ -22,14 +23,17 @@ suites:
         HOST_URL: http://127.0.0.1:8080/
   - name: "Firefox Tests"
     browser: firefox
-    browserVersion: "latest"
+    browserVersion: "84"
     config:
       testFiles:
         - "**/*.js"
       env:
         HOST_URL: http://127.0.0.1:8080/
-docker:
-  fileMode: copy
-  image:
-    name: saucelabs/stt-cypress-mocha-node
-    tag: v0.3.2
+  - name: "Edge Tests"
+    browser: microsoftedge
+    browserVersion: "87"
+    config:
+      testFiles:
+        - "**/*.js"
+      env:
+        HOST_URL: http://127.0.0.1:8080/
