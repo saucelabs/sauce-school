@@ -685,14 +685,55 @@ Now when you run your tests, you should see the names of you test methods from `
 
 ### Add a Test Status
 
-After adding a test name, we will add in an id and status for each unique test that you create.
+After adding a test name, you will add in an id and status for each unique test that you create. First, you will need to update our tests. If you noticed before, the only status was **Complete** or had an **Error**. You will now add in a way to see whether a test has **Passed** or **Failed**.
+
+<img src="assets/4.06F.png" alt="Error or Complete" width="750"/>
+
+
+A  _failure_ is different from an _error_. An error means that you test code is erroneous, and you, as the test writer, need to make a change. You should see this error in your terminal output, and if the code is correct to communicate with Sauce Labs, it should be on your dashboard as well. A _failure_ means a test successfully ran, but the conditions it was checking for were not present – in other words, the code for the app isn’t as expected or needs fixing.
+
+The test status will be gathered at the end of your test run, in the quit function. First, however, you need to write a hook to be included into the test execution, since a pass or fail status isn't a part of the pytest library.
+
+At the bottom of the `cpnftest.py` test code, you are going to add a hook. Copy and paste the following into your code:
 
 ```
 # filename: tests/conftest.py
 # ...
+@pytest.hookimpl(hookwrapper=True, tryfirst=True) #added all below
+def pytest_runtest_makereport(item, call):
+    # this sets the result as a test attribute for Sauce Labs reporting.
+    outcome = yield
+    rep = outcome.get_result()
+
+    # set an report attribute for each phase of a call
+    setattr(item, "rep_" + rep.when, rep)
 ```
 
-<img src="assets/4.06C.png" alt="Passed Tests" width="550"/>
+Next, we are going to use this hook as a part of the `quit()` method and create a variable callde `sauce_result` that will say either passed or failed, depending on what the hook detects:
+
+```
+# filename: tests/conftest.py
+# ...
+    def quit():
+        sauce_result = "failed" if request.node.rep_call.failed else "passed" #added
+# ...
+```
+
+Last, we will add in  `JavaScriptExecutor` [to pass in the sauce:job-result](https://wiki.saucelabs.com/display/DOCS/Annotating+Tests+with+Selenium%27s+JavaScript+Executor/?utm_source=referral&utm_medium=LMS&utm_campaign=link) to the Sauce Rest API:
+
+```
+# filename: tests/conftest.py
+# ...
+    def quit():
+        sauce_result = "failed" if request.node.rep_call.failed else "passed" #added
+        driver_.execute_script("sauce:job-result={}".format(sauce_result)) #added
+        driver_.quit()
+# ...
+```
+
+Now when you run your tests, you can see either a **Pass** or **Fail** status, and not just a **Completed** status. Try changing the `test_invalid_credentials` method to `true`,  then run your tests to see bth a **Passed** and **Failed** status:
+
+<img src="assets/4.06N.png" alt="Passed Tests" width="750"/>
 
 You can see an example of the completed code[ here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod4/4.06)
 
