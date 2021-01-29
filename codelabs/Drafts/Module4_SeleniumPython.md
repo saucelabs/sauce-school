@@ -650,19 +650,47 @@ In addition, right now regardless of the outcome of a test, the job in Sauce Lab
 
 ### Add a Test Name
 
-It's great that our tests are running on Sauce Labs. But we're not done yet because the test name in each Sauce job is getting set to an unnamed job. This makes it extremely challenging to know what tests were run in each job. To remedy this we'll need to pass the test name to Sauce Labs.
+It's great that our tests are running on Sauce Labs. But we're not done yet because the test name in each Sauce job is getting set to an unnamed job. This makes it extremely challenging to know what tests were run in each job. To remedy this we'll need to pass the test name to Sauce Labs as a capability using `sauce:options`:
 
-.....
+First, create a variable to store the `test_name` right about the capabilities you declare when you run on sauce labs in `conftest.py`:
+
+```
+# filename: tests/conftest.py
+# ...
+     if config.host == "saucelabs":
+          test_name = request.node.name #added
+          capabilities = {
+          # ...
+```
+Next, inside the `sauce:options` add in the name capability:
 
 
 ```
-// filename:
+# filename: tests/conftest.py
+# ...
+    capabilities = {
+       'browserName': config.browser,
+       'browserVersion': config.browserversion,
+       'platformName': config.platform,
+       'sauce:options': {
+           "name":test_name, #added
+       }
+#....
 ```
+
+Now when you run your tests, you should see the names of you test methods from `login_test.py` and  `dynamic_loading_test `
+
+<img src="assets/4.06M.png" alt="Passed Tests" width="650"/>
 
 
 ### Add a Test Status
 
 After adding a test name, we will add in an id and status for each unique test that you create.
+
+```
+# filename: tests/conftest.py
+# ...
+```
 
 <img src="assets/4.06C.png" alt="Passed Tests" width="550"/>
 
