@@ -14,7 +14,7 @@ author:Lindsay Walker
 ## 4.01 What You'll Learn
 Duration: 0:03:00
 
-This module is derived from content in chapters 11-13 of _The Selenium Guidebook Python Edition_ by Dave Haeffner. This module guides you through creating a separate test object called `conftest`  ...... where ......, as well as a _Driver Factory_ which creates the `------------ `and `--------` functions used for each instance of a test.  Users will work through creating a `-------` file to store the environment variables for where (in which environment) your test is run on, and modify the DriverFactory to check & pull environment variables from `-------` Last but not least, add in some features to make your tests results easier to read and debug using the Sauce Labs platform
+This module is derived from content in chapters 11-13 of _The Selenium Guidebook Python Edition_ by Dave Haeffner. This module guides you through creating a separate test object called `conftest` to handle the setup and tear down for each test, as well as a base page, that defines methods used with Selenium command, so the other page objects can use easier-to-read imperative language. Users will work through creating a `-config` file to  instantiate variables that set where (in which environment) your test is run on, and learn how to set default and modify that environment when a test suite is run using pytest flags. Last but not least, add in some features to make your tests results easier to read and debug using the Sauce Labs platform, such as test names and pass/ fail status.
 
 
 ### Objectives
@@ -22,15 +22,24 @@ This module is derived from content in chapters 11-13 of _The Selenium Guidebook
 
 
 *  Analyze and plan test suites, learning how to balance the size and maintainability (ability to check failed tests) against the amount of features you want to test, as well as the level of abstraction you want to use to make modular objects to use in your test suite
-*   Learn about the different categories and types of tests. Understand which types of functional tests one uses Selenium for and how the different types and categories of tests are related
-*   Learn about Root Level Hooks that handle the universal methods `------- `and `------- `that all tests use, and that you can separate the common functionality that all test use with these methods in a separate file (such as`-------`) to be used with each test.
-*   Understand how to create a file that configures a test environment, and how it is used with a `-------  `from a file such as`-------` to create a template that each test is built off of.
+
+* Learn about different types of tests, as well as the appropriate use case and strategy for planning test types
+
+* Learn about the different categories and types of tests. Understand which types of functional tests one uses Selenium for and how the different types and categories of tests are related
+
+*   Learn about `@pytest.fixtures` that handle the universal methods `driver()` to set up tests and `quit()` to tear down tests, that all tests use, and that you can separate the common functionality that all test use with these methods in a separate file (such as`conftest.py`) the can be imported for each test class
+
+*   Understand how to create a file that configures a test environment, and how it is used with `parser.addoption` methods to either set a default test environment, or set the variables created in config at runtime
+
 *   Identify and fix problems in test suites such as poor locators, silent failures, and too much functionality in a single class
+
 *   Choose and separate imperative language into separate objects and pages, and use the simplified commands created in that class with other tests to write code that is easier to read, maintain, and declarative in nature
-*   Create a_ Driver Factory _that creates all of the `------- ` and` ------- `functionality each test uses
-*   Create a `-------` file that uses the _Driver Factory_ and works to set up each test, allowing tests to use the _Driver Factory _and a config file that specifies where and on which environment tests are run   
-*   Set up a `-------` variable in `-------` that points to the app you are running tests on in the BasePage, and remove hard-coded URLs from other page objects, allowing you to specify just a sub-domain from page objects
-*   Update your Sauce Labs credentials on your machine, then add functionality in your config file, using the sauce object in `-------`, to run your tests on Sauce Labs with the `--------------`.
+
+*   Set up a `baseurl` variable in `config.py` that points to the app you are running tests on in the BasePage, and remove hard-coded URLs from other page objects, allowing you to specify just a sub-domain from page objects
+
+*   Create a Sauce Labs accound, and environment variables for your Sauce Labs Credentials
+
+* Update the `conftest.py` object to allow you to switch between running tests on your local machine, or on Sauce Labs virtual machines
 
 <!-- ------------------------ -->
 ## 4.02 Types of Tests
@@ -412,28 +421,35 @@ Now we can specify Chrome as our browser when launching our tests with the comma
 <img src="assets/4.04S.png" alt="Add Firefox browser Final Code" width="550"/>
 
 #### Quiz
+![https://docs.google.com/forms/d/e/1FAIpQLSd-bjkwKmgzaLcxpsNc_JVZmh-tbc30HQ29ZQBzjl6wzwwIKw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSd-bjkwKmgzaLcxpsNc_JVZmh-tbc30HQ29ZQBzjl6wzwwIKw/viewform?usp=sf_link)
 
 <!--
 
-1. Fill in the blanks with the best choice for the type of test. The tests that you create for Sauce Labs are typically ______________ tests, in how they test if a feature can or cannot do something (and not values for how much). Many of these tests are considered __________ tests because they have many pieces or services that are combined to do a certain thing.
-    1. Headless, Unit
-    2. Non-Functional, Headless
-    3. UI, End-to-End*
-    4. Functional, Integration
+Fill in the blanks with the best choice for the type of test. A ______ test is measuring something with a value, that can give you an idea of how well something is performing. _______ testing is a type of test without a visual browser, tests are done with a robot who interacts with the codebase of a application.
 
-2. What was conftest.py created to do?
-    5. Create a place where you can manage the methods used in all tests, so you can update & edit all of them at once.
-    6. Create a file where you store the URL that you want to test against, so it can be changed easily.
-    7. Create a place to store the method that sets up and tears down each test so you can make updates easily. *
-    8. Create a bae page for all your page objects that allows you to make changes to all page objects when you want to change something like the URL.
+Headless, Unit
+Non-Functional, Headless
+UI, End-to-End
+Functional, Integration *
 
-    * The conftest.py is a type of base test object that allows you to abstract out the setup and teardown that every test uses, and make it easier to make changes to universal test configurations (not page objects)
+*Functional test test whether or not funtionality exists on a page, and integration tests test how different elements work together
 
-3. In this code sample from 4.03, why are we able to delete the After() method from `--------------`?
-    9. Because
-    10. Because we added all of the ‘teardown’ functionality to .---------------
-    11. Because we set up our root-level hooks in--------------
-    12. Because we deleted the timeout and added it in --------------
+Which object is responsible for the set-up and teardown of all your Selenium driver_ instances and tests?
+
+login_page.py
+conftest.py
+login_test.py
+config.py*
+
+*The conftest.py class contains the driver() and quit() methods that will build and tear down each test.
+
+3. In this code sample from 4.03, why are we able to simplify the code in the @pytest.fixture?
+    9. Because we no longer need to check the browser, since that is done in base_page.py
+    10. Because we added all of the ‘teardown’ functionality to conftest.py where you set up the browser and quit at the end of the test*
+    11. Because we set up our teardown and set up in the page objects (e.g. dynamic_loading_page.py)
+    12. Because you are no longer using fixtures and have declared @hook methods in conftest.py
+
+*You defined a fixture in conftest.py that takes care of setting the browser and environment for all tests, as well as quitting the tests.
 -
 -->
 
@@ -624,6 +640,14 @@ Visit [http://app.saucelabs.com/](http://app.saucelabs.com/). Go to the left han
 Complete course code can be found [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod4/4.05).
 
 
+#### NOTE
+
+Negative
+: What did you do? At this point to create an instance of a test, you are dependent on several different objects in your test suite. First, `base_test` sets up methods used by your page objects and instantiates a Selenium Webdriver instance. The page objects like `login_page` and `dynamic_loading_page` use the base class (and the methods) to interact with the pages.
+
+Negative
+: Once the interactions with the webpage are taken care of, the tests come into play.` base_test` imports the settings' variables from `config`, then the tests use the `conftest` class and define the specific tests run on the page, using the corresponding page objects (e.g `login_test` works with `login_page`) <img src="assets/4.05Q.png" alt="Test Suite Structure" width="750"/>
+
 #### Final Code
 
 Your final code will look like this:
@@ -735,56 +759,76 @@ Now when you run your tests, you can see either a **Pass** or **Fail** status, a
 
 <img src="assets/4.06N.png" alt="Passed Tests" width="750"/>
 
-You can see an example of the completed code[ here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod4/4.06)
+You can see an example of the completed code[ here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod4/4.06)
 
 #### Final Code
 
-<img src="assets/XXXX.png" alt="Image Name" width="450"/>
+<img src="assets/4.06O.png" alt="Image Name" width="850"/>
+<img src="assets/4.06P.png" alt="Image Name" width="650"/>
 
 <!-- ------------------------ -->
 ## 4.07 Quiz
 Duration: 0:05:00
+![https://docs.google.com/forms/d/e/1FAIpQLSdR9rdpMltvqgYPGaQ7JqYLRSaqC3RbiKQWuyfoa2JHPRJ_kQ/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSdR9rdpMltvqgYPGaQ7JqYLRSaqC3RbiKQWuyfoa2JHPRJ_kQ/viewform?usp=sf_link)
 
+<!--------
 Fill in the blanks with the best choice for the type of test. A ______ test is measuring something with a value, that can give you an idea of how well something is performing. _______ testing is a type of test without a visual browser, tests are done with a robot who interacts with the codebase of a application.
 
 Headless, Unit
-Non-Functional, Headless
+Non-Functional, Headless*
 UI, End-to-End
 Functional, Integration
 
-Which Page Object is responsible for the set-up of all where & what your suite is testing?
---------------
-----------
---------
+* See "Types of Tests" in 4.02 for information. Remember, non-functional tests test how well and how much an app is performing, whereas functional tests simply whether or not a feature is working.
+
+Which Page Object is responsible for the set-up of the varibles of where (what browser & environment) & what(application) your suite is testing?
+
+login_page.py
+conftest.py
+config.py*
+base_page.py
+
+* See 4.04 for information. Config sets variables like the browser, operating system, username, the url for the application under test.
+
 -----------
 
+Which of the following best describes how a test in the tests folder uses the page object files, the test files, and the base page and base test?
 
-Which of the following best describes how a test in the test folder uses the files ------------------------------------
+First, page objects are created, to go along with a test, that handle the interactions on a page. Each test uses base_page.py for the setup and breakdown in @pytest.fixture, as well as pulls in the desired capabilities, then each test  then executes the logic in the test methods.
 
+Each test creates a new base_page.py, and that uses the page object (e.g. login_page.py) to set up a driver() and quit() to create the rules in each test.
 
-<img src="assets/XXXX.png" alt="Image Name" width="450"/>
+Each test creates a new conftest.py file, and that uses base_page.py . Within each *_test.py a driver() and quit() fixture is defined, and run with the corresponding page object.
 
+Each test uses config.py for the driver() and quit() methods to create a new driver_factory.py which contain all @pytest.fixtures, while pulling in the environment setup from base_page.py.
 
-Each test
-
-Each test creates a new -------------, and that uses ---------- and ------------ to set up a ------------ and ---------- to create a before----() and after----() in each test.
-
-Each test
-
-Each test
-
-What is the difference between ---------------- and ---------- ?
------------- defines the methods for the root-level hooks, and D------------- instantiates them.
-------------- configures where the tests are hosted, and on what environment they are run, and ------------instantiates the test suite.
----------------- defines the methods for the root-level hooks, and ------------ instantiates them.
------------- configures where the tests are hosted, and on what environment they are run, and -------------- instantiates the test suite.
+*See the section before the final code in lesson in 4.05 for information on how these different files in your test suite work together.
 
 
-Which of the following is the most accurate description of what actions the quit() function in ------------- is performing?
 
-<img src="assets/XXXX.png" alt="Image Name" width="450"/>
+What is the difference between base_page.py and conftest.py?
 
-It defines (creates) the variable ----------- in the-------------) method, which doesn’t exist unless all other test code has successfully completed.
-It uses the variable ------------- defined (created) in ------------ that is only created in the afterEach function, which will only run once all other test code has successfully completed.
-It uses the variable -----------which allows the creation of ------------ that can also only be created if all other test code has successfully completed.
-It defines (creates) the variable --------after the ---------- method, which can’t be defined unless all other test code has successfully completed.
+
+conftest.py defines the methods for the setup and tear down of tests, and base_page.py instantiates them.
+
+base_page.py configures where the tests are hosted, and on what environment they are run, and conftest.py instantiates the test suite setup.
+
+base_page.py defines the methods used by each test, and conftest.py configure where the tests are hosted, and on what environment they are run.*
+
+base_page.py configures where the tests are hosted, and on what environment they are run, and conftest.py instantiates the methods and variables for the test suite.
+
+
+Which of the following is the most accurate description of the purpose of the pytest hook implementation?
+
+
+It defines (creates) the variable job-result in the execute-script method, which doesn’t exist unless all other test code has successfully completed, and makes it possible to send test results, which isn't a built in function of pytest.
+
+It uses the variable rep_ defined (created) in pytest_runtest_makereport which is used with JavaScript to send a pass or fail status to Sauce Labs Dashboard, and makes it possible to send test results, which isn't a built in function of pytest.*
+
+It defines (creates) setattr which allows the creation of the rep_ variable, that can also only be created if all other test code has successfully completed. It makes it possible to send test results, which isn't a built in function of pytest.
+
+It makes it possible to use JavaScript to send information to the SauceRest API after the sauce_result method, which can’t be defined unless all other test code has successfully completed.
+
+
+
+---------------->
