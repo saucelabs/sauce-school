@@ -319,18 +319,18 @@ Next, go to` test/TestLogin.java.` Under the `@Test `annotation, after the `succ
 
 ```
 //filename: tests/TestLogin.java
-//filename: tests/TestLogin.java
 // ...
- @Test
-    public void succeeded() {
-        login.with("tomsmith", "SuperSecretPassword!");
-        assertTrue("success message not present",
-                login.successMessagePresent());
-    }
+@Test
+  public void failed() {
+      login.with("tomsmith", "bad password");
+      assertTrue("failure message wasn't present after providing bogus credentials",
+              login.failureMessagePresent());
+  }
 
 // ...
 ```
 
+Notice how this test has `"bad password"` as a password, and should result in the `.flash.error` element appearing on the page.
 
 Run **clean** and **test** with Maven and you should get three passing tests
 
