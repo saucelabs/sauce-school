@@ -410,7 +410,7 @@ The code for the the login page object should now look like this:
 
 <!--- ------------------------ -->
 
-## 3.05  Common Issues with Test Code Reuse
+## 3.05  Create a Base Page
 Duration: 0:17:00
 
 In the previous lesson, you stepped through creating a simple page object to capture the behavior of the page you were interacting with. While this is a good start, there's more you can do.
@@ -452,9 +452,9 @@ To delete` LocatorTest.js`, right click on it in the project window in IntelliJ 
 
 <img src="assets/3.05I.png" alt="Refactor and safe delete" width="550"/>
 
-### Part 1 Create a Facade Layer
+### Part 1 Create a Base
 
-Creating a _facade layer_ involved creating a separate page or class from your test page, that helps you simplify the language to carry out simple commands like `return driver.findElement(locator);` or  `find(locator).sendKeys(inputText);` as well as check an assertion after, and simplify this process into a single command like` type() `or `find()` so that these methods can be easily used by the rest of the test suite. In this lesson, you are going to create a simplified interface called `Base.java`, which you will then use within our `LoginPage.js `class.
+A _facade layer_ can be created in the for of a base page object, which will help you simplify the language to carry out simple commands like `return driver.findElement(locator);` or  `find(locator).sendKeys(inputText);` as well as check an assertion after, and simplify this process into a single command like` type() `or `find()` so that these methods can be easily used by the rest of the test suite. In this lesson, you are going to create a simplified interface called `Base.java`, which you will then use within our `LoginPage.js `class.
 
 First let's add a new class called `Base.java `in the` pageobjects `directory.  See Part one of module 3.03 if you need help.
 
