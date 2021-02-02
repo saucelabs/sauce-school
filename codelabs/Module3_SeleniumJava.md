@@ -339,7 +339,7 @@ Run **clean** and **test** with Maven and you should get three passing tests
 #### NOTE
 
 Negative
-: **Why?**  Now you have a test added into your suite that will check to see that a failure message was not present. This is important once you start running your test suites so whomever is evaluating the test results knows that a failure was because of a lack of a failure message showing up. With the` failed()` test, you are checking that it is true that you can locate the failure message on the page, otherwise the message `'Failure message wasn't present after providing bogus credentials"` will be returned.
+: **Why?**  Now you have a test added into your suite that will check to see that a failure message was present with a bad password. We can't check for a success message _not_ being there becauce it will throw and error and cause a timeout, ending test execution.
 
 #### Final Code
 
