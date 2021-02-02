@@ -319,18 +319,18 @@ Next, go to` test/TestLogin.java.` Under the `@Test `annotation, after the `succ
 
 ```
 //filename: tests/TestLogin.java
-//filename: tests/TestLogin.java
 // ...
- @Test
-    public void succeeded() {
-        login.with("tomsmith", "SuperSecretPassword!");
-        assertTrue("success message not present",
-                login.successMessagePresent());
-    }
+@Test
+  public void failed() {
+      login.with("tomsmith", "bad password");
+      assertTrue("failure message wasn't present after providing bogus credentials",
+              login.failureMessagePresent());
+  }
 
 // ...
 ```
 
+Notice how this test has `"bad password"` as a password, and should result in the `.flash.error` element appearing on the page.
 
 Run **clean** and **test** with Maven and you should get three passing tests
 
@@ -339,7 +339,7 @@ Run **clean** and **test** with Maven and you should get three passing tests
 #### NOTE
 
 Negative
-: **Why?**  Now you have a test added into your suite that will check to see that a failure message was not present. This is important once you start running your test suites so whomever is evaluating the test results knows that a failure was because of a lack of a failure message showing up. With the` failed()` test, you are checking that it is true that you can locate the failure message on the page, otherwise the message `'Failure message wasn't present after providing bogus credentials"` will be returned.
+: **Why?**  Now you have a test added into your suite that will check to see that a failure message was present with a bad password. We can't check for a success message _not_ being there becauce it will throw and error and cause a timeout, ending test execution.
 
 #### Final Code
 
@@ -410,7 +410,7 @@ The code for the the login page object should now look like this:
 
 <!--- ------------------------ -->
 
-## 3.05  Common Issues with Test Code Reuse
+## 3.05  Create a Base Page
 Duration: 0:17:00
 
 In the previous lesson, you stepped through creating a simple page object to capture the behavior of the page you were interacting with. While this is a good start, there's more you can do.
@@ -452,9 +452,9 @@ To delete` LocatorTest.js`, right click on it in the project window in IntelliJ 
 
 <img src="assets/3.05I.png" alt="Refactor and safe delete" width="550"/>
 
-### Part 1 Create a Facade Layer
+### Part 1 Create a Base
 
-Creating a _facade layer_ involved creating a separate page or class from your test page, that helps you simplify the language to carry out simple commands like `return driver.findElement(locator);` or  `find(locator).sendKeys(inputText);` as well as check an assertion after, and simplify this process into a single command like` type() `or `find()` so that these methods can be easily used by the rest of the test suite. In this lesson, you are going to create a simplified interface called `Base.java`, which you will then use within our `LoginPage.js `class.
+A _facade layer_ can be created in the for of a base page object, which will help you simplify the language to carry out simple commands like `return driver.findElement(locator);` or  `find(locator).sendKeys(inputText);` as well as check an assertion after, and simplify this process into a single command like` type() `or `find()` so that these methods can be easily used by the rest of the test suite. In this lesson, you are going to create a simplified interface called `Base.java`, which you will then use within our `LoginPage.js `class.
 
 First let's add a new class called `Base.java `in the` pageobjects `directory.  See Part one of module 3.03 if you need help.
 

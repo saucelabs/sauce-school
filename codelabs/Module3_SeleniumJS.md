@@ -347,7 +347,7 @@ The code for the the LoginPage should now look like this:
 
 <img src="assets/3.04D.png" alt="Login Failure Markup" width="600"/>
 
-## 3.05  Common Issues with Test Code Reuse
+## 3.05  Create a Base Page
 Duration: 0:17:00
 
 In the previous lesson, you stepped through creating a simple page object to capture the behavior of the page you were interacting with. While this is a good start, there's more you can do.
@@ -363,9 +363,9 @@ Right now you are using Selenium actions directly in your page object. While on 
 What you will do now is set up a Base Page that will create descriptive variables and methods, then use those created methods to interact with other pages. This way, if you need to swap out, say, a Selenium method for an Appium method, instead of having to do it in each and every page, you can change the BasePage.js methods to Appium-specific ones, and not have to change all of your other pages.
 
 
-### Part 1: Create a Facade Layer
+### Part 1: Create a Base
 
-A _facade layer_ is when a page is created that helps you simplify the language to carry out simple commands like `await this.find(locator).sendKeys(inputText)` or  `await this.find(locator).isDisplayed`, as well as check an assertion after, and simplify this process into a single command like` type() `or `find()` so that these methods can be easily used by the rest of the test suite. In this lesson, you are going to create a simplified interface called `BasePage.js`, which you will then use within our `LoginPage.js `class.
+A _facade layer_ can be created in the for of a base page object, which will help you simplify the language to carry out simple commands like `await this.find(locator).sendKeys(inputText)` or  `await this.find(locator).isDisplayed`, as well as check an assertion after, and simplify this process into a single command like` type() `or `find()` so that these methods can be easily used by the rest of the test suite. In this lesson, you are going to create a simplified interface called `BasePage.js`, which you will then use within our `LoginPage.js `class.
 
 First let's add a new file called `BasePage.js `in the` pages `directory. At this point, you can also delete` LocatorTest.js` as you won’t be using any longer.
 
