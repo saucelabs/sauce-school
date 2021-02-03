@@ -226,14 +226,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <div class="card-pin"></div>
               {%- endif -%}
               <div class="description">{{codelab.title}}</div>
+              <!-- Add in module descriptions -->
               <div class="card__summary">
 
-                {%- if codelab.id == 'Module2_Quickstart' -%}
-                  <p>Add a description</p>
+                {%- if codelab.id == 'Module1-Quickstart' -%}
+                  <p>Get an overview of the Sauce Labs platform, with a focus on features for automated testers. See how you can access Sauce Connect, automated test results, and how both mobile and web application tests are run on Sauce Labs, as well as a preview of how to use Live testing features.</p>
                 {%- endif -%}
 
-                {%- if codelab.id == 'Module1_Quickstart' -%}
-                  <p>Add a description</p>
+                {%- if codelab.id == 'Module2-Quickstart' -%}
+                  <p>Learn how to take your Appium test code written for Android mobile and web applications, and run them on Sauce Labs. Add test names, status, as well as run your tests in parallel on the cloud platform.</p>
                 {%- endif -%}
 
               </div>
