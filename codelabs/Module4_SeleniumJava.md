@@ -747,7 +747,7 @@ In` BaseTest` you will use another [JUnit rule](https://github.com/junit-team/ju
 
 
 ```
-// filename: lib/DriverFactory.js
+// filename: lib/DriverFactory.java
 // ...
 private String testName;
 // ...
@@ -758,7 +758,7 @@ Next, use the  `TestWatcher()`after the second` @Override `annotation, right bef
 
 
 ```
-// filename: lib/DriverFactory.js
+// filename: lib/DriverFactory.java
 // ...
     @Rule
     public TestRule watcher = new TestWatcher() {

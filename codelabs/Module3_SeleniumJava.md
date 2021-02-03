@@ -111,7 +111,7 @@ Create a new folder by right clicking on the **java** folder and choosing a new 
 <img src="assets/3.03E.png" alt="New Package" width="650"/>
 
 
-In the new pageobjects folder, add in a new class called `Login.java` file by right clicking on the **pageobjects** folder.
+In the new pageobjects folder, add in a new Java class called `Login` file by right clicking on the **pageobjects** folder.
 
 <img src="assets/3.03F.png" alt="New Class" width="350"/>
 
@@ -174,7 +174,7 @@ Now let's update our test to use this page object.
 
 ### Part 2: Update TestLogin.java to use the Page Object
 
-Now open the file `tests/TestLogin.java` You will be adding a few things into the test so that it can work with the `LoginPage.js` file you just created.
+Now open the file `tests/TestLogin.java` You will be adding a few things into the test so that it can work with the `LoginPage.java` file you just created.
 
 You can remove the import of the `By` class since it will now be done with the `Login` page object, you will import it from the Login page object.
 
@@ -256,7 +256,7 @@ Source Code for this project can be found [here.](https://github.com/walkerlj0/S
 
 #### Final Code
 
-Your new code in `TestLogin.js` should look like this:
+Your new code in `TestLogin.java` should look like this:
 
 <img src="assets/3.03H.png" alt="First Login Code" width="750"/>
 
@@ -425,7 +425,7 @@ Right now you are using Selenium actions directly in our page object. While on t
 *   You may need to update your test code (added maintenance for each page) because of updates and changes to the [Selenium API](https://www.selenium.dev/documentation/en/webdriver/)
 *   The inability to swap out the driver for your tests. You may in the future, for instance, want to swap out commands in Selenium for commands in Appium (for mobile testing)
 
-What you will do now is set up a Base Page that will create descriptive variables and methods, then use those methods to interact with other pages. This way, if you need to swap out, say, a Selenium method for an Appium method, instead of having to do it in each and every page, you can change the BasePage.js methods to Appium-specific ones, and not have to change all of your other pages.
+What you will do now is set up a Base Page that will create descriptive variables and methods, then use those methods to interact with other pages. This way, if you need to swap out, say, a Selenium method for an Appium method, instead of having to do it in each and every page, you can change the BasePage.java methods to Appium-specific ones, and not have to change all of your other pages.
 
 
 ### Deleting Tests
@@ -448,15 +448,15 @@ Source: [Giphy](https://giphy.com/gifs/baby-bye-slide-m9eG1qVjvN56H0MXt8)
 
 Since you are not really using `TestLocator.java`, now would be a good time to delete that test before adding in the new classes in this module.
 
-To delete` LocatorTest.js`, right click on it in the project window in IntelliJ and choose **Refactor > Safe Delete**, as you won’t be using it any longer.
+To delete` LocatorTest.java`, right click on it in the project window in IntelliJ and choose **Refactor > Safe Delete**, as you won’t be using it any longer.
 
 <img src="assets/3.05I.png" alt="Refactor and safe delete" width="550"/>
 
 ### Part 1 Create a Base
 
-A _facade layer_ can be created in the for of a base page object, which will help you simplify the language to carry out simple commands like `return driver.findElement(locator);` or  `find(locator).sendKeys(inputText);` as well as check an assertion after, and simplify this process into a single command like` type() `or `find()` so that these methods can be easily used by the rest of the test suite. In this lesson, you are going to create a simplified interface called `Base.java`, which you will then use within our `LoginPage.js `class.
+A _facade layer_ can be created in the for of a base page object, which will help you simplify the language to carry out simple commands like `return driver.findElement(locator);` or  `find(locator).sendKeys(inputText);` as well as check an assertion after, and simplify this process into a single command like` type() `or `find()` so that these methods can be easily used by the rest of the test suite. In this lesson, you are going to create a simplified interface called `Base.java`, which you will then use within our `LoginPage.java `class.
 
-First let's add a new class called `Base.java `in the` pageobjects `directory.  See Part one of module 3.03 if you need help.
+First let's add a new Java class called `Base`in the` pageobjects `directory.  See Part one of module 3.03 if you need help.
 
 
 Next let's open `Base.java `in your IDE and add in the following code:
@@ -739,7 +739,7 @@ You’re going to use this page as an example that demonstrates using waits agai
 
 <img src="assets/3.06E.png" alt="Page Loaded" width="600"/>
 
-Create a new class named `DynamicLoading.java` in the pageobjects directory.
+Create a new Java class named `DynamicLoading` in the pageobjects directory.
 
 <img src="assets/3.06L.png" alt="Pencil" width="350"/>
 
@@ -950,7 +950,7 @@ Now that you have our new page object and an updated base page, it's time to wri
 
 Notice that it has the same start `<button>` and `id='finished'` at the beginning and end of the test. Will our same test work for the second page?
 
-Let's add a nearly identical second test to` DynamicLoadingTest.js` called `elementAppeared` that will load this second example and perform the same check (on the other page) as you did in the previous test.
+Let's add a nearly identical second test to` DynamicLoadingTest.java` called `elementAppeared` that will load this second example and perform the same check (on the other page) as you did in the previous test.
 
 
 ```
