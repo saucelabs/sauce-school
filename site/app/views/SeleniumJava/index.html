@@ -226,6 +226,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <div class="card-pin"></div>
               {%- endif -%}
               <div class="description">{{codelab.title}}</div>
+              // Add card descriptions
+              <div class="card__summary">
+
+                {%- if codelab.id == 'Module1-SeleniumJava' -%}
+                  <p>Set up your Java Selenium Test environment with Junit4, Maven, and IntelliJ </p>
+                {%- endif -%}
+
+                {%- if codelab.id == 'Module2-SeleniumJava' -%}
+                  <p>Add Description Here</p>
+                {%- endif -%}
+
+                {%- if codelab.id == 'Module3-SeleniumJava' -%}
+                  <p></p>
+                {%- endif -%}
+
+                {%- if codelab.id == 'Module4-SeleniumJava' -%}
+                  <p></p>
+                {%- endif -%}
+
+                {%- if codelab.id == 'Module5-SeleniumJava' -%}
+                  <p></p>
+                {%- endif -%}
+
+              </div>
+
+
               <div class="card-duration">
                 <span>{%- if codelab.duration -%}{{codelab.duration}} min {%- endif -%}</span>
                 <span>{%- if codelab.updated -%}Updated {{codePrettyDate(codelab.updated)}}{%- endif -%}</span>
