@@ -228,6 +228,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <div class="card-pin"></div>
               {%- endif -%}
               <div class="description">{{codelab.title}}</div>
+              <!-- Add card descriptions -->
+              <div class="card__summary">
+
+                {%- if codelab.id == 'Module1-SeleniumJava' -%}
+                  <p>Set up your JavaScript Selenium Test environment with Moch and npm, and learn about the components of a Selenium test.</p>
+                {%- endif -%}
+
+                {%- if codelab.id == 'Module2-SeleniumJava' -%}
+                  <p>Understand the basic features of an atomic test, and write your first basic test with Junit4 test annotations. Write a test using locators and assertions.</p>
+                {%- endif -%}
+
+                {%- if codelab.id == 'Module3-SeleniumJava' -%}
+                  <p>Learn about using a Page Object Model (POM) structure for your test code, create page and test objects, and add error handling and explicit waits to your test code.</p>
+                {%- endif -%}
+
+                {%- if codelab.id == 'Module4-SeleniumJava' -%}
+                  <p>Add code to run your test on Sauce Labs, and learn about the different types of tests. Create a base test with root level hooks to set up and tear down all your tests, and run tests in different browsers.  </p>
+                {%- endif -%}
+
+                {%- if codelab.id == 'Module5-SeleniumJava' -%}
+                  <p>Learn to plan your testing strategy. Use Sauce Connect to run tests through a secure proxy tunnel, and set up your tests to run in the Jenkins CI tool, grouping tests to run at different times.</p>
+                {%- endif -%}
+
+              </div>
               <div class="card-duration">
                 <span>{%- if codelab.duration -%}{{codelab.duration}} min {%- endif -%}</span>
                 <span>{%- if codelab.updated -%}Updated {{codePrettyDate(codelab.updated)}}{%- endif -%}</span>
