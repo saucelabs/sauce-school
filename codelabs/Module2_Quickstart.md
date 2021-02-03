@@ -38,13 +38,12 @@ This module is created to walk you through the steps you need to take to get a t
 
 ### Resources
 Download the following resources on your computer:
-<<<<<<< HEAD
+
 * [Android Test Code](https://github.com/walkerlj0/Quickstart_Android). See the _/Mod2/2.03_ folder to follow along starting on the next module.
-=======
-* [Android Test Code](https://github.com/walkerlj0/Quickstart_Android). See the _/Mod2/2.03_ to follow along starting on the next module.
->>>>>>> master
+
 * Swag Labs [Android Native Demo App](https://github.com/saucelabs/sample-app-mobile/releases)
-    * Scroll down and find the **Android.SauceLabs.Mobile.Sample.app.x.x.x.apk** file. Choose the latest version you can find.
+
+* Scroll down and find the **Android.SauceLabs.Mobile.Sample.app.x.x.x.apk** file. Choose the latest version you can find.
 
 <img src="assets/QS2.02A.png" alt="Swag Labs Mobile App Repo" width="650"/>
 
