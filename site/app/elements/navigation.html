@@ -8,6 +8,17 @@
       <img onclick="menuClose()" class="mobile__menu-icon --hide" id="mobileClose" src="/images/mobile_close.svg" />
     </div>
     <div class="header__mobile-nav --mobile --hide">
+
+      <div id="searchbar">
+        <paper-input-container no-label-float style="display: inline-block">
+          <paper-icon-button prefix icon="search"></paper-icon-button>
+          <label>Search</label>
+          <input is="iron-input" bind-value="{{searchVal}}" on-keydown="onSearchKeyDown">
+        </paper-input-container>
+      </div>
+
+      <!-- Before the closing </head> -->
+
       <div id="solutionsEvent" class="header__mobile-item" onclick="openMenuItem('solutions')">
         <span><img id="solutionsCarrot" src="/images/nav-carrot.png"  /> Solutions</span>
       </div>
@@ -150,7 +161,7 @@
               <li><a href="https://wiki.saucelabs.com/">Documentation</a></li>
               <li><a href="https://support.saucelabs.com/">Knowledge Base</a></li>
               <li><a href="https://saucelabs.com/our-experts">Our Experts</a></li>
-              <li>< a href="https://training.saucelabs.com/">Training</a></li>
+              <!--<li><a href="https://training.saucelabs.com/">Training</a></li>-->
             </ul>
           </li>
         </ul>
@@ -218,6 +229,8 @@
           </li>
         </ul>
       </div>
+
+
 
       <div id="bottomActions" class="header__mobile-bottom --bottomPosition">
         <div class="header__mobile-bottom-inner">
@@ -385,6 +398,7 @@
                     <li><a class="sub-nav__link" target="_blank" href="https://support.saucelabs.com/">Knowledge Base</a></li>
                     <li><a class="sub-nav__link" target="_blank" href="https://wiki.saucelabs.com/">Documentation</a></li>
                     <li><a class="sub-nav__link" target="_blank" href="https://saucelabs.com/our-experts">Our Experts</a></li>
+                    <!--<li><a class="sub-nav__link" target="_blank" href="https://training.saucelabs.com/">Training</a></li>-->
                   </ul>
                 </li>
               </ul>
