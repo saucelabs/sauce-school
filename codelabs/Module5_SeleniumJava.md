@@ -2,7 +2,7 @@
 
 author:Lindsay Walker
 summary: Module 5 of Selenium with Java. Learn to write Selenium tests in Java with JUnit, Maven, Jenkins, and Sauce Labs
-id: Module5_SeleniumJava
+id: Module5-SeleniumJava
 categories: advanced
 tags: java
 environments: Web
