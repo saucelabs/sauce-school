@@ -113,14 +113,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <a href="/">
           <img src="/images/logo.png" class="logo-devs" alt="Codelabs Logo">
         </a>
-        <!--<div id="searchbar">
+
+        <navigation-element></navigation-element>
+
+        <div id="searchbar" class="--desktop">
           <paper-input-container no-label-float>
             <paper-icon-button prefix icon="search"></paper-icon-button>
             <label>Search</label>
             <input is="iron-input" bind-value="{{searchVal}}" on-keydown="onSearchKeyDown">
           </paper-input-container>
-        </div>-->
-        <navigation-element></navigation-element>
+        </div>
+
       </div>
     </div>
     {% endraw %}
