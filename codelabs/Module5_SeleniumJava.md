@@ -203,7 +203,7 @@ In this case, which you have named `saucelabs-tunnel`, when you run your test, y
 
 ### Run Tests Using Sauce Connect Proxy
 
-Once your tunnel is up and running, (you should see the message Sauce Connect is up in terminal)  and you have updated your `config.js` and `BaseTest.java` files, you can run your tests in Sauce Labs using Sauce Connect Proxy. First, update your` .bash_profile `with an environment variable (it must match the` tunnel id `you used to start the tunnel).
+Once your tunnel is up and running, (you should see the message Sauce Connect is up in terminal)  and you have updated your `config.java` and `BaseTest.java` files, you can run your tests in Sauce Labs using Sauce Connect Proxy. First, update your` .bash_profile `with an environment variable (it must match the` tunnel id `you used to start the tunnel).
 
 
 <img src="assets/5.03I.png" alt="Bash Profile" width="750"/>
