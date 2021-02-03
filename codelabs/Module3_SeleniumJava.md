@@ -306,7 +306,7 @@ Underneath the method` successMessagePresent(){}` add in a new method:
 
 
 ```
-//filename: tests/TestLogin.java
+//filename: tests/Test.java
 // ...
 public Boolean failureMessagePresent() {
         return driver.findElement(failureMessageLocator).isDisplayed();
@@ -332,7 +332,7 @@ Next, go to` test/TestLogin.java.` Under the `@Test `annotation, after the `succ
 
 Notice how this test has `"bad password"` as a password, and should result in the `.flash.error` element appearing on the page.
 
-Run **clean** and **test** with Maven and you should get three passing tests
+Run **clean** and **test** with Maven and you should get two passing tests
 
 <img src="assets/3.04E.png" alt="Build Success" width="750"/>
 
