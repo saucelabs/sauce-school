@@ -170,9 +170,9 @@ Move the zipped file to your Applications folder.
 In terminal, open the file in your downloads directory in terminal and run the command:
 
 
-`tar xzvf apache-maven-3.6.3-bin.tar.gz`
+`tar xzvf apache-maven-X.X.X-bin.tar.gz`
 
-(Replace `maven-3.6.3-bin.tar.gz` with the version you downloaded.)  This will unzip the project file.
+(Replace `maven-X.X.X-bin.tar.gz` with the version you downloaded, such as `maven-3.6.3-bin.tar.gz`)  This will unzip the project file.
 
 Next, you will need to [update your bash profile](https://medium.com/macoclock/how-to-create-delete-update-bash-profile-in-macos-5f99999ed1e7) to tell your computer where to look for files that you will need to run your test (Maven and Java).
 
@@ -189,14 +189,14 @@ export M2_HOME=$HOME/Applications/apache-maven-<version>
 export M2=$M2_HOME/bin
 
 ##Add to PATH variable
-export PATH=$M2:$JAVA_HOME/bin:$PATH
+export PATH=$PATH:$M2:$JAVA_HOME/bin:$PATH
 ```
 
 
 
 #### Note
 Negative
-: The version of the apache-maven variable needs to reflect which version you downloaded. For example, if you downloaded maven version 3.6.3, it would read `export M2_HOME=$HOME/Applications/apache-maven-3.6.3`
+: The version of the apache-maven PATH variable needs to reflect which version you downloaded. For example, if you downloaded maven version 3.6.3, it would read `export M2_HOME=$HOME/Applications/apache-maven-3.6.3`
 
 
 
@@ -320,30 +320,11 @@ The `pom.xml` file is what Maven uses to identify which dependencies to install 
 
 This sets up all the dependencies, however, you may need to research to make sure you have the most updated or correct version of these dependencies. Each dependency's `version` may need to be updated. You can check Maven
 
-#### Note
-
-Negative
-: How to Find Dependencies Using IntelliJ Video:
- If your .pom file doesn’t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out.
-
- Negative
-: * Hover over a red word in IDE
-
-Negative
-: * Click the red light bulb to import maven dependencies.
-
-Negative
-: * Click the Maven tab and refresh.
-
-Negative
-: * Check the .pom file to make sure the updated version was added.
-=======
 This sets up all the dependencies, however, you may need to research to make sure you have the most updated or correct version of these dependencies. Each dependency's `version` may need to be updated.
 
 Once you have added your `pom.xml` file update, go to **File > Invalidate Caches and Restart** for everything to take effect and to get Maven to import the dependencies.
 
 <img src="assets/1.05Z.png" alt="pom.xml" width="450"/>
->>>>>>> master
 
 Negative
 : * Words should no longer appear red in the test.java file.
@@ -361,10 +342,7 @@ Negative
 If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
 
 **[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod1/1.06/src/test/java/companyname/TestLogin.java)**
-<<<<<<< HEAD
-=======
 
->>>>>>> 77b4a5c8d0268e0d7886b633adefed588783ea5e
 
 <!-- ------------------------ -->
 ## 1.06 Editing Code and Java Summary
