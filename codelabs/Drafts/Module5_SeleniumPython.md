@@ -109,7 +109,7 @@ In many cases, testers need to run their tests on internal sites. These can be d
 
 ### Download Sauce Connect Proxy
 
-The first step is to download The Sauce Connect Proxy software -- available on the **[Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy) **page in the Sauce Labs Cookbook -- and extract the contents of the **.zip** or **.gz** download package. You can also get the software on the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform under **Tunnels.**
+The first step is to download The Sauce Connect Proxy software -- available on the **[Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy)** page in the Sauce Labs Cookbook -- and extract the contents of the **.zip** or **.gz** download package. You can also get the software on the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform under **Tunnels.**
 
 
 <img src="assets/5.03A.png" alt="Tunnels Software" width="750"/>
@@ -138,7 +138,7 @@ bin/ sc -u <SAUCE_USERNAME> -k <SAUCE_ACCESS_KEY> -i <SAUCE_TUNNEL>
 Negative
 : **Create Environment Variables for Sauce Labs –** The first thing you should do when creating a test is set up environment variables on your local machine in the (.zshrc or .bash profile) for your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`. It is important to save your Sauce username and access key as environment variables, instead of coding them into your test, so that when you share your tests or upload them to Github, your private access keys aren’t shared.   It will also make transitioning to a continuous integration pipeline easier, since they will use the same environment variables.  Watch [this video](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing) to learn how to set up environment variables with your Sauce Labs credentials on a Mac, or view the [instructions for Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
 
-You can copy the command that you will find at the bottom of the **Tunnels** page, and paste this into your terminal as well, instead of typing what is above. Once you paste, append the command line with `-i <Sauce tunnel name>`:. In this example, I’ve called mine `linds-proxy-tunnel.`
+You can copy the command that you will find at the bottom of the **Tunnels** page, and paste this into your terminal as well, instead of typing what is above. take note of what is after the `i` flag as you will need to add this in your code `-i <Sauce tunnel name>`:. In this example, I’ve called mine `linds-proxy-tunnel.`
 
 <img src="assets/5.03D.png" alt="Command to run tunnel" width="750"/>
 
@@ -146,7 +146,7 @@ Your command should look like this:
 
 <img src="assets/5.03E.png" alt="Terminal command to run tunnel" width="750"/>
 
-After `-u` you will see your username and after` -k `you will have your access key, and `-i  `prepend the name you made up for your tunnel. Learn more about the other commands you can use to configure your tunnel at [Sauce Connect Proxy Command-Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide). Hit enter and you should see your tunnel up and running.
+Learn more about the other commands you can use to configure your tunnel at [Sauce Connect Proxy Command-Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide). Hit enter and you should see your tunnel up and running.
 
 <img src="assets/5.03F.png" alt="Terminal running tunnel" width="500"/>
 
@@ -155,28 +155,100 @@ After `-u` you will see your username and after` -k `you will have your access k
 
 
 
-### Set Up Proxy Environment
-// ...
+### Set Sauce Connect Tunnel Capability
+Since you are using environment variables in our `conftest.py` file, for your `SAUCE_USERNAME `and` SAUCE_ACCESS_KEY,` we will set up an environment variable for your` SAUCE_TUNNEL` as well.` `This variable will store the tunnel identifier, so after you start up a Sauce Connect tunnel, you can run your tests using it.
 
+In `conftest.py` in the driver method, add a new `elif` statement below the `if config.host == "saucelabs"`. You can copy-paste the same information from the "saucelabs case.
+
+```
+# filname: conftest.py
+# ...
+@pytest.fixture
+# ...
+    if config.host == "saucelabs":
+    # ...
+    elif config.host == "saucelabs-tunnel":
+        test_name = request.node.name #added
+        capabilities = {
+            'browserName': config.browser,
+            'browserVersion': config.browserversion,
+            'platformName': config.platform,
+            'sauce:options': {
+                "name":test_name,
+            }
+        }
+        _credentials = os.environ["SAUCE_USERNAME"] + ":" + os.environ["SAUCE_ACCESS_KEY"]
+        _url = "https://" + _credentials + "@ondemand.saucelabs.com/wd/hub"
+        driver_ = webdriver.Remote(_url, capabilities)
+
+
+```
+
+Above the `test_name`, add a new variable to pull in the tunnel name from the environment variable you created for your tunnel:
+
+```
+# filname: conftest.py
+# ...
+@pytest.fixture
+# ...
+    elif config.host == "saucelabs-tunnel":
+          test_name = request.node.name
+          tunnel_name = os.environ["SAUCE_TUNNEL"]  # added
+          #  ...
+```
+Last, go into the `sauce:options` part of your capabilities for the `saucelabs-tunnel` case, and add in the capability for the tunnel name:
+
+```
+# filname: conftest.py
+# ...
+@pytest.fixture
+# ...
+    if config.host == "saucelabs":
+    # ...
+    elif config.host == "saucelabs-tunnel":
+        test_name = request.node.name #added
+        tunnel_name = os.environ["SAUCE_USERNAME"] #added
+        capabilities = {
+            'browserName': config.browser,
+            'browserVersion': config.browserversion,
+            'platformName': config.platform,
+            'sauce:options': {
+                "name":test_name,
+                "tunnel-identifier": tunnel_name, #added
+            }
+        }
+        _credentials = os.environ["SAUCE_USERNAME"] + ":" + os.environ["SAUCE_ACCESS_KEY"]
+        _url = "https://" + _credentials + "@ondemand.saucelabs.com/wd/hub"
+        driver_ = webdriver.Remote(_url, capabilities)
+
+
+```
 
 
 
 ### Run Tests Using Sauce Connect Proxy
 
-Once your tunnel is up and running, (you should see the message Sauce Connect is up in terminal)  and you have updated your `config.js` and `DriverFactory.js` files, you can run your tests in Sauce Labs using Sauce Connect Proxy. First, update your` .bash_profile `with an environment variable (it must match the` tunnel id `your use to start the tunnel with).
+Once your tunnel is up and running, (you should see the message Sauce Connect is up in terminal)  and you have updated your `conftest.py` file, you can run your tests in Sauce Labs using Sauce Connect Proxy.
 
-<img src="assets/5.03H.png" alt="Tunnel Tests running on Sauce Labs" width="750"/>
+First, update your` .bash_profile` (or `.zshrc`) with an environment variable (it must match the` tunnel id `your use to start the tunnel with).
 
-You will want to restart your terminal and run `source ~/.bash_profile` so your machine looks for the new `SAUCE_TUNNEL` variable.
+<img src="assets/5.03I.png" alt="Bash Profile" width="750"/>
 
-Now you can run `mvn clean test???????` in terminal and see your tests run both in Jenkins and on Sauce Labs with a tunnel. Note that because it is running through a proxy, you will no longer be able to see the name and status of the tests. You can see the completed code [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod5/5.03).
 
-<img src="assets/5.03??.png" alt="Bash Profile" width="750"/>
+#### NOTE
+Negative
+: Don't forget to have a proxy tunnel running with `bin/sc -u username -k access-key -i your-tunnel-id` that match the `.bash` or `.zshrc` profile
+
+Now you can run ` pytest --host=saucelabs-tunnel` in terminal and see your tests run both in Jenkins and on Sauce Labs with a tunnel. Note that because it is running through a proxy, you will no longer be able to see the name and status of the tests. You can see the completed code [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod5/5.03).
+
+<img src="assets/5.03P.png" alt="Tunnel Tests running on Sauce Labs" width="850"/>
 
 
 #### Final Code
+You can see an example of the [final code for running with Sauce Connect and Python here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod5/5.03)
 
-!-- ------------------------ -->
+<img src="assets/5.03Q.png" alt="Tunnel Tests running on Sauce Labs" width="850"/>
+
 ## 5.04  Running Parallel Tests
 Duration: 0:12:00
 

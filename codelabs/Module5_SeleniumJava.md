@@ -156,7 +156,7 @@ After `-u` you will see your username and after` -k `you will have your access k
 
 
 
-### Set Up Proxy Environment
+### Set Sauce Connect Tunnel Capability
 Since you are using environment variables in our `Config.java` file, for your `SAUCE_USERNAME `and` SAUCE_ACCESS_KEY, `we will set up an environment variable for your` SAUCE_TUNNEL` as well.` `This variable will store the tunnel identifier, so after you start up a Sauce Connect tunnel, you can run your tests using it.
 
 Add the variable` sauceTunnel `in your `Config.java` file, at the bottom of the list of variables:
@@ -203,7 +203,7 @@ In this case, which you have named `saucelabs-tunnel`, when you run your test, y
 
 ### Run Tests Using Sauce Connect Proxy
 
-Once your tunnel is up and running, (you should see the message Sauce Connect is up in terminal)  and you have updated your `config.java` and `BaseTest.java` files, you can run your tests in Sauce Labs using Sauce Connect Proxy. First, update your` .bash_profile `with an environment variable (it must match the` tunnel id `you used to start the tunnel).
+Once your tunnel is up and running, (you should see the message Sauce Connect is up in terminal)  and you have updated your `config.java` and `BaseTest.java` files, you can run your tests in Sauce Labs using Sauce Connect Proxy. Make sure your  `.bash_profile` (or `.zshrc`) has the `SAUCE_TUNNEL` environment variable (it must match the` tunnel id` you used to start the tunnel).
 
 
 <img src="assets/5.03I.png" alt="Bash Profile" width="750"/>
