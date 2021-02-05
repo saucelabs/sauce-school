@@ -254,7 +254,7 @@ Duration: 0:12:00
 
 Your tests still take a good deal of time to run since they're executing in series (i.e., one after another). As our suite grows, test latency will grow with it, if you continue to run tests in series the time it takes to run your test suite can grow exponentially.
 
-In this lesson you will be learning how to set up Sauce Labs to run tests in parallel. This means that you can run two or more tests, using two or more instances of DriverFactory at the same time.  Previously what you were doing was running `------ `first, then running `-------` once it was done.
+In this lesson you will be learning how to set up Sauce Labs to run tests in parallel. This means that you can run two or more tests, using two or more instances of DriverFactory at the same time.  
 
 Parallelization is one of the main advantages to using a platform like Sauce Labs, however you also must be careful when designing a test suite to make sure the tests can be run in parallel, and in any order, or else account for and create code that does run certain tests in order. Luckily, our test suite has been well set up to run in parallel.
 
@@ -271,19 +271,26 @@ Autonomous tests are the type of tests that are not dependent on other tests to 
 
 Clearly these tests aren’t autonomous when you are doing User Interface (UI) tests; you cannot perform CheckoutTest until you have logged into the platform and chosen an item for the shopping cart. There are ways, however, to set up your test so you can “jump right in” with a filled shopping cart without having to wait for other tests to run by using API calls and other tricks that can help you write a suite of autonomous tests.
 
+### Install dependencies
+In rder to run tests in parallel and in random order, we will use two plugins:
+* [**pytest-xdist**](https://github.com/pytest-dev/pytest-xdist) – Extends pytest to run on multiple CPUs, or multiples hosts in Sauce Labs
+* [**pytest-randomly**](https://pypi.org/project/pytest-randomly/) – Randomly shuffles the modules, test classes, and functions. This helps you detect whether or not there are any interdependencies between tests that could cuase them to fail.
 
-### Avoid the Static Keyword
+Open terminal in the Pycharm IDE, and run the following commands:
 
-A static variable or function means that a given variable or function can only exist as one instance for the life of a program, and that the value of that variable cannot change. That can be a major problem if you reuse the variable or function several times for different tests.
+```
+pip3 install pytest-xdist
+```
+```
+pip3 install pytest-randomly
+```
 
-.......
+You should get messages that they were successfull installed, or are a part of your environment already.
 
-<img src="assets/5.04.png" alt="Sauce W3C case" width="550"/>
+<img src="assets/5.04J.png" alt="Sauce W3C case" width="750"/>
 
 
-............
-
-### Run Parallel Tests
+### Run Random Parallel Tests
 
 Before you get started, head to the [Sauce Labs Dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) and look under **Account **>** User settings** and check out how many tests you (and your team) can run at once.
 
@@ -291,17 +298,16 @@ Before you get started, head to the [Sauce Labs Dashboard](https://accounts.sauc
 
 Once you are sure that you are able to run tests in parallel (you should have less tests than your concurrency limit), you can run your tests. If you send more jobs than your concurrency limit, Sauce Labs will queue the excess and run them as the initial batch of jobs finish.
 
-Run`-----------` and visit the [Sauce Labs Dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)while your tests are running. You should see more than one test running at the same time, and notice that your test suite as a whole runs more quickly! You can see the completed code [here]().
-
-<img src="assets/5.04D.png" alt="Sauce W3C case" width="750"/>
+Run `pytest -n 5` to run 5 tests at the same time in parallel. If you run your tests more than once, they should run in a different order
 
 
-#### Final Code
+Next, visit the [Sauce Labs Dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)while your tests are running. You should see more than one test running at the same time, and notice that your test suite as a whole runs more quickly! You can see the completed code [here]().
+
+<img src="assets/5.04K.png" alt="Sauce W3C case" width="750"/>
 
 
-### Install
-// .....
-
+#### Quiz
+![https://docs.google.com/forms/d/e/1FAIpQLSdjOciSZieC-X3NqWkVKyXzCh8M5d_jpOEJOoW3wZJ7qs_r0g/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSdjOciSZieC-X3NqWkVKyXzCh8M5d_jpOEJOoW3wZJ7qs_r0g/viewform?usp=sf_link)
 
 
 <!-- ------------------------ -->
