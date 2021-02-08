@@ -380,9 +380,7 @@ Run` npm test` and visit the [Sauce Labs Dashboard ](https://accounts.saucelabs.
 <!-- ------------------------ -->
 ## 5.05 Grouping Tests
 Duration: 0:08:00
-
-
-In order to get the most out of your tests, you'll want a way to break them up into relevant, targeted chunks. Running tests in smaller groupings like this (along with parallel execution) will help keep test run times to a minimum and help enhance the amount of feedback you get in a timely fashion.
+In order to get the most out of your tests, you'll want a way to break them up into relevant, targeted chunks. Running tests in smaller groupings (along with parallel execution) will help keep test run times to a minimum and help you quickly sift through test results and target your tests. It also allows you to run different groups of tests for different purposes.
 
 With [Mocha's --grep feature](https://github.com/mochajs/mocha/wiki/Tagging) we're able to easily achieve test grouping (a.k.a. tags).
 

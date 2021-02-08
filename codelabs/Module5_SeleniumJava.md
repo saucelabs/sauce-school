@@ -385,7 +385,7 @@ You can see the [example code here](https://github.com/walkerlj0/Selenium_Course
 ## 5.05 Grouping Tests
 Duration: 0:08:00
 
-In order to get the most out of your tests, you'll want a way to break them up into relevant, targeted chunks. Running tests in smaller groupings (along with parallel execution) will help keep test run times to a minimum and help you quickly sift through test results and target your tests.
+In order to get the most out of your tests, you'll want a way to break them up into relevant, targeted chunks. Running tests in smaller groupings (along with parallel execution) will help keep test run times to a minimum and help you quickly sift through test results and target your tests. It also allows you to run different groups of tests for different purposes.
 
 In order to do this with Java, you will need to use categories: _Shallow, Deep,_ and _All_. Shallow tests are equivalent to smoke (or _sanity_) tests. These should pass before you can consider running the deep tests. Running the _All_ interface will run all the tests in your suite.
 

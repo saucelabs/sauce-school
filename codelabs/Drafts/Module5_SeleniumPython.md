@@ -287,7 +287,7 @@ pip3 install pytest-randomly
 
 You should get messages that they were successfull installed, or are a part of your environment already.
 
-<img src="assets/5.04J.png" alt="Sauce W3C case" width="750"/>
+<img src="assets/5.04J.png" alt="Install pytest packages" width="750"/>
 
 
 ### Run Random Parallel Tests
@@ -303,7 +303,7 @@ Run `pytest -n 5` to run 5 tests at the same time in parallel. If you run your t
 
 Next, visit the [Sauce Labs Dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)while your tests are running. You should see more than one test running at the same time, and notice that your test suite as a whole runs more quickly! You can see the completed code [here]().
 
-<img src="assets/5.04K.png" alt="Sauce W3C case" width="750"/>
+<img src="assets/5.04K.png" alt="Parallel tests" width="750"/>
 
 
 #### Quiz
@@ -313,6 +313,63 @@ Next, visit the [Sauce Labs Dashboard ](https://accounts.saucelabs.com/am/XUI/#l
 <!-- ------------------------ -->
 ## 5.05 Grouping Tests
 Duration: 0:08:00
+
+In order to get the most out of your tests, you'll want a way to break them up into relevant, targeted chunks. Running tests in smaller groupings (along with parallel execution) will help keep test run times to a minimum and help you quickly sift through test results and target your tests. It also allows you to run different groups of tests for different purposes.
+
+In order to do this with Python, you will create a `pytest.ini` file, then create `deep` and `shallow` markers that you will use the `@pyest.mark` decorator to your tests.
+
+### Create pytest.ini File
+In the top level of your project file (at the same level as your **pages** and **tests** directories), create a new file called `pytest.ini`.
+
+<img src="assets/5.05J.png" alt="Pytest ini file" width="550"/>
+
+### Add Markers to Your Tests
+Now that you have two different typrs of markers created for your tests (`shallow` and `deep`) you can add `@pytest.markers` to your tests functions.
+
+Update `login_test.py` with markers above both classes:
+
+```
+# filename: tests/login_test.py
+# ...
+
+@pytest.mark.shallow
+def test_valid_credentials(login):
+    login.with_("tomsmith", "SuperSecretPassword!")
+    assert login.success_message_present()
+
+@pytest.mark.deep
+def test_invalid_credentials(login):
+    login.with_("tomsmith", "bad password")
+    assert login.success_message_present() == False
+```
+Then add a marker to your tests in `dynamic_loading_test.py`:
+
+```
+# filename: tests/dynamic_loading_test.py
+# ...
+
+@pytest.mark.deep
+def test_hidden_element(dynamic_loading):
+    dynamic_loading.load_example("1")
+    assert dynamic_loading.finish_text_present()
+
+@pytest.mark.deep
+def test_rendered_element(dynamic_loading):
+    dynamic_loading.load_example("2")
+    assert dynamic_loading.finish_text_present()
+```
+
+Now you can use different flags when you run your tests. If you run the command `pytest -m shallow`, only the `test_valid_credentials` function will be run, whereas if you run `pytest -m deep` the other tests will be the ones which are run.
+
+#### Run Tests By File Name
+You also have the option to specify which test file you would like to run. If you want to run all the functions in `dynamic_loading_test.py` simple run the command
+
+```
+pytest tests/dynamic_loading_test.py
+```
+
+#### Final Code
+<img src="assets/5.05K.png" alt="Parallel tests" width="550"/><img src="assets/5.05L.png" alt="Parallel tests" width="650"/>
 
 <!-- ------------------------ -->
 ## 5.06 Setting Up Jenkins
