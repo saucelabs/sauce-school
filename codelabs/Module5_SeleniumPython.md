@@ -272,11 +272,11 @@ Autonomous tests are the type of tests that are not dependent on other tests to 
 Clearly these tests aren’t autonomous when you are doing User Interface (UI) tests; you cannot perform CheckoutTest until you have logged into the platform and chosen an item for the shopping cart. There are ways, however, to set up your test so you can “jump right in” with a filled shopping cart without having to wait for other tests to run by using API calls and other tricks that can help you write a suite of autonomous tests.
 
 ### Install dependencies
-In rder to run tests in parallel and in random order, we will use two plugins:
+In oirder to run tests in parallel and in random order, we will use two plugins:
 * [**pytest-xdist**](https://github.com/pytest-dev/pytest-xdist) – Extends pytest to run on multiple CPUs, or multiples hosts in Sauce Labs
 * [**pytest-randomly**](https://pypi.org/project/pytest-randomly/) – Randomly shuffles the modules, test classes, and functions. This helps you detect whether or not there are any interdependencies between tests that could cuase them to fail.
 
-Open terminal in the Pycharm IDE, and run the following commands:
+Open a new terminal window on your machine, and install the following globally
 
 ```
 pip3 install pytest-xdist
@@ -414,12 +414,9 @@ Negative
 
 
 Negative
-: If you type in `brew info` in your terminal, and you have homebrew installed correctly, you should see something like this:
+: If you type in `brew info` in your terminal, and you have homebrew installed correctly, you should see something like this:  <img src="assets/5.06C.png" alt="Running Brew" width="450"/>
 
-Negative
-: <img src="assets/5.06C.png" alt="Running Brew" width="450"/>
 
---
 
 Let's start by setting up Jenkins on your local machine and using the test code from your computer as well. Keep in mind that this isn’t the proper way to go about this — it's merely beneficial for this example. To do it right, the Jenkins server (i.e., master node) would live on a machine of its own, or in a Virtual Machine (VM).
 
@@ -445,28 +442,11 @@ Jenkins was built on Java, and in order for your program to work, you will also 
 #### NOTE
 
 Negative
-: To Install JDK 8, visit the [Java 8 download page](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) from Oracle. You may have to create an account.
-
-Negative
-: <img src="assets/5.06E.png" alt="JDK 8" width="650"/>
+: To Install JDK 8, visit the [Java 8 download page](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) from Oracle. You may have to create an account. <img src="assets/5.06E.png" alt="JDK 8" width="650"/>   Download the file, then open and follow the instructions to install Java.  <img src="assets/5.06F.png" alt="Install JDK 8" width="650"/>
 
 
 Negative
-: Download the file, then open and follow the instructions to install Java.
-
-Negative
-: <img src="assets/5.06F.png" alt="Install JDK 8" width="650"/>
-
-
-Negative
-: If you haven’t installed Java before, you’ll need to update your `.bash_profle `(or your `.zshrc` file on MacOS Catalina) with the system variables and PATH:
-
-Negative
-: <img src="assets/5.06G.png" alt="Java Path Variable" width="650"/>
-
-
---
-
+: If you haven’t installed Java before, you’ll need to update your `.bash_profle `(or your `.zshrc` file on MacOS Catalina) with the system variables and PATH:  <img src="assets/5.06G.png" alt="Java Path Variable" width="650"/>
 
 ### Run Jenkins
 
@@ -543,54 +523,54 @@ Once you have clicked on a project and chosen **Configure** from the menu, go to
 
 * Choose the checkbox for **Use custom workspace.** This is where your test files are stored on your computer. When setting up a real CI pipeline, you would direct this to the local copy of your GitHub repo.
 * Provide the full path to your test code.
-* Leave the **Display Name** field blank.
 
-<img src="assets/5.06O.png" alt="Test Code Path" width="650"/>
+Negative
+: In this example, it's a local machine, however you should set your code to run from version control software like Github.
+
+* Leave the **Display Name** field blank.
+<img src="assets/5.06EE.png" alt="Test Code Path" width="650"/>
 
 * Scroll down to the **Build** section and select **Add build step.**
 * Select **Execute shell.**.
-* Add the commands below to run locally on Jenkins, testing only the tests tagged with `@Category(shallow.class`), using the default environment:
+* Add the commands below to run locally on Jenkins, testing only the tests marked with `@pytest.mark.shallow`, using Chrome 80 on Windows 10, running 5 tests concurrently:
+*  Note the `--junitxml `flag. We want to have our test run output into a standard format our CI server can consume. JUnit XML is the defacto standard format and with pytest it's available as an output when you specify a runtime flag and a filename (e.g., result.xml).
 
 ```
-mvn clean test -Dgroups=tests.groups.Shallow
+pytest -n 5 -m shallow --browser=chrome --browserversion=80 --platform="Windows 10" --junitxml=result.xml
 ```
 
+* Click the **Apply** button to add these new changes to the test
 
+### Configure for Test Results
+Now you need to configure the job to consume the test results.
 
-To return to the dashboard and see the list of projects, you can click **Back to Dashboard **in the menu. You can also click **Configure** to change or update the changes you just made:
+* Under **Post-build Actions** select **Add post build action**
+* Select Publish JUnit test result report
+* Add the name of the result file specified in the flag, `result.xml`
+
+<img src="assets/5.06FF.png" alt="Advanced Configurations" width="650"/>
+
+* Click **Save** to add the changes and return to the test main page
+
+To return to the dashboard and see the list of projects, you can click **Back to Dashboard** in the menu. You can also click **Configure** to change or update the changes you just made:
 
 <img src="assets/5.06P.png" alt="Back to Dashboard or Configure" width="750"/>
 
-
-### Install JUnit Jenkins Plugin
-
-Since you are using the JUnit library, you need to set up [the JUnit Jenkins plugin](https://plugins.jenkins.io/junit) as a Global Tool so Jenkins can use it to report the result of tests.
+#### Add JUnit Jenkins Plugin
+If this post build action isn't available to you, you will need to install the JUnit Jenkins plugin.  
 
 First, return to the dashboard (You can do this by clicking the** Jenkins** icon in the menu at any time). Next, click on **Manage Jenkins** > **Manage Plugins**.
 
 <img src="assets/5.06W.png" alt="Manage Jenkins Plugins" width="750"/>
 
 
-
 ### NOTE
 
 Negative
-: If you see a warning at the top of your Global Tool Configuration dashboard, you can **go to plugin manager**, choose the** Updates **tab, and install necessary updates.
-
-Negative
-: <img src="assets/5.06X.png" alt="Plugin Manager" width="750"/>
+: If you see a warning at the top of your Global Tool Configuration dashboard, you can **go to plugin manager**, choose the** Updates **tab, and install necessary updates. <img src="assets/5.06X.png" alt="Plugin Manager" width="750"/> For those updates to take effect, you need to type in terminal: `brew services restart jenkins`
 
 
-Negative
-: For those updates to take effect, you need to type in terminal:
 
-
-```
-Brew services restart jenkins
-```
-
-
---
 
 Under either the **Updates** or **Available** tab, you can search for JUnit, then check the box next to the **Build Reports** plugin, and click the button to **Download now and install after restart**.
 
@@ -612,14 +592,7 @@ Now that you have the JUnit Reporter plugin installed, you can go back to your t
 
  <img src="assets/5.06AA.png" alt="Post Build Actions" width="750"/>
 
-
-Next, configure the test file that you will put the Surefire reports in by typing `target/surefire-reports/*.xml `into the **Test report XMLs** field.
-
- <img src="assets/5.06BB.png" alt="Test Report Publish Destination" width="750"/>
-
-
- Hit save and you should be ready to run your tests.
-
+Now you should be able to specify the results.xml file in the post-build action under advanced settings for your test.
 
 ### Run Your Tests Using Jenkins
 
@@ -627,55 +600,27 @@ To run your test, simply click **Build Now** in the menu, then click on the sphe
 
  <img src="assets/5.06CC.png" alt="Build Now" width="750"/>
 
-
+-------------------------
 
 #### Video
 
-Watch [5.06 Run Jenkins with Homebrew and Java ](https://drive.google.com/file/d/1YPKk1b1HdiWavNxTuR4m5QvPcTu7PCfn/view?usp=sharing)for a walk through of how to run and check the configuration of your test job with the JUnit reporter for Jenkins.
+Watch [5.06 Run Jenkins with Homebrew and Java](https://drive.google.com/file/d/1nxIM0q-WsiirluFyzCgJ0zooYREQHgrD/view?usp=sharing)
+for a walk through of how to run and check the configuration of your test job with the JUnit reporter for Jenkins.
 
-![https://drive.google.com/file/d/1YPKk1b1HdiWavNxTuR4m5QvPcTu7PCfn/preview](https://drive.google.com/file/d/1YPKk1b1HdiWavNxTuR4m5QvPcTu7PCfn/view?usp=sharing)
+![https://drive.google.com/file/d/1nxIM0q-WsiirluFyzCgJ0zooYREQHgrD/preview](https://drive.google.com/file/d/1nxIM0q-WsiirluFyzCgJ0zooYREQHgrD/view?usp=sharing)
 
 
 #### NOTE
 
 Negative
-: Ideally, your test code would live in a version control system such as Git. The first thing you will need to do is get the plugin under **Manage Jenkins > Manage Plugins.** You can configure this under **Manage Jenkins > Global Tools Configuration**. To use a Git project, create a new project from the Jenkins homepage, then under the configuration of that project, choose Git for Source Code Management.
+: Ideally, your test code would live in a version control system such as Git. The first thing you will need to do is get the plugin under **Manage Jenkins > Manage Plugins.** You can configure this under **Manage Jenkins > Global Tools Configuration**. To use a Git project, create a new project from the Jenkins homepage, then under the configuration of that project, choose Git for Source Code Management. <img src="assets/5.06DD.png" alt="Build Now" width="750"/>  Learn more about setting up Git source control in [this tutorial.](http://www.mastertheboss.com/cool-stuff/jenkins/jenkins-source-code-management-with-git)
 
-
-Negative
-:  <img src="assets/5.06DD.png" alt="Build Now" width="750"/>
-
-
-Negative
-: Learn more about setting up Git source control in [this tutorial.](http://www.mastertheboss.com/cool-stuff/jenkins/jenkins-source-code-management-with-git)
-
---
 
 <!-- ------------------------ -->
 ## 5.07 Jenkins and Sauce OnDemand
-Duration: 0:15:00
+Duration: 0:08:00
 
 You haven’t run a test yet that has successfully passed in Sauce Labs. In this lesson, you’ll learn to connect your Jenkins server to your Sauce Labs account using the Sauce OnDemand Jenkins plugin, as well as run a test with Jenkins using Sauce Connect Proxy.
-
-
-### Test Reporters
-
-You have been running your tests and observing the output in the console, however, in many cases this may not be the best method to see the status of your test. When you want to share the output of the test with others—human or software—a formatted .xml doc can be much more useful. This doc lets you obtain a longer form of printout for test results and has the potential for use with an analytics tool. Some options include:
-
-
-
-*   [JUnit Results Reporter](https://www.jenkins.io/doc/pipeline/steps/junit/#:~:text=Jenkins%20understands%20the%20JUnit%20test,tracking%20failures%2C%20and%20so%20on.) plugin
-*   [JUnit Reporter for Mocha](https://www.npmjs.com/package/mocha-junit-reporter)
-
-Note that there are plugins/additional configurations you’ll have to modify in the **Manage Jenkins** section to get these working as well. In these examples, you will not be using a reporter;instead you’ll use the reporter that is built in with mocha on the console/ terminal.
-
-
-### Force a Failed Test
-
-// ...
-
-
-
 
 ### Set Up Sauce Labs OnDemand
 
@@ -739,7 +684,7 @@ Run your tests in Jenkins using **Build Now** (You can change the build configur
 
 If you look on the Sauce Labs dashboard, you should see tests being run, an active tunnel, and even past builds listed:
 
-<img src="assets/5.07P.png" alt="Sauce Labs Builds" width="450"/>
+<img src="assets/5.07Q.png" alt="Sauce Labs Builds" width="750"/>
 
 
 Congratulations!  You now have the skills to create a basic test suite, plan your test strategy using testing best practices, and even work with your team to add testing to your software development pipeline. There is a lot more to explore both with tests and with Jenkins, so after the quiz, take a look at Module 5.09 for more resources, and visit the [Sauce Labs Documentation](https://wiki.saucelabs.com/display/DOCS/The+Sauce+Labs+Cookbook+Home) for more information.

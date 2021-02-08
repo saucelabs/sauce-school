@@ -518,23 +518,14 @@ Jenkins was built on Java, and in order for your program to work, you will also 
 
 #### NOTE
 
-To Install JDK 8, visit the [Java 8 download page](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) from Oracle. You may have to create an account.
-
-<img src="assets/5.06E.png" alt="JDK 8" width="650"/>
-
-
-Download the file, then open and follow the instructions to install Java.
+Negative
+: To Install JDK 8, visit the [Java 8 download page](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) from Oracle. You may have to create an account. <img src="assets/5.06E.png" alt="JDK 8" width="650"/> Download the file, then open and follow the instructions to install Java. <img src="assets/5.06F.png" alt="Install JDK 8" width="650"/>
 
 
-<img src="assets/5.06F.png" alt="Install JDK 8" width="650"/>
+Negative
+: If you haven’t installed Java before, you’ll need to update your `.bash_profle `(or your `.zshrc` file on MacOS Catalina) with the system variables and PATH: <img src="assets/5.06G.png" alt="Java Path Variable" width="650"/>
 
 
-If you haven’t installed Java before, you’ll need to update your `.bash_profle `(or your `.zshrc` file on MacOS Catalina) with the system variables and PATH:
-
-<img src="assets/5.06G.png" alt="Java Path Variable" width="650"/>
-
-
---
 
 
 ### Run Jenkins
@@ -624,7 +615,7 @@ Once you have clicked on a project and chosen **Configure** from the menu, go to
 BROWSER=chrome BROWSER_VERSION=50 PLATFORM='Windows 10' npm test -- --grep=@shallow
 ```
 
-
+* Click **Save** to add the changes and return to the test main page.
 
 To return to the dashboard and see the list of projects, you can click **Back to Dashboard** in the menu. You can also click **Configure** to change or update the changes you just made:
 

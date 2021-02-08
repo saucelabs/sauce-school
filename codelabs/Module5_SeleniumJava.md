@@ -718,10 +718,9 @@ Once you have clicked on a project and chosen **Configure** from the menu, go to
 ```
 mvn clean test -Dgroups=tests.groups.Shallow
 ```
+* Click **Save** to add the changes and return to the test main page.
 
-
-
-To return to the dashboard and see the list of projects, you can click **Back to Dashboard **in the menu. You can also click **Configure** to change or update the changes you just made:
+To return to the dashboard and see the list of projects, you can click **Back to Dashboard** in the menu. You can also click **Configure** to change or update the changes you just made:
 
 <img src="assets/5.06P.png" alt="Back to Dashboard or Configure" width="750"/>
 
@@ -739,18 +738,7 @@ First, return to the dashboard (You can do this by clicking the** Jenkins** icon
 #### Note
 
 Negative
-: If you see a warning at the top of your Global Tool Configuration dashboard, you can **go to plugin manager**, choose the **Updates** tab, and install necessary updates.
-
-Negative
-: <img src="assets/5.06X.png" alt="Plugin Manager" width="750"/>
-
-
-Negative
-: For those updates to take effect, you need to type in terminal:
-
-```
-Brew services restart jenkins
-```
+: If you see a warning at the top of your Global Tool Configuration dashboard, you can **go to plugin manager**, choose the **Updates** tab, and install necessary updates. <img src="assets/5.06X.png" alt="Plugin Manager" width="750"/> For those updates to take effect, you need to type in terminal: ``` Brew services restart jenkins```
 
 
 
@@ -915,11 +903,11 @@ Click on your project name from your Jenkins dashboard (example: **Shallow Test 
 
 You don’t have to do anything to set the variable, or install any software or run commands to get the tunnel running—Sauce OnDemand creates a tunnel and runs the tests in it for you.
 
-Run your tests in Jenkins using **Build Now** (You can change the build configuration with the `mvn `commands back to `-Dgroups=tests.groups.All`)
+Run your tests in Jenkins using **Build Now**. (You can change the build configuration to run all tests vy removing the `-m deep` flag.)
 
 If you look on the Sauce Labs dashboard, you should see tests being run, an active tunnel, and even past builds listed:
 
-<img src="assets/5.07P.png" alt="Sauce Labs Builds" width="450"/>
+<img src="assets/5.07Q.png" alt="Sauce Labs Builds" width="450"/>
 
 
 Congratulations!  You now have the skills to create a basic test suite, plan your test strategy using testing best practices, and even work with your team to add testing to your software development pipeline. There is a lot more to explore both with tests and with Jenkins, so after the quiz, take a look at Module 5.09 for more resources, and visit the [Sauce Labs Documentation](https://wiki.saucelabs.com/display/DOCS/The+Sauce+Labs+Cookbook+Home) for more information.
