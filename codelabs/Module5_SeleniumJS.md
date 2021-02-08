@@ -153,11 +153,11 @@ After `-u` you will see your username and after` -k `you will have your access k
 
 
 
-### Set Up Proxy Environment
+### Set Sauce Connect Tunnel Capability
 
-Since you are using environment variables in our `config.js` file, you update them to be used in our tests as well. We will need to specify username, access key, as well as the tunnel name (the tunnel identifier). One you have Sauce connect proxy up and running, update `config.js`:
+Since you are using environment variables in our `config.js` file, for your `SAUCE_USERNAME `and` SAUCE_ACCESS_KEY, `we will set up an environment variable for your` SAUCE_TUNNEL` as well. This variable will store the tunnel identifier, so after you start up a Sauce Connect tunnel, you can run your tests using it. First, lets add the code to use it:\.
 
-First, we will need to add in
+First, we will need to add in a new set of capabilities called `sauceW3C` for when you want to run your tests through a tunnel on Sauce. Update `config.js` like so:
 
 
 ```
@@ -234,7 +234,7 @@ module.exports = {
 
 ### Run Tests Using Sauce Connect Proxy
 
-Once your tunnel is up and running, (you should see the message Sauce Connect is up in terminal)  and you have updated your `config.js` and `DriverFactory.js` files, you can run your tests in Sauce Labs using Sauce Connect Proxy. First, update your `.bash_profile ` with an environment variable (`export SAUCE_TUNNEL=`) and name it with the` tunnel id ` you used to start the tunnel with.
+Once your tunnel is up and running, (you should see the message Sauce Connect is up in terminal)  and you have updated your `config.js` and `DriverFactory.js` files, you can run your tests in Sauce Labs using Sauce Connect Proxy. First, update your `.bash_profile ` (or `.zshrc`) with an environment variable (`export SAUCE_TUNNEL=`) and name it with the` tunnel id ` you used to start the tunnel with.
 
 <img src="assets/5.03H.png" alt="Tunnel Tests running on Sauce Labs" width="750"/>
 
@@ -380,9 +380,7 @@ Run` npm test` and visit the [Sauce Labs Dashboard ](https://accounts.saucelabs.
 <!-- ------------------------ -->
 ## 5.05 Grouping Tests
 Duration: 0:08:00
-
-
-In order to get the most out of your tests, you'll want a way to break them up into relevant, targeted chunks. Running tests in smaller groupings like this (along with parallel execution) will help keep test run times to a minimum and help enhance the amount of feedback you get in a timely fashion.
+In order to get the most out of your tests, you'll want a way to break them up into relevant, targeted chunks. Running tests in smaller groupings (along with parallel execution) will help keep test run times to a minimum and help you quickly sift through test results and target your tests. It also allows you to run different groups of tests for different purposes.
 
 With [Mocha's --grep feature](https://github.com/mochajs/mocha/wiki/Tagging) we're able to easily achieve test grouping (a.k.a. tags).
 
@@ -520,23 +518,14 @@ Jenkins was built on Java, and in order for your program to work, you will also 
 
 #### NOTE
 
-To Install JDK 8, visit the [Java 8 download page](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) from Oracle. You may have to create an account.
-
-<img src="assets/5.06E.png" alt="JDK 8" width="650"/>
-
-
-Download the file, then open and follow the instructions to install Java.
+Negative
+: To Install JDK 8, visit the [Java 8 download page](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) from Oracle. You may have to create an account. <img src="assets/5.06E.png" alt="JDK 8" width="650"/> Download the file, then open and follow the instructions to install Java. <img src="assets/5.06F.png" alt="Install JDK 8" width="650"/>
 
 
-<img src="assets/5.06F.png" alt="Install JDK 8" width="650"/>
+Negative
+: If you haven’t installed Java before, you’ll need to update your `.bash_profle `(or your `.zshrc` file on MacOS Catalina) with the system variables and PATH: <img src="assets/5.06G.png" alt="Java Path Variable" width="650"/>
 
 
-If you haven’t installed Java before, you’ll need to update your `.bash_profle `(or your `.zshrc` file on MacOS Catalina) with the system variables and PATH:
-
-<img src="assets/5.06G.png" alt="Java Path Variable" width="650"/>
-
-
---
 
 
 ### Run Jenkins
@@ -626,7 +615,7 @@ Once you have clicked on a project and chosen **Configure** from the menu, go to
 BROWSER=chrome BROWSER_VERSION=50 PLATFORM='Windows 10' npm test -- --grep=@shallow
 ```
 
-
+* Click **Save** to add the changes and return to the test main page.
 
 To return to the dashboard and see the list of projects, you can click **Back to Dashboard** in the menu. You can also click **Configure** to change or update the changes you just made:
 

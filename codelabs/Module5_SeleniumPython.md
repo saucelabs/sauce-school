@@ -1,41 +1,38 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
 author:Lindsay Walker
-summary: Module 5 of Selenium with Java. Learn to write Selenium tests in Java with JUnit, Maven, Jenkins, and Sauce Labs
-id: Module5-SeleniumJava
+summary: Module 5 of Selenium with Python and Pytest – Sauce Connect, OnDemand, and Continuous Integration
+id: Module5-SeleniumPython
 categories: advanced
-tags: java
+tags: python
 environments: Web
-status: Published
+status: Hidden
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 
 <!-- ------------------------ -->
-# Module 5 – Sauce Connect, Sauce OnDemand, and Continuous Integration
+# Module 5 – Sauce Connect, OnDemand, and Continuous Integration
+
 <!-- ------------------------ -->
 ## 5.01 What You’ll Learn
 Duration: 0:02:00
 
-This module, based off chapters 13-18 of _The Selenium Guidebook:_ _Java Edition_ by Dave Haeffner, brings you to the next level with learning how to plan a test strategy, run tests in parallel, use the Sauce Connect Proxy, and add your tests to a pipeline with the Jenkins Continuous Integration (CI) server. Learn about best practices to avoid creating a test suite that is brittle when used in parallel or with tools that make for more automation (but more latency) such as the Sauce Labs platform or CI servers. Use tags to categorize tests for use in different situations and gain the tools and skills to truly automate your testing practices.
+This module, based off chapters 13-18 of _The Selenium Guidebook:_ _Python Edition_ by Dave Haeffner, brings you to the next level with learning how to plan a test strategy, run tests in parallel, use the Sauce Connect Proxy, and add your tests to a pipeline with the Jenkins Continuous Integration (CI) server. Learn about best practices to avoid creating a test suite that is brittle when used in parallel or with tools that make for more automation (but more latency) such as the Sauce Labs platform or CI servers. Use tags to categorize tests for use in different situations and gain the tools and skills to truly automate your testing practices.
 
 
 ### Skills & Knowledge
 
 
-
 *   Set up and run tests using the Sauce Connect Proxy tunnel with terminal commands and the Sauce Labs application interface. Set up environment variables and access them with the Sauce Connect software to run tests using the tunnel.
-*   Use JUnit and Maven's Surefire Plugin to run tests on the Sauce Platform in parallel and in random order
-*   Create category interfaces for tests and test classes and use the `<groups>` tag in `pom.xml`, as well as the `mvn -Dgroups `tag in the terminal to run different groups of tests for different purposes
+*   Use Pytest plugins `xdist` and `randomly` to run tests on the Sauce Platform in parallel and in random order
+*   Create a `pytest.ini` file to name categories for different kinds of tests, and use the `@pytest.mark` decorators in your tests  as well as the `pytest -m mark_name` command in the terminal and in Jenkins to run different groups of tests for different purposes
 *   Set up the the Jenkins CI server on your local machine and learn how to use the user interface to set up projects that run your tests, as well as configure the Jenkins CI server
 *   Add your credentials to your instance of a Jenkins CI server using Sauce OnDemand and run a test that you can view in both the Jenkins console and the Sauce Labs application
-*   Modify the configuration of a local instance on a Jenkins CI server, add plugins, and update a test to take desired capabilities from a `config.java` file updated for your Jenkins tests
 *   Run tests using Sauce Connect Proxy through your Jenkins server, passing information back and forth from Sauce Labs to Jenkins using Sauce Connect
 *   Develop a strategy for planning how many and which types of tests your team and company will develop to best build automated testing suites for your product
-*   Connect how the tests that you have written in the UI using Selenium can be integrated into a comprehensive testing strategy that tests on multiple layers
+*   Connect how the tests that you have written for the user interface of an application using Selenium can be integrated into a comprehensive testing strategy that tests on multiple layers
 *   Establish autonomous test suites that are set up to run without relying on the execution of any other tests
-*   Understand how static variables can impede parallel test function since only one unmodifiable instance can exist at a time
 *   Describe a use case for the Sauce Connect Proxy and how it can allow access to secure applications while maintaining data privacy
 *   Understand how a CI server like Jenkins can be used to automate the software development pipeline and automate the testing to run specific tests with certain triggers
-*   Understand how to configure a local instance of Jenkins to work with a test suite and the Sauce OnDemand plugin
 
 <!-- ------------------------ -->
 ## 5.02 Testing Strategy
@@ -130,16 +127,15 @@ Go to the **Tunnels** tab in the Sauce Labs app.
 Navigate to the folder using the terminal where you saved the Sauce Connect download (this one is in **Documents/sc-4.6.2-osx**). Next, type and run the command below. Make sure to fill in your credentials (username after the `-u` command and access key after` -k`) and add your tunnel name (aka tunnel identifier) after the `-i `command.
 
 
-
 ```
 bin/ sc -u <SAUCE_USERNAME> -k <SAUCE_ACCESS_KEY> -i <SAUCE_TUNNEL>
-```
 
+```
 ###Note
 Negative
 : **Create Environment Variables for Sauce Labs –** The first thing you should do when creating a test is set up environment variables on your local machine in the (.zshrc or .bash profile) for your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`. It is important to save your Sauce username and access key as environment variables, instead of coding them into your test, so that when you share your tests or upload them to Github, your private access keys aren’t shared.   It will also make transitioning to a continuous integration pipeline easier, since they will use the same environment variables.  Watch [this video](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing) to learn how to set up environment variables with your Sauce Labs credentials on a Mac, or view the [instructions for Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
 
-You can copy the command that you will find at the bottom of the **Tunnels** page, and paste this into your terminal as well, instead of typing what is above. Once you paste, append the command line with `-i <Sauce tunnel name>`:. In this example, I’ve called mine `linds-proxy-tunnel.`
+You can copy the command that you will find at the bottom of the **Tunnels** page, and paste this into your terminal as well, instead of typing what is above. take note of what is after the `i` flag as you will need to add this in your code `-i <Sauce tunnel name>`:. In this example, I’ve called mine `linds-proxy-tunnel.`
 
 <img src="assets/5.03D.png" alt="Command to run tunnel" width="750"/>
 
@@ -147,7 +143,7 @@ Your command should look like this:
 
 <img src="assets/5.03E.png" alt="Terminal command to run tunnel" width="750"/>
 
-After `-u` you will see your username and after` -k `you will have your access key, and `-i  `prepend the name you made up for your tunnel. Learn more about the other commands you can use to configure your tunnel at [Sauce Connect Proxy Command-Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide). Hit enter and you should see your tunnel up and running.
+Learn more about the other commands you can use to configure your tunnel at [Sauce Connect Proxy Command-Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide). Hit enter and you should see your tunnel up and running.
 
 <img src="assets/5.03F.png" alt="Terminal running tunnel" width="500"/>
 
@@ -157,117 +153,107 @@ After `-u` you will see your username and after` -k `you will have your access k
 
 
 ### Set Sauce Connect Tunnel Capability
-Since you are using environment variables in our `Config.java` file, for your `SAUCE_USERNAME `and` SAUCE_ACCESS_KEY, `we will set up an environment variable for your` SAUCE_TUNNEL` as well.` `This variable will store the tunnel identifier, so after you start up a Sauce Connect tunnel, you can run your tests using it.
+Since you are using environment variables in our `conftest.py` file, for your `SAUCE_USERNAME `and` SAUCE_ACCESS_KEY,` we will set up an environment variable for your` SAUCE_TUNNEL` as well.` `This variable will store the tunnel identifier, so after you start up a Sauce Connect tunnel, you can run your tests using it.
 
-Add the variable` sauceTunnel `in your `Config.java` file, at the bottom of the list of variables:
+In `conftest.py` in the driver method, add a new `elif` statement below the `if config.host == "saucelabs"`. You can copy-paste the same information from the "saucelabs case.
+
+```
+# filname: conftest.py
+# ...
+@pytest.fixture
+# ...
+    if config.host == "saucelabs":
+    # ...
+    elif config.host == "saucelabs-tunnel":
+        test_name = request.node.name #added
+        capabilities = {
+            'browserName': config.browser,
+            'browserVersion': config.browserversion,
+            'platformName': config.platform,
+            'sauce:options': {
+                "name":test_name,
+            }
+        }
+        _credentials = os.environ["SAUCE_USERNAME"] + ":" + os.environ["SAUCE_ACCESS_KEY"]
+        _url = "https://" + _credentials + "@ondemand.saucelabs.com/wd/hub"
+        driver_ = webdriver.Remote(_url, capabilities)
 
 
 ```
-// filename: tests/Config.java
-//...
-    public static final String sauceTunnel = System.getenv("SAUCE_TUNNEL");
-}
+
+Above the `test_name`, add a new variable to pull in the tunnel name from the environment variable you created for your tunnel:
+
+```
+# filname: conftest.py
+# ...
+@pytest.fixture
+# ...
+    elif config.host == "saucelabs-tunnel":
+          test_name = request.node.name
+          tunnel_name = os.environ["SAUCE_TUNNEL"]  # added
+          #  ...
+```
+Last, go into the `sauce:options` part of your capabilities for the `saucelabs-tunnel` case, and add in the capability for the tunnel name:
+
+```
+# filname: conftest.py
+# ...
+@pytest.fixture
+# ...
+    if config.host == "saucelabs":
+    # ...
+    elif config.host == "saucelabs-tunnel":
+        test_name = request.node.name #added
+        tunnel_name = os.environ["SAUCE_USERNAME"] #added
+        capabilities = {
+            'browserName': config.browser,
+            'browserVersion': config.browserversion,
+            'platformName': config.platform,
+            'sauce:options': {
+                "name":test_name,
+                "tunnel-identifier": tunnel_name, #added
+            }
+        }
+        _credentials = os.environ["SAUCE_USERNAME"] + ":" + os.environ["SAUCE_ACCESS_KEY"]
+        _url = "https://" + _credentials + "@ondemand.saucelabs.com/wd/hub"
+        driver_ = webdriver.Remote(_url, capabilities)
+
 
 ```
 
-
-Next, in `BaseTest.Java`, you are going to add in a third, `else if `statement that accounts for when you are running a test with Sauce Connect. It’s almost exactly the same as the case when the host is` "saucelabs"` except you will be adding in the Sauce Option for the tunnel
-
-
-```
-// filename: tests/BaseTest.java
-// ...
-else if (host.equals("saucelabs-tunnel")) {
-    MutableCapabilities sauceOptions = new MutableCapabilities();
-    sauceOptions.setCapability("username", sauceUser);
-    sauceOptions.setCapability("accessKey", sauceKey);   
-    sauceOptions.setCapability("name", testName);
-    sauceOptions.setCapability("tunnelIdentifier", sauceTunnel);
-    MutableCapabilities capabilities = new MutableCapabilities();
-    capabilities.setCapability("browserName", browserName);
-    capabilities.setCapability("browserVersion", browserVersion);
-    capabilities.setCapability("platformName", platformName);
-    capabilities.setCapability("sauce:options", sauceOptions);
-    String sauceUrl = String.format("https://ondemand.saucelabs.com/wd/hub");
-    driver = new RemoteWebDriver(new URL(sauceUrl), capabilities);
-    sessionId = ((RemoteWebDriver) driver).getSessionId().toString();
-    sauceClient = new SauceREST(sauceUser, sauceKey, DataCenter.US);
-}
-
-// ...
-```
-
-
-In this case, which you have named `saucelabs-tunnel`, when you run your test, you will set all the capabilities you did before, but notice how the `sauceTunnel `variable is being used by `setCapabilities`, right under where you set the `testName` capability. The reason that we need to create a whole new case is that the tests will error if they are given a tunnel identifier, and it is not used.
 
 
 ### Run Tests Using Sauce Connect Proxy
 
-Once your tunnel is up and running, (you should see the message Sauce Connect is up in terminal)  and you have updated your `config.java` and `BaseTest.java` files, you can run your tests in Sauce Labs using Sauce Connect Proxy. Make sure your  `.bash_profile` (or `.zshrc`) has the `SAUCE_TUNNEL` environment variable (it must match the` tunnel id` you used to start the tunnel).
+Once your tunnel is up and running, (you should see the message Sauce Connect is up in terminal)  and you have updated your `conftest.py` file, you can run your tests in Sauce Labs using Sauce Connect Proxy.
 
+First, update your` .bash_profile` (or `.zshrc`) with an environment variable (it must match the` tunnel id `your use to start the tunnel with).
 
 <img src="assets/5.03I.png" alt="Bash Profile" width="750"/>
 
 
-You will want to restart your terminal and run `source ~/.bash_profile` so your machine looks for the new `SAUCE_TUNNEL` variable.  
-
-Now try running the command in terminal:
-
-
-```
-mvn clean test -Dhost=saucelabs-tunnel
-```
-
-
-<img src="assets/5.03L.png" alt="Tunnels and Tests" width="850"/>
-
-
-
-
-### NOTE
-
+#### NOTE
 Negative
-: You can also go to `Config.java`, change the host to `saucelabs-tunnel`:
+: Don't forget to have a proxy tunnel running with `bin/sc -u username -k access-key -i your-tunnel-id` that match the `.bash` or `.zshrc` profile
+
+Now you can run ` pytest --host=saucelabs-tunnel` in terminal and see your tests run both in Jenkins and on Sauce Labs with a tunnel. Note that because it is running through a proxy, you will no longer be able to see the name and status of the tests. You can see the completed code [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod5/5.03).
+
+<img src="assets/5.03P.png" alt="Tunnel Tests running on Sauce Labs" width="850"/>
 
 
-```
-// filename: tests/Config.java
-// ...
-   public static final String host = System.getProperty("host", "saucelabs-tunnel");
-// ...
-```
+#### Final Code
+You can see an example of the [final code for running with Sauce Connect and Python here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod5/5.03)
 
+<img src="assets/5.03Q.png" alt="Tunnel Tests running on Sauce Labs" width="850"/>
 
-Negative
-: Finally, run  `mvn clean test`.
-
-
-
-You will run your test through the tunnel, and when you log into the SauceLabs UI, you should see the tests being run, and that there is an active tunnel:
-
-
-<img src="assets/5.03M.png" alt="Active Tunnel" width="650"/>
-
-
-You can see example code for this lesson [here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod5/5.03)
-
-
-### Final Code
-<img src="assets/5.03N.png" alt="Final Java Base Test Code" width="650"/>
-
-<img src="assets/5.03O.png" alt="Final Java Config Code" width="650"/>
-
-<!-- ------------------------ -->
 ## 5.04  Running Parallel Tests
 Duration: 0:12:00
 
 Your tests still take a good deal of time to run since they're executing in series (i.e., one after another). As our suite grows, test latency will grow with it, if you continue to run tests in series the time it takes to run your test suite can grow exponentially.
 
-In this lesson you will be learning how to set up Sauce Labs to run tests in parallel. This means that you can run two or more tests, using two or more instances of` BaseTest.java `at the same time.  Previously what you were doing was running` TestLogin.java `first, then running `TestDynamicLoading.java `once it was done.
+In this lesson you will be learning how to set up Sauce Labs to run tests in parallel. This means that you can run two or more tests, using two or more instances of DriverFactory at the same time.  
 
 Parallelization is one of the main advantages to using a platform like Sauce Labs, however you also must be careful when designing a test suite to make sure the tests can be run in parallel, and in any order, or else account for and create code that does run certain tests in order. Luckily, our test suite has been well set up to run in parallel.
-
-To run the tests in parallel, you will be using [JUnit and Maven's Surefire Plugin.](http://maven.apache.org/surefire/maven-surefire-plugin/examples/junit.html)
 
 
 ### Autonomous Tests
@@ -282,262 +268,108 @@ Autonomous tests are the type of tests that are not dependent on other tests to 
 
 Clearly these tests aren’t autonomous when you are doing User Interface (UI) tests; you cannot perform CheckoutTest until you have logged into the platform and chosen an item for the shopping cart. There are ways, however, to set up your test so you can “jump right in” with a filled shopping cart without having to wait for other tests to run by using API calls and other tricks that can help you write a suite of autonomous tests.
 
+### Install dependencies
+In order to run tests in parallel and in random order, we will use two plugins:
 
-### Avoid the Static Keyword
+* **The [pytest-xdist](https://github.com/pytest-dev/pytest-xdist) plugin** – Extends pytest to run on multiple CPUs, or multiples hosts in Sauce Labs
+* **The [pytest-randomly](https://pypi.org/project/pytest-randomly/) plugin** – Randomly shuffles the modules, test classes, and functions. This helps you detect whether or not there are any interdependencies between tests that could cuase them to fail.
 
-As an example, if the SauceClient  was declared as `private static SauceRest sauceClient;`, since it is a static instance, only one API communication would be allowed to occur at once, which would make running tests in parallel impossible. Same thing if you declared the`before` method as `protected static void before()`.
-
-<img src="assets/5.04F.png" alt="No Static keywords" width="750"/>
-
-
-
-### Part 1: Add Configuration Options to your Surefire Plugin
-
-You should already have the `maven-surefire-plugin` in your `pom.xml` file within the `<build>` tags. If for some reason you don’t, add it in now:
-
+Open a new terminal window on your machine, and install the following globally
 
 ```
-// filename: pom.xml
-// ...
-    <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.18.1</version>
-    </plugin>
-// ...
+pip3 install pytest-xdist
+```
+```
+pip3 install pytest-randomly
 ```
 
+You should get messages that they were successfull installed, or are a part of your environment already.
 
-What you will do is add in `<configuration>` options that will allow you to run tests in parallel. Underneath `<artifactID>`, add in a `<configuration>` opening and closing tag, and within that tag add in the all <`parallel>` parameter.
-
-
-```
-// filename: pom.xml
-// ...
-    <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-            <parallel>all</parallel>
-        </configuration>
-        <version>2.18.1</version>
-    </plugin>
-
-```
+<img src="assets/5.04J.png" alt="Install pytest packages" width="750"/>
 
 
-The `all `parameter tells you to run all suites, classes, and methods in parallel. You can also choose to run one or multiple of those options.
+### Run Random Parallel Tests
 
-Underneath parallel, add in parameters for the number of thread counts for methods, set unlimited thread counts to `true`. This will allow you to use as many threads as CPUs you have available to you, and not run multiple tests in the same thread. `<threadCountMethods>` sets the number of methods (but not classes or suites)  to be tested at once at a limit of `30`. These configurations optimize the running of large test suites.
-
-You also don’t want to put the output for the reporting to be created in a file, otherwise you cannot run tests in parallel, so we set  `<redirectTestOutputToFile>` to` false`.
-
-
-```
-// filename: pom.xml
-// ...
-           <threadCountMethods>30</threadCountMethods>
-           <useUnlimitedThreads>true</useUnlimitedThreads>                    
-           <redirectTestOutputToFile>false</redirectTestOutputToFile>
-// ...
-```
-
-
-### Part 2: Run Parallel Tests
-
-Before you get started, head to the [Sauce Labs Dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) and look under **Account **>** User settings** and check out how many tests you (and your team) can run at once.
+Before you get started, head to the [Sauce Labs Dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) and look under **Account > User settings** and check out how many tests you (and your team) can run at once.
 
 <img src="assets/5.04C.png" alt="Sauce W3C case" width="650"/>
 
 Once you are sure that you are able to run tests in parallel (you should have less tests than your concurrency limit), you can run your tests. If you send more jobs than your concurrency limit, Sauce Labs will queue the excess and run them as the initial batch of jobs finish.
 
-Run `mvn clean test -Dhost=saucelabs` and visit the [Sauce Labs Dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)while your tests are running. You should see more than one test running at the same time, and notice that your test suite as a whole runs more quickly! You can see the completed code [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod5/5.04).
-
-<img src="assets/5.04H.png" alt="Concurrent tests running" width="650"/>
-
-### Part 3: Randomize Your Tests
-
-You might ask, why randomization? This is a very effective way to see if your tests are truly atomic and independent of one another. As you run more and more tests, it’s important to make sure that they aren’t dependent on the behavior of a different test, because conditions will not always be the same as you use tests for different cases.
-
-In your `pom.xml` file, below the `<redirectTestOutputToFile>, `add in:
+Run `pytest -n 5` to run 5 tests at the same time in parallel. If you run your tests more than once, they should run in a different order
 
 
-```
-// filename: pom.xml
-// ...
-           <runOrder>random</runOrder>
-// ...
-```
+Next, visit the [Sauce Labs Dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)while your tests are running. You should see more than one test running at the same time, and notice that your test suite as a whole runs more quickly! You can see the completed code [here]().
+
+<img src="assets/5.04K.png" alt="Parallel tests" width="750"/>
 
 
-Now run your tests using `mvn clean test -Dhost=saucelabs` and you should see your tests run in a different order than before.
+#### Quiz
+![https://docs.google.com/forms/d/e/1FAIpQLSdjOciSZieC-X3NqWkVKyXzCh8M5d_jpOEJOoW3wZJ7qs_r0g/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSdjOciSZieC-X3NqWkVKyXzCh8M5d_jpOEJOoW3wZJ7qs_r0g/viewform?usp=sf_link)
 
-You can see the [example code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod5/5.04).
 
-
-### Final Code
-<img src="assets/5.04I.png" alt="pom.xml Final code" width="650"/>
-
-###Quiz
-
-![https://docs.google.com/forms/d/e/1FAIpQLSeOGIO9dymQ9r4VAiX1ZzpmMFfiwJn9zS5RYM37tJL05OS8qg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSeOGIO9dymQ9r4VAiX1ZzpmMFfiwJn9zS5RYM37tJL05OS8qg/viewform?usp=sf_link)
 <!-- ------------------------ -->
 ## 5.05 Grouping Tests
 Duration: 0:08:00
 
 In order to get the most out of your tests, you'll want a way to break them up into relevant, targeted chunks. Running tests in smaller groupings (along with parallel execution) will help keep test run times to a minimum and help you quickly sift through test results and target your tests. It also allows you to run different groups of tests for different purposes.
 
-In order to do this with Java, you will need to use categories: _Shallow, Deep,_ and _All_. Shallow tests are equivalent to smoke (or _sanity_) tests. These should pass before you can consider running the deep tests. Running the _All_ interface will run all the tests in your suite.
+In order to do this with Python, you will create a `pytest.ini` file, then create `deep` and `shallow` markers that you will use the `@pyest.mark` decorator to your tests.
 
+### Create pytest.ini File
+In the top level of your project file (at the same level as your **pages** and **tests** directories), create a new file called `pytest.ini`.
 
-### Part 1: Adding Test Interfaces
+<img src="assets/5.05J.png" alt="Pytest ini file" width="550"/>
 
-For each category, You will need to create an [interface ](https://www.tutorialspoint.com/java/java_interfaces.htm)file. Create a new package (right click in the directory **Test > New > Package**) called `groups` inside of the `tests` package. Inside `groups` (right click in the directory **groups > New > Class**) you'll create three interface files -- `All.java`, `Deep.java`, and `Shallow.java`.
+### Add Markers to Your Tests
+Now that you have two different typrs of markers created for your tests (`shallow` and `deep`) you can add `@pytest.markers` to your tests functions.
 
-<img src="assets/5.05D.png" alt="New Interface files" width="450"/>
-
-
-<img src="assets/5.05E.png" alt="New Interface files" width="450"/>
-
-
-In each of the interface files, add in the following code:
-
+Update `login_test.py` with markers above both classes:
 
 ```
-// filename: tests/groups/All.java
+# filename: tests/login_test.py
+# ...
 
-package tests.groups;
+@pytest.mark.shallow
+def test_valid_credentials(login):
+    login.with_("tomsmith", "SuperSecretPassword!")
+    assert login.success_message_present()
 
-public interface All { }
+@pytest.mark.deep
+def test_invalid_credentials(login):
+    login.with_("tomsmith", "bad password")
+    assert login.success_message_present() == False
+```
+Then add a marker to your tests in `dynamic_loading_test.py`:
 
 ```
+# filename: tests/dynamic_loading_test.py
+# ...
 
+@pytest.mark.deep
+def test_hidden_element(dynamic_loading):
+    dynamic_loading.load_example("1")
+    assert dynamic_loading.finish_text_present()
 
-
-```
-// filename: tests/groups/Deep.java
-
-package tests.groups;
-
-public interface Deep extends All { }
-
-
-```
-
-
-
-```
-// filename: tests/groups/Shallow.java
-
-package tests.groups;
-
-public interface Shallow extends All { }
-
-
+@pytest.mark.deep
+def test_rendered_element(dynamic_loading):
+    dynamic_loading.load_example("2")
+    assert dynamic_loading.finish_text_present()
 ```
 
+Now you can use different flags when you run your tests. If you run the command `pytest -m shallow`, only the `test_valid_credentials` function will be run, whereas if you run `pytest -m deep` the other tests will be the ones which are run.
 
-Notice how both` Shallow` and` Deep` extend the `All` interface, making them a subset of `All. `
-
-Now you will add the categories to your tests. Underneath the` @Test` annotations in `TestLogin.java`, add in the following categories:
-
-
-```
-// filename: tests/TestLogin.java
-// ...
-    @Test
-    @Category(Shallow.class)
-    public void succeeded() {
-// ...
-    @Test
-    @Category(Shallow.class)
-    public void failed() {
-// ...
+#### Run Tests By File Name
+You also have the option to specify which test file you would like to run. If you want to run all the functions in `dynamic_loading_test.py` simple run the command
 
 ```
-
-
-At the top of `TestLogin.java`, in the imports lists, import in the `Categories` class and the `Shallow` interface you just created:
-
-
-```
-// filename: tests/TestLogin.java
-// ...
-import org.junit.experimental.categories.Category;
-import tests.groups.Shallow;
-// ...
+pytest tests/dynamic_loading_test.py
 ```
 
+#### Final Code
+<img src="assets/5.05K.png" alt="Parallel tests" width="550"/>
 
-In `TestDynamicLoading.java,` annotate the entire class `TestDynamicLoading` like so, and import the` Categories` class and` Deep` interface:
-
-
-```
-// filename: tests/TestDynamicLoading.java
-// ...
-import org.junit.experimental.categories.Category;
-import tests.groups.Deep;
-
-@Category(Deep.class)
-public class TestDynamicLoading extends BaseTest {
-// ...
-
-```
-
-
-
-### Part 2: Running Tests with Categories
-
-Before you can run your tests with these categories, you need to be able to specify a category as a runtime property. For that, you'll modify `pom.xml`. In the `<properties>` tags add a `<groups> `tag as a child like so:
-
-
-```
-// filename: pom.xml
-// ...
-        <groups>tests.groups.Shallow</groups>
-    </properties>
-// ...
-```
-
-
-This will set a default group to run when you tests are run, however you can also specify which groups you want to run using the maven `-Dgroups` execution commands:
-
-
-```
-mvn clean test -Dgroups=tests.groups.Shallow
-mvn clean test -Dgroups=tests.groups.Deep
-mvn clean test -Dgroups=tests.groups.All
-```
-
-
-You can also specify multiple tags by separating them with a comma (without spaces).
-
-
-```
-mvn clean test -Dgroups=tests.groups.Shallow,tests.groups.Deep
-```
-
-
-Try running your tests with the following commands above, and check to see if the same tests are run on the Sauce Labs dashboard:
-
-<img src="assets/5.05F.png" alt="Running grouped tests" width="850"/>
-
-
-You can see the [complete code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod5/5.05).
-
-
-### Final Code
-
-
-<img src="assets/5.05G.png" alt="Shallow tests" width="750"/>
-
-
-<img src="assets/5.05H.png" alt="Deep class" width="850"/>
-
-
-<img src="assets/5.05I.png" alt="pom.xml groups" width="850"/>
-
-
+<img src="assets/5.05L.png" alt="Parallel tests" width="650"/>
 
 <!-- ------------------------ -->
 ## 5.06 Setting Up Jenkins
@@ -548,12 +380,12 @@ You'll probably get a lot of mileage out of your test suite in its current form 
 
 The real goal in test automation is to find issues reliably, quickly, and automatically. We've built things to be reliable and quick. Now you need to make them run on their own, and ideally, in sync with the development workflow you are a part of.
 
-To do that you need to use a Continuous Integration server.
+To do that you need to use a _Continuous Integration server_.
 
 
 ### CI Servers
 
-A _Continuous Integration server_ (_CI server_) makes it possible for several developers to merge their code into a central repository, then automate the process of building, testing, and deploying the set of code with the entire team’s contributions. As an example, In GitHub, this would be a certain branch of a shared repository. A CI server can be set up so that it takes updated code through the process several times a month, week, or even a day.
+A _Continuous Integration_ server (CI server) makes it possible for several developers to merge their code into a central repository, then automate the process of building, testing, and deploying the set of code with the entire team’s contributions. As an example, In GitHub, this would be a certain branch of a shared repository. A CI server can be set up so that it takes updated code through the process several times a month, week, or even a day.
 
 The great thing about doing this is that code from several teams or developers can be brought together into the same working project quickly and tested, instead of developers trying to test their code in isolation (and not know what could break when all contributors’ code is built together).  
 
@@ -582,10 +414,8 @@ Negative
 
 
 Negative
-: If you type in `brew info` in your terminal, and you have homebrew installed correctly, you should see something like this:
+: If you type in `brew info` in your terminal, and you have homebrew installed correctly, you should see something like this:  <img src="assets/5.06C.png" alt="Running Brew" width="450"/>
 
-Negative
-: <img src="assets/5.06C.png" alt="Running Brew" width="450"/>
 
 
 Let's start by setting up Jenkins on your local machine and using the test code from your computer as well. Keep in mind that this isn’t the proper way to go about this — it's merely beneficial for this example. To do it right, the Jenkins server (i.e., master node) would live on a machine of its own, or in a Virtual Machine (VM).
@@ -609,28 +439,14 @@ Jenkins was built on Java, and in order for your program to work, you will also 
 
 <img src="assets/5.06D.png" alt="Wrong Java Error" width="550"/>
 
-#### Note
+#### NOTE
 
 Negative
-: To Install JDK 8, visit the [Java 8 download page](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) from Oracle. You may have to create an account.
-
-Negative
-: <img src="assets/5.06E.png" alt="JDK 8" width="650"/>
+: To Install JDK 8, visit the [Java 8 download page](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) from Oracle. You may have to create an account. <img src="assets/5.06E.png" alt="JDK 8" width="650"/>   Download the file, then open and follow the instructions to install Java.  <img src="assets/5.06F.png" alt="Install JDK 8" width="650"/>
 
 
 Negative
-: Download the file, then open and follow the instructions to install Java.
-
-Negative
-: <img src="assets/5.06F.png" alt="Install JDK 8" width="650"/>
-
-
-Negative
-: If you haven’t installed Java before, you’ll need to update your `.bash_profle `(or your `.zshrc` file on MacOS Catalina) with the system variables and PATH:
-
-Negative
-: <img src="assets/5.06G.png" alt="Java Path Variable" width="650"/>
-
+: If you haven’t installed Java before, you’ll need to update your `.bash_profle `(or your `.zshrc` file on MacOS Catalina) with the system variables and PATH:  <img src="assets/5.06G.png" alt="Java Path Variable" width="650"/>
 
 ### Run Jenkins
 
@@ -652,7 +468,7 @@ Next, set up Jenkins by visiting `localhost:8080` by typing it into your chrome 
 <img src="assets/5.06I.png" alt="Unlock Jenkins" width="750"/>
 
 
-Now use your terminal to navigate to the folder above, written in red. Once you are in the folder `/Users/username/.jenkins/secrets`, you can run the command in the terminal:
+Now use your terminal to navigate to the folder above, written in red. Once you are in the folder `/Users/username/.jenkins/secrets, `you can run the command in the terminal:
 
 
 ```
@@ -666,7 +482,7 @@ You will see the contents of the file with the password in the terminal. Copy an
 
 <img src="assets/5.06K.png" alt="Welcome to Jenkins" width="750"/>
 
-#### Stopping Jenkins
+### Stopping Jenkins
 
 To stop the Jenkins process running on your machine with Homebrew, simply type:
 
@@ -681,7 +497,7 @@ brew services stop jenkins
 
 Keep in mind that you typically would not be the one setting up Jenkins to run your tests; your administrator or DevOps team would be adding your test code as a part of the pipeline to put code into production, typically on a staging server. Three typical jobs that are in almost every pipeline are build, test, and deploy. One of the Sauce Lab sweet spots is the ability to create the _test _project piece of the pipeline.
 
-Now that Jenkins is loaded in the browser, let's create a **Project **and configure it to run our shallow tests against Chrome on Windows 10.
+Now that Jenkins is loaded in the browser, let's create a **Project** and configure it to run our shallow tests against Chrome on Windows 10.
 
 
 
@@ -707,38 +523,52 @@ Once you have clicked on a project and chosen **Configure** from the menu, go to
 
 * Choose the checkbox for **Use custom workspace.** This is where your test files are stored on your computer. When setting up a real CI pipeline, you would direct this to the local copy of your GitHub repo.
 * Provide the full path to your test code.
-* Leave the **Display Name** field blank.
 
-<img src="assets/5.06O.png" alt="Test Code Path" width="650"/>
+Negative
+: In this example, it's a local machine, however you should set your code to run from version control software like Github.
+
+* Leave the **Display Name** field blank.
+<img src="assets/5.06EE.png" alt="Test Code Path" width="650"/>
 
 * Scroll down to the **Build** section and select **Add build step.**
 * Select **Execute shell.**.
-* Add the commands below to run locally on Jenkins, testing only the tests tagged with `@Category(shallow.class)`, using the default environment:
+* Add the commands below to run locally on Jenkins, testing only the tests marked with `@pytest.mark.shallow`, using Chrome 80 on Windows 10, running 5 tests concurrently:
+*  Note the `--junitxml `flag. We want to have our test run output into a standard format our CI server can consume. JUnit XML is the defacto standard format and with pytest it's available as an output when you specify a runtime flag and a filename (e.g., result.xml).
 
 ```
-mvn clean test -Dgroups=tests.groups.Shallow
+pytest -n 5 -m shallow --browser=chrome --browserversion=80 --platform="Windows 10" --junitxml=result.xml
 ```
-* Click **Save** to add the changes and return to the test main page.
+
+* Click the **Apply** button to add these new changes to the test
+
+### Configure for Test Results
+Now you need to configure the job to consume the test results.
+
+* Under **Post-build Actions** select **Add post build action**
+* Select Publish JUnit test result report
+* Add the name of the result file specified in the flag, `result.xml`
+
+<img src="assets/5.06FF.png" alt="Advanced Configurations" width="650"/>
+
+* Click **Save** to add the changes and return to the test main page
 
 To return to the dashboard and see the list of projects, you can click **Back to Dashboard** in the menu. You can also click **Configure** to change or update the changes you just made:
 
 <img src="assets/5.06P.png" alt="Back to Dashboard or Configure" width="750"/>
 
+#### Add JUnit Jenkins Plugin
+If this post build action isn't available to you, you will need to install the JUnit Jenkins plugin.  
 
-### Install JUnit Jenkins Plugin
-
-Since you are using the JUnit library, you need to set up [the JUnit Jenkins plugin](https://plugins.jenkins.io/junit) as a Global Tool so Jenkins can use it to report the result of tests.
-
-First, return to the dashboard (You can do this by clicking the** Jenkins** icon in the menu at any time). Next, click on **Manage Jenkins** > **Manage Plugins**.
+First, return to the dashboard (You can do this by clicking the **Jenkins** icon in the menu at any time). Next, click on **Manage Jenkins** > **Manage Plugins**.
 
 <img src="assets/5.06W.png" alt="Manage Jenkins Plugins" width="750"/>
 
 
-
-#### Note
+### NOTE
 
 Negative
-: If you see a warning at the top of your Global Tool Configuration dashboard, you can **go to plugin manager**, choose the **Updates** tab, and install necessary updates. <img src="assets/5.06X.png" alt="Plugin Manager" width="750"/> For those updates to take effect, you need to type in terminal: ``` Brew services restart jenkins```
+: If you see a warning at the top of your Global Tool Configuration dashboard, you can **go to plugin manager**, choose the **Updates** tab, and install necessary updates. <img src="assets/5.06X.png" alt="Plugin Manager" width="750"/> For those updates to take effect, you need to type in terminal: `brew services restart jenkins`
+
 
 
 
@@ -762,14 +592,7 @@ Now that you have the JUnit Reporter plugin installed, you can go back to your t
 
  <img src="assets/5.06AA.png" alt="Post Build Actions" width="750"/>
 
-
-Next, configure the test file that you will put the Surefire reports in by typing `target/surefire-reports/*.xml `into the **Test report XMLs** field.
-
- <img src="assets/5.06BB.png" alt="Test Report Publish Destination" width="750"/>
-
-
- Hit save and you should be ready to run your tests.
-
+Now you should be able to specify the results.xml file in the post-build action under advanced settings for your test.
 
 ### Run Your Tests Using Jenkins
 
@@ -777,78 +600,32 @@ To run your test, simply click **Build Now** in the menu, then click on the sphe
 
  <img src="assets/5.06CC.png" alt="Build Now" width="750"/>
 
-
+-------------------------
 
 #### Video
 
-Watch [5.06 Run Jenkins with Homebrew and Java ](https://drive.google.com/file/d/1YPKk1b1HdiWavNxTuR4m5QvPcTu7PCfn/view?usp=sharing)for a walk through of how to run and check the configuration of your test job with the JUnit reporter for Jenkins.
+Watch [5.06 Run Jenkins with Homebrew and Java](https://drive.google.com/file/d/1nxIM0q-WsiirluFyzCgJ0zooYREQHgrD/view?usp=sharing)
+for a walk through of how to run and check the configuration of your test job with the JUnit reporter for Jenkins.
 
-![https://drive.google.com/file/d/1YPKk1b1HdiWavNxTuR4m5QvPcTu7PCfn/preview](https://drive.google.com/file/d/1YPKk1b1HdiWavNxTuR4m5QvPcTu7PCfn/view?usp=sharing)
+![https://drive.google.com/file/d/1nxIM0q-WsiirluFyzCgJ0zooYREQHgrD/preview](https://drive.google.com/file/d/1nxIM0q-WsiirluFyzCgJ0zooYREQHgrD/view?usp=sharing)
 
 
-#### Note
-
-Negative
-: Ideally, your test code would live in a version control system such as Git. The first thing you will need to do is get the plugin under **Manage Jenkins > Manage Plugins.** You can configure this under **Manage Jenkins > Global Tools Configuration**. To use a Git project, create a new project from the Jenkins homepage, then under the configuration of that project, choose Git for Source Code Management.
-
+#### NOTE
 
 Negative
-:  <img src="assets/5.06DD.png" alt="Build Now" width="750"/>
-
-
-Negative
-: Learn more about setting up Git source control in [this tutorial.](http://www.mastertheboss.com/cool-stuff/jenkins/jenkins-source-code-management-with-git)
-
+: Ideally, your test code would live in a version control system such as Git. The first thing you will need to do is get the plugin under **Manage Jenkins > Manage Plugins.** You can configure this under **Manage Jenkins > Global Tools Configuration**. To use a Git project, create a new project from the Jenkins homepage, then under the configuration of that project, choose Git for Source Code Management. <img src="assets/5.06DD.png" alt="Build Now" width="750"/>  Learn more about setting up Git source control in [this tutorial.](http://www.mastertheboss.com/cool-stuff/jenkins/jenkins-source-code-management-with-git)
 
 
 <!-- ------------------------ -->
 ## 5.07 Jenkins and Sauce OnDemand
-Duration: 0:15:00
+Duration: 0:08:00
 
 You haven’t run a test yet that has successfully passed in Sauce Labs. In this lesson, you’ll learn to connect your Jenkins server to your Sauce Labs account using the Sauce OnDemand Jenkins plugin, as well as run a test with Jenkins using Sauce Connect Proxy.
-
-
-### Test Reporters
-
-You have been running your tests and observing the output in the console, however, in many cases this may not be the best method to see the status of your test. When you want to share the output of the test with others—human or software—a formatted .xml doc can be much more useful. This doc lets you obtain a longer form of printout for test results and has the potential for use with an analytics tool. Some options include:
-
-
-
-*   [JUnit Results Reporter](https://www.jenkins.io/doc/pipeline/steps/junit/#:~:text=Jenkins%20understands%20the%20JUnit%20test,tracking%20failures%2C%20and%20so%20on.) plugin
-*   [JUnit Reporter for Mocha](https://www.npmjs.com/package/mocha-junit-reporter)
-
-Note that there are plugins/additional configurations you’ll have to modify in the **Manage Jenkins** section to get these working as well. In these examples, you will not be using a reporter;instead you’ll use the reporter that is built in with mocha on the console/ terminal.
-
-
-### Force a Failed Test
-
-To see what a failed test report looks like, we will add a failing test method to `TestLogin.java` with a Shallow category after the last `@Test` annotation:
-
-
-```
-//filename: tests/TestLogin.java
-// ...
-@Test
-    @Category(Shallow.class)
-    public void forcedFailure() {
-        login.with("tomsmith", "bad password");
-        assertTrue(login.successMessagePresent());
-    }
-// ...
-```
-
-
-If you use the password ‘bad password’, the success message should not show up, so the `assertTrue` method will throw a failure. If you go into the console, and look under tests, the output will show you where the failure was:
-
-<img src="assets/5.07N.png" alt="Failed test report" width="750"/>
-
-
-
 
 ### Set Up Sauce Labs OnDemand
 
 The full reference for configuring Sauce OnDemand and support can be found [here.](https://wiki.saucelabs.com/display/DOCS/Jenkins+and+Sauce+OnDemand+Plugin+Quickstart+Guide)
-The first thing you will need to do is install the Git Jenkins plugin, then go to **Manage Jenkins >  Manage Plugin**s. Search for **Sauce** under the **Available** tab.
+The first thing you will need to do is install the Git Jenkins plugin, then go to **Manage Jenkins >  Manage Plugins**. Search for **Sauce** under the **Available** tab.
 
 <img src="assets/5.07C.png" alt="Sauce On Demand Plugin" width="650"/>
 
@@ -889,7 +666,7 @@ Once you click **Save**, you should see your new access key listed under **Globa
 
 Now you can go to your project and set up your credentials. Go back to your Jenkins dashboard, choose the project you created, and then **Configure** in the menu. Scroll down, and under **Build Environment**, click the **Sauce Labs Options** checkbox. Make sure the credentials you just set up are listed here.
 
-You can configure a failed build to trigger things like e-mail messages or send information directly to Jira tickets. You can find out more [here](https://plugins.jenkins.io/email-ext/). All you need to do to get started is go to **Manage Jenkins > Manage Plugins** and search for an email plugin in available plugins
+You can configure a failed build to trigger things like e-mail messages or send information directly to Jira tickets. You can find out more[ here](https://plugins.jenkins.io/email-ext/). All you need to do to get started is go to **Manage Jenkins > Manage Plugins** and search for an email plugin in available plugins
 
 
 ### Running a Test with Sauce OnDemand and Sauce Connect
@@ -903,20 +680,20 @@ Click on your project name from your Jenkins dashboard (example: **Shallow Test 
 
 You don’t have to do anything to set the variable, or install any software or run commands to get the tunnel running—Sauce OnDemand creates a tunnel and runs the tests in it for you.
 
-Run your tests in Jenkins using **Build Now**. (You can change the build configuration to run all tests vy removing the `-m deep` flag.)
+Run your tests in Jenkins using **Build Now** (You can change the build configuration and delete `-m deep` command back to run all tests.)
 
 If you look on the Sauce Labs dashboard, you should see tests being run, an active tunnel, and even past builds listed:
 
-<img src="assets/5.07Q.png" alt="Sauce Labs Builds" width="450"/>
+<img src="assets/5.07Q.png" alt="Sauce Labs Builds" width="750"/>
 
 
 Congratulations!  You now have the skills to create a basic test suite, plan your test strategy using testing best practices, and even work with your team to add testing to your software development pipeline. There is a lot more to explore both with tests and with Jenkins, so after the quiz, take a look at Module 5.09 for more resources, and visit the [Sauce Labs Documentation](https://wiki.saucelabs.com/display/DOCS/The+Sauce+Labs+Cookbook+Home) for more information.
 
 <!-- ------------------------ -->
 ## 5.08 Quiz
-Duration: 0:05:00
+Duration: 0:03:00
 
-![https://docs.google.com/forms/d/e/1FAIpQLSeocbRwtbK8cGMsQ-1tLjwg0qj_w-bKCmuaXZyUXAvGwt1yFw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSeocbRwtbK8cGMsQ-1tLjwg0qj_w-bKCmuaXZyUXAvGwt1yFw/viewform?usp=sf_link)
+![https://docs.google.com/forms/d/e/1FAIpQLScO3kNDmTU319cZqL3SBkD-YuMeoUvPsmzfU5qc4-2N8VWlsQ/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScO3kNDmTU319cZqL3SBkD-YuMeoUvPsmzfU5qc4-2N8VWlsQ/viewform?usp=sf_link)
 
 <!-- ------------------------ -->
 ## 5.09 Resources and Community

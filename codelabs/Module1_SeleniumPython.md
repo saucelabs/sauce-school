@@ -326,7 +326,7 @@ pytest-randomly
  This repository contains a file called [requirements.txt](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/python/Mod1/1.05/requirements.txt) that can be used in the PyCharm IDE to automatically install the dependencies from the previous lesson, and make sure they are available in this particular virtual environment. All you need to do is open the terminal in the PyCharm IDE and type in the command:
 
  ```
- pip3install -r requirements.txt
+ pip3 install -r requirements.txt
  ```
  Some of the dependencies, such as pytest might need updating to the latest version.
 
