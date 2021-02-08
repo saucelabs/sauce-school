@@ -448,7 +448,7 @@ Run your tests (they should run in parallel on Sauce Labs. You should get an out
 
 <!-- ------------------------ -->
 ## 5.06 Setting Up Jenkins
-Duration: 0:25:00
+Duration: 0:15:00
 
 
 You'll probably get a lot of mileage out of your test suite in its current form if you just run things from your computer, look at the results, and tell people when there are issues. But that only helps you solve part of the problem.
@@ -500,7 +500,7 @@ Let's start by setting up Jenkins on your local machine and using the test code 
 These instructions give you the step-by-step for how to set up on MacOS, however there are instructions for other operating systems, as well as the option for setup using a Docker container with other operating systems [here](https://www.jenkins.io/doc/book/installing/).
 
 
-### Jenkins Setup
+### Install Jenkins
 
 A simple way to get started is to use [Homebrew ](https://brew.sh/)to install Jenkins on MacOS. Once Homebrew is installed on your computer, use the instructions on the [Jenkins download page](https://jenkins.io/download/). If you are using Homebrew on MacOS, all you need to do is run this command in the terminal:
 
@@ -572,14 +572,24 @@ brew services stop jenkins
 ```
 
 
+<!-------->
+## 5.08 Create a Jenkins Project
+Duration: 0:05:00
 
-### Create a Project
+Typically when you set up tests, you would add your test code as a part of the pipeline to put code into production, typically on a staging server. Three typical jobs that are in almost every pipeline are build, test, and deploy.
 
-Keep in mind that you typically would not be the one setting up Jenkins to run your tests; your administrator or DevOps team would be adding your test code as a part of the pipeline to put code into production, typically on a staging server. Three typical jobs that are in almost every pipeline are build, test, and deploy. One of the Sauce Lab sweet spots is the ability to create the _test _project piece of the pipeline.
-
-Now that Jenkins is loaded in the browser, let's create a **Project **and configure it to run our shallow tests against Chrome on Windows 10.
+Jenkins is one of many tools you can use to automate your builds, however it also means that one has to log in to the Jenkins dashboard to debug tests. Using Sauce Labs makes it a lot easier to see, share, and debug tests results that are a part of a release pipeline.
 
 
+#### Video
+
+Watch [Run Jenkins with Homebrew ](https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/view?usp=sharing)for a walk through of how to run and check the configuration of your test job and Node environment in Jenkins.
+
+![https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/preview](https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/view?usp=sharing)
+
+### Create a Test Project
+
+Now that Jenkins is loaded in the browser, let's create a **Project** and configure it to run our shallow tests against Chrome on Windows 10.
 
 1. Click **New Item** from the Dashboard menu.
 
@@ -660,14 +670,6 @@ To run your test, simply click **Build Now** in the menu, then click on the sphe
 
 <img src="assets/5.06T.png" alt="Test Result Output" width="750"/>
 
-
-#### Video
-
-Watch [5.06 Run Jenkins with Homebrew ](https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/view?usp=sharing)for a walk through of how to run and check the configuration of your test job and Node environment in Jenkins.
-
-![https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/preview](https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/view?usp=sharing)
-
-
 #### NOTE
 
 Negative
@@ -676,11 +678,10 @@ Negative
 
 
 <!-- ------------------------ -->
-## 5.07 Jenkins and Sauce OnDemand
+## 5.08 Jenkins and Sauce OnDemand
 Duration: 0:15:00
 
 You haven’t run a test yet that has successfully passed in Sauce Labs. In this lesson, you’ll learn to connect your Jenkins server to your Sauce Labs account using the Sauce OnDemand Jenkins plugin, as well as run a test with Jenkins using Sauce Connect Proxy.
-
 
 ### Test Reporters
 
@@ -948,13 +949,13 @@ Congratulations!  You now have the skills to create a basic test suite, plan you
 
 
 <!-- ------------------------ -->
-## 5.08 Quiz
+## 5.09 Quiz
 Duration: 0:05:00
 
 ![https://docs.google.com/forms/d/e/1FAIpQLSeRXdkLZTwivvNYpudqfKkcNMCojGuobA507hUL7os0veu-9w/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSeRXdkLZTwivvNYpudqfKkcNMCojGuobA507hUL7os0veu-9w/viewform?usp=sf_link)
 
 <!-- ------------------------ -->
-## 5.09 Resources and Community
+## 5.10 Resources and Community
 Duration: 0:03:00
 
 
