@@ -23,19 +23,16 @@ This module, based off chapters 13-18 of _The Selenium Guidebook:_ _Python Editi
 
 
 *   Set up and run tests using the Sauce Connect Proxy tunnel with terminal commands and the Sauce Labs application interface. Set up environment variables and access them with the Sauce Connect software to run tests using the tunnel.
-*   Use Pytest and --------- to run tests on the Sauce Platform in parallel and in random order
-*   Create category interfaces for tests and test classes and use the `-----` tag in `------`, as well as the `------` tag in the terminal to run different groups of tests for different purposes
+*   Use Pytest plugins `xdist` and `randomly` to run tests on the Sauce Platform in parallel and in random order
+*   Create a `pytest.ini` file to name categories for different kinds of tests, and use the `@pytest.mark` decorators in your tests  as well as the `pytest -m mark_name` command in the terminal and in Jenkins to run different groups of tests for different purposes
 *   Set up the the Jenkins CI server on your local machine and learn how to use the user interface to set up projects that run your tests, as well as configure the Jenkins CI server
 *   Add your credentials to your instance of a Jenkins CI server using Sauce OnDemand and run a test that you can view in both the Jenkins console and the Sauce Labs application
-*   Modify the configuration of a local instance on a Jenkins CI server, add plugins, and update a test to take desired capabilities from a `-----` file updated for your Jenkins tests
 *   Run tests using Sauce Connect Proxy through your Jenkins server, passing information back and forth from Sauce Labs to Jenkins using Sauce Connect
 *   Develop a strategy for planning how many and which types of tests your team and company will develop to best build automated testing suites for your product
-*   Connect how the tests that you have written in the UI using Selenium can be integrated into a comprehensive testing strategy that tests on multiple layers
+*   Connect how the tests that you have written for the user interface of an application using Selenium can be integrated into a comprehensive testing strategy that tests on multiple layers
 *   Establish autonomous test suites that are set up to run without relying on the execution of any other tests
-*   Understand how static variables can impede parallel test function since only one unmodifiable instance can exist at a time
 *   Describe a use case for the Sauce Connect Proxy and how it can allow access to secure applications while maintaining data privacy
 *   Understand how a CI server like Jenkins can be used to automate the software development pipeline and automate the testing to run specific tests with certain triggers
-*   Understand how to configure a local instance of Jenkins to work with a test suite and the Sauce OnDemand plugin
 
 <!-- ------------------------ -->
 ## 5.02 Testing Strategy
@@ -272,9 +269,10 @@ Autonomous tests are the type of tests that are not dependent on other tests to 
 Clearly these tests aren’t autonomous when you are doing User Interface (UI) tests; you cannot perform CheckoutTest until you have logged into the platform and chosen an item for the shopping cart. There are ways, however, to set up your test so you can “jump right in” with a filled shopping cart without having to wait for other tests to run by using API calls and other tricks that can help you write a suite of autonomous tests.
 
 ### Install dependencies
-In oirder to run tests in parallel and in random order, we will use two plugins:
-* [**pytest-xdist**](https://github.com/pytest-dev/pytest-xdist) – Extends pytest to run on multiple CPUs, or multiples hosts in Sauce Labs
-* [**pytest-randomly**](https://pypi.org/project/pytest-randomly/) – Randomly shuffles the modules, test classes, and functions. This helps you detect whether or not there are any interdependencies between tests that could cuase them to fail.
+In order to run tests in parallel and in random order, we will use two plugins:
+
+* **The [pytest-xdist](https://github.com/pytest-dev/pytest-xdist) plugin** – Extends pytest to run on multiple CPUs, or multiples hosts in Sauce Labs
+* **The [pytest-randomly](https://pypi.org/project/pytest-randomly/) plugin** – Randomly shuffles the modules, test classes, and functions. This helps you detect whether or not there are any interdependencies between tests that could cuase them to fail.
 
 Open a new terminal window on your machine, and install the following globally
 
@@ -292,7 +290,7 @@ You should get messages that they were successfull installed, or are a part of y
 
 ### Run Random Parallel Tests
 
-Before you get started, head to the [Sauce Labs Dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) and look under **Account **>** User settings** and check out how many tests you (and your team) can run at once.
+Before you get started, head to the [Sauce Labs Dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) and look under **Account > User settings** and check out how many tests you (and your team) can run at once.
 
 <img src="assets/5.04C.png" alt="Sauce W3C case" width="650"/>
 
@@ -369,7 +367,9 @@ pytest tests/dynamic_loading_test.py
 ```
 
 #### Final Code
-<img src="assets/5.05K.png" alt="Parallel tests" width="550"/><img src="assets/5.05L.png" alt="Parallel tests" width="650"/>
+<img src="assets/5.05K.png" alt="Parallel tests" width="550"/>
+
+<img src="assets/5.05L.png" alt="Parallel tests" width="650"/>
 
 <!-- ------------------------ -->
 ## 5.06 Setting Up Jenkins
@@ -497,7 +497,7 @@ brew services stop jenkins
 
 Keep in mind that you typically would not be the one setting up Jenkins to run your tests; your administrator or DevOps team would be adding your test code as a part of the pipeline to put code into production, typically on a staging server. Three typical jobs that are in almost every pipeline are build, test, and deploy. One of the Sauce Lab sweet spots is the ability to create the _test _project piece of the pipeline.
 
-Now that Jenkins is loaded in the browser, let's create a **Project **and configure it to run our shallow tests against Chrome on Windows 10.
+Now that Jenkins is loaded in the browser, let's create a **Project** and configure it to run our shallow tests against Chrome on Windows 10.
 
 
 
@@ -559,7 +559,7 @@ To return to the dashboard and see the list of projects, you can click **Back to
 #### Add JUnit Jenkins Plugin
 If this post build action isn't available to you, you will need to install the JUnit Jenkins plugin.  
 
-First, return to the dashboard (You can do this by clicking the** Jenkins** icon in the menu at any time). Next, click on **Manage Jenkins** > **Manage Plugins**.
+First, return to the dashboard (You can do this by clicking the **Jenkins** icon in the menu at any time). Next, click on **Manage Jenkins** > **Manage Plugins**.
 
 <img src="assets/5.06W.png" alt="Manage Jenkins Plugins" width="750"/>
 
@@ -567,7 +567,7 @@ First, return to the dashboard (You can do this by clicking the** Jenkins** icon
 ### NOTE
 
 Negative
-: If you see a warning at the top of your Global Tool Configuration dashboard, you can **go to plugin manager**, choose the** Updates **tab, and install necessary updates. <img src="assets/5.06X.png" alt="Plugin Manager" width="750"/> For those updates to take effect, you need to type in terminal: `brew services restart jenkins`
+: If you see a warning at the top of your Global Tool Configuration dashboard, you can **go to plugin manager**, choose the **Updates** tab, and install necessary updates. <img src="assets/5.06X.png" alt="Plugin Manager" width="750"/> For those updates to take effect, you need to type in terminal: `brew services restart jenkins`
 
 
 
@@ -625,7 +625,7 @@ You haven’t run a test yet that has successfully passed in Sauce Labs. In this
 ### Set Up Sauce Labs OnDemand
 
 The full reference for configuring Sauce OnDemand and support can be found [here.](https://wiki.saucelabs.com/display/DOCS/Jenkins+and+Sauce+OnDemand+Plugin+Quickstart+Guide)
-The first thing you will need to do is install the Git Jenkins plugin, then go to **Manage Jenkins >  Manage Plugin**s. Search for **Sauce** under the **Available** tab.
+The first thing you will need to do is install the Git Jenkins plugin, then go to **Manage Jenkins >  Manage Plugins**. Search for **Sauce** under the **Available** tab.
 
 <img src="assets/5.07C.png" alt="Sauce On Demand Plugin" width="650"/>
 
@@ -680,7 +680,7 @@ Click on your project name from your Jenkins dashboard (example: **Shallow Test 
 
 You don’t have to do anything to set the variable, or install any software or run commands to get the tunnel running—Sauce OnDemand creates a tunnel and runs the tests in it for you.
 
-Run your tests in Jenkins using **Build Now** (You can change the build configuration with the `mvn `commands back to `-Dgroups=tests.groups.All`)
+Run your tests in Jenkins using **Build Now** (You can change the build configuration and delete `-m deep` command back to run all tests.)
 
 If you look on the Sauce Labs dashboard, you should see tests being run, an active tunnel, and even past builds listed:
 
@@ -691,9 +691,9 @@ Congratulations!  You now have the skills to create a basic test suite, plan you
 
 <!-- ------------------------ -->
 ## 5.08 Quiz
-Duration: 0:05:00
+Duration: 0:03:00
 
-![https://docs.google.com/forms/d/e/1FAIpQLSeocbRwtbK8cGMsQ-1tLjwg0qj_w-bKCmuaXZyUXAvGwt1yFw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSeocbRwtbK8cGMsQ-1tLjwg0qj_w-bKCmuaXZyUXAvGwt1yFw/viewform?usp=sf_link)
+![https://docs.google.com/forms/d/e/1FAIpQLScO3kNDmTU319cZqL3SBkD-YuMeoUvPsmzfU5qc4-2N8VWlsQ/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScO3kNDmTU319cZqL3SBkD-YuMeoUvPsmzfU5qc4-2N8VWlsQ/viewform?usp=sf_link)
 
 <!-- ------------------------ -->
 ## 5.09 Resources and Community
