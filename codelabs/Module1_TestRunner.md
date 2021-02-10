@@ -1,19 +1,15 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
-summary: Module X of the course X. Learn to write Selenium tests in X programming language with X Test runner and X framework
-id: ModuleX_SeleniumLang
-categories: <enter a single category for drop-down filter>
-tags: <enter Language names here from tools/site/app/views what is labeled in the view.json tag: attribute>  
+summary: Module 1 of the TestRunner Toolkit course, introducing how to set up a Cypress test with TestRunner toolkit and Sauce Labs.
+id: Module1-TestRunner
+categories: beginner
+tags: testrunner  
 environments: Web
-status: One or more of (Draft, Published, Deprecated, Hidden)
+status: Draft
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 author:Lindsay Walker
 <!-- ------------------------ -->
-# Intro to TestRunner Toolkit with Cyoress
-Add Sections and Durations
-Then for each section use Header 2 or '##' and specify an optional duration beneath for time remaining calculations Optional section times will be used to automatically total and remaining tutorial times In markdown I've found that the time is formatted hh:mm:ss
-
-Example
+# Module 1 – Intro to TestRunner Toolkit with Cypress
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
@@ -40,7 +36,9 @@ Duration: 0:01:00
 ## 1.02 What Is TestRunner Toolkit
 Duration: 0:03:00
 
-TestRunner toolkit was designed to enable test developers to write code that communicates with the browser using JavaScript and communicate with the browser and DOM in real-time. Unlike Selenium, the Cypress framework can make API calls, modify the web app code in real-time, and has access to all the tools that the browser’s Dev Tools provide.
+TestRunner toolkit was designed to enable test developers to write code that communicates with the browser using JavaScript framework that can send updates to the browser and DOM in real-time. The TestRunner toolkit makes it quick an easy to install all the dependencies needed to start writing tests.
+
+Unlike Selenium, the Cypress framework can make API calls, modify the web app code in real-time, and has access to all the tools that the browser’s Dev Tools provide.
 
 <img src="assets/TRT1.02A.png" alt="TestRunner Toolkit tools" width="600"/>
 
@@ -49,7 +47,7 @@ TestRunner toolkit was designed to enable test developers to write code that com
 #### Video
 
 [Test Runner Intro](https://drive.google.com/file/d/1yXQTWNc2IRGnNC2G6CkUzYMWFT5KWphK/view?usp=sharing)
-![https://drive.google.com/file/d/1yXQTWNc2IRGnNC2G6CkUzYMWFT5KWphK/preview"](https://drive.google.com/file/d/1yXQTWNc2IRGnNC2G6CkUzYMWFT5KWphK/view?usp=sharing)
+![https://drive.google.com/file/d/1yXQTWNc2IRGnNC2G6CkUzYMWFT5KWphK/preview](https://drive.google.com/file/d/1yXQTWNc2IRGnNC2G6CkUzYMWFT5KWphK/view?usp=sharing)
 
 
 ### What are SauceCTL and TestRunner Toolkit?
@@ -61,7 +59,7 @@ SauceCTL stands for Sauce Control, the command line interface for the Sauce Test
 
 Historically, most end-to-end testing consisted of various components such as [Selenium](https://www.selenium.dev/documentation/en/), <code>[mocha-chai](https://www.codecademy.com/articles/bapi-testing-intro#:~:text=Mocha%20and%20Chai%20are%20two,results%20to%20the%20terminal%20window.)</code> (test assertion frameworks), and other tools that are necessary to run, automate, and debug tests. Users would create a remote session to test a web application. With Sauce Labs Testrunner Toolkit and Cypress, you have an all-in-one test framework, runner, and assertion platform that doesn’t require the client to send commands and wait for a response in order to run.
 
-In other words, Testrunner Toolkit with Cypress provides a powerful [White Box testing](https://en.wikipedia.org/wiki/White-box_testing) tool that doesn’t require downloading and installing several tools and libraries
+In other words, Testrunner Toolkit with Cypress provides a powerful [clear-box testing](https://en.wikipedia.org/wiki/White-box_testing) tool that doesn’t require downloading and installing several tools and libraries:
 
 <img src="assets/TRT1.02B.png" alt="TestRunner Toolkit setup" width="600"/>
 
@@ -197,7 +195,7 @@ Take a look at the top of the config file. There are several important elements 
 *   The `sauce` information. Here is where you will put information that will be passed to sauce and can be used for debugging tests, such as the name, `build` number from your CI tool, and number of machines you would like to run concurrently
 *   The `cypress` information tells your cypress tests where to look for the test configuration file, and which version of cypress you are running
 *   The `suites` information includes the name, browser, and the configuration for your test suites such as what types of file names to look for to run as tests, and other metadata that is passed to the Sauce Labs dashboard for running tests and displaying results.
-*   The docker information includes, in this case, instructions to [mount files](https://docs.docker.com/storage/bind-mounts/) (how to send files to be used by the docker image.) and the docker image name and version that installed by SauceCTL. Note that the version of the image at the end of the image name should match
+*   The `docker` information includes, in this case, instructions to [mount files], (https://docs.docker.com/storage/bind-mounts/) (how to send files to be used by the docker image) and the docker image name and version that installed by SauceCTL. Note that the version of the image at the end of the image name should match
 
 
 
@@ -393,7 +391,7 @@ export default new SwagOverviewPage();
 <img src="assets/TRT1.04H.png" alt="Final Lesson Code" width="550"/>
 
 <!-- ------------------------ -->
-## Section 2
+## Section 5
 Duration: 0:05:00
 
 
@@ -401,12 +399,12 @@ Duration: 0:05:00
 
 
 <!-- ------------------------ -->
-## Section 2
+## Section 6
 Duration: 0:05:00
 
 
 
 
 <!-- ------------------------ -->
-## Section 2
+## Section 7
 Duration: 0:05:00
