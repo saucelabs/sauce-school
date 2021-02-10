@@ -1,7 +1,7 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
 summary: Module 4 of the Selenium Java Course. Learn to write Selenium tests in Java with Maven and JUnit.
-id: Module4_SeleniumJava
+id: Module4-SeleniumJava
 categories: advanced
 tags: java
 environments: Web
@@ -747,7 +747,7 @@ In` BaseTest` you will use another [JUnit rule](https://github.com/junit-team/ju
 
 
 ```
-// filename: lib/DriverFactory.js
+// filename: lib/DriverFactory.java
 // ...
 private String testName;
 // ...
@@ -758,7 +758,7 @@ Next, use the  `TestWatcher()`after the second` @Override `annotation, right bef
 
 
 ```
-// filename: lib/DriverFactory.js
+// filename: lib/DriverFactory.java
 // ...
     @Rule
     public TestRule watcher = new TestWatcher() {
@@ -802,12 +802,12 @@ Run `mvn clean test -Dhost=saucelabs` to see if it works. Now when you run our t
 
 ### Part 2: Add a Test Status
 
-After adding a test name, youwill add in an id and status for each unique test that you create. First, you will need to update our tests. If you noticed before, the only status was **Complete** or had an **Error**. You will now add in whether a test has passed or failed.
+After adding a test name, you will add in an id and status for each unique test that you create. First, you will need to update our tests. If you noticed before, the only status was **Complete** or had an **Error**. You will now add in whether a test has passed or failed.
 
 <img src="assets/4.06F.png" alt="Error or Complete" width="750"/>
 
 
-A _failure _is different from an _error_. An error means that you test code is erroneous, and you, as the test writer, need to make a change. You should see this error in your terminal output, and if the code is correct to communicate with Sauce Labs, it should be on your dashboard as well. A failure means a test successfully ran, but the conditions it was checking for were not present – in other words, the code for the app isn’t as expected or needs fixing.
+A  _failure_ is different from an _error_. An error means that you test code is erroneous, and you, as the test writer, need to make a change. You should see this error in your terminal output, and if the code is correct to communicate with Sauce Labs, it should be on your dashboard as well. A failure means a test successfully ran, but the conditions it was checking for were not present – in other words, the code for the app isn’t as expected or needs fixing.
 
 You’ll first need install the `saucerest` library by adding it to our `pom.xml `file within the `<dependencies>` tags.
 

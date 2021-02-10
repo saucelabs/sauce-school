@@ -102,7 +102,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="twitter:description" property="twitter:description" content="{{view.description}}" />
   <meta name="twitter:image" property="twitter:image" content="/images/og-image.png" />
   <meta name="twitter:url" property="twitter:url" content="{{canonicalViewUrl(view)}}" />
-
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/docsearch.js@2.0/dist/cdn/docsearch.min.css"
+/>
 </head>
 
 <body id="app" is="body-bind" class="loading fullbleed {% if view.id != 'default' -%}view{%- endif -%}">
@@ -113,15 +116,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <a href="/">
           <img src="/images/logo.png" class="logo-devs" alt="Sauce Labs Logo">
         </a>
-        <!--<div id="searchbar">
+
+        <navigation-element></navigation-element>
+
+        <div id="searchbar" class="--desktop">
           <paper-input-container no-label-float>
             <paper-icon-button prefix icon="search"></paper-icon-button>
             <label>Search</label>
-            <input is="iron-input" bind-value="{{searchVal}}" on-keydown="onSearchKeyDown">
+            <input class="search-box" is="iron-input" bind-value="{{searchVal}}" on-keydown="onSearchKeyDown">
           </paper-input-container>
-        </div>-->
-        <navigation-element></navigation-element>
+        </div>
 
+        <!--
+        <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.0/dist/cdn/docsearch.min.js"></script>
+        <script>
+          docsearch({
+            // Your apiKey and indexName will be given to you once
+            // we create your config
+            apiKey: '25626fae796133dc1e734c6bcaaeac3c',
+            indexName: 'docsearch',
+            //appId: '<APP_ID>', // Should be only included if you are running DocSearch on your own.
+            // Replace inputSelector with a CSS selector
+            // matching your search input
+            inputSelector: '.search-box',
+            // Set debug to true to inspect the dropdown
+            debug: false,
+          });
+        </script>
+        -->
       </div>
     </div>
     {% endraw %}
@@ -136,7 +158,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <div class="banner-description"
              data-filter-selected$="{% raw %}[[_toBoolean(selectedFilter)]]{% endraw %}">
           <p class="banner-info">
-      Let’s learn together at Sauce School—the official Sauce Labs training portal. Our courses offer how-to tutorials and testing best practices for beginners and experienced automation engineers alike on topics such as Selenium, JavaScript and Java, with instructions for tools and test runners such as Mocha, JUnit, Jenkins, npm, Maven, Python, Pytest, and of course… all things Sauce Labs.
+            Welcome to Sauce School—the official Sauce Labs training portal The courses here automation code tutorials with best practices for both beginners and experienced automation test developers. Courses cover topics including Selenium, JavaScript, Python, and Java, with how-tos and instructions on using different tools and test runners such as Mocha, JUnit, Jenkins, Sauce Labs, SauceConnect, SauceOnDemand, npm, Maven, Python, Pytest, and more.
           </p>
         {%- else -%}
           <div class="banner-description">

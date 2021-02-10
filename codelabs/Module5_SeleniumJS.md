@@ -153,11 +153,11 @@ After `-u` you will see your username and after` -k `you will have your access k
 
 
 
-### Set Up Proxy Environment
+### Set Sauce Connect Tunnel Capability
 
-Since you are using environment variables in our `config.js` file, you update them to be used in our tests as well. We will need to specify username, access key, as well as the tunnel name (the tunnel identifier). One you have Sauce connect proxy up and running, update `config.js`:
+Since you are using environment variables in our `config.js` file, for your `SAUCE_USERNAME `and` SAUCE_ACCESS_KEY, `we will set up an environment variable for your` SAUCE_TUNNEL` as well. This variable will store the tunnel identifier, so after you start up a Sauce Connect tunnel, you can run your tests using it. First, lets add the code to use it:\.
 
-First, we will need to add in
+First, we will need to add in a new set of capabilities called `sauceW3C` for when you want to run your tests through a tunnel on Sauce. Update `config.js` like so:
 
 
 ```
@@ -234,7 +234,7 @@ module.exports = {
 
 ### Run Tests Using Sauce Connect Proxy
 
-Once your tunnel is up and running, (you should see the message Sauce Connect is up in terminal)  and you have updated your `config.js` and `DriverFactory.js` files, you can run your tests in Sauce Labs using Sauce Connect Proxy. First, update your `.bash_profile ` with an environment variable (`export SAUCE_TUNNEL=`) and name it with the` tunnel id ` you used to start the tunnel with.
+Once your tunnel is up and running, (you should see the message Sauce Connect is up in terminal)  and you have updated your `config.js` and `DriverFactory.js` files, you can run your tests in Sauce Labs using Sauce Connect Proxy. First, update your `.bash_profile ` (or `.zshrc`) with an environment variable (`export SAUCE_TUNNEL=`) and name it with the` tunnel id ` you used to start the tunnel with.
 
 <img src="assets/5.03H.png" alt="Tunnel Tests running on Sauce Labs" width="750"/>
 
@@ -380,9 +380,7 @@ Run` npm test` and visit the [Sauce Labs Dashboard ](https://accounts.saucelabs.
 <!-- ------------------------ -->
 ## 5.05 Grouping Tests
 Duration: 0:08:00
-
-
-In order to get the most out of your tests, you'll want a way to break them up into relevant, targeted chunks. Running tests in smaller groupings like this (along with parallel execution) will help keep test run times to a minimum and help enhance the amount of feedback you get in a timely fashion.
+In order to get the most out of your tests, you'll want a way to break them up into relevant, targeted chunks. Running tests in smaller groupings (along with parallel execution) will help keep test run times to a minimum and help you quickly sift through test results and target your tests. It also allows you to run different groups of tests for different purposes.
 
 With [Mocha's --grep feature](https://github.com/mochajs/mocha/wiki/Tagging) we're able to easily achieve test grouping (a.k.a. tags).
 
@@ -450,7 +448,7 @@ Run your tests (they should run in parallel on Sauce Labs. You should get an out
 
 <!-- ------------------------ -->
 ## 5.06 Setting Up Jenkins
-Duration: 0:25:00
+Duration: 0:15:00
 
 
 You'll probably get a lot of mileage out of your test suite in its current form if you just run things from your computer, look at the results, and tell people when there are issues. But that only helps you solve part of the problem.
@@ -502,7 +500,7 @@ Let's start by setting up Jenkins on your local machine and using the test code 
 These instructions give you the step-by-step for how to set up on MacOS, however there are instructions for other operating systems, as well as the option for setup using a Docker container with other operating systems [here](https://www.jenkins.io/doc/book/installing/).
 
 
-### Jenkins Setup
+### Install Jenkins
 
 A simple way to get started is to use [Homebrew ](https://brew.sh/)to install Jenkins on MacOS. Once Homebrew is installed on your computer, use the instructions on the [Jenkins download page](https://jenkins.io/download/). If you are using Homebrew on MacOS, all you need to do is run this command in the terminal:
 
@@ -520,23 +518,14 @@ Jenkins was built on Java, and in order for your program to work, you will also 
 
 #### NOTE
 
-To Install JDK 8, visit the [Java 8 download page](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) from Oracle. You may have to create an account.
-
-<img src="assets/5.06E.png" alt="JDK 8" width="650"/>
-
-
-Download the file, then open and follow the instructions to install Java.
+Negative
+: To Install JDK 8, visit the [Java 8 download page](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) from Oracle. You may have to create an account. <img src="assets/5.06E.png" alt="JDK 8" width="650"/> Download the file, then open and follow the instructions to install Java. <img src="assets/5.06F.png" alt="Install JDK 8" width="650"/>
 
 
-<img src="assets/5.06F.png" alt="Install JDK 8" width="650"/>
+Negative
+: If you haven’t installed Java before, you’ll need to update your `.bash_profle `(or your `.zshrc` file on MacOS Catalina) with the system variables and PATH: <img src="assets/5.06G.png" alt="Java Path Variable" width="650"/>
 
 
-If you haven’t installed Java before, you’ll need to update your `.bash_profle `(or your `.zshrc` file on MacOS Catalina) with the system variables and PATH:
-
-<img src="assets/5.06G.png" alt="Java Path Variable" width="650"/>
-
-
---
 
 
 ### Run Jenkins
@@ -583,14 +572,24 @@ brew services stop jenkins
 ```
 
 
+<!-------->
+## 5.08 Create a Jenkins Project
+Duration: 0:05:00
 
-### Create a Project
+Typically when you set up tests, you would add your test code as a part of the pipeline to put code into production, typically on a staging server. Three typical jobs that are in almost every pipeline are build, test, and deploy.
 
-Keep in mind that you typically would not be the one setting up Jenkins to run your tests; your administrator or DevOps team would be adding your test code as a part of the pipeline to put code into production, typically on a staging server. Three typical jobs that are in almost every pipeline are build, test, and deploy. One of the Sauce Lab sweet spots is the ability to create the _test _project piece of the pipeline.
-
-Now that Jenkins is loaded in the browser, let's create a **Project **and configure it to run our shallow tests against Chrome on Windows 10.
+Jenkins is one of many tools you can use to automate your builds, however it also means that one has to log in to the Jenkins dashboard to debug tests. Using Sauce Labs makes it a lot easier to see, share, and debug tests results that are a part of a release pipeline.
 
 
+#### Video
+
+Watch [Run Jenkins with Homebrew ](https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/view?usp=sharing)for a walk through of how to run and check the configuration of your test job and Node environment in Jenkins.
+
+![https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/preview](https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/view?usp=sharing)
+
+### Create a Test Project
+
+Now that Jenkins is loaded in the browser, let's create a **Project** and configure it to run our shallow tests against Chrome on Windows 10.
 
 1. Click **New Item** from the Dashboard menu.
 
@@ -626,7 +625,7 @@ Once you have clicked on a project and chosen **Configure** from the menu, go to
 BROWSER=chrome BROWSER_VERSION=50 PLATFORM='Windows 10' npm test -- --grep=@shallow
 ```
 
-
+* Click **Save** to add the changes and return to the test main page.
 
 To return to the dashboard and see the list of projects, you can click **Back to Dashboard** in the menu. You can also click **Configure** to change or update the changes you just made:
 
@@ -671,14 +670,6 @@ To run your test, simply click **Build Now** in the menu, then click on the sphe
 
 <img src="assets/5.06T.png" alt="Test Result Output" width="750"/>
 
-
-#### Video
-
-Watch [5.06 Run Jenkins with Homebrew ](https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/view?usp=sharing)for a walk through of how to run and check the configuration of your test job and Node environment in Jenkins.
-
-![https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/preview](https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/view?usp=sharing)
-
-
 #### NOTE
 
 Negative
@@ -687,11 +678,10 @@ Negative
 
 
 <!-- ------------------------ -->
-## 5.07 Jenkins and Sauce OnDemand
+## 5.08 Jenkins and Sauce OnDemand
 Duration: 0:15:00
 
 You haven’t run a test yet that has successfully passed in Sauce Labs. In this lesson, you’ll learn to connect your Jenkins server to your Sauce Labs account using the Sauce OnDemand Jenkins plugin, as well as run a test with Jenkins using Sauce Connect Proxy.
-
 
 ### Test Reporters
 
@@ -959,13 +949,13 @@ Congratulations!  You now have the skills to create a basic test suite, plan you
 
 
 <!-- ------------------------ -->
-## 5.08 Quiz
+## 5.09 Quiz
 Duration: 0:05:00
 
 ![https://docs.google.com/forms/d/e/1FAIpQLSeRXdkLZTwivvNYpudqfKkcNMCojGuobA507hUL7os0veu-9w/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSeRXdkLZTwivvNYpudqfKkcNMCojGuobA507hUL7os0veu-9w/viewform?usp=sf_link)
 
 <!-- ------------------------ -->
-## 5.09 Resources and Community
+## 5.10 Resources and Community
 Duration: 0:03:00
 
 

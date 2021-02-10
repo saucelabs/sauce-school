@@ -353,7 +353,7 @@ The updated code should look like this:
 
 
 
-## 3.05  Common Issues with Test Code Reuse
+## 3.05  Create a Base Page
 Duration: 0:17:00
 
 In the previous lesson, you stepped through creating a simple page object to for all of the interactions your tests performs with the login page. While this is a good start, there's more you can do.
@@ -366,12 +366,12 @@ Right now you are using Selenium actions directly in your page object. While on 
 *   You may need to update your test code (added maintenance for each page) because of updates and changes to the [Selenium API](https://www.selenium.dev/documentation/en/webdriver/)
 *   The inability to swap out the driver for your tests. You may in the future, for instance, want to swap out commands in Selenium for commands in Appium (for mobile testing)
 
-What you will do now is set up a Base Page that will create descriptive variables and methods, then use those created methods to interact with other pages. This way, if you need to swap out, say, a Selenium method for an Appium method, instead of having to do it in each and every page, you can change the BasePage.js methods to Appium-specific ones, and not have to change all of your other pages.
+What you will do now is set up a Base Page that will create descriptive variables and methods, then use those created methods to interact with other pages. This way, if you need to swap out, say, a Selenium method for an Appium method, instead of having to do it in each and every page, you can change the Base Page methods to Appium-specific ones, and not have to change all of your other pages.
 
 
-### Part 1: Create a Facade Layer
+### Part 1: Create a Base
 
-Creating a _facade layer_ or a **Base Page**  involves creating a separate page or class from your test page, that helps you simplify the language to carry out simple commands like `self.driver.get(url)`, check an assertion after, and simplify this process into a single command like `find()` or `click()` so that these methods can be easily used by the rest of the test suite. In this lesson, you will create a simplified member called `base_page.py`, which you will then use to create your `login_page` class.
+A _facade layer_ can be created in the for of a base page object, which will help you simplify the language to carry out simple commands like `self.driver.get(url)`, check an assertion after, and simplify this process into a single command like `find()` or `click()` so that these methods can be easily used by the rest of the test suite. In this lesson, you will create a simplified member called `base_page.py`, which you will then use to create your `login_page` class.
 
 First let's add a new file in the **pages** directory called `base_page.py`.
 

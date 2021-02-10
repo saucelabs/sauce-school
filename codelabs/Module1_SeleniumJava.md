@@ -170,9 +170,9 @@ Move the zipped file to your Applications folder.
 In terminal, open the file in your downloads directory in terminal and run the command:
 
 
-`tar xzvf apache-maven-3.6.3-bin.tar.gz`
+`tar xzvf apache-maven-X.X.X-bin.tar.gz`
 
-(Replace `maven-3.6.3-bin.tar.gz` with the version you downloaded.)  This will unzip the project file.
+(Replace `maven-X.X.X-bin.tar.gz` with the version you downloaded, such as `maven-3.6.3-bin.tar.gz`)  This will unzip the project file.
 
 Next, you will need to [update your bash profile](https://medium.com/macoclock/how-to-create-delete-update-bash-profile-in-macos-5f99999ed1e7) to tell your computer where to look for files that you will need to run your test (Maven and Java).
 
@@ -189,14 +189,14 @@ export M2_HOME=$HOME/Applications/apache-maven-<version>
 export M2=$M2_HOME/bin
 
 ##Add to PATH variable
-export PATH=$M2:$JAVA_HOME/bin:$PATH
+export PATH=$PATH:$M2:$JAVA_HOME/bin:$PATH
 ```
 
 
 
 #### Note
 Negative
-: The version of the apache-maven variable needs to reflect which version you downloaded. For example, if you downloaded maven version 3.6.3, it would read `export M2_HOME=$HOME/Applications/apache-maven-3.6.3`
+: The version of the apache-maven PATH variable needs to reflect which version you downloaded. For example, if you downloaded maven version 3.6.3, it would read `export M2_HOME=$HOME/Applications/apache-maven-3.6.3`
 
 
 
@@ -231,7 +231,7 @@ We will download JDK (Java Development Kit) and choose the latest version. This 
 
 #### Note
 Negative
-: If you already have JDK(s) installed, simply choose the one you would like to use: <img src="assets/1.05X.png" alt="pom.xml" width="550"/>
+: If you already have JDK(s) installed, simply choose the one you would like to use: <img src="assets/1.05X.png" alt="pom.xml" width="550"/>                  If you get a box asking for a GroupId and ArtifactId, you can fill them in with whatever you would like- it will be replaced later in the `pom.xml`. <img src="assets/1.05Y.png" alt="pom.xml" width="450"/>
 
 If you leave the **Location** blank, it will create this project in the root user folder. You can add in another directory name if you wish.  Our project will be called SeleniumJava.
 
@@ -242,7 +242,7 @@ If you look in the project file, you should notice that there is a **pom.xml** f
 
 <img src="assets/1.05N.png" alt="pom.xml" width="350"/>
 
-### The pom.mxl File
+### The pom.xml File
 
 The `pom.xml` file is what Maven uses to identify which dependencies to install and update. To start off, you will updated `pom.xml` with your dependencies. Maven will install and use these dependencies alongside the test code. Note that the versions may be out of date and you may want to use a more updated version of JUnit4, Selenium, or Selenium drivers.
 
@@ -320,6 +320,28 @@ The `pom.xml` file is what Maven uses to identify which dependencies to install 
 
 This sets up all the dependencies, however, you may need to research to make sure you have the most updated or correct version of these dependencies. Each dependency's `version` may need to be updated. You can check Maven
 
+This sets up all the dependencies, however, you may need to research to make sure you have the most updated or correct version of these dependencies. Each dependency's `version` may need to be updated.
+
+Once you have added your `pom.xml` file update, go to **File > Invalidate Caches and Restart** for everything to take effect and to get Maven to import the dependencies.
+
+<img src="assets/1.05Z.png" alt="pom.xml" width="450"/>
+
+Negative
+: * Words should no longer appear red in the test.java file.
+
+
+#### Video
+
+[1.05_IntelliJ_Dependencies ](https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/view?usp=sharing)– Using IntelliJ to install dependencies and update the .pom file
+
+![https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/preview](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
+
+
+### Use GitHub Repository (Optional)
+
+If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
+
+**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod1/1.06/src/test/java/companyname/TestLogin.java)**
 
 
 <!-- ------------------------ -->

@@ -343,16 +343,16 @@ Duration: 0:15:00
 
 Now we are ready to start writing the code for your first test. Create a new project directory called **SeleniumJava** (in your main project directory on your computer), and inside create the directory **java**. This is a default folder that Maven will know to look for.
 
-Inside of your Java file create a package with your company name. This example is named **companyname.** Inside of that create a file called **TestLogin.java**.
+Inside of your Java file create a package with your company name. This example is named **tests.** Inside of that create a file called **TestLogin.java**.
 
-<img src="assets/2.05N.png" alt="Directory Structure" width="350"/>
+<img src="assets/2.05Z.png" alt="Directory Structure" width="550"/>
 
 Copy and paste the following code into the file You will have to **Add your own filepath** where you stored your chromedriver: An example of a filepath property in the beofre hook: `System.setProperty("webdriver.chrome.driver", "/Users/lindsaywalker/Documents/chromedriver");`
 
 
 ```
 //filename: tests/TestLogin.java
-package companyname;
+package tests;
 
 import org.junit.After;
 import org.junit.Before;
@@ -382,8 +382,6 @@ public class TestLogin {
         driver.findElement(By.id("username")).sendKeys("tomsmith");
         driver.findElement(By.id("password")).sendKeys("SuperSecretPassword!");
         driver.findElement(By.cssSelector("button")).click();
-        assertTrue("success message not present",
-                driver.findElement(By.cssSelector(".flash.success")).isDisplayed());
     }
 
     @After
@@ -424,30 +422,8 @@ You will also need to set the path to the place on your computer where you unzip
 #### Note
 
 Negative
-: How to Find Dependencies Using IntelliJ Video:
- If your test file doesn’t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out.
-
- Negative
-: * Hover over a red word in IDE
-
-Negative
-: * Click the red light bulb to import maven dependencies.
-
-Negative
-: * Click the Maven tab and refresh.
-
-Negative
-: * Check the .pom file to make sure the updated version was added.
-
-Negative
-: * Words should no longer appear red in the test.java file.
-
-
-#### Video
-
-[1.05_IntelliJ_Dependencies ](https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/view?usp=sharing)– Using IntelliJ to install dependencies and update the .pom file
-
-![https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/preview](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
+: **How to Find Dependencies Using IntelliJ**:
+ If your test file doesn’t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out. See the video [IntelliJ_Dependencies ](https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/view?usp=sharing)– Using IntelliJ to install dependencies and update the .pom file  ![https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/preview](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
 
 
 ### Use GitHub Repository (Optional)
@@ -457,21 +433,19 @@ If you are familiar with using GitHub to write your code, you can also fork/ bra
 **[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod1/1.06/src/test/java/companyname/TestLogin.java)**
 
 
-Negative
-: **Check driver path and browser version–** If your tests aren't running correctly, double check that the `System.setProperty("webdriver.chrome.driver")` has the full path to where you installed the chromedriver, and that the `browserOptions.setCapability("browserVersion", "XX.0");` matches the version of both the browser you have on your computer, and the version of the chromedriver you installed.
-
-
 ### Run a Test with IntelliJ
 
 IntelliJ is a comprehensive tool that allows you to work with Maven, JUnit4, Github, and many other dependencies all from the same window. It allows you to debug and run portions of a test, see which branch you are on in Github, manage project files, and much more. If you aren’t familiar, you can [learn more here](https://www.jetbrains.com/help/idea/guided-tour-around-the-user-interface.html).
 
 
-#### Video
+#### Video- How to Run a Test
 
 Follow the instructions here in [2.05_IntelliJ_Tests](https://drive.google.com/file/d/1FlQ75pcOR37FEMCPKQEk6SeihA6d_Z1f/view?usp=sharing) to learn how to run a test with the IntelliJ UI
 
 ![https://drive.google.com/file/d/1FlQ75pcOR37FEMCPKQEk6SeihA6d_Z1f/preview](https://drive.google.com/file/d/1FlQ75pcOR37FEMCPKQEk6SeihA6d_Z1f/view?usp=sharing)
 
+Negative
+: **Check driver path and browser version–** If your tests aren't running correctly, double check that the `System.setProperty("webdriver.chrome.driver")` has the full path to where you installed the chromedriver, and that the `browserOptions.setCapability("browserVersion", "XX.0");` matches the version of both the browser you have on your computer, and the version of the chromedriver you installed.
 
 
 <!-- ------------------------ -->
@@ -483,11 +457,23 @@ Duration: 0:10:00
 Assertions are statements that are used at a certain point in the test code (usually following a certain sequence of events) that check to see if some condition is true or false. The test code you created thus far simply tells your test what elements to look for on the page, and what to do with those elements.
 
 
+#### Note
+Negative
+: If you had difficulty before getting your test to run because your test had trouble locating chromedriver, you can create a `/lib` directory in the root of the project folder, and place the extracted chromedriver there. <img src="assets/2.06E.png" alt="New lib directory" width="400"/> <img src="assets/2.06F.png" alt="Add chromedriver to lib" width="700"/>
+
+Negative
+: If you do change the location of the chromedriver, you will need to modify your system.setProperty to the following: <img src="assets/2.06G.png" alt="update path to chromedriver" width="700"/> ```  // Set location of chromedriver
+        if (System.getProperty("os.name").startsWith("Windows")) {
+            System.setProperty("webdriver.chrome.driver", "lib/drivers/chromedriver.exe");
+        } else {
+            System.setProperty("webdriver.chrome.driver", "lib/drivers/chromedriver");
+        }```
+
 ### Add an Assertion
 
 Now it’s time to add in an assertion to see if your actions had the desired effect. We want to check that the div that pops up when you have successfully logged in with the `class = "flash_success" `does in fact appear after you enter the login credentials.
 
-<img src="assets/2.07A.png" alt="Pencil" width="400"/>
+<img src="assets/2.07A.png" alt="check fro login success element" width="600"/>
 
 
 Start by opening the blank `TestLogin.java` file you created in the `tests` directory.
@@ -497,7 +483,7 @@ Copy and paste the following code into your program file, between the `@Before` 
 
 ```
 //filename: tests/TestLogin.java
-package companyname;
+package tests;
 
 import static org.junit.Assert.assertTrue;
 
@@ -554,21 +540,7 @@ For right now, here's what you need to know. In CSS, class names start with a do
 ### Note
 
 Negative
-: If you find that your tests are failing, try running the command `source ~/bash_profile `(or `source ~/.zhsrc `for MacOS Catalina) in the command line. This tells your machine to look at your bash profile to find the path to Maven and other dependencies.
-In order to avoid doing that each time, you can edit your profile with the following steps:
-
-Negative
-: 1. In terminal, run `cd .. `and hit enter until you are at the top directory
-
-Negative
-: 2. Once you are in the top directory, run the command `ls`, and you should see a directory named `/bin`
-
-Negative
-: 3. Run `cd bin` to enter that directory and run` ls` again. In that list of files, you should see one called profile. Open it in edit mode by running the command` sudo vi profile `(you may have to enter your password)
-
-Negative
-: 4. Type `i `to enter insert mode. Next, copy and paste in `source ~/bash_profile `in the second line of code. Hit escape twice, then you should be able to type in `:wq!` At the bottom to save the changes. Now your machine knows where to look for your environment and PATH variables <img src="assets/2.06A.png" alt="Bash Profile" width="450"/>
-
+: If you find that your tests are failing, try running the command `source ~/bash_profile `(or `source ~/.zhsrc `for MacOS Catalina) in the command line. This tells your machine to look at your bash profile to find the path to Maven and other dependencies. If it doesn't return your variable when you run the command `echo $JAVA_HOME` it means you need to upate your PATH and variables for Maven and Java.
 
 
 ### Video
@@ -641,8 +613,7 @@ Copy and paste the code below into your test file.  Above the `public class {}` 
 ```
 // filename: test/TestLocator.java
 
-//filename: tests/TestLogin.java
-package companyname;
+package tests;
 
 import org.junit.After;
 import org.junit.Before;

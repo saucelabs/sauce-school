@@ -1,7 +1,7 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
 summary: Module 2 of the Sauce Labs Quickstart, this section on Android Mobile Emulator Tests goes over how to test Android mobile apps and browsers with the Appium test runner on Sauce Labs virtual machines.
-id: Module2_Quickstart
+id: Module2-Quickstart
 categories: intermediate
 tags: quickstart
 environments: Web
@@ -38,13 +38,12 @@ This module is created to walk you through the steps you need to take to get a t
 
 ### Resources
 Download the following resources on your computer:
-<<<<<<< HEAD
+
 * [Android Test Code](https://github.com/walkerlj0/Quickstart_Android). See the _/Mod2/2.03_ folder to follow along starting on the next module.
-=======
-* [Android Test Code](https://github.com/walkerlj0/Quickstart_Android). See the _/Mod2/2.03_ to follow along starting on the next module.
->>>>>>> master
+
 * Swag Labs [Android Native Demo App](https://github.com/saucelabs/sample-app-mobile/releases)
-    * Scroll down and find the **Android.SauceLabs.Mobile.Sample.app.x.x.x.apk** file. Choose the latest version you can find.
+
+* Scroll down and find the **Android.SauceLabs.Mobile.Sample.app.x.x.x.apk** file. Choose the latest version you can find.
 
 <img src="assets/QS2.02A.png" alt="Swag Labs Mobile App Repo" width="650"/>
 
@@ -1250,7 +1249,7 @@ Add in a `System.out.println("Sauce- release driver")` inside of the `finally` s
 ```
 
 
-Last, we will add in  `JavaScriptExecutor` [to pass in the sauce:job-result](https://wiki.saucelabs.com/display/DOCS/Annotating+Tests+with+Selenium%27s+JavaScript+Executor/?utm_source=referral&utm_medium=LMS&utm_campaign=link)` `to the Sauce Rest API:
+Last, we will add in  `JavaScriptExecutor` [to pass in the sauce:job-result](https://wiki.saucelabs.com/display/DOCS/Annotating+Tests+with+Selenium%27s+JavaScript+Executor/?utm_source=referral&utm_medium=LMS&utm_campaign=link) to the Sauce Rest API:
 
 
 ```
