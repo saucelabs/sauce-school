@@ -104,6 +104,9 @@ In our case, we will use Docker engine, which is made up of:
 Negative
 : Note that the config file here may be out of date, and the [correct configuration can be found in the documentation.](https://docs.staging.saucelabs.net/testrunner-toolkit/configuration/cypress)
 
+#### Set Sauce Username and Access Key
+
+Watch [this video](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing) to see how ot set up your Sauce username and access key, or use [the instructions here to set them up on Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
 
 ### Install Docker
 
@@ -381,7 +384,8 @@ export default new SwagOverviewPage();
 
  #### Final Code
 
- See a sample of the [project and code here](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.04)
+ See a sample of the [project and code here.](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.04)
+
 <img src="assets/TRT1.04E.png" alt="Final Lesson Code" width="450"/>
 
 <img src="assets/TRT1.04F.png" alt="Final Lesson Code" width="550"/>
