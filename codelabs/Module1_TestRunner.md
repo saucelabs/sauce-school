@@ -52,7 +52,7 @@ Unlike Selenium, the Cypress framework can make API calls, modify the web app co
 
 ### What are SauceCTL and TestRunner Toolkit?
 
-SauceCTL stands for Sauce Control, the command line interface for the Sauce TestRunner toolkit. The toolkit includes SauceCTL that allows you to interface with testrunner toolkit through command line, as well as the tools necessary to record the output from tests run on cypress in dockers, and send the data to Sauce Labs, making it easy to interpret, share an analyze those test results.
+SauceCTL stands for Sauce Control, the command line interface for the Sauce TestRunner toolkit. The toolkit includes SauceCTL that allows you to interface with TestRunner Toolkit through command line, as well as the tools necessary to record the output from tests run on Cypress in Docker containers, and send the data to Sauce Labs, making it easy to interpret, share an analyze those test results.
 
 
 ### Why Use TestRunner Toolkit
@@ -82,7 +82,7 @@ By using Docker, you are using a simple virtual environment that includes an OS,
 ## 1.03 Set Up the TestRunner Toolkit Environment
 Duration: 0:07:00
 
-In this module, you will see how you can set up the Sauce Testrunner Toolkit along with Docker on your computer MacOS Computer.
+In this module, you will see how you can set up the Sauce TestRunner Toolkit along with Docker on your computer MacOS Computer.
 
 Docker is software that allows you to create an isolated environment on your computer that is separate from your operating system, creating a lightweight environment that runs a Linux kernel to do specific tasks. Learn more from the [Docker documentation](https://docs.docker.com/get-started/overview/). Each environment coupled with the software and setting packaged together to use in that environment is called an **image**.
 
@@ -112,13 +112,13 @@ Watch [this video](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx
 
 The first thing you need to do visit the [docker download website ](https://docs.docker.com/get-docker/)and install the correct version on your machine.
 
-Start up docker to ensure it’s running properly on your machine. Most likely, Docker will be set up to start once you have logged on. You can check to see if it’s running with the command `docker info`, and see which version you have with the command `docker -v`.  
+Start up Docker to ensure it’s running properly on your machine. Most likely, Docker will be set up to start once you have logged on. You can check to see if it’s running with the command `docker info`, and see which version you have with the command `docker -v`.  
 
 
 #### Note
 
 Negative
-: Typically, one would need to import a docker image, however since we are also installing SauceCTL, the image will be specified in the config file for SauceCTL and imported for you.
+: Typically, one would need to import a Docker image, however since we are also installing SauceCTL, the image will be specified in the config file for SauceCTL and imported for you.
 
 
 ### Download and Install SauceCTL
