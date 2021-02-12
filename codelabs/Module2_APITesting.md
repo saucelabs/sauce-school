@@ -17,13 +17,13 @@ Duration: 0:05:00
 
 ### Test Every Endpoint
 
-Every endpoint is an integral part of an API program, and that means validating each one works as expected. This even means testing endpoints that add items into a database like Create User. A smart platform allows you to create tests that can add users, validate they were properly entered, and if it's a success then the user is deleted. \[[Learn More](https://apifortress.com/doc/quick-start-guide-create-a-test/)\]
+Every endpoint is an integral part of an API program, and that means validating each one works as expected. This even means testing endpoints that add items into a database like Create User. A smart platform allows you to create tests that can add users, validate they were properly entered, and if it's a success then the user is deleted.
 
 ### Test Everything
 
 API payloads are filled with information. You should not only be testing every _object_, but the header also contains vital information. _Response-Type_, _Statuscode_, _Content-Type_, every piece of information in an API call is important to validate.
 
-<img src="assets/wp-content/uploads/2019/06/uber-payload-header.png" alt="API Payload" width="650"/>
+<img src="assets/wp-content/uploads/2019/06/uber-payload-header.png" alt="API Payload" width="850"/>
 
 
 ### Test Objects Thoroughly
@@ -55,11 +55,11 @@ Before you begin creating tests for your API program, you should first consider 
 
 Again, monitoring is the most useful and yet underused form of testing. You need to know more about an API than if it's up or down, you need to validate it's functioning correctly.
 
-Schedule your existing functional and integration tests against the live environment to truly understand how your APIs are working in the real world. Every API program should have a status page. [Learn More](https://apifortress.com/doc/easy-monitoring/)
+Schedule your existing functional and integration tests against the live environment to truly understand how your APIs are working in the real world. Every API program should have a status page. [Learn about how to moitor AIPS](https://apifortress.com/doc/easy-monitoring/)
 
 ### Automate!
 
-The key to delivering new and updated APIs quickly, and with confidence of their quality, is with test execution automation. This is particularly important for organization using CI/CD platforms like Jenkins, TravisCI, Bamboo, Azure DevOps, and more. Add your test suite to your pipelines as soon as you can. [Learn More](https://apifortress.com/doc/integrate-with-your-cicd/)
+The key to delivering new and updated APIs quickly, and with confidence of their quality, is with test execution automation. This is particularly important for organization using CI/CD platforms like Jenkins, TravisCI, Bamboo, Azure DevOps, and more. Add your test suite to your pipelines as soon as you can. [Learn more about integrating CI/CD](https://apifortress.com/doc/integrate-with-your-cicd/)
 
 
 
@@ -126,3 +126,7 @@ Do you already use a platform to analyze all your data, well you can send all yo
 ### Integrate with Test Case Managers
 
 Integrating with your Test Case Manager and communicating the results of tests is important. Having all of your information in your test case manager including test result data makes it easy to understand the entire project. Connectors can be setup to automatically send test results to your test case manager upon completion of scheduled tests.
+
+<!-- ------------------------ -->
+## 2.04 Quiz
+![https://docs.google.com/forms/d/e/1FAIpQLScD-Qv4R-99_uW2IumSKhPTkwO3RX-3mU0G-aotTWMrIVVrUA/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScD-Qv4R-99_uW2IumSKhPTkwO3RX-3mU0G-aotTWMrIVVrUA/viewform?usp=sf_link)
