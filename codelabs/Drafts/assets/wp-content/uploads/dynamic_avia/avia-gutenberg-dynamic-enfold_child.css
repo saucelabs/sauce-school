@@ -1,0 +1,139 @@
+
+@font-face { 
+     font-family: '-macosx';
+     src:    url('https://apifortress.com/wp-content/uploads/avia_fonts/type_fonts/-macosx/._museosans-bold-italic.woff') format('woff');
+     font-style:  italic;
+     font-weight: 400;
+}
+@font-face { 
+     font-family: '-macosx';
+     src:    url('https://apifortress.com/wp-content/uploads/avia_fonts/type_fonts/-macosx/._museosans-bold.woff') format('woff');
+     font-style:  normal;
+     font-weight: 700;
+}
+@font-face { 
+     font-family: '-macosx';
+     src:    url('https://apifortress.com/wp-content/uploads/avia_fonts/type_fonts/-macosx/._museosans-light-italic.woff') format('woff');
+     font-style:  italic;
+     font-weight: 400;
+}
+@font-face { 
+     font-family: '-macosx';
+     src:    url('https://apifortress.com/wp-content/uploads/avia_fonts/type_fonts/-macosx/._museosans-light.woff') format('woff');
+     font-style:  normal;
+     font-weight: 300;
+}
+@font-face { 
+     font-family: '-macosx';
+     src:    url('https://apifortress.com/wp-content/uploads/avia_fonts/type_fonts/-macosx/._museosans-medium-italic.woff') format('woff');
+     font-style:  italic;
+     font-weight: 400;
+}
+@font-face { 
+     font-family: '-macosx';
+     src:    url('https://apifortress.com/wp-content/uploads/avia_fonts/type_fonts/-macosx/._museosans-medium.woff') format('woff');
+     font-style:  normal;
+     font-weight: 500;
+}
+@font-face { 
+     font-family: '-macosx';
+     src:    url('https://apifortress.com/wp-content/uploads/avia_fonts/type_fonts/-macosx/._museosans-regular-italic.woff') format('woff');
+     font-style:  italic;
+     font-weight: 400;
+}
+@font-face { 
+     font-family: '-macosx';
+     src:    url('https://apifortress.com/wp-content/uploads/avia_fonts/type_fonts/-macosx/._museosans-regular.woff') format('woff');
+     font-style:  normal;
+     font-weight: 400;
+}
+@font-face { 
+     font-family: '-macosx';
+     src:    url('https://apifortress.com/wp-content/uploads/avia_fonts/type_fonts/-macosx/._museosans-thin-italic.woff') format('woff');
+     font-style:  italic;
+     font-weight: 400;
+}
+@font-face { 
+     font-family: '-macosx';
+     src:    url('https://apifortress.com/wp-content/uploads/avia_fonts/type_fonts/-macosx/._museosans-thin.woff') format('woff');
+     font-style:  normal;
+     font-weight: 100;
+}
+@font-face { 
+     font-family: 'museosans';
+     src:    url('https://apifortress.com/wp-content/uploads/avia_fonts/type_fonts/museosans/museosans-bold-italic.woff') format('woff');
+     font-style:  italic;
+     font-weight: 400;
+}
+@font-face { 
+     font-family: 'museosans';
+     src:    url('https://apifortress.com/wp-content/uploads/avia_fonts/type_fonts/museosans/museosans-bold.woff') format('woff');
+     font-style:  normal;
+     font-weight: 700;
+}
+@font-face { 
+     font-family: 'museosans';
+     src:    url('https://apifortress.com/wp-content/uploads/avia_fonts/type_fonts/museosans/museosans-light-italic.woff') format('woff');
+     font-style:  italic;
+     font-weight: 400;
+}
+@font-face { 
+     font-family: 'museosans';
+     src:    url('https://apifortress.com/wp-content/uploads/avia_fonts/type_fonts/museosans/museosans-light.woff') format('woff');
+     font-style:  normal;
+     font-weight: 300;
+}
+@font-face { 
+     font-family: 'museosans';
+     src:    url('https://apifortress.com/wp-content/uploads/avia_fonts/type_fonts/museosans/museosans-medium-italic.woff') format('woff');
+     font-style:  italic;
+     font-weight: 400;
+}
+@font-face { 
+     font-family: 'museosans';
+     src:    url('https://apifortress.com/wp-content/uploads/avia_fonts/type_fonts/museosans/museosans-medium.woff') format('woff');
+     font-style:  normal;
+     font-weight: 500;
+}
+@font-face { 
+     font-family: 'museosans';
+     src:    url('https://apifortress.com/wp-content/uploads/avia_fonts/type_fonts/museosans/museosans-regular-italic.woff') format('woff');
+     font-style:  italic;
+     font-weight: 400;
+}
+@font-face { 
+     font-family: 'museosans';
+     src:    url('https://apifortress.com/wp-content/uploads/avia_fonts/type_fonts/museosans/museosans-regular.woff') format('woff');
+     font-style:  normal;
+     font-weight: 400;
+}
+@font-face { 
+     font-family: 'museosans';
+     src:    url('https://apifortress.com/wp-content/uploads/avia_fonts/type_fonts/museosans/museosans-thin-italic.woff') format('woff');
+     font-style:  italic;
+     font-weight: 400;
+}
+@font-face { 
+     font-family: 'museosans';
+     src:    url('https://apifortress.com/wp-content/uploads/avia_fonts/type_fonts/museosans/museosans-thin.woff') format('woff');
+     font-style:  normal;
+     font-weight: 100;
+}
+
+
+.editor-block-list__block,
+.editor-block-list__block p {background-color:#ffffff; color:#404040; font-size:16px;}
+.editor-block-list__block h1,
+.editor-block-list__block h2,
+.editor-block-list__block h3,
+.editor-block-list__block h4,
+.editor-block-list__block h5,
+.editor-block-list__block h6 {color:#222222;}
+.editor-block-list__block a,
+.editor-block-list__block strong,
+.editor-block-list__block b,
+.editor-block-list__block b a,
+.editor-block-list__block strong a {color:#dc2a1d;}
+.editor-block-list__block .wp-block-heading,
+.editor-post-title__block textarea {font-family:'museosans', 'HelveticaNeue', 'Helvetica Neue', 'Helvetica-Neue', Helvetica, Arial, sans-serif;}
+.editor-block-list__block {font-family:'museosans', 'HelveticaNeue', 'Helvetica Neue', 'Helvetica-Neue', Helvetica, Arial, sans-serif;}
