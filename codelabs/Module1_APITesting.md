@@ -13,7 +13,7 @@ author:Lindsay Walker
 
 <!-- ------------------------ -->
 ## 1.01 What is an API?
-Duration: 0:05:00
+Duration: 0:02:00
 
 APIs are the term used to describe web services that connect different platforms or data services together. An example is the Uber application. The way that you search, book, and pay are all done through APIs.
 
