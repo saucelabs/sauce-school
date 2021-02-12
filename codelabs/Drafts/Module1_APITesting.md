@@ -30,31 +30,32 @@ The response is in JSON format and human readable. Here is a snippet:
 
 ```
 {  
-    "products": \[  
+    "products":   
         {  
             "capacity": 2,  
-            "product\_id": "929fcc19-8cb4-4007-a54f-3ab34473700f",  
-            "Price\_details": {  
-                "service\_fees": \[\],  
-                "cost\_per\_minute": 0.74,  
-                "distance\_unit": "mile",  
+            "product_id": "929fcc19-8cb4-4007-a54f-3ab34473700f",  
+            "Price_details": {  
+                "service_fees": \[\],  
+                "cost_per_minute": 0.74,  
+                "distance_unit": "mile",  
                 "minimum": 8,  
-                "cost\_per\_distance": 1.62,  
+                "cost_per_distance": 1.62,  
                 "base": 0,  
-                "cancellation\_fee": 5,  
-                "currency\_code": "USD"  
+                "cancellation_fee": 5,  
+                "currency_code": "USD"  
             },  
             "Image": "https://d1a3f4spazzrp4.cloudfront.net/car-types/mono/mono-uberpool.png",  
-            "cash\_enabled": false,  
+            "cash_enabled": false,  
             "shared": true,  
-            "short\_description": "Pool",  
-            "display\_name": "UberPool",  
-            "product\_group": "rideshare",  
+            "short_description": "Pool",  
+            "display_name": "UberPool",  
+            "product_group": "rideshare",  
             "description": "Shared rides, door to door"  
         }  
-    \]  
 }
 ```
+You can see that number of people riding, the cost, and other relevant information about that product, or individual ride.
+
 ### Glossary
 
 #### HTTP APIs
@@ -73,7 +74,7 @@ REST is the most common protocol we see today, and more robust overall. It’s s
 
 #### GraphQL
 
-Raising in popularity and made by Facebook.
+A querying language gaining popularity and made by Facebook, that allows you to specify which data you want (and nothing you don't) returned by an API call in a single request.
 
 The response of an API call can come in many different formats. Again, for simplicity we will just focus on the ones that apply to what API Fortress can test.
 
@@ -99,7 +100,7 @@ This is the more commonly seen format in REST APIs today. The Uber example is in
 
 #### Object
 
-This is the item that has data associated with it. If you look at the Uber response again, display\_name, description, and Image are examples of objects.
+This is the item that has data associated with it. If you look at the Uber response again, `display_name`, `description`, and `Image` are examples of individual objects within the JSON file.
 
 #### Assertion
 
@@ -174,3 +175,6 @@ It's also important, again, to use existing tests as your load tests. You will n
 #### A Summary
 
 Ultimately, continuous testing means leveraging all of these types of tests, automatically. A constant series of functional and non-functional (performance) tests to constantly validate your APIs.
+
+<!-- ------------------------ -->
+## 1.04 Quiz
