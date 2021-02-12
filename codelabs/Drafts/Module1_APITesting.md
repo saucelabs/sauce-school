@@ -141,7 +141,7 @@ As a reference point, this is what a normal [HTTP based REST API](http://demoapi
 
 Looking at the API above, you see a payload with various objects. The first item you should be testing is that the API responds as expected from a functional standpoint.
 
- <img src="assets/wp-content/uploads/2019/06/image-9.png" alt="disappearing image" width="150"/>
+<img src="assets/API1.03A.png" alt="API Payload" width="550"/>
 
 This means every object exists, and the responses are within expected ranges. For example the _quantity_ object should always be a whole number. There can't be .5 baseball caps.
 
