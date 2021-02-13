@@ -80,8 +80,7 @@ First run your application locally to verify the test code is working as anticip
 
 #### Video – Mobile App Test
 
-![https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/preview](https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/view?usp=sharing)
-
+![https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/preview](https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/view)
 
 ### Mobile Web Tests
 
@@ -274,7 +273,7 @@ Watch the following videos to get a taste of what live testing has to offer.
 #### Video – Live Mobile Native App Testing
 
 
-![https://drive.google.com/file/d/1ZsNwNu61rD5oH55VUJ4S1_nAjT9zIuFe/preview](https://drive.google.com/file/d/1ZsNwNu61rD5oH55VUJ4S1_nAjT9zIuFe/view?usp=sharing)
+![https://drive.google.com/file/d/1R82MuKFgz-iPFtdejVFfiBX9dpmTZIvK/preview](https://drive.google.com/file/d/1R82MuKFgz-iPFtdejVFfiBX9dpmTZIvK/preview)
 
 
 Follow us on YouTube for more tips and demos: [Sauce Labs on YouTube](https://www.youtube.com/channel/UCzUaF3G8L5rfoh9xR6a51kg).

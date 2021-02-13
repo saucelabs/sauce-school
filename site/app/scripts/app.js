@@ -293,9 +293,22 @@
 
   // Overrides
 
+  function setAttributes(elements, attributes) {
+    Object.keys(attributes).forEach(function(name) {
+      element.setAttribute(name, attributes[name]);
+    })
+  }
+
     //Wait for markup to load then mutate markup
   for (let i = 0; i < document.getElementsByClassName('step').length; i++) {
     document.getElementsByClassName('step-title')[i].innerHTML = document.getElementsByClassName('step-title')[i].innerHTML.substring(2);
+  }
+
+  for (let i = 0; i < document.getElementsByClassName('embedded-iframe').length; i++) {
+    if(document.getElementsByClassName('embedded-iframe')[i].src.includes("viewform") ) {
+      document.getElementsByClassName('embedded-iframe')[i].className = "embedded-iframe quizform";
+    }
+
   }
 
 

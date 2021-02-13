@@ -1,5 +1,7 @@
 ## Feb 13 - Casey's Changes
-Added a min height to quiz iframes in /site/app/styles/overrides.scss
+- Added a min height to quiz iframes in /site/app/styles/overrides.scss
+- Made views/default/index.html cards linkable
+- 
 
 # Changelog- Add newest additions in an .md file at top
 ///start typing below this text

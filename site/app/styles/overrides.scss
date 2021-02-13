@@ -35,8 +35,12 @@ google-codelab google-codelab-step .instructions {
 }
 google-codelab-step .embedded-iframe {
   height: inherit!important;
-  min-height: 650px!important;
+  min-height: 300px;
+  &.quizform {
+    min-height: 700px;
+  }
 }
+
 
 @media only screen
     and (max-device-width: 740px),
