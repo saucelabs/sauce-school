@@ -106,6 +106,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/docsearch.js@2.0/dist/cdn/docsearch.min.css"
 />
+<!-- Algolia Search JS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/docsearch.js@{{docSearchJSVersion}}/dist/cdn/docsearch.min.css"
+/>
 </head>
 
 <body id="app" is="body-bind" class="loading fullbleed {% if view.id != 'default' -%}view{%- endif -%}">
@@ -293,5 +298,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <script>
 
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/docsearch.js@{{docSearchJSVersion}}/dist/cdn/docsearch.min.js"></script>
+<!-- Algolia Search -->
+<script>
+  docsearch({
+    // Your apiKey and indexName will be given to you once
+    // we create your config
+    appId: 'ZETDNHTKFC',
+    apiKey: '8442c4c56cae89e0f1a1b7c9a8fd8f9c',
+    indexName: 'saucelabs',
+    debug: false,
+  });
+</script>
 </body>
 </html>

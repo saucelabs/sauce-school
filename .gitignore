@@ -13,3 +13,4 @@ site/build
 site/site
 /tools
 site/.bundle
+.env
