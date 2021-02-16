@@ -1,7 +1,7 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
-summary: Module 1 of the TestRunner Toolkit course, introducing how to set up a Cypress test with TestRunner toolkit and Sauce Labs.
-id: Module1-TestRunner
+summary: Module 1 of the Cypress on Sauce course, introducing how to set up a Cypress test with Testrunner toolkit, a Docker container or Sauce VM, Docker, and Sauce Labs.
+id: Module1-Testrunner
 categories: beginner
 tags: testrunner  
 environments: Web
@@ -9,21 +9,21 @@ status: Draft
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 author:Lindsay Walker
 <!-- ------------------------ -->
-# Module 1 – Intro to TestRunner Toolkit with Cypress
+# Module 1 – Intro to Testrunner Toolkit with Cypress
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
 Duration: 0:01:00
 
-* How is TestRunner Toolkit different than other automated test solutions that you can use with Sauce Labs
+* How is Testrunner Toolkit different than other automated test solutions that you can use with Sauce Labs
 
-* Learn about the components of TestRunner toolkit, including the command line tool, Docker, and the Cypress.io client
+* Learn about the components of Testrunner Toolkit, including the command line tool, Docker, and the Cypress.io client
 
-* Set up the necessary components to run Cypress and TestRunner toolkit on your computer
+* Set up the necessary components to run Cypress and Testrunner Toolkit on your computer
 
-* Understand the configuration files for Cypress on TestRunner Toolkit and how to modify them
+* Understand the configuration files for Cypress on Testrunner Toolkit and how to modify them
 
-* Learn basic JavaScript to write page object and test code that runs on Cypress and Sauce TestRunner Toolkit
+* Learn basic JavaScript to write page object and test code that runs on Cypress and Sauce Testrunner Toolkit
 
 * Learn to run a Cypress Test on Sauce Labs with a Docker container and on Virtual Machines (VMs)
 
@@ -33,14 +33,14 @@ Duration: 0:01:00
 
 
 <!-- ------------------------ -->
-## 1.02 What Is TestRunner Toolkit
+## 1.02 What Is Testrunner Toolkit
 Duration: 0:03:00
 
-TestRunner toolkit was designed to enable test developers to write code that communicates with the browser using JavaScript framework that can send updates to the browser and DOM in real-time. The TestRunner toolkit makes it quick an easy to install all the dependencies needed to start writing tests.
+Testrunner Toolkit was designed to enable test developers to write code that communicates with the browser using JavaScript framework that can send updates to the browser and DOM in real-time. The Testrunner Toolkit makes it quick an easy to install all the dependencies needed to start writing tests.
 
 Unlike Selenium, the Cypress framework can make API calls, modify the web app code in real-time, and has access to all the tools that the browser’s Dev Tools provide.
 
-<img src="assets/TRT1.02A.png" alt="TestRunner Toolkit tools" width="600"/>
+<img src="assets/TRT1.02A.png" alt="Testrunner Toolkit tools" width="600"/>
 
 
 
@@ -50,18 +50,18 @@ Unlike Selenium, the Cypress framework can make API calls, modify the web app co
 ![https://drive.google.com/file/d/1yXQTWNc2IRGnNC2G6CkUzYMWFT5KWphK/preview](https://drive.google.com/file/d/1yXQTWNc2IRGnNC2G6CkUzYMWFT5KWphK/view?usp=sharing)
 
 
-### What are SauceCTL and TestRunner Toolkit?
+### What are SauceCTL and Testrunner Toolkit?
 
-SauceCTL stands for Sauce Control, the command line interface for the Sauce TestRunner toolkit. The toolkit includes SauceCTL that allows you to interface with TestRunner Toolkit through command line, as well as the tools necessary to record the output from tests run on Cypress in Docker containers, and send the data to Sauce Labs, making it easy to interpret, share an analyze those test results.
+SauceCTL stands for Sauce Control, the command line interface for the Sauce Testrunner Toolkit. The toolkit includes SauceCTL that allows you to interface with Testrunner Toolkit through command line, as well as the tools necessary to record the output from tests run on Cypress in Docker containers, and send the data to Sauce Labs, making it easy to interpret, share an analyze those test results.
 
 
-### Why Use TestRunner Toolkit
+### Why Use Testrunner Toolkit
 
 Historically, most end-to-end testing consisted of various components such as [Selenium](https://www.selenium.dev/documentation/en/), <code>[mocha-chai](https://www.codecademy.com/articles/bapi-testing-intro#:~:text=Mocha%20and%20Chai%20are%20two,results%20to%20the%20terminal%20window.)</code> (test assertion frameworks), and other tools that are necessary to run, automate, and debug tests. Users would create a remote session to test a web application. With Sauce Labs Testrunner Toolkit and Cypress, you have an all-in-one test framework, runner, and assertion platform that doesn’t require the client to send commands and wait for a response in order to run.
 
 In other words, Testrunner Toolkit with Cypress provides a powerful [clear-box testing](https://en.wikipedia.org/wiki/White-box_testing) tool that doesn’t require downloading and installing several tools and libraries:
 
-<img src="assets/TRT1.02B.png" alt="TestRunner Toolkit setup" width="600"/>
+<img src="assets/TRT1.02B.png" alt="Testrunner Toolkit setup" width="600"/>
 
 Using Cypress alongside Sauce Labs also allow you to:
 
@@ -71,7 +71,7 @@ Using Cypress alongside Sauce Labs also allow you to:
 *   Review, share, and evaluate your test assets, such as logs, test results, and test videos
 *   Use our Insights feature to perform deeper analysis of test outcomes
 
-<img src="assets/TRT1.02C.png" alt="TestRunner Toolkit Sauce Labs dashboard" width="600"/>
+<img src="assets/TRT1.02C.png" alt="Testrunner Toolkit Sauce Labs dashboard" width="600"/>
 
 ### What is a Containerized Solution?
 
@@ -79,10 +79,10 @@ By using Docker, you are using a simple virtual environment that includes an OS,
 
 
 <!-- ------------------------ -->
-## 1.03 Set Up the TestRunner Toolkit Environment
+## 1.03 Set Up the Testrunner Toolkit Environment
 Duration: 0:07:00
 
-In this module, you will see how you can set up the Sauce TestRunner Toolkit along with Docker on your computer MacOS Computer.
+In this module, you will see how you can set up the Sauce Testrunner Toolkit along with Docker on your computer MacOS Computer.
 
 Docker is software that allows you to create an isolated environment on your computer that is separate from your operating system, creating a lightweight environment that runs a Linux kernel to do specific tasks. Learn more from the [Docker documentation](https://docs.docker.com/get-started/overview/). Each environment coupled with the software and setting packaged together to use in that environment is called an **image**.
 
@@ -123,11 +123,11 @@ Negative
 
 ### Download and Install SauceCTL
 
-Next you need to download and install the Sauce Command Line Tool (CTL) that you will use to run the TestRunner Toolkit. This is a part of the TestRunner Toolkit that allows you to set a configuration location & update the file in your local directory.  There are several options (*Insert link) for installing it, and in this tutorial we will use npm, which means you need to have [NodeJS installed on your machine](https://nodejs.org/en/download/).
+Next you need to download and install the Sauce Command Line Tool (CTL) that you will use to run the Testrunner Toolkit. This is a part of the Testrunner Toolkit that allows you to set a configuration location & update the file in your local directory.  There are several options (*Insert link) for installing it, and in this tutorial we will use npm, which means you need to have [NodeJS installed on your machine](https://nodejs.org/en/download/).
 
 It also allows you to run commands to run tests locally or remotely on the Sauce Labs platform.
 
-First, anywhere on your machine install the SauceCTL tool globally, using this command NPM to install the SauceCTL package:
+First, anywhere on your machine install the SauceCTL tool globally, using this command `npm` to install the SauceCTL package:
 
 `npm i -g saucectl`.
 
@@ -149,15 +149,15 @@ To start the toolkit, run the command `saucectl new,` then choose the Cypress fr
 Watch the video to see how to [Set Sauce Credentials](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing) on MacOS or [follow the steps in this tutorial](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing) to set them up on Windows.
 
 
-### Create a Configuration File
+### The Configuration File
 
-Once you have SauceCTL running, open the project directory that you created for your TestRunner project. Take a look at the project files inside.
+Once you have SauceCTL running, open the project directory that you created for your Test project. Take a look at the project files inside.
 
 <img src="assets/TRT1.03C.png" alt="Project directory setup" width="500"/>
 
 Any time you install Cypress, which was one of the things installed when you ran the command `saucectl new`, you will see a `cypress` folder containing the `/integrations` directory where all test files are stored, as well as a `cypress.json` file where you can set options reporters, the base URL that tests will be run against, and [more](https://docs.cypress.io/guides/references/configuration.html#Global).
 
-Another part of the package that was installed when you ran `saucectl `new is the /`.sauce` directory. The /`.sauce` directory was created with a `config.yml` file inside which you will see the following:
+Another part of the package that was installed when you ran `saucectl `new is the /`.sauce` directory. The /`.sauce` directory was created with a `config.yml` file inside which you will see something like the following:
 
 
 ```
@@ -200,13 +200,21 @@ Take a look at the top of the config file. There are several important elements 
 *   The `suites` information includes the name, browser, and the configuration for your test suites such as what types of file names to look for to run as tests, and other metadata that is passed to the Sauce Labs dashboard for running tests and displaying results.
 *   The `docker` information includes, in this case, instructions to [mount files], (https://docs.docker.com/storage/bind-mounts/) (how to send files to be used by the docker image) and the docker image name and version that installed by SauceCTL. Note that the version of the image at the end of the image name should match
 
+## Run a Cypress Test
+
+If you already have Cyress tests set up, or would like to try the default test created in the `cypress/integrations` project folder, you can use SauceCTL to run a test in a Docker container, and pass the info to Sauce Labs with the command:
+
+
+```
+saucectl run
+```
 
 
 <!-- ------------------------ -->
 ## 1.04 Create Page Objects
 Duration: 0:05:00
 
-Sauce Labs’ TestRunner Toolkit allows you to take existing Cypress test suites (or build a cypress test suite) and quickly run it on Sauce Labs. In this lesson, you will learn how to modify a couple settings in the `cypress.json` and `.sauce/config.ym`l files, then write a basic test and run it on Sauce Labs.
+Sauce Labs’ Testrunner Toolkit allows you to take existing Cypress test suites (or build a cypress test suite) and quickly run it on Sauce Labs. In this lesson, you will learn how to modify a couple settings in the `cypress.json` and `.sauce/config.ym`l files, then write a basic test and run it on Sauce Labs.
 
 #### Video
 [Page Objects Setup](https://drive.google.com/file/d/1C2k_gs8Q-hXT5sU59yM8KU3gdkrUcxfl/view?usp=sharing)
@@ -222,7 +230,7 @@ Negative
 
 #### Cypress.json
 
-The inside your testrunner-tests project file that you created, you will notice the cypress.json file. This file is used to set [all kinds of options for your Cypress test](https://docs.cypress.io/guides/references/configuration.html). If you don’t set any options, Cypress will use a set of default values. You can pull in data from this file into your tests, to make it easier to preload data in your test.
+The inside your **testrunner-tests** project file that you created, you will notice the cypress.json file. This file is used to set [all kinds of options for your Cypress test](https://docs.cypress.io/guides/references/configuration.html). If you don’t set any options, Cypress will use a set of default values. You can pull in data from this file into your tests, to make it easier to preload data in your test.
 
 First, you will need to add information for your tests about the URL of the app you are testing against. Add the following line to `cypress.json`, which you will use in your tests to pull in the site you are testing against. \
 
