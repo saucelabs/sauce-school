@@ -403,11 +403,123 @@ export default new SwagOverviewPage();
 <img src="assets/TRT1.04H.png" alt="Final Lesson Code" width="550"/>
 
 <!-- ------------------------ -->
-## Section 5
-Duration: 0:05:00
+## 1.05 Write Your First Test
+Duration: 0:04:00
+
+Now that you have all the configuration files and page objects created, you can create your first test object to use all of these elements and run a test.
 
 
+#### Video
 
+[Write a Cypress Test](https://drive.google.com/file/d/1ZE2e4DDeFJn6M8TY1Gh5ujloLkcy8CYI/view?usp=sharing)
+
+![https://drive.google.com/file/d/1ZE2e4DDeFJn6M8TY1Gh5ujloLkcy8CYI/previe](https://drive.google.com/file/d/1ZE2e4DDeFJn6M8TY1Gh5ujloLkcy8CYI/view?usp=sharing)
+
+
+### Write Your First Test
+
+Now you will create a new test object In the `cypress/integration `directory, named `login.spec.js`. In accordance with _[Page Object Model (POM) conventions](https://www.selenium.dev/documentation/en/guidelines_and_recommendations/page_object_models/)_, you are creating separate directories for page and test objects.
+
+Open `login.spec.js` and create the `describe()` method to set up your test. The `cy.visit() `method contains an empty string because it will automatically pull the `baseUrl `from the `cypress.json` file:
+
+
+```
+//filename: cypress/integrations/login.spec.js
+import LoginPage from '../pageobjects/LoginPage';
+import SwagOverviewPage from '../pageobjects/SwagOverviewPage';
+import { LOGIN_USERS } from '../support/constants';
+
+describe('LoginPage', () => {
+   beforeEach(() => {
+       cy.visit('');
+   });
+// ...
+```
+
+
+Next, add in an `it()` method, which is a Mocha/ Cypress standard for declaring test methods. This will check to see that when you get onto the page, the `screen` (Defined in `LoginPage.js`) element which contains the login field is visible.:
+
+
+```
+//filename: cypress/integrations/login.spec.js
+import LoginPage from '../pageobjects/LoginPage';
+import SwagOverviewPage from '../pageobjects/SwagOverviewPage';
+import { LOGIN_USERS } from '../support/constants';
+
+describe('LoginPage', () => {
+   beforeEach(() => {
+       cy.visit('');
+   });
+
+   it('should be able to test loading of login page', () => {
+       LoginPage.screen.should('be.visible');
+   });
+// ...
+```
+
+
+Next, add a test to check that the next page (where you can choose items for your cart.) is visible when you log in with valid user credentials:
+
+
+```
+//filename: cypress/integrations/login.spec.js
+import LoginPage from '../pageobjects/LoginPage';
+import SwagOverviewPage from '../pageobjects/SwagOverviewPage';
+import { LOGIN_USERS } from '../support/constants';
+
+describe('LoginPage', () => {
+   beforeEach(() => {
+       cy.visit('');
+   });
+
+   it('should be able to test loading of login page', () => {
+       LoginPage.screen.should('be.visible');
+   });
+
+   it('should be able to login with a standard user', () => {
+       LoginPage.signIn(LOGIN_USERS.STANDARD);
+       SwagOverviewPage.screen.should('be.visible');
+   });
+
+// ...
+```
+
+
+Finally at one last `it() `method to try login in with invalid user credentials, and verify that the error message shows up:
+
+
+```
+//filename: login.spec.js
+import LoginPage from '../pageobjects/LoginPage';
+import SwagOverviewPage from '../pageobjects/SwagOverviewPage';
+import { LOGIN_USERS } from '../support/constants';
+
+describe('LoginPage', () => {
+   beforeEach(() => {
+       cy.visit('');
+   });
+
+   it('should be able to test loading of login page', () => {
+       LoginPage.screen.should('be.visible');
+   });
+
+   it('should be able to login with a standard user', () => {
+       LoginPage.signIn(LOGIN_USERS.STANDARD);
+       SwagOverviewPage.screen.should('be.visible');
+   });
+
+   it('should not be able to login with a locked user', () => {
+              LoginPage.signIn(LOGIN_USERS.LOCKED);
+       LoginPage.errorMessage.should('have.text','Epic sadface: Sorry, this user has been locked out.');
+   });
+});
+
+```
+
+#### Final Code
+See a sample of the [project and code here](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.05)
+
+<img src="assets/TRT1.05A.png" alt="Final Lesson Code" width="550"/>
 
 
 <!-- ------------------------ -->
