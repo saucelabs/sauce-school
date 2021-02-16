@@ -1,5 +1,3 @@
-<!-- Copy this file into tools/site/coursenameFolder & start editing -->
-
 summary: Module 1 of the API Testing course. Module 1 will give you a high level understanding of what an API is and why testing APIs is important. This course will guide you on all you need to know to get started with continuous API testing.
 id: Module1-APITesting
 categories: beginner
@@ -62,23 +60,23 @@ You can see that number of people riding, the cost, and other relevant informati
 
 #### HTTP APIs
 
-There are many different types of APIs, the term itself has become vague unfortunately. For our purposes we will always be talking about HTTP APIs. APIs that can be hit with an HTTP call.
+There are many different types of APIs, the term itself has become vague unfortunately. For our purposes this course will always be talking about HTTP APIs. APIs that can be hit with an HTTP call.
 
 There are two types of HTTP APIs, REST and SOAP. That is a huge topic, but from a very high level:
 
 #### SOAP
 
-This was the most commonly used format, but is now seen as a legacy technology. It’s advantage is that it’s simple and can return a bunch of data. The negative is that it is very poor for more interactive usage, like we see with mobile applications today.
+This was the most commonly used format, but is now seen as a legacy technology. It’s advantage is that it’s simple and can return a bunch of data. The negative is that it is very poor for more interactive usage, like you see with mobile applications today.
 
 #### REST
 
-REST is the most common protocol we see today, and more robust overall. It’s specifically made for interactive usage, such as mobile applications. You can transfer information through a REST API in a variety of formats. [Learn more about how they are structured](https://en.wikipedia.org/wiki/Representational_state_transfer).
+REST is the most common protocol you see today, and more robust overall. It’s specifically made for interactive usage, such as mobile applications. You can transfer information through a REST API in a variety of formats. [Learn more about how they are structured](https://en.wikipedia.org/wiki/Representational_state_transfer).
 
 #### GraphQL
 
 A querying language gaining popularity and made by Facebook, that allows you to specify which data you want (and nothing you don't) returned by an API call in a single request.
 
-The response of an API call can come in many different formats. Again, for simplicity we will just focus on the ones that apply to what API Fortress can test.
+The response of an API call can come in many different formats. Again, for simplicity you will just focus on the ones that apply to what API Fortress can test.
 
 #### XML
 
@@ -114,11 +112,11 @@ Duration: 0:06:00
 
 This is a fairly common misconception. While yes, UI testing does trigger API calls, it does nothing to test the API itself.
 
-We have a PDF dedicated to this topic [here](https://drive.google.com/a/apifortress.com/file/d/1UfXIcdZQFDmbXO2n_NHACdpenI23BphC/view?usp=sharing).  
+There is a PDF dedicated to this topic [here](https://drive.google.com/a/apifortress.com/file/d/1UfXIcdZQFDmbXO2n_NHACdpenI23BphC/view?usp=sharing).  
 
-API failures are very difficult and nuanced, and because of this can last longer and cost you more money. Sometimes an API issue is actually a data issue, and that's another reason why we discuss dynamic data sources as a best practice later on.  
+API failures are very difficult and nuanced, and because of this can last longer and cost you more money. Sometimes an API issue is actually a data issue, and that's another reason why dynamic data sources will be discuassed as a best practice later on.  
 
-We obviously believe strongly in the value of API testing and automation, but we can also quote other experts. First, a quote from Forrester:
+Some evidence about the importance and power of API testing:
 
 Negative
 : "Modern applications require a shift of the current 80% UI automation... shifting about 80% of that test automation API test automation."  _– Diego Lo Giudice, Forrester Wave 2017_
@@ -130,15 +128,15 @@ Negative
 
 Basically, APIs are at the core of modern platforms, and they are as susceptible to issues as the websites and mobile applications. In today's tech environment, everyone is looking to "innovate faster." Yes, it's a buzzword, but it's also a real thing.
 
-Everyday we deal with huge enterprises transforming their legacy internal systems to APIs, and these APIs then power new mobile apps, internal platforms, partnerships, countless potential new revenue streams for any company. The world is built on REST APIs, and they require the same level of effort in terms of testing and monitoring.
+Everyday developers deal with huge enterprises transforming their legacy internal systems to APIs, and these APIs then power new mobile apps, internal platforms, partnerships, countless potential new revenue streams for any company. The world is built on REST APIs, and they require the same level of effort in terms of testing and monitoring.
 
 <!-- ------------------------ -->
 ## 1.03 What is Continuous Testing
 Duration: 0:04:00
 
-API testing isn’t easy, and there are many different ways in which a bad API can cause catastrophic harm to an organization. We will dive into best practices and details a little later, but let’s quickly run through what we're talking about when it comes to continuous testing.
+API testing isn’t easy, and there are many different ways in which a bad API can cause catastrophic harm to an organization. This course will dive into best practices and details a little later, but let’s quickly run through what we're talking about when it comes to continuous testing.
 
-As a reference point, this is what a normal [HTTP based REST API](http://demoapi.apifortress.com/api/retail/product), with a JSON output looks like. Each of these types of testing are part of a continuous testing strategy. They cover a good amount, and we do our best to explain them, but keep in mind terminology and definitions are always evolving.
+As a reference point, this is what a normal [HTTP based REST API](http://demoapi.apifortress.com/api/retail/product), with a JSON output looks like. Each of these types of testing are part of a continuous testing strategy. They cover a good amount, but keep in mind terminology and definitions are always evolving.
 
 #### Functional Testing
 
@@ -150,7 +148,7 @@ This means every object exists, and the responses are within expected ranges. Fo
 
 #### Validating Business Logic
 
-Imagine you are an ecommerce company with a product API, similar to the one we shared. First, you should be testing that each product has all the objects it expects.
+Imagine you are an ecommerce company with a product API, similar to the example shared above. First, you should be testing that each product has all the objects it expects.
 
 The next layer is where skill and creativity in test creation are required. Let's say that you search for 'red' and you receive both shoes and pants. Now all products should contain a _size_ object, but they are very different size ranges. Adding the intelligence to a test that says, "If this is a pair of shoes, size should be between 4 and 17." That is business logic validation. This is where you need a skilled team that knows the expectations of the API, and how to manipulate and validate them.
 
@@ -166,7 +164,7 @@ For many companies that entire flow can be done on the API level, and should be.
 
 Monitoring is probably the most valuable, and yet underused, type of testing. APIs issues are often only found in live environments when using live data.
 
-The goal of a proper monitoring strategy is to go beyond measuring uptime, but also measuring functional uptime. An API can return a statuscode of 200 and still be failing. We have even seen APIs built so that even when there is an error it returns as a 200. What's important to note is that you can use existing functional tests as your monitor. With the right platform choice, you can schedule them to run against live environments in certain intervals. Then use that monitoring to have a real-time status page across departments.
+The goal of a proper monitoring strategy is to go beyond measuring uptime, but also measuring functional uptime. An API can return a statuscode of 200 and still be failing. Some APIs are built so that even when there is an error it returns as a 200. What's important to note is that you can use existing functional tests as your monitor. With the right platform choice, you can schedule them to run against live environments in certain intervals. Then use that monitoring to have a real-time status page across departments.
 
 #### Load Testing
 

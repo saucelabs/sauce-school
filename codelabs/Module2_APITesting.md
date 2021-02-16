@@ -81,16 +81,16 @@ Perhaps they have a major advertising initiative to announce the ability to orde
 
 ### Using Lots of Data
 
-One of the most common errors we see with testing is using the same small set of data for every test. A CSV with 50 product IDs is a good start, but now that we can automate this work there is no reason to not write a much more comprehensive test that can validate hundreds of product IDs. You must break free from using small CSV files for datasets.
+One of the most common errors seen with testing is using the same small set of data for every test. A CSV with 50 product IDs is a good start, but now that you can automate this work there is no reason to not write a much more comprehensive test that can validate hundreds of product IDs. You must break free from using small CSV files for datasets.
 
-If you are already using databases or APIs that’s great! If not, we suggest you start this process as well. A test is only as good as the amount of information it is testing against.  
+If you are already using databases or APIs that’s great! If not, start this process as now. A test is only as good as the amount of information it is testing against.  
 _Learn More [Using Files](https://apifortress.com/doc/github-for-datasets/) or [Using JDBC](https://apifortress.com/doc/jdbc/)_
 
 ### Integration / End-to-End Test
 
 Most API programs are a collection of APIs that are meant to interact with each other. Therefore, it is important to create tests that do exactly that. A singular test that goes through a series of calls and validates the responses at each stage. This is what is called an integration test, although it is also called an end-to-end test.  
 
-This means writing detailed tests that reproduce normal user flows. For example, if we are talking about an e-commerce platform, a normal user flow would be:
+This means writing detailed tests that reproduce normal user flows. For example, if one is talking about an e-commerce platform, a normal user flow would be:
 
 **_Search > View Product Details Page > Add to Cart > Checkout_**
 
@@ -104,7 +104,7 @@ That is exactly the sort of functional error that causes a huge vulnerability fo
 
 **Integrations Galore**
 
-Every company has an existing workflow, and it's important to choose a platform that helps keep those integrations seamless. In the basics we talked about integrating with your CI pipeline, but it's also useful to have notifications and data in one place. If your organization has a lot invested in Slack, Kibana, and TestRail (for example) than having API test notifications and results in one place is imperative. [Learn more about connectors](https://apifortress.com/doc/setup-connectors-slack/)
+Every company has an existing workflow, and it's important to choose a platform that helps keep those integrations seamless. In the basics this course talked about integrating with your CI pipeline, but it's also useful to have notifications and data in one place. If your organization has a lot invested in Slack, Kibana, and TestRail (for example) than having API test notifications and results in one place is imperative. [Learn more about connectors](https://apifortress.com/doc/setup-connectors-slack/)
 
 
 
