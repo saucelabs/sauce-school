@@ -305,10 +305,16 @@
   }
 
   for (let i = 0; i < document.getElementsByClassName('embedded-iframe').length; i++) {
-    if(document.getElementsByClassName('embedded-iframe')[i].src.includes("viewform") ) {
-      document.getElementsByClassName('embedded-iframe')[i].className = "embedded-iframe quizform";
+    let iframeElements = document.getElementsByClassName('embedded-iframe')[i];
+    //if quiz iframe
+    if(iframeElements.src.includes("viewform") ) {
+      iframeElements.className = "embedded-iframe quizform";
     }
-
+    //if video
+    //if(iframeElements.src.includes("preview") ) {
+      //console.log(iframeElements)
+    //}
+    //
   }
 
 
