@@ -200,7 +200,7 @@ Take a look at the top of the config file. There are several important elements 
 *   The `suites` information includes the name, browser, and the configuration for your test suites such as what types of file names to look for to run as tests, and other metadata that is passed to the Sauce Labs dashboard for running tests and displaying results.
 *   The `docker` information includes, in this case, instructions to [mount files], (https://docs.docker.com/storage/bind-mounts/) (how to send files to be used by the docker image) and the docker image name and version that installed by SauceCTL. Note that the version of the image at the end of the image name should match
 
-## Run a Cypress Test
+### Run a Cypress Test
 
 If you already have Cyress tests set up, or would like to try the default test created in the `cypress/integrations` project folder, you can use SauceCTL to run a test in a Docker container, and pass the info to Sauce Labs with the command:
 
@@ -628,5 +628,69 @@ saucectl run --test-env sauce
 
 
 <!-- ------------------------ -->
-## Section 7
+## 1.07 Run Cypress Locally (Optional)
 Duration: 0:05:00
+
+It often helps to debug on your local machine, and the cypress client provides some additional debugging features if you install it locally.
+
+
+#### Video
+
+[Running and Debugging Test on Cypress Locally](https://drive.google.com/file/d/1msWOvSYUxYGVG9xyohZa_EUn7co8z_qS/view?usp=sharing)
+
+![https://drive.google.com/file/d/1msWOvSYUxYGVG9xyohZa_EUn7co8z_qS/preview](https://drive.google.com/file/d/1msWOvSYUxYGVG9xyohZa_EUn7co8z_qS/view?usp=sharing)
+
+### Install npm Packages
+
+Install npm in the project folder by navigating and running `npm init` and initialize node package manager (`npm`) in your project.
+
+What this does is install node package manager, which will allow you to install cypress on your machine so you can try running the tests locally first. When you do this, you will see a file called `package.json`, which you will need to update.
+
+To install cypress locally, update package.json to the following:
+
+
+```
+{
+  "name": "cypress-examples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "5.6.0",
+  }
+}
+
+```
+
+
+
+#### Note
+
+Negative
+: You will want to check `.sauce/config.yml` to see which version of cypress you are running in SauceCTL and match the version here, as well as check for the most [up-to-date version of saucectl here](https://github.com/saucelabs/saucectl)
+
+<img src="assets/TRT1.07A.png" alt="Sauce C T L version" width="750"/>
+
+Now run `npm install` again to install the extra dependencies specified in `package.json`. Now in your folder you should see:
+
+<img src="assets/TRT1.07B.png" alt="Project directory with npm" width="350"/>
+
+### Run Cypress on Your Computer
+
+Now you can save and run a local cypress test from your project directory in terminal using: \
+ \
+`npx cypress open`
+
+A new window will open on your machine, and you will see the Cypress client open up. You should see the tests from your `cypress/integrations` directory open up.
+
+<img src="assets/TRT1.07C.png" alt="The Cypress Client" width="550"/>
+
+Click on `login.spc.js`, and you will see your tests run in a new window. Notice that if you make changes and save them to your code, your test window will update in real time.
+
+<img src="assets/TRT1.07D.png" alt="Cypress Test Runner" width="750"/>
