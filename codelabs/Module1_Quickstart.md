@@ -272,9 +272,7 @@ Watch the following videos to get a taste of what live testing has to offer.
 
 #### Video – Live Mobile Native App Testing
 
-
-![https://drive.google.com/file/d/1R82MuKFgz-iPFtdejVFfiBX9dpmTZIvK/preview](https://drive.google.com/file/d/1R82MuKFgz-iPFtdejVFfiBX9dpmTZIvK/preview)
-
+![https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/preview](https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/view?usp=sharing)
 
 Follow us on YouTube for more tips and demos: [Sauce Labs on YouTube](https://www.youtube.com/channel/UCzUaF3G8L5rfoh9xR6a51kg).
 
