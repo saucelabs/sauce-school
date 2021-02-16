@@ -523,9 +523,107 @@ See a sample of the [project and code here](https://github.com/walkerlj0/testrun
 
 
 <!-- ------------------------ -->
-## Section 6
-Duration: 0:05:00
+## 1.06 Run Your Cypress Test on Sauce
+Duration: 0:03:00
 
+#### Video
+
+[Running Tests with Sauce and Cypress](https://drive.google.com/file/d/1x1StP8YvJBmc-8AH-_dU8hswuqlEBfOW/view?usp=sharing)
+
+![https://drive.google.com/file/d/1x1StP8YvJBmc-8AH-_dU8hswuqlEBfOW/preview](https://drive.google.com/file/d/1x1StP8YvJBmc-8AH-_dU8hswuqlEBfOW/view?usp=sharing)
+
+### Update Sauce Config File
+
+Before you can run your tests using saucectl, you need to tell Cypress where it can find the test files it needs to run. You will do this in `.sauce/config.yml`. Under the Suites tag,  add and modify the existing entry under the `"suites"` field: \
+
+
+
+```
+suites:
+- name: example test
+  browser: chrome
+  config:
+    testFiles: ['**/example.test.js']
+
+- name: login test
+  browser: chrome
+  platformName: "Windows 10"
+  screenResolution: 2560x1600
+  config:
+    testFiles: ['**/login.spec.js']
+docker:
+  fileTransfer: mount
+
+
+```
+
+
+Options like `platformName` and `screenResolution` are optional capabilities that you can define for your test, and can be omitted, Testrunner will run use defaults if these aren’t specified. [See the documentation for all configuration options](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress).
+
+
+#### Note
+
+Negative
+: Ensure you’ve set the Docker image tag in your `config.yml `as well. There are also two alternatives for listing the `testFiles;` in your suite, either in brackets `[]` or underneath tabbed in, in front of a dash with a space:   <code>- '**/login].spec.js' </code>[like the example here](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress#suites).
+
+
+### Run Your Test on with Docker & Sauce Labs
+
+Now that you have your config file set up, you can run your tests on a Docker container on your machine (Testrunner Toolkit helped set this all up for you) and the results will be sent to Sauce Labs
+
+Once you have your updates to your config file, save your work, and navigate to your project folder (it should contain a `/cypress` directory and `cypress.json `file) and run your tests to execute the tests on Sauce Labs. Run the tests using
+
+
+```
+saucectl run
+```
+
+
+You should see output like this in your console.
+
+<img src="assets/TRT1.06A.png" alt="All Spects passed" width="450"/>
+
+If you go to app.saucelabs.com, you should see the two tests on your automated test results dashboard:
+
+<img src="assets/TRT1.06B.png" alt="Cypress Tests on Sauce" width="550"/>
+
+If you click into the tests, you can see the video of the test running on the Cypress client, and a log you can easily share with others:
+
+<img src="assets/TRT1.06C.png" alt="Sauce Cypress Test Results" width="850"/>
+
+
+### Run Your Test on a Sauce Labs VM
+
+If instead of installing Docker you would like to run on the Sauce Labs cloud, you have the choice of a wide variety of browser and operating systems.
+
+
+
+Make sure you have the latest version of `saucectl`. Check your version with the command `saucectl --version`. You can [check the latest version of saucectl here](https://github.com/saucelabs/saucectl)
+
+<img src="assets/TRT1.06D.png" alt="Sauce C T L version" width="750"/>
+
+
+If your SauceCTL version isn’t up to date, you can use `npm` to update it with:
+
+```
+npm update -g saucectl
+```
+
+
+#### Note
+
+Negative
+: When you update, check to make sure your project structure stays the same, as well as you files. If SauceCTL asks to overwrite files, choose **No**.
+
+
+#### Run on Sauce Labs Virtual Machines
+
+Now all you need to do is
+
+
+```
+saucectl run --test-env sauce
+```
 
 
 
