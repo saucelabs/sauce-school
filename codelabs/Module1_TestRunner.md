@@ -15,7 +15,7 @@ author:Lindsay Walker
 ## 1.01 What You'll Learn
 Duration: 0:01:00
 
-* How is Testrunner Toolkit different than other automated test solutions that you can use with Sauce Labs
+* How Testrunner Toolkit is different than other automated test solutions that you can use with Sauce Labs
 
 * Learn about the components of Testrunner Toolkit, including the command line tool, Docker, and the Cypress.io client
 
@@ -27,7 +27,7 @@ Duration: 0:01:00
 
 * Learn to run a Cypress Test on Sauce Labs with a Docker container and on Virtual Machines (VMs)
 
-* Run Testrunner Toolkit Cypress Test with your test code locally with Cypress
+* Run a Testrunner Toolkit Cypress Test with your test code locally with Cypress
 
 
 
