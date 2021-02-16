@@ -1,6 +1,6 @@
 {
-  "title": "TestRunner Toolkit",
-  "description": "Learn to use the Sauce Labs TestRunner Toolkit along with SauceCTL to set up tests using JavaScript frameworks such as Cypress and Playwright. Run tests through a docker ocntainer, or in a Sauce Labs VM with a few quick changes to a config file, and see your test results on the Sauce Labs platform.",
+  "title": "Cypress on Sauce",
+  "description": "Learn to use run Cypress automated tests on Sauce using the Sauce Labs TestRunner Toolkit along with SauceCTL. Run tests through a Docker container, or in a Sauce Labs VM with a few quick changes to a config file, then share and analyze your test results on the Sauce Labs platform.",
   "logoUrl": "/testrunner/logo.png",
   "tags": ["testrunner"],
   "exclude": [
