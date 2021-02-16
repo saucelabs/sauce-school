@@ -242,7 +242,7 @@ Finally, you see the next _GET_ component. You’ll notice we are using the _id_
 
 That’s it! What we’ve done here is made an API call to the products list API, then tested that API thoroughly, and then used that API as the datasource for the subsequent GET which dives into each of those product IDs individually. You then want to test that entire API response as well. So here is what that entire test looks like complete in the GUI.
 
-![Full integration test that uses an API response to data drive the rest of the flow.](https://lh4.googleusercontent.com/e1B7AF-mtQAhvUEsrSvvqjqWfu3ll3cR3Z1n3xmqtFJ4Ld8k8hvoqQ-wJ1SGKNTiEMOtGDffH7BwlgLx7fypOgI-A7ixjqJiF26H-G9N9nqD4Kfmbgx2c8Q7q5jaMuWi-nLW5MVo)
+<!-- ![Full integration test that uses an API response to data drive the rest of the flow.](https://lh4.googleusercontent.com/e1B7AF-mtQAhvUEsrSvvqjqWfu3ll3cR3Z1n3xmqtFJ4Ld8k8hvoqQ-wJ1SGKNTiEMOtGDffH7BwlgLx7fypOgI-A7ixjqJiF26H-G9N9nqD4Kfmbgx2c8Q7q5jaMuWi-nLW5MVo) -->
 
 To see the code itself, go to the Examples directory and open the test _Retail: Integration - Products._
 
