@@ -1,6 +1,6 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
-summary: Module 1 of the Cypress on Sauce course, introducing how to set up a Cypress test with Testrunner toolkit, a Docker container or Sauce VM, Docker, and Sauce Labs.
+summary: Module 1 of the Cypress on Sauce course will introduce youon how to set up a Cypress test with Testrunner toolkit, a Docker container or Sauce VM, Docker, and Sauce Labs. Creat a basic Cypress test suite, and run it in a Docker container or on a Sauce Labs VM.
 id: Module1-Testrunner
 categories: beginner
 tags: testrunner  
@@ -27,7 +27,7 @@ Duration: 0:01:00
 
 * Learn to run a Cypress Test on Sauce Labs with a Docker container and on Virtual Machines (VMs)
 
-* Run Testrunner Toolkit Cypress Test through a Sauce Connect Tunnel
+* Run Testrunner Toolkit Cypress Test with your test code locally with Cypress
 
 
 
@@ -413,7 +413,7 @@ Now that you have all the configuration files and page objects created, you can 
 
 [Write a Cypress Test](https://drive.google.com/file/d/1ZE2e4DDeFJn6M8TY1Gh5ujloLkcy8CYI/view?usp=sharing)
 
-![https://drive.google.com/file/d/1ZE2e4DDeFJn6M8TY1Gh5ujloLkcy8CYI/previe](https://drive.google.com/file/d/1ZE2e4DDeFJn6M8TY1Gh5ujloLkcy8CYI/view?usp=sharing)
+![https://drive.google.com/file/d/1ZE2e4DDeFJn6M8TY1Gh5ujloLkcy8CYI/preview](https://drive.google.com/file/d/1ZE2e4DDeFJn6M8TY1Gh5ujloLkcy8CYI/view?usp=sharing)
 
 
 ### Write Your First Test
@@ -618,7 +618,7 @@ Negative
 
 #### Run on Sauce Labs Virtual Machines
 
-Now all you need to do is
+Now all you need to do is run the command in terminal:
 
 
 ```
@@ -631,7 +631,7 @@ saucectl run --test-env sauce
 ## 1.07 Run Cypress Locally (Optional)
 Duration: 0:05:00
 
-It often helps to debug on your local machine, and the cypress client provides some additional debugging features if you install it locally.
+It often helps to debug on your local machine, and the Cypress client provides some additional debugging features if you install it locally.
 
 
 #### Video
@@ -691,6 +691,6 @@ A new window will open on your machine, and you will see the Cypress client open
 
 <img src="assets/TRT1.07C.png" alt="The Cypress Client" width="550"/>
 
-Click on `login.spc.js`, and you will see your tests run in a new window. Notice that if you make changes and save them to your code, your test window will update in real time.
+Click on `login.spec.js`, and you will see your tests run in a new window. Notice that if you make changes and save them to your code, your test window will update in real time.
 
 <img src="assets/TRT1.07D.png" alt="Cypress Test Runner" width="750"/>
