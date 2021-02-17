@@ -532,11 +532,11 @@ Duration: 0:03:00
 
 [Running Tests with Sauce and Cypress](https://drive.google.com/file/d/1x1StP8YvJBmc-8AH-_dU8hswuqlEBfOW/view?usp=sharing)
 
-![https://drive.google.com/file/d/1x1StP8YvJBmc-8AH-_dU8hswuqlEBfOW/preview](https://drive.google.com/file/d/1x1StP8YvJBmc-8AH-_dU8hswuqlEBfOW/view?usp=sharing)
+![https://drive.google.com/file/d/1x1StP8YvJBmc-8AH-_dU8hswuqlEBfOW/preview](https://drive.google.com/file/d/1x1StP8YvJBmc-8AH-_dU8hswuqlEBfOW/view?usp=sharing/&utm_source=referral&utm_medium=LMS&utm_campaign=link)
 
 ### Update Sauce Config File
 
-Before you can run your tests using saucectl, you need to tell Cypress where it can find the test files it needs to run. You will do this in `.sauce/config.yml`. Under the Suites tag,  add and modify the existing entry under the `"suites"` field: \
+Before you can run your tests using saucectl, you need to tell Cypress where it can find the test files it needs to run. You will do this in `.sauce/config.yml`. Under the Suites tag,  add and modify the existing entry under the `"suites"` field:
 
 
 
@@ -558,13 +558,13 @@ docker:
 ```
 
 
-Options like `platformName` and `screenResolution` are optional capabilities that you can define for your test, and can be omitted, Testrunner will run use defaults if these aren’t specified. [See the documentation for all configuration options](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress).
+Options like `platformName` and `screenResolution` are optional capabilities that you can define for your test, and can be omitted, Testrunner will run use defaults if these aren’t specified. [See the documentation for all configuration options](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
 
 
 #### Note
 
 Negative
-: Ensure you’ve set the Docker image tag in your `config.yml `as well. There are also two alternatives for listing the `testFiles;` in your suite, either in brackets `[]` [like the example here](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress#suites), or underneath tabbed in, in front of a dash with a space: `-'**/login].spec.js' `
+: Ensure you’ve set the Docker image tag in your `config.yml `as well. There are also two alternatives for listing the `testFiles;` in your suite, either in brackets `[]` [like the example here](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress#suites/&utm_source=referral&utm_medium=LMS&utm_campaign=link), or underneath tabbed in, in front of a dash with a space: `-'**/login].spec.js' `
 
 
 ### Run Your Test with Docker & Sauce Labs
@@ -669,11 +669,10 @@ To install cypress locally, add `dependencies: {}` with `cypress:"x.x.x"` to the
 Negative
 : You will want to check `.sauce/config.yml` to see which version of cypress you are running in SauceCTL and match the version here. You can also use a newer version of Cypress, however you will want to check to make sure your project structure stays the same, as well as your files. If SauceCTL asks to overwrite files when it installs the new version, choose **No** in the npm workflow.
 
-<img src="assets/TRT1.07B.png" alt="Project directory with npm" width="350"/>
-
-<img src="assets/TRT1.07A.png" alt="Sauce C T L version" width="750"/>
-
 Now run `npm install` again to install the extra dependencies specified in `package.json`. Now in your folder you should see:
+
+
+<img src="assets/TRT1.07B.png" alt="Project directory with npm" width="350"/>
 
 
 
