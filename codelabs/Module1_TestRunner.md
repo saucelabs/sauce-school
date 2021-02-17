@@ -15,7 +15,9 @@ author:Lindsay Walker
 ## 1.01 What You'll Learn
 Duration: 0:01:00
 
-* How is Testrunner Toolkit different than other automated test solutions that you can use with Sauce Labs
+### Skills & Knowledge
+
+* How Testrunner Toolkit is different than other automated test solutions that you can use with Sauce Labs
 
 * Learn about the components of Testrunner Toolkit, including the command line tool, Docker, and the Cypress.io client
 
@@ -27,16 +29,17 @@ Duration: 0:01:00
 
 * Learn to run a Cypress Test on Sauce Labs with a Docker container and on Virtual Machines (VMs)
 
-* Run Testrunner Toolkit Cypress Test with your test code locally with Cypress
+* Run a Testrunner Toolkit Cypress Test with your test code locally with Cypress
 
-
+### Note
+Developers that already have a test suite can skip Modules 1.05 - 1.06 and use their own test suites to get started quickly.
 
 
 <!-- ------------------------ -->
 ## 1.02 What Is Testrunner Toolkit
 Duration: 0:03:00
 
-Testrunner Toolkit was designed to enable test developers to write code that communicates with the browser using JavaScript framework that can send updates to the browser and DOM in real-time. The Testrunner Toolkit makes it quick an easy to install all the dependencies needed to start writing tests.
+Testrunner Toolkit was designed to enable test developers to write code that communicates with the browser using JavaScript frameworks that can send updates to the browser and DOM in real-time. The Testrunner Toolkit makes it quick an easy to install all the dependencies needed to start writing tests.
 
 Unlike Selenium, the Cypress framework can make API calls, modify the web app code in real-time, and has access to all the tools that the browser’s Dev Tools provide.
 
@@ -57,7 +60,7 @@ SauceCTL stands for Sauce Control, the command line interface for the Sauce Test
 
 ### Why Use Testrunner Toolkit
 
-Historically, most end-to-end testing consisted of various components such as [Selenium](https://www.selenium.dev/documentation/en/), <code>[mocha-chai](https://www.codecademy.com/articles/bapi-testing-intro#:~:text=Mocha%20and%20Chai%20are%20two,results%20to%20the%20terminal%20window.)</code> (test assertion frameworks), and other tools that are necessary to run, automate, and debug tests. Users would create a remote session to test a web application. With Sauce Labs Testrunner Toolkit and Cypress, you have an all-in-one test framework, runner, and assertion platform that doesn’t require the client to send commands and wait for a response in order to run.
+Historically, most end-to-end testing consisted of various components such as [Selenium](https://www.selenium.dev/documentation/en/), <code>[mocha-chai](https://www.codecademy.com/articles/bapi-testing-intro#:~:text=Mocha%20and%20Chai%20are%20two,results%20to%20the%20terminal%20window.)</code> (test assertion frameworks), and other tools that are necessary to run, automate, and debug tests. Users would create a remote session to test a web application. With [Sauce Labs Testrunner Toolkit and Cypress](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress/&utm_source=referral&utm_medium=LMS&utm_campaign=link), you have an all-in-one test framework, runner, and assertion platform that doesn’t require the client to send commands and wait for a response in order to run.
 
 In other words, Testrunner Toolkit with Cypress provides a powerful [clear-box testing](https://en.wikipedia.org/wiki/White-box_testing) tool that doesn’t require downloading and installing several tools and libraries:
 
@@ -186,7 +189,6 @@ suites:
         - '**/*.*'
 docker:
   fileTransfer: mount
-  image: saucelabs/stt-cypress-mocha-node:v5.6.0
 ```
 
 
@@ -198,7 +200,7 @@ Take a look at the top of the config file. There are several important elements 
 *   The `sauce` information. Here is where you will put information that will be passed to sauce and can be used for debugging tests, such as the name, `build` number from your CI tool, and number of machines you would like to run concurrently
 *   The `cypress` information tells your cypress tests where to look for the test configuration file, and which version of cypress you are running
 *   The `suites` information includes the name, browser, and the configuration for your test suites such as what types of file names to look for to run as tests, and other metadata that is passed to the Sauce Labs dashboard for running tests and displaying results.
-*   The `docker` information includes, in this case, instructions to [mount files], (https://docs.docker.com/storage/bind-mounts/) (how to send files to be used by the docker image) and the docker image name and version that installed by SauceCTL. Note that the version of the image at the end of the image name should match
+*   The `docker` information includes, in this case, instructions to [mount files], (https://docs.docker.com/storage/bind-mounts/) (how to send files to be used by the docker image).
 
 ### Run a Cypress Test
 
@@ -325,7 +327,7 @@ Since you have baseUrl specified in `cypress.json`, your tests know to visit [ht
 
 You can also see the ids, classes, and `data-test` element that your tests’ `get` methods use to locate other elements on the page.
 
-Next, below the get methods, add in the code to create your `signIn method`, and export the LoginPage class so it can be used by other classes (your test methods).
+Next, below the get methods, add in the code to create your `signIn method`, and export the` LoginPage` class so it can be used by other classes (your test methods).
 
 
 ```
@@ -356,7 +358,7 @@ If you recall, in `const.js` there is a constant created called `LOGIN_USERS `wh
 
 The `signIn()` method will allow you to pass either the `LOCKED` or `STANDARD` object in with the `username` and `password` values.
 
-Later, when you call that method in your test, you will pass in the set of username and password fields from `const.js` depending on whether you call the method with `signIn(LOGIN_USERS.STANDARD)` or `signIn(OGIN_USERS.LOCKED).`
+Later, when you call that method in your test, you will pass in the set of username and password fields from `const.js` depending on whether you call the method with `signIn(LOGIN_USERS.STANDARD)` or `signIn(LOGIN_USERS.LOCKED).`
 
 
 ### Create Inventory Page Object
@@ -367,7 +369,7 @@ You will also need to create a page object for the second page in the login flow
 <img src="assets/TRT1.04C.png" alt="The inventory page" width="850"/>
 
 
-Create a new file in the `cypress/pageobjects` directory called `SwagOverviewPage.j`s. Your project structure should look something like this:
+Create a new file in the `cypress/pageobjects` directory called `SwagOverviewPage.js`. Your project structure should look something like this:
 
 
 <img src="assets/TRT1.04D.png" alt="Project structure with inventory page" width="550"/>
@@ -390,7 +392,7 @@ export default new SwagOverviewPage();
 
  This will go to the sauce demo page that lists the products, and search for the div that contains the list of items with an id of `inventory_list`.
 
- #### Final Code
+#### Final Code
 
  See a sample of the [project and code here.](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.04)
 
@@ -418,7 +420,7 @@ Now that you have all the configuration files and page objects created, you can 
 
 ### Write Your First Test
 
-Now you will create a new test object In the `cypress/integration `directory, named `login.spec.js`. In accordance with _[Page Object Model (POM) conventions](https://www.selenium.dev/documentation/en/guidelines_and_recommendations/page_object_models/)_, you are creating separate directories for page and test objects.
+Now you will create a new test object In the `cypress/integration `directory, named `login.spec.js`. In accordance with [Page Object Model (POM) conventions](https://www.selenium.dev/documentation/en/guidelines_and_recommendations/page_object_models/), you are creating separate directories for page and test objects.
 
 Open `login.spec.js` and create the `describe()` method to set up your test. The `cy.visit() `method contains an empty string because it will automatically pull the `baseUrl `from the `cypress.json` file:
 
@@ -530,11 +532,11 @@ Duration: 0:03:00
 
 [Running Tests with Sauce and Cypress](https://drive.google.com/file/d/1x1StP8YvJBmc-8AH-_dU8hswuqlEBfOW/view?usp=sharing)
 
-![https://drive.google.com/file/d/1x1StP8YvJBmc-8AH-_dU8hswuqlEBfOW/preview](https://drive.google.com/file/d/1x1StP8YvJBmc-8AH-_dU8hswuqlEBfOW/view?usp=sharing)
+![https://drive.google.com/file/d/1x1StP8YvJBmc-8AH-_dU8hswuqlEBfOW/preview](https://drive.google.com/file/d/1x1StP8YvJBmc-8AH-_dU8hswuqlEBfOW/view?usp=sharing/&utm_source=referral&utm_medium=LMS&utm_campaign=link)
 
 ### Update Sauce Config File
 
-Before you can run your tests using saucectl, you need to tell Cypress where it can find the test files it needs to run. You will do this in `.sauce/config.yml`. Under the Suites tag,  add and modify the existing entry under the `"suites"` field: \
+Before you can run your tests using saucectl, you need to tell Cypress where it can find the test files it needs to run. You will do this in `.sauce/config.yml`. Under the Suites tag,  add and modify the existing entry under the `"suites"` field:
 
 
 
@@ -553,21 +555,19 @@ suites:
     testFiles: ['**/login.spec.js']
 docker:
   fileTransfer: mount
-
-
 ```
 
 
-Options like `platformName` and `screenResolution` are optional capabilities that you can define for your test, and can be omitted, Testrunner will run use defaults if these aren’t specified. [See the documentation for all configuration options](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress).
+Options like `platformName` and `screenResolution` are optional capabilities that you can define for your test, and can be omitted, Testrunner will run use defaults if these aren’t specified. [See the documentation for all configuration options](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
 
 
 #### Note
 
 Negative
-: Ensure you’ve set the Docker image tag in your `config.yml `as well. There are also two alternatives for listing the `testFiles;` in your suite, either in brackets `[]` or underneath tabbed in, in front of a dash with a space:   <code>- '**/login].spec.js' </code>[like the example here](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress#suites).
+: Ensure you’ve set the Docker image tag in your `config.yml `as well. There are also two alternatives for listing the `testFiles;` in your suite, either in brackets `[]` [like the example here](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress#suites/&utm_source=referral&utm_medium=LMS&utm_campaign=link), or underneath tabbed in, in front of a dash with a space: `-'**/login].spec.js' `
 
 
-### Run Your Test on with Docker & Sauce Labs
+### Run Your Test with Docker & Sauce Labs
 
 Now that you have your config file set up, you can run your tests on a Docker container on your machine (Testrunner Toolkit helped set this all up for you) and the results will be sent to Sauce Labs
 
@@ -583,7 +583,7 @@ You should see output like this in your console.
 
 <img src="assets/TRT1.06A.png" alt="All Spects passed" width="450"/>
 
-If you go to app.saucelabs.com, you should see the two tests on your automated test results dashboard:
+If you go to [app.saucelabs.com](https://accounts.saucelabs.com/am/XUI/#login/&utm_source=referral&utm_medium=LMS&utm_campaign=link ), you should see the two tests on your automated test results dashboard:
 
 <img src="assets/TRT1.06B.png" alt="Cypress Tests on Sauce" width="550"/>
 
@@ -608,12 +608,6 @@ If your SauceCTL version isn’t up to date, you can use `npm` to update it with
 ```
 npm update -g saucectl
 ```
-
-
-#### Note
-
-Negative
-: When you update, check to make sure your project structure stays the same, as well as you files. If SauceCTL asks to overwrite files, choose **No**.
 
 
 #### Run on Sauce Labs Virtual Machines
@@ -646,7 +640,7 @@ Install npm in the project folder by navigating and running `npm init` and initi
 
 What this does is install node package manager, which will allow you to install cypress on your machine so you can try running the tests locally first. When you do this, you will see a file called `package.json`, which you will need to update.
 
-To install cypress locally, update package.json to the following:
+To install cypress locally, add `dependencies: {}` with `cypress:"x.x.x"` to the `package.json` file that was added:
 
 
 ```
@@ -673,18 +667,18 @@ To install cypress locally, update package.json to the following:
 #### Note
 
 Negative
-: You will want to check `.sauce/config.yml` to see which version of cypress you are running in SauceCTL and match the version here, as well as check for the most [up-to-date version of saucectl here](https://github.com/saucelabs/saucectl)
-
-<img src="assets/TRT1.07A.png" alt="Sauce C T L version" width="750"/>
+: You will want to check `.sauce/config.yml` to see which version of cypress you are running in SauceCTL and match the version here. You can also use a newer version of Cypress, however you will want to check to make sure your project structure stays the same, as well as your files. If SauceCTL asks to overwrite files when it installs the new version, choose **No** in the npm workflow.
 
 Now run `npm install` again to install the extra dependencies specified in `package.json`. Now in your folder you should see:
 
+
 <img src="assets/TRT1.07B.png" alt="Project directory with npm" width="350"/>
+
+
 
 ### Run Cypress on Your Computer
 
-Now you can save and run a local cypress test from your project directory in terminal using: \
- \
+Now you can save and run a local cypress test from your project directory in terminal using:
 `npx cypress open`
 
 A new window will open on your machine, and you will see the Cypress client open up. You should see the tests from your `cypress/integrations` directory open up.
