@@ -89,13 +89,13 @@ In this module, you will see how you can set up the Sauce Testrunner Toolkit alo
 
 Docker is software that allows you to create an isolated environment on your computer that is separate from your operating system, creating a lightweight environment that runs a Linux kernel to do specific tasks. Learn more from the [Docker documentation](https://docs.docker.com/get-started/overview/). Each environment coupled with the software and setting packaged together to use in that environment is called an **image**.
 
-In our case, we will use Docker engine, which is made up of:
+<!-- In our case, we will use Docker engine, which is made up of:
 
 
 
 *   A long-running server that runs a daemon process in the background. This process listens for REST API commands and allows you to run environments, including an isolated filesystem, separate from the operating system on your computer.
 *   A Command Line Interface (CLI) which you use to interact with and give commands to Docker
-*   A REST API you can use to send commands to the background process.
+*   A REST API you can use to send commands to the background process. -->
 
 
 #### Video
@@ -136,10 +136,7 @@ First, anywhere on your machine install the SauceCTL tool globally, using this c
 
 Next, create a project directory on your machine. You can use the command
 
-
-```
-mkdir testrunner-tests
-```
+`mkdir testrunner-tests`
 
 <img src="assets/TRT1.03A.png" alt="Create project directory" width="400"/>
 
@@ -200,7 +197,7 @@ Take a look at the top of the config file. There are several important elements 
 *   The `sauce` information. Here is where you will put information that will be passed to sauce and can be used for debugging tests, such as the name, `build` number from your CI tool, and number of machines you would like to run concurrently
 *   The `cypress` information tells your cypress tests where to look for the test configuration file, and which version of cypress you are running
 *   The `suites` information includes the name, browser, and the configuration for your test suites such as what types of file names to look for to run as tests, and other metadata that is passed to the Sauce Labs dashboard for running tests and displaying results.
-*   The `docker` information includes, in this case, instructions to [mount files], (https://docs.docker.com/storage/bind-mounts/) (how to send files to be used by the docker image).
+*   The `docker` information includes, in this case, instructions to [mount files](https://docs.docker.com/storage/bind-mounts/).
 
 ### Run a Cypress Test
 
@@ -234,7 +231,7 @@ Negative
 
 The inside your **testrunner-tests** project file that you created, you will notice the cypress.json file. This file is used to set [all kinds of options for your Cypress test](https://docs.cypress.io/guides/references/configuration.html). If you don’t set any options, Cypress will use a set of default values. You can pull in data from this file into your tests, to make it easier to preload data in your test.
 
-First, you will need to add information for your tests about the URL of the app you are testing against. Add the following line to `cypress.json`, which you will use in your tests to pull in the site you are testing against. \
+First, you will need to add information for your tests about the URL of the app you are testing against. Add the following line to `cypress.json`, which you will use in your tests to pull in the site you are testing against.
 
 
 
@@ -243,7 +240,6 @@ First, you will need to add information for your tests about the URL of the app 
 {
  "baseUrl": "https://www.saucedemo.com"
 }
-
 ```
 
 
@@ -269,7 +265,6 @@ export const LOGIN_USERS = {
        password: 'secret_sauce',
    },
 };
-
 ```
 
 
