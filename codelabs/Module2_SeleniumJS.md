@@ -112,7 +112,7 @@ Behavior Driven Development and Test Driven Development are two important strate
 
 <!-- ------------------------ -->
 
-## 2.03 Defining a Test Strategy and Picking a Framework.
+## 2.03 Defining a Test Strategy and Picking a Framework
 Duration: 0:05:00
 
 A great way to increase your chances of success with automated web testing is to first map out a testing strategy. The best way to do it is to answer these four questions:

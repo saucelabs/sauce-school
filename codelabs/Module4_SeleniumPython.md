@@ -19,8 +19,6 @@ This module is derived from content in chapters 11-13 of _The Selenium Guidebook
 
 ### Objectives
 
-
-
 *  Analyze and plan test suites, learning how to balance the size and maintainability (ability to check failed tests) against the amount of features you want to test, as well as the level of abstraction you want to use to make modular objects to use in your test suite
 
 * Learn about different types of tests, as well as the appropriate use case and strategy for planning test types
@@ -37,7 +35,7 @@ This module is derived from content in chapters 11-13 of _The Selenium Guidebook
 
 *   Set up a `baseurl` variable in `config.py` that points to the app you are running tests on in the BasePage, and remove hard-coded URLs from other page objects, allowing you to specify just a sub-domain from page objects
 
-*   Create a Sauce Labs accound, and environment variables for your Sauce Labs Credentials
+*   Create a Sauce Labs account, and environment variables for your Sauce Labs Credentials
 
 * Update the `conftest.py` object to allow you to switch between running tests on your local machine, or on Sauce Labs virtual machines
 
@@ -772,7 +770,7 @@ You can see an example of the completed code[ here.](https://github.com/walkerlj
 <img src="assets/4.06P.png" alt="Image Name" width="650"/>
 
 <!-- ------------------------ -->
-## 4.07 Quiz
+## 4.07 Module 4 Quiz
 Duration: 0:05:00
 ![https://docs.google.com/forms/d/e/1FAIpQLSdR9rdpMltvqgYPGaQ7JqYLRSaqC3RbiKQWuyfoa2JHPRJ_kQ/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSdR9rdpMltvqgYPGaQ7JqYLRSaqC3RbiKQWuyfoa2JHPRJ_kQ/viewform?usp=sf_link)
 
