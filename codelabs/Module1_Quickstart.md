@@ -277,6 +277,6 @@ Watch the following videos to get a taste of what live testing has to offer.
 Follow us on YouTube for more tips and demos: [Sauce Labs on YouTube](https://www.youtube.com/channel/UCzUaF3G8L5rfoh9xR6a51kg).
 
 <!-- ------------------------ -->
-## 1.07 Quiz
+## 1.07 Module 1 Quiz
 Duration: 0:02:00
 ![https://docs.google.com/forms/d/e/1FAIpQLSdZQysKo6x97Im-dpRWaLkhSEdCR9COeWAeKiYu2UUhLVxA6Q/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSdZQysKo6x97Im-dpRWaLkhSEdCR9COeWAeKiYu2UUhLVxA6Q/viewform?usp=sf_link)
