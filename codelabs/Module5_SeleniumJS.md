@@ -573,7 +573,7 @@ brew services stop jenkins
 
 
 <!-------->
-## 5.08 Create a Jenkins Project
+## 5.07 Create a Jenkins Project
 Duration: 0:05:00
 
 Typically when you set up tests, you would add your test code as a part of the pipeline to put code into production, typically on a staging server. Three typical jobs that are in almost every pipeline are build, test, and deploy.
