@@ -24,10 +24,10 @@ This module, based off chapters 13-18 of _The Selenium Guidebook:_ _Java Edition
 
 *   Set up and run tests using the Sauce Connect Proxy tunnel with terminal commands and the Sauce Labs application interface. Set up environment variables and access them with the Sauce Connect software to run tests using the tunnel.
 *   Use JUnit and Maven's Surefire Plugin to run tests on the Sauce Platform in parallel and in random order
-*   Create category interfaces for tests and test classes and use the `<groups>` tag in `pom.xm`l, as well as the `mvn -Dgroups `tag in the terminal to run different groups of tests for different purposes
+*   Create category interfaces for tests and test classes and use the `<groups>` tag in `pom.xml`, as well as the `mvn -Dgroups `tag in the terminal to run different groups of tests for different purposes
 *   Set up the the Jenkins CI server on your local machine and learn how to use the user interface to set up projects that run your tests, as well as configure the Jenkins CI server
 *   Add your credentials to your instance of a Jenkins CI server using Sauce OnDemand and run a test that you can view in both the Jenkins console and the Sauce Labs application
-*   Modify the configuration of a local instance on a Jenkins CI server, add plugins, and update a test to take desired capabilities from a config.java file updated for your Jenkins tests
+*   Modify the configuration of a local instance on a Jenkins CI server, add plugins, and update a test to take desired capabilities from a `config.java` file updated for your Jenkins tests
 *   Run tests using Sauce Connect Proxy through your Jenkins server, passing information back and forth from Sauce Labs to Jenkins using Sauce Connect
 *   Develop a strategy for planning how many and which types of tests your team and company will develop to best build automated testing suites for your product
 *   Connect how the tests that you have written in the UI using Selenium can be integrated into a comprehensive testing strategy that tests on multiple layers
@@ -156,7 +156,7 @@ After `-u` you will see your username and after` -k `you will have your access k
 
 
 
-### Set Up Proxy Environment
+### Set Sauce Connect Tunnel Capability
 Since you are using environment variables in our `Config.java` file, for your `SAUCE_USERNAME `and` SAUCE_ACCESS_KEY, `we will set up an environment variable for your` SAUCE_TUNNEL` as well.` `This variable will store the tunnel identifier, so after you start up a Sauce Connect tunnel, you can run your tests using it.
 
 Add the variable` sauceTunnel `in your `Config.java` file, at the bottom of the list of variables:
@@ -203,7 +203,7 @@ In this case, which you have named `saucelabs-tunnel`, when you run your test, y
 
 ### Run Tests Using Sauce Connect Proxy
 
-Once your tunnel is up and running, (you should see the message Sauce Connect is up in terminal)  and you have updated your `config.js` and `BaseTest.java` files, you can run your tests in Sauce Labs using Sauce Connect Proxy. First, update your` .bash_profile `with an environment variable (it must match the` tunnel id `you used to start the tunnel).
+Once your tunnel is up and running, (you should see the message Sauce Connect is up in terminal)  and you have updated your `config.java` and `BaseTest.java` files, you can run your tests in Sauce Labs using Sauce Connect Proxy. Make sure your  `.bash_profile` (or `.zshrc`) has the `SAUCE_TUNNEL` environment variable (it must match the` tunnel id` you used to start the tunnel).
 
 
 <img src="assets/5.03I.png" alt="Bash Profile" width="750"/>
@@ -385,7 +385,7 @@ You can see the [example code here](https://github.com/walkerlj0/Selenium_Course
 ## 5.05 Grouping Tests
 Duration: 0:08:00
 
-In order to get the most out of your tests, you'll want a way to break them up into relevant, targeted chunks. Running tests in smaller groupings (along with parallel execution) will help keep test run times to a minimum and help you quickly sift through test results and target your tests.
+In order to get the most out of your tests, you'll want a way to break them up into relevant, targeted chunks. Running tests in smaller groupings (along with parallel execution) will help keep test run times to a minimum and help you quickly sift through test results and target your tests. It also allows you to run different groups of tests for different purposes.
 
 In order to do this with Java, you will need to use categories: _Shallow, Deep,_ and _All_. Shallow tests are equivalent to smoke (or _sanity_) tests. These should pass before you can consider running the deep tests. Running the _All_ interface will run all the tests in your suite.
 
@@ -582,10 +582,7 @@ Negative
 
 
 Negative
-: If you type in `brew info` in your terminal, and you have homebrew installed correctly, you should see something like this:
-
-Negative
-: <img src="assets/5.06C.png" alt="Running Brew" width="450"/>
+: If you type in `brew info` in your terminal, and you have homebrew installed correctly, you should see something like this: <img src="assets/5.06C.png" alt="Running Brew" width="450"/>
 
 
 Let's start by setting up Jenkins on your local machine and using the test code from your computer as well. Keep in mind that this isn’t the proper way to go about this — it's merely beneficial for this example. To do it right, the Jenkins server (i.e., master node) would live on a machine of its own, or in a Virtual Machine (VM).
@@ -593,7 +590,7 @@ Let's start by setting up Jenkins on your local machine and using the test code 
 These instructions give you the step-by-step for how to set up on MacOS, however there are instructions for other operating systems, as well as the option for setup using a Docker container with other operating systems [here](https://www.jenkins.io/doc/book/installing/).
 
 
-### Jenkins Setup
+### Install Jenkins
 
 A simple way to get started is to use [Homebrew ](https://brew.sh/)to install Jenkins on MacOS. Once Homebrew is installed on your computer, use the instructions on the [Jenkins download page](https://jenkins.io/download/). If you are using Homebrew on MacOS, all you need to do is run this command in the terminal:
 
@@ -676,13 +673,23 @@ brew services stop jenkins
 ```
 
 
+<!--------->
+## 5.07 Create a Jenkins Project
 
-### Part 2: Create a Project
+Typically when you set up tests, you would add your test code as a part of the pipeline to put code into production, typically on a staging server. Three typical jobs that are in almost every pipeline are build, test, and deploy.
 
-Keep in mind that you typically would not be the one setting up Jenkins to run your tests; your administrator or DevOps team would be adding your test code as a part of the pipeline to put code into production, typically on a staging server. Three typical jobs that are in almost every pipeline are build, test, and deploy. One of the Sauce Lab sweet spots is the ability to create the _test _project piece of the pipeline.
+Jenkins is one of many tools you can use to automate your builds, however it also means that one has to log in to the Jenkins dashboard to debug tests. Using Sauce Labs makes it a lot easier to see, share, and debug tests results that are a part of a release pipeline.
 
-Now that Jenkins is loaded in the browser, let's create a **Project **and configure it to run our shallow tests against Chrome on Windows 10.
 
+#### Video
+
+Watch [Run Jenkins with Homebrew and Java ](https://drive.google.com/file/d/1YPKk1b1HdiWavNxTuR4m5QvPcTu7PCfn/view?usp=sharing)for a walk through of how to run and check the configuration of your test job with Jenkins.
+
+![https://drive.google.com/file/d/1YPKk1b1HdiWavNxTuR4m5QvPcTu7PCfn/preview](https://drive.google.com/file/d/1YPKk1b1HdiWavNxTuR4m5QvPcTu7PCfn/view?usp=sharing)
+
+### Create a Test Project
+
+Now that Jenkins is loaded in the browser, let's create a **Project** and configure it to run our shallow tests against Chrome on Windows 10.
 
 
 * Click **New Item** from the Dashboard menu.
@@ -718,10 +725,9 @@ Once you have clicked on a project and chosen **Configure** from the menu, go to
 ```
 mvn clean test -Dgroups=tests.groups.Shallow
 ```
+* Click **Save** to add the changes and return to the test main page.
 
-
-
-To return to the dashboard and see the list of projects, you can click **Back to Dashboard **in the menu. You can also click **Configure** to change or update the changes you just made:
+To return to the dashboard and see the list of projects, you can click **Back to Dashboard** in the menu. You can also click **Configure** to change or update the changes you just made:
 
 <img src="assets/5.06P.png" alt="Back to Dashboard or Configure" width="750"/>
 
@@ -739,18 +745,7 @@ First, return to the dashboard (You can do this by clicking the** Jenkins** icon
 #### Note
 
 Negative
-: If you see a warning at the top of your Global Tool Configuration dashboard, you can **go to plugin manager**, choose the **Updates** tab, and install necessary updates.
-
-Negative
-: <img src="assets/5.06X.png" alt="Plugin Manager" width="750"/>
-
-
-Negative
-: For those updates to take effect, you need to type in terminal:
-
-```
-Brew services restart jenkins
-```
+: If you see a warning at the top of your Global Tool Configuration dashboard, you can **go to plugin manager**, choose the **Updates** tab, and install necessary updates. <img src="assets/5.06X.png" alt="Plugin Manager" width="750"/> For those updates to take effect, you need to type in terminal: ``` Brew services restart jenkins```
 
 
 
@@ -789,15 +784,6 @@ To run your test, simply click **Build Now** in the menu, then click on the sphe
 
  <img src="assets/5.06CC.png" alt="Build Now" width="750"/>
 
-
-
-#### Video
-
-Watch [5.06 Run Jenkins with Homebrew and Java ](https://drive.google.com/file/d/1YPKk1b1HdiWavNxTuR4m5QvPcTu7PCfn/view?usp=sharing)for a walk through of how to run and check the configuration of your test job with the JUnit reporter for Jenkins.
-
-![https://drive.google.com/file/d/1YPKk1b1HdiWavNxTuR4m5QvPcTu7PCfn/preview](https://drive.google.com/file/d/1YPKk1b1HdiWavNxTuR4m5QvPcTu7PCfn/view?usp=sharing)
-
-
 #### Note
 
 Negative
@@ -814,11 +800,10 @@ Negative
 
 
 <!-- ------------------------ -->
-## 5.07 Jenkins and Sauce OnDemand
+## 5.08 Jenkins and Sauce OnDemand
 Duration: 0:15:00
 
 You haven’t run a test yet that has successfully passed in Sauce Labs. In this lesson, you’ll learn to connect your Jenkins server to your Sauce Labs account using the Sauce OnDemand Jenkins plugin, as well as run a test with Jenkins using Sauce Connect Proxy.
-
 
 ### Test Reporters
 
@@ -915,23 +900,23 @@ Click on your project name from your Jenkins dashboard (example: **Shallow Test 
 
 You don’t have to do anything to set the variable, or install any software or run commands to get the tunnel running—Sauce OnDemand creates a tunnel and runs the tests in it for you.
 
-Run your tests in Jenkins using **Build Now** (You can change the build configuration with the `mvn `commands back to `-Dgroups=tests.groups.All`)
+Run your tests in Jenkins using **Build Now**. (You can change the build configuration to run all tests vy removing the `-m deep` flag.)
 
 If you look on the Sauce Labs dashboard, you should see tests being run, an active tunnel, and even past builds listed:
 
-<img src="assets/5.07P.png" alt="Sauce Labs Builds" width="450"/>
+<img src="assets/5.07Q.png" alt="Sauce Labs Builds" width="450"/>
 
 
 Congratulations!  You now have the skills to create a basic test suite, plan your test strategy using testing best practices, and even work with your team to add testing to your software development pipeline. There is a lot more to explore both with tests and with Jenkins, so after the quiz, take a look at Module 5.09 for more resources, and visit the [Sauce Labs Documentation](https://wiki.saucelabs.com/display/DOCS/The+Sauce+Labs+Cookbook+Home) for more information.
 
 <!-- ------------------------ -->
-## 5.08 Quiz
+## 5.09 Quiz
 Duration: 0:05:00
 
 ![https://docs.google.com/forms/d/e/1FAIpQLSeocbRwtbK8cGMsQ-1tLjwg0qj_w-bKCmuaXZyUXAvGwt1yFw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSeocbRwtbK8cGMsQ-1tLjwg0qj_w-bKCmuaXZyUXAvGwt1yFw/viewform?usp=sf_link)
 
 <!-- ------------------------ -->
-## 5.09 Resources and Community
+## 5.10 Resources and Community
 Duration: 0:03:00
 
 

@@ -1,10 +1,13 @@
-To make Edits to Sauce School modules, you can find the file, make edits, then submit a new branch, take the following steps on
+### For Reviewers
+To make Edits to Sauce School modules, you can find the file, make edits, then submit a new branch. Take the following in the sauce-school repo:
 
-**https://github.com/saucelabs/sauce-school**
+#### https://github.com/saucelabs/sauce-school
 
 **Note** – Each Module in sauce school is created in one markdown file. For example, 4.01, 4.02, 4.03 etc are all a part of the Module4_SeleniumPython.md file
 
-1. Find the codelab module in the sauce-school repo. All modules are in the sauce-school/codelabs directory (some may be in sauce-school/codelabs/Drafts)
+
+### Steps
+1. Find the codelab module in the sauce-school repo. All modules are in the sauce-`school/codelabs directory` (some may be in `sauce-school/codelabs/Drafts`)
 
 <img src="assets/HT01.png" alt="Pencil" width="650"/>
 
