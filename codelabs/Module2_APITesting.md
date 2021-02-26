@@ -128,5 +128,5 @@ Do you already use a platform to analyze all your data, well you can send all yo
 Integrating with your Test Case Manager and communicating the results of tests is important. Having all of your information in your test case manager including test result data makes it easy to understand the entire project. Connectors can be setup to automatically send test results to your test case manager upon completion of scheduled tests.
 
 <!-- ------------------------ -->
-## 2.04 Quiz
+## 2.04 Module 2 Quiz
 ![https://docs.google.com/forms/d/e/1FAIpQLScD-Qv4R-99_uW2IumSKhPTkwO3RX-3mU0G-aotTWMrIVVrUA/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScD-Qv4R-99_uW2IumSKhPTkwO3RX-3mU0G-aotTWMrIVVrUA/viewform?usp=sf_link)

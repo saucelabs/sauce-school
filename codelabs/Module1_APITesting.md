@@ -131,7 +131,7 @@ Basically, APIs are at the core of modern platforms, and they are as susceptible
 Everyday developers deal with huge enterprises transforming their legacy internal systems to APIs, and these APIs then power new mobile apps, internal platforms, partnerships, countless potential new revenue streams for any company. The world is built on REST APIs, and they require the same level of effort in terms of testing and monitoring.
 
 <!-- ------------------------ -->
-## 1.03 What is Continuous Testing
+## 1.03 What is Continuous Testing?
 Duration: 0:04:00
 
 API testing isn’t easy, and there are many different ways in which a bad API can cause catastrophic harm to an organization. This course will dive into best practices and details a little later, but let’s quickly run through what we're talking about when it comes to continuous testing.
@@ -177,5 +177,5 @@ It's also important, again, to use existing tests as your load tests. You will n
 Ultimately, continuous testing means leveraging all of these types of tests, automatically. A constant series of functional and non-functional (performance) tests to constantly validate your APIs.
 
 <!-- ------------------------ -->
-## 1.04 Quiz
+## 1.04 Module 1 Quiz
 ![https://docs.google.com/forms/d/e/1FAIpQLSfFQwJD8H8xngxGuLW6SBuBCUcvRVj69HeClX48t8sm3ywAdw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSfFQwJD8H8xngxGuLW6SBuBCUcvRVj69HeClX48t8sm3ywAdw/viewform?usp=sf_link)
