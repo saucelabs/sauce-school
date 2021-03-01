@@ -53,7 +53,8 @@ Sauce Labs enables automated testers to do [web application testing](https://wik
 
 Sauce Labs also offers the option of testing mobile apps, or testing on mobile web browsers. Learn more about [different plans and pricing ](https://saucelabs.com/pricing/?utm_source=referral&utm_medium=LMS&utm_campaign=link)on the Sauce Labs website
 
-#### Video – Sauce Labs Intro
+#### Video
+[Sauce Labs Intro](https://drive.google.com/file/d/1AyPiLYQtaFBlvb_2UZW5pNGPGVn-XhDz/view?usp=sharing)
 
 
 ![https://drive.google.com/file/d/1AyPiLYQtaFBlvb_2UZW5pNGPGVn-XhDz/preview](https://drive.google.com/file/d/1AyPiLYQtaFBlvb_2UZW5pNGPGVn-XhDz/view?usp=sharing)
