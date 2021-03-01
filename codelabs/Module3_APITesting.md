@@ -213,17 +213,18 @@ It’s important to note that with the **Generate Test** feature you can have th
 
 <!-- ------------------------ -->
 ## 3.03 Create an Integration Test
-Duration: 0:04:00
+Duration: 0:07:00
 
 ### Using an API as a Datasource
 Now lets take the functional test, and use it as the first step in an integration test. Notice that the first API call actually contains an array of product IDs. What if you use it as a datasource, and then iterate on each of them individually?
 
-First, you have the original test:
+First, you have the original test that was created (with assertions) when you clicked **Generate Test** after entering `https://mastiff.apifortress.com/app/api/examples/retail/products`:
 
 <img src="assets/API3.02D.png" alt="Generate a Test" width="850"/>
 
-Creating an integration test requires the use of two new components. The [_For Each_](https://apifortress.com/doc/each-component/) component helps you iterate through a series of data (product IDs in this case), and the [_Set_](https://apifortress.com/doc/set-var/) which creates a temporary variable to reference.
+Creating an integration test requires the use of two new components. The **[For Each](https://apifortress.com/doc/each-component/)** component helps you iterate through a series of data (product IDs in this case), and the **[Set](https://apifortress.com/doc/set-var/)** which creates a temporary variable to reference.
 
+### Test Creation Basics
 You can add components to any step in the test like so:
 
 <img src="assets/API3.03A.png" alt="Generate a Test" width="850"/>
@@ -232,23 +233,98 @@ If you look at the above GUI view of this test, you see that we have our origina
 
 <img src="assets/API3.03B.png" alt="Generate a Test" width="850"/>
 
-Then you will add in the component that makes this integration test, that is using an API to be data-driven, the _For Each_ component.
+If you do not have all of the same variables, create them now in the **Input Set** window:
 
-You’ll notice that it is referencing the variable that we stored the entire response, then the array, and finally the object we want to use - _productsPayload.content.products.pick(2)._ You’ll notice the _.pick(2)_ we added at the end. This is entirely optional, and what it does is randomly select X number of items from the list we are iterating through. This is useful if the dataset is far too large. Ours is small so we would remove that and allow every product ID to be tested. We will leave it for training purposes.
+<img src="assets/API3.03K.png" alt="Generate a Test" width="350"/>
 
-Next we have the _Set_ component, which is creating a new variable called _id_. The value of that variable depends on the location the _For Each_ is at in the iteration. Here we set the value as ${\_1}. This is saying “using the current location in the array”. Traversing an array is a bit of a larger topic, so we’ll get into that later.
+### Loop Through Each Element
 
-Finally, you see the next _GET_ component. You’ll notice we are using the _id_ that we stored from the first _GET_ call to populate into the second _GET_ call. Each iteration of the _For Each_ will call the current _id_ in the subsequent _GET_ call.
+After the first set of verifications in the first **GET** request, add in the component that makes this integration test, that is using an API to be data-driven, the **For Each** component.
 
-That’s it! What we’ve done here is made an API call to the products list API, then tested that API thoroughly, and then used that API as the datasource for the subsequent GET which dives into each of those product IDs individually. You then want to test that entire API response as well. So here is what that entire test looks like complete in the GUI.
+You’ll notice that it is referencing the variable that we stored the entire response, then the array, and finally the object we want to use. Edit the **for each in** statement so that it says **productsPayload.content.products.pick(2).**
 
-<!-- ![Full integration test that uses an API response to data drive the rest of the flow.](https://lh4.googleusercontent.com/e1B7AF-mtQAhvUEsrSvvqjqWfu3ll3cR3Z1n3xmqtFJ4Ld8k8hvoqQ-wJ1SGKNTiEMOtGDffH7BwlgLx7fypOgI-A7ixjqJiF26H-G9N9nqD4Kfmbgx2c8Q7q5jaMuWi-nLW5MVo) -->
+<img src="assets/API3.03C.png" alt="Generate a Test" width="550"/>
 
-To see the code itself, go to the Examples directory and open the test _Retail: Integration - Products._
+The **.pick(2)** you added at the end is entirely optional, and what it does is randomly select `X `number of items from the list we are iterating through. This is useful if the dataset is  large. Ours is small so we would remove that and allow every product ID to be tested. We will leave it for training purposes.
 
-end to end, iterate
+Next you want to add a **Set** component, creating a new variable called **id**.
+
+<img src="assets/API3.03D.png" alt="Generate a Test" width="350"/>
+
+<img src="assets/API3.03E.png" alt="Generate a Test" width="550"/>
+
+The value of that variable depends on the location the **For Each** is at in the iteration. Here we set the value as `${\_1}`. This is saying “using the current location in the array”. Traversing an array is a bit of a larger topic, so we’ll get into that later.
+
+<img src="assets/API3.03F.png" alt="Generate a Test" width="550"/>
+
+Delete the component that was automatcially created after when you created the loop.
+
+<img src="assets/API3.03G.png" alt="Generate a Test" width="550"/>
+
+Now you need to move the  **GET** component within the **for each** loop. You’ll notice we are using the `id` that we stored from the first **GET** call at the beginning of the test to populate into the second **GET** call within the loop. Each iteration of the **For Each** will call the current `id` in the **GET** call.
+
+<img src="assets/API3.03I.png" alt="Generate a Test" width="550"/>
+
+Update each of the elements in your **for each** loop so that it appears like the sample test entitled _Retail: Integration - Products_ in the _Examples_ project. You may have to drag and drop elements into the for loop, or add or delete new components to make it look like the **Final Code** at the bottom of this page.
+
+<img src="assets/API3.03L.png" alt="Generate a Test" width="650"/>
+
+<img src="assets/API3.03M.png" alt="Generate a Test" width="650"/>
+
+### Add an If Statement
+Once you  have all the assertions added in the second **for each** loop, you need to add one if statement to check that a shipping zone exists if there is something populared in your shopping cart.
+
+<img src="assets/API3.03Q.png" alt="Generate a Test" width="650"/>
+
+<img src="assets/API3.03O.png" alt="Generate a Test" width="350"/>
+
+<img src="assets/API3.03P.png" alt="Generate a Test" width="650"/>
+
+Finally, In the **If** statement, add a child component that asserts that the shipping zone does exist:
+
+<img src="assets/API3.03R.png" alt="Generate a Test" width="650"/>
+
+### Run Your Test
+That’s it! Now you can run your test by clicking on the **Run** button in the interface, choosing the data center, and see a final report for your test
+
+<img src="assets/API3.03S.png" alt="Generate a Test" width="650"/>
+
+<img src="assets/API3.03T.png" alt="Generate a Test" width="650"/>
+
+#### Final Code
+<img src="assets/API3.03J.png" alt="Generate a Test" width="650"/>
+
+
 
 
 <!-- ------------------------ -->
-## 3.04 Creating an Integration Test
-Duration: 0:04:00
+## 3.04 The Vault, Variables, and Environments
+Duration: 0:03:00
+
+### Using The Vault
+
+ The Vault is a unique part of the API Fortress platform that allows you to store variables and code for use across a projects.
+
+It is unique, Nnot in terms of the idea, but in the flexibility offered. It allows you to save, edit, and reuse almost anything, including:
+* Variables
+* Code snippets (think reused authentication flows)
+* Other data
+
+
+In the Vault, you can store level at two different levels of scope, project and global, and the project vault will allow you to reuse those values across any test within that scope.
+
+ Similarly the global vault will allow use of stored values across any test within any project.
+
+
+### Using Variables and Environments
+
+If properly setup, any API Fortress test can be run against any environment. You’ll notice that is what we did in our functional test by turning the API URL into three separate parts - _protocol_, _domain_, and _endpoint_. This allows you to set the default location under **Input Sets** (in the left pane), and also override those values with the **Environments** tab:
+
+<img src="assets/API3.04A.gif" alt="Environmnets Tab demo" width="850"/>
+
+The Environments panel lets you change anything, not just environments. You can run the test against a certain environment, using a different API key, and datasource. This effectively allows you to have pre-set runtime variable overrides.
+
+### Adding Elements to the vault
+Access the Vault and add variables and code snippets by...
+
+To learn more about The Vault and Environments see below links: [Learn the Basics](https://apifortress.com/doc/the-vault/), [Advanced Use Cases](https://apifortress.com/doc/environments-vault-and-overrides-magic/), [Environments Basics](https://apifortress.com/doc/environments-and-presets/), [Environments Advanced](https://apifortress.com/doc/flexible-variables-for-flexible-environments/)
