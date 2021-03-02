@@ -669,15 +669,11 @@ Now that you have your code for setting up and tearing down your tests in a sepa
 
 ## Final Code
 
-<img src="assets/ASJ1.05E.png" alt="update Sauce Labs Test" width="450"/>
+You can see the source code and project that you should have [in this sample](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/advanced-selenium/Mod1/1.05)
 
+<img src="assets/ASJ1.05E.png" alt="update Sauce Labs Test" width="750"/>
 
-
-
-<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image6.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image6.png "image_tooltip")
+<img src="assets/ASJ1.05F.png" alt="update Sauce Labs Test Base" width="750"/>
 
 
 
