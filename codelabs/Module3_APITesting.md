@@ -10,25 +10,21 @@ author:Lindsay Walker
 # Module 3 – Writing Your First API Test
 
 <!-- ------------------------ -->
-## 3.01 What is an API?
+## 3.01 How Can I Create an API Test?
 Duration: 0:02:00
 
-There are two ways to create a test with the API tool, from a payload (the response) when you make an api call, or from a spec file from a tool such as [swagger.io](https://swagger.io/).
+<!--![https://www.youtube.com/embed/aRC6WkmFfzc](https://youtu.be/aRC6WkmFfzc) -->
 
-### From a Payload
+There are two ways to create a test with the API tool, from a payload (the response) when you make an api call, or from a spec file from a tool such as [swagger.io](https://swagger.io/) or Postman. [Follow these steps to quickly create your first test](https://apifortress.com/doc/create-a-test-quickly/)
 
-Before you dive into this, watch this quick video on how to login and generate a test in under a minute. Then read the below to get a better understanding of the nuances of the tests themselves.
-
-#### An API response payload.
-This is used to auto generate a functional test in API Fortress.
+### From An API Response payload.
+Simply use the HTTP Client from your test editing dashboard to auto generate a functional test in API Fortress.
 
 <img src="assets/wp-content/uploads/2019/07/Screen-Shot-2019-07-01-at-12.02.21-PM.png" alt="Generate a Test" width="850"/>
 
 [Generate a Test Video](https://www.youtube.com/watch?v=qujShNWCDvM&feature=emb_logo)
 
 <!-- ![https://www.youtube.com/embed/qujShNWCDvM](https://youtu.be/qujShNWCDvM) --> <!-- This YouTube link doesn't work -->
-
-[Generate a Test Guide](https://apifortress.com/doc/create-a-test-quickly/)
 
 ### From a Spec File
 
@@ -232,14 +228,14 @@ You can add components to any step in the test like so:
 
 #### Note
 Negative
-: Save early and often! <img src="assets/API3.03.png" alt="Generate a Test" width="550"/>
+: Save early and often!                                   <img src="assets/API3.03.png" alt="Generate a Test" width="550"/>
 
 
 If you look at the above GUI view of this test, you see that we have our original test. It makes the first API call, and then tests each object in that response.
 
 <img src="assets/API3.03B.png" alt="Generate a Test" width="850"/>
 
-If you do not have all of the same variables, create them now in the **Input Set** window:
+If you do not have all of the same parameters, create them now in the **Input Set** window:
 
 <img src="assets/API3.03K.png" alt="Generate a Test" width="350"/>
 
@@ -342,13 +338,13 @@ In this example, I'm going to use the _Retail : Integration - Products_ test, an
 You should see the snippet show up in the panel.
 
 ### Using a Snippet
-Now lets re-use this handy snippet in a different project. Leave the _Examples_ project and open up one you created. Keep the first5 commands as is, but delet the **for each** loop.
+Now lets re-use this handy snippet in a different project. Leave the _Examples_ project and open up one you created. Keep the first five commands as is, but delet the **for each** loop.
 
 Once you have deleted it, open up the **Vault** menu on the side, choose the bottom element in your test, and click the arrow to invoke the snippet in your code:
 
 <img src="assets/API3.04D.png" alt="Invoke Snippet" width="750"/>
 
-Much easier than recreating the entire for loop! Run your test to see the report
+Much easier than recreating the entire for loop! Run your test to see the report.
 
 ### Adding and Editing Variables
 Access the Vault and add variables and code snippets by first clicking on the **Valut** in the main menu.
@@ -381,7 +377,7 @@ Once you click into your dashboard, you can choose the **Logs** to see a histori
 
 Here you can see the report, as well as generate a shareable URL.
 
-## Publishing and Scheduling
+### Publishing and Scheduling
 
 API Fortress allows you to create **Published** copies of your tests so you can use a stable, existing version of a tests, (for example, in a scheduled test) and continue making updates to a work
 
@@ -396,3 +392,34 @@ On the next dashboard, you can click the **Publish** button, then you can click 
 Now you can set up and save a this version of your test to run as often as you would like. [Learn more about scheduling tests](https://apifortress.com/doc/quick-start-guide-schedule-a-test/)
 
 <img src="assets/API3.05F.png" alt="Publish and Schedule" width="850"/>
+
+<!-- ------------------------ -->
+## 3.06 Module 5 Quiz
+Duration: 0:03:00
+
+![https://docs.google.com/forms/d/e/1FAIpQLScNPr_oYqWe0_PD3oil_iebFvZ9ejV96z-UZ3quytHXYXUOnw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScNPr_oYqWe0_PD3oil_iebFvZ9ejV96z-UZ3quytHXYXUOnw/viewform?usp=sf_link)
+
+<!--
+1. Which of the following are options for how you can generate an API test with Sauce Labs and API Fortress?
+a. By creating your own JSON file, and from an API Response Payload
+b. By creating your own JSON file and from a Spec file from another tool such as Swagger or Postman
+c. From and API Response Payload and from a Spec file from another tool such as Swagger or Postman*
+
+*In Module 3 we demonstrated generating a file from an API Response Payload, and you can also use a Spec file from tools like Swagger and Postman
+
+2. Which of the following is a good reason for creating a published version of your test?
+a. So you can share it with others, without allowing them to edit the code.
+b. So you can schedule a stable version of the test, and still make changes to the working copy *
+c. To make your test publicly viewable
+d. So you can make several different copies of the same test to use in different environments (staging, production, etc)
+
+*A good reason to publish tests is to create a stable version that you can schedule, and still make updates and changes that you can test on the working version. Best practices for writing tests for different environments is to use variables and parameters to set up your test
+
+3. What types of information does the Vault allow you to store, and for what purpose?
+a. You can share and store code snippets and variables, for re-use in tests across projects, and even globally
+b. You can share and store code snippets and parameters, for re-use in tests across projects
+c. You can share and store parameters and variables, for re-use in different tests across projects, and even globally
+d. You can share and store variables and variables, for re-use in different tests globally
+
+ * The Vault allows storage of code snippets and variables, and allows you to share those elements between tests both in the same project, and globally across all projects.
+-->
