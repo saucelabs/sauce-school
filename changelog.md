@@ -1,5 +1,13 @@
-# Changelog- Add newest additions in an .md file at top
+
+### _Changelog- Add newest additions in an .md file at top_
 ///start typing below this text
+
+## Feb 26- Casey's Changes
+- Added in an override to make quiz iframe larger in _/app/scripts/app.js_ on linke 307, `for` loop to override height. Attempt on line 313 to enable expanded view of videos.
+
+## Feb 13 - Casey's Changes
+- Added a min height to quiz iframes in /site/app/styles/overrides.scss
+- Made views/default/index.html cards linkable
 
 ## Dec 2 - Casey's Changes (Lindsay)
 **Text on Module Cards**

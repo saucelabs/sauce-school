@@ -20,18 +20,25 @@ There are many possibilities for testing in[ Sauce Labs](http://app.saucelabs.co
 
 ### Skills & Knowledge
 
-* Learn about how to set up your environment to set up an Appium Mobile App test on your machine using Appium and Android Studio, among other tools.
+* Learn about how to set up your environment to set up an Appium Mobile App test on your machine using Appium and Android Studio, among other tools
+
 * Understand the elements of an Appium Android mobile app test suite and run it locally, understanding how all the elements of code in a simple test suite interact
-* Learn about how an Appium test suite is written with the TestNG testing framework and run tests using Maven and TestNG `xml` files.
+
+* Learn about how an Appium test suite is written with the TestNG testing framework and run tests using Maven and TestNG `xml` files
+
 * Update the configuration to run an Appium Android Mobile app test suite on Sauce Labs by uploading your app, and adding the information to run your test including app name or URL, `SAUCE_USERNAME`, and `SAUCE_ACCESS_KEY`
-* Update capabilities and test code to run both an Appium Android mobile app test and an Appium Android mobile browser test on Sauce Labs.
+
+* Update capabilities and test code to run both an Appium Android mobile app test and an Appium Android mobile browser test on Sauce Labs
+
 * Add features to your test suite using the Sauce Options (capabilities) that allow you to add names, session IDs, and pass fail conditions
-* Add in the capabilities `extendedDebugging` and `capturePerformance == "true"`, then use Sauce Performance to view resources that are loaded with the network tab in automated test results.
-* Add in features to the test code and TestNG `xml` file, and set your test to run tests in parallel for Android Appium app test.
+
+* Add in the capabilities `extendedDebugging` and `capturePerformance == "true"`, then use Sauce Performance to view resources that are loaded with the network tab in automated test results
+
+* Add in features to the test code and TestNG `xml` file, and set your test to run tests in parallel for Android Appium app test
 
 <!-- ------------------------ -->
 ## 2.02 Set Up a Local Android Test Environment
-Duration: 0:010:00
+Duration: 0:07:00
 
 This module is created to walk you through the steps you need to take to get a test running on [Sauce Labs.](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link) You will start with a local test running on the Appium Server, using the Android Studio device emulator. If you would like to follow along, you can start here with the example application and Appium Test code to run on your local machine, or skip ahead to the next module to start running tests on Sauce Labs.
 
@@ -484,10 +491,10 @@ Once you have the first project configured, you can start Appium desktop and an 
 
 
 <!-- ------------------------ -->
-## 2.04 Android Emulator Test on Sauce Labs
+## 2.04 Android Emulator App Test on Sauce Labs
 Duration: 0:20:00
 
-The first thing you will do with your BasicTest is to add the configurations and capabilities to run that test on a Sauce Labs emulator.
+The first thing you will do with your BasicTest is to add the configurations and capabilities to run that test on an app on a Sauce Labs emulator.
 
 To do this tutorial, start with the **[Basic Test](https://github.com/walkerlj0/Quickstart_Android/blob/master/Mod2/2.04/src/test/java/tests/BasicTest.java)** and follow along to make the changes.
 

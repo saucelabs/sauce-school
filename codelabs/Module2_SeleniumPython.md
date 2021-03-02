@@ -595,7 +595,7 @@ You can see the [Solution Here](https://github.com/walkerlj0/Selenium_Course_Exa
 
 <!-- ------------------------ -->
 
-## 2.08 Module 2
+## 2.08 Module 2 Quiz
 Duration: 0:05:00
 
 ![https://docs.google.com/forms/d/e/1FAIpQLSegVIfMs-pUxt0Fq2a_lQ7pocT7PqcfAkLtPSZ7lk5JFPAMCQ/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSegVIfMs-pUxt0Fq2a_lQ7pocT7PqcfAkLtPSZ7lk5JFPAMCQ/viewform?usp=sf_link)
