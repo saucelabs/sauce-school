@@ -42,7 +42,7 @@ In addition, understanding the differences between what a human can test, and ho
 ![alt_text](images/image1.png "image_tooltip")
 
 
-Source: [Alexy Litvinenko](https://www.dreamstime.com/sonar512_info)
+_Source: [Alexy Litvinenko](https://www.dreamstime.com/sonar512_info)_
 
 
 ### Continuous Testing
@@ -52,7 +52,7 @@ Continuous testing is a shift-left journey towards earlier and more frequent tes
 
 
 
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert_</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
 ![alt_text](images/image2.png "image_tooltip")
