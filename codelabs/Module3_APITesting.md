@@ -229,6 +229,12 @@ You can add components to any step in the test like so:
 
 <img src="assets/API3.03A.png" alt="Generate a Test" width="850"/>
 
+
+#### Note
+Negative
+: Save early and often! <img src="assets/API3.03.png" alt="Generate a Test" width="550"/>
+
+
 If you look at the above GUI view of this test, you see that we have our original test. It makes the first API call, and then tests each object in that response.
 
 <img src="assets/API3.03B.png" alt="Generate a Test" width="850"/>
@@ -241,11 +247,11 @@ If you do not have all of the same variables, create them now in the **Input Set
 
 After the first set of verifications in the first **GET** request, add in the component that makes this integration test, that is using an API to be data-driven, the **For Each** component.
 
-You’ll notice that it is referencing the variable that we stored the entire response, then the array, and finally the object we want to use. Edit the **for each in** statement so that it says **productsPayload.content.products.pick(2).**
+You’ll notice that it is referencing the variable that we stored the entire response, then the array, and finally the object we want to use. Edit the **for each** loop statement so that it says **productsPayload.content.products.pick(2).**
 
 <img src="assets/API3.03C.png" alt="Generate a Test" width="550"/>
 
-The **.pick(2)** you added at the end is entirely optional, and what it does is randomly select `X `number of items from the list we are iterating through. This is useful if the dataset is  large. Ours is small so we would remove that and allow every product ID to be tested. We will leave it for training purposes.
+The **.pick(2)** you added at the end is entirely optional, and what it does is randomly select a set (in this case, `2`) number of items from the list we are iterating through. This is useful if the dataset is  large. Ours is small so we would remove that and allow every product ID to be tested. We will leave it for training purposes.
 
 Next you want to add a **Set** component, creating a new variable called **id**.
 
@@ -253,15 +259,15 @@ Next you want to add a **Set** component, creating a new variable called **id**.
 
 <img src="assets/API3.03E.png" alt="Generate a Test" width="550"/>
 
-The value of that variable depends on the location the **For Each** is at in the iteration. Here we set the value as `${\_1}`. This is saying “using the current location in the array”. Traversing an array is a bit of a larger topic, so we’ll get into that later.
+The value of that variable depends on the location the **For Each** is at in the iteration. Here we set the value as `${_1}`. This is saying “using the current location in the array”. Traversing an array is a bit of a larger topic, so we’ll get into that later.
 
 <img src="assets/API3.03F.png" alt="Generate a Test" width="550"/>
 
-Delete the component that was automatcially created after when you created the loop.
+Delete any components that were automatically created exist when you created the loop or generated the test that don't match with the final code at the bottom of this page.
 
 <img src="assets/API3.03G.png" alt="Generate a Test" width="550"/>
 
-Now you need to move the  **GET** component within the **for each** loop. You’ll notice we are using the `id` that we stored from the first **GET** call at the beginning of the test to populate into the second **GET** call within the loop. Each iteration of the **For Each** will call the current `id` in the **GET** call.
+Now you need to move (or create) a  **GET** component within the **for each** loop. You’ll notice we are using the `id` that we stored from the first **GET** call at the beginning of the test to populate into the second **GET** call within the loop. Each iteration of the **For Each** will call the current `id` in the **GET** call.
 
 <img src="assets/API3.03I.png" alt="Generate a Test" width="550"/>
 
@@ -276,7 +282,7 @@ Once you  have all the assertions added in the second **for each** loop, you nee
 
 <img src="assets/API3.03Q.png" alt="Generate a Test" width="650"/>
 
-<img src="assets/API3.03O.png" alt="Generate a Test" width="350"/>
+<img src="assets/API3.03O.png" alt="Generate a Test" width="300"/>
 
 <img src="assets/API3.03P.png" alt="Generate a Test" width="650"/>
 
@@ -289,7 +295,6 @@ That’s it! Now you can run your test by clicking on the **Run** button in the 
 
 <img src="assets/API3.03S.png" alt="Generate a Test" width="650"/>
 
-<img src="assets/API3.03T.png" alt="Generate a Test" width="650"/>
 
 #### Final Code
 <img src="assets/API3.03J.png" alt="Generate a Test" width="650"/>
@@ -305,10 +310,11 @@ Duration: 0:03:00
 
  The Vault is a unique part of the API Fortress platform that allows you to store variables and code for use across a projects.
 
-It is unique, Nnot in terms of the idea, but in the flexibility offered. It allows you to save, edit, and reuse almost anything, including:
+It is unique, Not in terms of the idea, but in the flexibility offered. It allows you to save, edit, and reuse almost anything, including:
+
 * Variables
 * Code snippets (think reused authentication flows)
-* Other data
+*Any assertions and code elements
 
 
 In the Vault, you can store level at two different levels of scope, project and global, and the project vault will allow you to reuse those values across any test within that scope.
@@ -324,7 +330,69 @@ If properly setup, any API Fortress test can be run against any environment. You
 
 The Environments panel lets you change anything, not just environments. You can run the test against a certain environment, using a different API key, and datasource. This effectively allows you to have pre-set runtime variable overrides.
 
-### Adding Elements to the vault
-Access the Vault and add variables and code snippets by...
+### Adding Snippet to the Vault
+To add a snippet to your account, simply select the elements (hold **SHIFT** and click first and last elements to select a range), open the Vault in the side menu, and slick the `+` icon.
+
+<img src="assets/API3.04B.png" alt="Environmnets Tab demo" width="850"/>
+
+In this example, I'm going to use the _Retail : Integration - Products_ test, and re-use it in my own test. In this example, we will select the **for each** loop that selects 2 random elements, and name it **retailProductsLoop**, placing it in the global scope:
+
+<img src="assets/API3.04C.png" alt="Environmnets Tab demo" width="750"/>
+
+You should see the snippet show up in the panel.
+
+### Using a Snippet
+Now lets re-use this handy snippet in a different project. Leave the _Examples_ project and open up one you created. Keep the first5 commands as is, but delet the **for each** loop.
+
+Once you have deleted it, open up the **Vault** menu on the side, choose the bottom element in your test, and click the arrow to invoke the snippet in your code:
+
+<img src="assets/API3.04D.png" alt="Invoke Snippet" width="750"/>
+
+Much easier than recreating the entire for loop! Run your test to see the report
+
+### Adding and Editing Variables
+Access the Vault and add variables and code snippets by first clicking on the **Valut** in the main menu.
+
+<img src="assets/API3.04E.png" alt="The Vault" width="650"/>
+
+From here you can access and edit code for snippets and variables for both global project-specific snippets and variables.
+
+<img src="assets/API3.04F.png" alt="The Vault" width="750"/>
 
 To learn more about The Vault and Environments see below links: [Learn the Basics](https://apifortress.com/doc/the-vault/), [Advanced Use Cases](https://apifortress.com/doc/environments-vault-and-overrides-magic/), [Environments Basics](https://apifortress.com/doc/environments-and-presets/), [Environments Advanced](https://apifortress.com/doc/flexible-variables-for-flexible-environments/)
+
+<!-- ------------------------ -->
+## 3.05 Test Publishing and Reporting
+Duration: 0:03:00
+
+### Test Reports
+
+The test report will give you accessible, saveable information about a specific test run. The report lists the data center the test was run on, the date and time, as well as the results of each assertion within a test.
+
+<img src="assets/API3.03T.png" alt="Generate a Test" width="650"/>
+
+First, navigate to your project dashboard:
+
+<img src="assets/API3.05D.png" alt="Project Dashboard" width="350"/>
+
+Once you click into your dashboard, you can choose the **Logs** to see a historical list of reports for tests run in the project.
+
+<img src="assets/API3.05E.png" alt="Test logs" width="750"/>
+
+Here you can see the report, as well as generate a shareable URL.
+
+## Publishing and Scheduling
+
+API Fortress allows you to create **Published** copies of your tests so you can use a stable, existing version of a tests, (for example, in a scheduled test) and continue making updates to a work
+
+First, **Exit & Save** your test:
+
+<img src="assets/API3.05B.png" alt="Exit and Save" width="850"/>
+
+On the next dashboard, you can click the **Publish** button, then you can click on the **Schedule** button once you have published a version of you test.
+
+<img src="assets/API3.05C.png" alt="Publish and Schedule" width="850"/>
+
+Now you can set up and save a this version of your test to run as often as you would like. [Learn more about scheduling tests](https://apifortress.com/doc/quick-start-guide-schedule-a-test/)
+
+<img src="assets/API3.05F.png" alt="Publish and Schedule" width="850"/>
