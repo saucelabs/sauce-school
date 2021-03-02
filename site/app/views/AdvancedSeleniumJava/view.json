@@ -1,6 +1,6 @@
 {
   "title": "Advanced Selenium Java",
-  "description": "In this course, you will learn to use Java with the JUnit5 test runner and Sleneium 4 to develop an automated testing suite. Learn advanced testing techniques, tools, and libraries.",
+  "description": "In this course, you will learn to use Java with the JUnit5 test runner and Selnium 4 to develop an automated testing suite. Learn advanced testing techniques, tools, and libraries.",
   "logoUrl": "/SeleniumJava/logo.png",
   "tags": ["advancedjava"],
   "exclude": [

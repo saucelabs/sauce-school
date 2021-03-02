@@ -38,7 +38,7 @@ In addition, understanding the differences between what a human can test, and ho
 
 <img src="assets/ASJ1.02A.png" alt="Move to automated testing" width="450"/>
 
-_Source: [Alexy Litvinenko](https://www.dreamstime.com/sonar512_info)_
+_Source:_ _[Alexy Litvinenko](https://www.dreamstime.com/sonar512_info)_
 
 
 ### Continuous Testing
@@ -553,7 +553,7 @@ You will also frequently have tests that don’t pass, even though everything is
 There are also maintenance costs to debugging tests that fail when they should. One of the most common Selenium Errors is ‘elementNotFound’, which can happen for any number of reasons that occur because the element didn’t appear.
 
 
-## Create a Base Test
+### Create a Base Test
 
 One of the most important things to do to help reduce maintenance tests is create a suite that is easy to debug.
 
@@ -667,7 +667,7 @@ Make sure you deleted the `@BeforeEach` and `@AfterEach` test annotations, becau
 Now that you have your code for setting up and tearing down your tests in a separate class, it will be easy to add several more test classes, and make changes in one place. For example, if you made 5 more test classes, and then decided that you didn’t want to make all the jobs run on Sauce Labs public, you would simply have to update the  `setJobVisibility sauceOption` in `SauceTestBase.java `for all your tests.
 
 
-## Final Code
+#### Final Code
 
 You can see the source code and project that you should have [in this sample](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/advanced-selenium/Mod1/1.05)
 
@@ -677,7 +677,7 @@ You can see the source code and project that you should have [in this sample](ht
 
 
 
-## Quiz
+### Quiz
 <!--
 1. What is the advantage of using Sauce Bindings with your test suite?
     1. It includes classes that make it easy to do things like detect flaky or brittle tests early on
@@ -699,9 +699,9 @@ You can see the source code and project that you should have [in this sample](ht
         3. WebDriverManager makes getting the correct browser driver (such as Chromedriver) that supports the version of chrome you are testing against, and makes it so you don’t have to add any extra code to use the correct driver.
 -->
 
-<!-- ------------------------ --
-## Section 1
-Duration: 0:10:00
+<!-- ------------------------ -->
+## 1.06  Add Test Name and Status
+Duration: 0:07:00
 
 <!-- ------------------------ --
 ## Section 1
