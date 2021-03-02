@@ -10,7 +10,7 @@ author:Lindsay Walker
 # Module 3 – Writing Your First API Test
 
 <!-- ------------------------ -->
-## 3.01 How Can I Create an API Test?
+## 3.01 How Can You Create an API Test?
 Duration: 0:02:00
 
 <!--![https://www.youtube.com/embed/aRC6WkmFfzc](https://youtu.be/aRC6WkmFfzc) -->
