@@ -55,8 +55,7 @@ Sauce Labs also offers the option of testing mobile apps, or testing on mobile w
 
 #### Video – Sauce Labs Intro
 
-
-![https://drive.google.com/file/d/1AyPiLYQtaFBlvb_2UZW5pNGPGVn-XhDz/preview](https://drive.google.com/file/d/1AyPiLYQtaFBlvb_2UZW5pNGPGVn-XhDz/view?usp=sharing)
+![https://training.staging.saucelabs.net/1.02_Quickstart.html](https://training.staging.saucelabs.net/1.02_Quickstart.html)
 
 <!-- ------------------------ -->
 ## 1.03 Mobile Application Testing
