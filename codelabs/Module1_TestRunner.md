@@ -1,6 +1,6 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
-summary: Module 1 of the Cypress on Sauce course will introduce youon how to set up a Cypress test with Testrunner toolkit, a Docker container or Sauce VM, Docker, and Sauce Labs. Creat a basic Cypress test suite, and run it in a Docker container or on a Sauce Labs VM.
+summary: Module 1 of the Cypress on Sauce course will introduce youon how to set up a Cypress test with Testrunner toolkit, a Docker container or Sauce VM, Docker, and Sauce Labs. Create a basic Cypress test suite, and run it in a Docker container or on a Sauce Labs VM.
 id: Module1-Testrunner
 categories: beginner
 tags: testrunner  
@@ -617,7 +617,7 @@ saucectl run --test-env sauce
 
 
 <!-- ------------------------ -->
-## 1.07 Run Cypress Locally (Optional)
+## 1.07 Debugging Locally with Cypress (Optional)
 Duration: 0:05:00
 
 It often helps to debug on your local machine, and the Cypress client provides some additional debugging features if you install it locally.
@@ -691,6 +691,6 @@ Duration: 0:02:00
 <!--
 1. What advantages do JavaScript Frameworks such a Cypress, paired with Sauce Labs TestRunner Toolkit provide?
 a. You can easily take code from any framework and parse it into the Sauce Labs proprietary test framework language and run your tests more easily.
-b. You can quickly access a test environment that make 
+b. You can quickly access a test environment that make
 
  -->
