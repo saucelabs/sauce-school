@@ -10,7 +10,7 @@ author:Lindsay Walker
 # Module 3 – Writing Your First API Test
 
 <!-- ------------------------ -->
-## 3.01 How Can You Create an API Test?
+## 3.01 How Can I Create an API Test?
 Duration: 0:02:00
 
 <!--![https://www.youtube.com/embed/aRC6WkmFfzc](https://youtu.be/aRC6WkmFfzc) -->
@@ -122,25 +122,23 @@ The above video shows you the method using Generate Test from a payload, and to 
 ## 3.02 Building a Strong Functional Test
 Duration: 0:04:00
 
+#### Note
+This example exists in your **Examples** project, and it is named **Retail: Integration - Products**.
+
 
 Lets build your first functional test: Start by using this API call.  
 
 **[https://mastiff.apifortress.com/app/api/examples/retail/products](https://mastiff.apifortress.com/app/api/examples/retail/products)**
 
-<img src="assets/API3.02H.png" alt="Generate a Test" width="550"/>
-
 #### Video
 View [this video](https://drive.google.com/file/d/1xxTUnnG6OZzfoygWpOxlTO01PWCZslVC/view?usp=sharing) to see how to run your test:
 ![https://drive.google.com/file/d/1xxTUnnG6OZzfoygWpOxlTO01PWCZslVC/preview](https://drive.google.com/file/d/1xxTUnnG6OZzfoygWpOxlTO01PWCZslVC/view?usp=sharing)
 
-
-#### Note
-Negative
-: This example exists in your **Examples** project, and it is named **Retail: Integration - Products**.
-
 By clicking that link, or using the HTTP composer in the **HTTP Client** section to make the call, you get this response.
 
+
 <img src="assets/API3.02C.png" alt="Generate a Test" width="450"/>
+
 
 
 As you can see there are 5 objects, so at minimum lets make sure they ‘exist.’ What API Fortress allows you to do is validate the objects exist _and_ the data is as expected. This is done using our XML markup language, or our GUI composer.
@@ -180,7 +178,7 @@ Some important things to note is how the platform has crated variables for `prot
 
 If you click on the **Input Set** section on the left you can see those same variables and the data.
 
-This is hugely important to allow the test to be easily run against any environment by replacing the variables.
+This is hugely important to allow the test to be easily run against any environment by replacing the vribles.
 
 <img src="assets/API3.02F.png" alt="Input Set" width="850"/>
 
