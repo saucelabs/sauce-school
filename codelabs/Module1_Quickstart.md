@@ -42,9 +42,9 @@ The Sauce Labs platform provides a variety of testing tools for both manual and 
 
 #### Video
 [Sauce Labs Intro](https://drive.google.com/file/d/1AyPiLYQtaFBlvb_2UZW5pNGPGVn-XhDz/view?usp=sharing)
-!["https://drive.google.com/file/d/1AyPiLYQtaFBlvb_2UZW5pNGPGVn-XhDz/preview](https://drive.google.com/file/d/1AyPiLYQtaFBlvb_2UZW5pNGPGVn-XhDz/view?usp=sharing)
+<!-- !["https://drive.google.com/file/d/1AyPiLYQtaFBlvb_2UZW5pNGPGVn-XhDz/preview](https://drive.google.com/file/d/1AyPiLYQtaFBlvb_2UZW5pNGPGVn-XhDz/view?usp=sharing) -->
 
-![https://drive.google.com/file/d/1AyPiLYQtaFBlvb_2UZW5pNGPGVn-XhDz/preview](https://drive.google.com/file/d/1AyPiLYQtaFBlvb_2UZW5pNGPGVn-XhDz/view?usp=sharing)
+![https://training.staging.saucelabs.net/1.02_Quickstart.html](https://training.staging.saucelabs.net/1.02_Quickstart.html)
 
 You can categorize the types of tests run in two main categories- automated testing on desktop browsers, and automated testing on mobile devices.
 
