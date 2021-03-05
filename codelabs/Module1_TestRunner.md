@@ -683,3 +683,14 @@ A new window will open on your machine, and you will see the Cypress client open
 Click on `login.spec.js`, and you will see your tests run in a new window. Notice that if you make changes and save them to your code, your test window will update in real time.
 
 <img src="assets/TRT1.07D.png" alt="Cypress Test Runner" width="750"/>
+
+<!-- ------------------------ -->
+## 1.08 Module 1 Quiz
+Duration: 0:02:00
+
+<!--
+1. What advantages do JavaScript Frameworks such a Cypress, paired with Sauce Labs TestRunner Toolkit provide?
+a. You can easily take code from any framework and parse it into the Sauce Labs proprietary test framework language and run your tests more easily.
+b. You can quickly access a test environment that make 
+
+ -->
