@@ -1,7 +1,7 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
 summary: Module X of the course X. Learn to write Selenium tests in X programming language with X Test runner and X framework
-id: ModuleX_SeleniumLang
+id: ModuleX-SeleniumLang
 categories: <enter a single category for drop-down filter>
 tags: <enter Language names here from tools/site/app/views what is labeled in the view.json tag: attribute>  
 environments: Web
