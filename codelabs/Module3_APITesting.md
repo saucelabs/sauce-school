@@ -15,7 +15,7 @@ Duration: 0:02:00
 
 <!--![https://www.youtube.com/embed/aRC6WkmFfzc](https://youtu.be/aRC6WkmFfzc) -->
 
-There are two ways to create a test with the API tool, from a payload (the response) when you make an api call, or from a spec file from a tool such as [swagger.io](https://swagger.io/) or Postman. [Follow these steps to quickly create your first test](https://apifortress.com/doc/create-a-test-quickly/)
+There are two ways to create a test with the API tool, from a payload (the response) when you make an API call, or from a spec file from a tool such as [swagger.io](https://swagger.io/) or Postman. [Follow these steps to quickly create your first test](https://apifortress.com/doc/create-a-test-quickly/)
 
 ### From An API Response payload.
 Simply use the HTTP Client from your test editing dashboard to auto generate a functional test in API Fortress.
