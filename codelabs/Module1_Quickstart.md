@@ -79,7 +79,6 @@ Other mobile testing frameworks supported by Sauce Labs include [XCUI Test](http
 **[Mobile App Test](https://www.youtube.com/watch?v=YLt-uQ-30WM&t=1s
 )**
 
-<!-- ![https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/preview](https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/view) -->
 <video id="YLt-uQ-30WM&t=1s"></video>
 
 ### Mobile App Testing
