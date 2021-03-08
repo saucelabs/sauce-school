@@ -41,11 +41,14 @@ Duration: 0:09:00
 The Sauce Labs platform provides a variety of testing tools for both manual and automated testers.
 
 #### Video
-[Sauce Labs Intro](https://drive.google.com/file/d/1AyPiLYQtaFBlvb_2UZW5pNGPGVn-XhDz/view?usp=sharing)
+**[Sauce Labs Intro](https://www.youtube.com/watch?v=DWAinkJ54D8)**
 
-![https://drive.google.com/file/d/1uEOW-XK9zSQAnHAyC9WjVphz6HxfgXnA/preview](https://drive.google.com/file/d/1uEOW-XK9zSQAnHAyC9WjVphz6HxfgXnA/view?usp=sharing)
+<video id="DWAinkJ54D8"></video>
+<!-- ![https://drive.google.com/file/d/1uEOW-XK9zSQAnHAyC9WjVphz6HxfgXnA/preview](https://drive.google.com/file/d/1uEOW-XK9zSQAnHAyC9WjVphz6HxfgXnA/view?usp=sharing) -->
 
 <!-- ![https://training.staging.saucelabs.net/1.02_Quickstart.html](https://training.staging.saucelabs.net/1.02_Quickstart.html) -->
+
+
 
 You can categorize the types of tests run in two main categories- automated testing on desktop browsers, and automated testing on mobile devices.
 
@@ -78,6 +81,12 @@ Though it was designed for mobile testing, Appium has the ability to let you cre
 
 Other mobile testing frameworks supported by Sauce Labs include [XCUI Test](https://info.saucelabs.com/FY17-ADV-MobileAppTestingeBook_LP.html?gclid=CjwKCAiAtK79BRAIEiwA4OskBtI-iSaHXJ2EPMTaJXeM2gREFzcv1ikm5rKluqw7NCXgKuNZBBt9AxoCh_MQAvD_BwE) for IOS devices, and the [Espresso](https://developer.android.com/training/testing/espresso) Android test framework.
 
+#### Video  
+**[Mobile App Test](https://www.youtube.com/watch?v=YLt-uQ-30WM&t=1s
+)**
+
+<!-- ![https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/preview](https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/view) -->
+<video id="YLt-uQ-30WM&t=1s"></video>
 
 ### Mobile App Testing
 
@@ -85,10 +94,6 @@ In order to test a native (or hybrid) mobile application, you will need to uploa
 
 First run your application locally to verify the test code is working as anticipated. After that, you can upload the application package (and test code if you are using XCUI or Espresso) to online storage or Sauce Storage. After you upload your application file to Sauce, you can run it all on Sauce Labs.
 
-
-#### Video – Mobile App Test
-
-![https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/preview](https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/view)
 
 ### Mobile Web Tests
 
@@ -109,17 +114,19 @@ The Selenium framework is typically used for desktop web browser tests. You can 
 One of the key features of Sauce Labs is the ability to run tests on a browser using hundreds of devices, emulators, and simulators.
 
 
+
+<!-- ![https://drive.google.com/file/d/1QLP0dDNS8o70OfRP_4FDYAgAHi5Z2XDT/preview](https://drive.google.com/file/d/1QLP0dDNS8o70OfRP_4FDYAgAHi5Z2XDT/view?usp=sharing) -->
+<!-- ![https://drive.google.com/file/d/1k_xvzrCLBxm98oLd27yth-H3PONjXAyH/preview](https://drive.google.com/file/d/1k_xvzrCLBxm98oLd27yth-H3PONjXAyH/view?usp=sharing) -->
+
 ### Desktop Browser Testing
 
 For desktop applications you can choose hundreds of browsers on Mac, Windows, and Linux operating systems to test against, using the most recent versions of the web browsers available in those environments. [See what’s supported ](https://saucelabs.com/platform/supported-browsers-devices?utm_source=referral&utm_medium=LMS&utm_campaign=link)
 
 <img src="assets/QS1.04A.png" alt="Desktop Test Offerings" width="500"/>
 
-#### Video – Desktop Browser Test
-
-<!-- ![https://drive.google.com/file/d/1QLP0dDNS8o70OfRP_4FDYAgAHi5Z2XDT/preview](https://drive.google.com/file/d/1QLP0dDNS8o70OfRP_4FDYAgAHi5Z2XDT/view?usp=sharing) -->
-![https://drive.google.com/file/d/1k_xvzrCLBxm98oLd27yth-H3PONjXAyH/preview](https://drive.google.com/file/d/1k_xvzrCLBxm98oLd27yth-H3PONjXAyH/view?usp=sharing)
-
+#### Video
+**[Desktop Browser MobileAppTestingeBook_LP](https://youtu.be/Qj-JHkVlHsY)**
+<video id="Qj-JHkVlHsY"></video>
 
 
 ### Mobile Browser Testing
@@ -131,10 +138,12 @@ Sauce Labs allows you to run automated tests against web browsers in hundreds of
 Simply write your test with your chosen language bindings, framework, and Selenium or Appium, add in the capabilities to connect to Sauce Labs cloud, and you’re ready to test.
 
 
-### Video – Mobile Browser Test
+### Video –
+**[Mobile Browser Testing](https://www.youtube.com/watch?v=g3raIEzck9U&list=PL67l1VPxOnT5JQNlmNvEo9H0TvTdS_rid&index=5)**
+<video id="g3raIEzck9U"></video>
 
-
-![https://drive.google.com/file/d/1CEy43CEYkAnATcbYxKblZU3PNoqc68AH/preview](https://drive.google.com/file/d/1CEy43CEYkAnATcbYxKblZU3PNoqc68AH/view?usp=sharing)
+<!--
+![https://drive.google.com/file/d/1CEy43CEYkAnATcbYxKblZU3PNoqc68AH/preview](https://drive.google.com/file/d/1CEy43CEYkAnATcbYxKblZU3PNoqc68AH/view?usp=sharing) -->
 
 ### Quiz
 ![https://docs.google.com/forms/d/e/1FAIpQLSfLQIrxtDvTREtpBzqhe-CkkbGMOJFmhBgjQ0fGpUN7vuuMMg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSfLQIrxtDvTREtpBzqhe-CkkbGMOJFmhBgjQ0fGpUN7vuuMMg/viewform?usp=sf_link)
