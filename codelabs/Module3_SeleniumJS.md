@@ -75,10 +75,10 @@ What is the problem with this? It doesn’t give a good sense of the purpose of 
 
 #### Video
 
-Take a look at this snippet of a Sauce Labs meetup talk by Titus Fortner to see an example of imperative and declarative language.
+Take a look at [this snippet](https://www.youtube.com/watch?v=a43YfYbdLvY) of a Sauce Labs meetup talk by Titus Fortner to see an example of imperative and declarative language.
 
-[3.02_Imperative_Declarative](https://drive.google.com/file/d/1zq2JBVjFwupuq2NbsrkW5vHrIOFR3xer/view?usp=sharing)
-![https://drive.google.com/file/d/1zq2JBVjFwupuq2NbsrkW5vHrIOFR3xer/preview](https://drive.google.com/file/d/1zq2JBVjFwupuq2NbsrkW5vHrIOFR3xer/view?usp=sharing)
+<video id="a43YfYbdLvY"></video>
+<!--- ------------------------ -->
 
 ## 3.03 Your First Page Object
 Duration: 0:12:00
