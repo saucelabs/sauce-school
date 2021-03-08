@@ -44,16 +44,10 @@ The Sauce Labs platform provides a variety of testing tools for both manual and 
 **[Sauce Labs Intro](https://www.youtube.com/watch?v=DWAinkJ54D8)**
 
 <video id="DWAinkJ54D8"></video>
-<!-- ![https://drive.google.com/file/d/1uEOW-XK9zSQAnHAyC9WjVphz6HxfgXnA/preview](https://drive.google.com/file/d/1uEOW-XK9zSQAnHAyC9WjVphz6HxfgXnA/view?usp=sharing) -->
-
-<!-- ![https://training.staging.saucelabs.net/1.02_Quickstart.html](https://training.staging.saucelabs.net/1.02_Quickstart.html) -->
-
-
 
 You can categorize the types of tests run in two main categories- automated testing on desktop browsers, and automated testing on mobile devices.
 
 <img src="assets/QS1.02A.png" alt="Web and Mobile App Testing" width="500"/>
-
 
 
 ### Desktop Testing
@@ -138,7 +132,7 @@ Sauce Labs allows you to run automated tests against web browsers in hundreds of
 Simply write your test with your chosen language bindings, framework, and Selenium or Appium, add in the capabilities to connect to Sauce Labs cloud, and you’re ready to test.
 
 
-### Video –
+### Video
 **[Mobile Browser Testing](https://www.youtube.com/watch?v=g3raIEzck9U&list=PL67l1VPxOnT5JQNlmNvEo9H0TvTdS_rid&index=5)**
 <video id="g3raIEzck9U"></video>
 
@@ -159,7 +153,7 @@ If you click into any of the tests from the **Automated > Test Results** dashboa
 <img src="assets/QS1.05A.png" alt="Access Test Details Page" width="700"/>
 
 
-### Test Detail page
+### Test Details Page
 
 This page allows you to peek into the value that Sauce Labs provides to a testing team, besides infrastructure. The test details page allows you to quickly gain insight into the test execution.
 
@@ -219,9 +213,7 @@ Download the demo mobile app and see features in the [Github repo](https://githu
 Manual testing fills in the gaps and ensures that your final product works as intended. You’re stepping into the shoes of an actual user to test out your app’s functionality and features on mobile devices and websites in the Sauce Labs cloud, navigating with clicks and gestures as a user would.
 
 Some ideal scenarios for live testing:
-
-
-
+What
 *   Exploratory tests
 *   Test conditions that are subject to change
 *   Tests that are run infrequently
@@ -274,21 +266,27 @@ The following videos will give you a taste of the different testing capabilities
 Watch the following videos to get a taste of what live testing has to offer.
 
 
-#### Video – Live Desktop Browser Testing
+#### Video  
+**[Live Desktop Browser Testing](https://www.youtube.com/watch?v=0OU45vYTtig)**
+
+<video id="0OU45vYTtig"></video>
+
+<!-- ![https://drive.google.com/file/d/1CJSSp8rtZaTH_Zeh4pyZOGifutScwc8T/preview](https://drive.google.com/file/d/1CJSSp8rtZaTH_Zeh4pyZOGifutScwc8T/view?usp=sharing) -->
 
 
-![https://drive.google.com/file/d/1CJSSp8rtZaTH_Zeh4pyZOGifutScwc8T/preview](https://drive.google.com/file/d/1CJSSp8rtZaTH_Zeh4pyZOGifutScwc8T/view?usp=sharing)
+#### Video  
+**[Live Mobile Browser Testing](https://www.youtube.com/watch?v=CznaXYtsqB8)**
+<video id="CznaXYtsqB8"></video>
+<!--
+![https://drive.google.com/file/d/1R82MuKFgz-iPFtdejVFfiBX9dpmTZIvK/preview](https://drive.google.com/file/d/1R82MuKFgz-iPFtdejVFfiBX9dpmTZIvK/view?usp=sharing) -->
 
 
-#### Video – Live Mobile Browser Testing
+#### Video
 
+**[Live Mobile Native App Testing](https://www.youtube.com/watch?v=La8pBZQlk78)**
+<video id="La8pBZQlk78"></video>
 
-![https://drive.google.com/file/d/1R82MuKFgz-iPFtdejVFfiBX9dpmTZIvK/preview](https://drive.google.com/file/d/1R82MuKFgz-iPFtdejVFfiBX9dpmTZIvK/view?usp=sharing)
-
-
-#### Video – Live Mobile Native App Testing
-
-![https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/preview](https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/view?usp=sharing)
+<!-- ![https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/preview](https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/view?usp=sharing) -->
 
 Follow us on YouTube for more tips and demos: [Sauce Labs on YouTube](https://www.youtube.com/channel/UCzUaF3G8L5rfoh9xR6a51kg).
 
