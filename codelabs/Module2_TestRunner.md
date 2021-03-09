@@ -17,7 +17,7 @@ Duration: 0:01:00
 
 ### Skills & Knowledge
 
-* How
+* How to install and set up Sauce Connect Proxy on your machine
 
 
 <!-- ------------------------ -->
@@ -37,13 +37,13 @@ The first step is to download The Sauce Connect Proxy software -- available on t
 <img src="assets/5.03A.png" alt="Tunnels Software" width="750"/>
 
 
-Once you’ve extracted the contents, take the Sauce Connect Proxy folder and move it into another directory. In this example, I moved mine into the **Documents** folder.
+Extracted the contents into another folder besides your **Dowloads** folder (take the Sauce Connect Proxy folder and move it into another directory). In this example, I moved mine into the **Documents** folder.
 
 <img src="assets/5.03B.png" alt="Tunnel Software Directory" width="450"/>
 
 ### Set Up Your Tunnel
 
-Go to the **Tunnels** tab in the Sauce Labs app.
+Go to the **Tunnels** tab in the [Sauce Labs app](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
 
 
 <img src="assets/5.03C.png" alt="Tunnels Menu" width="250"/>
