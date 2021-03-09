@@ -23,15 +23,23 @@ This module, based off chapters 13-18 of _The Selenium Guidebook:_ _Python Editi
 
 
 *   Set up and run tests using the Sauce Connect Proxy tunnel with terminal commands and the Sauce Labs application interface. Set up environment variables and access them with the Sauce Connect software to run tests using the tunnel.
+
 *   Use Pytest plugins `xdist` and `randomly` to run tests on the Sauce Platform in parallel and in random order
+
 *   Create a `pytest.ini` file to name categories for different kinds of tests, and use the `@pytest.mark` decorators in your tests  as well as the `pytest -m mark_name` command in the terminal and in Jenkins to run different groups of tests for different purposes
+
 *   Set up the the Jenkins CI server on your local machine and learn how to use the user interface to set up projects that run your tests, as well as configure the Jenkins CI server
+
 *   Add your credentials to your instance of a Jenkins CI server using Sauce OnDemand and run a test that you can view in both the Jenkins console and the Sauce Labs application
+
 *   Run tests using Sauce Connect Proxy through your Jenkins server, passing information back and forth from Sauce Labs to Jenkins using Sauce Connect
-*   Develop a strategy for planning how many and which types of tests your team and company will develop to best build automated testing suites for your product
-*   Connect how the tests that you have written for the user interface of an application using Selenium can be integrated into a comprehensive testing strategy that tests on multiple layers
+
+*   Understand how the tests that you have written for the user interface of an application using Selenium can be integrated into a comprehensive testing strategy that tests on multiple layers
+
 *   Establish autonomous test suites that are set up to run without relying on the execution of any other tests
+
 *   Describe a use case for the Sauce Connect Proxy and how it can allow access to secure applications while maintaining data privacy
+
 *   Understand how a CI server like Jenkins can be used to automate the software development pipeline and automate the testing to run specific tests with certain triggers
 
 <!-- ------------------------ -->

@@ -304,7 +304,7 @@ The updated `LoginPage.js` code should look like this:
 <img src="assets/3.04B.png" alt="Login Failure Markup" width="600"/>
 
 
-## Part 2: Check the Page
+### Part 2: Check the Page
 
 Before you can call our page object complete, there's one more addition you should make. We'll want to add a check to make sure that Selenium is on the right page before proceeding, which will in turn, add some resiliency to our tests.
 
@@ -519,7 +519,7 @@ Your final code should look like this:
 <img src="assets/3.05B.png" alt="3.05 Part 1 Code" width="550"/>
 
 
-## Part 2: Fix NoSuchElement Error
+### Part 2: Fix NoSuchElement Error
 
 Notices how you have been getting errors saying ‘no such element’ since either the `.flash.success` or` flash.error` will appear (but never both!)
 
@@ -607,7 +607,7 @@ See the complete [source code here](https://github.com/walkerlj0/Selenium_Course
 
 ![https://docs.google.com/forms/d/e/1FAIpQLSe0UySBd2KO1SL5ytlrmSRuyKyHwM3lz5R_PElfFpMcJJcAQQ/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSe0UySBd2KO1SL5ytlrmSRuyKyHwM3lz5R_PElfFpMcJJcAQQ/viewform?usp=sf_link)
 
-## 3.06  Resilient Test Code and Timing — Page with Explicit Waits
+## 3.06  Resilient Test Code and Timing with Explicit Waits
 Duration: 0:12:00
 
 
