@@ -25,7 +25,7 @@ Duration: 0:01:00
 
 * Understand the configuration files for Cypress on Testrunner Toolkit and how to modify them
 
-* Learn basic JavaScript to write page object and test code that runs on Cypress and Sauce Testrunner Toolkit
+* Learn basic JavaScript to write page object and test code that runs on Cypress and Sauce Testrunner Toolkit (Optional)
 
 * Learn to run a Cypress Test on Sauce Labs with a Docker container and on Virtual Machines (VMs)
 
@@ -139,7 +139,7 @@ First, anywhere on your machine install the SauceCTL tool globally, using this c
 
 You have the following options to test out Cypress on Sauce:
 * Use an existing project you have already
-* Follow the next couple of modules to write simple tests
+* Follow modules 1.06 - 1.08 to write simple tests
 * Clone or download [this example cypress test suite](https://github.com/saucelabs-training/demo-js/tree/master/testrunner-toolkit/cypress)
 
 Once you have a project directory containing cypress tests on your machine, navigate to the directory where the `cypress.json ` and `/cypress` directory are. You want to create a `saucectl new` project at the same level as the **cypress** directory that contains your tests.
@@ -168,7 +168,7 @@ Once you have SauceCTL running, open the project directory that you created for 
 
 Any time you install Cypress, which was one of the things installed when you ran the command `saucectl new`, you will see a `cypress` folder containing the `/integrations` directory where all test files are stored, as well as a `cypress.json` file where you can set options reporters, the base URL that tests will be run against, and [more](https://docs.cypress.io/guides/references/configuration.html#Global).
 
-Another part of the package that was installed when you ran `saucectl` new is the /`.sauce` directory. The /`.sauce` directory was created with a `config.yml` file inside which you will see something like the following:
+Another part of the package that was installed when you ran `saucectl` new is the /`.sauce` directory. The /`.sauce` directory has a `.sauceignore` file where you can designate the files and directories you don't want uploaded to Sauce Labs, and the `config.yml` file in which you will see something like the following:
 
 
 ```

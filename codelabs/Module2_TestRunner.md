@@ -24,7 +24,7 @@ Duration: 0:01:00
 ## 2.02 Set Up Sauce Connect
 Duration: 0:03:00
 
-[Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#:~:text=Sauce%20Connect%20Proxy%E2%84%A2%20is,or%20behind%20a%20corporate%20firewall.) is software that enables you to establish a secure connection between applications hosted on an internal server and the Sauce Labs virtual machines (such as Jenkins) or real devices that are used for testing. It also allows you to create a secure connection for uploading tests, application, and source code.
+[Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#:~:text=Sauce%20Connect%20Proxy%E2%84%A2%20is,or%20behind%20a%20corporate%20firewall.) is software that enables you to establish a secure connection between applications hosted on an internal server, or other location that is behind a firewall, and the Sauce Labs virtual machines or real devices that are used for testing. It also allows you to create a secure connection for uploading tests, application, and source code.
 
 In many cases, testers need to run their tests on internal sites. These can be dev/staging versions of their production site or actual internal sites only employees use. In either case, these sites are not available out in the open internet for sauce to access. The best, most secure option is to create a connection with Sauce Connect Proxy. Sauce Connect Proxy uses a proprietary [TLS protocol](https://www.cloudflare.com/learning/ssl/transport-layer-security-tls/) to encrypt traffic between Sauce Labs and your network and servers.
 
@@ -57,19 +57,21 @@ Navigate to the folder using the terminal where you saved the Sauce Connect down
 bin/ sc -u <SAUCE_USERNAME> -k <SAUCE_ACCESS_KEY> -i <SAUCE_TUNNEL>
 ```
 
+In this example, I’ve called mine `linds-proxy-tunnel.`
+
+<img src="assets/5.03E.png" alt="Command to run tunnel" width="750"/>
+
 ###Note
 Negative
-: **Create Environment Variables for Sauce Labs –** The first thing you should do when creating a test is set up environment variables on your local machine in the (.zshrc or .bash profile) for your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`. It is important to save your Sauce username and access key as environment variables, instead of coding them into your test, so that when you share your tests or upload them to Github, your private access keys aren’t shared.   It will also make transitioning to a continuous integration pipeline easier, since they will use the same environment variables.  Watch [this video](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing) to learn how to set up environment variables with your Sauce Labs credentials on a Mac, or view the [instructions for Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
+: **Create Environment Variables for Sauce Labs –** The first thing you should do when creating a test is set up environment variables on your local machine or environment for your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`. It is important to save your Sauce username and access key as environment variables, instead of coding them into your test.  It will also make transitioning to a continuous integration pipeline easier, since they will use the same environment variables.  Watch [this video](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing) to learn how to set up environment variables with your Sauce Labs credentials on a Mac, or view the [instructions for Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
 
-You can copy the command that you will find at the bottom of the **Tunnels** page, and paste this into your terminal as well, instead of typing what is above. Once you paste, append the command line with `-i <Sauce tunnel name>`:. In this example, I’ve called mine `linds-proxy-tunnel.`
-
-<img src="assets/5.03D.png" alt="Command to run tunnel" width="750"/>
+You also have the option to copy the command that you will find at the bottom of the **Tunnels** tab in the [Sauce Labs app](https://accounts.saucelabs.com/am/XUI/#login), and paste this into your terminal as well, instead of typing what is above. Once you paste, append the command line with `-i <Sauce tunnel name>`.
 
 Your command should look like this:
 
-<img src="assets/5.03E.png" alt="Terminal command to run tunnel" width="750"/>
+<img src="assets/TRT2.02A.png" alt="Terminal command to run tunnel" width="750"/>
 
-After `-u` you will see your username and after` -k `you will have your access key, and `-i  `prepend the name you made up for your tunnel. Learn more about the other commands you can use to configure your tunnel at [Sauce Connect Proxy Command-Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide). Hit enter and you should see your tunnel up and running.
+After `-u` you will see your username and after `-k` you will have your access key, and `-i` add the name you made up for your tunnel. Learn more about the other commands you can use to configure your tunnel at [Sauce Connect Proxy Command-Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide). Hit enter and you should see your tunnel up and running.
 
 <img src="assets/5.03F.png" alt="Terminal running tunnel" width="500"/>
 
@@ -78,12 +80,58 @@ After `-u` you will see your username and after` -k `you will have your access k
 
 
 <!-- ------------------------ -->
-## 2.0x Title
+## 2.03 Run Your Cypress Test with Sauce Connect
 Duration: 0:01:00
 
+First, make sure that your Sauce Connect tunnel is currently running, as per the instructions in the last module. Now you can make a simple change to `.sauce/config.yml` and run your Cypress test
+
+### Start the Tunnel
+If your tunnel is not already running, simply copy the command that you will find at the bottom of the **Tunnels** tab in the [Sauce Labs app](https://accounts.saucelabs.com/am/XUI/#login), navigate to the folder using the terminal where you saved the Sauce Connect download , and paste this into your terminal.
+
+### Run a Test With a Tunnel
+
+#### Use a Flag
+The easiest way to run your existing tests through a tunnel is to use the command line with a `--tunnel-id` flag. Simply navigate to the test project and use the command
+
+```
+saucectl run --tunnel-id your-proxy-tunnel
+```
+
+#### Update the Tunnel ID in Config
+Next, you will need to take a look at the tunnel id that you have up and running. You can look on the [Sauce Labs app](https://accounts.saucelabs.com/am/XUI/#login) in the **Tunnels** tab and note the TunnelId, or use the one you entered to start Sauce Connect.
+
+<img src="assets/TRT2.03A.png" alt="Tunnel ID" width="550"/>
+
+Open `.sauce/config.yml` in your test project file, and add or update the `tunnel: id:` under the `sauce:` configurations:
+
+<img src="assets/TRT2.03B.png" alt="Tunnel ID" width="450"/>
+
+### Parent Tunnels
+Many companies may also choose to have their organization set up shared or _Parent Tunnels_ on Sauce Labs, which anyone in their organization can use without having to worry about configuring their own tunnel.
+
+To use a parent tunnel simply check the **Tunnels** on your Sauce Labs app for a 
+
+
+
 <!-- ------------------------ -->
-## 2.0x Title
+## 2.04 Test with Cypress on a Local App
 Duration: 0:01:00
+
+Cypress on Sauce allows you to perform tests on a test that you have on your local machine or environment, then test it against the wide variety of devices available on Sauce Labs.
+
+in this example, we will be downloading the Swag Labs web app, and running it locally.
+
+### Download Swag Labs (Optional)
+
+If you would like to follow along, You can follow the [ReadMe](https://github.com/saucelabs/sample-app-web) and get it running locally. The basic steps are:
+* Clone the Project
+* Use `npm install` to install dependencies
+* Start the app with `npm run start`
+
+Once you have an app running on your machine, you will need to make changes to your test.
+
+### Update the Test URL
+
 
 <!-- ------------------------ -->
 ## 2.0x Title
