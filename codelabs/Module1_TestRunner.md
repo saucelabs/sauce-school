@@ -310,7 +310,7 @@ Now all you need to do is run the command in terminal:
 ```
 saucectl run --test-env sauce
 ```
-
+Once you have Sauce Labs set up, learn more about what you can do with Sauce Labs and Cypress in [Module 2]()
 
 <!-- ------------------------ -->
 ## 1.05 Module 1 Quiz
