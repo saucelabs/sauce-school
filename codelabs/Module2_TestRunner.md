@@ -67,7 +67,7 @@ Negative
 
 You also have the option to copy the command that you will find at the bottom of the **Tunnels** tab in the [Sauce Labs app](https://accounts.saucelabs.com/am/XUI/#login), and paste this into your terminal as well, instead of typing what is above. Once you paste, append the command line with `-i <Sauce tunnel name>`.
 
-Your command should look like this:
+Your command looks like this:
 
 <img src="assets/TRT2.02A.png" alt="Terminal command to run tunnel" width="750"/>
 
@@ -109,7 +109,7 @@ Open `.sauce/config.yml` in your test project file, and add or update the `tunne
 ### Parent Tunnels
 Many companies may also choose to have their organization set up shared or _Parent Tunnels_ on Sauce Labs, which anyone in their organization can use without having to worry about configuring their own tunnel.
 
-To use a parent tunnel simply check the **Tunnels** on your Sauce Labs app for a 
+To use a parent tunnel simply check the **Tunnels** on your Sauce Labs app for a
 
 
 
@@ -128,9 +128,24 @@ If you would like to follow along, You can follow the [ReadMe](https://github.co
 * Use `npm install` to install dependencies
 * Start the app with `npm run start`
 
+<img src="assets/TRT2.04A.png" alt="Start local app" width="550"/>
+
 Once you have an app running on your machine, you will need to make changes to your test.
 
+<img src="assets/TRT2.04B.png" alt="App up and running" width="650"/>
+
 ### Update the Test URL
+Go into the `cypress.json` file to update the `baseURL` that your tests will be running against.
+
+<img src="assets/TRT2.04C.png" alt="App up and running" width="650"/>
+
+Make sure your app is running, **as well as a Sauce Connect tunnel?** then open a new terminal and open your test project file, and start the test
+
+```
+cd <your-project file>
+saucectl run
+```
+<img src="assets/TRT2.04D.png" alt="Running Cypress Test" width="650"/>
 
 
 <!-- ------------------------ -->
