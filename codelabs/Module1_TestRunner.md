@@ -25,11 +25,11 @@ Duration: 0:01:00
 
 * Understand the configuration files for Cypress on Testrunner Toolkit and how to modify them
 
-* Learn basic JavaScript to write page object and test code that runs on Cypress and Sauce Testrunner Toolkit (Optional)
-
 * Learn to run a Cypress Test on Sauce Labs with a Docker container and on Virtual Machines (VMs)
 
 * Run a Testrunner Toolkit Cypress Test with your test code locally with Cypress
+
+* Learn basic JavaScript to write page object and test code that runs on Cypress and Sauce Testrunner Toolkit (Optional)
 
 ### Note
 Developers that **already have a test suite can skip Modules 1.06- 1.08** and use their own test suites to get started quickly. Users who would like to create and test Cypress code with Sauce can continue through 1.06- 1.08 before moving on to Module 2.
@@ -76,6 +76,14 @@ Using Cypress alongside Sauce Labs also allow you to:
 
 <img src="assets/TRT1.02C.png" alt="Testrunner Toolkit Sauce Labs dashboard" width="600"/>
 
+### Two Ways to Run Tests
+
+#### Docker Mode
+With Testrunner toolkit, you can either install Docker and run a containerized version of your test environment, then pass the results to the Sauce Labs Dashboard or ...
+
+#### Sauce Mode
+You can install SauceCTL then pass your entire test suite, including dependencies and configurations to Sauce Labs Cloud of Virtual Machines, where your tests will be executed as per your configurations.
+
 ### What is a Containerized Solution?
 
 By using Docker, you are using a simple virtual environment that includes an OS, all the software you would need to run the test, as well as test libraries and dependencies. This means that you, the user, doesn’t have to worry about installing and setting these things up on your machine.
@@ -87,7 +95,7 @@ Duration: 0:07:00
 
 In this module, you will see how you can set up the Sauce Testrunner Toolkit along with Docker on your computer MacOS Computer.
 
-Docker is software that allows you to create an isolated environment on your computer that is separate from your operating system, creating a lightweight environment that runs a Linux kernel to do specific tasks. Learn more from the [Docker documentation](https://docs.docker.com/get-started/overview/). Each environment coupled with the software and setting packaged together to use in that environment is called an **image**.
+Docker is software that allows you to create an isolated environment on your computer that is separate from your operating system, creating a lightweight environment that runs a Linux kernel to do specific tasks. Learn more from the [Docker documentation](https://docs.docker.com/get-started/overview/). Each environment coupled with the software and setting packaged together to use in that environment is called an _image_.
 
 
 <!-- In our case, we will use Docker engine, which is made up of:
@@ -108,7 +116,15 @@ Negative
 
 #### Set Sauce Username and Access Key
 
-Watch [this video](https://www.youtube.com/watch?v=3K1Eu0eTha8&t=12s) to see how ot set up your Sauce username and access key, or use [the instructions here to set them up on Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
+Watch [this video](https://www.youtube.com/watch?v=3K1Eu0eTha8&t=12s) to see how to set up your Sauce username and access key as environment variables on your machine, or use [the instructions here to set them up on Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
+
+Testrunner Toolkit will detect your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`, but you can run the following optional command to make sure:
+
+```
+saucectl configure
+```
+
+This command prompts you to manually enter your credentials if it cannot detect any environment variables, and will generate a `credentials.yml` file in a .sauce directory in your home folder.
 
 ### Install Docker
 
@@ -310,7 +326,7 @@ Now all you need to do is run the command in terminal:
 ```
 saucectl run --test-env sauce
 ```
-Once you have Sauce Labs set up, learn more about what you can do with Sauce Labs and Cypress in [Module 2]()
+Once you have Sauce Labs set up, learn more about what you can do with Sauce Labs and Cypress in [Module 2](https://training.saucelabs.com/codelabs/Module2-Testrunner/index.html?index=..%2F..testrunner#0)
 
 <!-- ------------------------ -->
 ## 1.05 Module 1 Quiz
