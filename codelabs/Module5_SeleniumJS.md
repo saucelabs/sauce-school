@@ -589,9 +589,9 @@ Jenkins is one of many tools you can use to automate your builds, however it als
 
 #### Video
 
-Watch [Run Jenkins with Homebrew ](https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/view?usp=sharing)for a walk through of how to run and check the configuration of your test job and Node environment in Jenkins.
+Watch [Run Jenkins with Homebrew ](https://youtu.be/XjFnhbM56zs)for a walk through of how to run and check the configuration of your test job and Node environment in Jenkins.
 
-![https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/preview](https://drive.google.com/file/d/1gkwQRLi5fWmqEsYopelWyNMT0UleejxJ/view?usp=sharing)
+<video id="XjFnhbM56zs"></video>
 
 ### Create a Test Project
 
