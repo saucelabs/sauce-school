@@ -512,10 +512,10 @@ Typically when you set up tests, you would add your test code as a part of the p
 Jenkins is one of many tools you can use to automate your builds, however it also means that one has to log in to the Jenkins dashboard to debug tests. Using Sauce Labs makes it a lot easier to see, share, and debug tests results that are a part of a release pipeline.
 
 #### Video
-Watch [Run Jenkins with Homebrew and Python](https://drive.google.com/file/d/1nxIM0q-WsiirluFyzCgJ0zooYREQHgrD/view?usp=sharing)
+Watch [Run Jenkins with Homebrew and Python](https://youtu.be/WGvZ_kq5h2o)
 for a walk through of how to run and check the configuration of your test job with Jenkins.
 
-![https://drive.google.com/file/d/1nxIM0q-WsiirluFyzCgJ0zooYREQHgrD/preview](https://drive.google.com/file/d/1nxIM0q-WsiirluFyzCgJ0zooYREQHgrD/view?usp=sharing)
+<video id="WGvZ_kq5h2o"></video>
 
 ### Create a Test Project
 
