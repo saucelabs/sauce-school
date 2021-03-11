@@ -359,7 +359,7 @@ Thus far you have prepared our test suite well to be maintainable. When you have
 
 #### Video
 
-Watch the video [4.04 Non-Duplication](https://www.youtube.com/watch?v=HY8-ikAviFo) an excerpt from [Sauce Labs’ Tech Talk](https://www.youtube.com/watch?v=ZLS9sU2A9QA&t=24s) by Nikolay Advolodkin
+Watch the video [4.04 Non-Duplication](https://youtu.be/HY8-ikAviFo) an excerpt from [Sauce Labs’ Tech Talk](https://www.youtube.com/watch?v=ZLS9sU2A9QA&t=24s) by Nikolay Advolodkin
 
 <video id="HY8-ikAviFo"></video>
 

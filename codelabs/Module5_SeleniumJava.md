@@ -52,7 +52,7 @@ There are many versions of the pyramid created by experts in the testing field, 
 
 #### Video
 
-Watch [5.02 Testing Strategy](https://www.youtube.com/watch?v=dPe9hxsbfLg), Excerpts from “Pyramids Are Ancient” By Richard Bradshaw to learn about how to develop a testing strategy for your business, as well as tip on how to plan and identify the layers of your application you should run your tests on.
+Watch [5.02 Testing Strategy](https://youtu.be/dPe9hxsbfLg), Excerpts from “Pyramids Are Ancient” By Richard Bradshaw to learn about how to develop a testing strategy for your business, as well as tip on how to plan and identify the layers of your application you should run your tests on.
 
 <video id="dPe9hxsbfLg)"></video>
 
@@ -103,6 +103,11 @@ Duration: 0:15:00
 
 
 [Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#:~:text=Sauce%20Connect%20Proxy%E2%84%A2%20is,or%20behind%20a%20corporate%20firewall.) is software that enables you to establish a secure connection between applications hosted on an internal server and the Sauce Labs virtual machines (such as Jenkins) or real devices that are used for testing. It also allows you to create a secure connection for uploading tests, application, and source code.
+
+#### Video
+[Set Up Sauce Connect Proxy](https://youtu.be/cpBcGeZ_wQU)
+
+<video id="cpBcGeZ_wQU"></video>
 
 In many cases, testers need to run their tests on internal sites. These can be dev/staging versions of their production site or actual internal sites only employees use. In either case, these sites are not available out in the open internet for sauce to access. The best, most secure option is to create a connection with Sauce Connect Proxy. Sauce Connect Proxy uses a proprietary [TLS protocol](https://www.cloudflare.com/learning/ssl/transport-layer-security-tls/) to encrypt traffic between Sauce Labs and your network and servers.
 
@@ -571,6 +576,11 @@ In the next couple lessons, you will dip your toes into adding and running your 
 
 [Jenkins](https://jenkins.io/) is a fully functional, widely adopted, free, and open-source CI server. It’s a great candidate for us to try. You will use [Homebrew](https://brew.sh/) to install it on your computer.
 
+
+#### Video
+[Using Jenkins with a Java Test](https://youtu.be/FlXCioZ5MvY)
+
+<video id="FlXCioZ5MvY"></video>
 
 #### NOTE
 
