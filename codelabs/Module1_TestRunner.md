@@ -240,9 +240,9 @@ Duration: 0:03:00
 
 #### Video
 
-[Running Tests with Sauce and Cypress](https://drive.google.com/file/d/1x1StP8YvJBmc-8AH-_dU8hswuqlEBfOW/view?usp=sharing)
+[Running Tests with Sauce and Cypress](https://youtu.be/9hojw_PMYqk)
 
-![https://drive.google.com/file/d/1x1StP8YvJBmc-8AH-_dU8hswuqlEBfOW/preview](https://drive.google.com/file/d/1x1StP8YvJBmc-8AH-_dU8hswuqlEBfOW/view?usp=sharing/&utm_source=referral&utm_medium=LMS&utm_campaign=link)
+<video id="9hojw_PMYqk"></video>
 
 ### Update Sauce Config File
 
@@ -371,8 +371,10 @@ Duration: 0:05:00
 Sauce Labs’ Testrunner Toolkit allows you to take existing Cypress test suites (or build a cypress test suite) and quickly run it on Sauce Labs. In this lesson, you will learn how to modify a couple settings in the `cypress.json` and `.sauce/config.ym`l files, then write a basic test and run it on Sauce Labs.
 
 #### Video
-[Page Objects Setup](https://drive.google.com/file/d/1C2k_gs8Q-hXT5sU59yM8KU3gdkrUcxfl/view?usp=sharing)
-![https://drive.google.com/file/d/1C2k_gs8Q-hXT5sU59yM8KU3gdkrUcxfl/preview](https://drive.google.com/file/d/1C2k_gs8Q-hXT5sU59yM8KU3gdkrUcxfl/view?usp=sharing)
+
+[Page Objects Setup](https://youtu.be/GTGlkiUCRLM)
+
+<video id="GTGlkiUCRLM"></video>
 
 #### Note
 Negative
@@ -564,10 +566,9 @@ Now that you have all the configuration files and page objects created, you can 
 
 #### Video
 
-[Write a Cypress Test](https://drive.google.com/file/d/1ZE2e4DDeFJn6M8TY1Gh5ujloLkcy8CYI/view?usp=sharing)
+[Write a Cypress Test](https://youtu.be/0zYCOeATnnM)
 
-![https://drive.google.com/file/d/1ZE2e4DDeFJn6M8TY1Gh5ujloLkcy8CYI/preview](https://drive.google.com/file/d/1ZE2e4DDeFJn6M8TY1Gh5ujloLkcy8CYI/view?usp=sharing)
-
+<video id="0zYCOeATnnM"></video>
 
 ### Write Your First Test
 
@@ -684,9 +685,9 @@ It often helps to debug on your local machine, and the Cypress client provides s
 
 #### Video
 
-[Running and Debugging Test on Cypress Locally](https://drive.google.com/file/d/1msWOvSYUxYGVG9xyohZa_EUn7co8z_qS/view?usp=sharing)
+[Running and Debugging Test on Cypress Locally](https://youtu.be/GBgJR-w2Kew)
 
-![https://drive.google.com/file/d/1msWOvSYUxYGVG9xyohZa_EUn7co8z_qS/preview](https://drive.google.com/file/d/1msWOvSYUxYGVG9xyohZa_EUn7co8z_qS/view?usp=sharing)
+<video id="GBgJR-w2Kew"></video>
 
 ### Install npm Packages
 
