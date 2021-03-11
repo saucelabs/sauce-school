@@ -181,7 +181,6 @@ If you're fortunate enough to be working with unique IDs and classes, then you'r
 Watch [Finding Locators with Dev tools](https://www.youtube.com/watch?v=l_oOa7LeHqI) on using locators and follow along in your browser.
 
 <video id="l_oOa7LeHqI"></video>
- <!-- ![https://drive.google.com/file/d/1UkrnRcfnjurdlTiFAHSvpvohy5wdj9FF/preview](https://drive.google.com/file/d/1UkrnRcfnjurdlTiFAHSvpvohy5wdj9FF/view?usp=sharing) -->
 
 Use the following notes to help you use the inspector to test elements. Later you will test elements with your code. You can use the webpage here to follow along:
 
@@ -424,7 +423,7 @@ You will also need to set the path to the place on your computer where you unzip
 
 Negative
 : **How to Find Dependencies Using IntelliJ**:
- If your test file doesn’t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out. See the video [IntelliJ_Dependencies ](https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/view?usp=sharing)– Using IntelliJ to install dependencies and update the .pom file  ![https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/preview](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
+ If your test file doesn’t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out. See the video [IntelliJ_Dependencies ](https://youtu.be/PDPl_pHo0K0) on using IntelliJ to install dependencies and update the .pom file <video id="PDPl_pHo0K0"></video>
 
 
 ### Use GitHub Repository (Optional)
@@ -441,9 +440,9 @@ IntelliJ is a comprehensive tool that allows you to work with Maven, JUnit4, Git
 
 #### Video- How to Run a Test
 
-Follow the instructions here in [2.05_IntelliJ_Tests](https://drive.google.com/file/d/1FlQ75pcOR37FEMCPKQEk6SeihA6d_Z1f/view?usp=sharing) to learn how to run a test with the IntelliJ UI
+Follow the instructions here in [2.05_IntelliJ_Tests](https://youtu.be/qWi8Rk1R4Gw) to learn how to run a test with the IntelliJ UI
 
-![https://drive.google.com/file/d/1FlQ75pcOR37FEMCPKQEk6SeihA6d_Z1f/preview](https://drive.google.com/file/d/1FlQ75pcOR37FEMCPKQEk6SeihA6d_Z1f/view?usp=sharing)
+<video id="qWi8Rk1R4Gw"></video>
 
 Negative
 : **Check driver path and browser version–** If your tests aren't running correctly, double check that the `System.setProperty("webdriver.chrome.driver")` has the full path to where you installed the chromedriver, and that the `browserOptions.setCapability("browserVersion", "XX.0");` matches the version of both the browser you have on your computer, and the version of the chromedriver you installed.
@@ -517,8 +516,9 @@ Negative
 
 
 #### Video
-Watch this [video](https://drive.google.com/file/d/1qmyVp1ndCiJZ3fh_DyTdlpbIru3k39AU/view?usp=sharing) to understand importing classes and methods with IntelliJ
-![https://drive.google.com/file/d/1qmyVp1ndCiJZ3fh_DyTdlpbIru3k39AU/preview](https://drive.google.com/file/d/1qmyVp1ndCiJZ3fh_DyTdlpbIru3k39AU/view?usp=sharing)
+Watch this [video](https://youtu.be/w3XcmSJxqcg) to understand importing classes and methods with IntelliJ
+
+<video id="https://youtu.be/w3XcmSJxqcg"></video>
 
 
 Our test is a method as well, `public void succeeded()`. JUnit4 knows this is a test because of the `@Test` annotation. In this test we're visiting the login page by it's URL with `driver.get(); `,finding the input fields by their ID with `driver.findElement(By.id()`), sending them text with `.sendKeys(); , `and submitting the form by clicking the submit button `with By.cssSelector("button")).click();`.
@@ -546,8 +546,8 @@ Negative
 
 ### Video
 
-[See this video](https://drive.google.com/file/d/1FlQ75pcOR37FEMCPKQEk6SeihA6d_Z1f/view?usp=sharing) to learn the steps for running a test using the IntelliJ Interface and Maven.
-![https://drive.google.com/file/d/1FlQ75pcOR37FEMCPKQEk6SeihA6d_Z1f/preview](https://drive.google.com/file/d/1FlQ75pcOR37FEMCPKQEk6SeihA6d_Z1f/view?usp=sharing)
+[See this video](https://youtu.be/qWi8Rk1R4Gw) to learn the steps for running a test using the IntelliJ Interface and Maven.
+<video id="qWi8Rk1R4Gw"></video>
 
 ### Test Your Code with a Failure
 
@@ -663,9 +663,9 @@ Your challenge, should you choose to accept it, is to add the locator
 * Use the inspector to locate and test finding elements. In this test we are going to click the green button, then the blue button, and then check to see what is on the red button at the end.
 
 #### Video
-Watch the video below to understand how the LocatorTest works:
+Watch the [video](https://youtu.be/1-vK-djB6oo) below to understand how the LocatorTest works:
 
-![https://drive.google.com/file/d/1ECOPFiEMSrvUGOq9GAxs5YHNvZAlpTYz/preview](https://drive.google.com/file/d/1ECOPFiEMSrvUGOq9GAxs5YHNvZAlpTYz/view?usp=sharing)
+<video id="1-vK-djB6oo"></video>
 
 
 #### Cheat Sheet

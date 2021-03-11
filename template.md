@@ -79,7 +79,8 @@ and resize it with the following:
 You can embed videos from YouTube using the YouTUbe video ID like so:
 _Video ID can be found in the url following v=_
 
-<video id="DWAinkJ54D8"></video>
+`<video id="DWAinkJ54D8"></video>`
+<video id=""></video>
 
 ### Embed Video/ Form from Google Drive
 Use the same markdown as embedding an iframe:

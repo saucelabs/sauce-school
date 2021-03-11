@@ -332,10 +332,11 @@ Negative
 
 #### Video
 
-[1.05_IntelliJ_Dependencies ](https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/view?usp=sharing)– Using IntelliJ to install dependencies and update the .pom file
+[1.05_IntelliJ_Dependencies ](https://youtu.be/PDPl_pHo0K0)– Using IntelliJ to install dependencies and update the .pom file
 
-![https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/preview](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
+<!-- ![https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/preview](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing) -->
 
+<video id=""></PDPl_pHo0K0>
 
 ### Use GitHub Repository (Optional)
 
