@@ -49,8 +49,9 @@ Unlike Selenium, the Cypress framework can make API calls, modify the web app co
 
 #### Video
 
-[Test Runner Intro](https://drive.google.com/file/d/1yXQTWNc2IRGnNC2G6CkUzYMWFT5KWphK/view?usp=sharing)
-![https://drive.google.com/file/d/1yXQTWNc2IRGnNC2G6CkUzYMWFT5KWphK/preview](https://drive.google.com/file/d/1yXQTWNc2IRGnNC2G6CkUzYMWFT5KWphK/view?usp=sharing)
+[SauceCTL Introduction](https://youtu.be/kZP4ckDOKC0)
+
+<video id="kZP4ckDOKC0"></video>
 
 
 ### What are SauceCTL and Testrunner Toolkit?
@@ -107,9 +108,10 @@ Docker is software that allows you to create an isolated environment on your com
 
 #### Video
 
-[SauceCTL Introduction](https://drive.google.com/file/d/14C7X0F98dflgYQDgCnD-H3yXuO1ABqka/view?usp=sharing)
+[SauceCTL Introduction](https://youtu.be/gWAu1L8Ich0)
 
-![https://drive.google.com/file/d/14C7X0F98dflgYQDgCnD-H3yXuO1ABqka/preview](https://drive.google.com/file/d/14C7X0F98dflgYQDgCnD-H3yXuO1ABqka/view?usp=sharing)
+<video id="gWAu1L8Ich0"></video>
+
 
 Negative
 : Note that the config file here may be out of date, and the [correct configuration can be found in the documentation.](https://docs.staging.saucelabs.net/testrunner-toolkit/configuration/cypress)
@@ -272,7 +274,7 @@ Options like `platformName` and `screenResolution` are optional capabilities tha
 #### Note
 
 Negative
-: Ensure you’ve set the Docker image tag in your `config.yml `as well. There are also two alternatives for listing the `testFiles;` in your suite, either in brackets `[]` [like the example here](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress#suites/&utm_source=referral&utm_medium=LMS&utm_campaign=link), or underneath tabbed in, in front of a dash with a space: `-'**/login].spec.js' `
+: Ensure you’ve set the Docker image tag in your `config.yml` as well. There are also two alternatives for listing the `testFiles;` in your suite, either in brackets `[]` [like the example here](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress#suites/&utm_source=referral&utm_medium=LMS&utm_campaign=link), or underneath tabbed in, in front of a dash with a space: `-'**/login].spec.js' `
 
 
 ### Run Your Test with Docker & Sauce Labs
