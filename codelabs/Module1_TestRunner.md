@@ -266,7 +266,7 @@ docker:
 ```
 
 
-Options like `platformName` and `screenResolution` are optional capabilities that you can define for your test, and can be omitted, Testrunner will run use defaults if these aren’t specified. [See the documentation for all configuration options](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
+Options like `platformName` and `screenResolution` are optional capabilities that you can define for your test, and can be omitted, Testrunner will run using defaults for these values if these aren’t specified. [See the documentation for all configuration options](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
 
 
 #### Note
@@ -320,7 +320,7 @@ npm update -g saucectl
 
 #### Run on Sauce Labs Virtual Machines
 
-Now all you need to do is run the command in terminal:
+In order to upload your tests to the Sauce Labs Cloud, and run your tests on a Sauce Labs virtual machine, all you need to do is run the command in terminal:
 
 
 ```
