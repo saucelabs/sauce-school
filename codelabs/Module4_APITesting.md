@@ -32,7 +32,10 @@ One of the most powerful components in the API testing platform (and in programm
 
 This gives you the flexibility to create assertions that can be specific to certain conditions. For example, **if statuscode==200** vs **if statuscode=400**. Meaning you can create positive and negative validations in a single test.  
 
-Another use case is to build resilient tests that can work with asynchronous APIs. For example call the API, IF status is not complete, wait a few seconds and retry the API call.
+Another use case is to build resilient tests that can work with asynchronous APIs. For example:
+1. Call the API
+2. IF status is not complete
+3. wait a few seconds and retry the API call.
 
 
 <!-- ------------------------ -->
