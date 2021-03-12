@@ -28,7 +28,7 @@ These metrics can also be pulled from our Insights API and put into any analytic
 ## 4.02 The If Component
 Duration: 0:01:00
 
-One of the most powerful components in API Fortress (and in programming) is [the If component](https://docs.saucelabs.com/api-testing/logical-components/if).  
+One of the most powerful components in the API testing platform (and in programming) is [the If component](https://docs.saucelabs.com/api-testing/logical-components/if).  
 
 This gives you the flexibility to create assertions that can be specific to certain conditions. For example, **if statuscode==200** vs **if statuscode=400**. Meaning you can create positive and negative validations in a single test.  
 
@@ -39,7 +39,7 @@ Another use case is to build resilient tests that can work with asynchronous API
 ## 4.03 Dealing with Authentications
 Duration: 0:02:00
 
-API Fortress can handle just about any sort of authentication scheme your API is using, including simple, oAuth, etc. See how [authentication is handled](https://docs.saucelabs.com/api-testing/how-to/authorization-simple-oauth-etc/index.html).  
+The API platform can handle just about any sort of authentication scheme your API is using, including simple, oAuth, etc. See how [authentication is handled](https://docs.saucelabs.com/api-testing/how-to/authorization-simple-oauth-etc/index.html).  
 
 The only authentication that is a problem is one that is specifically built to not allow for automation, though we have taken steps to support those as well. For example, 3-legged OAuth can now be automated using our open-source helper tool called [3loa](https://github.com/apifortress/3loa).  
 
@@ -71,7 +71,7 @@ Below we list some of the types of tests we suggest that will help you not be in
 - **Your Authentication Flow**  
     It is important to create tests that validate your authentication flows. This can even include 3-leg OAuth using something like our [open source 3loa project](https://apifortress.com/opensourceprojects/).
 - **Access Control**  
-    In this test, the goal is to confirm that a user with permissions of X can only achieve X. For example, in API Fortress, a person with “analyst” rights should only be able to view results and tests. They cannot edit tests or change settings.
+    In this test, the goal is to confirm that a user with permissions of X can only achieve X. For example, in the API testing platform, a person with “analyst” rights should only be able to view results and tests. They cannot edit tests or change settings.
 
 ###Sensitive Data
 
