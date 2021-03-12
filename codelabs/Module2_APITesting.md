@@ -55,11 +55,11 @@ Before you begin creating tests for your API program, you should first consider 
 
 Again, monitoring is the most useful and yet underused form of testing. You need to know more about an API than if it's up or down, you need to validate it's functioning correctly.
 
-Schedule your existing functional and integration tests against the live environment to truly understand how your APIs are working in the real world. Every API program should have a status page. [Learn about how to moitor AIPS](https://apifortress.com/doc/easy-monitoring/)
+Schedule your existing functional and integration tests against the live environment to truly understand how your APIs are working in the real world. Every API program should have a status page. [Learn about how to monitor AIPS](https://docs.saucelabs.com/api-testing/quick-start/easy-monitoring/index.html)
 
 ### Automate!
 
-The key to delivering new and updated APIs quickly, and with confidence of their quality, is with test execution automation. This is particularly important for organization using CI/CD platforms like Jenkins, TravisCI, Bamboo, Azure DevOps, and more. Add your test suite to your pipelines as soon as you can. [Learn more about integrating CI/CD](https://apifortress.com/doc/integrate-with-your-cicd/)
+The key to delivering new and updated APIs quickly, and with confidence of their quality, is with test execution automation. This is particularly important for organization using CI/CD platforms like Jenkins, TravisCI, Bamboo, Azure DevOps, and more. Add your test suite to your pipelines as soon as you can. [Learn more about integrating CI/CD](https://docs.saucelabs.com/api-testing/quick-start/integrate-with-your-cicd)
 
 
 
@@ -71,7 +71,7 @@ Duration: 0:04:00
 
 Domain, endpoints, and data sets are some of the parts of a test that should be easy to change quickly. You should never have to duplicate a test to execute it against a new staging environment. If you are doing that than your system needs to be reconsidered.
 
-As much as possible aim to have only a single test of a certain type. If you built a partner API, then try to have a single detailed test that can be a regression test during a CI pipeline, and then also used to monitor the live environment. [Learn More](https://apifortress.com/doc/flexible-variables-for-flexible-environments/)
+As much as possible aim to have only a single test of a certain type. If you built a partner API, then try to have a single detailed test that can be a regression test during a CI pipeline, and then also used to monitor the live environment. [Learn More](https://docs.saucelabs.com/api-testing/quick-start/flexible-variables-for-flexible-environments/index.html)
 
 ### Business Logic Validating
 
@@ -84,7 +84,7 @@ Perhaps they have a major advertising initiative to announce the ability to orde
 One of the most common errors seen with testing is using the same small set of data for every test. A CSV with 50 product IDs is a good start, but now that you can automate this work there is no reason to not write a much more comprehensive test that can validate hundreds of product IDs. You must break free from using small CSV files for datasets.
 
 If you are already using databases or APIs that’s great! If not, start this process as now. A test is only as good as the amount of information it is testing against.  
-_Learn More [Using Files](https://apifortress.com/doc/github-for-datasets/) or [Using JDBC](https://apifortress.com/doc/jdbc/)_
+_Learn More [Using Files](https://docs.saucelabs.com/api-testing/how-to/github-for-datasets)_
 
 ### Integration / End-to-End Test
 
@@ -94,7 +94,7 @@ This means writing detailed tests that reproduce normal user flows. For example,
 
 **_Search > View Product Details Page > Add to Cart > Checkout_**
 
-A functional test for just the _Search_ API is a great start, but the entire flow also needs to be validated. You should have as many integration tests as there are expected user flows. [Learn more about integration tests](https://apifortress.com/doc/integration-testing/)
+A functional test for just the _Search_ API is a great start, but the entire flow also needs to be validated. You should have as many integration tests as there are expected user flows. [Learn more about integration tests](https://docs.saucelabs.com/api-testing/quick-start/introduction-to-integration-testing)
 
 ### Confirm Response Matches Request
 
@@ -104,7 +104,7 @@ That is exactly the sort of functional error that causes a huge vulnerability fo
 
 **Integrations Galore**
 
-Every company has an existing workflow, and it's important to choose a platform that helps keep those integrations seamless. In the basics this course talked about integrating with your CI pipeline, but it's also useful to have notifications and data in one place. If your organization has a lot invested in Slack, Kibana, and TestRail (for example) than having API test notifications and results in one place is imperative. [Learn more about connectors](https://apifortress.com/doc/setup-connectors-slack/)
+Every company has an existing workflow, and it's important to choose a platform that helps keep those integrations seamless. In the basics this course talked about integrating with your CI pipeline, but it's also useful to have notifications and data in one place. If your organization has a lot invested in Slack, Kibana, and TestRail (for example) than having API test notifications and results in one place is imperative. [Learn more about connectors](https://docs.saucelabs.com/api-testing/quick-start/setup-connectors)
 
 
 
@@ -121,7 +121,7 @@ Integrating your API testing into your existing CI/CD flow is key if you are try
 
 Set up notifications to alert you via email, slack, and more when tests fail.
 
-Do you already use a platform to analyze all your data, well you can send all your API Fortress test data out to those platforms as well. Now all of your data can live in one place, making it easy to pull and analyze all project data.
+Do you already use a platform to analyze all your data, well you can send all your API test data out to those platforms as well. Now all of your data can live in one place, making it easy to pull and analyze all project data.
 
 ### Integrate with Test Case Managers
 

@@ -76,7 +76,7 @@ REST is the most common protocol you see today, and more robust overall. It’s 
 
 A querying language gaining popularity and made by Facebook, that allows you to specify which data you want (and nothing you don't) returned by an API call in a single request.
 
-The response of an API call can come in many different formats. Again, for simplicity you will just focus on the ones that apply to what API Fortress can test.
+The response of an API call can come in many different formats. Again, for simplicity you will just focus on the ones that apply to what the API testing dashboard can test.
 
 #### XML
 
@@ -104,7 +104,7 @@ This is the item that has data associated with it. If you look at the Uber respo
 
 #### Assertion
 
-A rule or specific test against a single object and/or piece of data. The API Fortress platform is powered by a proprietary XML language with over 70 assertions, that handle just about every scenario in a very quick and easy way to write.
+A rule or specific test against a single object and/or piece of data. The API testing platform is powered by a proprietary XML language with over 70 assertions, that handle just about every scenario in a very quick and easy way to write.
 
 <!-- ------------------------ -->
 ## 1.02 Isn't Testing the UI Enough?
