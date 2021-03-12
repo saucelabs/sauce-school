@@ -96,7 +96,7 @@ Duration: 0:07:00
 
 In this module, you will see how you can set up the Sauce Testrunner Toolkit along with Docker on your computer MacOS Computer.
 
-Docker is software that allows you to create an isolated environment on your computer that is separate from your operating system, creating a lightweight environment that runs a Linux kernel to do specific tasks. Learn more from the [Docker documentation](https://docs.docker.com/get-started/overview/). Each environment coupled with the software and setting packaged together to use in that environment is called an _image_.
+Docker is software that allows you to create an isolated environment on your computer that is separate from your operating system, creating a lightweight environment built off a Linux kernel to do specific tasks. Learn more from the [Docker documentation](https://docs.docker.com/get-started/overview/). Each environment coupled with the software and setting packaged together to use in that environment is called an _image_.
 
 
 <!-- In our case, we will use Docker engine, which is made up of:
@@ -153,11 +153,11 @@ First, anywhere on your machine install the SauceCTL tool globally, using this c
 
 `npm i -g saucectl`.
 
-#### Cypress Project Code
+### Cypress Test Code
 
 You have the following options to test out Cypress on Sauce:
 * Use an existing project you have already
-* Follow modules 1.06 - 1.08 to write simple tests
+* Follow [lessons 1.06 - 1.08](https://training.saucelabs.com/codelabs/Module1-Testrunner/index.html?index=..%2F..testrunner#5) to write simple tests
 * Clone or download [this example cypress test suite](https://github.com/saucelabs-training/demo-js/tree/master/testrunner-toolkit/cypress)
 
 Once you have a project directory containing cypress tests on your machine, navigate to the directory where the `cypress.json ` and `/cypress` directory are. You want to create a `saucectl new` project at the same level as the **cypress** directory that contains your tests.
@@ -228,7 +228,7 @@ Take a look at the top of the config file. There are several important elements 
 
 ### Run a Cypress Test
 
-Now that you have everything installed and a project created, you can use SauceCTL to run a test in a Docker container, and pass the info to Sauce Labs with the command:
+Now that you have everything installed and a project created, you can use SauceCTL to run a test in a Docker container, and pass the info to Sauce Labs by running this command from your project directory:
 
 ```
 saucectl run
@@ -670,7 +670,10 @@ describe('LoginPage', () => {
 
 ```
 
+See [how to run your tests in sauce or docker mode.](https://training.saucelabs.com/codelabs/Module1-Testrunner/index.html?index=..%2F..testrunner#3)
+
 #### Final Code
+
 See a sample of the [project and code here](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.07)
 
 <img src="assets/TRT1.05A.png" alt="Final Lesson Code" width="550"/>
