@@ -75,6 +75,13 @@ You can add in a sized image with the `<img/>` tag. As an example take this imag
 and resize it with the following:
 `<img src="assets/2.02C.png" alt="Pencil" width="150"/>`
 
+### Embed YouTUbe Video
+You can embed videos from YouTube using the YouTUbe video ID like so:
+_Video ID can be found in the url following v=_
+
+`<video id="DWAinkJ54D8"></video>`
+<video id=""></video>
+
 ### Embed Video/ Form from Google Drive
 Use the same markdown as embedding an iframe:
 `![EmbedURL](ShareURL)`

@@ -60,9 +60,10 @@ Negative
 : These instructions are not intended to show you how to write Android applications or Appium test code. The exercises here are intended to give instructions on how to start with test code written in Appium and Java, run it locally, and configure those same tests to run on Sauce Labs. If you would like to learn more about writing Appium tests, the course on [Mobile Testing with Appium](https://www.linkedin.com/learning/mobile-testing-with-appium) by Jonathan Lipps is a great place to start.
 
 #### Video
-**[Android Appium Project Setup](https://drive.google.com/file/d/1zPv5ljFd-EM6-_CjB79h4uzwDgG1xre1/view?usp=sharing)**
+**[Android Appium Project Setup](https://www.youtube.com/watch?v=aRC6WkmFfzc)**
 
-![https://drive.google.com/file/d/1zPv5ljFd-EM6-_CjB79h4uzwDgG1xre1/preview](https://drive.google.com/file/d/1zPv5ljFd-EM6-_CjB79h4uzwDgG1xre1/view?usp=sharing)
+<video id="aRC6WkmFfzc"></video>
+<!-- ![https://drive.google.com/file/d/1zPv5ljFd-EM6-_CjB79h4uzwDgG1xre1/preview](https://drive.google.com/file/d/1zPv5ljFd-EM6-_CjB79h4uzwDgG1xre1/view?usp=sharing) -->
 
 ### Dependencies
 
@@ -176,9 +177,10 @@ The first thing you need to know is which capabilities are required to run a tes
 
 #### Video
 
-**[BasicTest Overview](https://drive.google.com/file/d/1JWkb9BjqoHpGbXerTko48EHYWXAI-8fZ/view?usp=sharing)**
+**[Android Appium  Code Overview](https://www.youtube.com/watch?v=B-IV9Sog2vw)**
 
-![https://drive.google.com/file/d/1JWkb9BjqoHpGbXerTko48EHYWXAI-8fZ/preview](https://drive.google.com/file/d/1JWkb9BjqoHpGbXerTko48EHYWXAI-8fZ/view?usp=sharing)
+<video id="B-IV9Sog2vw"></video>
+<!-- ![https://drive.google.com/file/d/1JWkb9BjqoHpGbXerTko48EHYWXAI-8fZ/preview](https://drive.google.com/file/d/1JWkb9BjqoHpGbXerTko48EHYWXAI-8fZ/view?usp=sharing) -->
 
 #### Note
 Negative
@@ -500,9 +502,10 @@ To do this tutorial, start with the **[Basic Test](https://github.com/walkerlj0/
 
 
 #### Video
-**[Sauce Labs Mobile App Emulator Test](https://drive.google.com/file/d/1-bZbImCfdiuvGJxlLEtTG8C3_Fc7qEw4/view?usp=sharing)**
+**[Sauce Labs Android Appium Emulator Test](https://www.youtube.com/watch?v=KFDd0l4zlKU)**
 
-![https://drive.google.com/file/d/1-bZbImCfdiuvGJxlLEtTG8C3_Fc7qEw4/preview](https://drive.google.com/file/d/1-bZbImCfdiuvGJxlLEtTG8C3_Fc7qEw4/view?usp=sharing)
+<video id="KFDd0l4zlKU"></video>
+<!-- ![https://drive.google.com/file/d/1-bZbImCfdiuvGJxlLEtTG8C3_Fc7qEw4/preview](https://drive.google.com/file/d/1-bZbImCfdiuvGJxlLEtTG8C3_Fc7qEw4/view?usp=sharing) -->
 
 ### Create Environment Variables for Sauce Labs
 
@@ -782,9 +785,10 @@ To do this tutorial, start with the **[Basic Test](http://BasicTestLink.com)** a
 
 #### Video
 
-[Sauce Labs Mobile Browser Test](https://drive.google.com/file/d/1-M-S3lMh1Jvs__DPMvOlnzWW_-QLLxqa/view?usp=sharing)
+[Android Appium Mobile Browser Test](https://www.youtube.com/watch?v=jfYyL8Tdqk8)
 
-![https://drive.google.com/file/d/1-M-S3lMh1Jvs__DPMvOlnzWW_-QLLxqa/preview](https://drive.google.com/file/d/1-M-S3lMh1Jvs__DPMvOlnzWW_-QLLxqa/view?usp=sharing)
+<video id="jfYyL8Tdqk8"></video>
+<!-- ![https://drive.google.com/file/d/1-M-S3lMh1Jvs__DPMvOlnzWW_-QLLxqa/preview](https://drive.google.com/file/d/1-M-S3lMh1Jvs__DPMvOlnzWW_-QLLxqa/view?usp=sharing) -->
 
 
 #### Note
@@ -1113,19 +1117,20 @@ By using a reflection and an interface with your test methods, you will be able 
 
 
 
-*   Pass the `name` as a c[apability to Sauce Labs](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Build+IDs%2C+Tags%2C+and+Names+to+Identify+Your+Tests/?utm_source=referral&utm_medium=LMS&utm_campaign=link)
+*   Pass the `name` as a [capability to Sauce Labs](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Build+IDs%2C+Tags%2C+and+Names+to+Identify+Your+Tests/?utm_source=referral&utm_medium=LMS&utm_campaign=link)
 *   [Send a pass or fail status](https://wiki.saucelabs.com/display/DOCS/Setting+Test+Status+to+Pass+or+Fail/?utm_source=referral&utm_medium=LMS&utm_campaign=lin) using the [Sauce Labs REST API](https://wiki.saucelabs.com/display/DOCS/Annotating+Tests+with+the+Sauce+Labs+REST+API/?utm_source=referral&utm_medium=LMS&utm_campaign=link) using JavaScript
 
-Without a **Pass** or **Fail** status, you simply see whether or not the test was able to complete without showing an exception (**Complete** or **Error **on Sauce Labs). Without a name, it’s very difficult to understand which test you are debugging.
+Without a **Pass** or **Fail** status, you simply see whether or not the test was able to complete without showing an exception (**Complete** or **Error** on Sauce Labs). Without a name, it’s very difficult to understand which test you are debugging.
 
 To follow along with this course, you can use the [Mobile_Android_EMU_Test](https://github.com/walkerlj0/Quickstart_Android/blob/master/Mod2/2.05/src/test/java/tests/Mobile_Android_EMU_Test.java) from the last module – you can use it with the [Mobile_Android_Browser_Test](https://github.com/walkerlj0/Quickstart_Android/blob/master/Mod2/2.05/src/test/java/tests/Mobile_Android_Browser_Test.java) as well
 
 
 #### Video
 
-[Sauce Labs Reporting Appium Test](https://drive.google.com/drive/folders/1lBCuWGb0kG5tsEG0Gz-e2rV8S_R9mo7y)
+[Sauce Labs Mobile Test Reporting Appium Test](https://www.youtube.com/watch?v=DchWr58YaPA)
 
-![https://drive.google.com/file/d/1XeSfDlk7eE7MkfyTzbf05ktTimSC743U/preview](https://drive.google.com/drive/folders/1lBCuWGb0kG5tsEG0Gz-e2rV8S_R9mo7y)
+<video id="DchWr58YaPA"></video>
+<!-- ![https://drive.google.com/file/d/1XeSfDlk7eE7MkfyTzbf05ktTimSC743U/preview](https://drive.google.com/drive/folders/1lBCuWGb0kG5tsEG0Gz-e2rV8S_R9mo7y) -->
 
 ### Pass the Test Name
 
@@ -1347,9 +1352,10 @@ To follow along, you can make a copy of the [Mobile_Android_EMU_Reporting_Test.j
 
 
 #### Video
-[Sauce Labs Parallel Appium Test](https://drive.google.com/file/d/1Kg6ZXa9h4oX1zsJ5Qjy4GxPHke0kqwgd/view?usp=sharing)
+[Sauce Labs Parallel Appium Tests](https://www.youtube.com/watch?v=p8nBIN9-ONE)
 
-![https://drive.google.com/file/d/1Kg6ZXa9h4oX1zsJ5Qjy4GxPHke0kqwgd/preview](https://drive.google.com/file/d/1Kg6ZXa9h4oX1zsJ5Qjy4GxPHke0kqwgd/view?usp=sharing)
+<video id="p8nBIN9-ONE"></video>
+<!-- ![https://drive.google.com/file/d/1Kg6ZXa9h4oX1zsJ5Qjy4GxPHke0kqwgd/preview](https://drive.google.com/file/d/1Kg6ZXa9h4oX1zsJ5Qjy4GxPHke0kqwgd/view?usp=sharing) -->
 
 ```
 // filename test/java/tests/Mobile_Android_EMU_Parallel_Test.java
