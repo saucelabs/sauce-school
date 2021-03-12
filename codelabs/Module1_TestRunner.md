@@ -153,7 +153,7 @@ First, anywhere on your machine install the SauceCTL tool globally, using this c
 
 `npm i -g saucectl`.
 
-#### Cypress Project Code
+### Cypress Test Code
 
 You have the following options to test out Cypress on Sauce:
 * Use an existing project you have already
@@ -670,9 +670,10 @@ describe('LoginPage', () => {
 
 ```
 
-[See how to run your tests in sauce or docker mode.](See a sample of the project and code here)
+See [how to run your tests in sauce or docker mode.](https://training.saucelabs.com/codelabs/Module1-Testrunner/index.html?index=..%2F..testrunner#3)
 
 #### Final Code
+
 See a sample of the [project and code here](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.07)
 
 <img src="assets/TRT1.05A.png" alt="Final Lesson Code" width="550"/>
