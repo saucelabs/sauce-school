@@ -152,8 +152,10 @@ Lets build your first functional test: Start by using this API call.
 <img src="assets/API3.02H.png" alt="Generate a Test" width="550"/>
 
 #### Video
-View [this video](https://drive.google.com/file/d/1xxTUnnG6OZzfoygWpOxlTO01PWCZslVC/view?usp=sharing) to see how to create your test:
-![https://drive.google.com/file/d/1xxTUnnG6OZzfoygWpOxlTO01PWCZslVC/preview](https://drive.google.com/file/d/1xxTUnnG6OZzfoygWpOxlTO01PWCZslVC/view?usp=sharing)
+View [this video](https://youtu.be/BkQit-1N4dI) to see how to create your test:
+
+<video id="BkQit-1N4dI"></video>
+
 
 
 #### Note
