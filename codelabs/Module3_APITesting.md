@@ -15,10 +15,10 @@ Duration: 0:02:00
 
 <!--![https://www.youtube.com/embed/aRC6WkmFfzc](https://youtu.be/aRC6WkmFfzc) -->
 
-There are two ways to create a test with the API tool, from a payload (the response) when you make an API call, or from a spec file from a tool such as [swagger.io](https://swagger.io/) or Postman. [Follow these steps to quickly create your first test](https://apifortress.com/doc/create-a-test-quickly/)
+There are two ways to create a test with the API tool, from a payload (the response) when you make an API call, or from a spec file from a tool such as [swagger.io](https://swagger.io/) or Postman. [Follow these steps to quickly create your first test](https://docs.saucelabs.com/api-testing/quick-start)
 
-### From An API Response payload.
-Simply use the HTTP Client from your test editing dashboard to auto generate a functional test in API Fortress.
+### From An API Response Payload.
+Simply use the HTTP Client from your test editing dashboard to auto generate a functional API test.
 
 <img src="assets/wp-content/uploads/2019/07/Screen-Shot-2019-07-01-at-12.02.21-PM.png" alt="Generate a Test" width="850"/>
 
@@ -28,7 +28,7 @@ Simply use the HTTP Client from your test editing dashboard to auto generate a f
 
 ### From a Spec File
 
-The above video shows you the method using Generate Test from a payload, and to generate a test from a spec file you can review [this page](https://apifortress.com/doc/build-from-spec/). This includes [Postman Collections](https://apifortress.com/doc/importing-postman-collections/).
+The above video shows you the method using Generate Test from a payload, and to generate a test from a spec file you can review [this page](https://docs.saucelabs.com/api-testing/quick-start/build-from-spec/index.html#generate-a-single-test-from-a-spec-file). This includes [Postman Collections](https://apifortress.com/doc/importing-postman-collections/).
 
 ```
 {
@@ -119,10 +119,32 @@ The above video shows you the method using Generate Test from a payload, and to 
 ```
 
 <!-- ------------------------ -->
-## 3.02 Building a Strong Functional Test
+## 3.02 Building Your First Functional Test
 Duration: 0:04:00
 
+### Test Creation Basics
 
+Here are the basic components used for creating an API test:
+
+<img src="assets/API3.03U.png" alt="Generate a Test" width="850"/>
+
+
+**A –** All of the available components can be seen by clicking on Add Request / Assertions.
+
+**B –** This button allows you to easily transform an existing component into another component of the same type.
+
+**C – Input Sets** are a group of input variables representing a scenario. The test will be executed once for each input set, overriding the variable values into your test.  Global Parameters are variables that are available to be used throughout a test. Reference these variables simply by calling it within the test using the convention:  “${VARIABLE}”.
+
+**D – HTTP Client -** The API testing http client is very similar to many other http clients out there. You can make GET/POST/PUT/PATCH/DELETE calls and see their responses.   A key difference this HTTP client comes from your ability to generate a test by clicking the **Generate Test** button, and a test will be generated for you based on the API’s behavior and response.
+
+See how to [quickly create a test on the API testing platform.](hhttps://docs.saucelabs.com/api-testing/quick-start)
+
+
+You can add components to any step in the test like so:
+
+<img src="assets/API3.03A.png" alt="Generate a Test" width="850"/>
+
+### Build the Base Test
 Lets build your first functional test: Start by using this API call.  
 
 **[https://mastiff.apifortress.com/app/api/examples/retail/products](https://mastiff.apifortress.com/app/api/examples/retail/products)**
@@ -130,7 +152,7 @@ Lets build your first functional test: Start by using this API call.
 <img src="assets/API3.02H.png" alt="Generate a Test" width="550"/>
 
 #### Video
-View [this video](https://drive.google.com/file/d/1xxTUnnG6OZzfoygWpOxlTO01PWCZslVC/view?usp=sharing) to see how to run your test:
+View [this video](https://drive.google.com/file/d/1xxTUnnG6OZzfoygWpOxlTO01PWCZslVC/view?usp=sharing) to see how to create your test:
 ![https://drive.google.com/file/d/1xxTUnnG6OZzfoygWpOxlTO01PWCZslVC/preview](https://drive.google.com/file/d/1xxTUnnG6OZzfoygWpOxlTO01PWCZslVC/view?usp=sharing)
 
 
@@ -143,10 +165,14 @@ By clicking that link, or using the HTTP composer in the **HTTP Client** section
 <img src="assets/API3.02C.png" alt="Generate a Test" width="450"/>
 
 
-As you can see there are 5 objects, so at minimum lets make sure they ‘exist.’ What API Fortress allows you to do is validate the objects exist _and_ the data is as expected. This is done using our XML markup language, or our GUI composer.
+As you can see there are 5 objects, so at minimum lets make sure they ‘exist.’ What the API testing platform allows you to do is validate the objects exist _and_ the data is as expected. This is done using our XML markup language, or our GUI composer.
+
+<!-- ------------------------ -->
+## 3.03 Using the API Testing Platform
+Duration: 0:04:00
 
 #### Our Platform
-API Fortress was specifically built to bridge the gap between testers and engineers, allowing you to write detailed API tests in whatever format you are most comfortable with. Our composer has a drag-and-drop interface that writes the XML code for you, and it also makes it easier to visually understand the nature of the test.
+The API testing platform was specifically built to bridge the gap between testers and engineers, allowing you to write detailed API tests in whatever format you are most comfortable with. Our composer has a drag-and-drop interface that writes the XML code for you, and it also makes it easier to visually understand the nature of the test.
 
 <img src="assets/API3.02D.png" alt="Generate a Test" width="850"/>
 
@@ -200,7 +226,7 @@ Now, the assertions. [There are over 70 assertions](https://assertible.com/docs/
 ```
 
 * This line calls the `assert-equals` assertion, which validates an object exists and is equal to a chosen amount.  The `productsPayload.status`  is referencing the `status` object within the `productsPayload` variable.
-* The `assert-is expression` [checks that an object is a certain data type](https://apifortress.com/doc/assert-is/).
+* The `assert-is expression` [checks that an object is a certain data type](https://docs.saucelabs.com/api-testing/assertion-components/assert-is/index.html).
 
 The GET call gets an API response and stores it in that variable. This is useful for when you are dealing with multiple payloads (variables) in an integration test.  
 
@@ -210,8 +236,9 @@ It’s important to note that with the **Generate Test** feature you can have th
 <img src="assets/API3.02G.png" alt="Input Set" width="850"/>
 
 <!-- ------------------------ -->
-## 3.03 Create an Integration Test
+## 3.04 Update Your Integration Test
 Duration: 0:07:00
+
 
 ### Using an API as a Datasource
 Now lets take the functional test, and use it as the first step in an integration test. Notice that the first API call actually contains an array of product IDs. What if you use it as a datasource, and then iterate on each of them individually?
@@ -220,17 +247,12 @@ First, you have the original test that was created (with assertions) when you cl
 
 <img src="assets/API3.02D.png" alt="Generate a Test" width="850"/>
 
-Creating an integration test requires the use of two new components. The **[For Each](https://apifortress.com/doc/each-component/)** component helps you iterate through a series of data (product IDs in this case), and the **[Set](https://apifortress.com/doc/set-var/)** which creates a temporary variable to reference.
-
-### Test Creation Basics
-You can add components to any step in the test like so:
-
-<img src="assets/API3.03A.png" alt="Generate a Test" width="850"/>
+Creating an integration test requires the use of two new components. The **[For Each](https://docs.saucelabs.com/api-testing/logical-components/each/index.html)** component helps you iterate through a series of data (product IDs in this case), and the **[Set](https://docs.saucelabs.com/api-testing/learn-more/the-variables-system-in-api-fortress/index.html#set-component)** which creates a temporary variable to reference.
 
 
 #### Note
 Negative
-: Save early and often!                                   <img src="assets/API3.03.png" alt="Generate a Test" width="550"/>
+: Save early and often! <img src="assets/API3.03.png" alt="Generate a Test" width="850"/>
 
 
 If you look at the above GUI view of this test, you see that we have our original test. It makes the first API call, and then tests each object in that response.
@@ -301,18 +323,18 @@ That’s it! Now you can run your test by clicking on the **Run** button in the 
 
 
 <!-- ------------------------ -->
-## 3.04 The Vault, Variables, and Environments
+## 3.05 The Vault, Variables, and Environments
 Duration: 0:03:00
 
 ### Using The Vault
 
- The Vault is a unique part of the API Fortress platform that allows you to store variables and code for use across a projects.
+ The Vault is a unique part of the API testing platform that allows you to store variables and code for use across a projects.
 
 It is unique, Not in terms of the idea, but in the flexibility offered. It allows you to save, edit, and reuse almost anything, including:
 
 * Variables
 * Code snippets (think reused authentication flows)
-*Any assertions and code elements
+* Any assertions and code elements
 
 
 In the Vault, you can store level at two different levels of scope, project and global, and the project vault will allow you to reuse those values across any test within that scope.
@@ -322,7 +344,7 @@ In the Vault, you can store level at two different levels of scope, project and 
 
 ### Using Variables and Environments
 
-If properly setup, any API Fortress test can be run against any environment. You’ll notice that is what we did in our functional test by turning the API URL into three separate parts - _protocol_, _domain_, and _endpoint_. This allows you to set the default location under **Input Sets** (in the left pane), and also override those values with the **Environments** tab:
+If properly setup, any API test can be run against any environment. You’ll notice that is what we did in our functional test by turning the API URL into three separate parts - _protocol_, _domain_, and _endpoint_. This allows you to set the default location under **Input Sets** (in the left pane), and also override those values with the **Environments** tab:
 
 <img src="assets/API3.04A.gif" alt="Environmnets Tab demo" width="850"/>
 
@@ -357,10 +379,10 @@ From here you can access and edit code for snippets and variables for both globa
 
 <img src="assets/API3.04F.png" alt="The Vault" width="750"/>
 
-To learn more about The Vault and Environments see below links: [Learn the Basics](https://apifortress.com/doc/the-vault/), [Advanced Use Cases](https://apifortress.com/doc/environments-vault-and-overrides-magic/), [Environments Basics](https://apifortress.com/doc/environments-and-presets/), [Environments Advanced](https://apifortress.com/doc/flexible-variables-for-flexible-environments/)
+To learn more about The Vault and Environments see below links: [Learn the Basics](https://docs.saucelabs.com/api-testing/quick-start/the-vault/index.html), [Environments Basics](https://apifortress.com/doc/environments-vault-and-overrides-magic/), [Using Variables](https://docs.saucelabs.com/api-testing/quick-start/flexible-variables-for-flexible-environments)
 
 <!-- ------------------------ -->
-## 3.05 Test Publishing and Reporting
+## 3.06 Test Publishing and Reporting
 Duration: 0:03:00
 
 ### Test Reports
@@ -381,7 +403,7 @@ Here you can see the report, as well as generate a shareable URL.
 
 ### Publishing and Scheduling
 
-API Fortress allows you to create **Published** copies of your tests so you can use a stable, existing version of a tests, (for example, in a scheduled test) and continue making updates to a work
+The API testing plaformt allows you to create **Published** copies of your tests so you can use a stable, existing version of a tests, (for example, in a scheduled test) and continue making updates to a work
 
 First, **Exit & Save** your test:
 
@@ -391,12 +413,12 @@ On the next dashboard, you can click the **Publish** button, then you can click 
 
 <img src="assets/API3.05C.png" alt="Publish and Schedule" width="850"/>
 
-Now you can set up and save a this version of your test to run as often as you would like. [Learn more about scheduling tests](https://apifortress.com/doc/quick-start-guide-schedule-a-test/)
+Now you can set up and save a this version of your test to run as often as you would like. [Learn more about scheduling tests](https://docs.saucelabs.com/api-testing/quick-start/schedule-a-test)
 
 <img src="assets/API3.05F.png" alt="Publish and Schedule" width="850"/>
 
 <!-- ------------------------ -->
-## 3.06 Module 5 Quiz
+## 3.07 Module 5 Quiz
 Duration: 0:03:00
 
 ![https://docs.google.com/forms/d/e/1FAIpQLScNPr_oYqWe0_PD3oil_iebFvZ9ejV96z-UZ3quytHXYXUOnw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScNPr_oYqWe0_PD3oil_iebFvZ9ejV96z-UZ3quytHXYXUOnw/viewform?usp=sf_link)
