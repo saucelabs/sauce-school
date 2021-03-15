@@ -202,33 +202,26 @@ Access the Base Code in this [GitHub repo](https://github.com/walkerlj0/Quicksta
 
 This course will demonstrate using the IntelliJ IDEA code editor, which allows you to set up a project using Maven and JDK 1.8. If you are setting up a new project, and copying and pasting the code, you will need to choose Maven as a build tool and choose a Java SDK you have as you set up the project.
 
+### Capabilities
 
-### Final Code
+Capabilities are sets of settings that you can pass along to the environment your test is being run, using the JSON wire protocol. W3C has a set of capabilities you can use, and you can create your own sets of capabilities using [Mutable Capabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html) to create your own capabilities as well.
 
-You can see an [example of the project code here.](https://github.com/walkerlj0/Quickstart_Android/tree/master/Mod2/2.03)
+Other vendors, such as [Chrome](https://chromedriver.chromium.org/capabilities), [Firefox](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions), and Sauce Labs have created other pre-defined subsets of capabilities that you can set, which are useful when you need to set specific capabilities such as extensions for Chrome, or the Sauce username.
+
+
+#### W3C Capabilities
+
+The basic set of defined capabilities used with Selenium 3 or 4 are the ten W3C allowed capabilities. These are defined by W3C for all Selenium tests. You can set any of these capabilities in [ChromeOptions](https://chromedriver.chromium.org/capabilities) or [SauceOptions](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options) (or as a regular capability) when you set up your test code
+
+It can be difficult to understand how exactly these can be set. The [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/) is helpful when you are adding capabilities to your test code.
+
+
 
 
 #### Note
 Negative
-: If you are cloning a project, follow these steps (after you have uploaded `pom.xml`):
-
-Negative
-: * Right-click on the project name and choose **Add Framework Support**. <img src="assets/QS2.03D.png" alt="Appium Doctor" width="350"/>
-
-Negative
-: * Choose **Maven** as a build tool.
-
-Negative
-: * Go to **File > Project Structure**.
-
-Negative
-: * Select a JDK that you have installed on your machine.
-
-Negative
-: * Choose **File > Invalidate Caches and Restart** so the changes can take effect. <img src="assets/QS2.03E.png" alt="Appium Doctor" width="350"/>
-
-Negative
-: Once you have all your directories and files set up, add the following code to your test files.
+: If you are cloning a project, follow these steps (after you have uploaded `pom.xml`) if your test isn't running:  -- Right-click on the project name and choose **Add Framework Support**. <img src="assets/QS2.03D.png" alt="Appium Doctor" width="350"/> --Choose **Maven** as a build tool.
+-- Go to **File > Project Structure**. Select a JDK that you have installed on your machine. --Choose **File > Invalidate Caches and Restart** so the changes can take effect. <img src="assets/QS2.03E.png" alt="Appium Doctor" width="350"/>
 
 ### Update pom.xml
 Add your configuration into `pom.xml`. You may need to invalidate and restart again to activate the imports:

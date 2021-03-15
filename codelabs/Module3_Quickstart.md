@@ -41,9 +41,9 @@ If you have your own testing suite written in Java, using the JUnit 4 test runne
 
 #### Use GitHub Repository (Optional)
 
-If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
+If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here and run the code in 4.05 for the first set of code:
 
-**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod1/1.06/src/test/java/companyname/TestLogin.java)**
+**[Example Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.05)**
 
 ### Required Dependencies
 To run a local test as shown, you will need to set up and install the following:
@@ -58,7 +58,22 @@ If you would like step-by-step instructions to help installing the dependencies 
 Follow [these instructions](https://docs.google.com/document/d/1herzHbTJdQpa-hAIR5llTfbbw20PeM99-BAoVTeuC8U/edit?usp=sharing) to install and set up a JDK, Maven, and IntelliJ on Windows 10.
 
 #### MacOS
- ([See the lesson](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) in the Selenium Java course to see how to set up your local environment on MacOS
+ [See the lesson in the Selenium Java course](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) to see how to set up your local environment on MacOS
+
+
+### Capabilities
+
+Capabilities are sets of settings that you can pass along to the environment your test is being run, using the JSON wire protocol. W3C has a set of capabilities you can use, and you can create your own sets of capabilities using [Mutable Capabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html) to create your own capabilities as well.
+
+Other vendors, such as [Chrome](https://chromedriver.chromium.org/capabilities), [Firefox](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions), and Sauce Labs have created other pre-defined subsets of capabilities that you can set, which are useful when you need to set specific capabilities such as extensions for Chrome, or the Sauce username.
+
+
+#### W3C Capabilities
+
+The basic set of defined capabilities used with Selenium 3 or 4 are the ten W3C allowed capabilities. These are defined by W3C for all Selenium tests. You can set any of these capabilities in [ChromeOptions](https://chromedriver.chromium.org/capabilities) or [SauceOptions](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options) (or as a regular capability) when you set up your test code
+
+It can be difficult to understand how exactly these can be set. The [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/) is helpful when you are adding capabilities to your test code.
+
 
 ### Why Sauce Labs?
 In this module you are going to learn how to move the test suite that you have on your local machine onto the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) cloud platform.
@@ -76,6 +91,23 @@ When you run tests on Sauce Labs, you are using the _Selenium Grid_ and the _Rem
 
 You tell the Grid which browser and OS you want your test to run on through the use of Selenium's class object [MutableCapabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html), and its various subclasses for specific browser options (ChromeOptions, FirefoxOptions, etc.) Sauce Labs has [specific language bindings](https://github.com/saucelabs/sauce_bindings) that act as wrappers for supported programming languages.
 
+
+### Run the Test Code Locally
+
+If you are cloning a project, follow these steps (after you have uploaded `pom.xml`) if your test isn't running with Maven when you use the command:
+
+```
+mvn clean test
+```
+
+
+* Right-click on the project name and choose **Add Framework Support**. <img src="assets/QS2.03D.png" alt="Add framework support" width="350"/>
+* Choose **Maven** as a build tool.
+* Go to **File > Project Structure**. Select a JDK that you have installed on your machine.
+* Choose **File > Invalidate Caches and Restart** so the changes can take effect. <img src="assets/QS2.03E.png" alt="Appium Doctor" width="350"/>
+
+### Update pom.xml
+Add your configuration into `pom.xml`. You may need to invalidate and restart again to activate the imports:
 
 <!-- ------------------------ -->
 ## 3.03 Title
