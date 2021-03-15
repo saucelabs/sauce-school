@@ -163,9 +163,114 @@ saucectl run
 #### Note
 Negative
 : You won't be able to run a test on a local app through Sauce Connect (though you can if you have it available on the web) so you will need to stop Sauce Connect Proxy if you have it running.
+
+
 <!-- ------------------------ -->
-## 2.0x Title
+## 2.05 Run Your Cypress Test GitHub Actions
 Duration: 0:01:00
+
+In this lesson you will learn how to set up everything you need to run the example Swag Labs app with Github Actions. If you already have a pipeline set up in GitHub actions, you can quickly set things up using the [page in docs](https://docs.saucelabs.com/testrunner-toolkit/integrations/github-actions).
+
+Now that you have a test run on Sauce Connect, and have run a test against a locally hosted app, you are ready to set up your test in a Continuous Integration (CI) tool and use Sauce Connect.
+
+In this example we will be using Github Actions, but you can use another CI tool such as [Jenkins](https://docs.saucelabs.com/testrunner-toolkit/integrations/jenkins).
+
+If you already have a Github account, you can get starte by visiting the [Github Actions Homepage](https://github.com/features/actions).
+
+### What You'll Need
+* [GitHub Account](https://github.com/join)
+* [Sauce Labs Account](https://saucelabs.com/sign-up)
+* The following permissions in GitHub:
+    * The ability to create and manage workflows
+    * The ability to create and store [GitHub secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)
+* The command used to launch the build of your app
+
+### Set Up Your Project
+In your project file (in this example we will use the Swag Labs web app you downloaded) create a directory called `.github`, then within that, create a directory called `workflows`.
+
+<img src="assets/TRT2.05A.png" alt="Set up github directory" width="450"/>
+
+We will need to create a [new `.yml` file](https://docs.github.com/en/actions/quickstart) that is used to give instructions to Github Actions. This file will define the test jobs that will run on certain triggers called [events](https://docs.github.com/en/actions/reference/events-that-trigger-workflows).
+
+#### Create a GitHub Repository for your App
+If you are following along with the Swag Labs app, create a new private repository for your version of the app:
+
+<img src="assets/TRT2.05C.png" alt="Set up github repo" width="450"/>
+
+#### Note
+Negative
+: You can quickly add your sample app code to the repository using the command: `git remote add upstream <your repo SSH or HTTPS location>` and `git push upstream <your branch name>`. Read more on [cloning and initializing your own repository](https://sung.codes/blog/2017/10/01/push-git-cloned-repository-github/).
+
+
+
+We will set up our test to run on every pull request made to a code repository.
+
+#### Create YAML File
+Create a new file called `testruner.yml`:
+
+<img src="assets/TRT2.05A.png" alt="The YML file" width="450"/>
+
+
+### Create GitHub Secrets
+
+The first order of business is to export your [Sauce Labs account credentials](https://app.saucelabs.com/user-settings) and store them as GitHub Secrets.
+
+1. Navigate to your project repository and select the __settings__ icon
+
+
+2. Select __Secrets__
+3. Click the __New secret__ button
+4. Add the following:
+    * Name: `SAUCE_USERNAME`
+    * Value: 'your-sauce-username'
+5. Click __Add secret__ to finish.
+6. Repeat the same steps above for your `SAUCE_ACCESS_KEY` (Not sure where to find `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` in Sauce Labs? They're [here](https://app.saucelabs.com/user-settings)).
+
+### Configure the GitHub Action
+
+In your root project directory, create the following directory tree: `.github/workflows`. In the `workflows` directory create a file called `actions.yml`.
+
+Add the following to the top of your file:
+
+> __NOTE__: Setting `env` at the top of the file enables it globally in this workflow, so all jobs have access to these variables.
+
+```yaml
+name: Sauce Pipeline Browser Tests
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+env:
+  SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
+  SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
+
+jobs:
+```
+<!-- ------------------------ -->
+## 2.06 Create the Github Actions Test Job
+Duration: 0:02:00
+
+
+
+In the examples below, we illustrate the different run modes that `saucectl` has: __Docker__ and the __Sauce Cloud__— both determine where tests execute. Docker refers to executing tests locally in a container, while Sauce refers to executing tests on Sauce Cloud (i.e. Sauce Labs infrastructure).
+If you run your tests on the Sauce Cloud, you will likely require a tunnel back to where your application is running. A tunnel enables the remote browser to access your local network.
+For this, we are going to use [Sauce Connect](/secure-connections/sauce-connect).
+
+> For more detailed information on setting event-driven actions and jobs, please visit the [GitHub Action documentation](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions).
+
+```yaml reference
+https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L93-L114
+```
+
+</TabItem>
+<TabItem value="Sauce Cloud">
+
+```yaml reference
+https://github.com/saucelabs/sauce-docs/blob/master/.github/workflows/deploy.yml#L79-L93
+```
 
 <!-- ------------------------ -->
 ## 2.0X Module 2 Quiz
