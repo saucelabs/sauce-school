@@ -44,7 +44,7 @@ The platform has extensive APIs specifically created to empower engineers and te
 
 See the API documentation at [Apiary](https://apifortressv3.docs.apiary.io/#reference/0/tests/basic-run), and get more information in [our docs](https://docs.saucelabs.com/api-testing).
 
-### By CommandLine Tool
+### By Command Line Tool
 
 The platform also has command-line tools available to paying customers, or potential customers doing a proof of concept. It allows full execution of test, and is particularly useful for CI pipelines. It can help return a lot of useful test report data right back into your CI platforms, like Jenkins.
 

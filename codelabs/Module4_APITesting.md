@@ -54,7 +54,7 @@ Duration: 0:04:00
 
 According to Gartner, over 95% of security vulnerabilities in APIs are related to “functional” or “human” errors. That is why functional testing of your APIs is so important to general API security. A good API security policy includes testing of API functionality before release, as well as constant monitoring of those APIs using the same detailed functional tests.
 
-Below we list some of the types of tests we suggest that will help you not be in the 95% of API breaches. PLEASE NOTE: This is by no means a comprehensive list, but a series of suggestions that will constantly be evolving.
+Below we list some of the types of tests we suggest that will help you not be in the 95% of API breaches. This is by no means a comprehensive list, but a series of suggestions that will constantly be evolving.
 
 ### Fuzz Tests:
 
