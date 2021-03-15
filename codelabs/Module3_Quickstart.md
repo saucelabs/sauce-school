@@ -36,7 +36,7 @@ Duration: 0:05:00
 
 
 ### Test Code
-If you have your own testing suite written in Java, using the JUnit 4 test runner, with capabilities set up similar to [the base test here](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod4/4.05/src/test/java/tests/BaseTest.java)  or you understand the differences between the test runner you are using and how to structure capabilities
+If you have your own testing suite written in Java, using the JUnit 4 test runner, with capabilities set up similar to [the base test here](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod4/4.05/src/test/java/tests/BaseTest.java)  or you understand the differences between the test runner you are using and how to structure capabilities, you jump to the next section. Otherwise, clone or fork the example code:
 
 
 #### Use GitHub Repository (Optional)
@@ -107,13 +107,11 @@ mvn clean test
 * Choose **File > Invalidate Caches and Restart** so the changes can take effect. <img src="assets/QS2.03E.png" alt="Appium Doctor" width="350"/>
 
 ### Update pom.xml
-Add your configuration into `pom.xml`. You may need to invalidate and restart again to activate the imports:
+Add your configurations into `pom.xml` [like the project here](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod4/4.05/pom.xml). You may need to invalidate and restart again to activate the imports
 
 <!-- ------------------------ -->
-## 3.03 Title
+## 3.03 Update Variables for Capabilities
 Duration: 0:05:00
-
-### Part 1: Update Desired Capabilities
 
 In the `Config.java` file, you are going to communicate the settings for our test environment with the W3C [Capabilities](https://wiki.saucelabs.com/display/DOCS/Desired+Capabilities+Required+for+Selenium+and+Appium+Tests/?utm_source=referral&utm_medium=LMS&utm_campaign=link), required for every Selenium test.
 
@@ -151,7 +149,7 @@ Notice the new variables you have added:
 
 ### Final Code
 
-Notice how many of the capabilities are grey in this example, since they aren’t yet used in the test code:
+Notice how many of the variables for capabilities are grey in this example, since they aren’t yet used in the test code:
 <img src="assets/4.05J.png" alt="Capabilities for your test" width="750"/>
 
 
@@ -175,14 +173,16 @@ To learn more about setting up environment variables, you can see the article [h
 
 #### Video
 
-Watch This Video to See how to set up your Sauce Credentials as environment variables on MacOS [4.05 Sauce Credentials](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing)
+Watch This Video to See how to set up your Sauce Credentials as environment variables on MacOS in the [Sauce Credentials](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing) video.
 
 ![https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/preview](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing)
 
 
-### Part 2: Use the Remote Web Driver
+<!-- ------------------------ -->
+## 3.04 Use the Remote Web Driver
+Duration: 0:05:00
 
-Now you need to update `BaseTest.java `to work with these new values and connect to Sauce Labs. Note that these are called [Capabilities](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options), and the format they are in here is compatible with the Selenium 4.0 web driver, as well as all prevous Selenium versions. They set the options for setting up the environment for your tests.
+Now you need to update `BaseTest.java `to work with these new values and connect to Sauce Labs. Note that these are called [Capabilities](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options), and the format they are in here is compatible with Selenium WebDriver 4.0, as well as all previous Selenium versions. They set the options for setting up the environment for your tests.
 
 
 ```
@@ -223,7 +223,7 @@ This has two if/ else statements:
 
 
 *   The first one checks to see if you have set your test to run on the `"localhost"` or `"saucelabs".`
-*   The second, nested in the localhost condition, sets your test up to use the Geckodriver or Chromedriver saved in your project folder, depending on which browser you have set your test to use.
+*   The second, nested in the `localhost` condition, sets your test up to use the Geckodriver or Chromedriver saved in your project folder, depending on which browser you have set your test to use.
 
 Now you can import the `MutableCapabilities `and` RemoteWebDriver` Selenium classes, as well as the` URL` java class. Add these imports in `BaseTest.java`:
 
@@ -277,9 +277,7 @@ The complete code can be found [here](https://github.com/walkerlj0/Selenium_Cour
 <img src="assets/4.05M.png" alt="Image Name" width="750"/>
 
 
-<!-- ------------------------ -->
-## 3.0x Title
-Duration: 0:05:00
+
 
 <!-- ------------------------ -->
 ## 3.0x Title
