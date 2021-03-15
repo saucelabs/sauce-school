@@ -1,6 +1,6 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
-summary: Module 1 of the Sauce Labs Quickstart, introducing the Sauce Labs UI for automated testers
+summary: Module 1 of the Sauce Labs Quickstart course, introducing the Sauce Labs UI for automated testers
 id: Module1-Quickstart
 categories: beginner
 tags: quickstart
