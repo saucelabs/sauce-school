@@ -184,9 +184,9 @@ If you're fortunate enough to be working with unique IDs and classes, then you'r
 
 #### Video
 
-Watch [Finding Locators with Dev tools](https://www.youtube.com/watch?v=l_oOa7LeHqI&feature=youtu.be) on using locators and follow along in your browser.
+Watch [Finding Locators with Dev tools](https://youtu.be/l_oOa7LeHqI) on using locators and follow along in your browser.
 
- ![https://drive.google.com/file/d/1UkrnRcfnjurdlTiFAHSvpvohy5wdj9FF/preview](https://drive.google.com/file/d/1UkrnRcfnjurdlTiFAHSvpvohy5wdj9FF/view?usp=sharing)
+<video id="l_oOa7LeHqI"></video>
 
 Use the following notes to help you use the inspector to test elements. Later you will test elements with your code. You can use the webpage here to follow along:
 
@@ -563,9 +563,9 @@ Use the inspector to locate and test finding elements. In this test we are going
 
 #### Video
 
-Watch [2.07 Locator Test](https://drive.google.com/file/d/1U2cyakp5FUweBrHYqqiAvOZ6E2UTzadU/view?usp=sharing) to help you understand how this test works.
+Watch [2.07 Locator Test](https://youtu.be/4toSxcWBlXA) to help you understand how this test works.
 
-![https://drive.google.com/file/d/1U2cyakp5FUweBrHYqqiAvOZ6E2UTzadU/preview](https://drive.google.com/file/d/1U2cyakp5FUweBrHYqqiAvOZ6E2UTzadU/view?usp=sharing)
+<video id="4toSxcWBlXA"></video>
 
 
 #### Cheat Sheet
@@ -595,7 +595,7 @@ You can see the [Solution Here](https://github.com/walkerlj0/Selenium_Course_Exa
 
 <!-- ------------------------ -->
 
-## 2.08 Module 2
+## 2.08 Module 2 Quiz
 Duration: 0:05:00
 
 ![https://docs.google.com/forms/d/e/1FAIpQLSegVIfMs-pUxt0Fq2a_lQ7pocT7PqcfAkLtPSZ7lk5JFPAMCQ/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSegVIfMs-pUxt0Fq2a_lQ7pocT7PqcfAkLtPSZ7lk5JFPAMCQ/viewform?usp=sf_link)

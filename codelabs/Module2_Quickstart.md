@@ -24,18 +24,25 @@ IOS is not covered in this module, nor are tests written in Espresso, as you nee
 
 ### Skills & Knowledge
 
-* Learn about how to set up your environment to set up an Appium Mobile App test on your machine using Appium and Android Studio, among other tools.
+* Learn about how to set up your environment to set up an Appium Mobile App test on your machine using Appium and Android Studio, among other tools
+
 * Understand the elements of an Appium Android mobile app test suite and run it locally, understanding how all the elements of code in a simple test suite interact
-* Learn about how an Appium test suite is written with the TestNG testing framework and run tests using Maven and TestNG `xml` files.
+
+* Learn about how an Appium test suite is written with the TestNG testing framework and run tests using Maven and TestNG `xml` files
+
 * Update the configuration to run an Appium Android Mobile app test suite on Sauce Labs by uploading your app, and adding the information to run your test including app name or URL, `SAUCE_USERNAME`, and `SAUCE_ACCESS_KEY`
-* Update capabilities and test code to run both an Appium Android mobile app test and an Appium Android mobile browser test on Sauce Labs.
+
+* Update capabilities and test code to run both an Appium Android mobile app test and an Appium Android mobile browser test on Sauce Labs
+
 * Add features to your test suite using the Sauce Options (capabilities) that allow you to add names, session IDs, and pass fail conditions
-* Add in the capabilities `extendedDebugging` and `capturePerformance == "true"`, then use Sauce Performance to view resources that are loaded with the network tab in automated test results.
-* Add in features to the test code and TestNG `xml` file, and set your test to run tests in parallel for Android Appium app test.
+
+* Add in the capabilities `extendedDebugging` and `capturePerformance == "true"`, then use Sauce Performance to view resources that are loaded with the network tab in automated test results
+
+* Add in features to the test code and TestNG `xml` file, and set your test to run tests in parallel for Android Appium app test
 
 <!-- ------------------------ -->
 ## 2.02 Set Up a Local Android Test Environment
-Duration: 0:010:00
+Duration: 0:07:00
 
 This module is created to walk you through the steps you need to take to get a test running on [Sauce Labs.](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link) You will start with a local test running on the Appium Server, using the Android Studio device emulator. If you would like to follow along, you can start here with the example application and Appium Test code to run on your local machine, or skip ahead to the next module to start running tests on Sauce Labs.
 
@@ -57,9 +64,10 @@ Negative
 : These instructions are not intended to show you how to write Android applications or Appium test code. The exercises here are intended to give instructions on how to start with test code written in Appium and Java, run it locally, and configure those same tests to run on Sauce Labs. If you would like to learn more about writing Appium tests, the course on [Mobile Testing with Appium](https://www.linkedin.com/learning/mobile-testing-with-appium) by Jonathan Lipps is a great place to start.
 
 #### Video
-**[Android Appium Project Setup](https://drive.google.com/file/d/1zPv5ljFd-EM6-_CjB79h4uzwDgG1xre1/view?usp=sharing)**
+**[Android Appium Project Setup](https://www.youtube.com/watch?v=aRC6WkmFfzc)**
 
-![https://drive.google.com/file/d/1zPv5ljFd-EM6-_CjB79h4uzwDgG1xre1/preview](https://drive.google.com/file/d/1zPv5ljFd-EM6-_CjB79h4uzwDgG1xre1/view?usp=sharing)
+<video id="aRC6WkmFfzc"></video>
+<!-- ![https://drive.google.com/file/d/1zPv5ljFd-EM6-_CjB79h4uzwDgG1xre1/preview](https://drive.google.com/file/d/1zPv5ljFd-EM6-_CjB79h4uzwDgG1xre1/view?usp=sharing) -->
 
 ### Dependencies
 
@@ -171,9 +179,10 @@ The first thing you need to know is which capabilities are required to run a tes
 
 #### Video
 
-**[BasicTest Overview](https://drive.google.com/file/d/1JWkb9BjqoHpGbXerTko48EHYWXAI-8fZ/view?usp=sharing)**
+**[Android Appium  Code Overview](https://www.youtube.com/watch?v=B-IV9Sog2vw)**
 
-![https://drive.google.com/file/d/1JWkb9BjqoHpGbXerTko48EHYWXAI-8fZ/preview](https://drive.google.com/file/d/1JWkb9BjqoHpGbXerTko48EHYWXAI-8fZ/view?usp=sharing)
+<video id="B-IV9Sog2vw"></video>
+<!-- ![https://drive.google.com/file/d/1JWkb9BjqoHpGbXerTko48EHYWXAI-8fZ/preview](https://drive.google.com/file/d/1JWkb9BjqoHpGbXerTko48EHYWXAI-8fZ/view?usp=sharing) -->
 
 #### Note
 Negative
@@ -479,18 +488,19 @@ Once you have the first project configured, you can start Appium desktop and an 
 
 
 <!-- ------------------------ -->
-## 2.04 Android Emulator Test on Sauce Labs
+## 2.04 Android Emulator App Test on Sauce Labs
 Duration: 0:20:00
 
-The first thing you will do with your BasicTest is to add the configurations and capabilities to run that test on a Sauce Labs emulator.
+The first thing you will do with your BasicTest is to add the configurations and capabilities to run that test on an app on a Sauce Labs emulator.
 
 To do this tutorial, start with the **[Basic Test](https://github.com/walkerlj0/Quickstart_Android/blob/master/Mod2/2.04/src/test/java/tests/BasicTest.java)** and follow along to make the changes.
 
 
 #### Video
-**[Sauce Labs Mobile App Emulator Test](https://drive.google.com/file/d/1-bZbImCfdiuvGJxlLEtTG8C3_Fc7qEw4/view?usp=sharing)**
+**[Sauce Labs Android Appium Emulator Test](https://www.youtube.com/watch?v=KFDd0l4zlKU)**
 
-![https://drive.google.com/file/d/1-bZbImCfdiuvGJxlLEtTG8C3_Fc7qEw4/preview](https://drive.google.com/file/d/1-bZbImCfdiuvGJxlLEtTG8C3_Fc7qEw4/view?usp=sharing)
+<video id="KFDd0l4zlKU"></video>
+<!-- ![https://drive.google.com/file/d/1-bZbImCfdiuvGJxlLEtTG8C3_Fc7qEw4/preview](https://drive.google.com/file/d/1-bZbImCfdiuvGJxlLEtTG8C3_Fc7qEw4/view?usp=sharing) -->
 
 ### Create Environment Variables for Sauce Labs
 
@@ -770,9 +780,10 @@ To do this tutorial, start with the **[Basic Test](http://BasicTestLink.com)** a
 
 #### Video
 
-[Sauce Labs Mobile Browser Test](https://drive.google.com/file/d/1-M-S3lMh1Jvs__DPMvOlnzWW_-QLLxqa/view?usp=sharing)
+[Android Appium Mobile Browser Test](https://www.youtube.com/watch?v=jfYyL8Tdqk8)
 
-![https://drive.google.com/file/d/1-M-S3lMh1Jvs__DPMvOlnzWW_-QLLxqa/preview](https://drive.google.com/file/d/1-M-S3lMh1Jvs__DPMvOlnzWW_-QLLxqa/view?usp=sharing)
+<video id="jfYyL8Tdqk8"></video>
+<!-- ![https://drive.google.com/file/d/1-M-S3lMh1Jvs__DPMvOlnzWW_-QLLxqa/preview](https://drive.google.com/file/d/1-M-S3lMh1Jvs__DPMvOlnzWW_-QLLxqa/view?usp=sharing) -->
 
 
 #### Note
@@ -1101,19 +1112,20 @@ By using a reflection and an interface with your test methods, you will be able 
 
 
 
-*   Pass the `name` as a c[apability to Sauce Labs](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Build+IDs%2C+Tags%2C+and+Names+to+Identify+Your+Tests/?utm_source=referral&utm_medium=LMS&utm_campaign=link)
+*   Pass the `name` as a [capability to Sauce Labs](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Build+IDs%2C+Tags%2C+and+Names+to+Identify+Your+Tests/?utm_source=referral&utm_medium=LMS&utm_campaign=link)
 *   [Send a pass or fail status](https://wiki.saucelabs.com/display/DOCS/Setting+Test+Status+to+Pass+or+Fail/?utm_source=referral&utm_medium=LMS&utm_campaign=lin) using the [Sauce Labs REST API](https://wiki.saucelabs.com/display/DOCS/Annotating+Tests+with+the+Sauce+Labs+REST+API/?utm_source=referral&utm_medium=LMS&utm_campaign=link) using JavaScript
 
-Without a **Pass** or **Fail** status, you simply see whether or not the test was able to complete without showing an exception (**Complete** or **Error **on Sauce Labs). Without a name, it’s very difficult to understand which test you are debugging.
+Without a **Pass** or **Fail** status, you simply see whether or not the test was able to complete without showing an exception (**Complete** or **Error** on Sauce Labs). Without a name, it’s very difficult to understand which test you are debugging.
 
 To follow along with this course, you can use the [Mobile_Android_EMU_Test](https://github.com/walkerlj0/Quickstart_Android/blob/master/Mod2/2.05/src/test/java/tests/Mobile_Android_EMU_Test.java) from the last module – you can use it with the [Mobile_Android_Browser_Test](https://github.com/walkerlj0/Quickstart_Android/blob/master/Mod2/2.05/src/test/java/tests/Mobile_Android_Browser_Test.java) as well
 
 
 #### Video
 
-[Sauce Labs Reporting Appium Test](https://drive.google.com/drive/folders/1lBCuWGb0kG5tsEG0Gz-e2rV8S_R9mo7y)
+[Sauce Labs Mobile Test Reporting Appium Test](https://www.youtube.com/watch?v=DchWr58YaPA)
 
-![https://drive.google.com/file/d/1XeSfDlk7eE7MkfyTzbf05ktTimSC743U/preview](https://drive.google.com/drive/folders/1lBCuWGb0kG5tsEG0Gz-e2rV8S_R9mo7y)
+<video id="DchWr58YaPA"></video>
+<!-- ![https://drive.google.com/file/d/1XeSfDlk7eE7MkfyTzbf05ktTimSC743U/preview](https://drive.google.com/drive/folders/1lBCuWGb0kG5tsEG0Gz-e2rV8S_R9mo7y) -->
 
 ### Pass the Test Name
 
@@ -1335,9 +1347,10 @@ To follow along, you can make a copy of the [Mobile_Android_EMU_Reporting_Test.j
 
 
 #### Video
-[Sauce Labs Parallel Appium Test](https://drive.google.com/file/d/1Kg6ZXa9h4oX1zsJ5Qjy4GxPHke0kqwgd/view?usp=sharing)
+[Sauce Labs Parallel Appium Tests](https://www.youtube.com/watch?v=p8nBIN9-ONE)
 
-![https://drive.google.com/file/d/1Kg6ZXa9h4oX1zsJ5Qjy4GxPHke0kqwgd/preview](https://drive.google.com/file/d/1Kg6ZXa9h4oX1zsJ5Qjy4GxPHke0kqwgd/view?usp=sharing)
+<video id="p8nBIN9-ONE"></video>
+<!-- ![https://drive.google.com/file/d/1Kg6ZXa9h4oX1zsJ5Qjy4GxPHke0kqwgd/preview](https://drive.google.com/file/d/1Kg6ZXa9h4oX1zsJ5Qjy4GxPHke0kqwgd/view?usp=sharing) -->
 
 ```
 // filename test/java/tests/Mobile_Android_EMU_Parallel_Test.java

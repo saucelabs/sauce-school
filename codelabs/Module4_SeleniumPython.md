@@ -19,8 +19,6 @@ This module is derived from content in chapters 11-13 of _The Selenium Guidebook
 
 ### Objectives
 
-
-
 *  Analyze and plan test suites, learning how to balance the size and maintainability (ability to check failed tests) against the amount of features you want to test, as well as the level of abstraction you want to use to make modular objects to use in your test suite
 
 * Learn about different types of tests, as well as the appropriate use case and strategy for planning test types
@@ -37,7 +35,7 @@ This module is derived from content in chapters 11-13 of _The Selenium Guidebook
 
 *   Set up a `baseurl` variable in `config.py` that points to the app you are running tests on in the BasePage, and remove hard-coded URLs from other page objects, allowing you to specify just a sub-domain from page objects
 
-*   Create a Sauce Labs accound, and environment variables for your Sauce Labs Credentials
+*   Create a Sauce Labs account, and environment variables for your Sauce Labs Credentials
 
 * Update the `conftest.py` object to allow you to switch between running tests on your local machine, or on Sauce Labs virtual machines
 
@@ -332,8 +330,9 @@ In this lesson you will update the `config.py` file where you can store informat
 
 #### Video
 
-Watch the video below, an excerpt from [Sauce Labs’ Tech Talk](https://www.youtube.com/watch?v=ZLS9sU2A9QA&t=24s) by Nikolay Advolodkin
-![https://drive.google.com/file/d/1Gyv3tO9I4NanOAoCsPi5sVlqMx0iWcm0/preview](https://drive.google.com/file/d/1Rb1svBenpDT-ADUeniVbLtWJPdTzrXQl/view?usp=sharing)
+Watch the video [4.04 Non-Duplication](https://youtu.be/HY8-ikAviFo) an excerpt from [Sauce Labs’ Tech Talk](https://www.youtube.com/watch?v=ZLS9sU2A9QA&t=24s) by Nikolay Advolodkin
+
+<video id="HY8-ikAviFo"></video>
 
 ### Download GeckoDriver
 You may recall tin the beginning, you had to check which version of Chrome you were running on your local machine, then download the appropriate driver. You should do the same with
@@ -613,9 +612,10 @@ To learn more about setting up environment variables, you can see the article [h
 
 #### Video
 
-Watch This Video to See how to set up your Sauce Credentials as environment variables on MacOS [4.05 Sauce Credentials](https://drive.google.com/file/d/1RilJKEMT4sTkmglbwxOuqybg5X5CgBJi/view?usp=sharing)
+Watch This Video to See how to set up your [Sauce Credentials](https://www.youtube.com/watch?v=3K1Eu0eTha8) as environment variables on MacOS
 
-![https://drive.google.com/file/d/1RilJKEMT4sTkmglbwxOuqybg5X5CgBJi/preview](https://drive.google.com/file/d/1RilJKEMT4sTkmglbwxOuqybg5X5CgBJi/view?usp=sharing)
+<video id="3K1Eu0eTha8"></video>
+
 
 
 ### Set a Source for Sauce Credentials
@@ -772,7 +772,7 @@ You can see an example of the completed code[ here.](https://github.com/walkerlj
 <img src="assets/4.06P.png" alt="Image Name" width="650"/>
 
 <!-- ------------------------ -->
-## 4.07 Quiz
+## 4.07 Module 4 Quiz
 Duration: 0:05:00
 ![https://docs.google.com/forms/d/e/1FAIpQLSdR9rdpMltvqgYPGaQ7JqYLRSaqC3RbiKQWuyfoa2JHPRJ_kQ/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSdR9rdpMltvqgYPGaQ7JqYLRSaqC3RbiKQWuyfoa2JHPRJ_kQ/viewform?usp=sf_link)
 

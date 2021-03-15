@@ -38,9 +38,17 @@ In this Module you will learn:
 ## 1.02 Sauce Labs Automated Testing
 Duration: 0:09:00
 
+The Sauce Labs platform provides a variety of testing tools for both manual and automated testers.
+
+#### Video
+**[Sauce Labs Intro](https://www.youtube.com/watch?v=DWAinkJ54D8)**
+
+<video id="DWAinkJ54D8"></video>
+
 You can categorize the types of tests run in two main categories- automated testing on desktop browsers, and automated testing on mobile devices.
 
 <img src="assets/QS1.02A.png" alt="Web and Mobile App Testing" width="500"/>
+
 
 ### Desktop Testing
 
@@ -53,10 +61,7 @@ Sauce Labs enables automated testers to do [web application testing](https://wik
 
 Sauce Labs also offers the option of testing mobile apps, or testing on mobile web browsers. Learn more about [different plans and pricing ](https://saucelabs.com/pricing/?utm_source=referral&utm_medium=LMS&utm_campaign=link)on the Sauce Labs website
 
-#### Video – Sauce Labs Intro
 
-
-![https://drive.google.com/file/d/1AyPiLYQtaFBlvb_2UZW5pNGPGVn-XhDz/preview](https://drive.google.com/file/d/1AyPiLYQtaFBlvb_2UZW5pNGPGVn-XhDz/view?usp=sharing)
 
 <!-- ------------------------ -->
 ## 1.03 Mobile Application Testing
@@ -70,17 +75,17 @@ Though it was designed for mobile testing, Appium has the ability to let you cre
 
 Other mobile testing frameworks supported by Sauce Labs include [XCUI Test](https://info.saucelabs.com/FY17-ADV-MobileAppTestingeBook_LP.html?gclid=CjwKCAiAtK79BRAIEiwA4OskBtI-iSaHXJ2EPMTaJXeM2gREFzcv1ikm5rKluqw7NCXgKuNZBBt9AxoCh_MQAvD_BwE) for IOS devices, and the [Espresso](https://developer.android.com/training/testing/espresso) Android test framework.
 
+#### Video  
+**[Mobile App Test](https://www.youtube.com/watch?v=YLt-uQ-30WM&t=1s
+)**
+
+<video id="YLt-uQ-30WM"></video>
 
 ### Mobile App Testing
 
 In order to test a native (or hybrid) mobile application, you will need to upload your application to Sauce Labs storage (or another storage location), and indicate where the app is stored in your test code.
 
 First run your application locally to verify the test code is working as anticipated. After that, you can upload the application package (and test code if you are using XCUI or Espresso) to online storage or Sauce Storage. After you upload your application file to Sauce, you can run it all on Sauce Labs.
-
-
-#### Video – Mobile App Test
-
-![https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/preview](https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/view?usp=sharing)
 
 
 ### Mobile Web Tests
@@ -102,18 +107,19 @@ The Selenium framework is typically used for desktop web browser tests. You can 
 One of the key features of Sauce Labs is the ability to run tests on a browser using hundreds of devices, emulators, and simulators.
 
 
+
+<!-- ![https://drive.google.com/file/d/1QLP0dDNS8o70OfRP_4FDYAgAHi5Z2XDT/preview](https://drive.google.com/file/d/1QLP0dDNS8o70OfRP_4FDYAgAHi5Z2XDT/view?usp=sharing) -->
+<!-- ![https://drive.google.com/file/d/1k_xvzrCLBxm98oLd27yth-H3PONjXAyH/preview](https://drive.google.com/file/d/1k_xvzrCLBxm98oLd27yth-H3PONjXAyH/view?usp=sharing) -->
+
 ### Desktop Browser Testing
 
 For desktop applications you can choose hundreds of browsers on Mac, Windows, and Linux operating systems to test against, using the most recent versions of the web browsers available in those environments. [See what’s supported ](https://saucelabs.com/platform/supported-browsers-devices?utm_source=referral&utm_medium=LMS&utm_campaign=link)
 
 <img src="assets/QS1.04A.png" alt="Desktop Test Offerings" width="500"/>
 
-#### Video – Desktop Browser Test
-
-
-![https://drive.google.com/file/d/1QLP0dDNS8o70OfRP_4FDYAgAHi5Z2XDT/preview](https://drive.google.com/file/d/1QLP0dDNS8o70OfRP_4FDYAgAHi5Z2XDT/view?usp=sharing)
-
-
+#### Video
+**[Desktop Browser MobileAppTestingeBook_LP](https://youtu.be/Qj-JHkVlHsY)**
+<video id="Qj-JHkVlHsY"></video>
 
 
 ### Mobile Browser Testing
@@ -125,10 +131,12 @@ Sauce Labs allows you to run automated tests against web browsers in hundreds of
 Simply write your test with your chosen language bindings, framework, and Selenium or Appium, add in the capabilities to connect to Sauce Labs cloud, and you’re ready to test.
 
 
-### Video – Mobile Browser Test
+### Video
+**[Mobile Browser Testing](https://www.youtube.com/watch?v=g3raIEzck9U&list=PL67l1VPxOnT5JQNlmNvEo9H0TvTdS_rid&index=5)**
+<video id="g3raIEzck9U"></video>
 
-
-![https://drive.google.com/file/d/1CEy43CEYkAnATcbYxKblZU3PNoqc68AH/preview](https://drive.google.com/file/d/1CEy43CEYkAnATcbYxKblZU3PNoqc68AH/view?usp=sharing)
+<!--
+![https://drive.google.com/file/d/1CEy43CEYkAnATcbYxKblZU3PNoqc68AH/preview](https://drive.google.com/file/d/1CEy43CEYkAnATcbYxKblZU3PNoqc68AH/view?usp=sharing) -->
 
 ### Quiz
 ![https://docs.google.com/forms/d/e/1FAIpQLSfLQIrxtDvTREtpBzqhe-CkkbGMOJFmhBgjQ0fGpUN7vuuMMg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSfLQIrxtDvTREtpBzqhe-CkkbGMOJFmhBgjQ0fGpUN7vuuMMg/viewform?usp=sf_link)
@@ -144,7 +152,7 @@ If you click into any of the tests from the **Automated > Test Results** dashboa
 <img src="assets/QS1.05A.png" alt="Access Test Details Page" width="700"/>
 
 
-### Test Detail page
+### Test Details Page
 
 This page allows you to peek into the value that Sauce Labs provides to a testing team, besides infrastructure. The test details page allows you to quickly gain insight into the test execution.
 
@@ -204,9 +212,7 @@ Download the demo mobile app and see features in the [Github repo](https://githu
 Manual testing fills in the gaps and ensures that your final product works as intended. You’re stepping into the shoes of an actual user to test out your app’s functionality and features on mobile devices and websites in the Sauce Labs cloud, navigating with clicks and gestures as a user would.
 
 Some ideal scenarios for live testing:
-
-
-
+What
 *   Exploratory tests
 *   Test conditions that are subject to change
 *   Tests that are run infrequently
@@ -259,27 +265,31 @@ The following videos will give you a taste of the different testing capabilities
 Watch the following videos to get a taste of what live testing has to offer.
 
 
-#### Video – Live Desktop Browser Testing
+#### Video  
+**[Live Desktop Browser Testing](https://www.youtube.com/watch?v=0OU45vYTtig)**
+
+<video id="0OU45vYTtig"></video>
+
+<!-- ![https://drive.google.com/file/d/1CJSSp8rtZaTH_Zeh4pyZOGifutScwc8T/preview](https://drive.google.com/file/d/1CJSSp8rtZaTH_Zeh4pyZOGifutScwc8T/view?usp=sharing) -->
 
 
-![https://drive.google.com/file/d/1CJSSp8rtZaTH_Zeh4pyZOGifutScwc8T/preview](https://drive.google.com/file/d/1CJSSp8rtZaTH_Zeh4pyZOGifutScwc8T/view?usp=sharing)
+#### Video  
+**[Live Mobile Browser Testing](https://www.youtube.com/watch?v=CznaXYtsqB8)**
+<video id="CznaXYtsqB8"></video>
+<!--
+![https://drive.google.com/file/d/1R82MuKFgz-iPFtdejVFfiBX9dpmTZIvK/preview](https://drive.google.com/file/d/1R82MuKFgz-iPFtdejVFfiBX9dpmTZIvK/view?usp=sharing) -->
 
 
-#### Video – Live Mobile Browser Testing
+#### Video
 
+**[Live Mobile Native App Testing](https://www.youtube.com/watch?v=La8pBZQlk78)**
+<video id="La8pBZQlk78"></video>
 
-![https://drive.google.com/file/d/1R82MuKFgz-iPFtdejVFfiBX9dpmTZIvK/preview](https://drive.google.com/file/d/1R82MuKFgz-iPFtdejVFfiBX9dpmTZIvK/view?usp=sharing)
-
-
-#### Video – Live Mobile Native App Testing
-
-
-![https://drive.google.com/file/d/1ZsNwNu61rD5oH55VUJ4S1_nAjT9zIuFe/preview](https://drive.google.com/file/d/1ZsNwNu61rD5oH55VUJ4S1_nAjT9zIuFe/view?usp=sharing)
-
+<!-- ![https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/preview](https://drive.google.com/file/d/1txAisNewTzdiLnChXkJFmP1qXC9SOXqP/view?usp=sharing) -->
 
 Follow us on YouTube for more tips and demos: [Sauce Labs on YouTube](https://www.youtube.com/channel/UCzUaF3G8L5rfoh9xR6a51kg).
 
 <!-- ------------------------ -->
-## 1.07 Quiz
+## 1.07 Module 1 Quiz
 Duration: 0:02:00
 ![https://docs.google.com/forms/d/e/1FAIpQLSdZQysKo6x97Im-dpRWaLkhSEdCR9COeWAeKiYu2UUhLVxA6Q/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSdZQysKo6x97Im-dpRWaLkhSEdCR9COeWAeKiYu2UUhLVxA6Q/viewform?usp=sf_link)

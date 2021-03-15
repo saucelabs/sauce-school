@@ -1,7 +1,7 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
 summary: Module X of the course X. Learn to write Selenium tests in X programming language with X Test runner and X framework
-id: ModuleX_SeleniumLang
+id: ModuleX-SeleniumLang
 categories: <enter a single category for drop-down filter>
 tags: <enter Language names here from tools/site/app/views what is labeled in the view.json tag: attribute>  
 environments: Web
@@ -75,6 +75,13 @@ You can add in a sized image with the `<img/>` tag. As an example take this imag
 and resize it with the following:
 `<img src="assets/2.02C.png" alt="Pencil" width="150"/>`
 
+### Embed YouTUbe Video
+You can embed videos from YouTube using the YouTUbe video ID like so:
+_Video ID can be found in the url following v=_
+
+`<video id="DWAinkJ54D8"></video>`
+<video id=""></video>
+
 ### Embed Video/ Form from Google Drive
 Use the same markdown as embedding an iframe:
 `![EmbedURL](ShareURL)`
@@ -86,8 +93,8 @@ Use the same markdown as embedding an iframe:
 3. In the new window, click on the three dots at the top left and choose 'embed item' copy the URL from the src="" (what is in the quotation marks)
 
 **Google Form**
-1. Click the 'Send button.
-2. choose the third tab with the embed icon `<>`. YOu should see an `<iframe>` tag.
+1. Click the 'Send' button.
+2. Choose the third tab with the embed icon `<>`. YOu should see an `<iframe>` tag.
 3. Copy the link after the 'src' that is in quotes
 
 #### ShareURL
