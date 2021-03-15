@@ -31,31 +31,37 @@ In this Module you will learn:
 
 
 <!-- ------------------------ -->
-## 3.02 Title
+## 3.02 Setup & Run Your Test Suite Locally
 Duration: 0:05:00
 
-To run a local test, you will need to set up and install the following:
 
-* [Maven build tool](https://maven.apache.org/)
-* An IDE to edit test code like [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
-* A Java Development Kit (JDK) 8 or higher
-
-If you would like step-by-step instructions to help with the dependencies above, there are lessons in the Selenium Java Course:
+### Test Code
+If you have your own testing suite written in Java, using the JUnit 4 test runner, with capabilities set up similar to [the base test here](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod4/4.05/src/test/java/tests/BaseTest.java)  or you understand the differences between the test runner you are using and how to structure capabilities
 
 
- ([See 1.05](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) for pom.xml content)
-
-<img src="assets/2.00A.png" alt="Directory Structure" width="800"/>
-<!-- ![Directory Structure](assets/2.00.png) -->
-
-
-### Use GitHub Repository (Optional)
+#### Use GitHub Repository (Optional)
 
 If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
 
 **[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod1/1.06/src/test/java/companyname/TestLogin.java)**
 
-In this lesson you are going to learn how to move the test suite that you have on your local machine onto the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) cloud platform.
+### Required Dependencies
+To run a local test as shown, you will need to set up and install the following:
+
+*   A Java SDK ([Version 8 used in this example](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html))
+*   An IDE ([IDEA Community Edition](https://www.jetbrains.com/idea/download/))
+*  Apache [Maven build tool](https://maven.apache.org/)
+
+If you would like step-by-step instructions to help installing the dependencies above you can use the instructions here:
+
+#### Windows
+Follow [these instructions](https://docs.google.com/document/d/1herzHbTJdQpa-hAIR5llTfbbw20PeM99-BAoVTeuC8U/edit?usp=sharing) to install and set up a JDK, Maven, and IntelliJ on Windows 10.
+
+#### MacOS
+ ([See the lesson](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) in the Selenium Java course to see how to set up your local environment on MacOS
+
+### Why Sauce Labs?
+In this module you are going to learn how to move the test suite that you have on your local machine onto the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) cloud platform.
 
 Sauce Labs maintains a set of real and virtual devices, as well as a Selenium grid that you can use to run your test in almost any environment. There are many reasons this is advantageous:
 
@@ -70,6 +76,10 @@ When you run tests on Sauce Labs, you are using the _Selenium Grid_ and the _Rem
 
 You tell the Grid which browser and OS you want your test to run on through the use of Selenium's class object [MutableCapabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html), and its various subclasses for specific browser options (ChromeOptions, FirefoxOptions, etc.) Sauce Labs has [specific language bindings](https://github.com/saucelabs/sauce_bindings) that act as wrappers for supported programming languages.
 
+
+<!-- ------------------------ -->
+## 3.03 Title
+Duration: 0:05:00
 
 ### Part 1: Update Desired Capabilities
 
@@ -234,9 +244,6 @@ The complete code can be found [here](https://github.com/walkerlj0/Selenium_Cour
 
 <img src="assets/4.05M.png" alt="Image Name" width="750"/>
 
-<!-- ------------------------ -->
-## 3.0x Title
-Duration: 0:05:00
 
 <!-- ------------------------ -->
 ## 3.0x Title
