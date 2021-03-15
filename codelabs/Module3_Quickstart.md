@@ -173,9 +173,10 @@ To learn more about setting up environment variables, you can see the article [h
 
 #### Video
 
-Watch This Video to See how to set up your Sauce Credentials as environment variables on MacOS in the [Sauce Credentials](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing) video.
+Watch This Video to See how to set up your Sauce Credentials as environment variables on MacOS in the [Sauce Credentials](https://www.youtube.com/watch?v=3K1Eu0eTha8&t=12s) video.
 
-![https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/preview](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing)
+
+<video id="3K1Eu0eTha8&t=12s"></video>
 
 
 <!-- ------------------------ -->
