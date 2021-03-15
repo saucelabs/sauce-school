@@ -34,7 +34,13 @@ In this Module you will learn:
 ## 3.02 Title
 Duration: 0:05:00
 
-To follow along with this tutorial, make sure you have a project folder set up and have created the following files, as well as have IntelliJ, Maven, and a `pom.xml` installed and included in your test code.
+To run a local test, you will need to set up and install the following:
+
+* [Maven build tool](https://maven.apache.org/)
+* An IDE to edit test code like [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
+* A Java Development Kit (JDK) 8 or higher
+
+If you would like step-by-step instructions to help with the dependencies above, there are lessons in the Selenium Java Course:
 
 
  ([See 1.05](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) for pom.xml content)
