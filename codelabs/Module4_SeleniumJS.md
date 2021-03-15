@@ -538,11 +538,14 @@ In this lesson you are going to learn how to move the test suite that you have w
 
 
 
-*   You can use virtual machines (without having to set it up on your own machine)
+* You don't have to worry about about downloading and matching browser drivers  
+* You can use virtual machines (without having to set it up on your own machine)
     *   To test older versions of operating systems
-    *   Test browsers that only run on older operating systems.
-*   You don’t have to provision all the different kinds of virtual machines you will need yourself.
-*   You don’t have to set up and maintain the Selenium Grid that will coordinate the test across all of these different machines.
+    *   Test browsers that run on different operating systems that your own.
+* You don’t have to provision all the different kinds of virtual machines you will need yourself
+*   You don’t have to set up and maintain the Selenium Grid that will coordinate the test across all of these different machines
+
+When you run tests on Sauce Labs, you are using the _Selenium Grid_ and the _RemoteWebdriver._  The Selenium Grid lets you distribute test execution across several machines and you connect to it with Selenium _RemoteWebDriver_.
 
 
 ### Update Config

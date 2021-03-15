@@ -1,6 +1,6 @@
 {
   "title": "Quickstart",
-  "description": "Learn about the Sauce Labs platform features and products for automated testers. Learn how to use Sauce Labs to run automated tests, and see how to quickly run mobile automated tests on Sauce Labs",
+  "description": "Get started quickly with Sauce Labs Automated testing.  Learn about the Sauce Labs platform features for automated testers, how to use Sauce Labs to run automated mobile and desktop tests, and discover the features and functionality Sauce Labs has to offer ",
   "logoUrl": "/quickstart/logo.png",
   "tags": ["quickstart"],
   "exclude": [

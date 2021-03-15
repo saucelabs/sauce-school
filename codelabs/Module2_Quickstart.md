@@ -5,7 +5,7 @@ id: Module2-Quickstart
 categories: intermediate
 tags: quickstart
 environments: Web
-status: Draft
+status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 author:Lindsay Walker, Eyal Yovel
 <!-- ------------------------ -->
@@ -15,7 +15,11 @@ author:Lindsay Walker, Eyal Yovel
 ## 2.01 What You’ll Learn
 Duration: 0:01:00
 
-There are many possibilities for testing in[ Sauce Labs](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link), and in this module we will cover two specific cases: Testing an Android mobile application, and testing an Android mobile  web application on the Sauce Labs Emulators. Both of these tests will be created using the Appium driver, Java, and the TestNG testing library, and will be run against virtual devices and browsers on Sauce Labs. IOS is not covered in this module, nor are tests written in Espresso, as you need a different environment to test locally, and would need to upload your project file Sauce Labs in a different way.
+There are many possibilities for testing on [Sauce Labs](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link), and in this module we will cover two specific cases: Testing an Android mobile application, and testing an Android mobile  web application on the Sauce Labs Emulators. Both of these tests will be created using the Appium driver, Java, and the TestNG testing library, and will be run against virtual devices and browsers on Sauce Labs.
+
+**Users who have their local test environment and code set up can [start on module 2.04](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#3)** 
+
+IOS is not covered in this module, nor are tests written in Espresso, as you need a different environment to test locally, and would need to upload your project file Sauce Labs in a different way.
 
 
 ### Skills & Knowledge

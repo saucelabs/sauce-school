@@ -5,7 +5,7 @@ id: Module1-Quickstart
 categories: beginner
 tags: quickstart
 environments: Web
-status: One or more of Draft
+status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 author:Lindsay Walker
 <!-- ------------------------ -->
