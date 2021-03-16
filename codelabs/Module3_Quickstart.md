@@ -41,9 +41,9 @@ If you have your own testing suite written in Java, using the JUnit 4 test runne
 
 #### Use GitHub Repository (Optional)
 
-If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here and run the code in 4.05 for the first set of code:
+If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here and run the code in 4.04 as a boilerplate:
 
-**[Example Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.05)**
+**[Example Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.04)**
 
 ### Required Dependencies
 To run a local test as shown, you will need to set up and install the following:
@@ -68,12 +68,6 @@ Capabilities are sets of settings that you can pass along to the environment you
 Other vendors, such as [Chrome](https://chromedriver.chromium.org/capabilities), [Firefox](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions), and Sauce Labs have created other pre-defined subsets of capabilities that you can set, which are useful when you need to set specific capabilities such as extensions for Chrome, or the Sauce username.
 
 
-#### W3C Capabilities
-
-The basic set of defined capabilities used with Selenium 3 or 4 are the ten W3C allowed capabilities. These are defined by W3C for all Selenium tests. You can set any of these capabilities in [ChromeOptions](https://chromedriver.chromium.org/capabilities) or [SauceOptions](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options) (or as a regular capability) when you set up your test code
-
-It can be difficult to understand how exactly these can be set. The [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/) is helpful when you are adding capabilities to your test code.
-
 
 ### Why Sauce Labs?
 In this module you are going to learn how to move the test suite that you have on your local machine onto the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) cloud platform.
@@ -87,9 +81,9 @@ Sauce Labs maintains a set of real and virtual devices, as well as a Selenium gr
 * You don’t have to provision all the different kinds of virtual machines you will need yourself
 *   You don’t have to set up and maintain the Selenium Grid that will coordinate the test across all of these different machines
 
-When you run tests on Sauce Labs, you are using the _Selenium Grid_ and the _RemoteWebdriver._  The Selenium Grid lets you distribute test execution across several machines and you connect to it with Selenium _RemoteWebDriver_.
+When you run tests on Sauce Labs, you are using the _Selenium Grid_ to test on multiple operating systems and the _RemoteWebdriver_.  The Sauce Labs Selenium Grid lets you distribute test execution across several machines and you connect to it with [Selenium RemoteWebDriver](https://www.selenium.dev/documentation/en/remote_webdriver/remote_webdriver_client/).
 
-You tell the Grid which browser and OS you want your test to run on through the use of Selenium's class object [MutableCapabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html), and its various subclasses for specific browser options (ChromeOptions, FirefoxOptions, etc.) Sauce Labs has [specific language bindings](https://github.com/saucelabs/sauce_bindings) that act as wrappers for supported programming languages.
+You tell the Grid which browser and OS you want your test to run on through the use of Selenium's class object, [MutableCapabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html), and its various subclasses for specific browser options (ChromeOptions, FirefoxOptions, etc.) Sauce Labs has [specific language bindings](https://github.com/saucelabs/sauce_bindings) that act as wrappers for supported programming languages.
 
 
 ### Run the Test Code Locally
@@ -107,7 +101,7 @@ mvn clean test
 * Choose **File > Invalidate Caches and Restart** so the changes can take effect. <img src="assets/QS2.03E.png" alt="Appium Doctor" width="350"/>
 
 ### Update pom.xml
-Add your configurations into `pom.xml` [like the project here](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod4/4.05/pom.xml). You may need to invalidate and restart again to activate the imports
+Add your configurations into `pom.xml` [like the project here](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod4/4.05/pom.xml). You may need to invalidate caches and restart IntelliJ IDE again to activate the imports specified in `pom.xml`
 
 <!-- ------------------------ -->
 ## 3.03 Update Variables for Capabilities
@@ -166,21 +160,20 @@ Go to **Account> User Settings** to find your username and access key.
 <img src="assets/4.05B.png" alt="Sauce Labs User Name Access Key" width="450"/>
 
 
-You will need to set up your username and access key on your machine’s environment variables either in your bash profile (Mac/Linux) or in the system properties (Windows).
+You will need to set up your username and access key on your machine’s (or CI Tools') environment variables to use them in your test.
 
 To learn more about setting up environment variables, you can see the article [here](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials#BestPractice:UseEnvironmentVariablesforAuthenticationCredentials-SettingUpEnvironmentVariablesonMacOSX/LinuxSystems/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
 
 
 #### Video
 
-Watch This Video to See how to set up your Sauce Credentials as environment variables on MacOS in the [Sauce Credentials](https://www.youtube.com/watch?v=3K1Eu0eTha8&t=12s) video.
+Watch This Video to See how to set up your Sauce Credentials as environment variables on MacOS in the [Sauce Credentials](https://www.youtube.com/watch?v=3K1Eu0eTha8&t=12s).
 
-
-<video id="3K1Eu0eTha8&t=12s"></video>
+<video id="3K1Eu0eTha8"></video>
 
 
 <!-- ------------------------ -->
-## 3.04 Use the Remote Web Driver
+## 3.04 Add Capabilities in Your Test
 Duration: 0:05:00
 
 Now you need to update `BaseTest.java `to work with these new values and connect to Sauce Labs. Note that these are called [Capabilities](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options), and the format they are in here is compatible with Selenium WebDriver 4.0, as well as all previous Selenium versions. They set the options for setting up the environment for your tests.
@@ -266,8 +259,6 @@ Negative
 Negative
 : Once the interactions with the webpage are taken care of, the tests come into play.` BaseTest` imports the settings from `Config`, then the tests use the `Base` class and define the specific tests run on the page. <img src="assets/4.05K.png" alt="Test Suite Structure" width="750"/>
 
---
-
 
 #### Final Code
 
@@ -281,12 +272,214 @@ The complete code can be found [here](https://github.com/walkerlj0/Selenium_Cour
 
 
 <!-- ------------------------ -->
-## 3.0x Title
-Duration: 0:05:00
+## 3.05 Add a Test Name for Sauce Labs Reporting
+Duration: 0:06:00
+
+In this lesson you will add in some elements for better reporting to understand the status of test run on the[ Sauce Labs automated web testing platform](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
+
+Now that your tests are up and running on the Sauce Labs platform, you’ll notice it’s hard to tell one apart from the other. The tests you should have run will show up as **Unnamed job** with a hash identifier- not easy to use for testing and debugging.
+
+<img src="assets/4.06A.png" alt="Unnamed Job" width="550"/>
+
+
+To fix this issue, you can pull in the name and the status from the test and send it to the [Sauce Labs dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)so you can use our tests to effectively debug and improve our application.
+
+In addition, right now regardless of the outcome of a test, the job in Sauce Labs will register as **Finished** or **Error**. Ideally you want to know if the job was a **Pass** or a **Fail**. That way we can tell at a glance if a test failed or not. With a couple of tweaks we can make this happen easily enough.
+
+
+### Use TestWatcher to Add a Test Name
+
+It's great that our tests are running on Sauce Labs. But we're not done yet because the test name in each Sauce job is getting set to an unnamed job. This makes it extremely challenging to know which tests were run in each job. This code will allow you to pass the test name to Sauce Labs.
+
+In` BaseTest` you will use another [JUnit rule](https://github.com/junit-team/junit4/wiki/Rules#testwatchmantestwatcher-rules) called `TestWatcher().` First you will need to create a string variable in the` BaseTest `class underneath where you instantiate the driver.
+
+
+```
+// filename: lib/DriverFactory.java
+// ...
+private String testName;
+// ...
+```
+
+
+Next, use the  `TestWatcher()`after the second` @Override `annotation, right before the final closing curly braces. It has a method called `starting` that gives us access to the description of each test as its starting. So yougrab the display name for the test and store it in the `testName `string variable.
+
+
+```
+// filename: lib/DriverFactory.java
+// ...
+    @Rule
+    public TestRule watcher = new TestWatcher() {
+        @Override
+        protected void starting(Description description) {
+            testName = description.getDisplayName();
+        }
+    };
+}
+```
+
+
+At the top of `BaseTest`, make sure you import `TestRule` and `TestWatcher` and the `Description` in the list of imports at the top:
+
+
+```
+// filename: tests/BaseTest.java
+// ...
+import org.junit.rules.TestRule;
+import org.junit.rules.TestWatcher;
+import org.junit.runner.Description;
+
+// ...
+
+```
+
+### Add a Sauce Capability for Test Name
+
+Now you can add it to [Sauce Options](https://opensource.saucelabs.com/sauce_bindings/docs/basic-options) in between` platformName `after the `accessKey` and before the list of `Mutable Capabilities`:
+
+
+```
+// filename: tests/BaseTest.java
+// ...
+sauceOptions.setCapability("name", testName);
+// ...
+
+```
+
+
+Run `mvn clean test -Dhost=saucelabs` in your project in terminal to see if it works. Now when you run our tests in Sauce Labs, the [account dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) will show the tests running with the name of the test, test class, and package appearing on the dashboard:
+
+<img src="assets/4.06Q.png" alt="Error or Complete" width="750"/>
+
+#### Final Code
+See an example of the [test with a name added.](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod4/4.06/src/test/java/tests/BaseTest.java)
 
 <!-- ------------------------ -->
-## 3.0x Title
+## 3.06 Add a Test Status for Sauce Labs Reporting
 Duration: 0:05:00
+
+After adding a test name, you will add in an `id` and `status` for each unique test that you create. First, you will need to update our tests. If you noticed before, the only status was **Complete** or had an **Error**. You will now add in whether a test has passed or failed.
+
+<img src="assets/4.06F.png" alt="Error or Complete" width="750"/>
+
+
+A  _failure_ is different from an _error_. An error means that you test code is erroneous, and you, as the test writer, need to make a change. You should see this error in your terminal output, and if the code is correct to communicate with Sauce Labs, it should be on your dashboard as well. A failure means a test successfully ran, but the conditions it was checking for were not present – in other words, the code for the app isn’t as expected or needs fixing.
+
+### Use the Sauce REST API
+
+You’ll first need install the `saucerest` library by adding it to our `pom.xml `file within the `<dependencies>` tags.
+
+
+```
+// filename: pom.xml
+// ...
+        <dependency>
+            <groupId>com.saucelabs</groupId>
+            <artifactId>saucerest</artifactId>
+            <version>1.0.40</version>
+            <scope>test</scope>
+        </dependency>
+
+// ...
+
+```
+
+
+
+### NOTE
+
+Negative
+: If you add a dependency and the text appears in red (Maven isn’t recognizing it) you can right click on the pom.xml file in the project directory in IntelliJ then choose **Maven > Reload project**: <img src="assets/4.06G.png" alt="Reload project with Maven" width="750"/>
+
+
+
+In the variable list of the` BaseTest` class (below `private string testName;`) add in the following:
+
+
+```
+// filename: tests/BaseTest.java
+// ...
+    private String sessionId;
+    private SauceREST sauceClient;
+// ...
+```
+
+
+Under the saucelabs` driver` instantiation in the` before()` rule instantiate a` sessionId` and `sauceClient` for when you are running tests on Sauce Labs:
+
+
+```
+// filename: tests/BaseTest.java
+// ...
+        sessionId = ((RemoteWebDriver) driver).getSessionId().toString();
+        sauceClient = new SauceREST(sauceUser, sauceKey, DataCenter.US);
+
+// ...
+```
+
+
+The `sessionId` is retrieved from the `RemoteWebDriver`. The `sauceClient` creates an instance using the Sauce Labs REST API, passing in the username, access key, and data center location. You can change the data center on the Sauce Labs dashboard. Once that is changed, if you would like, go into your code and [change](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints) the `DataCenter` option in your code to reflect this.
+
+<img src="assets/4.06H.png" alt="Data Center" width="750"/>
+
+
+Now you can` import` the `sauceRest` package in the` imports` list of `BaseTest.java`:
+
+
+```
+// filename: tests/BaseTest.java
+// ...
+import com.saucelabs.saucerest.SauceREST;
+// ...
+```
+
+
+Now, go down to the` TestWatcher` rule. Under the first` @Override` annotation, add in two more:
+
+
+```
+// filename: tests/BaseTest.java
+// ...
+@Override
+        protected void failed(Throwable throwable, Description description) {
+            if (host.equals("saucelabs")) {
+                sauceClient.jobFailed(sessionId);
+                System.out.println(String.format("https://saucelabs.com/tests/%s", sessionId));
+            }
+        }
+
+        @Override
+        protected void succeeded(Description description) {
+            if (host.equals("saucelabs")) {
+                sauceClient.jobPassed(sessionId);
+            }
+        }
+// ...
+```
+
+
+Once a Sauce job is established we're able to get the session ID from `RemoteWebDriver` and store it's string value in` sessionId`. youthen create an instance of `SauceREST` (which connects to the Sauce API) and store the session in `sauceClient`.
+
+With a conditional check in each you make sure the sauceClient commands only trigger when a Sauce session has been established.
+
+When a test is successful the `succeeded()` method will fire, marking the Sauce job for the test as `passed`. When a test fails the failed method will trigger, and the job will be marked as `failed`. When there's a failure, we'll want to know the URL to view the job on [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) so you concatenate the URL and output it to the console using the `System.out.println` command.
+
+Now when you run `mvn clean test -Dhost=saucelabs` in terminal, then check your [Sauce Labs dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). On the right you should be able to see a status of passed with each test.
+
+<img src="assets/4.06C.png" alt="Passed Tests" width="550"/>
+
+See an example of the [completed code to compare.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.06)
+
+#### Final Code
+
+<img src="assets/4.06I.png" alt="Test Rule and Watcher" width="550"/>
+
+<img src="assets/4.06J.png" alt="Session ID and SauceREST API" width="750"/>
+
+<img src="assets/4.06K.png" alt="Test Watcher" width="750"/>
+
+<img src="assets/4.06L.png" alt="Sauce Rest in pom.xml" width="650"/>
+
 
 
 

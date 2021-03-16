@@ -724,7 +724,7 @@ The complete code can be found [here](https://github.com/walkerlj0/Selenium_Cour
 
 
 <!-- ------------------------ -->
-## 4.06  Setup for Sauce Labs Reporting
+## 4.06 Setup for Sauce Labs Reporting
 Duration: 0:12:00
 
 In this lesson you will add in some elements for better reporting to understand the status of test run on the[ Sauce Labs automated web testing platform](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
@@ -798,7 +798,9 @@ sauceOptions.setCapability("name", testName);
 ```
 
 
-Run `mvn clean test -Dhost=saucelabs` to see if it works. Now when you run our tests in Sauce Labs, the [account dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) will show the tests running with the name of the test outside of the parentheses, and the class inside of the parentheses:
+Run `mvn clean test -Dhost=saucelabs` to see if it works. Now when you run our tests in Sauce Labs, the [account dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) will show the tests running with the name of the test, test class, and package appearing on the dashboard:
+
+<img src="assets/4.06Q.png" alt="Error or Complete" width="750"/>
 
 ### Part 2: Add a Test Status
 
