@@ -102,9 +102,20 @@ mvn clean test
 ### Update pom.xml
 Add your configurations into `pom.xml` [like the project here](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod4/4.05/pom.xml). You may need to invalidate caches and restart IntelliJ IDE again to activate the imports specified in `pom.xml`
 
+### Update Drivers
+This sample of test code is not using [WebDriver Manager](https://github.com/bonigarcia/webdrivermanager) or other similar tool (though it is recommended), and if you want to test out running this locally, make sure that you have downloaded the drivers compatible with the versions of the browsers on you machine, and update the test code to reference those drivers:
+
+<img src="assets/QS3.03A.png" alt="Capabilities for your test" width="750"/>
+
 <!-- ------------------------ -->
 ## 3.03 Update Variables for Capabilities
 Duration: 0:05:00
+
+Once you understand how the test suite functions, you need to update settings such as the capabilities, endpoint to run against the Sauce Labs Cloud, and your Sauce username and access key. If you are using the examples test code, get familiar with the test function and structure:
+
+#### Video
+**[Web App Test Code Overview]()**
+
 
 In the `Config.java` file, you are going to communicate the settings for our test environment with the W3C [Capabilities](https://wiki.saucelabs.com/display/DOCS/Desired+Capabilities+Required+for+Selenium+and+Appium+Tests/?utm_source=referral&utm_medium=LMS&utm_campaign=link), required for every Selenium test.
 
