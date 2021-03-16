@@ -9,7 +9,7 @@ status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 author:Lindsay Walker, Eyal Yovel
 <!-- ------------------------ -->
-# Module 2 – Android Mobile Emulator Tests
+# Module 2 – Sauce Labs Android Mobile Emulator Tests
 
 <!-- ------------------------ -->
 ## 2.01 What You’ll Learn

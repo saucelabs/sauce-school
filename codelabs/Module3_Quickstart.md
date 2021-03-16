@@ -9,7 +9,7 @@ status: Draft
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 author:Lindsay Walker
 <!-- ------------------------ -->
-# Module 3 - Sauce Labs ...
+# Module 3 - Sauce Labs Web Applications Tests
 
 <!-- ------------------------ -->
 ## 3.01 What You'll Learn
@@ -94,7 +94,6 @@ If you are cloning a project, follow these steps (after you have uploaded `pom.x
 mvn clean test
 ```
 
-
 * Right-click on the project name and choose **Add Framework Support**. <img src="assets/QS2.03D.png" alt="Add framework support" width="350"/>
 * Choose **Maven** as a build tool.
 * Go to **File > Project Structure**. Select a JDK that you have installed on your machine.
@@ -142,8 +141,11 @@ Notice the new variables you have added:
 
 
 ### Final Code
-
 Notice how many of the variables for capabilities are grey in this example, since they aren’t yet used in the test code:
+
+See the example to compare your code in `config.java`
+
+
 <img src="assets/4.05J.png" alt="Capabilities for your test" width="750"/>
 
 
