@@ -495,8 +495,13 @@ See an example of the [completed code to compare.](https://github.com/walkerlj0/
 
 
 
+<!-- ------------------------ -->
+## 3.07 Running Tests in Parallel
 
 <!-- ------------------------ -->
-## 3.07 Module 3 Quiz
+## 3.07 Running Test in Parallel in Different Environments
+
+<!-- ------------------------ -->
+## 3.08 Module 3 Quiz
 Duration: 0:02:00
 ![]()
