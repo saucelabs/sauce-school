@@ -1,4 +1,4 @@
-<!-- Copy this file into tools/site/coursenameFolder & start editing -->
+tests/BaseTest.java<!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
 summary: Module 3 of the Sauce Labs Quickstart course, shows users how to quickly take an automated test written in Java with the JUnit testing library, and update a few settings to run your automated tests on the Sauce Labs platform. Users will add a few things to their tests, including the URL for the Sauce Labs endpoint, a username and access key, and update capabilities
 id: Module3-Quickstart
@@ -308,7 +308,7 @@ In` BaseTest` you will use another [JUnit rule](https://github.com/junit-team/ju
 
 
 ```
-// filename: lib/DriverFactory.java
+// filename: tests/BaseTest.java
 // ...
 private String testName;
 // ...
@@ -319,7 +319,7 @@ Next, use the  `TestWatcher()`after the second` @Override `annotation, right bef
 
 
 ```
-// filename: lib/DriverFactory.java
+// filename: tests/BaseTest.java
 // ...
     @Rule
     public TestRule watcher = new TestWatcher() {
