@@ -1,4 +1,4 @@
-tests/BaseTest.java<!-- Copy this file into tools/site/coursenameFolder & start editing -->
+<!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
 summary: Module 3 of the Sauce Labs Quickstart course, shows users how to quickly take an automated test written in Java with the JUnit testing library, and update a few settings to run your automated tests on the Sauce Labs platform. Users will add a few things to their tests, including the URL for the Sauce Labs endpoint, a username and access key, and update capabilities
 id: Module3-Quickstart
@@ -494,14 +494,13 @@ See an example of the [completed code to compare.](https://github.com/walkerlj0/
 <img src="assets/4.06L.png" alt="Sauce Rest in pom.xml" width="650"/>
 
 
+<!-- ------------------------ -->
+## 3.07 Run Web App Tests in Parallel
 
 <!-- ------------------------ -->
-## 3.07 Running Tests in Parallel
-test
+## 3.08 Run Web App Tests in Parallel Operating Systems
+
 <!-- ------------------------ -->
-## 3.07 Running Test in Parallel in Different Environments
-test
-<!-- ------------------------ -->
-## 3.08 Module 3 Quiz
+## 3.09 Module 3 Quiz
 Duration: 0:02:00
 ![]()
