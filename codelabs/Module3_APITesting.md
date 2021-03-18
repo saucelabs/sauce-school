@@ -122,6 +122,11 @@ The above video shows you the method using Generate Test from a payload, and to 
 ## 3.02 Building Your First Functional Test
 Duration: 0:04:00
 
+#### Video
+**[Create and Run an API Test](http://youtube.com/watch?v=BkQit-1N4dI)**
+
+<video id="BkQit-1N4dI"></video>
+
 ### Test Creation Basics
 
 Here are the basic components used for creating an API test:
@@ -150,10 +155,6 @@ Lets build your first functional test: Start by using this API call.
 **[https://mastiff.apifortress.com/app/api/examples/retail/products](https://mastiff.apifortress.com/app/api/examples/retail/products)**
 
 <img src="assets/API3.02H.png" alt="Generate a Test" width="550"/>
-
-#### Video
-View [this video](https://drive.google.com/file/d/1xxTUnnG6OZzfoygWpOxlTO01PWCZslVC/view?usp=sharing) to see how to create your test:
-![https://drive.google.com/file/d/1xxTUnnG6OZzfoygWpOxlTO01PWCZslVC/preview](https://drive.google.com/file/d/1xxTUnnG6OZzfoygWpOxlTO01PWCZslVC/view?usp=sharing)
 
 
 #### Note
