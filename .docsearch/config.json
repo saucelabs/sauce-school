@@ -1,5 +1,5 @@
 {
-  "index_name": "saucelabs",
+  "index_name": "training.saucelabs.com",
   "start_urls": [
     {
       "url": "https://training.saucelabs.com/",
