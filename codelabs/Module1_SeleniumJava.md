@@ -9,7 +9,7 @@ feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 author: Lindsay Walker
 
 <!-- ------------------------ -->
-# Module 1- Introduction to Selenium with Java
+# Module 1- Introduction Tutorial | Selenium with Java
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
@@ -92,7 +92,7 @@ JUnit4 is a Java library/package that allows you to communicate with Selenium an
 ![https://docs.google.com/forms/d/e/1FAIpQLSeVipqyrEAf1oDn8zaKStANDRQ94Ih6ZevtpZTrA9dqL39rLA/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSeVipqyrEAf1oDn8zaKStANDRQ94Ih6ZevtpZTrA9dqL39rLA/viewform?usp=sf_link)
 
 <!-- ------------------------ -->
-## 1.04 Test Frameworks and Dependencies
+## 1.04 Selenium Java Test Frameworks and Dependencies
 Duration: 0:05:00
 
 A test framework includes code libraries as well as rules and conventions for setting up tests. When it comes to testing frameworks, there are three basic pieces that go into creating a framework.
@@ -117,7 +117,7 @@ In the exercises that follow, you will learn more about the different tools you 
 
 
 <!-- ------------------------ -->
-## 1.05  Installing Dependencies
+## 1.05  Installing Java Test Dependencies
 Duration: 0:15:00
 
 In order to run a Java test code suite on your local machine, you will need a few dependencies, which include software, tools, and code libraries, before you can write your first test code. You will need the Java Development Kit to write the Java Code, JUnit to write the test commands, Maven to manage the other dependencies that you need for a test suite, and IntelliJ IDE to edit and run all these things together.
