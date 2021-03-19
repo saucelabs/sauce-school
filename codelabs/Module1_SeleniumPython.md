@@ -8,7 +8,7 @@ feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 author:Lindsay Walker
 
 <!-- ------------------------ -->
-# Module 1- Introduction to Selenium with Python
+# Module 1- Introduction Tutorial | Selenium with Python
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn

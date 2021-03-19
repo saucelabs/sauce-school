@@ -9,7 +9,7 @@ status: One or more of Draft
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 author:Lindsay Walker
 <!-- ------------------------ -->
-# Module 1 - Sauce Labs for Automated Testers
+# Module 1 - Sauce Labs for Automated Testing
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn

@@ -53,7 +53,7 @@ Negative
   * You run `pip3 install -r requirements.txt` to install all the other dependencies.
 
 <!-- ------------------------ -->
-## 2.02 Writing Good Acceptance Tests
+## 2.02 Writing Good Python Acceptance Tests
 Duration: 0:10:00
 
 Acceptance tests are an important final step to take when releasing anything you may have designed, to make sure that the software you have created meets the requirements and specifications laid out when you designed and planned your application or platform. Automated testing is an integral tool to use to efficiently and accurately test your product for release.
@@ -166,7 +166,7 @@ Having answered these questions, you should now have a prioritized backlog of cr
 
 <!-- ------------------------ -->
 
-## 2.04 Finding & Testing Locators in the Browser
+## 2.04 Finding & Testing Selenium Locators in the Browser
 Duration: 0:15:00
 
 
@@ -230,7 +230,7 @@ Selenium is able to find and interact with elements on a page by way of various 
 
 <!-- ------------------------ -->
 
-## 2.05 Setting Up Your First Test
+## 2.05 Setting Up Your First Python Test
 Duration: 0:12:00
 
 Here's the markup for a standard login form (pulled from the login example app on [the-internet](http://the-internet.herokuapp.com/login).
@@ -435,7 +435,7 @@ If your code is correct, you driver has been given permission to open, you shoul
 
 <!-- ------------------------ -->
 
-## 2.06 Test Assertions
+## 2.06 Pytest Test Assertions
 Duration: 0:10:00
 
 Assertions are statements that are used at a certain point in the test code (usually following a certain sequence of events) that check to see if some condition is true or false. The test code you created thus far simply tells your test what elements to look for on the page, and what to do with those elements.

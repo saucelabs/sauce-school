@@ -8,7 +8,7 @@ authors: Lindsay Walker
 Feedback Link: https://forms.gle/CGu4QchgBxxWnNJK8
 author: Lindsay Walker  
 
-# Module 1 — Introduction to Selenium with JavaScript
+# Module 1 — Introduction Tutorial| Selenium with JavaScript
 
 <!-- ------------------------ -->
 
