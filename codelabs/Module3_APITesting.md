@@ -138,6 +138,7 @@ Lets build your first functional test: Start by using this API call.
 Negative
 : This example exists in your **Examples** project, and it is named **Retail: Integration - Products**.
 
+
 ### Test Creation Basics
 
 Here are the basic components used for creating an API test:
@@ -162,6 +163,7 @@ You can add components to any step in the test like so:
 
 
 ### HTTP Client
+
 
 By clicking that link, or using the HTTP composer in the **HTTP Client** section to make the call, you get this response.
 
