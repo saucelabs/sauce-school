@@ -260,7 +260,7 @@ Now you just need to make sure the value you are storing your payload in, and th
 
 Click to edit the variable to say `productsPayload`, and make sure all your checks use that as well.
 
-<img src="assets/API3.04W.png" alt="The payload var" width="750"/>
+<img src="assets/API3.03W.png" alt="The payload var" width="750"/>
 
 Creating an integration test requires the use of two new components. The **[For Each](https://docs.saucelabs.com/api-testing/logical-components/each/index.html)** component helps you iterate through a series of data (product IDs in this case), and the **[Set](https://docs.saucelabs.com/api-testing/learn-more/the-variables-system-in-api-fortress/index.html#set-component)** which creates a temporary variable to reference.
 
@@ -274,9 +274,15 @@ If you look at the above GUI view of this test, you see that we have our origina
 
 <img src="assets/API3.03B.png" alt="Generate a Test" width="850"/>
 
+#### Input Variables
 If you do not have all of the same parameters, create them now in the **Input Set** window:
 
 <img src="assets/API3.03K.png" alt="Input set edit" width="350"/>
+
+Make sure your **GET** statement uses it as well:
+
+<img src="assets/API3.03X.png" alt="Input set edit" width="550"/>
+
 
 ### Loop Through Each Element
 
@@ -304,7 +310,11 @@ Delete any components that were automatically created exist when you created the
 
 Now you need to move (or create) a  **GET** component within the **for each** loop. You’ll notice we are using the `id` that we stored from the first **GET** call at the beginning of the test to populate into the second **GET** call within the loop. Each iteration of the **For Each** will call the current `id` in the **GET** call.
 
-<img src="assets/API3.03I.png" alt="Generate a Test" width="550"/>
+<img src="assets/API3.03I.png" alt="Generate a Test" width="850"/>
+
+#### Note
+Negative
+: Notice that the payload variable for this **Get** element is **productPayload**
 
 Update each of the elements in your **for each** loop so that it appears like the sample test entitled _Retail: Integration - Products_ in the _Examples_ project. You may have to drag and drop elements into the for loop, or add or delete new components to make it look like the **Final Code** at the bottom of this page.
 
