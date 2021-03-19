@@ -1,5 +1,5 @@
 {
-  "title": "Cypress on Sauce",
+  "title": "Cypress on Sauce Course",
   "description": "Learn to run Cypress tests on Sauce Labs, and use the Sauce Labs TestRunner Toolkit along with SauceCTL to set up tests or run a Cypress test suite you already have. Run your tests through a Docker container, or in a Sauce Labs VM with a few quick changes to a config file, then share and analyze your test results on the Sauce Labs platform.",
   "logoUrl": "/testrunner/logo.png",
   "tags": ["testrunner"],
