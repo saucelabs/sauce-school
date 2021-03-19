@@ -8,7 +8,7 @@ authors: Lindsay Walker
 Feedback Link: https://forms.gle/CGu4QchgBxxWnNJK8
 author: Lindsay Walker  
 
-# Module 1 — Introduction Tutorial| Selenium with JavaScript
+# Module 1 — Introduction Tutorial | Selenium with JavaScript
 
 <!-- ------------------------ -->
 
@@ -142,7 +142,7 @@ Above is an example of how you might connect a framework with the selenium grid 
 As you work through this course, you will learn more about the different tools you use when you write code, they will make more sense.
 
 <!-- ------------------------ -->
-## 1.05  Installing Dependencies
+## 1.05  Installing JavaScript Test Dependencies
 Duration: 0:10:00
 
 We need several dependencies, or tools and libraries, in order for our test to run as planned, which we will install later on, and for now we will get set up to do that. In this module, we’re going to install and set up the NodeJS server, create a project folder and install npm so that later on we can install all the dependencies. The dependencies include WebDrivers that communicate with different browsers, as well as Mocha, to use in writing actual tests.

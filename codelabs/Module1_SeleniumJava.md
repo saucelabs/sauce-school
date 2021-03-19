@@ -117,7 +117,7 @@ In the exercises that follow, you will learn more about the different tools you 
 
 
 <!-- ------------------------ -->
-## 1.05  Installing Dependencies
+## 1.05  Installing Java Test Dependencies
 Duration: 0:15:00
 
 In order to run a Java test code suite on your local machine, you will need a few dependencies, which include software, tools, and code libraries, before you can write your first test code. You will need the Java Development Kit to write the Java Code, JUnit to write the test commands, Maven to manage the other dependencies that you need for a test suite, and IntelliJ IDE to edit and run all these things together.

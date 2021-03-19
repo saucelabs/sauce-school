@@ -117,7 +117,7 @@ In the exercises that follow, you will learn more about the different tools you 
 
 
 <!-- ------------------------ -->
-## 1.05  Installing Dependencies
+## 1.05  Installing Python Test Dependencies
 Duration: 0:15:00
 
 
