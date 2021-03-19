@@ -49,8 +49,9 @@ Unlike Selenium, the Cypress framework can make API calls, modify the web app co
 
 #### Video
 
-[Test Runner Intro](https://drive.google.com/file/d/1yXQTWNc2IRGnNC2G6CkUzYMWFT5KWphK/view?usp=sharing)
-![https://drive.google.com/file/d/1yXQTWNc2IRGnNC2G6CkUzYMWFT5KWphK/preview](https://drive.google.com/file/d/1yXQTWNc2IRGnNC2G6CkUzYMWFT5KWphK/view?usp=sharing)
+[SauceCTL Introduction](https://youtu.be/kZP4ckDOKC0)
+
+<video id="kZP4ckDOKC0"></video>
 
 
 ### What are SauceCTL and Testrunner Toolkit?
@@ -95,7 +96,7 @@ Duration: 0:07:00
 
 In this module, you will see how you can set up the Sauce Testrunner Toolkit along with Docker on your computer MacOS Computer.
 
-Docker is software that allows you to create an isolated environment on your computer that is separate from your operating system, creating a lightweight environment that runs a Linux kernel to do specific tasks. Learn more from the [Docker documentation](https://docs.docker.com/get-started/overview/). Each environment coupled with the software and setting packaged together to use in that environment is called an _image_.
+Docker is software that allows you to create an isolated environment on your computer that is separate from your operating system, creating a lightweight environment built off a Linux kernel to do specific tasks. Learn more from the [Docker documentation](https://docs.docker.com/get-started/overview/). Each environment coupled with the software and setting packaged together to use in that environment is called an _image_.
 
 
 <!-- In our case, we will use Docker engine, which is made up of:
@@ -107,9 +108,10 @@ Docker is software that allows you to create an isolated environment on your com
 
 #### Video
 
-[SauceCTL Introduction](https://drive.google.com/file/d/14C7X0F98dflgYQDgCnD-H3yXuO1ABqka/view?usp=sharing)
+[SauceCTL Introduction](https://youtu.be/gWAu1L8Ich0)
 
-![https://drive.google.com/file/d/14C7X0F98dflgYQDgCnD-H3yXuO1ABqka/preview](https://drive.google.com/file/d/14C7X0F98dflgYQDgCnD-H3yXuO1ABqka/view?usp=sharing)
+<video id="gWAu1L8Ich0"></video>
+
 
 Negative
 : Note that the config file here may be out of date, and the [correct configuration can be found in the documentation.](https://docs.staging.saucelabs.net/testrunner-toolkit/configuration/cypress)
@@ -151,11 +153,11 @@ First, anywhere on your machine install the SauceCTL tool globally, using this c
 
 `npm i -g saucectl`.
 
-#### Cypress Project Code
+### Cypress Test Code
 
 You have the following options to test out Cypress on Sauce:
 * Use an existing project you have already
-* Follow modules 1.06 - 1.08 to write simple tests
+* Follow [lessons 1.06 - 1.08](https://training.saucelabs.com/codelabs/Module1-Testrunner/index.html?index=..%2F..testrunner#5) to write simple tests
 * Clone or download [this example cypress test suite](https://github.com/saucelabs-training/demo-js/tree/master/testrunner-toolkit/cypress)
 
 Once you have a project directory containing cypress tests on your machine, navigate to the directory where the `cypress.json ` and `/cypress` directory are. You want to create a `saucectl new` project at the same level as the **cypress** directory that contains your tests.
@@ -226,7 +228,7 @@ Take a look at the top of the config file. There are several important elements 
 
 ### Run a Cypress Test
 
-Now that you have everything installed and a project created, you can use SauceCTL to run a test in a Docker container, and pass the info to Sauce Labs with the command:
+Now that you have everything installed and a project created, you can use SauceCTL to run a test in a Docker container, and pass the info to Sauce Labs by running this command from your project directory:
 
 ```
 saucectl run
@@ -238,9 +240,9 @@ Duration: 0:03:00
 
 #### Video
 
-[Running Tests with Sauce and Cypress](https://drive.google.com/file/d/1x1StP8YvJBmc-8AH-_dU8hswuqlEBfOW/view?usp=sharing)
+[Running Tests with Sauce and Cypress](https://youtu.be/9hojw_PMYqk)
 
-![https://drive.google.com/file/d/1x1StP8YvJBmc-8AH-_dU8hswuqlEBfOW/preview](https://drive.google.com/file/d/1x1StP8YvJBmc-8AH-_dU8hswuqlEBfOW/view?usp=sharing/&utm_source=referral&utm_medium=LMS&utm_campaign=link)
+<video id="9hojw_PMYqk"></video>
 
 ### Update Sauce Config File
 
@@ -266,13 +268,13 @@ docker:
 ```
 
 
-Options like `platformName` and `screenResolution` are optional capabilities that you can define for your test, and can be omitted, Testrunner will run use defaults if these aren’t specified. [See the documentation for all configuration options](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
+Options like `platformName` and `screenResolution` are optional capabilities that you can define for your test, and can be omitted, Testrunner will run using defaults for these values if these aren’t specified. [See the documentation for all configuration options](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
 
 
 #### Note
 
 Negative
-: Ensure you’ve set the Docker image tag in your `config.yml `as well. There are also two alternatives for listing the `testFiles;` in your suite, either in brackets `[]` [like the example here](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress#suites/&utm_source=referral&utm_medium=LMS&utm_campaign=link), or underneath tabbed in, in front of a dash with a space: `-'**/login].spec.js' `
+: Ensure you’ve set the Docker image tag in your `config.yml` as well. There are also two alternatives for listing the `testFiles;` in your suite, either in brackets `[]` [like the example here](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress#suites/&utm_source=referral&utm_medium=LMS&utm_campaign=link), or underneath tabbed in, in front of a dash with a space: `-'**/login].spec.js' `
 
 
 ### Run Your Test with Docker & Sauce Labs
@@ -320,7 +322,7 @@ npm update -g saucectl
 
 #### Run on Sauce Labs Virtual Machines
 
-Now all you need to do is run the command in terminal:
+In order to upload your tests to the Sauce Labs Cloud, and run your tests on a Sauce Labs virtual machine, all you need to do is run the command in terminal:
 
 
 ```
@@ -369,8 +371,10 @@ Duration: 0:05:00
 Sauce Labs’ Testrunner Toolkit allows you to take existing Cypress test suites (or build a cypress test suite) and quickly run it on Sauce Labs. In this lesson, you will learn how to modify a couple settings in the `cypress.json` and `.sauce/config.ym`l files, then write a basic test and run it on Sauce Labs.
 
 #### Video
-[Page Objects Setup](https://drive.google.com/file/d/1C2k_gs8Q-hXT5sU59yM8KU3gdkrUcxfl/view?usp=sharing)
-![https://drive.google.com/file/d/1C2k_gs8Q-hXT5sU59yM8KU3gdkrUcxfl/preview](https://drive.google.com/file/d/1C2k_gs8Q-hXT5sU59yM8KU3gdkrUcxfl/view?usp=sharing)
+
+[Page Objects Setup](https://youtu.be/GTGlkiUCRLM)
+
+<video id="GTGlkiUCRLM"></video>
 
 #### Note
 Negative
@@ -562,10 +566,9 @@ Now that you have all the configuration files and page objects created, you can 
 
 #### Video
 
-[Write a Cypress Test](https://drive.google.com/file/d/1ZE2e4DDeFJn6M8TY1Gh5ujloLkcy8CYI/view?usp=sharing)
+[Write a Cypress Test](https://youtu.be/0zYCOeATnnM)
 
-![https://drive.google.com/file/d/1ZE2e4DDeFJn6M8TY1Gh5ujloLkcy8CYI/preview](https://drive.google.com/file/d/1ZE2e4DDeFJn6M8TY1Gh5ujloLkcy8CYI/view?usp=sharing)
-
+<video id="0zYCOeATnnM"></video>
 
 ### Write Your First Test
 
@@ -667,7 +670,10 @@ describe('LoginPage', () => {
 
 ```
 
+See [how to run your tests in sauce or docker mode.](https://training.saucelabs.com/codelabs/Module1-Testrunner/index.html?index=..%2F..testrunner#3)
+
 #### Final Code
+
 See a sample of the [project and code here](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.07)
 
 <img src="assets/TRT1.05A.png" alt="Final Lesson Code" width="550"/>
@@ -682,9 +688,9 @@ It often helps to debug on your local machine, and the Cypress client provides s
 
 #### Video
 
-[Running and Debugging Test on Cypress Locally](https://drive.google.com/file/d/1msWOvSYUxYGVG9xyohZa_EUn7co8z_qS/view?usp=sharing)
+[Running and Debugging Test on Cypress Locally](https://youtu.be/GBgJR-w2Kew)
 
-![https://drive.google.com/file/d/1msWOvSYUxYGVG9xyohZa_EUn7co8z_qS/preview](https://drive.google.com/file/d/1msWOvSYUxYGVG9xyohZa_EUn7co8z_qS/view?usp=sharing)
+<video id="GBgJR-w2Kew"></video>
 
 ### Install npm Packages
 

@@ -91,6 +91,8 @@ After `-u` you see your username and after `-k` you have your access key, and `-
 ## 2.03 Run Your Cypress Test with Sauce Connect
 Duration: 0:01:00
 
+With Testrunner toolkit you can use Sauce Connect Proxy to run your Cypress tests thorugh a secure proxy tunnel when you run tests the Sauce Labs cloud of virtual machines (in the 'sauce' `test-env`)
+
 First, make sure that your Sauce Connect tunnel is currently running, as per the instructions in the last module. Now you can make a simple change to `.sauce/config.yml` and run your Cypress test
 
 ### Start the Tunnel
@@ -107,7 +109,7 @@ You will need to take a look at the tunnel id that you have up and running. You 
 The easiest way to run your existing tests through a tunnel is to use the command line with a `--tunnel-id` flag, also using the **Tunnel Name** from the **Tunnels** dashboard. Simply navigate to the test project and use the command
 
 ```
-saucectl run --tunnel-id your-tunnel-id
+saucectl run --test-env sauce --tunnel-id your-tunnel-id
 ```
 
 #### Update the Tunnel ID in Config
