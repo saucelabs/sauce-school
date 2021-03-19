@@ -119,8 +119,24 @@ The above video shows you the method using Generate Test from a payload, and to 
 ```
 
 <!-- ------------------------ -->
-## 3.02 Building Your First Functional Test
+## 3.02 Building Your First Functional API Test
 Duration: 0:04:00
+
+#### Video
+View [this video](https://youtu.be/BkQit-1N4dI) to see how to create your test:
+
+<video id="BkQit-1N4dI"></video>
+
+### Build the Base Test
+Lets build your first functional test: Start by using this API call.  
+
+**[https://mastiff.apifortress.com/app/api/examples/retail/products](https://mastiff.apifortress.com/app/api/examples/retail/products)**
+
+<img src="assets/API3.02H.png" alt="Generate a Test" width="550"/>
+
+#### Note
+Negative
+: This example exists in your **Examples** project, and it is named **Retail: Integration - Products**.
 
 ### Test Creation Basics
 
@@ -144,23 +160,8 @@ You can add components to any step in the test like so:
 
 <img src="assets/API3.03A.png" alt="Generate a Test" width="850"/>
 
-### Build the Base Test
-Lets build your first functional test: Start by using this API call.  
 
-**[https://mastiff.apifortress.com/app/api/examples/retail/products](https://mastiff.apifortress.com/app/api/examples/retail/products)**
-
-<img src="assets/API3.02H.png" alt="Generate a Test" width="550"/>
-
-#### Video
-View [this video](https://youtu.be/BkQit-1N4dI) to see how to create your test:
-
-<video id="BkQit-1N4dI"></video>
-
-
-
-#### Note
-Negative
-: This example exists in your **Examples** project, and it is named **Retail: Integration - Products**.
+### HTTP Client
 
 By clicking that link, or using the HTTP composer in the **HTTP Client** section to make the call, you get this response.
 
@@ -236,12 +237,12 @@ Now, the assertions. [There are over 70 assertions](https://assertible.com/docs/
 The GET call gets an API response and stores it in that variable. This is useful for when you are dealing with multiple payloads (variables) in an integration test.  
 
 
-It’s important to note that with the **Generate Test** feature you can have this entire structure generated for you in seconds. This frees you to focus on the more important and tricky aspects of writing detailed tests.
-
-<img src="assets/API3.02G.png" alt="Input Set" width="850"/>
+#### Note
+Negative
+: With the **Generate Test** feature you can have this entire structure generated for you in seconds. This frees you to focus on the more important and tricky aspects of writing detailed tests. <img src="assets/API3.02G.png" alt="Input Set" width="850"/>
 
 <!-- ------------------------ -->
-## 3.04 Update Your Integration Test
+## 3.04 Update Your API Integration Test
 Duration: 0:07:00
 
 
@@ -251,6 +252,15 @@ Now lets take the functional test, and use it as the first step in an integratio
 First, you have the original test that was created (with assertions) when you clicked **Generate Test** after entering `https://mastiff.apifortress.com/app/api/examples/retail/products`:
 
 <img src="assets/API3.02D.png" alt="Generate a Test" width="850"/>
+
+#### The Payload Variable
+Now you just need to make sure the value you are storing your payload in, and the one you are calling with your checks are. Note that in the example tests (which you created your snippet with) doesn't use the defaul `Var` for playload:
+
+<img src="assets/API3.04G.png" alt="The payload var" width="750"/>
+
+Click to edit the variable to say `productsPayload`, and make sure all your checks use that as well.
+
+<img src="assets/API3.04W.png" alt="The payload var" width="750"/>
 
 Creating an integration test requires the use of two new components. The **[For Each](https://docs.saucelabs.com/api-testing/logical-components/each/index.html)** component helps you iterate through a series of data (product IDs in this case), and the **[Set](https://docs.saucelabs.com/api-testing/learn-more/the-variables-system-in-api-fortress/index.html#set-component)** which creates a temporary variable to reference.
 
@@ -266,7 +276,7 @@ If you look at the above GUI view of this test, you see that we have our origina
 
 If you do not have all of the same parameters, create them now in the **Input Set** window:
 
-<img src="assets/API3.03K.png" alt="Generate a Test" width="350"/>
+<img src="assets/API3.03K.png" alt="Input set edit" width="350"/>
 
 ### Loop Through Each Element
 
@@ -278,7 +288,7 @@ You’ll notice that it is referencing the variable that we stored the entire re
 
 The **.pick(2)** you added at the end is entirely optional, and what it does is randomly select a set (in this case, `2`) number of items from the list we are iterating through. This is useful if the dataset is  large. Ours is small so we would remove that and allow every product ID to be tested. We will leave it for training purposes.
 
-Next you want to add a **Set** component, creating a new variable called **id**.
+Next you want to add a **Set** component as the first element in the **for each in** loop, creating a new variable called **id**.
 
 <img src="assets/API3.03D.png" alt="Generate a Test" width="350"/>
 
@@ -399,7 +409,7 @@ From here you can access and edit code for snippets and variables for both globa
 To learn more about The Vault and Environments see below links: [Learn the Basics](https://docs.saucelabs.com/api-testing/quick-start/the-vault/index.html), [Environments Basics](https://apifortress.com/doc/environments-vault-and-overrides-magic/), [Using Variables](https://docs.saucelabs.com/api-testing/quick-start/flexible-variables-for-flexible-environments)
 
 <!-- ------------------------ -->
-## 3.06 Test Publishing and Reporting
+## 3.06 API Test Publishing and Reporting
 Duration: 0:03:00
 
 ### Test Reports
