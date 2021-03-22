@@ -217,7 +217,11 @@ This is hugely important to allow the test to be easily run against any environm
 <img src="assets/API3.02F.png" alt="Input Set" width="850"/>
 
 
+<<<<<<< HEAD
 Each time you generate a test, notice the `Var: payload` in the **Get** component. This is generated when your test is generated. What happens is that when you call an API, and get response, that entire payload is automatically stored in a variable called `payload`.
+=======
+Each time you generate a test, notice the `Var=payload` in the **Get** component. This is generated when your test is generated. What happens is that when you call an API, and get response, that entire payload is automatically stored in a variable called `payload`.
+>>>>>>> master
 
 <img src="assets/API3.03V.png" alt="Input Set" width="850"/>
 
@@ -256,7 +260,11 @@ First, you have the original test that was created (with assertions) when you cl
 <img src="assets/API3.02D.png" alt="Generate a Test" width="850"/>
 
 #### The Payload Variable
+<<<<<<< HEAD
 Now you just need to make sure the value you are storing your payload in, and the one you are calling with your checks are. Note that in the example tests (which you created your snippet with) doesn't use the default `Var` for playload:
+=======
+Now you just need to make sure the value you are storing your payload in, and the one you are calling with your checks are. Note that in the example tests (which you created your snippet with) doesn't use the defaul `Var` for playload:
+>>>>>>> master
 
 <img src="assets/API3.04G.png" alt="The payload var" width="750"/>
 
@@ -410,7 +418,11 @@ You will need to edit the `Var=` in the **Get** method at the top of your own te
 Still much easier than recreating the entire for loop! Run your test to see the report.
 
 ### Adding and Editing Variables
+<<<<<<< HEAD
 Access the Vault and add variables and code snippets by first clicking on the **Vault** in the main menu.
+=======
+Access the Vault and add variables and code snippets by first clicking on the **Valut** in the main menu.
+>>>>>>> master
 
 <img src="assets/API3.04E.png" alt="The Vault" width="650"/>
 

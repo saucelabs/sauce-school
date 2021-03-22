@@ -93,8 +93,8 @@ Use the same markdown as embedding an iframe:
 3. In the new window, click on the three dots at the top left and choose 'embed item' copy the URL from the src="" (what is in the quotation marks)
 
 **Google Form**
-1. Click the 'Send button.
-2. choose the third tab with the embed icon `<>`. YOu should see an `<iframe>` tag.
+1. Click the 'Send' button.
+2. Choose the third tab with the embed icon `<>`. YOu should see an `<iframe>` tag.
 3. Copy the link after the 'src' that is in quotes
 
 #### ShareURL
