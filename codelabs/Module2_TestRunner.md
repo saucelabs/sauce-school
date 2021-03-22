@@ -91,7 +91,7 @@ After `-u` you see your username and after `-k` you have your access key, and `-
 ## 2.03 Run Your Cypress Test with Sauce Connect
 Duration: 0:01:00
 
-With Testrunner toolkit you can use Sauce Connect Proxy to run your Cypress tests thorugh a secure proxy tunnel when you run tests the Sauce Labs cloud of virtual machines (in the 'sauce' `test-env`)
+With Testrunner toolkit you can use Sauce Connect Proxy to run your Cypress tests thorugh a secure proxy tunnel when you run tests the Sauce Labs cloud of virtual machines (in the `sauce` `test-env`)
 
 First, make sure that your Sauce Connect tunnel is currently running, as per the instructions in the last module. Now you can make a simple change to `.sauce/config.yml` and run your Cypress test
 
@@ -129,7 +129,7 @@ To use a parent tunnel simply check the **Tunnels** tab on your Sauce Labs app t
 
 
 <!-- ------------------------ -->
-## 2.04 Test with Cypress on a Local App
+## 2.04 Test a Local App With Sauce VMs
 Duration: 0:01:00
 
 Cypress on Sauce with Testrunner Toolkit allows you to perform tests on an app that you have on your local machine or other non-public environment, then test it against the wide variety of devices available on Sauce Labs.
@@ -139,7 +139,7 @@ in this example, we will be downloading the Swag Labs web app, and running it lo
 ### Download Swag Labs (Optional)
 
 If you would like to follow along, download or fork the [example web app](https://github.com/saucelabs/sample-app-web). You can follow the [ReadMe](https://github.com/saucelabs/sample-app-web) and get it running locally. The basic steps are:
-* Clone the Project
+* Fork or download a copy ofs the Project
 * Use `npm install` to install dependencies
 * Start the app with `npm run start`
 
@@ -148,6 +148,9 @@ If you would like to follow along, download or fork the [example web app](https:
 Once you have an app running on your machine, you will need to make changes to your test.
 
 <img src="assets/TRT2.04B.png" alt="App up and running" width="650"/>
+
+### Start Sauce Connect
+If your tunnel is not already running, open a new terminal window, and simply copy the command that you will find at the bottom of the **Tunnels** tab in the [Sauce Labs app](https://accounts.saucelabs.com/am/XUI/#login), navigate to the folder using the terminal where you saved the Sauce Connect software, and paste this into your terminal.
 
 ### Update the Test URL
 Go into the `cypress.json` file to update the `baseURL` that your tests will be running against.
@@ -164,7 +167,7 @@ saucectl run
 
 #### Note
 Negative
-: You won't be able to run a test on a local app through Sauce Connect (though you can if you have it available on the web) so you will need to stop Sauce Connect Proxy if you have it running.
+: You won't be able to run a test on a local app in **Docker mode** through Sauce Connect (though you can if you have it available on the web) so you will need to stop Sauce Connect Proxy if you have it running.
 
 
 <!-- ------------------------ -->
@@ -188,26 +191,48 @@ If you already have a Github account, you can get starte by visiting the [Github
 * The command used to launch the build of your app
 
 ### Set Up Your Project
-In your project file (in this example we will use the Swag Labs web app you downloaded) create a directory called `.github`, then within that, create a directory called `workflows`.
 
-<img src="assets/TRT2.05A.png" alt="Set up github directory" width="450"/>
-
-We will need to create a [new `.yml` file](https://docs.github.com/en/actions/quickstart) that is used to give instructions to Github Actions. This file will define the test jobs that will run on certain triggers called [events](https://docs.github.com/en/actions/reference/events-that-trigger-workflows).
-
-#### Create a GitHub Repository for your App
-If you are following along with the Swag Labs app, create a new private repository for your version of the app:
+#### Create or Fork a GitHub Repository for Your App
+If you are following along with the Swag Labs app, create a new private fork for your version of the app:
 
 <img src="assets/TRT2.05C.png" alt="Set up github repo" width="450"/>
 
 #### Note
 Negative
-: You can quickly add your sample app code to the repository using the command: `git remote add upstream <your repo SSH or HTTPS link>` and `git push upstream <your branch name>`. Read more on [cloning and initializing your own repository](https://sung.codes/blog/2017/10/01/push-git-cloned-repository-github/). <<<<<< Still not working
+: To follow along, fork then download a copy of the [example web app](https://github.com/saucelabs/sample-app-web). find a place to store it on your computer, and use `git clone your-forked-repo` to make a local copy, then `git add .`, `commit -m "initial commit"` and `git push` to push your local changes.
 
 
 We will set up our test to run on every pull request made to a code repository.
 
+#### Copy Your Cypress Tests Into Your Project
+
+In your new repository, take a copy of the `cypress.json` and `/cypress` directory from the test code you had earlier, and add copies to your application.
+
+<img src="assets/TRT2.05D.png" alt="Copy tests into project" width="650"/>
+### Create GitHub Secrets
+
+The first order of business is to export your [Sauce Labs account credentials](https://app.saucelabs.com/user-settings) and store them as GitHub Secrets.
+
+1. Navigate to your project repository and select the __settings__ icon
+
+
+2. Select __Secrets__
+3. Click the __New secret__ button
+4. Add the following:
+    * Name: `SAUCE_USERNAME`
+    * Value: `your-sauce-username`
+5. Click __Add secret__ to finish.
+6. Repeat the same steps above for your `SAUCE_ACCESS_KEY` (Not sure where to find `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` in Sauce Labs? They're [here](https://app.saucelabs.com/user-settings)).
+
+
 #### Create YAML File
-Create a new file called `testruner.yml`:
+
+In your project file (in this example we will use the Swag Labs web app you downloaded) create a directory called `.github`, then within that, create a directory called `workflows`.
+
+<img src="assets/TRT2.05A.png" alt="Set up github directory" width="450"/>
+
+We will need to create a [new `.yml` file](https://docs.github.com/en/actions/quickstart) that is used to give instructions to Github Actions. This file will define the test jobs that will run on certain triggers called [events](https://docs.github.com/en/actions/reference/events-that-trigger-workflows).
+Create a new file called `testrunner.yml`:
 
 <img src="assets/TRT2.05A.png" alt="The YML file" width="450"/>
 
@@ -215,7 +240,7 @@ In the `testrunner.yml` file, copy and paste in the following:
 
 
 ```yaml
-name: Sauce Pipeline Browser Tests
+name: Sauce Cypress Pipeline Demo Tests
 
 on:
   pull_request:
@@ -229,27 +254,14 @@ env:
 
 jobs:
 ```
-The `on:` object allows you to set when the tests are run against your reposiory, and the `env:` object allows you to specify environment variables, which are stored as [Github secrets](https://docs.github.com/en/actions/reference/encrypted-secrets), for use in your tests. The `jobs:` object allows you to specify... <<<<<<<<
+The `on:` object allows you to specify [events](https://docs.github.com/en/actions/reference/events-that-trigger-workflows) that occur in a workflow, such as tests run against your repository. in this case the run on every pull request, and with every push to the `master` branch.
+
+The `env:` object allows you to specify environment variables, which are stored as [Github secrets](https://docs.github.com/en/actions/reference/encrypted-secrets), for use in your tests. The `jobs:` object allows you to specify a group of individual actions that occur each time your app, in this case, has a pull request or push to master. Jobs are covered in the next module.
 
 
 #### Note
 Negative
-: Setting `env` at the top of the file enables it globally in this workflow, so all jobs have access to these variables. <<<<<< What does this mean?
-
-### Create GitHub Secrets
-
-The first order of business is to export your [Sauce Labs account credentials](https://app.saucelabs.com/user-settings) and store them as GitHub Secrets.
-
-1. Navigate to your project repository and select the __settings__ icon
-
-
-2. Select __Secrets__
-3. Click the __New secret__ button
-4. Add the following:
-    * Name: `SAUCE_USERNAME`
-    * Value: 'your-sauce-username'
-5. Click __Add secret__ to finish.
-6. Repeat the same steps above for your `SAUCE_ACCESS_KEY` (Not sure where to find `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` in Sauce Labs? They're [here](https://app.saucelabs.com/user-settings)).
+: Setting `env` variable \s at the top of the file enables it globally, so all jobs in the workflow have access to these variables, so all jobs can use these variables, without specifying it in each job.
 
 
 
