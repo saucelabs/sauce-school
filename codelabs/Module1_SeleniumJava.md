@@ -335,7 +335,7 @@ Negative
 [1.05_IntelliJ_Dependencies ](https://youtu.be/PDPl_pHo0K0)– Using IntelliJ to install dependencies and update the .pom file
 
 
-<video id=""></PDPl_pHo0K0>
+<video id="PDPl_pHo0K0"></video>
 
 ### Use GitHub Repository (Optional)
 
@@ -381,7 +381,7 @@ Take a look at the first test code we will be creating in the next module. There
 
 **[Driver.quit](https://artoftesting.com/difference-between-driver-close-and-driver-quit-command-in-selenium-webdriver) –** An important Selenium command to use within **@After** annotations, this closes any browser windows that may be open and terminates the WebDriver session.
 
-You can see an [example of the project we will begin to be setting up in the next module](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2/2.06/src/test/java/companyname)
+You can see an example of the project we will begin to be setting up in the next module](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2/2.06/src/test/java/companyname)
 
 <!-- ------------------------ -->
 
