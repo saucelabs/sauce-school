@@ -7,20 +7,11 @@ Thank you for Contributing to Sauce School. Please add in the following to your 
 
 ### Types of changes
 <!--- What types of changes does your code introduce? Put an `x` in all the boxes that apply: -->
-<<<<<<< HEAD
-- [ ] New course content (new course lessons, modules, or major rearrangements)
-- [ ] Updated course content (typos, minor rearrangements)
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to change)
-
-=======
 - [ ] Platform Bug fix (non-breaking change which fixes an issue)
 - [ ] New feature (non-breaking change which adds functionality)
 - [ ] Breaking change (fix or feature that would cause existing functionality to change)
 - [ ] Major Documentation Update (New modules, courses, or major re-orgamizations)
 - [ ] Minor Documentation fix (typos, incorrect content, missing content, etc.)
->>>>>>> master
 
 ### Checklist
 <!--- Go over all the following points, and put an `x` in all the boxes that apply. -->
