@@ -326,9 +326,6 @@ Once you have added your `pom.xml` file update, go to **File > Invalidate Caches
 
 <img src="assets/1.05Z.png" alt="pom.xml" width="450"/>
 
-Negative
-: * Words should no longer appear red in the test.java file.
-
 
 #### Video
 
@@ -350,7 +347,7 @@ Duration: 0:10:00
 
 Take a look at the first test code we will be creating in the next module. There are several things at play:
 
-**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod1/1.06/src/test/java/companyname/TestLogin.java)**
+**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod1/1.06)**
 
 <img src="assets/1.06A.png" alt="IntelliJ JDK" width="550"/>
 ### Java Methods
