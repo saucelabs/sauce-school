@@ -9,7 +9,7 @@ status: One or more of Draft
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 author:Lindsay Walker
 <!-- ------------------------ -->
-# Module 1 - Sauce Labs for Automated Testers
+# Module 1 - Sauce Labs for Automated Testing
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
@@ -69,17 +69,19 @@ Duration: 0:08:00
 
 Sauce Labs gives teams the ability to run tests on hundreds of different emulators, simulators, and real mobile devices.
 
+#### Video  
+**[Mobile App Test](https://youtu.be/Xcww_v7GkdI
+)**
+
+<video id="Xcww_v7GkdI"></video>
+
 [Appium ](http://appium.io/docs/en/about-appium/intro/)is an open-source tool for automating tests for native applications installed on a device, mobile web browsers, and hybrid applications on many platforms. Appium was created for tests on mobile applications, both web and native.
 
 Though it was designed for mobile testing, Appium has the ability to let you create tests on almost any operating system (iOS, Android, Windows, Mac, Linux), using a REST API.
 
 Other mobile testing frameworks supported by Sauce Labs include [XCUI Test](https://info.saucelabs.com/FY17-ADV-MobileAppTestingeBook_LP.html?gclid=CjwKCAiAtK79BRAIEiwA4OskBtI-iSaHXJ2EPMTaJXeM2gREFzcv1ikm5rKluqw7NCXgKuNZBBt9AxoCh_MQAvD_BwE) for IOS devices, and the [Espresso](https://developer.android.com/training/testing/espresso) Android test framework.
 
-#### Video  
-**[Mobile App Test](https://www.youtube.com/watch?v=YLt-uQ-30WM&t=1s
-)**
 
-<video id="YLt-uQ-30WM"></video>
 
 ### Mobile App Testing
 
@@ -104,12 +106,12 @@ Duration: 0:10:00
 
 The Selenium framework is typically used for desktop web browser tests. You can also use it to test some features of mobile browsers, although ideally, you would use the Appium mobile automation framework, as it gives you the ability to test interactions that occur on a mobile device, such as swiping and pinching.
 
+#### Video
+**[Desktop Browser Testing](https://youtu.be/Qj-JHkVlHsY)**
+<video id="Qj-JHkVlHsY"></video>
+
 One of the key features of Sauce Labs is the ability to run tests on a browser using hundreds of devices, emulators, and simulators.
 
-
-
-<!-- ![https://drive.google.com/file/d/1QLP0dDNS8o70OfRP_4FDYAgAHi5Z2XDT/preview](https://drive.google.com/file/d/1QLP0dDNS8o70OfRP_4FDYAgAHi5Z2XDT/view?usp=sharing) -->
-<!-- ![https://drive.google.com/file/d/1k_xvzrCLBxm98oLd27yth-H3PONjXAyH/preview](https://drive.google.com/file/d/1k_xvzrCLBxm98oLd27yth-H3PONjXAyH/view?usp=sharing) -->
 
 ### Desktop Browser Testing
 
@@ -117,9 +119,6 @@ For desktop applications you can choose hundreds of browsers on Mac, Windows, an
 
 <img src="assets/QS1.04A.png" alt="Desktop Test Offerings" width="500"/>
 
-#### Video
-**[Desktop Browser MobileAppTestingeBook_LP](https://youtu.be/Qj-JHkVlHsY)**
-<video id="Qj-JHkVlHsY"></video>
 
 
 ### Mobile Browser Testing
@@ -211,8 +210,7 @@ Download the demo mobile app and see features in the [Github repo](https://githu
 
 Manual testing fills in the gaps and ensures that your final product works as intended. You’re stepping into the shoes of an actual user to test out your app’s functionality and features on mobile devices and websites in the Sauce Labs cloud, navigating with clicks and gestures as a user would.
 
-Some ideal scenarios for live testing:
-What
+What automated testersmay use Live Testing for:
 *   Exploratory tests
 *   Test conditions that are subject to change
 *   Tests that are run infrequently

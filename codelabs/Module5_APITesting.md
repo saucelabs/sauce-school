@@ -9,7 +9,7 @@ status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 author:Lindsay Walker
 <!-- ------------------------ -->
-# Module 5 – Executing Tests
+# Module 5 – Executing API Tests
 
 <!-- ------------------------ -->
 ## 5.01 Executing Scheduled Tests

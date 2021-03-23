@@ -8,7 +8,7 @@ feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 author: Lindsay Walker
 <!-- ------------------------ -->
 
-# Module 2 — Locators and Java Tests
+# Module 2 — Selenium Locators and Java Tests
 <!-- ------------------------ -->
 
 ## 2.01 What You’ll Learn
@@ -160,7 +160,7 @@ Having answered these questions, you should now have a prioritized backlog of cr
 
 <!-- ------------------------ -->
 
-## 2.04 Finding & Testing Locators in the Browser
+## 2.04 Finding & Testing Selenium Locators in the Browser
 Duration: 0:15:00
 
 
@@ -224,7 +224,7 @@ Selenium is able to find and interact with elements on a page by way of various 
 
 <!-- ------------------------ -->
 
-## 2.05 Setting Up Your First Test
+## 2.05 Setting Up Your First Java Test
 Duration: 0:15:00
 
 Here's the markup for a standard login form (pulled from the login example app on [the-internet](http://the-internet.herokuapp.com/login).
@@ -338,7 +338,7 @@ Negative
 Once you have allowed this, find the Chromedriver in your file directory, double click on it, and force terminal to open it.
 
 <!-- --------------- -->
-## 2.06 Create Your Project File
+## 2.06 Create Your Java Test Project File
 Duration: 0:15:00
 
 Now we are ready to start writing the code for your first test. Create a new project directory called **SeleniumJava** (in your main project directory on your computer), and inside create the directory **java**. This is a default folder that Maven will know to look for.
@@ -450,9 +450,8 @@ Negative
 
 <!-- ------------------------ -->
 
-## 2.07 Test Assertions
+## 2.07 JUnit Test Assertions
 Duration: 0:10:00
-
 
 Assertions are statements that are used at a certain point in the test code (usually following a certain sequence of events) that check to see if some condition is true or false. The test code you created thus far simply tells your test what elements to look for on the page, and what to do with those elements.
 
@@ -689,7 +688,7 @@ See the complete [source code here](https://github.com/walkerlj0/Selenium_Course
 
 <!-- ------------------------ -->
 
-## 2.08 Module 2 Quiz
+## 2.09 Module 2 Quiz
 Duration: 0:05:00
 
 ![https://docs.google.com/forms/d/e/1FAIpQLSe-_eb_bCY1dd9pNXrbAFL4Zrc-vl1DIrTinGazhYTpBKvJww/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSe-_eb_bCY1dd9pNXrbAFL4Zrc-vl1DIrTinGazhYTpBKvJww/viewform?usp=sf_link)
