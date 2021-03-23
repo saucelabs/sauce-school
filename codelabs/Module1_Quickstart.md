@@ -107,7 +107,7 @@ Duration: 0:10:00
 The Selenium framework is typically used for desktop web browser tests. You can also use it to test some features of mobile browsers, although ideally, you would use the Appium mobile automation framework, as it gives you the ability to test interactions that occur on a mobile device, such as swiping and pinching.
 
 #### Video
-**[Desktop Browser MobileAppTestingeBook_LP](https://youtu.be/Qj-JHkVlHsY)**
+**[Desktop Browser Testing](https://youtu.be/Qj-JHkVlHsY)**
 <video id="Qj-JHkVlHsY"></video>
 
 One of the key features of Sauce Labs is the ability to run tests on a browser using hundreds of devices, emulators, and simulators.
