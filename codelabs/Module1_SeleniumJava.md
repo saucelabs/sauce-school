@@ -334,7 +334,6 @@ Negative
 
 [1.05_IntelliJ_Dependencies ](https://youtu.be/PDPl_pHo0K0)– Using IntelliJ to install dependencies and update the .pom file
 
-<!-- ![https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/preview](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing) -->
 
 <video id=""></PDPl_pHo0K0>
 
@@ -342,7 +341,7 @@ Negative
 
 If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
 
-**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod1/1.06/src/test/java/companyname/TestLogin.java)**
+**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod1/1.06)**
 
 
 <!-- ------------------------ -->
@@ -382,7 +381,7 @@ Take a look at the first test code we will be creating in the next module. There
 
 **[Driver.quit](https://artoftesting.com/difference-between-driver-close-and-driver-quit-command-in-selenium-webdriver) –** An important Selenium command to use within **@After** annotations, this closes any browser windows that may be open and terminates the WebDriver session.
 
-You can see an example of the project we will begin to be setting up in the next module [here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2/2.06/src/test/java/companyname)
+You can see an [example of the project we will begin to be setting up in the next module](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2/2.06/src/test/java/companyname)
 
 <!-- ------------------------ -->
 
