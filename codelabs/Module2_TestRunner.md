@@ -129,17 +129,17 @@ To use a parent tunnel simply check the **Tunnels** tab on your Sauce Labs app t
 
 
 <!-- ------------------------ -->
-## 2.04 Test a Local App With Sauce VMs
+## 2.04 Test a Local App With Sauce Labs
 Duration: 0:01:00
 
-Cypress on Sauce with Testrunner Toolkit allows you to perform tests on an app that you have on your local machine or other non-public environment, then test it against the wide variety of devices available on Sauce Labs.
+Cypress on Sauce with Testrunner Toolkit allows you to perform tests on an app that you have on your local machine (or other non-public environments), then test it against the wide variety of devices available on Sauce Labs.
 
 in this example, we will be downloading the Swag Labs web app, and running it locally.
 
 ### Download Swag Labs (Optional)
 
 If you would like to follow along, download or fork the [example web app](https://github.com/saucelabs/sample-app-web). You can follow the [ReadMe](https://github.com/saucelabs/sample-app-web) and get it running locally. The basic steps are:
-* Fork or download a copy ofs the Project
+* Fork or download a copy of the project
 * Use `npm install` to install dependencies
 * Start the app with `npm run start`
 
@@ -149,26 +149,45 @@ Once you have an app running on your machine, you will need to make changes to y
 
 <img src="assets/TRT2.04B.png" alt="App up and running" width="650"/>
 
-### Start Sauce Connect
+### Test a Local App With Sauce VMs
+You can easily test your local app using _Sauce mode_ by setting up a Sauce Connect tunnel and using it with your Cypress Test to run a test agains an app running on your local machine
+
+#### Start Sauce Connect
 If your tunnel is not already running, open a new terminal window, and simply copy the command that you will find at the bottom of the **Tunnels** tab in the [Sauce Labs app](https://accounts.saucelabs.com/am/XUI/#login), navigate to the folder using the terminal where you saved the Sauce Connect software, and paste this into your terminal.
 
-### Update the Test URL
+#### Update the Test URL
 Go into the `cypress.json` file to update the `baseURL` that your tests will be running against.
 
 <img src="assets/TRT2.04C.png" alt="App up and running" width="650"/>
 
-Make sure your app is running, then open a new terminal and open your test project file, and start the test using:
+
+#### Run Your Test in Sauce Mode
+Make sure your app and Sauce Connect are both running, then open a new terminal and open your test project file, and start the test using:
 
 ```
 cd <your-project file>
+saucectl run --test-env sauce
+```
+<img src="assets/TRT2.04E.png" alt="Running Cypress Test local app in sauce mode" width="650"/>
+
+### Test a Local App in Docker Mode
+
+To connect your tests run in a Docker container and pass the test results to Sauce Labs, you can do so without having a Sauce Connect tunnel running.
+
+#### Update the Test URL
+
+First, update the BaseURL in your `cypress.json` file to `http://host.docker.internal:3000` so Testrunner Toolkit will look for the app running on port 3000 on your local machine:
+
+<img src="assets/TRT2.04F.png" alt="Update Cypress Test BaseURL to run local app in docker mode" width="650"/>
+
+#### Run Your Test in Docker Mode
+Now, you simply need to ensure your app is running on your local machine, and runt he command:
+
+```
 saucectl run
 ```
-<img src="assets/TRT2.04D.png" alt="Running Cypress Test" width="650"/>
 
-#### Note
-Negative
-: You won't be able to run a test on a local app in **Docker mode** through Sauce Connect (though you can if you have it available on the web) so you will need to stop Sauce Connect Proxy if you have it running.
-
+<img src="assets/TRT2.04D.png" alt="Running Cypress Test local app in Docker mode" width="650"/>
 
 <!-- ------------------------ -->
 ## 2.05 Setup Your Cypress Test in GitHub Actions
