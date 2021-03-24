@@ -298,6 +298,44 @@ Last, right click in the top-level folder and create a **New > File**. Name it *
 
 <img src="assets/2.05T.png" alt="Create requirements.txt" width="450"/>
 
+### Installing Chromedriver
+In order for your test to run on a browser on your local machine, you need to install the driver for the browser, and update your code. A similar set of steps can be followed for any browser.
+
+First, check which version of chrome you are using by opening Chrome on your machine and checking the version.  
+
+<img src="assets/2.05K.png" alt="Chrome Version" width="550"/>
+
+Next, [download Chromedriver](https://chromedriver.chromium.org/downloads]. You can also download [Geckodriver](https://github.com/mozilla/geckodriver) for Chrome browser or [any other driver.](https://automationintesting.com/selenium/java/lessons/drivers.html] you will need for popular browsers) The driver version should match the version of the browser you have on your machine.
+
+#### Cheat Sheet
+
+[Driver Configuration Cheat Sheet](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
+
+### Note
+Negative
+: If you are testing on an older version of Firefox (e.g., 47 or earlier) then you don't need to download Geckodriver. You will be able to use the legacy FirefoxDriver implementation. To do that you just need to disable Marionette (the new Firefox WebDriver implementation that Geckodriver connects to) which would look like this:
+`System.setProperty("webdriver.firefox.marionette", "false");`
+
+
+
+
+
+Download the file, then unzip it and move it somewhere outside of your downloads folder. Here, I chose to move it inside of the Documents folder.
+
+<img src="assets/2.05M.png" alt="Driver Folder" width="550"/>
+
+#### Note
+
+Negative
+: Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, first open a terminal, and type in the command `sudo spctl --master-disable` to [disable Gatekeeper](https://osxdaily.com/2015/05/04/disable-gatekeeper-command-line-mac-osx/).
+
+Negative
+: Next, you need to allow app downloads from anywhere. Go to **System Preferences** on your Mac **> Security & Privacy**, then under the **General** tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers. <img src="assets/4.04K.png" alt="Allow Unidentified Files in Security and Privacy" width="650"/>
+
+Negative
+: On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver** or **geckodriver** manually.
+Once you have allowed this, find the Chromedriver in your file directory, double click on it, and force terminal to open it.
+
 ### Test and Requirements
 
 Go into the SeleniumJava (your main project) directory using your terminal, then open up the `requirements.txt` and `login_test.py` files by double clicking on them. Copy and paste the following into requirements.txt:
@@ -368,7 +406,7 @@ In a later module you will add an assertion to check and see that things went as
 ### Install Chromedriver
 Before you can run this test code, you will need to install the Chromedriver so that your test code can communicate with the browser.
 
-Start by creating a new directory in the top level folder by right clicking on it and choosing **New > Directory**.  Name that directory **vendor**:
+Start by creating a new directory in the top level folder of your project by right clicking on it and choosing **New > Directory**.  Name that directory **vendor**:
 
 <img src="assets/2.05V.png" alt="Vendor directory" width="350"/>
 
@@ -383,14 +421,6 @@ Next, [download the Chromedriver](https://chromedriver.chromium.org/downloads). 
 #### Cheat Sheet
 
 Learn more about using different drivers for different browsers, and how to configure them using the [Driver Configuration Cheat Sheet](https://docs.google.com/document/d/1UGaHbNeOJl_Az5rqPAOPgHsFWWu-LUuTsfAFoeOpGnA/edit?usp=sharing).
-
-### NOTE
-Negative
-: If you are testing on an older version of Firefox (e.g., 47 or earlier) then you don't need to download Geckodriver. You will be able to use the legacy FirefoxDriver implementation. To do that you just need to disable Marionette (the new Firefox WebDriver implementation that Geckodriver connects to) which would look like this:
-`System.setProperty("webdriver.firefox.marionette", "false");`
-
---
-
 
 
 Download the file, move it into the **vendor directory**, and double-click to expand the file.

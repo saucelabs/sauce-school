@@ -42,9 +42,10 @@ If you skipped Module 1, make sure you have a project folder set up and have cre
 
 
 
-#### NOTE
+#### Note
 
-_if you are using Github, it is recommended that you [delete the package-lock.json](https://www.codementor.io/@johnkennedy/get-rid-of-that-npm-package-lock-json-e0bj7ai42) file._
+Negative
+: _if you are using Github, it is recommended that you [delete the package-lock.json](https://www.codementor.io/@johnkennedy/get-rid-of-that-npm-package-lock-json-e0bj7ai42) file._
 
 --
 
@@ -337,11 +338,10 @@ In your file we'll create a new test file called `LoginTest.js`. Next, we will i
 
 
 
-#### NOTE
+#### Note
 
- the versions of the dependencies may have changed to a more updated version, or need a different version for your tests. If you have `npm` installed, it should auto-complete the most recent versions.
-
- --
+Negative
+: The versions of the dependencies may have changed to a more updated version (especially browser drivers when browsers update), or need a different version for your tests. If you need to update the version, simply change the version in `package.json` then run `npm install` in terminal.
 
 Under where it says directories and scripts, change the value of `"test" `to `"mocha"`
 
@@ -362,12 +362,6 @@ and edit to look as follows:
 ![package.json](assets/2.05E.png)
 
 
-#### NOTE
-
-The versions of each of the dependencies will change over time. If you have an IDE, it will give you options for each one & auto-fill the most recent version for you if you use `npm`. Otherwise, research what the most recent or best version of each dependency is.
-
---
-
 After you have adjusted the package.json file, go to the terminal (make sure you are in your ‘SeleniumJS’ project folder that you made, or the ‘javascript’ folder from the repo and enter
 
 <img src="assets/2.05F.png" alt="npm Install" width="250"/>
@@ -380,6 +374,38 @@ When we're done our directory, structure should look like this:
 
 <img src="assets/2.05G.png" alt="Directory with npm" width="300"/>
 <!-- ![directory with npm](assets/2.05G.png) -->
+
+### Installing Chromedriver
+**This is not rquired if you used npm install to install your drivers**
+
+In order for your test to run on a browser on your local machine, you need to install the driver for the browser, and update your code. A similar set of steps can be followed for any browser.
+
+First, check which version of chrome you are using by opening Chrome on your machine and checking the version.  
+
+<img src="assets/2.05K.png" alt="Chrome Version" width="550"/>
+
+Next, [download Chromedriver](https://chromedriver.chromium.org/downloads]. You can also download [Geckodriver](https://github.com/mozilla/geckodriver) for Chrome browser or [any other driver.](https://automationintesting.com/selenium/java/lessons/drivers.html] you will need for popular browsers) The driver version should match the version of the browser you have on your machine.
+
+#### Cheat Sheet
+
+[Driver Configuration Cheat Sheet](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
+
+
+Download the file, then unzip it and move it somewhere outside of your downloads folder. Here, I chose to move it inside of the Documents folder.
+
+<img src="assets/2.05M.png" alt="Driver Folder" width="550"/>
+
+#### Note
+
+Negative
+: Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, first open a terminal, and type in the command `sudo spctl --master-disable` to [disable Gatekeeper](https://osxdaily.com/2015/05/04/disable-gatekeeper-command-line-mac-osx/).
+
+Negative
+: Next, you need to allow app downloads from anywhere. Go to **System Preferences** on your Mac **> Security & Privacy**, then under the **General** tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers. <img src="assets/4.04K.png" alt="Allow Unidentified Files in Security and Privacy" width="650"/>
+
+Negative
+: On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver** or **geckodriver** manually.
+Once you have allowed this, find the Chromedriver in your file directory, double click on it, and force terminal to open it.
 
 
 Now you are ready for the next lessons where you will write your first test!
@@ -464,9 +490,10 @@ Next we declare a `driver` variable where we'll store our instance of Selenium. 
 In order for Selenium to load an instance of Firefox, we’ll need to specify the path to the directory where the `geckodriver` file is. We do this by finding the path to the current working directory (e.g., `_dirname`, appending `/vendor` to it, and adding this to the execution path.)  
 
 
-#### **NOTE**
+#### Note
 
-If you used `npm` to install your drivers, you will comment the `vendorDirectory` variable declaration out, as you don’t need to specify the path, since `npm` was used to install the dependencies, it takes care of mapping the code in your project to the correct path. The only code you will need inside the vendorDirectory for now is the `driver = await new Builder()`.
+Negative
+: If you used `npm` to install your drivers, you will comment the `vendorDirectory` variable declaration out, as you don’t need to specify the path, since `npm` was used to install the dependencies, it takes care of mapping the code in your project to the correct path. The only code you will need inside the vendorDirectory for now is the `driver = await new Builder()`.
 
 
 ```
@@ -484,7 +511,6 @@ beforeEach(async function() {
 
 
 ```
---
 
 Our test method starts with `it` and a helpful name, `'with valid credentials`. In this test we're visiting the login page by its URL (with `driver.get()`), finding the input fields by their ID (with `driver.findElement({id: 'username'});`), inputting text into them (with `sendKeys`), and submitting the form by clicking the submit button (e.g., `driver.findElement({css: 'button'}).click()`).
 
