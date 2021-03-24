@@ -42,9 +42,10 @@ If you skipped Module 1, make sure you have a project folder set up and have cre
 
 
 
-#### NOTE
+#### Note
 
-_if you are using Github, it is recommended that you [delete the package-lock.json](https://www.codementor.io/@johnkennedy/get-rid-of-that-npm-package-lock-json-e0bj7ai42) file._
+Negative
+: _if you are using Github, it is recommended that you [delete the package-lock.json](https://www.codementor.io/@johnkennedy/get-rid-of-that-npm-package-lock-json-e0bj7ai42) file._
 
 --
 
@@ -337,12 +338,10 @@ In your file we'll create a new test file called `LoginTest.js`. Next, we will i
 
 
 
-#### NOTE
+#### Note
 
 Negative
-: The versions of the dependencies may have changed to a more updated version, or need a different version for your tests. If you have `npm` installed, it should auto-complete the most recent versions.
-
-
+: The versions of the dependencies may have changed to a more updated version (especially browser drivers when browsers update), or need a different version for your tests. If you need to update the version, simply change the version in `package.json` then run `npm install` in terminal.
 
 Under where it says directories and scripts, change the value of `"test" `to `"mocha"`
 
@@ -363,12 +362,6 @@ and edit to look as follows:
 ![package.json](assets/2.05E.png)
 
 
-#### NOTE
-
-The versions of each of the dependencies will change over time. If you have an IDE, it will give you options for each one & auto-fill the most recent version for you if you use `npm`. Otherwise, research what the most recent or best version of each dependency is.
-
---
-
 After you have adjusted the package.json file, go to the terminal (make sure you are in your ‘SeleniumJS’ project folder that you made, or the ‘javascript’ folder from the repo and enter
 
 <img src="assets/2.05F.png" alt="npm Install" width="250"/>
@@ -383,6 +376,8 @@ When we're done our directory, structure should look like this:
 <!-- ![directory with npm](assets/2.05G.png) -->
 
 ### Installing Chromedriver
+**This is not rquired if you used npm install to install your drivers**
+
 In order for your test to run on a browser on your local machine, you need to install the driver for the browser, and update your code. A similar set of steps can be followed for any browser.
 
 First, check which version of chrome you are using by opening Chrome on your machine and checking the version.  
@@ -394,14 +389,6 @@ Next, [download Chromedriver](https://chromedriver.chromium.org/downloads]. You 
 #### Cheat Sheet
 
 [Driver Configuration Cheat Sheet](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
-
-### Note
-Negative
-: If you are testing on an older version of Firefox (e.g., 47 or earlier) then you don't need to download Geckodriver. You will be able to use the legacy FirefoxDriver implementation. To do that you just need to disable Marionette (the new Firefox WebDriver implementation that Geckodriver connects to) which would look like this:
-`System.setProperty("webdriver.firefox.marionette", "false");`
-
-
-
 
 
 Download the file, then unzip it and move it somewhere outside of your downloads folder. Here, I chose to move it inside of the Documents folder.
@@ -503,7 +490,7 @@ Next we declare a `driver` variable where we'll store our instance of Selenium. 
 In order for Selenium to load an instance of Firefox, we’ll need to specify the path to the directory where the `geckodriver` file is. We do this by finding the path to the current working directory (e.g., `_dirname`, appending `/vendor` to it, and adding this to the execution path.)  
 
 
-#### NOTE
+#### Note
 
 Negative
 : If you used `npm` to install your drivers, you will comment the `vendorDirectory` variable declaration out, as you don’t need to specify the path, since `npm` was used to install the dependencies, it takes care of mapping the code in your project to the correct path. The only code you will need inside the vendorDirectory for now is the `driver = await new Builder()`.
