@@ -228,6 +228,7 @@ We will set up our test to run on every pull request made to a code repository.
 In your new repository, take a copy of the `cypress.json` and `/cypress` directory from the test code you had earlier, and add copies to your application.
 
 <img src="assets/TRT2.05D.png" alt="Copy tests into project" width="650"/>
+
 ### Create GitHub Secrets
 
 The first order of business is to export your [Sauce Labs account credentials](https://app.saucelabs.com/user-settings) and store them as GitHub Secrets.
