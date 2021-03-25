@@ -32,7 +32,7 @@ Duration: 0:01:00
 * Learn basic JavaScript to write page object and test code that runs on Cypress and Sauce Testrunner Toolkit (Optional)
 
 ### Note
-Developers that **already have a test suite can skip Modules 1.06- 1.08** and use their own test suites to get started quickly. Users who would like to create and test Cypress code with Sauce can continue through 1.06- 1.08 before moving on to Module 2.
+Developers that **already have a test suite do not have to do Modules 1.06- 1.08** and use their own test suites to get started quickly, moving on to Module 2 after 1.05.
 
 
 <!-- ------------------------ -->
@@ -94,9 +94,16 @@ By using Docker, you are using a simple virtual environment that includes an OS,
 ## 1.03 Set Up the Testrunner Toolkit Environment
 Duration: 0:07:00
 
-In this module, you will see how you can set up the Sauce Testrunner Toolkit along with Docker on your computer MacOS Computer.
+In this module, you will see how you can set up the Sauce Testrunner Toolkit along with Docker _or_ run SauceCTL on Sauce Labs VMs on your computer MacOS Computer.
 
-Docker is software that allows you to create an isolated environment on your computer that is separate from your operating system, creating a lightweight environment built off a Linux kernel to do specific tasks. Learn more from the [Docker documentation](https://docs.docker.com/get-started/overview/). Each environment coupled with the software and setting packaged together to use in that environment is called an _image_.
+If you already have Docker installed, the basic steps are:
+* Install SauceCTl with `npm i -g saucectl`
+* Set your Sauce username and access key with `saucectl configure`
+* Create a new SauceCTL project with `saucectl` new
+* Update `config.yml` with test suite information
+_More detailed instructions are below_
+
+<!-- Docker is software that allows you to create an isolated environment on your computer that is separate from your operating system, creating a lightweight environment built off a Linux kernel to do specific tasks. Learn more from the [Docker documentation](https://docs.docker.com/get-started/overview/). Each environment coupled with the software and setting packaged together to use in that environment is called an _image_. -->
 
 
 <!-- In our case, we will use Docker engine, which is made up of:
@@ -114,19 +121,8 @@ Docker is software that allows you to create an isolated environment on your com
 
 
 Negative
-: Note that the config file here may be out of date, and the [correct configuration can be found in the documentation.](https://docs.staging.saucelabs.net/testrunner-toolkit/configuration/cypress)
+: Note that the config file in the video may be out of date, and the [correct configuration can be found in the documentation.](https://docs.staging.saucelabs.net/testrunner-toolkit/configuration/cypress)
 
-#### Set Sauce Username and Access Key
-
-Watch [this video](https://www.youtube.com/watch?v=3K1Eu0eTha8&t=12s) to see how to set up your Sauce username and access key as environment variables on your machine, or use [the instructions here to set them up on Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
-
-Testrunner Toolkit will detect your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`, but you can run the following optional command to make sure:
-
-```
-saucectl configure
-```
-
-This command prompts you to manually enter your credentials if it cannot detect any environment variables, and will generate a `credentials.yml` file in a .sauce directory in your home folder.
 
 ### Install Docker
 
@@ -152,6 +148,18 @@ It also allows you to run commands to run tests locally or remotely on the Sauce
 First, anywhere on your machine install the SauceCTL tool globally, using this command `npm` to install the SauceCTL package:
 
 `npm i -g saucectl`.
+
+#### Set Sauce Username and Access Key
+
+Watch [this video](https://www.youtube.com/watch?v=3K1Eu0eTha8&t=12s) to see how to set up your Sauce username and access key as environment variables on your machine, or use [the instructions here to set them up on Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
+
+Testrunner Toolkit will detect your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`, but you can run the following optional command to make sure:
+
+```
+saucectl configure
+```
+
+This command prompts you to manually enter your credentials if it cannot detect any environment variables, and will generate a `credentials.yml` file in a .sauce directory in your home folder.
 
 ### Cypress Test Code
 

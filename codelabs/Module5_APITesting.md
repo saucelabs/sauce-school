@@ -12,7 +12,22 @@ author:Lindsay Walker
 # Module 5 – Executing API Tests
 
 <!-- ------------------------ -->
-## 5.01 Executing Scheduled Tests
+## 5.01 Publishing API Tests
+Duration: 0:05:00
+
+On the API testing platform, the tests you compose are considered working copies, and need to be published before you can schedule your test.
+
+You can save and exit the test composer, then click the publish button to create a published version of your test.
+
+<img src="assets/API3.05C.png" alt="Publish and Schedule" width="850"/>
+
+To access a published test that you want to schedul
+
+
+
+
+<!-- ------------------------ -->
+## 5.02 Executing Scheduled API Tests
 Duration: 0:05:00
 
 Just as important as testing an API before and after release is validating that API is always up and functioning as expected. This is the difference between _Uptime_ (which an API can measure) and _Functional Uptime_, which is a powerful and unique aspect of the API testing platform .
@@ -26,7 +41,7 @@ Ultimately, it means using your existing detailed functional/integration tests, 
 <img src="assets/API3.05C.png" alt="Publish and Schedule" width="850"/>
 
 <!-- ------------------------ -->
-## 5.02 Executing Automatic Tests
+## 5.03 Executing Automatic API Tests
 Duration: 0:03:00
 
 
