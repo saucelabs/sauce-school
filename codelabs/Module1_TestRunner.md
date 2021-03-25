@@ -61,7 +61,7 @@ SauceCTL stands for Sauce Control, the command line interface for the Sauce Test
 
 ### Why Use Testrunner Toolkit
 
-Historically, most end-to-end testing consisted of various components such as [Selenium](https://www.selenium.dev/documentation/en/), <code>[mocha-chai](https://www.codecademy.com/articles/bapi-testing-intro#:~:text=Mocha%20and%20Chai%20are%20two,results%20to%20the%20terminal%20window.)</code> (test assertion frameworks), and other tools that are necessary to run, automate, and debug tests. Users would create a remote session to test a web application. With [Sauce Labs Testrunner Toolkit and Cypress](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress/&utm_source=referral&utm_medium=LMS&utm_campaign=link), you have an all-in-one test framework, runner, and assertion platform that doesn’t require the client to send commands and wait for a response in order to run.
+Historically, most end-to-end testing consisted of various components such as [Selenium](https://www.selenium.dev/documentation/en/), <code>[mocha-chai](https://www.codecademy.com/articles/bapi-testing-intro#:~:text=Mocha%20and%20Chai%20are%20two,results%20to%20the%20terminal%20window.)</code> (test assertion frameworks), and other tools that are necessary to run, automate, and debug tests. Users would create a remote session to test a web application. With [Sauce Labs Testrunner Toolkit and Cypress](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress), you have an all-in-one test framework, runner, and assertion platform that doesn’t require the client to send commands and wait for a response in order to run.
 
 In other words, Testrunner Toolkit with Cypress provides a powerful [clear-box testing](https://en.wikipedia.org/wiki/White-box_testing) tool that doesn’t require downloading and installing several tools and libraries:
 
@@ -94,13 +94,13 @@ By using Docker, you are using a simple virtual environment that includes an OS,
 ## 1.03 Set Up the Testrunner Toolkit Environment
 Duration: 0:07:00
 
-In this module, you will see how you can set up the Sauce Testrunner Toolkit along with Docker _or_ run SauceCTL on Sauce Labs VMs on your computer MacOS Computer.
+In this module, you will see how you can set up the Sauce Testrunner Toolkit along with Docker _or_ run SauceCTL on Sauce Labs VMs on your computer MacOS Computer. The basic steps include:
 
-If you already have Docker installed, the basic steps are:
 * Install SauceCTl with `npm i -g saucectl`
 * Set your Sauce username and access key with `saucectl configure`
 * Create a new SauceCTL project with `saucectl` new
 * Update `config.yml` with test suite information
+
 _More detailed instructions are below_
 
 <!-- Docker is software that allows you to create an isolated environment on your computer that is separate from your operating system, creating a lightweight environment built off a Linux kernel to do specific tasks. Learn more from the [Docker documentation](https://docs.docker.com/get-started/overview/). Each environment coupled with the software and setting packaged together to use in that environment is called an _image_. -->
@@ -172,7 +172,7 @@ Once you have a project directory containing cypress tests on your machine, navi
 
 #### Note
 Negative
-: You will want to make sure your Cypress tests are (and the project structure) works with the same version that you have listed in the `.sauce/config.yml `file. If you are installing saucectl in an existing project, make sure that in the setup workflow, you do not overwrite any of the existing files. <img src="assets/TRT1.03D.png" alt="Project directory setup" width="800"/>
+: You will want to make sure your Cypress tests are (and the project structure) works with the same version that you have listed in the `.sauce/config.yml `file. If you are installing `saucectl` in an existing project, make sure that in the setup workflow, you do not overwrite any of the existing files. <img src="assets/TRT1.03D.png" alt="Project directory setup" width="800"/>
 
 To create a new directory, you can use the command
 
@@ -282,12 +282,15 @@ Options like `platformName` and `screenResolution` are optional capabilities tha
 #### Note
 
 Negative
-: Ensure you’ve set the Docker image tag in your `config.yml` as well. There are also two alternatives for listing the `testFiles;` in your suite, either in brackets `[]` [like the example here](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress#suites/&utm_source=referral&utm_medium=LMS&utm_campaign=link), or underneath tabbed in, in front of a dash with a space: `-'**/login].spec.js' `
+: There are also two alternatives for listing the `testFiles;` in your suite, either in brackets `[]` [like the example here](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress#suites/&utm_source=referral&utm_medium=LMS&utm_campaign=link), or underneath tabbed in, in front of a dash with a space: `-'**/login].spec.js' `
 
 
 ### Run Your Test with Docker & Sauce Labs
 
-Now that you have your config file set up, you can run your tests on a Docker container on your machine (Testrunner Toolkit helped set this all up for you) and the results will be sent to Sauce Labs
+Now that you have your config file set up, you can run your tests on a Docker container on your machine (Testrunner Toolkit helped set this all up for you) and the results will be sent to Sauce Labs.
+
+Negative
+: Ensure you’ve set the Docker image tag in your `config.yml`
 
 Once you have your updates to your config file, save your work, and navigate to your project folder (it should contain a `/cypress` directory and `cypress.json `file) and run your tests to execute the tests on Sauce Labs. Run the tests using
 
@@ -341,6 +344,8 @@ Once you have Sauce Labs set up, learn more about what you can do with Sauce Lab
 <!-- ------------------------ -->
 ## 1.05 Module 1 Quiz
 Duration: 0:02:00
+
+Skip to Module 2 if you have your Cypress Tests set up.
 
 ![https://docs.google.com/forms/d/e/1FAIpQLScW-Us4yITlZud5PQZBBOY-a7GsSjhcMlzX-6MtVg_FTBJDrw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScW-Us4yITlZud5PQZBBOY-a7GsSjhcMlzX-6MtVg_FTBJDrw/viewform?usp=sf_link)
 
@@ -678,7 +683,7 @@ describe('LoginPage', () => {
 
 ```
 
-See [how to run your tests in sauce or docker mode.](https://training.saucelabs.com/codelabs/Module1-Testrunner/index.html?index=..%2F..testrunner#3)
+Once you finish, go back to [Module 1.04](https://training.saucelabs.com/codelabs/Module1-Testrunner/index.html?index=..%2F..testrunner#3) to see how to run your tests in sauce or docker mode.
 
 #### Final Code
 
