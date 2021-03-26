@@ -216,8 +216,12 @@ This is hugely important to allow the test to be easily run against any environm
 
 <img src="assets/API3.02F.png" alt="Input Set" width="850"/>
 
-
 Each time you generate a test, notice the `Var: payload` in the **Get** component. This is generated when your test is generated. What happens is that when you call an API, and get response, that entire payload is automatically stored in a variable called `payload`.
+
+<<<<<<< HEAD
+=======
+Each time you generate a test, notice the `Var: payload` in the **Get** component. This is generated when your test is generated. What happens is that when you call an API, and get response, that entire payload is automatically stored in a variable called `payload`.
+>>>>>>> master
 
 <img src="assets/API3.03V.png" alt="Input Set" width="850"/>
 
@@ -410,7 +414,13 @@ You will need to edit the `Var=` in the **Get** method at the top of your own te
 Still much easier than recreating the entire for loop! Run your test to see the report.
 
 ### Adding and Editing Variables
+<<<<<<< HEAD
+
 Access the Vault and add variables and code snippets by first clicking on the **Vault** in the main menu.
+
+=======
+Access the Vault and add variables and code snippets by first clicking on the **Vault** in the main menu.
+>>>>>>> master
 
 <img src="assets/API3.04E.png" alt="The Vault" width="650"/>
 
