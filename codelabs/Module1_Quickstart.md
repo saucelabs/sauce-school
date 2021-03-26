@@ -7,6 +7,7 @@ tags: quickstart
 environments: Web
 status: One or more of Draft
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
+analytics account: UA-86110990-1
 author:Lindsay Walker
 <!-- ------------------------ -->
 # Module 1 - Sauce Labs for Automated Testing
