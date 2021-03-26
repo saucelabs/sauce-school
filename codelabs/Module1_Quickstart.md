@@ -42,9 +42,9 @@ Duration: 0:09:00
 The Sauce Labs platform provides a variety of testing tools for both manual and automated testers.
 
 #### Video
-**[Sauce Labs Intro](https://www.youtube.com/watch?v=DWAinkJ54D8)**
+**[What is Sauce Labs? – An Automated Testing Platform](https://youtu.be/jE-hm6XAjjs)**
 
-<video id="DWAinkJ54D8"></video>
+<video id="jE-hm6XAjjs"></video>
 
 You can categorize the types of tests run in two main categories- automated testing on desktop browsers, and automated testing on mobile devices.
 
