@@ -80,10 +80,10 @@ Using Cypress alongside Sauce Labs also allow you to:
 ### Two Ways to Run Tests
 
 #### Docker Mode
-With Testrunner toolkit, you can either install Docker and run a containerized version of your test environment, then pass the results to the Sauce Labs Dashboard or ...
+With Testrunner toolkit, you can either install Docker and run a containerized version of your test environment, then pass the results to the Sauce Labs Dashboard , using the command `saucectl run --test-env docker`
 
 #### Sauce Mode
-You can install SauceCTL then pass your entire test suite, including dependencies and configurations to Sauce Labs Cloud of Virtual Machines, where your tests will be executed as per your configurations.
+You can install SauceCTL then pass your entire test suite, including dependencies and configurations to Sauce Labs Cloud of Virtual Machines, where your tests will be executed as per your configurations. Use the command `saucectl run`, which will default to running on Sauce Labs VMs
 
 ### What is a Containerized Solution?
 
@@ -124,7 +124,7 @@ Negative
 : Note that the config file in the video may be out of date, and the [correct configuration can be found in the documentation.](https://docs.staging.saucelabs.net/testrunner-toolkit/configuration/cypress)
 
 
-### Install Docker
+### Install Docker (Optional)
 
 The first thing you need to do visit the [docker download website ](https://docs.docker.com/get-docker/)and install the correct version on your machine.
 
@@ -285,18 +285,29 @@ Negative
 : There are also two alternatives for listing the `testFiles;` in your suite, either in brackets `[]` [like the example here](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress#suites/&utm_source=referral&utm_medium=LMS&utm_campaign=link), or underneath tabbed in, in front of a dash with a space: `-'**/login].spec.js' `
 
 
+
+#### Run on Sauce Labs Virtual Machines
+
+In order to upload your tests to the Sauce Labs Cloud, and run your tests on a Sauce Labs virtual machine, all you need to do is run the command in terminal:
+
+
+```
+saucectl run
+```
+Once you have Sauce Labs set up, learn more about what you can do with Sauce Labs and Cypress in [Module 2](https://training.saucelabs.com/codelabs/Module2-Testrunner/index.html?index=..%2F..testrunner#0)
+
 ### Run Your Test with Docker & Sauce Labs
 
 Now that you have your config file set up, you can run your tests on a Docker container on your machine (Testrunner Toolkit helped set this all up for you) and the results will be sent to Sauce Labs.
 
 Negative
-: Ensure you’ve set the Docker image tag in your `config.yml`
+: Your tests will run more quickly in Docker mode, since you aren't sending you tests to the Sauce Labs Platform, and this mode is good for writing & editing tests. Ensure you’ve set the Docker image tag in your `config.yml`
 
 Once you have your updates to your config file, save your work, and navigate to your project folder (it should contain a `/cypress` directory and `cypress.json `file) and run your tests to execute the tests on Sauce Labs. Run the tests using
 
 
 ```
-saucectl run
+saucectl run --test-env docker
 ```
 
 
@@ -331,15 +342,7 @@ npm update -g saucectl
 ```
 
 
-#### Run on Sauce Labs Virtual Machines
 
-In order to upload your tests to the Sauce Labs Cloud, and run your tests on a Sauce Labs virtual machine, all you need to do is run the command in terminal:
-
-
-```
-saucectl run --test-env sauce
-```
-Once you have Sauce Labs set up, learn more about what you can do with Sauce Labs and Cypress in [Module 2](https://training.saucelabs.com/codelabs/Module2-Testrunner/index.html?index=..%2F..testrunner#0)
 
 <!-- ------------------------ -->
 ## 1.05 Module 1 Quiz

@@ -31,7 +31,7 @@ Duration: 0:01:00
 ## 2.02 Set Up Sauce Connect
 Duration: 0:03:00
 
-[Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#:~:text=Sauce%20Connect%20Proxy%E2%84%A2%20is,or%20behind%20a%20corporate%20firewall.) is software that enables you to establish a secure connection between applications hosted on an internal server, or other location that is behind a firewall, and the Sauce Labs virtual machines that are used for testing. To use Sauce Connect you  simple need to:
+[Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#:~:text=Sauce%20Connect%20Proxy%E2%84%A2%20is,or%20behind%20a%20corporate%20firewall.) is software that enables you to establish a secure connection between applications hosted on an internal server, or other location that is behind a firewall, and the Sauce Labs virtual machines that are used for testing. To use Sauce Connect you  simply need to:
 * Install the Sauce Connect Software
 * Start a tunnel from Terminal
 * Run your tests with the flag `-i sauce-tunnel-name`  
@@ -124,7 +124,7 @@ You will need to take a look at the tunnel id that you have up and running. You 
 The easiest way to run your existing tests through a tunnel is to use the command line with a `--tunnel-id` flag, also using the **Tunnel Name** from the **Tunnels** dashboard. Simply navigate to the test project and use the command
 
 ```
-saucectl run --test-env sauce --tunnel-id your-tunnel-id
+saucectl run --tunnel-id your-tunnel-id
 ```
 
 #### Update the Tunnel ID in Config
@@ -183,7 +183,7 @@ Make sure your app and Sauce Connect are both running, then open a new terminal 
 
 ```
 cd <your-project file>
-saucectl run --test-env sauce
+saucectl run
 ```
 <img src="assets/TRT2.04E.png" alt="Running Cypress Test local app in sauce mode" width="650"/>
 
@@ -201,7 +201,7 @@ First, update the BaseURL in your `cypress.json` file to `http://host.docker.int
 Now, you simply need to ensure your app is running on your local machine, and runt he command:
 
 ```
-saucectl run
+saucectl run --test-env docker
 ```
 
 <img src="assets/TRT2.04D.png" alt="Running Cypress Test local app in Docker mode" width="650"/>
@@ -361,3 +361,4 @@ c. The
 d. The
 
 * The .sauce/config.yml file ...
+-->
