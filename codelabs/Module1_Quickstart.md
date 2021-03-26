@@ -244,7 +244,6 @@ Invite someone to watch your Live Test session (while it’s running) to observe
 **More on Sharing Test Results**
 
 *   [Sharing the Results of Sauce Labs Tests](https://wiki.saucelabs.com/display/DOCS/Sharing+the+Results+of+Sauce+Labs+Tests?utm_source=referral&utm_medium=LMS&utm_campaign=link)
-*   [Share Test Results in Slack](https://wiki.saucelabs.com/display/DOCS/Sharing+Test+Results+in+Slack?utm_source=referral&utm_medium=LMS&utm_campaign=link)
 *   [Generate Shareable External Links to Test Results](https://wiki.saucelabs.com/display/DOCS/Building+Sharable+Links+to+Test+Results?utm_source=referral&utm_medium=LMS&utm_campaign=link)
 *   [Viewing and Managing Test Results](https://wiki.saucelabs.com/display/DOCS/Viewing+and+Managing+Test+Results?utm_source=referral&utm_medium=LMS&utm_campaign=link)
 
