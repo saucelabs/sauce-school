@@ -7,6 +7,7 @@ categories: advanced
 tags: java
 environments: Web
 status: Published
+analytics account: UA-86110990-1
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 
 <!-- ------------------------ -->

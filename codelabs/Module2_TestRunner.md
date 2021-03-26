@@ -7,9 +7,10 @@ tags: testrunner
 environments: Web
 status: Draft
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
+analytics account: UA-86110990-1
 author:Lindsay Walker
 <!-- ------------------------ -->
-# Module 2 –
+# Module 2 – Continuous Integration with Cypress and Sauce
 
 <!-- ------------------------ -->
 ## 2.01 What You'll Learn
@@ -205,7 +206,7 @@ saucectl run
 
 <img src="assets/TRT2.04D.png" alt="Running Cypress Test local app in Docker mode" width="650"/>
 
-<!-- ------------------------ -->
+<!-- ------------------------
 ## 2.05 Setup Your Cypress Test in GitHub Actions
 Duration: 0:07:00
 
@@ -304,7 +305,7 @@ Negative
 
 
 
-<!-- ------------------------ -->
+<!-- ------------------------
 ## 2.06 Create the Github Actions Test Job
 Duration: 0:02:00
 
@@ -327,7 +328,7 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/te
 https://github.com/saucelabs/sauce-docs/blob/master/.github/workflows/deploy.yml#L79-L93
 ```
 
-<!-- ------------------------ -->
+<!-- ------------------------
 ## 2.0X Module 2 Quiz
 Duration: 0:02:00
 

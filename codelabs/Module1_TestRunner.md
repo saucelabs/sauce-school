@@ -1,13 +1,13 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
-summary: Module 1 of the Cypress on Sauce course will introduce youon how to set up a Cypress test with Testrunner toolkit, a Docker container or Sauce VM, Docker, and Sauce Labs. Create a basic Cypress test suite, and run it in a Docker container or on a Sauce Labs VM.
+summary: Module 1 of the Cypress on Sauce course will introduce you how to set up a Cypress test with Testrunner toolkit, in a Docker container or Sauce VM, and use SauceCTL to run your automated tests on Sauce Labs. Create a basic Cypress test suite, or use your own Cypress test code.
 id: Module1-Testrunner
 categories: beginner
 tags: testrunner  
 environments: Web
 status: Draft
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
-author:Lindsay Walker
+analytics account: UA-86110990-1
 <!-- ------------------------ -->
 # Module 1 – Intro to Testrunner Toolkit with Cypress
 
@@ -96,9 +96,9 @@ Duration: 0:07:00
 
 In this module, you will see how you can set up the Sauce Testrunner Toolkit along with Docker _or_ run SauceCTL on Sauce Labs VMs on your computer MacOS Computer. The basic steps include:
 
-* Install SauceCTl with `npm i -g saucectl`
+* Install SauceCTL with `npm i -g saucectl`
 * Set your Sauce username and access key with `saucectl configure`
-* Create a new SauceCTL project with `saucectl` new
+* Create a new SauceCTL project with `saucectl new`
 * Update `config.yml` with test suite information
 
 _More detailed instructions are below_

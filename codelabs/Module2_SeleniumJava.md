@@ -5,6 +5,7 @@ tags: java
 environments: Web
 status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
+analytics account: UA-86110990-1
 author: Lindsay Walker
 <!-- ------------------------ -->
 
@@ -18,8 +19,6 @@ This module is derived from content in chapters 6-7 of _The Selenium Guidebook_ 
 
 
 ### Objectives
-
-
 
 *  Use Maven along with IntelliJ to run local tests and manage dependencies on your machine
 * Understand that good tests are atomic: Tests are grouped by functionality and are named descriptively. Good * tests also use test runners, and are maintained in version control systems
