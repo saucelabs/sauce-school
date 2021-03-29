@@ -54,7 +54,7 @@ Once you’ve extracted the contents, take the Sauce Connect Proxy folder and mo
 
 <img src="assets/5.03B.png" alt="Tunnel Software Directory" width="450"/>
 
-#### Sauce Labs Environment Variables
+### Set Sauce Labs Environment Variables
 You will need to have environment variables set for Sauce Labs on your local machine or CI tool in order to run your tests.
 
  Watch [this video](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing) to learn how to set up environment variables with your Sauce Labs credentials on a Mac, or view the [instructions for Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
@@ -113,11 +113,11 @@ Once your tunnel is up and running, (you should see the message Sauce Connect is
 <img src="assets/5.03I.png" alt="Bash Profile" width="750"/>
 
 
-### Set Sauce Connect Tunnel Capability
+### Set Sauce Connect Tunnel Capabilities
 This example shows how to set the capabilities in an example Java Test Suite, written with the JUnit4 test runner, and run and managed using Maven. [See the example suite this is created from](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod5/5.03).
 
 
-### Update Test Code
+#### Update Test Code
 This test is importing environment variables in the _tests/Config.java_ file, for your `SAUCE_USERNAME `and` SAUCE_ACCESS_KEY,` you will set up an environment variable for your` SAUCE_TUNNEL` here as well.This variable will store the tunnel identifier, so after you start up a Sauce Connect tunnel, you can run your tests using it.
 
 Add the variable `sauceTunnel `in your `Config.java` file, at the bottom of the list of variables:
