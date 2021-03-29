@@ -135,12 +135,17 @@ Open `.sauce/config.yml` in your test project file, and add or update the `tunne
 
 See the most up to date [configuration in the docs](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress).
 
-### Parent Tunnels
-Many companies may also choose to have their organization set up _Shared Tunnels_ on Sauce Labs, which anyone in their organization can use without having to worry about configuring their own tunnel.
+### Shared Tunnels
 
-To use a parent tunnel simply check the **Tunnels** tab on your Sauce Labs app to see your shared tunnels. You should be able to see the shared tunnel name, as well as an indication that it is in fact a shared tunnel, then use that ad the `tunnel-id` in your test suite:
+ Many companies may also choose to have their organization set up _Shared Tunnels_ on Sauce Labs, which anyone in their organization can use without having to worry about configuring their own tunnel.
 
-<img src="assets/TRT2.03C.png" alt="Shared Runnel" width="650"/>
+ To use a shared tunnel simply check the **Tunnels** tab on your Sauce Labs app to see your shared tunnels you have access to. You should be able to see the shared tunnel name, the name of the owner of the tunnel as well, as an indication that it is a shared tunnel, then use the `tunnel-id` and the `tunnel-parent` in `.saucel/config.yml` or use a flag:
+
+ <img src="assets/TRT2.03C.png" alt="Shared Tunnel" width="850"/>
+
+```
+saucectl run --tunnel-id walkerlj0_shared_tunnel --tunnel-parent walkerlj0
+```
 
 
 <!-- ------------------------ -->
