@@ -6,7 +6,7 @@ environments: Web
 status: Draft
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
-author:Lindsay Walker
+author: Lindsay Walker, Evelyn Coleman
 <!-- ------------------------ -->
 # Tutorial 1 – Sauce Connect for Testers
 
