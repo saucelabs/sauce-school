@@ -102,9 +102,10 @@ Negative
 
  Many companies may also choose to have their organization set up _Shared Tunnels_ on Sauce Labs, which anyone in their organization can use without having to worry about configuring their own tunnel.
 
- To use a shared tunnel simply check the **Tunnels** tab on your Sauce Labs app to see your shared tunnels you have access to. You should be able to see the shared tunnel name, the name of the owner of the tunnel as well as an indication that it is in fact a shared tunnel, then use the `tunnelIdenifier` as the `parentTunnel` in your test suites' capabilities:
+ To use a shared tunnel simply check the **Tunnels** tab on your Sauce Labs app to see your shared tunnels you have access to. You should be able to see the shared tunnel name, the name of the owner of the tunnel as well, as an indication that it is a shared tunnel, then use the `tunnelIdenifier` and the `parentTunnel` in your test suites' capabilities:
 
- <img src="assets/TRT2.03C.png" alt="Shared Runnel" width="650"/>
+ <img src="assets/TRT2.03C.png" alt="Shared Runnel" width="850"/>
+
  <img src="assets/TRT2.03D.png" alt="Shared Runnel" width="650"/>
 
 
