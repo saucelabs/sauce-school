@@ -1,7 +1,7 @@
 summary: Module 1 of the set of tutorials on Sauce Labs offerings and features.
 id: Module1-SauceConnect
 categories: beginner
-tags: sauceconnect
+tags: saucetools
 environments: Web
 status: Draft
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
@@ -14,11 +14,18 @@ author:Lindsay Walker
 ## 1.01 What You'll Learn
 Duration: 0:01:00
 
-This tutorial gives examples you can follow along with using a test suite written in Java, using the JUnit4 Test Runner, as well as the Maven build tool. If you would like to follow along, you can [clone this project](https://github.com/walkerlj0/Selenium_Course_Example_Code)
+This tutorial gives examples you can follow along with using a test suite written in Java, using the JUnit4 Test Runner, as well as the Maven build tool. If you would like to follow along, you can [download or fork and clone this project](https://github.com/walkerlj0/Selenium_Course_Example_Code)
 * Look in the _/java/Mod4/4.06_ directory, and use the version of the test suite in 4.06 to start to make changes to your code.
 
 ### In This Tutorial
-* Learn to set up and install Sauce Connect Proxy on your machine
+* Learn to download, setup,  and run the Sauce Connect software on your machine
+* Learn to modify Java test code with JUnit4 test code to run automated tests on Sauce Labs using the secure Sauce Connect Proxy Tunnel
+  * See how to add the tunnel name in your capabilities or configuration file
+* Run a tunnel with common flags such as:
+  * `-v` for verbose logging
+  * `-i` for a tunnel identifier
+* Find the log file & interpret the results
+* Configure the domain (SSL bumping)
 
 
 
@@ -43,7 +50,7 @@ The first step is to download The Sauce Connect Proxy software -- available on t
 <img src="assets/5.03A.png" alt="Tunnels Software" width="750"/>
 
 
-Once you’ve extracted the contents, take the Sauce Connect Proxy folder and move it into another directory. In this example, I moved mine into the **Documents** folder.
+Once you’ve extracted the contents, take the Sauce Connect Proxy folder and move it into another directory. In this example, the Sauce Connect software has been moved into the **Documents** folder.
 
 <img src="assets/5.03B.png" alt="Tunnel Software Directory" width="450"/>
 
@@ -84,14 +91,37 @@ After `-u` you will see your username and after` -k `you will have your access k
 
 
 
-### Set Sauce Connect Tunnel Capability
-This example shows how to set the capabilities in an example Java Test Suite, written with the JUnit4 test runner, and run and managed using Maven. [See the example suite this is created from](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod5/5.03).
-
 #### Sauce Labs Environment Variables
 You will need to have environment variables set for Sauce Labs on your local machine or CI tool in order to run your tests.
 
  Watch [this video](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing) to learn how to set up environment variables with your Sauce Labs credentials on a Mac, or view the [instructions for Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
 
+
+### Shared Tunnels
+
+ Many companies may also choose to have their organization set up _Shared Tunnels_ on Sauce Labs, which anyone in their organization can use without having to worry about configuring their own tunnel.
+
+ To use a parent tunnel simply check the **Tunnels** tab on your Sauce Labs app to see your shared tunnels. You should be able to see the shared tunnel name, as well as an indication that it is in fact a shared tunnel, then use that ad the `tunnel-id` in your test suite:
+
+ <img src="assets/TRT2.03C.png" alt="Shared Runnel" width="650"/>
+
+
+
+
+
+<!-- ------------------------ -->
+## 1.03 Run Tests Using Sauce Connect Proxy
+
+Once your tunnel is up and running, (you should see the message Sauce Connect is up in terminal)  and you have updated your `config.java` and `BaseTest.java` files, you can run update your test code and run tests in Sauce Labs using Sauce Connect Proxy. Make sure your  `.bash_profile` (or `.zshrc`) has the `SAUCE_TUNNEL` environment variable (it must match the` tunnel id` you used to start the tunnel).
+
+<img src="assets/5.03I.png" alt="Bash Profile" width="750"/>
+
+
+### Set Sauce Connect Tunnel Capability
+This example shows how to set the capabilities in an example Java Test Suite, written with the JUnit4 test runner, and run and managed using Maven. [See the example suite this is created from](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod5/5.03).
+
+
+### Update Test Code
 This test is importing environment variables in the _tests/Config.java_ file, for your `SAUCE_USERNAME `and` SAUCE_ACCESS_KEY,` you will set up an environment variable for your` SAUCE_TUNNEL` here as well.This variable will store the tunnel identifier, so after you start up a Sauce Connect tunnel, you can run your tests using it.
 
 Add the variable `sauceTunnel `in your `Config.java` file, at the bottom of the list of variables:
@@ -136,14 +166,7 @@ else if (host.equals("saucelabs-tunnel")) {
 In this case, which you have named `saucelabs-tunnel`, when you run your test, you will set all the capabilities you did before, but notice how the `sauceTunnel` variable is being used by `setCapabilities`, right under where you set the `testName` capability. The reason that we need to create a whole new case is that the tests will error if they are given a tunnel identifier, and it is not used.
 
 
-<!-- ------------------------ -->
-## 1.03 Run Tests Using Sauce Connect Proxy
-
-Once your tunnel is up and running, (you should see the message Sauce Connect is up in terminal)  and you have updated your `config.java` and `BaseTest.java` files, you can run your tests in Sauce Labs using Sauce Connect Proxy. Make sure your  `.bash_profile` (or `.zshrc`) has the `SAUCE_TUNNEL` environment variable (it must match the` tunnel id` you used to start the tunnel).
-
-
-<img src="assets/5.03I.png" alt="Bash Profile" width="750"/>
-
+### Run Your Tests
 
 You will want to restart your terminal and run `source ~/.bash_profile` so your machine looks for the new `SAUCE_TUNNEL` variable.  
 
@@ -163,7 +186,8 @@ mvn clean test -Dhost=saucelabs-tunnel
 ### NOTE
 
 Negative
-: You can also go to `Config.java`, change the host to `saucelabs-tunnel`:
+: You can also go to `Config.java`, change the host to `saucelabs-tunnel` instead of using the `-Dhost=` flag and just run  `mvn clean test`:
+
 
 
 ```
@@ -173,9 +197,6 @@ Negative
 // ...
 ```
 
-
-Negative
-: Finally, run  `mvn clean test`.
 
 
 
