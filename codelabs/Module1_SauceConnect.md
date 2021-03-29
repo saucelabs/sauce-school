@@ -14,7 +14,7 @@ author:Lindsay Walker
 ## 1.01 What You'll Learn
 Duration: 0:01:00
 
-This tutorial gives examples you can follow along with using a test suite written in Java, using the JUnit4 Test Runner, as well as the Maven build tool. If you would like to follow along, you can [download or fork and clone this project](https://github.com/walkerlj0/Selenium_Course_Example_Code)
+This tutorial gives examples you can follow along with using a test suite written in Java, using the JUnit4 test runner, as well as the Maven build tool. If you would like to follow along, you can [download or fork and clone this project](https://github.com/walkerlj0/Selenium_Course_Example_Code)
 * Look in the _/java/Mod4/4.06_ directory, and use the version of the test suite in 4.06 to start to make changes to your code.
 
 ### In This Tutorial
@@ -54,13 +54,25 @@ Once you’ve extracted the contents, take the Sauce Connect Proxy folder and mo
 
 <img src="assets/5.03B.png" alt="Tunnel Software Directory" width="450"/>
 
-### Set Up Your Tunnel
+#### Sauce Labs Environment Variables
+You will need to have environment variables set for Sauce Labs on your local machine or CI tool in order to run your tests.
+
+ Watch [this video](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing) to learn how to set up environment variables with your Sauce Labs credentials on a Mac, or view the [instructions for Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
+
+### Start The Tunnel
 
 Go to the **Tunnels** tab in the Sauce Labs app.
 
 
 <img src="assets/5.03C.png" alt="Tunnels Menu" width="250"/>
 
+You can copy the command that you will find at the bottom of the **Tunnels** page, and paste this into your terminal as well, instead of typing what is above. Once you paste, append the command line with `-i <Sauce tunnel name>`. In this example, I’ve called mine `linds-proxy-tunnel.`
+
+<img src="assets/5.03D.png" alt="Command to run tunnel" width="750"/>
+
+Your command should look like this:
+
+<img src="assets/5.03E.png" alt="Terminal command to run tunnel" width="750"/>
 
 Navigate to the folder using the terminal where you saved the Sauce Connect download (this one is in **Documents/sc-4.6.2-osx**). Next, type and run the command below. Make sure to fill in your credentials (username after the `-u` command and access key after` -k`) and add your tunnel name (aka tunnel identifier) after the `-i `command.
 
@@ -70,31 +82,15 @@ Navigate to the folder using the terminal where you saved the Sauce Connect down
 bin/ sc -u <SAUCE_USERNAME> -k <SAUCE_ACCESS_KEY> -i <SAUCE_TUNNEL>
 ```
 
-###Note
-Negative
-: **Create Environment Variables for Sauce Labs –** The first thing you should do when creating a test is set up environment variables on your local machine in the (.zshrc or .bash profile) for your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`. It is important to save your Sauce username and access key as environment variables, instead of coding them into your test, so that when you share your tests or upload them to Github, your private access keys aren’t shared.   It will also make transitioning to a continuous integration pipeline easier, since they will use the same environment variables.  Watch [this video](https://youtu.be/3K1Eu0eTha8) to learn how to set up environment variables with your Sauce Labs credentials on a Mac, or view the [instructions for Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
 
-You can copy the command that you will find at the bottom of the **Tunnels** page, and paste this into your terminal as well, instead of typing what is above. Once you paste, append the command line with `-i <Sauce tunnel name>`:. In this example, I’ve called mine `linds-proxy-tunnel.`
 
-<img src="assets/5.03D.png" alt="Command to run tunnel" width="750"/>
 
-Your command should look like this:
-
-<img src="assets/5.03E.png" alt="Terminal command to run tunnel" width="750"/>
-
-After `-u` you will see your username and after` -k `you will have your access key, and `-i  `prepend the name you made up for your tunnel. Learn more about the other commands you can use to configure your tunnel at [Sauce Connect Proxy Command-Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide). Hit enter and you should see your tunnel up and running.
+ Learn more about the other commands you can use to configure your tunnel at [Sauce Connect Proxy Command-Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide). Hit enter and you should see your tunnel up and running.
 
 <img src="assets/5.03F.png" alt="Terminal running tunnel" width="500"/>
 
 
 <img src="assets/5.03G.png" alt="Tunnel running on Sauce Labs" width="750"/>
-
-
-
-#### Sauce Labs Environment Variables
-You will need to have environment variables set for Sauce Labs on your local machine or CI tool in order to run your tests.
-
- Watch [this video](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing) to learn how to set up environment variables with your Sauce Labs credentials on a Mac, or view the [instructions for Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
 
 
 ### Shared Tunnels
