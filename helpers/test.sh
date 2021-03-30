@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SAUCECTL_VERSION=0.25.1
+SAUCECTL_VERSION=0.34.1
 SAUCE_CONNECT_VERSION=4.6.3
 SAUCE_CONNECT_URL=https://saucelabs.com/downloads/sc-${SAUCE_CONNECT_VERSION}-linux.tar.gz
 
