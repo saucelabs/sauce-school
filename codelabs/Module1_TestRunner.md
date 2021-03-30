@@ -140,7 +140,7 @@ This command prompts you to manually enter your credentials if it cannot detect 
 
 The first thing you need to do visit the [docker download website ](https://docs.docker.com/get-docker/)and install the correct version on your machine.
 
-Keep in mind that a Docker container is essentially it's own lightweight operating system. This means that any software you have installed on your own machine, or variables that you have set up on your local machine (such as Sauce Labs username and access key) won't be available in the Docker environment that is running your SauceCTL & Cypress tests without you setting it up in Docker as well.
+Keep in mind that a Docker container is essentially it's own lightweight operating system. This means that any software you have installed on your own machine, or variables that you have set up on your local machine (except for Sauce Labs username and access key, which is detected by SauceCTL) won't be available in the Docker environment that is running your SauceCTL & Cypress tests without you setting it up in Docker as well.
 
 Start up Docker to ensure it’s running properly on your machine. Most likely, Docker will be set up to start once you have logged on. You can check to see if it’s running with the command `docker info`, and see which version you have with the command `docker -v`.  
 
