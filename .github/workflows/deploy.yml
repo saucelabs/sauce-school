@@ -102,10 +102,34 @@ jobs:
         working-directory: ./site/
         run: npx gulp dist --codelabs-dir=codelabs
 
-      - name: Run on SauceLabs
+      - name: Start Webserver
         if: github.event_name == 'pull_request' || startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/master'
-        run: |
-          ./helpers/test.sh
+        working-directory: ./site/dist/
+        run:
+          python3 -m http.server 8080 2>&1 &
+          sleep 5
+
+      - uses: saucelabs/sauce-connect-action@v1
+        if: github.event_name == 'pull_request' || startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/master'
+        with:
+            username: ${{ secrets.SAUCE_USERNAME }}
+            accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
+            tunnelIdentifier: ci-${{ github.sha }}
+            scVersion: 4.6.4
+
+      - uses: saucelabs/saucectl-run-action@v1
+        if: github.event_name == 'pull_request' || startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/master'
+        with:
+          sauce-username: ${{ secrets.SAUCE_USERNAME }}
+          sauce-access-key: ${{ secrets.SAUCE_ACCESS_KEY }}
+          tunnel-id: ci-${{ github.sha }}
+          testing-environment: sauce
+          region: us-west-1
+
+      - name: End Webserver
+        if: github.event_name == 'pull_request' || startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/master'
+        run:
+          killall python3
 
   deploy-staging:
     needs: test
