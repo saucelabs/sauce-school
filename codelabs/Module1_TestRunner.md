@@ -148,7 +148,7 @@ Start up Docker to ensure it’s running properly on your machine. Most likely, 
 #### Note
 
 Negative
-: Typically, one would need to import a Docker image, however since we are also installing SauceCTL, the image will be specified in the config file for SauceCTL and imported for you.
+: Typically, one would need to import a Docker image, however since you installed SauceCTL, the image was be specified in the config file for SauceCTL and imported for you.
 
 
 ### Download and Install SauceCTL
@@ -260,6 +260,8 @@ Before you can run your tests using saucectl, you need to tell Cypress where it 
 
 
 ```
+// filename: .sauce/config.yml
+// ...
 suites:
 - name: example test
   browser: chrome
@@ -350,7 +352,6 @@ Once you have your tests running, learn more about what you can do with Sauce La
 ## 1.05 Module 1 Quiz
 Duration: 0:02:00
 
-Skip to Module 2 if you have your Cypress Tests set up.
 
 ![https://docs.google.com/forms/d/e/1FAIpQLScW-Us4yITlZud5PQZBBOY-a7GsSjhcMlzX-6MtVg_FTBJDrw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScW-Us4yITlZud5PQZBBOY-a7GsSjhcMlzX-6MtVg_FTBJDrw/viewform?usp=sf_link)
 
@@ -381,7 +382,7 @@ d. The number of machines you want to run concurrently on Sauce Labs, which test
 
 * The .sauce/config.yml file allows you to set the data center, number of concurrent machines, which test files are run for different suites, and the name of the Cypress config file, however the URL of the app you are testing against can only be set in the cypress.json file
  -->
-
+#### Go on to [Module 2](https://training.saucelabs.com/codelabs/Module2-Testrunner/index.html?index=..%2F..testrunner#0) if you have your Cypress Tests set up.
 <!-- ------------------------ -->
 ## 1.06 Create Page Objects (Optional)
 Duration: 0:05:00
@@ -411,7 +412,7 @@ First, you will need to add information for your tests about the URL of the app 
 
 
 ```
-//filename: cypress/cypress.json
+//filename: testrunner-tests/cypress.json
 {
  "baseUrl": "https://www.saucedemo.com"
 }
@@ -430,6 +431,7 @@ Open `constants.js` and add the following objects to store different login crede
 
 
 ```
+// filename: cypress/support/constants.js
 export const LOGIN_USERS = {
    LOCKED: {
        username: 'locked_out_user',
@@ -688,7 +690,8 @@ describe('LoginPage', () => {
 
 ```
 
-Once you finish, go back to [Module 1.04](https://training.saucelabs.com/codelabs/Module1-Testrunner/index.html?index=..%2F..testrunner#3) to see how to run your tests in sauce or docker mode.
+Negative
+: Once you finish, **go back to [Module 1.04](https://training.saucelabs.com/codelabs/Module1-Testrunner/index.html?index=..%2F..testrunner#3)** to see how to run your tests in sauce or docker mode.
 
 #### Final Code
 
