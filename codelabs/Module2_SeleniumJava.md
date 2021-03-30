@@ -335,7 +335,7 @@ Notice the element attributes on the form. The username input field has a unique
 Let's put these elements to use in our first test.
 
 
-### Add the filepath to Chromedriver
+### Add the Filepath to Chromedriver
 
 
 Copy and paste the following code into the file You will have to **Add your own filepath in the setUp() method** where you stored your chromedriver:
@@ -427,7 +427,7 @@ Follow the instructions here in [2.05_IntelliJ_Tests](https://youtu.be/qWi8Rk1R4
 <video id="qWi8Rk1R4Gw"></video>
 
 Negative
-: **Check driver path and browser version–** If your tests aren't running correctly, double check that the `System.setProperty("webdriver.chrome.driver")` has the full path to where you installed the chromedriver, and that the `browserOptions.setCapability("browserVersion", "XX.0");` matches the version of both the browser you have on your computer, and the version of the chromedriver you installed.
+: **Check driver path and browser version–** If your tests aren't running correctly, double check that the `System.setProperty("webdriver.chrome.driver")` has the full path to where you installed the chromedriver, and that the version of the Chromedriver you installed matches the browser version on your computer.
 
 
 <!-- ------------------------ -->
@@ -437,18 +437,6 @@ Duration: 0:10:00
 
 Assertions are statements that are used at a certain point in the test code (usually following a certain sequence of events) that check to see if some condition is true or false. The test code you created thus far simply tells your test what elements to look for on the page, and what to do with those elements.
 
-
-#### Note
-Negative
-: If you had difficulty before getting your test to run because your test had trouble locating chromedriver, you can create a `/lib` directory in the root of the project folder, and place the extracted chromedriver there. <img src="assets/2.06E.png" alt="New lib directory" width="400"/> <img src="assets/2.06F.png" alt="Add chromedriver to lib" width="700"/>
-
-Negative
-: If you do change the location of the chromedriver, you can modify your `system.setProperty` to the following: <img src="assets/2.06G.png" alt="update path to chromedriver" width="700"/> ```  // Set location of chromedriver
-        if (System.getProperty("os.name").startsWith("Windows")) {
-            System.setProperty("webdriver.chrome.driver", "lib/drivers/chromedriver.exe");
-        } else {
-            System.setProperty("webdriver.chrome.driver", "lib/drivers/chromedriver");
-        }```
 
 ### Add an Assertion
 
@@ -510,6 +498,18 @@ With `assertTrue` we are checking for a true (Boolean) response. If one is not r
 
 Watch [Run Your Test with Maven](https://youtu.be/qWi8Rk1R4Gw) to learn the steps for running a test using the IntelliJ IDE and Maven.
 <video id="qWi8Rk1R4Gw"></video>
+
+#### Note
+Negative
+: If you had difficulty before getting your test to run because your test had trouble locating chromedriver, you can create a `/lib` directory in the root of the project folder, and place the extracted chromedriver there. <img src="assets/2.06E.png" alt="New lib directory" width="400"/> <img src="assets/2.06F.png" alt="Add chromedriver to lib" width="700"/>
+
+Negative
+: If you do change the location of the chromedriver, you can modify your `system.setProperty` to the following: <img src="assets/2.06G.png" alt="update path to chromedriver" width="700"/> ```  // Set location of chromedriver
+        if (System.getProperty("os.name").startsWith("Windows")) {
+            System.setProperty("webdriver.chrome.driver", "lib/drivers/chromedriver.exe");
+        } else {
+            System.setProperty("webdriver.chrome.driver", "lib/drivers/chromedriver");
+        }```
 
 ### Test Your Code with a Failure
 
