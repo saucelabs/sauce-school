@@ -371,7 +371,7 @@ Under your SAUCE_USERNAME
 {
   "baseUrl": ""
 }
-``
+```
 
 ### Commit Your Changes
 Now that you have the `jobs:` set up in `.github/workflows/config.yml` the workflow shoul kick off when you commit your changes.
@@ -386,7 +386,8 @@ https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/te
 
 ```yaml reference
 https://github.com/saucelabs/sauce-docs/blob/master/.github/workflows/deploy.yml#L79-L93
-``` -->
+```
+-->
 
 <!-- ------------------------ -->
 ## 2.07 Run Tests in Parallel
