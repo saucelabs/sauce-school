@@ -128,12 +128,14 @@ If you are installing Python on a Widows or Linux machine, you can follow the in
 
 ### MacOS installation
 The basic things you need to have installed are outlined in the sections below, which you can skip if you already have set up:
-* Install HomeBrew
+* [Homebrew](https://brew.sh/)
 * Install Python
-* Install PyCharm
+  * `brew install python`
+* Install [Pycharm](https://www.jetbrains.com/pycharm/)
 * Install pip3
-* Install testing libraries from PyPi
- Install a virtual environment (venv3)
+  * `pip3 --version`
+* Install testing libraries from PyPI](https://pypi.org/)
+* Install a virtual environment ([venv3](https://docs.python.org/3/library/venv.html))
 
 ### Install HomeBrew
 The easiest way to install Python dependencies on Mac is to enlist the help of another tool called [Homebrew](https://brew.sh/). Homebrew makes it easier to install and keep other files and software up to date on your machine. To install brew, copy and paste the command on there into your terminal:
@@ -194,7 +196,7 @@ In order to write and edit your test code, you will need an  **I**ntegrated **D*
 The first thing you will need is the standard package manager for Python. It allows you to install and manage tools and libraries that don't come with the regular Python package you installed. When you installed the python package above, a version of pip, called `pip3` was installed. Check that you have it on your machine by typing:
 
 ```
-pip3 --versions
+pip3 --version
 
 ```
 

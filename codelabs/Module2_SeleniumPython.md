@@ -46,9 +46,9 @@ If you are familiar with using GitHub to write your code, you can also fork/ bra
 **[Module 1 Project Folder](http://example.com)**
 
 
-#### NOTE
+#### Note
 Negative
-: If you are cloning ot downloading the GitHub repo, make sure you do the following:
+: If you are cloning & forking or downloading the GitHub repo, make sure you do the following:
   * Ensure there is no `.pytest_cache` file in the project (delete it!)
   * You have Pip3 and Pytest installed
   * You run `pip3 install -r requirements.txt` to install all the other dependencies.
