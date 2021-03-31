@@ -7,6 +7,7 @@ tags: api
 environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
+analytics account: UA-86110990-1
 author:Lindsay Walker
 <!-- ------------------------ -->
 # Module 4 – Advanced API Test Creation
@@ -32,7 +33,10 @@ One of the most powerful components in the API testing platform (and in programm
 
 This gives you the flexibility to create assertions that can be specific to certain conditions. For example, **if statuscode==200** vs **if statuscode=400**. Meaning you can create positive and negative validations in a single test.  
 
-Another use case is to build resilient tests that can work with asynchronous APIs. For example call the API, IF status is not complete, wait a few seconds and retry the API call.
+Another use case is to build resilient tests that can work with asynchronous APIs. For example:
+1. Call the API
+2. IF status is not complete
+3. wait a few seconds and retry the API call.
 
 
 <!-- ------------------------ -->
@@ -51,7 +55,7 @@ Duration: 0:04:00
 
 According to Gartner, over 95% of security vulnerabilities in APIs are related to “functional” or “human” errors. That is why functional testing of your APIs is so important to general API security. A good API security policy includes testing of API functionality before release, as well as constant monitoring of those APIs using the same detailed functional tests.
 
-Below we list some of the types of tests we suggest that will help you not be in the 95% of API breaches. PLEASE NOTE: This is by no means a comprehensive list, but a series of suggestions that will constantly be evolving.
+Below we list some of the types of tests we suggest that will help you not be in the 95% of API breaches. This is by no means a comprehensive list, but a series of suggestions that will constantly be evolving.
 
 ### Fuzz Tests:
 

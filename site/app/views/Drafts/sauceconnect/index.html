@@ -19,7 +19,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="canonical" href="{{canonicalViewUrl(view)}}" />
   <link rel="preconnect" href="https://www.google-analytics.com" />
   <link rel="stylesheet" href="https://use.typekit.net/uws2znl.css">
-
   <script>
     window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
     ga('create', '{{ga}}', 'auto');
@@ -29,14 +28,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     ga('view.send', 'pageview');
     {% endif %}
   </script>
-
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=DEFAULT_GA">
   </script>
 
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
-
-  <script src="https://use.typekit.net/zmt8tam.js"></script><script>try{Typekit.load({ async: false });}catch(e){}</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'DEFAULT_GA');
+  </script>
 
   <title>{{view.title}}</title>
 
@@ -64,10 +66,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding: 8px;
       }
     }
-
   </style>
 
-  <meta name="google-site-verification" content="mrgJk8Sag_ofnUlGxFAZfGRJmI1rkRPibiyQ8WFY3bA" />
+
 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="#455a64">
@@ -102,19 +103,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="twitter:description" property="twitter:description" content="{{view.description}}" />
   <meta name="twitter:image" property="twitter:image" content="/images/og-image.png" />
   <meta name="twitter:url" property="twitter:url" content="{{canonicalViewUrl(view)}}" />
-  <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/docsearch.js@2.0/dist/cdn/docsearch.min.css"
-/>
 </head>
 
 <body id="app" is="body-bind" class="loading fullbleed {% if view.id != 'default' -%}view{%- endif -%}">
   <paper-header-panel id="main" mode="standard" main>
     {% raw %}
     <div id="mainToolbar" class="paper-header">
-      <div class="site-width layout horizontal justified">
+      <div class="site-width layout horizontal">
         <a href="/">
-          <img src="/images/logo.png" class="logo-devs" alt="Sauce Labs Logo">
+          <img src="/images/logo.png" class="logo-devs" alt="Codelabs Logo">
         </a>
 
         <navigation-element></navigation-element>
@@ -123,27 +120,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <paper-input-container no-label-float>
             <paper-icon-button prefix icon="search"></paper-icon-button>
             <label>Search</label>
-            <input class="search-box" is="iron-input" bind-value="{{searchVal}}" on-keydown="onSearchKeyDown">
+            <input is="iron-input" bind-value="{{searchVal}}" on-keydown="onSearchKeyDown">
           </paper-input-container>
         </div>
-
-        <!--
-        <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.0/dist/cdn/docsearch.min.js"></script>
-        <script>
-          docsearch({
-            // Your apiKey and indexName will be given to you once
-            // we create your config
-            apiKey: '25626fae796133dc1e734c6bcaaeac3c',
-            indexName: 'docsearch',
-            //appId: '<APP_ID>', // Should be only included if you are running DocSearch on your own.
-            // Replace inputSelector with a CSS selector
-            // matching your search input
-            inputSelector: '.search-box',
-            // Set debug to true to inspect the dropdown
-            debug: false,
-          });
-        </script>
-        -->
       </div>
     </div>
     {% endraw %}
@@ -152,21 +131,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <header id="banner" {% if view.id != 'default' -%}down{%- else %}down$="[[_toBoolean(selectedFilter)]]"{%- endif %}>
       <div class="site-width">
         {% if view.id == 'default' %}
-        <div class="section-heading"></div>
-        <span class="banner__subtext">Training</span>
-        <h2 class="banner-title">Sauce School</h2>
+        <h2 class="banner-title">Elemental Selenium with Java</h2>
         <div class="banner-description"
              data-filter-selected$="{% raw %}[[_toBoolean(selectedFilter)]]{% endraw %}">
           <p class="banner-info">
-            Sauce School is the official training portal for Sauce Labs. The courses here offer automation code tutorials with best practices for both beginners and experienced automated test developers. Courses cover topics including Selenium & Appium automation test frameworks, JavaScript testing frameworks, Sauce Labs specific tools, continuous integration, and more.
           </p>
         {%- else -%}
           <div class="banner-description">
             <img id="logo" src="{{view.logoUrl}}" alt="Event logo">
             <div class="banner-meta">
-              <h3>{{view.title}}</h3>
+              <h2 class="banner-title">{{view.title}}</h2>
               {% if view.description -%}
-                <p>{{view.description}}</p>
+                <p class="banner-info">{{view.description}}</p>
               {%- endif %}
             </div>
         {%- endif %}
@@ -176,18 +152,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <main>
       <div id="filters" class="site-width layout horizontal center justified">
-        <!-- sortby only work with courses. this is showing views -->
-        <!--<div id="sortby">
+        <div id="sortby">
           <paper-tabs selected="0" noink on-iron-activate="sortBy">
             <paper-tab>A-Z</paper-tab>
             <paper-tab>Recent</paper-tab>
             <paper-tab>Duration</paper-tab>
           </paper-tabs>
-        </div>-->
+        </div>
 
         {% if view.id == 'default' %}
-        <!--<paper-dropdown-menu
-          label="Choose a Language"
+        <paper-dropdown-menu
+          label="Choose an event"
           class="dropdown-filter"
           no-label-float
           noink no-animations
@@ -205,12 +180,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               {%- endif -%}
             {%- endfor %}
           </paper-listbox>
-        </paper-dropdown-menu>-->
+        </paper-dropdown-menu>
         {% endif %}
 
         {%- if showcats -%}
         <paper-dropdown-menu
-          label="Filter by category"
+          label="Filter by level"
           class="dropdown-filter"
           no-label-float
           noink no-animations
@@ -232,8 +207,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         {%- endif -%}
       </div>
 
-      <card-sorter id="cards" class="site-width --index__cards">
-        <!--{% for codelab in codelabs -%}
+      <card-sorter id="cards" class="site-width">
+        {% for codelab in codelabs -%}
+
           {# Only filter hidden codelabs from the default view.
              All other views are explicitly opt-in via metadata. #}
           {% if codelab.status.indexOf('hidden') === -1 || view.id !== 'default' %}
@@ -250,6 +226,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <div class="card-pin"></div>
               {%- endif -%}
               <div class="description">{{codelab.title}}</div>
+              <!-- Add in module descriptions -->
+              <div class="card__summary">
+
+                {%- if codelab.id == 'Module1-SauceConnect' -%}
+                  <p>The first of the Sauce Labs Tutorial collection shows users how to set up and run manual and automated tests through Sauce Connect Proxy, Sauce Labs' secure proxy tunnel, and how to use some of he common flags and features necessary.</p>
+                {%- endif -%}
+
+                <!-- {%- if codelab.id == 'Module2-Quickstart' -%}
+                  <p>Learn how to take your Appium test code written for Android mobile and web applications, and run them on Sauce Labs. Add test names, status, as well as run your tests in parallel on the cloud platform.</p>
+                {%- endif -%} -->
+
+              </div>
               <div class="card-duration">
                 <span>{%- if codelab.duration -%}{{codelab.duration}} min {%- endif -%}</span>
                 <span>{%- if codelab.updated -%}Updated {{codePrettyDate(codelab.updated)}}{%- endif -%}</span>
@@ -260,38 +248,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </div>
             </a>
           {%- endif %}
-        {%- endfor %}-->
-
-        <div class="landing__cards">
-          {%- for view in views -%}
-            {%- if view.id != 'default' && !view.hidden -%}
-            <div class="codelab-category__card">
-              <div class="card__inner">
-                <h1><a href="/{{view.url}}/" tabindex="-1">{{view.title}}</a></h1>
-                <p><a href="/{{view.url}}/" tabindex="-1">{{view.description}}</a></p>
-                <p><a class="link__button" href="/{{view.url}}/">Begin Course »</a></p>
-              </div>
-            </div>
-            {%- endif -%}
-          {%- endfor %}
-        </div>
-
+        {%- endfor %}
       </card-sorter>
 
       <div id="loading-placeholder" class="site-width">
         Loading Codelabs, please wait...
       </div>
-
     </main>
+
     <footer-element></footer-element>
+
   </paper-header-panel>
 
   <!-- build:js /scripts/main.js -->
   <script src="/scripts/app.js"></script>
-
   <!-- endbuild-->
-  <script>
-
-  </script>
 </body>
 </html>

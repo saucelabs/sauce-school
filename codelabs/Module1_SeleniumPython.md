@@ -5,10 +5,11 @@ tags: python
 environments: Web
 status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
+analytics account: UA-86110990-1
 author:Lindsay Walker
 
 <!-- ------------------------ -->
-# Module 1- Introduction to Selenium with Python
+# Module 1- Introduction Tutorial | Selenium with Python
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
@@ -117,7 +118,7 @@ In the exercises that follow, you will learn more about the different tools you 
 
 
 <!-- ------------------------ -->
-## 1.05  Installing Dependencies
+## 1.05  Installing Python Test Dependencies
 Duration: 0:15:00
 
 

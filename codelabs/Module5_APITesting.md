@@ -7,12 +7,28 @@ tags: api
 environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
+analytics account: UA-86110990-1
 author:Lindsay Walker
 <!-- ------------------------ -->
-# Module 5 – Executing Tests
+# Module 5 – Executing API Tests
 
 <!-- ------------------------ -->
-## 5.01 Executing Scheduled Tests
+## 5.01 Publishing API Tests
+Duration: 0:05:00
+
+On the API testing platform, the tests you compose are considered working copies, and need to be published before you can schedule your test.
+
+You can save and exit the test composer, then click the publish button to create a published version of your test.
+
+<img src="assets/API3.05C.png" alt="Publish and Schedule" width="850"/>
+
+To access a published test that you want to schedul
+
+
+
+
+<!-- ------------------------ -->
+## 5.02 Executing Scheduled API Tests
 Duration: 0:05:00
 
 Just as important as testing an API before and after release is validating that API is always up and functioning as expected. This is the difference between _Uptime_ (which an API can measure) and _Functional Uptime_, which is a powerful and unique aspect of the API testing platform .
@@ -26,7 +42,7 @@ Ultimately, it means using your existing detailed functional/integration tests, 
 <img src="assets/API3.05C.png" alt="Publish and Schedule" width="850"/>
 
 <!-- ------------------------ -->
-## 5.02 Executing Automatic Tests
+## 5.03 Executing Automatic API Tests
 Duration: 0:03:00
 
 
@@ -39,12 +55,12 @@ The platform has extensive APIs specifically created to empower engineers and te
 - [Microfocus ALM](https://docs.saucelabs.com/api-testing/ci/micro-focus-alm-integration)
 - [Azure DevOps](https://docs.saucelabs.com/api-testing/ci/azure-devops)
 - [Bitbucket](https://docs.saucelabs.com/api-testing/ci/bitbucket)
-- [GitLab](https://docs.saucelabs.com/api-testing/ci/gitlab
+- [GitLab](https://docs.saucelabs.com/api-testing/ci/gitlab)
 
 
 See the API documentation at [Apiary](https://apifortressv3.docs.apiary.io/#reference/0/tests/basic-run), and get more information in [our docs](https://docs.saucelabs.com/api-testing).
 
-### By Command-Line Tool
+### By Command Line Tool
 
 The platform also has command-line tools available to paying customers, or potential customers doing a proof of concept. It allows full execution of test, and is particularly useful for CI pipelines. It can help return a lot of useful test report data right back into your CI platforms, like Jenkins.
 

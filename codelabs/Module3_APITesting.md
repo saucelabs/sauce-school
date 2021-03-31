@@ -5,6 +5,7 @@ tags: api
 environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
+analytics account: UA-86110990-1
 author:Lindsay Walker
 <!-- ------------------------ -->
 # Module 3 – Writing Your First API Test
@@ -119,8 +120,25 @@ The above video shows you the method using Generate Test from a payload, and to 
 ```
 
 <!-- ------------------------ -->
-## 3.02 Building Your First Functional Test
+## 3.02 Building Your First Functional API Test
 Duration: 0:04:00
+
+#### Video
+View [this video](https://youtu.be/BkQit-1N4dI) to see how to create your test:
+
+<video id="BkQit-1N4dI"></video>
+
+### Build the Base Test
+Lets build your first functional test: Start by using this API call.  
+
+**[https://mastiff.apifortress.com/app/api/examples/retail/products](https://mastiff.apifortress.com/app/api/examples/retail/products)**
+
+<img src="assets/API3.02H.png" alt="Generate a Test" width="550"/>
+
+#### Note
+Negative
+: This example exists in your **Examples** project, and it is named **Retail: Integration - Products**.
+
 
 ### Test Creation Basics
 
@@ -144,28 +162,16 @@ You can add components to any step in the test like so:
 
 <img src="assets/API3.03A.png" alt="Generate a Test" width="850"/>
 
-### Build the Base Test
-Lets build your first functional test: Start by using this API call.  
 
-**[https://mastiff.apifortress.com/app/api/examples/retail/products](https://mastiff.apifortress.com/app/api/examples/retail/products)**
+### HTTP Client
 
-<img src="assets/API3.02H.png" alt="Generate a Test" width="550"/>
-
-#### Video
-View [this video](https://drive.google.com/file/d/1xxTUnnG6OZzfoygWpOxlTO01PWCZslVC/view?usp=sharing) to see how to create your test:
-![https://drive.google.com/file/d/1xxTUnnG6OZzfoygWpOxlTO01PWCZslVC/preview](https://drive.google.com/file/d/1xxTUnnG6OZzfoygWpOxlTO01PWCZslVC/view?usp=sharing)
-
-
-#### Note
-Negative
-: This example exists in your **Examples** project, and it is named **Retail: Integration - Products**.
 
 By clicking that link, or using the HTTP composer in the **HTTP Client** section to make the call, you get this response.
 
 <img src="assets/API3.02C.png" alt="Generate a Test" width="450"/>
 
 
-As you can see there are 5 objects, so at minimum lets make sure they ‘exist.’ What the API testing platform allows you to do is validate the objects exist _and_ the data is as expected. This is done using our XML markup language, or our GUI composer.
+As you can see there are 5 objects returned here, so for our tests, we will at minimum lets make sure they ‘exist.’ What the API testing platform allows you to do is validate the objects exist _and_ the data is as expected. This is done using our XML markup language, or our GUI composer.
 
 <!-- ------------------------ -->
 ## 3.03 Using the API Testing Platform
@@ -176,7 +182,7 @@ The API testing platform was specifically built to bridge the gap between tester
 
 <img src="assets/API3.02D.png" alt="Generate a Test" width="850"/>
 
-Our GUI composer also has a **Code View** which exposes the underlying XML. This XML can be written or edited in the GUI, or using your own IDE. Meaning that how you want to write and/or edit a test is completely unlocked, so you can work how you are most comfortable.
+Our GUI composer also has a **Code View** which exposes the underlying XML. This XML can be written or edited in the GUI, or using your own IDE. This means that you can write an edit tests either with the GUI, or in the XML code view, save it, and the changes will take effect.
 
 <img src="assets/API3.02E.png" alt="Generate a Test" width="850"/>
 
@@ -198,9 +204,10 @@ Why you click on **Code**, or were looking at the test in your own IDE, this is 
 
 Now look at the code itself carefully:
 
-- The `unit `section is referencing our markup Namespace file (useful when using your own IDE).
-- `Requirements` and` Sequence` are more advanced features discussed later.
-- `get` is where the API call is made. Within this call it contains the necessary information to make the call (can include more if we’re dealing with oAuth for example).
+- The `unit `section is referencing our markup Namespace file (useful when using your own IDE)
+- `Sequence` contains all of the test elements that you can edit in the UI
+- `config` are additional test settings that aren't usually surfaced in the UI
+- `get` is where the API call is made. Within this call it contains the necessary information to make the call (can include more if we’re dealing with oAuth for example)
 
 Some important things to note is how the platform has crated variables for `protocol`, `domain`, and then the chosen endpoint.
 
@@ -210,12 +217,18 @@ This is hugely important to allow the test to be easily run against any environm
 
 <img src="assets/API3.02F.png" alt="Input Set" width="850"/>
 
+Each time you generate a test, notice the `Var: payload` in the **Get** component. This is generated when your test is generated. What happens is that when you call an API, and get response, that entire payload is automatically stored in a variable called `payload`.
 
-There is also `var="productsPayload"`. What this does is call an API, gets a response, and then stores that entire payload into a variable called `productsPayload`. This is then referenced in the next assertions.
+<<<<<<< HEAD
+=======
+Each time you generate a test, notice the `Var: payload` in the **Get** component. This is generated when your test is generated. What happens is that when you call an API, and get response, that entire payload is automatically stored in a variable called `payload`.
+>>>>>>> master
+
+<img src="assets/API3.03V.png" alt="Input Set" width="850"/>
 
 #### Note
 Negative
-: Performance can be an assertion within the test itself. See [this page](https://apifortress.com/doc/assertions-for-metrics-performance/) for more information.
+: You can also access performance metrics such as latency, fetch, and overall response time, and these can be added as assertions within the test itself. See [this page](https://apifortress.com/doc/assertions-for-metrics-performance/) for more information.
 
 ### Assertions
 Now, the assertions. [There are over 70 assertions](https://assertible.com/docs/guide/assertions#:~:text=Assertions%20allow%20you%20to%20validate,time%20a%20test%20is%20run.) possible for an API test.  You can see the next four lines are `assert` statements for each object. Looking at the first you will see:  
@@ -231,12 +244,12 @@ Now, the assertions. [There are over 70 assertions](https://assertible.com/docs/
 The GET call gets an API response and stores it in that variable. This is useful for when you are dealing with multiple payloads (variables) in an integration test.  
 
 
-It’s important to note that with the **Generate Test** feature you can have this entire structure generated for you in seconds. This frees you to focus on the more important and tricky aspects of writing detailed tests.
-
-<img src="assets/API3.02G.png" alt="Input Set" width="850"/>
+#### Note
+Negative
+: With the **Generate Test** feature you can have this entire structure generated for you in seconds. This frees you to focus on the more important and tricky aspects of writing detailed tests. <img src="assets/API3.02G.png" alt="Input Set" width="850"/>
 
 <!-- ------------------------ -->
-## 3.04 Update Your Integration Test
+## 3.04 Update Your API Integration Test
 Duration: 0:07:00
 
 
@@ -246,6 +259,15 @@ Now lets take the functional test, and use it as the first step in an integratio
 First, you have the original test that was created (with assertions) when you clicked **Generate Test** after entering `https://mastiff.apifortress.com/app/api/examples/retail/products`:
 
 <img src="assets/API3.02D.png" alt="Generate a Test" width="850"/>
+
+#### The Payload Variable
+Now you just need to make sure the value you are storing your payload in, and the one you are calling with your checks are. Note that in the example tests (which you created your snippet with) doesn't use the default `Var` for playload:
+
+<img src="assets/API3.04G.png" alt="The payload var" width="750"/>
+
+Click to edit the variable to say `productsPayload`, and make sure all your checks use that as well.
+
+<img src="assets/API3.03W.png" alt="The payload var" width="750"/>
 
 Creating an integration test requires the use of two new components. The **[For Each](https://docs.saucelabs.com/api-testing/logical-components/each/index.html)** component helps you iterate through a series of data (product IDs in this case), and the **[Set](https://docs.saucelabs.com/api-testing/learn-more/the-variables-system-in-api-fortress/index.html#set-component)** which creates a temporary variable to reference.
 
@@ -259,9 +281,15 @@ If you look at the above GUI view of this test, you see that we have our origina
 
 <img src="assets/API3.03B.png" alt="Generate a Test" width="850"/>
 
+#### Input Variables
 If you do not have all of the same parameters, create them now in the **Input Set** window:
 
-<img src="assets/API3.03K.png" alt="Generate a Test" width="350"/>
+<img src="assets/API3.03K.png" alt="Input set edit" width="350"/>
+
+Make sure your **GET** statement uses it as well:
+
+<img src="assets/API3.03X.png" alt="Input set edit" width="550"/>
+
 
 ### Loop Through Each Element
 
@@ -273,7 +301,7 @@ You’ll notice that it is referencing the variable that we stored the entire re
 
 The **.pick(2)** you added at the end is entirely optional, and what it does is randomly select a set (in this case, `2`) number of items from the list we are iterating through. This is useful if the dataset is  large. Ours is small so we would remove that and allow every product ID to be tested. We will leave it for training purposes.
 
-Next you want to add a **Set** component, creating a new variable called **id**.
+Next you want to add a **Set** component as the first element in the **for each in** loop, creating a new variable called **id**.
 
 <img src="assets/API3.03D.png" alt="Generate a Test" width="350"/>
 
@@ -289,7 +317,11 @@ Delete any components that were automatically created exist when you created the
 
 Now you need to move (or create) a  **GET** component within the **for each** loop. You’ll notice we are using the `id` that we stored from the first **GET** call at the beginning of the test to populate into the second **GET** call within the loop. Each iteration of the **For Each** will call the current `id` in the **GET** call.
 
-<img src="assets/API3.03I.png" alt="Generate a Test" width="550"/>
+<img src="assets/API3.03I.png" alt="Generate a Test" width="850"/>
+
+#### Note
+Negative
+: Notice that the payload variable for this **Get** element is **productPayload**
 
 Update each of the elements in your **for each** loop so that it appears like the sample test entitled _Retail: Integration - Products_ in the _Examples_ project. You may have to drag and drop elements into the for loop, or add or delete new components to make it look like the **Final Code** at the bottom of this page.
 
@@ -330,7 +362,7 @@ Duration: 0:03:00
 
  The Vault is a unique part of the API testing platform that allows you to store variables and code for use across a projects.
 
-It is unique, Not in terms of the idea, but in the flexibility offered. It allows you to save, edit, and reuse almost anything, including:
+It is unique, not in terms of the idea, but in the flexibility offered. It allows you to save, edit, and reuse almost anything, including:
 
 * Variables
 * Code snippets (think reused authentication flows)
@@ -339,7 +371,7 @@ It is unique, Not in terms of the idea, but in the flexibility offered. It allow
 
 In the Vault, you can store level at two different levels of scope, project and global, and the project vault will allow you to reuse those values across any test within that scope.
 
- Similarly the global vault will allow use of stored values across any test within any project.
+ Similarly the global vault will allow use of stored values across any test within any project. You want to make sure that if you are using code snippets, variables are consistent across each test.
 
 
 ### Using Variables and Environments
@@ -355,23 +387,41 @@ To add a snippet to your account, simply select the elements (hold **SHIFT** and
 
 <img src="assets/API3.04B.png" alt="Environmnets Tab demo" width="850"/>
 
-In this example, I'm going to use the _Retail : Integration - Products_ test, and re-use it in my own test. In this example, we will select the **for each** loop that selects 2 random elements, and name it **retailProductsLoop**, placing it in the global scope:
+In this example, you're going to use the code from the Example project called _Retail : Integration - Products_ test, and re-use it in your own test. Select the **for each** loop that selects 2 random elements, and name it **retailProductsLoop**, placing it in the global scope:
 
 <img src="assets/API3.04C.png" alt="Environmnets Tab demo" width="750"/>
 
 You should see the snippet show up in the panel.
 
 ### Using a Snippet
-Now lets re-use this handy snippet in a different project. Leave the _Examples_ project and open up one you created. Keep the first five commands as is, but delet the **for each** loop.
+Now lets re-use this handy snippet in a different project. Leave the _Examples_ project and open up one you created. Keep the first five commands as is, but delete the **for each** loop.
 
 Once you have deleted it, open up the **Vault** menu on the side, choose the bottom element in your test, and click the arrow to invoke the snippet in your code:
 
 <img src="assets/API3.04D.png" alt="Invoke Snippet" width="750"/>
 
-Much easier than recreating the entire for loop! Run your test to see the report.
+Now you just need to make sure variables are aligned. Note that in the example tests (which you created your snippet with) doesn't use the defaul `Var` for playload:
+
+<img src="assets/API3.04G.png" alt="The payload var" width="750"/>
+
+You will need to edit the `Var=` in the **Get** method at the top of your own test to match.
+
+ <img src="assets/API3.04H.png" alt="The payload var" width="750"/>
+
+ Last, update the `payload` to `productsPayload` in each command before the snippet call:
+
+
+
+Still much easier than recreating the entire for loop! Run your test to see the report.
 
 ### Adding and Editing Variables
-Access the Vault and add variables and code snippets by first clicking on the **Valut** in the main menu.
+<<<<<<< HEAD
+
+Access the Vault and add variables and code snippets by first clicking on the **Vault** in the main menu.
+
+=======
+Access the Vault and add variables and code snippets by first clicking on the **Vault** in the main menu.
+>>>>>>> master
 
 <img src="assets/API3.04E.png" alt="The Vault" width="650"/>
 
@@ -382,7 +432,7 @@ From here you can access and edit code for snippets and variables for both globa
 To learn more about The Vault and Environments see below links: [Learn the Basics](https://docs.saucelabs.com/api-testing/quick-start/the-vault/index.html), [Environments Basics](https://apifortress.com/doc/environments-vault-and-overrides-magic/), [Using Variables](https://docs.saucelabs.com/api-testing/quick-start/flexible-variables-for-flexible-environments)
 
 <!-- ------------------------ -->
-## 3.06 Test Publishing and Reporting
+## 3.06 API Test Publishing and Reporting
 Duration: 0:03:00
 
 ### Test Reports
@@ -403,7 +453,7 @@ Here you can see the report, as well as generate a shareable URL.
 
 ### Publishing and Scheduling
 
-The API testing plaformt allows you to create **Published** copies of your tests so you can use a stable, existing version of a tests, (for example, in a scheduled test) and continue making updates to a work
+The API testing plaform allows you to create **Published** copies of your tests so you can use a stable, existing version of a tests, (for example, in a scheduled test) and continue making updates to a working copy as well.
 
 First, **Exit & Save** your test:
 
@@ -416,6 +466,11 @@ On the next dashboard, you can click the **Publish** button, then you can click 
 Now you can set up and save a this version of your test to run as often as you would like. [Learn more about scheduling tests](https://docs.saucelabs.com/api-testing/quick-start/schedule-a-test)
 
 <img src="assets/API3.05F.png" alt="Publish and Schedule" width="850"/>
+
+### Test Runs
+Tests run in 'manual' mode, or from the test edit screen, do not have the data stored in the project dashboard, or included for monitoring and reporting. In order to run tests that generate data, schedule your tests or run them from the Tests dashboard.
+
+<img src="assets/API3.06A.png" alt="Running tests to collect data" width="850"/>
 
 <!-- ------------------------ -->
 ## 3.07 Module 3 Quiz

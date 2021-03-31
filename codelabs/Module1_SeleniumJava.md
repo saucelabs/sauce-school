@@ -6,10 +6,11 @@ tags: java
 environments: Web
 status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
+analytics account: UA-86110990-1
 author: Lindsay Walker
 
 <!-- ------------------------ -->
-# Module 1- Introduction to Selenium with Java
+# Module 1- Introduction Tutorial | Selenium with Java
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
@@ -92,7 +93,7 @@ JUnit4 is a Java library/package that allows you to communicate with Selenium an
 ![https://docs.google.com/forms/d/e/1FAIpQLSeVipqyrEAf1oDn8zaKStANDRQ94Ih6ZevtpZTrA9dqL39rLA/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSeVipqyrEAf1oDn8zaKStANDRQ94Ih6ZevtpZTrA9dqL39rLA/viewform?usp=sf_link)
 
 <!-- ------------------------ -->
-## 1.04 Test Frameworks and Dependencies
+## 1.04 Selenium Java Test Frameworks and Dependencies
 Duration: 0:05:00
 
 A test framework includes code libraries as well as rules and conventions for setting up tests. When it comes to testing frameworks, there are three basic pieces that go into creating a framework.
@@ -117,19 +118,19 @@ In the exercises that follow, you will learn more about the different tools you 
 
 
 <!-- ------------------------ -->
-## 1.05  Installing Dependencies
+## 1.05  Installing Java Test Dependencies
 Duration: 0:15:00
 
 In order to run a Java test code suite on your local machine, you will need a few dependencies, which include software, tools, and code libraries, before you can write your first test code. You will need the Java Development Kit to write the Java Code, JUnit to write the test commands, Maven to manage the other dependencies that you need for a test suite, and IntelliJ IDE to edit and run all these things together.
 
 
-**Java –** Java is a high-level, statically typed language that needs to be compiled to machine language before you are able to run Selenium tests locally or in the cloud. The Java Development Kit (JDK) includes both the Java Runtime Environment (JRE) which creates and runs a virtual machine where java programs can run, as well as other tools and tools necessary to write Java code. It’s important to make sure that as a developer, you install the JDK and not just the JRE.
+**[Java](https://adoptopenjdk.net/) –** Java is a high-level, statically typed language that needs to be compiled to machine language before you are able to run Selenium tests locally or in the cloud. The Java Development Kit (JDK) includes both the Java Runtime Environment (JRE) which creates and runs a virtual machine where java programs can run, as well as other tools and tools necessary to write Java code. It’s important to make sure that as a developer, you install the JDK and not just the JRE.
 
-**Maven –** Manages other required dependencies, as well as builds any application code you create. Maven helps organize and perform the tasks needed to build and execute your test suite.
+**[Maven](https://maven.apache.org/download.cgi) –** Manages other required dependencies, as well as builds any application code you create. Maven helps organize and perform the tasks needed to build and execute your test suite.
 
-**JUnit4 –** An open-source, Java-based framework used primarily to create unit tests. This tool includes an assertion library used to write tests, as well as annotations that allow you to run test methods (instead of building them out yourself).
+**JUnit4 –** An open-source, Java-based framework used primarily to create unit tests. Managed by Maven, this tool includes an assertion library used to write tests, as well as annotations that allow you to run test methods (instead of building them out yourself).
 
-**IntelliJ IDE & Debugger –** This tool helps with the writing, debugging, and organization of your code. This includes features that make your code easier to read and organize. IntelliJ  provides  an interface where you can interact with other tools, such as Maven and JUnit4, as well as test and debug code.
+**[IntelliJ IDE & Debugger](https://www.jetbrains.com/idea/download/#section=mac) –** This tool helps with the writing, debugging, and organization of your code. This includes features that make your code easier to read and organize. IntelliJ  provides  an interface where you can interact with other tools, such as Maven and JUnit4, as well as test and debug code.
 
 
 Negative
@@ -326,23 +327,19 @@ Once you have added your `pom.xml` file update, go to **File > Invalidate Caches
 
 <img src="assets/1.05Z.png" alt="pom.xml" width="450"/>
 
-Negative
-: * Words should no longer appear red in the test.java file.
-
 
 #### Video
 
 [1.05_IntelliJ_Dependencies ](https://youtu.be/PDPl_pHo0K0)– Using IntelliJ to install dependencies and update the .pom file
 
-<!-- ![https://drive.google.com/file/d/1Xg9Rn-R5Y-924yEpA6GW5YzB_-dxzS3x/preview](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing) -->
 
-<video id=""></PDPl_pHo0K0>
+<video id="PDPl_pHo0K0"></video>
 
 ### Use GitHub Repository (Optional)
 
 If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
 
-**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod1/1.06/src/test/java/companyname/TestLogin.java)**
+**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod1/1.06)**
 
 
 <!-- ------------------------ -->
@@ -351,7 +348,7 @@ Duration: 0:10:00
 
 Take a look at the first test code we will be creating in the next module. There are several things at play:
 
-**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod1/1.06/src/test/java/companyname/TestLogin.java)**
+**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod1/1.06)**
 
 <img src="assets/1.06A.png" alt="IntelliJ JDK" width="550"/>
 ### Java Methods
@@ -382,7 +379,7 @@ Take a look at the first test code we will be creating in the next module. There
 
 **[Driver.quit](https://artoftesting.com/difference-between-driver-close-and-driver-quit-command-in-selenium-webdriver) –** An important Selenium command to use within **@After** annotations, this closes any browser windows that may be open and terminates the WebDriver session.
 
-You can see an example of the project we will begin to be setting up in the next module [here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2/2.06/src/test/java/companyname)
+You can see an example of the project we will begin to be setting up in the next module](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2/2.06/src/test/java/companyname)
 
 <!-- ------------------------ -->
 

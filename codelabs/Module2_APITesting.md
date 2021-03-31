@@ -7,9 +7,10 @@ tags: api
 environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
+analytics account: UA-86110990-1
 author:Lindsay Walker
 <!-- ------------------------ -->
-# Module 2 – Best Practices
+# Module 2 – API Test Best Practices
 
 <!-- ------------------------ -->
 ## 2.01 Basic Best Practices

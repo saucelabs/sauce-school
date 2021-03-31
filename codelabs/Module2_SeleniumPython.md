@@ -5,6 +5,7 @@ tags: python
 environments: Web
 status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
+analytics account: UA-86110990-1
 author:Lindsay Walker
 <!-- ------------------------ -->
 
@@ -53,7 +54,7 @@ Negative
   * You run `pip3 install -r requirements.txt` to install all the other dependencies.
 
 <!-- ------------------------ -->
-## 2.02 Writing Good Acceptance Tests
+## 2.02 Writing Good Python Acceptance Tests
 Duration: 0:10:00
 
 Acceptance tests are an important final step to take when releasing anything you may have designed, to make sure that the software you have created meets the requirements and specifications laid out when you designed and planned your application or platform. Automated testing is an integral tool to use to efficiently and accurately test your product for release.
@@ -166,7 +167,7 @@ Having answered these questions, you should now have a prioritized backlog of cr
 
 <!-- ------------------------ -->
 
-## 2.04 Finding & Testing Locators in the Browser
+## 2.04 Finding & Testing Selenium Locators in the Browser
 Duration: 0:15:00
 
 
@@ -230,7 +231,7 @@ Selenium is able to find and interact with elements on a page by way of various 
 
 <!-- ------------------------ -->
 
-## 2.05 Setting Up Your First Test
+## 2.05 Setting Up Your First Python Test
 Duration: 0:12:00
 
 Here's the markup for a standard login form (pulled from the login example app on [the-internet](http://the-internet.herokuapp.com/login).
@@ -297,6 +298,44 @@ Next, right click on the **tests** folder and create a **New > Python File**. na
 Last, right click in the top-level folder and create a **New > File**. Name it **requirements.txt**. This file will contain the instructions for the dependencies that will be installed in your virtual environment.
 
 <img src="assets/2.05T.png" alt="Create requirements.txt" width="450"/>
+
+### Installing Chromedriver
+In order for your test to run on a browser on your local machine, you need to install the driver for the browser, and update your code. A similar set of steps can be followed for any browser.
+
+First, check which version of chrome you are using by opening Chrome on your machine and checking the version.  
+
+<img src="assets/2.05K.png" alt="Chrome Version" width="550"/>
+
+Next, [download Chromedriver](https://chromedriver.chromium.org/downloads]. You can also download [Geckodriver](https://github.com/mozilla/geckodriver) for Chrome browser or [any other driver.](https://automationintesting.com/selenium/java/lessons/drivers.html] you will need for popular browsers) The driver version should match the version of the browser you have on your machine.
+
+#### Cheat Sheet
+
+[Driver Configuration Cheat Sheet](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
+
+### Note
+Negative
+: If you are testing on an older version of Firefox (e.g., 47 or earlier) then you don't need to download Geckodriver. You will be able to use the legacy FirefoxDriver implementation. To do that you just need to disable Marionette (the new Firefox WebDriver implementation that Geckodriver connects to) which would look like this:
+`System.setProperty("webdriver.firefox.marionette", "false");`
+
+
+
+
+
+Download the file, then unzip it and move it somewhere outside of your downloads folder. Here, I chose to move it inside of the Documents folder.
+
+<img src="assets/2.05M.png" alt="Driver Folder" width="550"/>
+
+#### Note
+
+Negative
+: Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, first open a terminal, and type in the command `sudo spctl --master-disable` to [disable Gatekeeper](https://osxdaily.com/2015/05/04/disable-gatekeeper-command-line-mac-osx/).
+
+Negative
+: Next, you need to allow app downloads from anywhere. Go to **System Preferences** on your Mac **> Security & Privacy**, then under the **General** tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers. <img src="assets/4.04K.png" alt="Allow Unidentified Files in Security and Privacy" width="650"/>
+
+Negative
+: On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver** or **geckodriver** manually.
+Once you have allowed this, find the Chromedriver in your file directory, double click on it, and force terminal to open it.
 
 ### Test and Requirements
 
@@ -368,7 +407,7 @@ In a later module you will add an assertion to check and see that things went as
 ### Install Chromedriver
 Before you can run this test code, you will need to install the Chromedriver so that your test code can communicate with the browser.
 
-Start by creating a new directory in the top level folder by right clicking on it and choosing **New > Directory**.  Name that directory **vendor**:
+Start by creating a new directory in the top level folder of your project by right clicking on it and choosing **New > Directory**.  Name that directory **vendor**:
 
 <img src="assets/2.05V.png" alt="Vendor directory" width="350"/>
 
@@ -383,14 +422,6 @@ Next, [download the Chromedriver](https://chromedriver.chromium.org/downloads). 
 #### Cheat Sheet
 
 Learn more about using different drivers for different browsers, and how to configure them using the [Driver Configuration Cheat Sheet](https://docs.google.com/document/d/1UGaHbNeOJl_Az5rqPAOPgHsFWWu-LUuTsfAFoeOpGnA/edit?usp=sharing).
-
-### NOTE
-Negative
-: If you are testing on an older version of Firefox (e.g., 47 or earlier) then you don't need to download Geckodriver. You will be able to use the legacy FirefoxDriver implementation. To do that you just need to disable Marionette (the new Firefox WebDriver implementation that Geckodriver connects to) which would look like this:
-`System.setProperty("webdriver.firefox.marionette", "false");`
-
---
-
 
 
 Download the file, move it into the **vendor directory**, and double-click to expand the file.
@@ -435,7 +466,7 @@ If your code is correct, you driver has been given permission to open, you shoul
 
 <!-- ------------------------ -->
 
-## 2.06 Test Assertions
+## 2.06 Pytest Test Assertions
 Duration: 0:10:00
 
 Assertions are statements that are used at a certain point in the test code (usually following a certain sequence of events) that check to see if some condition is true or false. The test code you created thus far simply tells your test what elements to look for on the page, and what to do with those elements.
