@@ -99,7 +99,7 @@ In this module, you will see how you can set up the Sauce Testrunner Toolkit alo
 * Install SauceCTL with `npm i -g saucectl`
 * Set your Sauce username and access key with `saucectl configure`
 * Create a new SauceCTL project with `saucectl new`
-* Update `config.yml` with test suite information
+* Update `.sauce/config.yml` with test suite information
 
 _More detailed instructions are below_
 
@@ -195,7 +195,7 @@ Once you have SauceCTL running, open the project directory that you created for 
 
 Any time you install Cypress, which was one of the things installed when you ran the command `saucectl new`, you will see a `cypress` folder containing the `/integrations` directory where all test files are stored, as well as a `cypress.json` file where you can set options reporters, the base URL that tests will be run against, and [more](https://docs.cypress.io/guides/references/configuration.html#Global).
 
-Another part of the package that was installed when you ran `saucectl` new is the /`.sauce` directory. The /`.sauce` directory has a `.sauceignore` file where you can designate the files and directories you don't want uploaded to Sauce Labs, and the `config.yml` file in which you will see something like the following:
+Another part of the package that was installed when you ran `saucectl` new is the /`.sauce` directory. The /`.sauce` directory has a `.sauceignore` file where you can designate the files and directories you don't want uploaded to Sauce Labs, and the `config.yml` file in which you will see something like the following ([Config Docs](https://docs.saucelabs.com/testrunner-toolkit/configuration#basic-configuration)):
 
 
 ```
