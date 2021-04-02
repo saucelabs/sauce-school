@@ -39,7 +39,7 @@ Duration: 0:03:00
 #### Video
 
 
-Sauce Connect Proxy also allows you to create a secure connection for uploading tests, application, and source code. Sauce Connect Proxy uses a proprietary [TLS protocol](https://www.cloudflare.com/learning/ssl/transport-layer-security-tls/) to encrypt traffic between Sauce Labs and your network and servers. You will need to use Sauce Connect with Testrunner toolkit if:
+Sauce Connect Proxy also allows you to create a secure connection for uploading tests, application, and source code. Sauce Connect Proxy uses a proprietary [TLS protocol](https://www.cloudflare.com/learning/ssl/transport-layer-security-tls/) to encrypt traffic between Sauce Labs and your network and servers. You will need to use Sauce Connect with Sauce Control if:
 
 
 ### Download Sauce Connect Proxy
@@ -104,7 +104,7 @@ After `-u` you see your username and after `-k` you have your access key, and `-
 ## 2.03 Run Your Cypress Test with Sauce Connect
 Duration: 0:04:00
 
-With Testrunner toolkit you can use Sauce Connect Proxy to run your Cypress tests thorugh a secure proxy tunnel when you run tests the Sauce Labs cloud of virtual machines (in the `sauce` `test-env`) or in Docker, passing the data to Sauce Labs.
+With Sauce Control you can use Sauce Connect Proxy to run your Cypress tests thorugh a secure proxy tunnel when you run tests the Sauce Labs cloud of virtual machines (in the `sauce` `test-env`) or in Docker, passing the data to Sauce Labs.
 
 First, make sure that your Sauce Connect tunnel is currently running, as per the instructions in the last module. Now you can make a simple change to `.sauce/config.yml` and run your Cypress test
 
@@ -152,7 +152,7 @@ saucectl run --tunnel-id walkerlj0_shared_tunnel --tunnel-parent walkerlj0
 ## 2.04 Test a Local App With Sauce Labs
 Duration: 0:05:00
 
-Cypress on Sauce with Testrunner Toolkit allows you to perform tests on an app that you have on your local machine (or other non-public environments), then test it against the wide variety of devices available on Sauce Labs.
+Cypress on Sauce with Sauce Control allows you to perform tests on an app that you have on your local machine (or other non-public environments), then test it against the wide variety of devices available on Sauce Labs.
 
 In this example, we will be downloading the Swag Labs web app, and running it locally.
 
@@ -198,7 +198,7 @@ To run tests in _docker mode_ (test are runnning in a Docker container) against 
 
 #### Update the Test URL
 
-First, update the BaseURL in your `cypress.json` file to `http://host.docker.internal:3000` so Testrunner Toolkit will look for the app running on port 3000 on your local machine:
+First, update the BaseURL in your `cypress.json` file to `http://host.docker.internal:3000` so Sauce Control will look for the app running on port 3000 on your local machine:
 
 <img src="assets/TRT2.04F.png" alt="Update Cypress Test BaseURL to run local app in docker mode" width="650"/>
 
