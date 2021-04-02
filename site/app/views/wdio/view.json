@@ -1,0 +1,10 @@
+{
+  "title": "WebdriverIO on Sauce Course",
+  "description": "Learn to run WebDriverIO tests on Sauce Labs, and...",
+  "logoUrl": "/saucectl/logo.png",
+  "tags": ["wdio"],
+  "exclude": [
+    ".*-about$",
+    "^lang-.*"
+  ]
+}
