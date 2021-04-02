@@ -1,15 +1,15 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
-summary: Module 1 of the Cypress on Sauce course will introduce you how to set up a Cypress test with Testrunner toolkit, in a Docker container or Sauce VM, and use SauceCTL to run your automated tests on Sauce Labs. Create a basic Cypress test suite, or use your own Cypress test code.
+summary: Module 1 of the Cypress on Sauce course will introduce you how to set up a Cypress test with Sauce Control, in a Docker container or Sauce VM, and use SauceCTL to run your automated tests on Sauce Labs. Create a basic Cypress test suite, or use your own Cypress test code.
 id: Module1-Testrunner
 categories: beginner
-tags: testrunner  
+tags: saucectl  
 environments: Web
 status: Draft
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
 <!-- ------------------------ -->
-# Module 1 – Intro to Testrunner Toolkit with Cypress
+# Module 1 – Intro to Sauce Control with Cypress
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
@@ -17,33 +17,33 @@ Duration: 0:01:00
 
 ### Skills & Knowledge
 
-* How Testrunner Toolkit is different than other automated test solutions that you can use with Sauce Labs
+* How Sauce Control is different than other automated test solutions that you can use with Sauce Labs
 
-* Learn about the components of Testrunner Toolkit, including the command line tool, Docker, and the Cypress.io client
+* Learn about the components of Sauce Control, including the command line tool, Docker, and the Cypress.io client
 
-* Set up the necessary components to run Cypress and Testrunner Toolkit on your computer
+* Set up the necessary components to run Cypress and Sauce Control on your computer
 
-* Understand the configuration files for Cypress on Testrunner Toolkit and how to modify them
+* Understand the configuration files for Cypress on Sauce Control and how to modify them
 
 * Learn to run a Cypress Test on Sauce Labs with a Docker container and on Virtual Machines (VMs)
 
-* Run a Testrunner Toolkit Cypress Test with your test code locally with Cypress
+* Run a Sauce Control Cypress Test with your test code locally with Cypress
 
-* Learn basic JavaScript to write page object and test code that runs on Cypress and Sauce Testrunner Toolkit (Optional)
+* Learn basic JavaScript to write page object and test code that runs on Cypress and Sauce Sauce Control (Optional)
 
 ### Note
 Developers that **already have a test suite do not have to do Modules 1.06- 1.08**. If you have one, simply create a new SauceCTL project in the folder with your Cypress test suites to get started quickly, moving on to Module 2 after 1.05.
 
 
 <!-- ------------------------ -->
-## 1.02 What Is Testrunner Toolkit
+## 1.02 What Is Sauce Control
 Duration: 0:03:00
 
-Testrunner Toolkit was designed to enable test developers to write code that communicates with the browser using JavaScript frameworks that can send updates to the browser and DOM in real-time. The Testrunner Toolkit makes it quick an easy to install all the dependencies needed to start writing tests.
+Sauce Control was designed to enable test developers to write code that communicates with the browser using JavaScript frameworks that can send updates to the browser and DOM in real-time. The Sauce Control makes it quick an easy to install all the dependencies needed to start writing tests.
 
 Unlike Selenium, the Cypress framework can make API calls, modify the web app code in real-time, and has access to all the tools that the browser’s Dev Tools provide.
 
-<img src="assets/TRT1.02A.png" alt="Testrunner Toolkit tools" width="600"/>
+<img src="assets/TRT1.02A.png" alt="Sauce Control tools" width="600"/>
 
 
 
@@ -54,18 +54,18 @@ Unlike Selenium, the Cypress framework can make API calls, modify the web app co
 <video id="kZP4ckDOKC0"></video>
 
 
-### What are SauceCTL and Testrunner Toolkit?
+### What are SauceCTL and Sauce Control?
 
-SauceCTL stands for Sauce Control, the command line interface for the Sauce Testrunner Toolkit. The toolkit includes SauceCTL that allows you to interface with Testrunner Toolkit through command line, as well as the tools necessary to record the output from tests run on Cypress in Docker containers, and send the data to Sauce Labs, making it easy to interpret, share an analyze those test results.
+SauceCTL stands for Sauce Control, the command line interface for the Sauce Sauce Control. The toolkit includes SauceCTL that allows you to interface with Sauce Control through command line, as well as the tools necessary to record the output from tests run on Cypress in Docker containers, and send the data to Sauce Labs, making it easy to interpret, share an analyze those test results.
 
 
-### Why Use Testrunner Toolkit
+### Why Use Sauce Control
 
-Historically, most end-to-end testing consisted of various components such as Selenium, mocha-chai (test assertion frameworks), and other tools that are necessary to run, automate, and debug tests. Users would create a remote session to test a web application. With [Sauce Labs Testrunner Toolkit and Cypress](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress), you have an all-in-one test framework, runner, and assertion platform that doesn’t require the client to send commands and wait for a response in order to run.
+Historically, most end-to-end testing consisted of various components such as Selenium, mocha-chai (test assertion frameworks), and other tools that are necessary to run, automate, and debug tests. Users would create a remote session to test a web application. With [Sauce Labs Sauce Control and Cypress](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress), you have an all-in-one test framework, runner, and assertion platform that doesn’t require the client to send commands and wait for a response in order to run.
 
-In other words, Testrunner Toolkit with Cypress provides a powerful [clear-box testing](https://en.wikipedia.org/wiki/White-box_testing) tool that doesn’t require downloading and installing several tools and libraries:
+In other words, Sauce Control with Cypress provides a powerful [clear-box testing](https://en.wikipedia.org/wiki/White-box_testing) tool that doesn’t require downloading and installing several tools and libraries:
 
-<img src="assets/TRT1.02B.png" alt="Testrunner Toolkit setup" width="600"/>
+<img src="assets/TRT1.02B.png" alt="Sauce Control setup" width="600"/>
 
 Using Cypress alongside Sauce Labs also allow you to:
 
@@ -75,12 +75,12 @@ Using Cypress alongside Sauce Labs also allow you to:
 *   Review, share, and evaluate your test assets, such as logs, test results, and test videos
 *   Use our Insights feature to perform deeper analysis of test outcomes
 
-<img src="assets/TRT1.02C.png" alt="Testrunner Toolkit Sauce Labs dashboard" width="600"/>
+<img src="assets/TRT1.02C.png" alt="Sauce Control Sauce Labs dashboard" width="600"/>
 
 ### Two Ways to Run Tests
 
 #### Docker Mode
-With Testrunner toolkit, you can either install Docker and run a containerized version of your test environment, then pass the results to the Sauce Labs Dashboard , using the command `saucectl run --test-env docker`
+With Sauce Control, you can either install Docker and run a containerized version of your test environment, then pass the results to the Sauce Labs Dashboard , using the command `saucectl run --test-env docker`
 
 #### Sauce Mode
 You can install SauceCTL then pass your entire test suite, including dependencies and configurations to Sauce Labs Cloud of Virtual Machines, where your tests will be executed as per your configurations. Use the command `saucectl run` or `saucectl run --test-env sauce`, to run your tests on Sauce Labs VMs.
@@ -91,10 +91,10 @@ When you use the Docker mode to run your tests, you are using a simple virtual e
 
 
 <!-- ------------------------ -->
-## 1.03 Set Up the Testrunner Toolkit Environment
+## 1.03 Set Up the Sauce Control Environment
 Duration: 0:07:00
 
-In this module, you will see how you can set up the Sauce Testrunner Toolkit along with Docker _or_ run SauceCTL on Sauce Labs VMs on your computer MacOS Computer. The basic steps include:
+In this module, you will see how you can set up the Sauce Sauce Control along with Docker _or_ run SauceCTL on Sauce Labs VMs on your computer MacOS Computer. The basic steps include:
 
 * Install SauceCTL with `npm i -g saucectl`
 * Set your Sauce username and access key with `saucectl configure`
@@ -123,17 +123,6 @@ _More detailed instructions are below_
 Negative
 : Note that the config file in the video may be out of date, and the [correct configuration can be found in the documentation.](https://docs.staging.saucelabs.net/testrunner-toolkit/configuration/cypress). This video also doesn't include the `.sauceignore` file, where you can list the files & directories you don't want uploaded when you run your tests in _sauce mode_.
 
-### Set Sauce Username and Access Key
-
-Watch [this video](https://www.youtube.com/watch?v=3K1Eu0eTha8&t=12s) to see how to set up your Sauce username and access key as environment variables on your machine, or use [the instructions here to set them up on Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
-
-Testrunner Toolkit will detect your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`, but you can run the following optional command to edit these:
-
-```
-saucectl configure
-```
-
-This command prompts you to manually enter your credentials if it cannot detect any environment variables, and will generate a `credentials.yml` file in a .sauce directory in your home folder.
 
 
 ### Install Docker (Optional)
@@ -153,7 +142,7 @@ Negative
 
 ### Download and Install SauceCTL
 
-Next you need to download and install the Sauce Command Line Tool (CTL) that you will use to run the Testrunner Toolkit. This is a part of the Testrunner Toolkit that allows you to set a configuration location & update the file in your local directory.  There are several options (*Insert link) for installing it, and in this tutorial we will use npm, which means you need to have [NodeJS installed on your machine](https://nodejs.org/en/download/).
+Next you need to download and install the Sauce Command Line Tool (CTL) that you will use to run the Sauce Control. This is a part of the Sauce Control that allows you to set a configuration location & update the file in your local directory.  There are several options (*Insert link) for installing it, and in this tutorial we will use npm, which means you need to have [NodeJS installed on your machine](https://nodejs.org/en/download/).
 
 It also allows you to run commands to run tests locally or remotely on the Sauce Labs platform.
 
@@ -162,14 +151,28 @@ First, anywhere on your machine install the SauceCTL tool globally, using this c
 `npm i -g saucectl`.
 
 
+### Set Sauce Username and Access Key
+
+Watch [this video](https://www.youtube.com/watch?v=3K1Eu0eTha8&t=12s) to see how to set up your Sauce username and access key as environment variables on your machine, or use [the instructions here to set them up on Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
+
+Sauce Control will detect your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`, but you can run the following optional command to edit these:
+
+```
+saucectl configure
+```
+
+This command prompts you to manually enter your credentials if it cannot detect any environment variables, and will generate a `credentials.yml` file in a .sauce directory in your home folder.
+
 ### Cypress Test Code
+
+You want to create a `saucectl new` project at the same level as the **cypress** directory that contains your tests.
 
 You have the following options to test out Cypress on Sauce:
 * Use an existing project you have already
 * Follow [lessons 1.06 - 1.08](https://training.saucelabs.com/codelabs/Module1-Testrunner/index.html?index=..%2F..testrunner#5) to write simple tests
 * Clone or download [this example cypress test suite](https://github.com/saucelabs-training/demo-js/tree/master/testrunner-toolkit/cypress)
 
-Once you have a project directory containing cypress tests on your machine, navigate to the directory where the `cypress.json ` and `/cypress` directory are. You want to create a `saucectl new` project at the same level as the **cypress** directory that contains your tests.
+Once you have a project directory containing cypress tests on your machine, navigate to the directory where the `cypress.json ` and `/cypress` directory are, and run `saucectl new`.
 
 #### Note
 Negative
@@ -315,7 +318,7 @@ Once you have your tests running, learn more about what you can do with Sauce La
 
 ### Run Your Test with Docker & Sauce Labs
 
-Now that you have your config file set up, you can run your tests on a Docker container on your machine (Testrunner Toolkit helped set this all up for you) and the results will be sent to Sauce Labs.
+Now that you have your config file set up, you can run your tests on a Docker container on your machine (Sauce Control helped set this all up for you) and the results will be sent to Sauce Labs.
 
 Negative
 : Your tests will run more quickly in Docker mode, since you aren't sending you tests to the Sauce Labs Platform, and this mode is good for writing & editing tests. Ensure you’ve set the Docker image tag in your `config.yml`
@@ -357,7 +360,7 @@ Duration: 0:02:00
 
 
 <!--
-1. What advantages do JavaScript Frameworks such a Cypress, paired with Sauce Labs TestRunner Toolkit provide?
+1. What advantages do JavaScript Frameworks such a Cypress, paired with Sauce Labs Sauce Control provide?
 a. You can easily take code from any framework and parse it into the Sauce Labs proprietary test framework language and run your tests more easily
 b. You can quickly access a test environment that makes it easy to start running your Cypress (or other non-Webdriver based) tests on Sauce Labs*
 c. You can quickly get sample code for a Cypress tests that will automatically be run on Sauce Labs without any setup
@@ -365,7 +368,7 @@ d. You can use any type of JavaScript testing framework, with any kinds of brows
 
 *Sauce CTL allows you to run tests that are written using a non-webdriver based framework such as Cypress, and using only a couple commands and choosing a few options, run tests from that framework. It does not parse any test code from one framework to another, or create code for you, however it does offer you options to use a wider ranges of test frameworks.
 
-2. Why does Sauce Labs' TestRunner Toolkit use Docker?
+2. Why does Sauce Labs' Sauce Control use Docker?
 a. To allow you to write test code for any operating system on your own machine
 b. To allow you to set a special environment to store your SAUCE_USERNAME and SAUCE_ACCESS_KEY in safely
 c. To allow you to quickly set up an environment with all dependencies for your Cypress tests*
@@ -387,7 +390,7 @@ d. The number of machines you want to run concurrently on Sauce Labs, which test
 ## 1.06 Create Page Objects (Optional)
 Duration: 0:05:00
 
-Sauce Labs’ Testrunner Toolkit allows you to take existing Cypress test suites (or build a cypress test suite) and quickly run it on Sauce Labs. In this lesson, you will learn how to modify a couple settings in the `cypress.json` and `.sauce/config.ym`l files, then write a basic test and run it on Sauce Labs.
+Sauce Labs’ Sauce Control allows you to take existing Cypress test suites (or build a cypress test suite) and quickly run it on Sauce Labs. In this lesson, you will learn how to modify a couple settings in the `cypress.json` and `.sauce/config.ym`l files, then write a basic test and run it on Sauce Labs.
 
 #### Video
 
