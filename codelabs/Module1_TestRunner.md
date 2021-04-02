@@ -255,7 +255,7 @@ Duration: 0:03:00
 
 ### Update Sauce Config File
 
-Before you can run your tests using saucectl, you need to tell Cypress where it can find the test files it needs to run. You will do this in `.sauce/config.yml`. Under the Suites tag,  add and modify the existing entry under the `"suites"` field:
+Before you can run your tests using saucectl, you need to tell Cypress where it can find the test files it needs to run. You will do this in `.sauce/config.yml`. Under the [`suites` tag](https://docs.saucelabs.com/testrunner-toolkit/configuration/common-syntax#suites),  add and modify the existing entry under the `"suites"` field:
 
 
 
@@ -303,7 +303,7 @@ npm update -g saucectl
 ```
 
 
-#### Run You Test in Sauce Mode
+#### Run Your Test in Sauce Mode
 
 In order to upload your tests to the Sauce Labs Cloud, and run your tests on a Sauce Labs virtual machine, all you need to do is run the command in terminal:
 

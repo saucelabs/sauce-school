@@ -76,7 +76,7 @@ In this example, my tunnel name is `linds-proxy-tunnel.`
 
 ###Note
 Negative
-: **Create Environment Variables for Sauce Labs –** The first thing you should do when creating a test is set up environment variables on your local machine or environment for your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`. It is important to save your Sauce username and access key as environment variables, instead of coding them into your test.  It will also make transitioning to a continuous integration pipeline easier, since they will use the same environment variables.  Watch [this video](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing) to learn how to set up environment variables with your Sauce Labs credentials on a Mac, or view the [instructions for Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
+: **Create Environment Variables for Sauce Labs –** The first thing you should do when creating a test is set up environment variables on your local machine or CI tool for your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`. It is important to save your Sauce username and access key as environment variables, instead of coding them into your test.  It will also make transitioning to a continuous integration pipeline easier, since they will use the same environment variables.  Watch [this video](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing) to learn how to set up environment variables with your Sauce Labs credentials on a Mac, or view the [instructions for Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
 
 You also have the option to copy the command that you will find at the bottom of the **Tunnels** tab in the [Sauce Labs app](https://accounts.saucelabs.com/am/XUI/#login), and paste this into your terminal as well, instead of typing what is above. Once you paste, you can change the tunnel name after the `-i` flag:
 ```
@@ -242,7 +242,7 @@ If you are following along with the Swag Labs app, create a new private fork for
 
 #### Note
 Negative
-: To follow along, fork then download a copy of the [example web app](https://github.com/saucelabs/sample-app-web). find a place to store it on your computer, and use `git clone your-forked-repo` to make a local copy, then `git add .`, `commit -m "initial commit"` and `git push` to push your local changes.
+: To follow along, fork then download a copy of the [example web app](https://github.com/saucelabs/sample-app-web). Find a directory to store it on your computer, and use `git clone your-forked-repo` to make a local copy, then `git add .`, `commit -m "initial commit"` and `git push` to push your local changes.
 
 
 We will set up our test to run on every pull request made to a code repository.
@@ -313,7 +313,7 @@ The `env:` object allows you to specify environment variables, which are stored 
 
 #### Note
 Negative
-: Setting `env` variable \s at the top of the file enables it globally, so all jobs in the workflow have access to these variables, so all jobs can use these variables, without specifying it in each job.
+: Setting `env` variables at the top of the file enables it globally, so all jobs in the workflow have access to these variables, so all jobs can use these variables, without specifying it in each job.
 
 
 
