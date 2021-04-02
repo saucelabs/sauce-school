@@ -29,7 +29,7 @@ Duration: 0:01:00
 
 * Run a Sauce Control Cypress Test with your test code locally with Cypress
 
-* Learn basic JavaScript to write page object and test code that runs on Cypress and Sauce Sauce Control (Optional)
+* Learn basic JavaScript to write page object and test code that runs on Cypress and Sauce Control (Optional)
 
 ### Note
 Developers that **already have a test suite do not have to do Modules 1.06- 1.08**. If you have one, simply create a new SauceCTL project in the folder with your Cypress test suites to get started quickly, moving on to Module 2 after 1.05.
@@ -39,7 +39,7 @@ Developers that **already have a test suite do not have to do Modules 1.06- 1.08
 ## 1.02 What Is Sauce Control
 Duration: 0:03:00
 
-Sauce Control was designed to enable test developers to write code that communicates with the browser using JavaScript frameworks that can send updates to the browser and DOM in real-time. The Sauce Control makes it quick an easy to install all the dependencies needed to start writing tests.
+Sauce Control was designed to enable test developers to write code that communicates with the browser using JavaScript frameworks that can send updates to the browser and DOM in real-time. The Sauce Control set of tools makes it quick an easy to install all the dependencies needed to start writing tests.
 
 Unlike Selenium, the Cypress framework can make API calls, modify the web app code in real-time, and has access to all the tools that the browser’s Dev Tools provide.
 
@@ -56,7 +56,7 @@ Unlike Selenium, the Cypress framework can make API calls, modify the web app co
 
 ### What are SauceCTL and Sauce Control?
 
-SauceCTL stands for Sauce Control, the command line interface for the Sauce Sauce Control. The toolkit includes SauceCTL that allows you to interface with Sauce Control through command line, as well as the tools necessary to record the output from tests run on Cypress in Docker containers, and send the data to Sauce Labs, making it easy to interpret, share an analyze those test results.
+SauceCTL stands for Sauce Control, the command line interface for the Sauce Control. The toolkit includes SauceCTL that allows you to interface with Sauce Control through command line, as well as the tools necessary to record the output from tests run on Cypress in Docker containers (sending the data to Sauce Labs), or on a Sauce Labs Virtual Machine, making it easy to interpret, share an analyze those test results.
 
 
 ### Why Use Sauce Control
@@ -94,7 +94,7 @@ When you use the Docker mode to run your tests, you are using a simple virtual e
 ## 1.03 Set Up the Sauce Control Environment
 Duration: 0:07:00
 
-In this module, you will see how you can set up the Sauce Sauce Control along with Docker _or_ run SauceCTL on Sauce Labs VMs on your computer MacOS Computer. The basic steps include:
+In this module, you will see how you can set up the Sauce Control along with Docker _or_ run SauceCTL on Sauce Labs VMs on your computer MacOS Computer. The basic steps include:
 
 * Install SauceCTL with `npm i -g saucectl`
 * Set your Sauce username and access key with `saucectl configure`
@@ -142,7 +142,7 @@ Negative
 
 ### Download and Install SauceCTL
 
-Next you need to download and install the Sauce Command Line Tool (CTL) that you will use to run the Sauce Control. This is a part of the Sauce Control that allows you to set a configuration location & update the file in your local directory.  There are several options (*Insert link) for installing it, and in this tutorial we will use npm, which means you need to have [NodeJS installed on your machine](https://nodejs.org/en/download/).
+Next you need to download and install the Sauce Command Line Tool (CTL) that you will use to run Sauce Control. This is a part of Sauce Control that allows you to set a configuration location & update the file in your local directory.  There are several options (*Insert link) for installing it, and in this tutorial we will use npm, which means you need to have [NodeJS installed on your machine](https://nodejs.org/en/download/).
 
 It also allows you to run commands to run tests locally or remotely on the Sauce Labs platform.
 

@@ -3,7 +3,7 @@
 summary: Module 2 of the Cypress on Sauce course ...
 id: Module2-Testrunner
 categories: beginner
-tags: testrunner  
+tags: saucectl  
 environments: Web
 status: Draft
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
@@ -223,7 +223,7 @@ Now that you have a test run on Sauce Connect, and have run a test against a loc
 
 In this example we will be using Github Actions, but you can use another CI tool such as [Jenkins](https://docs.saucelabs.com/testrunner-toolkit/integrations/jenkins).
 
-If you already have a Github account, you can get starte by visiting the [Github Actions Homepage](https://github.com/features/actions).
+If you already have a Github account, you can get started by visiting the [Github Actions Homepage](https://github.com/features/actions).
 
 ### What You'll Need
 * [GitHub Account](https://github.com/join)
@@ -273,7 +273,7 @@ The first order of business is to export your [Sauce Labs account credentials](h
     * Name: `SAUCE_USERNAME`
     * Value: `your-sauce-username`
 5. Click __Add secret__ to finish.
-6. Repeat the same steps above for your `SAUCE_ACCESS_KEY` (Not sure where to find `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` in Sauce Labs? They're [here](https://app.saucelabs.com/user-settings).
+6. Repeat the same steps above for your `SAUCE_ACCESS_KEY` (Not sure where to find `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` in Sauce Labs? They're [here](https://app.saucelabs.com/user-settings)).
 
 <img src="assets/TRT2.05E.png" alt="Github Secrets" width="750"/>
 
