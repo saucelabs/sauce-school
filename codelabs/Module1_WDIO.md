@@ -10,93 +10,98 @@ feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
 author:Lindsay Walker
 <!-- ------------------------ -->
-# Module X – Title of codelab
-Add Sections and Durations
-Then for each section use Header 2 or '##' and specify an optional duration beneath for time remaining calculations Optional section times will be used to automatically total and remaining tutorial times In markdown I've found that the time is formatted hh:mm:ss
-
-Example
+# Module 1 – Title of codelab
 
 <!-- ------------------------ -->
-## Section 1
+## 1.01 What You'll Learn
 Duration: 0:10:00
 
-### Info Boxes
-Plain Text followed by green and yellow info boxes
-
-Negative
-: This will appear in a yellow info box.
-
-Positive
-: This will appear in a green info box.
-
-You created info boxes!
-
-### Bullets
-Plain Text followed by bullets
-* Hello
-* CodeLab
-* World
-
-You created bullets!
-
-### Numbered List
-1. List
-1. Using
-1. Numbers
-
-You created a numbered list!
+* Setup the environment we need to use WebdriverIO.
 
 <!-- ------------------------ -->
-## Section 2
+## 1.02 Setup WebdriverIO
 Duration: 0:05:00
 
-### Add a Link
-Adding a link!
-`[Example of a Link](https://www.google.com)`
+## Install Node.JS
 
+The project is build on top of [Node.js](https://nodejs.org/en/download/) which is a JavaScript runtime built on Chrome's V8 JavaScript engine. It can be installed on all major OS systems such as Windows, Mac or Linux.
 
-### Images
-`![alt-text-here](assets/puppy.jpg)`
-
-### Embed an iframe
-`![EmbeddedURL](SharedURL)`
-
-### Add Code Samples
-All code samples must begin and end with three tick marks:
+Open the [download page](https://nodejs.org/en/download/) of the project and choose the installer of your environment. It is recommended to download the latest LTS (long-time support). Create or open the directory where you want to put your tests then use the command:
 
 ```
-this.is.code.text.here () {
-  any language can be(used)
-}
+npm init
 ```
 
-### Size Images
-You can add in a sized image with the `<img/>` tag. As an example take this image in markdown:
-`![Pencil](assets/2.02C.png)`
-and resize it with the following:
-`<img src="assets/2.02C.png" alt="Pencil" width="150"/>`
+To install Node. You should see the following in your project structure:
 
-### Embed YouTUbe Video
-You can embed videos from YouTube using the YouTUbe video ID like so:
-_Video ID can be found in the url following v=_
+```
+your-test-directory
+    /node_modules
+    package.json
+    package-lock.json
+```
 
-`<video id="DWAinkJ54D8"></video>`
-<video id=""></video>
 
-### Embed Video/ Form from Google Drive
-Use the same markdown as embedding an iframe:
-`![EmbedURL](ShareURL)`
+This will also install NPM for you which is the package manager for Node.js, which manages updates, and allows you to install different dependencies when you update the `package.json` file that is installed wehn you install NodeJS. NPM is required to download the WebdriverIO package.
 
-##### EmbedURL
-**Video**
-1. Double click on the Video to open it
-2. once it's open click the three dots in upper left and choose 'Open in New Window'
-3. In the new window, click on the three dots at the top left and choose 'embed item' copy the URL from the src="" (what is in the quotation marks)
+## Setup Course Directory
 
-**Google Form**
-1. Click the 'Send' button.
-2. Choose the third tab with the embed icon `<>`. YOu should see an `<iframe>` tag.
-3. Copy the link after the 'src' that is in quotes
+As we walk through each chapter we will build up a project that we can use as to run automated tests with WebdriverIO. To check in all changes, let's create a directory for it and init git:
 
-#### ShareURL
-this can simply be found by clicking on the 'copy link' from the folder the video is in, and use the URL that you would use to share.
+```
+$ cd ~
+$ mkdir ./webdriverio-hands-on
+$ cd ./webdriverio-hands-on
+$ git init
+```
+
+If you don't have git installed you can leave out the last step and don't check in. There are various of [documentations](https://git-scm.com/book/en/v1/Getting-Started) that will get you up and running with Git.
+
+## Download Browser Driver
+
+In order to be able to run tests using [WebDriver](https://w3c.github.io/webdriver/) we need a browser driver. The browser driver is a server that handles the automation of the browser. It provides a [REST API interface](https://w3c.github.io/webdriver/#endpoints) that allows you to just send basic HTTP request to that driver and it handles all complex steps to get the automation command handled in the browser. There is a browser driver for every major browser vendor (e.g. Chrome, Firefox, Safari, Edge and IE). If you want to automate any of these browser you need to have the specific driver running.
+<!--
+For simplicity reasons we just use Chrome in this course, therefor we have download and setup Chromedriver. Every Chrome version requires a specific version of the browser. You can find the version of your Chrome browser [here](chrome://version/) (please open the link with Chrome).
+
+To find the Chromedriver version open the [download page](http://chromedriver.chromium.org/downloads) of the Chromedriver project. Find the right version and download it on your machine. Extract the zip file and ensure that the binary inside is accessible in your `$PATH`. You can also run the following commands (if you have Chrome v74 installed):
+
+```
+$ curl -o ~/Downloads/chromedriver.zip https://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_mac64.zip
+$ unzip ~/Downloads/chromedriver.zip -d ~/Downloads/chromedriver
+$ sudo mv ~/Downloads/chromedriver/chromedriver /usr/bin
+```
+
+You can also just use NPM to install the Chromedriver via:
+
+```
+$ npm install -g chromedriver
+```
+
+To check if Chromedriver is available call:
+
+```
+$ chromedriver --version
+```
+
+It should return something similar to:
+
+```
+ChromeDriver 74.0.3729.6 (255758eccf3d244491b8a1317aa76e1ce10d57e9-refs/branch-heads/3729@{#29})
+``` -->
+<<<<<Does WDIO need a driver installation still?
+<!-- ------------------------ -->
+## 1.0x Title
+Duration: 0:05:00
+
+
+<!-- ------------------------ -->
+## 1.0x Title
+Duration: 0:05:00
+
+<!-- ------------------------ -->
+## 1.0x Title
+Duration: 0:05:00
+
+<!-- ------------------------ -->
+## 1.0x Title
+Duration: 0:05:00
