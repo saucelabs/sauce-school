@@ -260,6 +260,10 @@ Now that you have a copy of your Cypress test files in your app. This can be don
 
 <img src="assets/TRT2.05F.png" alt="files copied into project" width="650"/>
 
+#### Note
+Negative
+: It would be a good ide to make the other .github/workflow files backup files by appending .bak on the end, this way the other workflows in the app won't run when you commit or push. <img src="assets/TRT2.05G.png" alt="The YML file" width="550"/>
+
 ### Create GitHub Secrets
 
 The first order of business is to export your [Sauce Labs account credentials](https://app.saucelabs.com/user-settings) and store them as GitHub Secrets.
@@ -303,6 +307,7 @@ on:
 env:
   SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
+  SAUCECTL_VERSION: "0.34.1"
 
 jobs:
 ```
@@ -322,48 +327,53 @@ Negative
 ## 2.06 Create the Github Actions Test Job
 Duration: 0:08:00
 
-Github Actions is a community that has [a collection of repositories](https://github.com/actions) that allows you to automate tasks such as testing, publishing, and deploying your projects that you have published on Github.
+Github Actions is a community that has [a collection of repositories](https://github.com/actions) that allows you to automate tasks such as testing, publishing, and deploying your projects that you have published on Github. Github actions works by creating a virtual environment where you will build and test the app (e.g. the code you have committed to your repo).
 
 In this lesson, you are going to use actions that:
-* [Checkout](https://github.com/actions/checkout) (clone) your code to a Docker container hosted by Github
-* Download and install SauceCTL on that same container
-* Update permissions on this remote container so you can execute SauceCTL
-* Specify which test files are run in this job.
+* **build-web-app**
+  * Do a check to make sure you can build your web app
+* **test-web-app**
+  * Install Python to the environment in Github actions where your tests are run
+  * Checkout the code for the web app from your repo
+  * Install `npm` dependencies
+  * Build your app (again) to test against
+  * Set Up Sauce Connect Tunnel
+  * Install & Use `saucectl` to run your tests
 
 ### Create a Job to Launch Sample App
 
 <<<<<<< Here
 
 
-### Add a Job for Your Tests
+### Build Your Tests
 ```
-jobs:
-  cypress-job:
-    runs-on: ubuntu-latest # which OS
-    steps:
-      - name: Checkout Github Code # taking all code where this file exists
-        uses: actions/checkout@v2 # pulling from code here: https://github.com/actions/checkout
-      - name: Download saucectl
-        run: |
-          SAUCECTL_BINARY=saucectl_${SAUCECTL_VERSION}_linux_64-bit.tar.gz
-          curl -L -o ${SAUCECTL_BINARY} \
-              -H "Accept: application/octet-stream" \
-              https://github.com/saucelabs/saucectl/releases/download/v${SAUCECTL_VERSION}/${SAUCECTL_BINARY} \
-              && tar -xvzf ${SAUCECTL_BINARY}
-      - name: Workaround for container permissions
-        run: sudo chmod -R 777 tests/
-      - name: Run Saucy Tests
-        run: |
-          ./saucectl run
-        env:
-          BUILD_ID: ${{ github.run_id }}
-          BUILD_ENV: GitHub Actions
 ```
 <<<<<<< Break this down
 
-### Set a SauceCTL Version
+### Install Python
+https://github.com/actions/setup-python
+
+### Checkout Code & Install Dependencies
+
+### Build Your App
+
+### Set Up Sauce Connect
+
+```
+- name: Download and Use Sauce Connect Tunnel
+        run: |
+          set -e
+          # download and unzip sauce connect proxy binary
+          curl -L -s https://saucelabs.com/downloads/sc-4.6.4-linux.tar.gz | sudo tar -xvz
+          # run the sauce connect tunnel using your sauce labs username and access key, and define a proxy tunnel id
+          sc-4.6.4-linux/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -i proxy-tunnel-$GITHUB_RUN_ID &
+```
 Under your SAUCE_USERNAME
 [Check here](https://github.com/saucelabs/saucectl)
+
+### Use saucectl to Run Tests
+
+note that saucectl usese -`i proxy-tunnel-$GITHUB_RUN_ID` this spins up (& tears down) a new tunnel each time this is run
 
 ### Update BaseURL
 
