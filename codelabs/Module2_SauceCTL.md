@@ -262,7 +262,7 @@ Now that you have a copy of your Cypress test files in your app. This can be don
 
 #### Note
 Negative
-: It would be a good ide to make the other .github/workflow files backup files by appending .bak on the end, this way the other workflows in the app won't run when you commit or push. <img src="assets/TRT2.05G.png" alt="The YML file" width="550"/>
+: It would be a good idea to make the other `.yml` files included in this app `.github/workflow` files backup files by appending `.bak` on the end, this way the other workflows in the app won't run when you commit or push. <img src="assets/TRT2.05G.png" alt="The YML file" width="550"/>
 
 ### Create GitHub Secrets
 
@@ -338,7 +338,7 @@ In this lesson, you are going to use actions that:
   * Install `npm` dependencies
   * Build your app (again) to test against
   * Set Up Sauce Connect Tunnel
-  * Install & Use `saucectl` to run your tests
+  * Install & use `saucectl` to run your tests
 
 ### Create a Job to Launch Sample App
 
