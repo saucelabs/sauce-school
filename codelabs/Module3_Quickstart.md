@@ -495,7 +495,7 @@ See an example of the [completed code to compare.](https://github.com/walkerlj0/
 
 
 <!-- ------------------------ -->
-## 3.07 Run Web App Tests in Parallel
+## 3.07 Run Web App Tests in Different Browsers
 
 <!-- ------------------------ -->
 ## 3.08 Run Web App Tests in Parallel Operating Systems
