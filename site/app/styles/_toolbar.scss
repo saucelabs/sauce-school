@@ -24,7 +24,7 @@
   color: #fff;
   padding: $keyline * 2;
   height: 130px;
-  box-shadow: -1px 3px 73px -24px rgba(0,0,0,0.25);
+  box-shadow: -1px 3px 73px -24px rgba(0, 0, 0, 0.25);
   z-index: 10;
   paper-icon-button[icon="menu"] {
     flex-shrink: 0;
@@ -33,12 +33,13 @@
     display: flex;
     align-items: center;
   }
-  .sub-nav__company, .sub-nav__contact {
-    width: 288px!important;
-    margin-left: -120px!important;
+  .sub-nav__company,
+  .sub-nav__contact {
+    width: 288px !important;
+    margin-left: -120px !important;
     .sub-nav__inner--center {
-      text-align: left!important;
-      border-bottom: none!important;
+      text-align: left !important;
+      border-bottom: none !important;
     }
     ul.sub-nav__inner-list {
       li {
@@ -51,12 +52,12 @@
     display: none;
     width: 168px;
     height: 30px;
-    border-radius: 25px!important;
+    border-radius: 25px !important;
     margin-left: -60px;
     background: $pureWhite;
     position: absolute;
     margin-top: 20px;
-    box-shadow: 0px 0px 13px -4px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.75);
     text-align: center;
     &.--show {
       display: inherit;
@@ -65,7 +66,11 @@
       z-index: 2;
     }
   }
-  .sub-nav__solutions, .sub-nav__platform, .sub-nav__resources, .sub-nav__company, .sub-nav__contact {
+  .sub-nav__solutions,
+  .sub-nav__platform,
+  .sub-nav__resources,
+  .sub-nav__company,
+  .sub-nav__contact {
     &.--show {
       display: inherit;
     }
@@ -74,7 +79,7 @@
     position: absolute;
     margin-left: -200px;
     margin-top: 30px;
-    box-shadow: 0px 0px 13px -4px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.75);
     text-align: center;
     display: none;
     .sub-nav__triangle {
@@ -127,14 +132,14 @@
         color: #c1c3c6;
         font-size: 12px;
         display: block;
-        line-height: .6875rem;
-        letter-spacing: .035em;
+        line-height: 0.6875rem;
+        letter-spacing: 0.035em;
         text-transform: uppercase;
         color: #c1c3c6;
         margin-bottom: 12px;
       }
       .sub-nav__description {
-        color: #484D56;
+        color: #484d56;
         font-size: 12px;
         line-height: 18px;
       }
@@ -144,7 +149,7 @@
         display: block;
         clear: both;
         position: relative;
-        border-bottom: solid 1px #DBDADA;
+        border-bottom: solid 1px #dbdada;
         padding: 0 0 15px 0;
         margin-bottom: 25px;
         a {
@@ -160,7 +165,7 @@
         }
       }
       .sub-nav__inner--left {
-        border-right: solid 1px #DBDADA;
+        border-right: solid 1px #dbdada;
         width: calc(50% - 1px);
         height: 100%;
         display: inline-block;
@@ -176,8 +181,14 @@
         padding-left: 15px;
       }
     }
-
   }
+
+  // Styles for sub navigation caret
+  .link__carat {
+    color: $sauceRedAlt;
+    padding-left: $keyline / 2;
+  }
+
   ul.header__primary-nav {
     list-style-type: none;
     margin: 25px 0px 0px 0px;
@@ -188,9 +199,6 @@
       font-size: 16px;
       a {
         color: $greyDark;
-        &:hover {
-          font-weight: bold;
-        }
         &.btn.btn-primary {
           background-color: $sauceRedAlt;
           color: $pureWhite;
@@ -242,7 +250,7 @@
   display: inherit;
 }
 .--hide {
-  display: none!important;
+  display: none !important;
 }
 .--mobile {
   display: none;
@@ -254,14 +262,15 @@
 #searchbar {
   border-radius: 20px;
   background-color: $coolGrey10C25;
-  transition: background-color 400ms cubic-bezier(0,0,0.2,1);
+  transition: background-color 400ms cubic-bezier(0, 0, 0.2, 1);
   align-self: center;
   width: 160px;
   color: $grey800;
   paper-input-container {
     padding: 0;
 
-    label, input {
+    label,
+    input {
       color: #000;
     }
 
@@ -273,19 +282,18 @@
 
 @media (min-width: $tablet-breakpoint-min) {
   .logo-devs {
-    margin: 5px $keyline*4 0 0;
+    margin: 5px $keyline * 4 0 0;
   }
 }
 
 //custom nav tablet override
 @media only screen and (max-device-width: 1050px),
-only screen and (max-device-width: 1050px),
-only screen and (max-width: 1050px) {
+  only screen and (max-device-width: 1050px),
+  only screen and (max-width: 1050px) {
   #mainToolbar ul.header__primary-nav li a.btn.btn-primary {
-    display: none!important;
+    display: none !important;
   }
 }
-
 
 @media (max-width: $phone-breakpoint-max) {
   .--mobile {
@@ -298,7 +306,7 @@ only screen and (max-width: 1050px) {
     display: none;
   }
   .header__menu--mobile {
-    display: inline-block!important;
+    display: inline-block !important;
     position: absolute;
     right: 0px;
     top: 0px;
@@ -357,7 +365,7 @@ only screen and (max-width: 1050px) {
         color: $sauceRedAlt;
       }
       .header__mobile-sub-title {
-        font-size: .75rem;
+        font-size: 0.75rem;
         line-height: 1.3125rem;
         color: #ececee;
         margin-bottom: 3px;
@@ -388,13 +396,13 @@ only screen and (max-width: 1050px) {
         a {
           font-size: 1rem;
           line-height: 1.3125rem;
-          letter-spacing: .015em;
+          letter-spacing: 0.015em;
           color: #f83838;
           font-weight: bold;
         }
         span {
-          font-size: .75rem;
-          line-height: .9375rem;
+          font-size: 0.75rem;
+          line-height: 0.9375rem;
           color: #fff;
         }
       }
@@ -412,13 +420,13 @@ only screen and (max-width: 1050px) {
       .btn {
         font-size: 1rem;
         line-height: 2.375rem;
-        letter-spacing: .025em;
+        letter-spacing: 0.025em;
         background: $pureWhite;
         color: #ff221a;
         font-weight: bold;
-        display: inline-block!important;
+        display: inline-block !important;
         border-radius: 25px;
-        text-align: center!important;
+        text-align: center !important;
         padding: 5px 25px 5px 25px;
       }
       .btn-link {
@@ -437,25 +445,25 @@ only screen and (max-width: 1050px) {
 //animations
 .--fade-in-intro {
   animation-name: FadeIn;
-	-webkit-animation-name: FadeIn;
+  -webkit-animation-name: FadeIn;
   animation-duration: 0.5s;
-	-webkit-animation-duration: 0.5s;
-	animation-timing-function: ease-in-out;
-	-webkit-animation-timing-function: ease-in-out;
-	transition-timing-function: ease;
+  -webkit-animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+  transition-timing-function: ease;
 }
 //animations
 @keyframes FadeIn {
-	0% {
+  0% {
     opacity: 0;
     top: 25px;
     position: absolute;
     top: -55px;
-	}
-	100% {
+  }
+  100% {
     opacity: 1;
     top: 0px;
     position: absolute;
     top: 55px;
-	}
+  }
 }
