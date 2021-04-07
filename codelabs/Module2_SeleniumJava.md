@@ -226,11 +226,86 @@ Selenium is able to find and interact with elements on a page by way of various 
 ## 2.05 Setting Up Your First Java Test
 Duration: 0:15:00
 
-Here's the markup for a standard login form (pulled from the login example app on [the-internet](http://the-internet.herokuapp.com/login).
+### Project Setup
+In order to run your you first need to install a driver that can communicate with the version of the browser (Chrome, Firsfox, etc) you have on your local machine.
+### Installing Chromedriver
+In order for your test to run on a browser on your local machine, you need to install the driver for the browser, and update your code. A similar set of steps can be followed for any browser.
+
+First, check which version of chrome you are using by opening Chrome on your machine and checking the version.  
+
+<img src="assets/2.05K.png" alt="Chrome Version" width="550"/>
+
+Next, [download Chromedriver](https://chromedriver.chromium.org/). You can also download [Geckodriver](https://github.com/mozilla/geckodriver) for Chrome browser or [any other driver.](https://automationintesting.com/selenium/java/lessons/drivers.html] you will need for popular browsers) The driver version should match the version of the browser you have on your machine.
+
+#### Cheat Sheet
+
+[Driver Configuration Cheat Sheet](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
+
+Download the file, then unzip it and move it somewhere outside of your downloads folder. Here, I chose to move it inside of the Documents folder.
+
+<img src="assets/2.05M.png" alt="Driver Folder" width="550"/>
+
+#### Note
+
+Negative
+: Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, first open a terminal, and type in the command `sudo spctl --master-disable` to [disable Gatekeeper](https://osxdaily.com/2015/05/04/disable-gatekeeper-command-line-mac-osx/).
+
+Negative
+: Next, you need to allow app downloads from anywhere. Go to **System Preferences** on your Mac **> Security & Privacy**, then under the **General** tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers. <img src="assets/4.04K.png" alt="Allow Unidentified Files in Security and Privacy" width="650"/>
+
+Negative
+: On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver** or **geckodriver** manually.
+Once you have allowed this, find the Chromedriver in your file directory, double click on it, and force terminal to open it.
+
+#### Note
+Negative
+: If you are a first-time user of IntelliJ with Java, I highly recommend checking out the YouTube channel by JetBrains. [This is a great first video.](https://www.youtube.com/watch?v=H_XxH66lm3U)
+
+
+### Copy the Project Code (Optional)
+
+The next tutorial will show you how to write the code, step by step, but you also have the option to fork & clone, or download the project files:
+
+**[Selenium Course Example Code](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2/2.05)**
+
+
+If you pull down a project file from Github you will have to use IntelliJ to set up your environment to make sure you have a JDK & Maven set up with your project.
+
+Go to File → **Add Framework Support**.
+
+<img src="assets/2.05GG.png" alt="Add framework Support" width="350"/>
+
+
+Choose **Maven** and click **OK**.
+
+<img src="assets/2.05H.png" alt="Maven OK" width="350"/>
+
+
+Next, set up the SDK used to compile your Java code. Go to **File → Project Structure**.
+
+<img src="assets/2.05I.png" alt="Project structure" width="350"/>
+
+
+Under **Project Settings**, choose **Project**, then choose your SDK in the dropdown menu. You should see the SDK
+
+<img src="assets/2.05J.png" alt="Choose SDK" width="450"/>
+
+<!-- --------------- -->
+## 2.06 Create Your Java Test Code
+Duration: 0:15:00
+
+Now we are ready to start writing the code for your first test. Create a new project directory called **SeleniumJava** (in your main project directory on your computer), and inside create the directory **java**. This is a default folder that Maven will know to look for.
+
+Inside of your Java file create a package. This example is named **tests.** Inside of that create a file called **TestLogin.java**.
+
+<img src="assets/2.05Z.png" alt="Directory Structure" width="550"/>
+
+### What Are You Testing?
+We will be testing the login page for an example app on [the-internet](http://the-internet.herokuapp.com/login).
 
 ![Login Page](assets/2.05A.png)
 
-
+Take a look at the markup for this page:
 
 ```
 <form name="login" id="login" action="/authenticate" method="post">
@@ -260,84 +335,13 @@ Notice the element attributes on the form. The username input field has a unique
 Let's put these elements to use in our first test.
 
 
-### Setup Your Project File
+### Add the Filepath to Chromedriver
 
 
-First we will need to create a new project directory called `SeleniumJava` (your main project directory), and inside create a folder named `tests` inside that project directory. This is a default folder that Maven will know to look for.
+Copy and paste the following code into the file You will have to **Add your own filepath in the setUp() method** where you stored your chromedriver:
 
 
-You can see all of the files here.
-
-**[Selenium Course Example Code](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2/2.05)**
-
-### Note
-Negative
-: If you are a first-time user of IntelliJ with Java, I highly recommend checking out the YouTube channel by JetBrains. [This is a great first video.](https://www.youtube.com/watch?v=H_XxH66lm3U)
-
-If you pull down a project file from Github instead of creating it as outlined below, and want to test it on your machine, you will have to use IntelliJ to set up your environment with Maven to manage your files and specify which Java Development Kit (aka Software Development Kit)  you use (both of these should be installed on your computer ahead of time). If you download the source code, first open the project.
-
-If you pull down a project file from Github instead of creating it as outlined below, and want to test it on your machine, you will have to use IntelliJ to set up your environment with Maven to manage your files and specify which Java Development Kit (aka Software Development Kit)  you use (both of these should be installed on your computer ahead of time). If you download the source code, first open the project.
-
-Go to File → **Add Framework Support**.
-
-<img src="assets/2.05GG.png" alt="Add framework Support" width="350"/>
-
-
-Choose **Maven** and click **OK**.
-
-<img src="assets/2.05H.png" alt="Maven OK" width="350"/>
-
-
-Next, set up the SDK used to compile your Java code. Go to **File → Project Structure**.
-
-<img src="assets/2.05I.png" alt="Project structure" width="350"/>
-
-
-Under **Project Settings**, choose **Project**, then choose your SDK in the dropdown menu. You should see the SDK
-
-<img src="assets/2.05J.png" alt="Choose SDK" width="450"/>
-
-
-### Installing Chromedriver
-In order for your test to run on a browser on your local machine, you need to install the driver for the browser, and update your code. A similar set of steps can be followed for any browser.
-
-First, check which version of chrome you are using by opening Chrome on your machine and checking the version.  
-
-<img src="assets/2.05K.png" alt="Chrome Version" width="550"/>
-
-Next, [download Chromedriver](https://chromedriver.chromium.org/downloads]. You can also download [Geckodriver](https://github.com/mozilla/geckodriver) for Chrome browser or [any other driver.](https://automationintesting.com/selenium/java/lessons/drivers.html] you will need for popular browsers) The driver version should match the version of the browser you have on your machine.
-
-#### Cheat Sheet
-
-[Driver Configuration Cheat Sheet](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
-
-Download the file, then unzip it and move it somewhere outside of your downloads folder. Here, I chose to move it inside of the Documents folder.
-
-<img src="assets/2.05M.png" alt="Driver Folder" width="550"/>
-
-#### Note
-
-Negative
-: Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, first open a terminal, and type in the command `sudo spctl --master-disable` to [disable Gatekeeper](https://osxdaily.com/2015/05/04/disable-gatekeeper-command-line-mac-osx/).
-
-Negative
-: Next, you need to allow app downloads from anywhere. Go to **System Preferences** on your Mac **> Security & Privacy**, then under the **General** tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers. <img src="assets/4.04K.png" alt="Allow Unidentified Files in Security and Privacy" width="650"/>
-
-Negative
-: On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver** or **geckodriver** manually.
-Once you have allowed this, find the Chromedriver in your file directory, double click on it, and force terminal to open it.
-
-<!-- --------------- -->
-## 2.06 Create Your Java Test Project File
-Duration: 0:15:00
-
-Now we are ready to start writing the code for your first test. Create a new project directory called **SeleniumJava** (in your main project directory on your computer), and inside create the directory **java**. This is a default folder that Maven will know to look for.
-
-Inside of your Java file create a package with your company name. This example is named **tests.** Inside of that create a file called **TestLogin.java**.
-
-<img src="assets/2.05Z.png" alt="Directory Structure" width="550"/>
-
-Copy and paste the following code into the file You will have to **Add your own filepath** where you stored your chromedriver: An example of a filepath property in the beofre hook: `System.setProperty("webdriver.chrome.driver", "/Users/lindsaywalker/Documents/chromedriver");`
+<img src="assets/2.05AA.png" alt="Choose SDK" width="850"/>
 
 
 ```
@@ -362,7 +366,6 @@ public class TestLogin {
     public void setUp() {
         System.setProperty("webdriver.chrome.driver",  "<insert filepath to chromedriver here>");
         ChromeOptions browserOptions = new ChromeOptions();
-        browserOptions.setCapability("browserVersion", "86.0"); //replace this with your version
         driver = new ChromeDriver(browserOptions);
     }
 
@@ -389,6 +392,7 @@ Negative
 : The two imported classes may delete themselves or turn grey – the IntelliJ IDE will intentionally clean up code and remove the import of unnecessary classes to speed up the running of your code.
 <img src="assets/2.05O.png" alt="Chrome Version" width="550"/>
 
+### Test Code Overview
 
 The top of the file is where the dependencies go. In order for the instantiation of Selenium to work with Firefox, we need to specify the path to the Chromedriver we downloaded into the vendor directory.
 
@@ -397,30 +401,18 @@ Here you will notice JUnit4 annotations being imported, as well as the Selenium 
 After importing the drivers and tools classes for JUnit4 and Selenium we create a class, `public class TestLogin {}`,  and declare a field variable to store and reference an instance of Selenium WebDriver, `private WebDriver driver;`.
 
 
-### @Before and @After Annotations
+#### @Before and @After Annotations
 
 After creating the class, we add setup and teardown methods using what is known as annotations, using `@Before` and `@After`. In them we're creating an instance of Selenium (storing it in driver) and closing it with `driver.quit();`. Thanks to the `@Before` annotation, the` public void setUp()` method will load before the test and the `@After` annotation will make the `public void tearDown()` method load after the test.
 
 This abstraction using the JUnit4 annotations library enables us to write our test with behavior we want to exercise in the browser, rather than clutter it up with setup and teardown details written in Java.
 
-### Capabilities & Properties
-
-Capabilities are an essential part of any test. When we instantiate a chromedriver for a test, whether it's locally or on our own machine, we can pass information, such as the environment we want the test to run on, in these capabilities. In this example, the only capability that is set is the `browserOptions.setCapability("browserVersion", "86.0");`. Remember when you installed your chromedriver? You want the browserVersion to match the version of the chromedriver you set.
-
-You will also need to set the path to the place on your computer where you unzipped the chromedriver. in the example, If you had your chromedriver unzipped in a user's Documents directory you would replace `System.setProperty("webdriver.chrome.driver",  "<insert filepath to chromedriver here>");` with `System.setProperty("webdriver.chrome.driver",  "/Users/username/Documents/chromedriver");` .
 
 #### Note
 
 Negative
 : **How to Find Dependencies Using IntelliJ**:
  If your test file doesn’t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out. See the video [IntelliJ_Dependencies ](https://youtu.be/PDPl_pHo0K0) on using IntelliJ to install dependencies and update the .pom file <video id="PDPl_pHo0K0"></video>
-
-
-### Use GitHub Repository (Optional)
-
-If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
-
-**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod1/1.06/src/test/java/companyname/TestLogin.java)**
 
 
 ### Run a Test with IntelliJ
@@ -435,28 +427,16 @@ Follow the instructions here in [2.05_IntelliJ_Tests](https://youtu.be/qWi8Rk1R4
 <video id="qWi8Rk1R4Gw"></video>
 
 Negative
-: **Check driver path and browser version–** If your tests aren't running correctly, double check that the `System.setProperty("webdriver.chrome.driver")` has the full path to where you installed the chromedriver, and that the `browserOptions.setCapability("browserVersion", "XX.0");` matches the version of both the browser you have on your computer, and the version of the chromedriver you installed.
+: **Check driver path and browser version–** If your tests aren't running correctly, double check that the `System.setProperty("webdriver.chrome.driver")` has the full path to where you installed the chromedriver, and that the version of the Chromedriver you installed matches the browser version on your computer.
 
 
 <!-- ------------------------ -->
 
-## 2.07 JUnit Test Assertions
+## 2.07 Add a Test Assertion
 Duration: 0:10:00
 
 Assertions are statements that are used at a certain point in the test code (usually following a certain sequence of events) that check to see if some condition is true or false. The test code you created thus far simply tells your test what elements to look for on the page, and what to do with those elements.
 
-
-#### Note
-Negative
-: If you had difficulty before getting your test to run because your test had trouble locating chromedriver, you can create a `/lib` directory in the root of the project folder, and place the extracted chromedriver there. <img src="assets/2.06E.png" alt="New lib directory" width="400"/> <img src="assets/2.06F.png" alt="Add chromedriver to lib" width="700"/>
-
-Negative
-: If you do change the location of the chromedriver, you will need to modify your system.setProperty to the following: <img src="assets/2.06G.png" alt="update path to chromedriver" width="700"/> ```  // Set location of chromedriver
-        if (System.getProperty("os.name").startsWith("Windows")) {
-            System.setProperty("webdriver.chrome.driver", "lib/drivers/chromedriver.exe");
-        } else {
-            System.setProperty("webdriver.chrome.driver", "lib/drivers/chromedriver");
-        }```
 
 ### Add an Assertion
 
@@ -467,7 +447,7 @@ Now it’s time to add in an assertion to see if your actions had the desired ef
 
 Start by opening the blank `TestLogin.java` file you created in the `tests` directory.
 
-Copy and paste the following code into your program file, between the `@Before` and `@After `Assertions.
+Copy and paste the following code into your program file, in the last line of the `@Test`Assertion (after `driver.findElement(By.cssSelector("button")).click();`).
 
 
 ```
@@ -482,11 +462,7 @@ public class TestLogin {
     @Before
 // ...
     @Test
-    public void succeeded() {
-        driver.get("http://the-internet.herokuapp.com/login");
-        driver.findElement(By.id("username")).sendKeys("tomsmith");
-        driver.findElement(By.id("password")).sendKeys("SuperSecretPassword!");
-        driver.findElement(By.cssSelector("button")).click();
+// ...
         assertTrue("success message not present",
                 driver.findElement(By.cssSelector(".flash.success")).isDisplayed());
     }
@@ -509,34 +485,31 @@ Watch this [video](https://youtu.be/w3XcmSJxqcg) to understand importing classes
 
 <video id="https://youtu.be/w3XcmSJxqcg"></video>
 
+### Code Summary
 
-Our test is a method as well, `public void succeeded()`. JUnit4 knows this is a test because of the `@Test` annotation. In this test we're visiting the login page by it's URL with `driver.get(); `,finding the input fields by their ID with `driver.findElement(By.id()`), sending them text with `.sendKeys(); , `and submitting the form by clicking the submit button `with By.cssSelector("button")).click();`.
-
-If we save this and run it ( `mvn clean test` from the terminal), it will run and pass. But there's one thing missing -- an assertion. In order to find an element to make an assertion against, we need to see what the markup is after submitting the login form.
+Our test contains a method, `public void succeeded()`. JUnit4 knows this is a test because of the `@Test` annotation it is inside of. In this test we're visiting the login page by it's URL with `driver.get(); `,finding the input fields by their ID with `driver.findElement(By.id()`), sending them text with `.sendKeys(); , `and submitting the form by clicking the submit button `with By.cssSelector("button")).click();`.
 
 First, we had to import the JUnit4 assertion class. By importing it as static we're able to reference the assertion methods directly (without having to prepend Assert.). Next we add an assertion to the end of our test.
 
 With `assertTrue` we are checking for a true (Boolean) response. If one is not received, a failure will be raised and the text we provided (`"success message not present"`) will be displayed in the failure output. With Selenium we are seeing if the success message is displayed with `.isDisplayed()`. This Selenium command returns a true or false value. So if the element is visible in the browser, true will be returned, and our test will pass.
 
 
-### CSS selectors
-
-In web design CSS (Cascading Style Sheets) are used to apply styles to the markup (HTML) on a page. CSS is able to do this by declaring which bits of the markup it wants to alter through the use of selectors. Selenium operates in a similar manner but instead of changing the style of elements, it interacts with them by clicking, getting values, typing, sending keys, etc.
-
-CSS selectors are a good way to write locators, especially for hard to reach elements.
-
-For right now, here's what you need to know. In CSS, class names start with a dot (.). For classes with multiple words, put a dot in front of each word, and remove the space between them (e.g., .flash.success for class='flash success'). [Learn more on Sauce Labs](https://saucelabs.com/resources/articles/selenium-tips-css-selectors)
-
-### Note
-
-Negative
-: If you find that your tests are failing, try running the command `source ~/bash_profile `(or `source ~/.zhsrc `for MacOS Catalina) in the command line. This tells your machine to look at your bash profile to find the path to Maven and other dependencies. If it doesn't return your variable when you run the command `echo $JAVA_HOME` it means you need to upate your PATH and variables for Maven and Java.
-
-
 ### Video
 
-[See this video](https://youtu.be/qWi8Rk1R4Gw) to learn the steps for running a test using the IntelliJ Interface and Maven.
+Watch [Run Your Test with Maven](https://youtu.be/qWi8Rk1R4Gw) to learn the steps for running a test using the IntelliJ IDE and Maven.
 <video id="qWi8Rk1R4Gw"></video>
+
+#### Note
+Negative
+: If you had difficulty before getting your test to run because your test had trouble locating chromedriver, you can create a `/lib` directory in the root of the project folder, and place the extracted chromedriver there. <img src="assets/2.06E.png" alt="New lib directory" width="400"/> <img src="assets/2.06F.png" alt="Add chromedriver to lib" width="700"/>
+
+Negative
+: If you do change the location of the chromedriver, you can modify your `system.setProperty` to the following: <img src="assets/2.06G.png" alt="update path to chromedriver" width="700"/> ```  // Set location of chromedriver
+        if (System.getProperty("os.name").startsWith("Windows")) {
+            System.setProperty("webdriver.chrome.driver", "lib/drivers/chromedriver.exe");
+        } else {
+            System.setProperty("webdriver.chrome.driver", "lib/drivers/chromedriver");
+        }```
 
 ### Test Your Code with a Failure
 
@@ -545,7 +518,7 @@ Just to make certain that this test is doing what we think it should, let's chan
 
 ```
       assertTrue("success message not present",
-                driver.findElement(By.cssSelector(".flash.successasdf")).isDisplayed());
+                driver.findElement(By.cssSelector(".flash.NOTsuccessas")).isDisplayed());
 
 
 ```
