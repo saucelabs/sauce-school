@@ -22,7 +22,7 @@ Every endpoint is an integral part of an API program, and that means validating 
 
 ### Test Everything
 
-API payloads are filled with information. You should not only be testing every _object_, but the header also contains vital information. _Response-Type_, _Statuscode_, _Content-Type_, every piece of information in an API call is important to validate.
+API payloads are filled with information. You should not only be testing every _object_, but the header also contains vital information such as _Response-Type_, _Statuscode_, and _Content-Type_ which is important to validate.
 
 <img src="assets/wp-content/uploads/2019/06/uber-payload-header.png" alt="API Payload" width="850"/>
 

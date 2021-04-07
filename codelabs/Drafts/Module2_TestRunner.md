@@ -206,7 +206,7 @@ saucectl run --test-env docker
 
 <img src="assets/TRT2.04D.png" alt="Running Cypress Test local app in Docker mode" width="650"/>
 
-<!-- ------------------------
+<!-- ------------------------ -->
 ## 2.05 Setup Your Cypress Test in GitHub Actions
 Duration: 0:07:00
 
@@ -305,7 +305,7 @@ Negative
 
 
 
-<!-- ------------------------
+<!-- ------------------------ -->
 ## 2.06 Create the Github Actions Test Job
 Duration: 0:02:00
 
