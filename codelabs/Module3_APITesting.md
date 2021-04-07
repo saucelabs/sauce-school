@@ -219,11 +219,6 @@ This is hugely important to allow the test to be easily run against any environm
 
 Each time you generate a test, notice the `Var: payload` in the **Get** component. This is generated when your test is generated. What happens is that when you call an API, and get response, that entire payload is automatically stored in a variable called `payload`.
 
-<<<<<<< HEAD
-=======
-Each time you generate a test, notice the `Var: payload` in the **Get** component. This is generated when your test is generated. What happens is that when you call an API, and get response, that entire payload is automatically stored in a variable called `payload`.
->>>>>>> master
-
 <img src="assets/API3.03V.png" alt="Input Set" width="850"/>
 
 #### Note
