@@ -223,7 +223,7 @@ Each time you generate a test, notice the `Var: payload` in the **Get** componen
 
 #### Note
 Negative
-: You can also access performance metrics such as latency, fetch, and overall response time, and these can be added as assertions within the test itself. See [this page](https://apifortress.com/doc/assertions-for-metrics-performance/) for more information.
+: You can also access performance metrics such as latency, fetch, and overall response time, and these can be added as assertions within the test itself. See [this page](https://docs.saucelabs.com/api-testing/how-to/assertions-for-metrics-performance/) for more information.
 
 ### Assertions
 Now, the assertions. [There are over 70 assertions](https://assertible.com/docs/guide/assertions#:~:text=Assertions%20allow%20you%20to%20validate,time%20a%20test%20is%20run.) possible for an API test.  You can see the next four lines are `assert` statements for each object. Looking at the first you will see:  
@@ -410,13 +410,9 @@ You will need to edit the `Var=` in the **Get** method at the top of your own te
 Still much easier than recreating the entire for loop! Run your test to see the report.
 
 ### Adding and Editing Variables
-<<<<<<< HEAD
 
 Access the Vault and add variables and code snippets by first clicking on the **Vault** in the main menu.
 
-=======
-Access the Vault and add variables and code snippets by first clicking on the **Vault** in the main menu.
->>>>>>> master
 
 <img src="assets/API3.04E.png" alt="The Vault" width="650"/>
 
