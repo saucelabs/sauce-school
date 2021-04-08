@@ -120,7 +120,9 @@ This video is intended to show an example for how to update your test capabiliti
 * Run the updated test code in Sauce Labs using Sauce Connect Proxy.
 
 #### Video
+[Run a Test with Sauce Connect Proxy](https://youtu.be/8ZJWuIWz1Q0)
 
+<video id="8ZJWuIWz1Q0"></video>
 
 #### Note
 Negative
