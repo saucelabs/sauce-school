@@ -3,7 +3,7 @@
 summary: In Module 5 of the API Testing course, you will learn how to execute these tests in a couple different ways, learning the automated ways of kicking off and scheduling the tests you have created.
 id: Module5-APITesting
 categories: advanced
-tags: api
+tags: zapi
 environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8

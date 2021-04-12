@@ -176,7 +176,7 @@ Once you have a project directory containing cypress tests on your machine, navi
 
 #### Note
 Negative
-: You will want to make sure your Cypress tests are (and the project structure) works with the same version that you have listed in the `.sauce/config.yml `file. If you are installing `saucectl` in an existing project, make sure that in the setup workflow, you do not overwrite any of the existing files. <img src="assets/TRT1.03D.png" alt="Project directory setup" width="800"/>
+: You will want to make sure your Cypress tests are (and the project structure) works with the same version that you have listed in the `.sauce/config.yml` file. If you are installing `saucectl` in an existing project, make sure that in the setup workflow, you do not overwrite any of the existing files. <img src="assets/TRT1.03D.png" alt="Project directory setup" width="800"/>
 
 To create a new directory, you can use the command
 
@@ -390,7 +390,7 @@ d. The number of machines you want to run concurrently on Sauce Labs, which test
 ## 1.06 Create Page Objects (Optional)
 Duration: 0:05:00
 
-Sauce Labs’ Testrunner Toolkit allows you to take existing Cypress test suites (or build a cypress test suite) and quickly run it on Sauce Labs. In this lesson, you will learn how to modify a couple settings in the `cypress.json` and `.sauce/config.ym`l files, then write a basic test and run it on Sauce Labs.
+Sauce Labs’ Testrunner Toolkit allows you to take existing Cypress test suites (or build a cypress test suite) and quickly run it on Sauce Labs. In this lesson, you will learn how to modify a couple settings in the `cypress.json` and `.sauce/config.yml` files, then write a basic test and run it on Sauce Labs.
 
 #### Video
 
