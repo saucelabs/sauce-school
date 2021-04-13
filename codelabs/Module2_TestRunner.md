@@ -20,11 +20,13 @@ Duration: 0:01:00
 
 * How to install and set up Sauce Connect Proxy Tunnel on your machine
 * Run a Cypress test through the Sauce Connect Proxy
-* Set up and test a local app with SauceCTL
+  * Using your own tunnel you set up
+  * Using a parent tunnel
+* Configure and test a local app with SauceCTL
   * On Sauce Labs VM (in _Sauce Mode_)
   * On Docker, passing results to Sauce Labs (in _Docker Mode_)
-* Set up your Cypress tests and App in a CI tool (GitHub Actions) Passing information to Sauce labs
-* Create test jobs to run in Github Actions to run with Sauce Labs
+* Setup your Cypress tests and app code in a CI tool (GitHub Actions) passing information to Sauce Labs
+* Create and run a workflow with jobs that build and test an example app using GitHub Actions
 
 
 <!-- ------------------------ -->
@@ -104,9 +106,10 @@ After `-u` you see your username and after `-k` you have your access key, and `-
 ## 2.03 Run Your Cypress Test with Sauce Connect
 Duration: 0:04:00
 
-With Sauce Control and Testrunner Toolkit, you can use Sauce Connect Proxy to run your Cypress tests thorugh a secure proxy tunnel when you run tests the Sauce Labs cloud of virtual machines (in the `sauce` `test-env`) or in Docker, passing the data to Sauce Labs.
+With Sauce Control and Testrunner Toolkit, you can use Sauce Connect Proxy to run your Cypress tests thorugh a secure proxy tunnel when you run tests the Sauce Labs cloud of virtual machines (in `--test-env sauce`) or in Docker, passing the data to Sauce Labs.
 
-First, make sure that your Sauce Connect tunnel is currently running, as per the instructions in the last module. Now you can make a simple change to `.sauce/config.yml` and run your Cypress test
+Negative
+: First, make sure that your Sauce Connect tunnel is currently running, as per the instructions in the last module. Now you can make a simple change to `.sauce/config.yml` and run your Cypress test
 
 #### Video
 
@@ -146,7 +149,8 @@ See the most up to date [configuration in the docs](https://docs.saucelabs.com/t
 ```
 saucectl run --tunnel-id walkerlj0_shared_tunnel --tunnel-parent walkerlj0
 ```
-
+#### Final Code
+See the [example project](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod2/2.03) to see how the `tunnel` field is modified in `config.yml`.
 
 <!-- ------------------------ -->
 ## 2.04 Test a Local App With Sauce Labs
@@ -160,7 +164,7 @@ In this example, we will be downloading the Swag Labs web app, and running it lo
 
 ### Download Swag Labs (Optional)
 
-If you would like to follow along, download or fork the [example web app](https://github.com/saucelabs/sample-app-web). You can follow the [ReadMe](https://github.com/saucelabs/sample-app-web) and get it running locally. The basic steps are:
+If you would like to follow along, download or fork the [example web app](https://github.com/saucelabs/sample-app-web). You can follow the [README](https://github.com/saucelabs/sample-app-web) and get it running locally. The basic steps are:
 * Fork or download a copy of the project
 * Use `npm install` to install dependencies
 * Start the app with `npm run start`
@@ -194,13 +198,13 @@ saucectl run
 
 ### Test a Local App in Docker Mode
 
-To run tests in _docker mode_ (test are runnning in a Docker container) against an app running on your local machine, and pass the test results to Sauce Labs, you can stop any Sauce Connecrt tunnels you have running, then update the BaseURL variable.
+To run tests in _Docker mode_ (test are running in a Docker container) against an app running on your local machine, and pass the test results to Sauce Labs, you can stop any Sauce Connect tunnels you have running, then update the BaseURL variable.
 
 #### Update the Test URL
 
-First, update the BaseURL in your `cypress.json` file to `http://host.docker.internal:3000` so Testrunner Toolkit will look for the app running on port 3000 on your local machine:
+First, update the BaseURL in your `cypress.json` file to `http://host.docker.internal:3000` so Testrunner Toolkit will run against the app running on port 3000 on your local machine:
 
-<img src="assets/TRT2.04F.png" alt="Update Cypress Test BaseURL to run local app in docker mode" width="650"/>
+<img src="assets/TRT2.04F.png" alt="Update Cypress Test BaseURL to run local app in Docker mode" width="650"/>
 
 #### Run Your Test in Docker Mode
 Now, you simply need to ensure your app is running on your local machine, and run the command:
@@ -211,19 +215,22 @@ saucectl run --test-env docker
 
 <img src="assets/TRT2.04D.png" alt="Running Cypress Test local app in Docker mode" width="650"/>
 
+#### Final Code
+[See the example project](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod2/2.04) with the swag labs app set to run locally, testing on Sauce Labs' VM
+
+
 <!-- ------------------------ -->
 ## 2.05 Setup Your Cypress Test in GitHub Actions
 Duration: 0:07:00
 
 In this lesson you will learn how to set up everything you need to run the example Swag Labs app with Github Actions. If you already have a pipeline set up in GitHub actions, you can quickly set things up using the [page in docs](https://docs.saucelabs.com/testrunner-toolkit/integrations/github-actions).
 
-Now that you have a test run on Sauce Connect, and have run a test against a locally hosted app, you are ready to set up your test in a Continuous Integration (CI) tool run through Sauce Connect.
+Now that you know how to run a test against a locally hosted app, as well as use Sauce Connect, you are ready to set up your test in a Continuous Integration (CI) tool run through Sauce Connect. You can follow along using the same _Swag Labs_ app you used in the previous module.
 
 #### Video
 
 In this example we will be using Github Actions, but you can use another CI tool such as [Jenkins](https://docs.saucelabs.com/testrunner-toolkit/integrations/jenkins).
 
-If you already have a Github account, you can get started by visiting the [Github Actions Homepage](https://github.com/features/actions).
 
 ### What You'll Need
 * [GitHub Account](https://github.com/join)
@@ -233,10 +240,11 @@ If you already have a Github account, you can get started by visiting the [Githu
     * The ability to create and store [GitHub secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)
 * The command used to launch the build of your app
 
+_Learn more at the [Github Actions Homepage](https://github.com/features/actions)._
 ### Set Up Your Project
 
-#### Create or Fork a GitHub Repository for Your App
-If you are following along with the Swag Labs app, create a new private fork for your version of the app:
+#### Create a Copy of the App
+If you are following along with the [Swag Labs app](https://github.com/saucelabs/sample-app-web), create a new private fork, or download a version of the app:
 
 <img src="assets/TRT2.05C.png" alt="Set up github repo" width="450"/>
 
@@ -254,11 +262,15 @@ In your new repository, take a copy of the `cypress.json` and `/cypress` directo
 <img src="assets/TRT2.05D.png" alt="Copy tests into project" width="650"/>
 
 ### Initialize a SauceCTL Project in Your App
-Now that you have a copy of your Cypress test files in your app. This can be done two ways
-* Run `saucectl new` and update the `.sauce/config.yml` file to contain the same thing as the one in your other test directory
-* Copy `.sauce/config.yml` and `.sauceignore` from your test project into your app file.
+Now that you have a copy of your Cypress test files in your app. This can be done two ways:
+* Run `saucectl new` and update the `.sauce/config.yml` file to contain the same thing as the one in your other test directory.
+* Copy `.sauce/config.yml` and `.sauceignore`, as well as the `cypress` and `cypress.json` files from your test project into your app file.
 
 <img src="assets/TRT2.05F.png" alt="files copied into project" width="650"/>
+
+#### Note
+Negative
+: If you are using the sample app, you will want to make it so the workflows from the other `.yml` files included in this app don't run (in the directory `.github/workflow`) by appending `.bak` on the end, this way the other workflows in the app won't run when you commit or push. <img src="assets/TRT2.05G.png" alt="The YML file" width="550"/>
 
 ### Create GitHub Secrets
 
@@ -291,118 +303,7 @@ Create a new file called `testrunner.yml`:
 In the `testrunner.yml` file, copy and paste in the following:
 
 
-```yaml
-name: Sauce Cypress Pipeline Demo Tests
-
-on:
-  pull_request:
-  push:
-    branches:
-      - master
-
-env:
-  SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
-  SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
-
-jobs:
 ```
-The `on:` object allows you to specify [events](https://docs.github.com/en/actions/reference/events-that-trigger-workflows) that occur in a workflow, such as tests run against your repository. in this case the run on every pull request, and with every push to the `master` branch.
-
-The `env:` object allows you to specify environment variables, which are stored as [Github secrets](https://docs.github.com/en/actions/reference/encrypted-secrets), for use in your tests. The `jobs:` object allows you to specify a group of individual actions that occur each time your app, in this case, has a pull request or push to master. Jobs are covered in the next module.
-
-
-#### Note
-Negative
-: Setting `env` variables at the top of the file enables it globally, so all jobs in the workflow have access to these variables, so all jobs can use these variables, without specifying it in each job.
-
-
-
-
-<!-- ------------------------ -->
-## 2.05 Setup Your Cypress Test in GitHub Actions
-Duration: 0:07:00
-
-In this lesson you will learn how to set up everything you need to run the example Swag Labs app with Github Actions. If you already have a pipeline set up in GitHub actions, you can quickly set things up using the [page in docs](https://docs.saucelabs.com/testrunner-toolkit/integrations/github-actions).
-
-Now that you have a test run on Sauce Connect, and have run a test against a locally hosted app, you are ready to set up your test in a Continuous Integration (CI) tool run through Sauce Connect.
-
-#### Video
-
-In this example we will be using Github Actions, but you can use another CI tool such as [Jenkins](https://docs.saucelabs.com/testrunner-toolkit/integrations/jenkins).
-
-If you already have a Github account, you can get started by visiting the [Github Actions Homepage](https://github.com/features/actions).
-
-### What You'll Need
-* [GitHub Account](https://github.com/join)
-* [Sauce Labs Account](https://saucelabs.com/sign-up)
-* The following permissions in GitHub:
-    * The ability to create and manage workflows
-    * The ability to create and store [GitHub secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)
-* The command used to launch the build of your app
-
-### Set Up Your Project
-
-#### Create or Fork a GitHub Repository for Your App
-If you are following along with the Swag Labs app, create a new private fork for your version of the app:
-
-<img src="assets/TRT2.05C.png" alt="Set up github repo" width="450"/>
-
-#### Note
-Negative
-: To follow along, fork then download a copy of the [example web app](https://github.com/saucelabs/sample-app-web). Find a directory to store it on your computer, and use `git clone your-forked-repo` to make a local copy, then `git add .`, `commit -m "initial commit"` and `git push` to push your local changes.
-
-
-We will set up our test to run on every pull request made to a code repository.
-
-### Copy Your Cypress Tests Into Your Project
-
-In your new repository, take a copy of the `cypress.json` and `/cypress` directory from the test code you had earlier, and add copies to your application.
-
-<img src="assets/TRT2.05D.png" alt="Copy tests into project" width="650"/>
-
-### Initialize a SauceCTL Project in Your App
-Now that you have a copy of your Cypress test files in your app. This can be done two ways
-* Run `saucectl new` and update the `.sauce/config.yml` file to contain the same thing as the one in your other test directory
-* Copy `.sauce/config.yml` and `.sauceignore` from your test project into your app file.
-
-<img src="assets/TRT2.05F.png" alt="files copied into project" width="650"/>
-
-#### Note
-Negative
-: It would be a good idea to make the other `.yml` files included in this app `.github/workflow` files backup files by appending `.bak` on the end, this way the other workflows in the app won't run when you commit or push. <img src="assets/TRT2.05G.png" alt="The YML file" width="550"/>
-
-### Create GitHub Secrets
-
-The first order of business is to export your [Sauce Labs account credentials](https://app.saucelabs.com/user-settings) and store them as GitHub Secrets.
-
-1. Navigate to your project repository and select the __settings__ icon
-
-
-2. Select __Secrets__
-3. Click the __New secret__ button
-4. Add the following:
-    * Name: `SAUCE_USERNAME`
-    * Value: `your-sauce-username`
-5. Click __Add secret__ to finish.
-6. Repeat the same steps above for your `SAUCE_ACCESS_KEY` (Not sure where to find `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` in Sauce Labs? They're [here](https://app.saucelabs.com/user-settings)).
-
-<img src="assets/TRT2.05E.png" alt="Github Secrets" width="750"/>
-
-#### Create YAML File
-
-In your project file (in this example we will use the Swag Labs web app you downloaded) create a directory called `.github`, then within that, create a directory called `workflows`.
-
-<img src="assets/TRT2.05A.png" alt="Set up github directory" width="450"/>
-
-We will need to create a [new `.yml` file](https://docs.github.com/en/actions/quickstart) that is used to give instructions to Github Actions. This file will define the test jobs that will run on certain triggers called [events](https://docs.github.com/en/actions/reference/events-that-trigger-workflows).
-Create a new file called `testrunner.yml`:
-
-<img src="assets/TRT2.05B.png" alt="The YML file" width="450"/>
-
-In the `testrunner.yml` file, copy and paste in the following:
-
-
-```yaml
 name: Sauce Cypress Pipeline Demo Tests
 
 on:
@@ -415,105 +316,230 @@ env:
   SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
   SAUCECTL_VERSION: "0.34.1"
+  BUILD_PREFIX: true
 
 jobs:
 ```
+
+
+
 The `on:` object allows you to specify [events](https://docs.github.com/en/actions/reference/events-that-trigger-workflows) that occur in a workflow, such as tests run against your repository. in this case the run on every pull request, and with every push to the `master` branch.
 
-The `env:` object allows you to specify environment variables, which are stored as [Github secrets](https://docs.github.com/en/actions/reference/encrypted-secrets), for use in your tests. The `jobs:` object allows you to specify a group of individual actions that occur each time your app, in this case, has a pull request or push to master. Jobs are covered in the next module.
+The `env:` object allows you to specify environment variables, which are stored as [Github secrets](https://docs.github.com/en/actions/reference/encrypted-secrets), for use in your tests setting it at the top allows all actions to run using these variables.
+
+The `jobs:` object allows you to specify a group of individual actions that occur each time your app, in this case, has a pull request or push to master. Jobs are covered in the next module.
 
 
 #### Note
 Negative
-: Setting `env` variables at the top of the file enables it globally, so all jobs in the workflow have access to these variables, so all jobs can use these variables, without specifying it in each job.
+: The `SAUCECTL_VERSION` variable should be set to the [latest release version listed](https://github.com/saucelabs/saucectl).
 
 
 
 
 <!-- ------------------------ -->
-## 2.06 Create the Github Actions Test Job
+## 2.06 Create and Run a Github Actions Test Job
 Duration: 0:08:00
 
 Github Actions is a community that has [a collection of repositories](https://github.com/actions) that allows you to automate tasks such as testing, publishing, and deploying your projects that you have published on Github. Github actions works by creating a virtual environment where you will build and test the app (e.g. the code you have committed to your repo).
 
-In this lesson, you are going to use actions that:
+In this lesson, you are going to use actions to create two jobs:
 * **build-web-app**
   * Do a check to make sure you can build your web app
 * **test-web-app**
-  * Install Python to the environment in Github actions where your tests are run
-  * Checkout the code for the web app from your repo
+  * Use the [action](https://github.com/actions/setup-python) to install Python to the environment where your tests are run
+  * Use the [action](https://github.com/actions/checkout) to checkout the code for the web app from your repo
   * Install `npm` dependencies
   * Build your app (again) to test against
-  * Set Up Sauce Connect Tunnel
-  * Install & use `saucectl` to run your tests
-
-### Create a Job to Launch Sample App
-
-<<<<<<< Here
+  * Use the [action](https://github.com/saucelabs/sauce-connect-action) to setup Sauce Connect Tunnel
+  * Use the [action](https://github.com/marketplace/actions/saucectl-run-action) to install & use `saucectl` to run your tests
 
 
-### Build Your Tests
+### Create a Job to Build Your App
+
+The first thing you will need to do is create a job that will quickly build your app to test and make sure it can be built successfully, before running the next action that builds and run the tests.
 ```
-```
-<<<<<<< Break this down
-
-### Install Python
-https://github.com/actions/setup-python
-
-### Checkout Code & Install Dependencies
-
-### Build Your App
-
-### Set Up Sauce Connect
-
-```
-- name: Download and Use Sauce Connect Tunnel
+jobs:
+  build-web-app:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Dependencies
         run: |
-          set -e
-          # download and unzip sauce connect proxy binary
-          curl -L -s https://saucelabs.com/downloads/sc-4.6.4-linux.tar.gz | sudo tar -xvz
-          # run the sauce connect tunnel using your sauce labs username and access key, and define a proxy tunnel id
-          sc-4.6.4-linux/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -i proxy-tunnel-$GITHUB_RUN_ID &
+          npm install
+      - name: Run Build
+        env:
+          CI: false
+        run: |
+          npm run build
 ```
-Under your SAUCE_USERNAME
-[Check here](https://github.com/saucelabs/saucectl)
+### Create a Job to Test the App
+Now that you have the test build job created, you can create another job that will test the web app. At the same level as the **build-web-app**, create a **test-web-app** job:
 
-### Use saucectl to Run Tests
+```
+name: Sauce Cypress Pipeline Demo Tests
 
-note that saucectl usese -`i proxy-tunnel-$GITHUB_RUN_ID` this spins up (& tears down) a new tunnel each time this is run
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+env:
+  SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
+  SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
+  SAUCECTL_VERSION: "0.34.1"
+  BUILD_PREFIX: true
+
+jobs:
+  build-web-app:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Dependencies
+        run: |
+          npm install
+      - name: Run Build
+        env:
+          CI: false
+        run: |
+          npm run build
+  test-web-app:
+```
+ Add in the **runs-on**, **needs**, and **steps** fields:
+
+ ```
+   test-web-app:
+    runs-on: ubuntu-latest
+    needs: build-web-app
+    steps:
+ ```
+
+This test job **needs** the `build-web-app` job to run first, and that the names of these should match. The **runs-on** specifies the virtual environment that GitHub Actions runs the app and tests in (an Ubuntu container).
+
+#### Note
+Negative
+: The variable `CI` is one recognized by CI tools, and if it's set to the default `true`, that may in fact cause [errors when running a build](https://dev.to/kapi1/solved-treating-warnings-as-errors-because-of-process-env-ci-true-bk5) of your app.
+
+#### Install Python
+Python is used within the virtual Ubuntu environment to serve the app you are testing, (A NodeJS server is running your tests, and we don't want them to have race conditions) so when you run the test-web-app job, install Python first:
+
+```
+steps:
+  - name: Install Python
+    uses: actions/setup-python@v2
+    with:
+      python-version: 3.7
+```
+
+#### Checkout Code
+
+ Underneath the Python installation action, you will add in the command so your workflow (`testrunner.yml`) can access your repository code in a specific point in time.
+
+This action checks out your repository code, based on the latest commit on your working branch, and stores it in the variable `$GITHUB_WORKSPACE`.
+
+
+
+
+```
+steps:
+  ...
+  - name: Checkout Github App Code
+    uses: actions/checkout@v2
+```
+
+#### Install Dependencies
+The tests are run using a NodeJS server within the GitHub Ubuntu environment, and Node Package Manager (`npm`) is used to update and install the related dependencies
+
+```
+steps:
+  ...
+  - name: Install Dependencies
+    run: |
+      npm install
+```
+
+#### Build Your App
+Here your workflow will build your app again, preparing it to be tested against.
+
+```
+steps:
+  ...
+  - name: Run Build
+    env:
+      CI: false
+    run: |
+      npm run build
+```
+
+#### Set Up Sauce Connect
+This action uses the Sauce Connect Action which will downoload the Sauce Connect proxy software to the virtual Ubuntu environment tho commands:
+* Sets your environment to exit the process if there is an error running the tunnel
+* Install Sauce Connect
+* Start the Sauce Connect Proxy Tunnel
+
+under the `Run Build` step, add in:
+
+```
+steps:
+  ...
+  - name: Download & Use Sauce Connect Tunnel
+    run: |
+      set -e
+      curl -L -s https://saucelabs.com/downloads/sc-4.6.4-linux.tar.gz | sudo tar -xvz
+      sc-4.6.4-linux/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -i proxy-tunnel-$GITHUB_RUN_ID &
+```
+
+Note that in this case the flag -`i proxy-tunnel-$GITHUB_RUN_ID` spins up (& tears down) a new tunnel each time the workflow is run.
+
+Negative
+: Make sure you have GitHub secrets set up for your SAUCE_USERNAME and SAUCE_ACCESS_KEY.
+
+#### Use SauceCTL to Run Tests
+Use the action to install Sauce Control, then run the tests by building on `port 8000` and running the tests:
+
+```
+steps:
+  ...
+  - name: Install saucectl
+    run: |
+      curl -L -s https://github.com/saucelabs/saucectl/releases/download/v${SAUCECTL_VERSION}/saucectl_${SAUCECTL_VERSION}_linux_64-bit.tar.gz | sudo tar -xvz -C /usr/bin/
+  - name: saucectl run
+    run: |
+      # Expose website
+      cd build/ && python3 -m http.server 8000 &
+      saucectl run -c ./.sauce/config.yml --tunnel-id proxy-tunnel-$GITHUB_RUN_ID --test-env sauce
+
+
+```
 
 ### Update BaseURL
+In the `cypress.json` (or wherever else you reference the URL of the app you are testing against), set up the tests to run against port 8000:
 
 ```
 {
-  "baseUrl": ""
+  "baseUrl": "http://localhost:8000"
 }
 ```
 
 ### Commit Your Changes
-Now that you have the `jobs:` set up in `.github/workflows/config.yml` the workflow should kick off when you commit your changes.
+Now that you have the `jobs:` set up in `.github/workflows/config.yml` the workflow should kick off when you push your changes to your GitHub (remote) repo.
 
-<!--
-```yaml reference
-https://github.com/saucelabs/testrunner-toolkit/blob/master/.github/workflows/tests.yml#L93-L114
-```
+<img src="assets/TRT2.06A.png" alt="Tunnels Software" width="750"/>
 
-</TabItem>
-<TabItem value="Sauce Cloud">
 
-```yaml reference
-https://github.com/saucelabs/sauce-docs/blob/master/.github/workflows/deploy.yml#L79-L93
-```
--->
 
 <!-- ------------------------ -->
-## 2.07 Run Tests in Parallel
+## Module 2 Quiz
 
-<!-- ------------------------
-## 2.0X Module 2 Quiz
-Duration: 0:02:00
 
-![https://docs.google.com/forms/d/e/1FAIpQLScW-Us4yITlZud5PQZBBOY-a7GsSjhcMlzX-6MtVg_FTBJDrw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScW-Us4yITlZud5PQZBBOY-a7GsSjhcMlzX-6MtVg_FTBJDrw/viewform?usp=sf_link)
+![https://docs.google.com/.......](https://docs.google.com/forms/....)
 
 
 <!--

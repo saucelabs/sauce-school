@@ -32,8 +32,11 @@ Duration: 0:01:00
 * Learn basic JavaScript to write page object and test code that runs on Cypress and Testrunner Toolkit (Optional)
 
 ### Note
-Developers that **already have a test suite do not have to do Modules 1.06- 1.08**. If you have one, simply create a new SauceCTL project in the folder with your Cypress test suites to get started quickly, moving on to Module 2 after 1.05.
+Negative
+: Developers that **already have a test suite do not have to do Modules 1.07 - 1.09**. If you have one, simply create a new SauceCTL project in the folder with your Cypress test suites to get started quickly, moving on to Module 2 after 1.06.
 
+#### Clone the Project
+If you would like to follow along with the course, using the exact sample code, you can use the [example tests here](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.04).
 
 <!-- ------------------------ -->
 ## 1.02 What Is Testrunner Toolkit
@@ -250,6 +253,8 @@ saucectl run
 ## 1.04 Run Your Cypress Test on Sauce
 Duration: 0:03:00
 
+There are two options to run your test on Sauce Labs, using either _Docker mode_ to run tests on  a local Docker container and pass test run information to Sauce Labs, or using _Sauce mode_ to run your tests on a Sauce Labs VM. [Start with Cypress test code](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.04), and make sure you have set up your `saucectl` environment.
+
 #### Video
 
 [Running Tests with Sauce and Cypress](https://youtu.be/9hojw_PMYqk)
@@ -348,11 +353,55 @@ If you click into the tests, you can see the video of the test running on the Cy
 
 Once you have your tests running, learn more about what you can do with Sauce Labs and Cypress in [Module 2](https://training.saucelabs.com/codelabs/Module2-Testrunner/index.html?index=..%2F..testrunner#0)
 
+#### Final Code
+See an example of the test suite with a [updated suites in `config.yml`](https://github.com/walkerlj0/testrunner-course-example-code/blob/main/Mod1/1.08/.sauce/config.yml)
 
-
+<img src="assets/TRT1.06E.png" alt="Sauce Cypress Test Results" width="850"/>
 
 <!-- ------------------------ -->
-## 1.05 Module 1 Quiz
+## 1.05 Run Cypress Tests in Parallel
+Duration: 0:03:00
+
+Running Cypress tests in parallel using the Testrunner toolkit is as simple as updating a single field in your `.sauce/config.yml` file:
+
+<img src="assets/TRT1.05A.gif" alt="Sauce Cypress Test Results" width="850"/>
+
+Inside of the `.sauce` data object, find the `concurrency` field, and change it from `1` to a larger number (`2` or `10`)
+
+You are able to run suites of tests in parallel using the `concurrency` field in `config.yml`, running as many test suites in parallel as you would like (limited by the of virtual machines you have available on your Sauce Labs account).
+
+### Run Tests in Multiple Browsers
+To run tests in multiple browsers, simply create a different suite for each browser. You can run the same tests (or different tests) for each suite, and label them according to which OS and browser they will be run in:
+
+```
+...
+suites:
+  # Chrome
+  - name: "Swag Labs Login Chrome"
+    browser: "chrome"
+    platformName: "Windows 10"
+    screenResolution: "1400x1050"
+    config:
+      testFiles: [ "**/login.*" ]
+  # MicrosoftEdge
+  - name: "Swag Labs Login MicrosoftEdge"
+    browser: "microsoftedge"
+    platformName: "Windows 10"
+    screenResolution: "1400x1050"
+    config:
+      testFiles: [ "**/login.*" ]
+ # Firefox
+   - name: "Swag Labs Login Firefox"
+     browser: "firefox"
+     platformName: "Windows 10"
+     screenResolution: "1400x1050"
+     config:
+       testFiles: [ "**/login.*" ]
+```
+To find out more about the names for the different browser and platform  (OS) combinations, visit the [platform configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/), and [see the docs](https://docs.saucelabs.com/testrunner-toolkit/running-tests#cross-browser-tests) for the most up to date config.
+
+<!-- ------------------------ -->
+## 1.06 Module 1 Quiz
 Duration: 0:02:00
 
 
@@ -387,7 +436,7 @@ d. The number of machines you want to run concurrently on Sauce Labs, which test
  -->
 #### Go on to [Module 2](https://training.saucelabs.com/codelabs/Module2-Testrunner/index.html?index=..%2F..testrunner#0) if you have your Cypress Tests set up.
 <!-- ------------------------ -->
-## 1.06 Create Page Objects (Optional)
+## 1.07 Create Page Objects (Optional)
 Duration: 0:05:00
 
 Sauce Labs’ Testrunner Toolkit allows you to take existing Cypress test suites (or build a cypress test suite) and quickly run it on Sauce Labs. In this lesson, you will learn how to modify a couple settings in the `cypress.json` and `.sauce/config.yml` files, then write a basic test and run it on Sauce Labs.
@@ -569,7 +618,7 @@ export default new SwagOverviewPage();
 
 #### Final Code
 
- See a sample of the [project and code here.](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.06)
+ See a sample of the [project and code here.](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.07)
 
 <img src="assets/TRT1.04E.png" alt="Final Lesson Code" width="450"/>
 
@@ -580,8 +629,9 @@ export default new SwagOverviewPage();
 <img src="assets/TRT1.04H.png" alt="Final Lesson Code" width="550"/>
 
 
+
 <!-- ------------------------ -->
-## 1.07 Write Your First Test (Optional)
+## 1.08 Write Your First Test (Optional)
 Duration: 0:04:00
 
 Now that you have all the configuration files and page objects created, you can create your first test object to use all of these elements and run a test.
@@ -698,13 +748,13 @@ Negative
 
 #### Final Code
 
-See a sample of the [project and code here](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.07)
+See a sample of the [project and code here](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.08)
 
 <img src="assets/TRT1.05A.png" alt="Final Lesson Code" width="550"/>
 
 
 <!-- ------------------------ -->
-## 1.08 Debugging Locally with Cypress (Optional)
+## 1.09 Debugging Locally with Cypress (Optional)
 Duration: 0:05:00
 
 It often helps to debug on your local machine, and the Cypress client provides some additional debugging features if you install it locally.
