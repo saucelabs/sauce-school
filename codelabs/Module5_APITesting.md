@@ -22,7 +22,7 @@ You can save and exit the test composer, then click the publish button to create
 
 <img src="assets/API3.05C.png" alt="Publish and Schedule" width="850"/>
 
-To access a published test that you want to schedul
+To access a published test that you want to schedule, go to the test list within the project, and choose the calendar icon.
 
 
 
