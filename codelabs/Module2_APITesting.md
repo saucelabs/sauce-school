@@ -3,7 +3,7 @@
 summary: Module 2 of the API Testing course. Once you have completed module 1, jump into module 2 where you will learn some basic and more advances methodologies for creating good API tests.
 id: Module2-APITesting
 categories: beginner
-tags: api
+tags: zapi
 environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8

@@ -15,6 +15,16 @@ The course are located in `codelabs` directory. Each course will contain a markd
 Download the [claat binary](https://github.com/googlecodelabs/tools/tree/master/claat#install). When you installed GO on your computer, you should have a folder called go/bin and inside that file will be claat.
  [_more detailed instructions can be found here_](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
 
+ > Make sure you have the Go environment variables set up so you can run your test.
+
+```
+## not required if you’re only using Go modules
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/go
+## required
+export PATH=$PATH:$HOME/go/bin
+```
+
 ### 3. Update PATH
  In your `~/.bash_profile` (or `~/.zshenv` if you're using Catalina MacOSX) set the `go` `$PATH` environment variable:
 
