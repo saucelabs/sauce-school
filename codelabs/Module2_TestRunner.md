@@ -38,7 +38,7 @@ Duration: 0:03:00
 * Start a tunnel from Terminal
 * Run your tests with the flag `-i sauce-tunnel-name`  
 
-#### Video
+<!-- #### Video -->
 
 
 Sauce Connect Proxy also allows you to create a secure connection for uploading tests, application, and source code. Sauce Connect Proxy uses a proprietary [TLS protocol](https://www.cloudflare.com/learning/ssl/transport-layer-security-tls/) to encrypt traffic between Sauce Labs and your network and servers. You will need to use Sauce Connect with Testrunner Toolkit if:
@@ -111,7 +111,7 @@ With Sauce Control and Testrunner Toolkit, you can use Sauce Connect Proxy to ru
 Negative
 : First, make sure that your Sauce Connect tunnel is currently running, as per the instructions in the last module. Now you can make a simple change to `.sauce/config.yml` and run your Cypress test
 
-#### Video
+<!-- #### Video -->
 
 ### Start the Tunnel
 If your tunnel is not already running, simply copy the command that you will find at the bottom of the **Tunnels** tab in the [Sauce Labs app](https://accounts.saucelabs.com/am/XUI/#login), navigate to the folder using the terminal where you saved the Sauce Connect download , and paste this into your terminal.
@@ -160,7 +160,7 @@ Cypress on Sauce with Testrunner Toolkit allows you to perform tests on an app t
 
 In this example, we will be downloading the Swag Labs web app, and running it locally.
 
-#### Video
+<!-- #### Video -->
 
 ### Download Swag Labs (Optional)
 
@@ -227,7 +227,7 @@ In this lesson you will learn how to set up everything you need to run the examp
 
 Now that you know how to run a test against a locally hosted app, as well as use Sauce Connect, you are ready to set up your test in a Continuous Integration (CI) tool run through Sauce Connect. You can follow along using the same _Swag Labs_ app you used in the previous module.
 
-#### Video
+<!-- #### Video -->
 
 In this example we will be using Github Actions, but you can use another CI tool such as [Jenkins](https://docs.saucelabs.com/testrunner-toolkit/integrations/jenkins).
 
@@ -342,6 +342,8 @@ Negative
 Duration: 0:08:00
 
 Github Actions is a community that has [a collection of repositories](https://github.com/actions) that allows you to automate tasks such as testing, publishing, and deploying your projects that you have published on Github. Github actions works by creating a virtual environment where you will build and test the app (e.g. the code you have committed to your repo).
+
+<!-- #### Video -->
 
 In this lesson, you are going to use actions to create two jobs:
 * **build-web-app**
@@ -535,7 +537,7 @@ Now that you have the `jobs:` set up in `.github/workflows/config.yml` the workf
 
 
 
-<!-- ------------------------ -->
+<!-- ------------------------ 
 ## Module 2 Quiz
 
 
