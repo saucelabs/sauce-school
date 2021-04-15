@@ -45,7 +45,7 @@ Duration: 0:03:00
 <video id="tz1GPfFUxz0"></video>
 
 
-Sauce Connect Proxy also allows you to create a secure connection for uploading tests, application, and source code. Sauce Connect Proxy uses a proprietary [TLS protocol](https://www.cloudflare.com/learning/ssl/transport-layer-security-tls/) to encrypt traffic between Sauce Labs and your network and servers. You will need to use Sauce Connect with Testrunner Toolkit if:
+Sauce Connect Proxy also allows you to create a secure connection for uploading tests, application, and source code. Sauce Connect Proxy uses a proprietary [TLS protocol](https://www.cloudflare.com/learning/ssl/transport-layer-security-tls/) to encrypt traffic between Sauce Labs and your network and servers. You will need to use Sauce Connect with Testrunner Toolkit if you are trying to test an application behind a firewall or other type of secured environment.
 
 
 ### Download Sauce Connect Proxy
@@ -172,6 +172,9 @@ In this example, we will be downloading the [Swag Labs web app](https://github.c
 
 <video id="N2qUff6KZ-M"></video>
 
+Negative
+: This video shows the workflow for testing in Sauce Mode if your app is behind a secure environment- Sauce Connect Proxy isn't needed if you wouldn't otherwise need a proxy.
+
 ### Download Swag Labs (Optional)
 
 If you would like to follow along, download or fork the [example web app](https://github.com/saucelabs/sample-app-web). You can follow the [README](https://github.com/saucelabs/sample-app-web) and get it running locally. The basic steps are:
@@ -235,7 +238,12 @@ Duration: 0:07:00
 
 In this lesson you will learn how to set up everything you need to run the example Swag Labs app with Github Actions. If you already have a pipeline set up in GitHub actions, you can quickly set things up using the [page in docs](https://docs.saucelabs.com/testrunner-toolkit/integrations/github-actions).
 
-Now that you know how to run a test against a locally hosted app, as well as use Sauce Connect, you are ready to set up your test in a Continuous Integration (CI) tool run through Sauce Connect. You can follow along using the same _Swag Labs_ app you used in the previous module.
+#### Video
+[Set up a Cypress Test Project with Github Actions](https://youtu.be/JIPH-43KuxQ)
+
+<video id="JIPH-43KuxQ"></video>
+
+Now that you know how to run a test against a locally hosted app, as well as use Sauce Connect, you are ready to set up your test in a Continuous Integration (CI) tool using Saucectl and Sauce Connect. You can follow along using the same _Swag Labs_ app you used in the previous module.
 
 <!-- #### Video -->
 
