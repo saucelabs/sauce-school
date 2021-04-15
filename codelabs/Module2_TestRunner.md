@@ -38,10 +38,14 @@ Duration: 0:03:00
 * Start a tunnel from Terminal
 * Run your tests with the flag `-i sauce-tunnel-name`  
 
-<!-- #### Video -->
+#### Video
+
+**[Setup Sauce Connect for Saucectl](https://youtu.be/tz1GPfFUxz0)**
+
+<video id="tz1GPfFUxz0"></video>
 
 
-Sauce Connect Proxy also allows you to create a secure connection for uploading tests, application, and source code. Sauce Connect Proxy uses a proprietary [TLS protocol](https://www.cloudflare.com/learning/ssl/transport-layer-security-tls/) to encrypt traffic between Sauce Labs and your network and servers. You will need to use Sauce Connect with Testrunner Toolkit if:
+Sauce Connect Proxy also allows you to create a secure connection for uploading tests, application, and source code. Sauce Connect Proxy uses a proprietary [TLS protocol](https://www.cloudflare.com/learning/ssl/transport-layer-security-tls/) to encrypt traffic between Sauce Labs and your network and servers. You will need to use Sauce Connect with Testrunner Toolkit if you are trying to test an application behind a firewall or other type of secured environment.
 
 
 ### Download Sauce Connect Proxy
@@ -111,7 +115,10 @@ With Sauce Control and Testrunner Toolkit, you can use Sauce Connect Proxy to ru
 Negative
 : First, make sure that your Sauce Connect tunnel is currently running, as per the instructions in the last module. Now you can make a simple change to `.sauce/config.yml` and run your Cypress test
 
-<!-- #### Video -->
+#### Video
+**[Run a Cypress Test With Sauce Connect](https://www.youtube.com/watch?v=AO3CavnpKq8)**
+
+<video id="AO3CavnpKq8"></video>
 
 ### Start the Tunnel
 If your tunnel is not already running, simply copy the command that you will find at the bottom of the **Tunnels** tab in the [Sauce Labs app](https://accounts.saucelabs.com/am/XUI/#login), navigate to the folder using the terminal where you saved the Sauce Connect download , and paste this into your terminal.
@@ -158,9 +165,15 @@ Duration: 0:05:00
 
 Cypress on Sauce with Testrunner Toolkit allows you to perform tests on an app that you have on your local machine (or other non-public environments), then test it against the wide variety of devices available on Sauce Labs.
 
-In this example, we will be downloading the Swag Labs web app, and running it locally.
+In this example, we will be downloading the [Swag Labs web app](https://github.com/saucelabs/sample-app-web), and running it locally.
 
-<!-- #### Video -->
+#### Video
+**[Test a Local App With Saucectl](https://www.youtube.com/watch?v=N2qUff6KZ-M)**
+
+<video id="N2qUff6KZ-M"></video>
+
+Negative
+: This video shows the workflow for testing in Sauce Mode if your app is behind a secure environment- Sauce Connect Proxy isn't needed if you wouldn't otherwise need a proxy.
 
 ### Download Swag Labs (Optional)
 
@@ -179,7 +192,7 @@ Once you have an app running on your machine, you will need to make changes to y
 You can easily test your local app using _Sauce mode_ by setting up a Sauce Connect tunnel and using it with your Cypress Test to run a test agains an app running on your local machine
 
 #### Start Sauce Connect
-If your tunnel is not already running, open a new terminal window, and simply copy the command that you will find at the bottom of the **Tunnels** tab in the [Sauce Labs app](https://accounts.saucelabs.com/am/XUI/#login), navigate to the folder using the terminal where you saved the Sauce Connect software, and paste this into your terminal.
+If you want to test using a proxy tunnel, and your tunnel is not already running, open a new terminal window, and simply copy the command that you will find at the bottom of the **Tunnels** tab in the [Sauce Labs app](https://accounts.saucelabs.com/am/XUI/#login), navigate to the folder using the terminal where you saved the Sauce Connect software, and paste this into your terminal.
 
 #### Update the Test URL
 Go into the `cypress.json` file to update the `baseURL` that your tests will be running against.
@@ -188,7 +201,7 @@ Go into the `cypress.json` file to update the `baseURL` that your tests will be 
 
 
 #### Run Your Test in Sauce Mode
-Make sure your app and Sauce Connect are both running, then open a new terminal and open your test project file, and start the test using:
+Make sure your app (and Sauce Connect if you are using it) are both running, then open a new terminal and open your test project file, and start the test using:
 
 ```
 cd <your-project file>
@@ -225,7 +238,12 @@ Duration: 0:07:00
 
 In this lesson you will learn how to set up everything you need to run the example Swag Labs app with Github Actions. If you already have a pipeline set up in GitHub actions, you can quickly set things up using the [page in docs](https://docs.saucelabs.com/testrunner-toolkit/integrations/github-actions).
 
-Now that you know how to run a test against a locally hosted app, as well as use Sauce Connect, you are ready to set up your test in a Continuous Integration (CI) tool run through Sauce Connect. You can follow along using the same _Swag Labs_ app you used in the previous module.
+#### Video
+[Set up a Cypress Test Project with Github Actions](https://youtu.be/JIPH-43KuxQ)
+
+<video id="JIPH-43KuxQ"></video>
+
+Now that you know how to run a test against a locally hosted app, as well as use Sauce Connect, you are ready to set up your test in a Continuous Integration (CI) tool using Saucectl and Sauce Connect. You can follow along using the same _Swag Labs_ app you used in the previous module.
 
 <!-- #### Video -->
 
@@ -334,6 +352,8 @@ The `jobs:` object allows you to specify a group of individual actions that occu
 Negative
 : The `SAUCECTL_VERSION` variable should be set to the [latest release version listed](https://github.com/saucelabs/saucectl).
 
+#### Final Code
+[See an example](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod2/2.06) of how the app code & workflow file is set up with Cypress tests.
 
 
 
@@ -537,7 +557,7 @@ Now that you have the `jobs:` set up in `.github/workflows/config.yml` the workf
 
 
 
-<!-- ------------------------ 
+<!-- ------------------------
 ## Module 2 Quiz
 
 
