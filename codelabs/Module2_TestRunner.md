@@ -173,7 +173,7 @@ In this example, we will be downloading the [Swag Labs web app](https://github.c
 <video id="N2qUff6KZ-M"></video>
 
 Negative
-: This video shows the workflow for testing in Sauce Mode if your app is behind a secure environment- Sauce Connect Proxy isn't needed if you wouldn't otherwise need a proxy.
+: This video shows the workflow for testing in Sauce Mode, which requires Sauce Connect Tunnel to be open so Sauce Labs can access the app you are running on your local machine.
 
 ### Download Swag Labs (Optional)
 
@@ -192,7 +192,7 @@ Once you have an app running on your machine, you will need to make changes to y
 You can easily test your local app using _Sauce mode_ by setting up a Sauce Connect tunnel and using it with your Cypress Test to run a test agains an app running on your local machine
 
 #### Start Sauce Connect
-If you want to test using a proxy tunnel, and your tunnel is not already running, open a new terminal window, and simply copy the command that you will find at the bottom of the **Tunnels** tab in the [Sauce Labs app](https://accounts.saucelabs.com/am/XUI/#login), navigate to the folder using the terminal where you saved the Sauce Connect software, and paste this into your terminal.
+If your tunnel is not already running, open a new terminal window, and simply copy the command that you will find at the bottom of the **Tunnels** tab in the [Sauce Labs app](https://accounts.saucelabs.com/am/XUI/#login), navigate to the folder using the terminal where you saved the Sauce Connect software, and paste this into your terminal.
 
 #### Update the Test URL
 Go into the `cypress.json` file to update the `baseURL` that your tests will be running against.
@@ -244,8 +244,6 @@ In this lesson you will learn how to set up everything you need to run the examp
 <video id="JIPH-43KuxQ"></video>
 
 Now that you know how to run a test against a locally hosted app, as well as use Sauce Connect, you are ready to set up your test in a Continuous Integration (CI) tool using Saucectl and Sauce Connect. You can follow along using the same _Swag Labs_ app you used in the previous module.
-
-<!-- #### Video -->
 
 In this example we will be using Github Actions, but you can use another CI tool such as [Jenkins](https://docs.saucelabs.com/testrunner-toolkit/integrations/jenkins).
 
@@ -361,9 +359,13 @@ Negative
 ## 2.06 Create and Run a Github Actions Test Job
 Duration: 0:08:00
 
-Github Actions is a community that has [a collection of repositories](https://github.com/actions) that allows you to automate tasks such as testing, publishing, and deploying your projects that you have published on Github. Github actions works by creating a virtual environment where you will build and test the app (e.g. the code you have committed to your repo).
+Github Actions is a community that has [a collection of repositories](https://github.com/actions) that allows you to automate tasks such as testing, publishing, and deploying your projects that you have published on Github. Github actions works by creating a virtual environment where you will build and test the app (e.g. the code you have committed to your repo), and running jobs in that environment.
 
-<!-- #### Video -->
+#### Video
+
+[Create and Run Jobs with a Cypress Test in GitHub Actions](https://youtu.be/6NViGmm4baY)
+
+<video id="6NViGmm4baY"></video>
 
 In this lesson, you are going to use actions to create two jobs:
 * **build-web-app**
@@ -554,6 +556,9 @@ In the `cypress.json` (or wherever else you reference the URL of the app you are
 Now that you have the `jobs:` set up in `.github/workflows/config.yml` the workflow should kick off when you push your changes to your GitHub (remote) repo.
 
 <img src="assets/TRT2.06A.png" alt="Tunnels Software" width="750"/>
+
+#### Final Code
+See [the example of the testrunner.yml file](https://github.com/walkerlj0/testrunner-course-example-code/blob/main/Mod2/2.06/.github/workflows/testrunner.yml) to compare and copy.  
 
 
 
