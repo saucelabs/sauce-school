@@ -3,7 +3,7 @@
 summary: Module 2 of the API Testing course. Once you have completed module 1, jump into module 2 where you will learn some basic and more advances methodologies for creating good API tests.
 id: Module2-APITesting
 categories: beginner
-tags: api
+tags: zapi
 environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
@@ -22,7 +22,7 @@ Every endpoint is an integral part of an API program, and that means validating 
 
 ### Test Everything
 
-API payloads are filled with information. You should not only be testing every _object_, but the header also contains vital information. _Response-Type_, _Statuscode_, _Content-Type_, every piece of information in an API call is important to validate.
+API payloads are filled with information. You should not only be testing every _object_, but the header also contains vital information such as _Response-Type_, _Statuscode_, and _Content-Type_ which is important to validate.
 
 <img src="assets/wp-content/uploads/2019/06/uber-payload-header.png" alt="API Payload" width="850"/>
 

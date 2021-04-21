@@ -3,7 +3,7 @@
 summary: In Module 5 of the API Testing course, you will learn how to execute these tests in a couple different ways, learning the automated ways of kicking off and scheduling the tests you have created.
 id: Module5-APITesting
 categories: advanced
-tags: api
+tags: zapi
 environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
@@ -22,7 +22,7 @@ You can save and exit the test composer, then click the publish button to create
 
 <img src="assets/API3.05C.png" alt="Publish and Schedule" width="850"/>
 
-To access a published test that you want to schedul
+To access a published test that you want to schedule, go to the test list within the project, and choose the calendar icon.
 
 
 

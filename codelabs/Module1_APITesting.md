@@ -1,7 +1,7 @@
 summary: Module 1 of the API Testing course. Module 1 will give you a high level understanding of what an API is and why testing APIs is important. This course will guide you on all you need to know to get started with continuous API testing.
 id: Module1-APITesting
 categories: beginner
-tags: api
+tags: zapi
 environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
@@ -115,7 +115,7 @@ This is a fairly common misconception. While yes, UI testing does trigger API ca
 
 There is a PDF dedicated to this topic [here](https://drive.google.com/a/apifortress.com/file/d/1UfXIcdZQFDmbXO2n_NHACdpenI23BphC/view?usp=sharing).  
 
-API failures are very difficult and nuanced, and because of this can last longer and cost you more money. Sometimes an API issue is actually a data issue, and that's another reason why dynamic data sources will be discuassed as a best practice later on.  
+API failures are very difficult and nuanced, and because of this can last longer and cost you more money. Sometimes an API issue is actually a data issue, and that's another reason why dynamic data sources will be discussed as a best practice later on.  
 
 Some evidence about the importance and power of API testing:
 
@@ -135,15 +135,16 @@ Everyday developers deal with huge enterprises transforming their legacy interna
 ## 1.03 What is Continuous Testing?
 Duration: 0:04:00
 
-API testing isn’t easy, and there are many different ways in which a bad API can cause catastrophic harm to an organization. This course will dive into best practices and details a little later, but let’s quickly run through what we're talking about when it comes to continuous testing.
+API testing isn’t easy, and there are many different ways in which a bad API can cause catastrophic harm to an organization. A good [continuous testing strategy](https://saucelabs.com/solutions/continuous-testing), where you automate testing at every stage of development (when merging a feature, in production, in production, and more) involves doing [API testing](https://saucelabs.com/platform/automation-tools/api-fortress) early and often.
 
-As a reference point, this is what a normal [HTTP based REST API](http://demoapi.apifortress.com/api/retail/product), with a JSON output looks like. Each of these types of testing are part of a continuous testing strategy. They cover a good amount, but keep in mind terminology and definitions are always evolving.
+As a reference point, this is what a normal HTTP based REST API looks like, with a JSON output looks like.
+
+<img src="assets/API1.03A.png" alt="API Payload" width="550"/>
 
 #### Functional Testing
 
 Looking at the API above, you see a payload with various objects. The first item you should be testing is that the API responds as expected from a functional standpoint.
 
-<img src="assets/API1.03A.png" alt="API Payload" width="550"/>
 
 This means every object exists, and the responses are within expected ranges. For example the _quantity_ object should always be a whole number. There can't be .5 baseball caps.
 
@@ -169,7 +170,7 @@ The goal of a proper monitoring strategy is to go beyond measuring uptime, but a
 
 #### Load Testing
 
-This is fairly easy to understand. Make sure your APIs perform when under the stress of a lot of users. This can help find memory leaks, or under performing databases.
+When you load test, you make sure your APIs perform when under the stress of a lot of users. This can help find memory leaks, or under performing databases.
 
 It's also important, again, to use existing tests as your load tests. You will never have 10,000 concurrent users only performing a single call. They will perform different types of calls, or a series of calls with some randomness. Use existing functional and end-to-end tests.
 
