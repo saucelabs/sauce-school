@@ -31,7 +31,7 @@ This tutorial gives examples you can follow along with using a test suite writte
 
 
 <!-- ------------------------ -->
-## 1.02 Install and Setup Sauce Connect Proxy
+## 1.02 Setup and Run Sauce Connect Proxy
 
 [Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#:~:text=Sauce%20Connect%20Proxy%E2%84%A2%20is,or%20behind%20a%20corporate%20firewall.) is software that enables you to establish a secure connection between applications hosted on an internal server and the Sauce Labs virtual machines (such as Jenkins) or real devices that are used for testing.
 
@@ -77,18 +77,22 @@ Your command should look like this:
 
 <img src="assets/5.03E.png" alt="Terminal command to run tunnel" width="750"/>
 
-Navigate to the folder using the terminal where you saved the Sauce Connect download (this one is in **Documents/sc-4.6.2-osx**). Next, type and run the command below. Make sure to fill in your credentials (username after the `-u` command and access key after` -k`) and add your tunnel name (aka tunnel identifier) after the `-i `command.
+Navigate to the folder using the terminal where you saved the Sauce Connect download (this one is in **Documents/sc-4.6.2-osx**). Next, type and run the command below. Make sure to fill in your credentials (username after the `-u` command and access key after` -k`) and add your tunnel name (aka tunnel identifier) after the `-i `command. Hit enter and you should see your tunnel up and running.
 
 
 
 ```
-bin/ sc -u <SAUCE_USERNAME> -k <SAUCE_ACCESS_KEY> -i <SAUCE_TUNNEL>
+bin/ sc -u <SAUCE_USERNAME> -k <SAUCE_ACCESS_KEY> -i <SAUCE_TUNNEL_NAME>
 ```
+### Stop the Tunnel
+
+You can stop any tunnel that you have running by hitting `cntrl` + `c`
+* Once will stop the tunnel after your tests have finished running
+* Hitting it twice will stop all tunnels & tests immediately
 
 
 
-
- Learn more about the other commands you can use to configure your tunnel at [Sauce Connect Proxy Command-Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide). Hit enter and you should see your tunnel up and running.
+ Learn more about the other commands you can use to configure your tunnel at [Sauce Connect Proxy Command-Line Quick Reference Guide](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/index.html#sauce-connect-proxy-command-line-options).
 
 <img src="assets/5.03F.png" alt="Terminal running tunnel" width="500"/>
 
@@ -114,7 +118,7 @@ Negative
 
 
 <!-- ------------------------ -->
-## 1.03 Run Tests Using Sauce Connect Proxy
+## 1.03 Run a Java Test Using Sauce Connect Proxy
 This video is intended to show an example for how to update your test capabilities, using [this example test written](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.06) in Java, JUnit4, with Maven and InteliiJ. Basically, in this lesson you will:
 * Start your tunnel (you should see the message Sauce Connect is up in terminal
 * Update your `config.java` and `BaseTest.java` files
@@ -127,7 +131,7 @@ This video is intended to show an example for how to update your test capabiliti
 
 #### Note
 Negative
-: Make sure your  `.bash_profile` (or `.zshrc`) has the `SAUCE_TUNNEL` environment variable (it must match the` tunnel id` you used to start the tunnel). <img src="assets/5.03I.png" alt="Bash Profile" width="750"/>
+: Make sure your  `.bash_profile` (or `.zshrc`) has the `SAUCE_TUNNEL` environment variable (it must match the tunnel name you used to start the tunnel). <img src="assets/5.03I.png" alt="Bash Profile" width="750"/>
 
 ### Set Sauce Connect Tunnel Capabilities
 This example shows how to set the capabilities in an example Java Test Suite, written with the JUnit4 test runner, and run and managed using Maven. [See the example suite this is created from](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod5/5.03).
@@ -219,6 +223,9 @@ You will run your test through the tunnel, and when you log into the SauceLabs U
 You can see example code for this lesson [here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod5/5.03)
 
 
+#### Sauce Connect Architecture
+To learn more about what is happening when you use Sauce Connect tunnel, see the documentation about how network traffic flows through a [Sauce Connect Tunnel](https://docs.saucelabs.com/secure-connections/sauce-connect/setup-configuration/basic-setup#sauce-connect-communication-when-test-is-running)
+
 ### Final Code
 <img src="assets/5.03N.png" alt="Final Java Base Test Code" width="650"/>
 
@@ -235,7 +242,13 @@ The first thing you may need to do is check that the machine where you installed
 
 For example, if you installed Sauce Connect on a virtual machine that has a firewall or is in a DMZ, you may have issues communicating with Sauce Labs.
 
-### Check Network Connectivity
+### Common Tunnel Issues
+When you have issues with starting a tunnel, and you have verified a firewall isn't an issue, there are several reasons that you might see an error like this:
+
+<img src="assets/SC1.04E.png" alt="Error message" width="750"/>
+
+#### Check Network Connectivity
+One of the most common problems that users have with connecting to a Sauce Connect Proxy tunnel is that their own firewall settings are preventing communication. If you are unable to start a tunnel, try checking whether you can communicate with saucelabs.com and the app you are testing.
 
 #### Check Communication With Sauce Connect
 From the machine you wish to run the Sauce Connect proxy from, use `ping` to check that you machine can communicate with Sauce Connect:
@@ -258,7 +271,7 @@ Logically, if the environment your tests are on cannot communicate with both of 
  cannot resolve thisshouldntwork.saucelabs.com: Unknown host
  ```
 
- Some options for troubleshooting include
+ Some other options for troubleshooting include:
  * Try accessing SauceLabs from your own (local) machine
  * Turn your VPN on (or off)
  * If these don't surface issues, talk to your network administrators about
@@ -271,15 +284,42 @@ Negative
 : **More About the KGP Protocol** <img src="assets/SC1.04C.png" alt="Tunnels Menu" width="750"/>
 
 
-### Common Error Messages
-#### Wrong Access key
+
+
+#### Wrong Username or Access Key
+If you are using the wrong `SAUCE_USERNAME` or `SAUCE_ACCESS_KEY`. Check that your environment variables are named correctly, and that you haven't regenerated your access key.
+
+<img src="assets/SC1.04F.png" alt="Regenerate access key" width="750"/>
 
 #### Tunnel Collision
+Sometimes more than one tunnel is created with the same name, which is known as a 'collision'. What will likely happen is that the first tunnel will stop running, and the new one will start up with the same name
 
 
+#### Generate Logs
+If you are having issues with your Sauce Connect Tunnel, you know your network connection is not the issue, and you have tried all of the above, generating logs as described in the next lesson.
 
-### Generate Logs
-If you are having issues with your Sauce Connect tunnel, you would
+
+<!-- ------------------------ -->
+## 1.05 Sauce Connect Options
+Duration: 0:05:00
+
+There are a [lot of different options](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/index.html#sauce-connect-proxy-command-line-options) you can use to change the settings and options for your Sauce Connect Tunnel. This lesson will cover the most commonly use options for a typical user.
+
+### Generate Verbose Logs
+If you are having trouble running your tests, and were not able to get it working with troubleshooting in the previous lessons, verbose logs will provide mode information that can help give you hints as to what is going wrong.
+
+To generate a verbose log, try to start your tunnel adding in the `-v` flag for verbose logging:
+
+```
+bin/ sc -u your-username -k your-accesskey -i your-tunnelname -v
+```
+When the CLI outputs information about your sauce tunnel, you will see a file location for your logs:
+
+ <img src="assets/SC1.05A.png" alt="Log File location" width="750"/>
+
+Thi log will genreate a temporary file, which you can `open` with your terminal (cut and paste the log file location):
+
+ <img src="assets/SC1.05B.png" alt="Log File open" width="750"/>
 
 
 <!-- ------------------------ -->
