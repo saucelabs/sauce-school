@@ -3,7 +3,7 @@
 summary: In Module 4 of the API Testing course, you will learn even more advanced API testing techniques such as dealing with authentications.
 id: Module4-APITesting
 categories: intermediate
-tags: api
+tags: zapi
 environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
