@@ -3,12 +3,12 @@
 summary: Module 2 of the Cypress on Sauce course ...
 id: Module2-Testrunner
 categories: beginner
-tags: saucectl  
 environments: Web
-status: Draft
+status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
-author:Lindsay Walker
+tags: saucectl
+authors: Lindsay Walker
 <!-- ------------------------ -->
 # Module 2 – Continuous Integration with Cypress and Sauce
 
