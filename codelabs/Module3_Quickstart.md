@@ -36,23 +36,28 @@ Duration: 0:05:00
 
 
 ### Test Code
-If you have your own testing suite written in Java, using the JUnit 4 test runner, with capabilities set up similar to [the base test here](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod4/4.05/src/test/java/tests/BaseTest.java)  or you understand the differences between the test runner you are using and how to structure capabilities, you jump to the next section. Otherwise, clone or fork the example code:
+If you have your own testing suite written in Java, using the JUnit 4 test runner, with capabilities set up similar to [the base test here](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod4/4.05/src/test/java/tests/BaseTest.java)  or you understand the differences between the test runner you are using and how to structure capabilities, you jump to the next section. Otherwise, use the example code in the GitHub repo.
 
+#### Video
+[Local Test Project Code – Java and JUnit4]()
 
 #### Use GitHub Repository (Optional)
 
-If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here and run the code in 4.04 as a boilerplate:
+If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here and run the code in 3.03 as a boilerplate:
 
-**[Example Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.04)**
+**[Example Starting Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Quickstart/Mod3/3.03)**
+
+#### Video
+[Local Test Setup]()
 
 ### Required Dependencies
 To run a local test as shown, you will need to set up and install the following:
 
 *   A Java SDK ([Version 8 used in this example](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html))
 *   An IDE ([IDEA Community Edition](https://www.jetbrains.com/idea/download/))
-*  Apache [Maven build tool](https://maven.apache.org/)
+*  Apache's [Maven build tool](https://maven.apache.org/)
 
-If you would like step-by-step instructions to help installing the dependencies above you can use the instructions here:
+If you would like step-by-step instructions to help installing the dependencies above you can use the instructions in the [Selenium Java course](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4).
 
 #### Windows
 Follow [these instructions](https://docs.google.com/document/d/1herzHbTJdQpa-hAIR5llTfbbw20PeM99-BAoVTeuC8U/edit?usp=sharing) to install and set up a JDK, Maven, and IntelliJ on Windows 10.
@@ -60,8 +65,9 @@ Follow [these instructions](https://docs.google.com/document/d/1herzHbTJdQpa-hAI
 #### MacOS
  [See the lesson in the Selenium Java course](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) to see how to set up your local environment on MacOS
 
+### About Running Tests on Sauce Labs
 
-### Capabilities
+#### Capabilities
 
 Capabilities are sets of settings that you can pass along to the environment your test is being run, using the JSON wire protocol. W3C has a set of capabilities you can use, and you can create your own sets of capabilities using [Mutable Capabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html) to create your own capabilities as well.
 
@@ -69,7 +75,7 @@ Other vendors, such as [Chrome](https://chromedriver.chromium.org/capabilities),
 
 
 
-### Why Sauce Labs?
+#### Why Sauce Labs?
 In this module you are going to learn how to move the test suite that you have on your local machine onto the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) cloud platform.
 
 Sauce Labs maintains a set of real and virtual devices, as well as a Selenium grid that you can use to run your test in almost any environment. There are many reasons this is advantageous:
@@ -81,31 +87,39 @@ Sauce Labs maintains a set of real and virtual devices, as well as a Selenium gr
 * You don’t have to provision all the different kinds of virtual machines you will need yourself
 *   You don’t have to set up and maintain the Selenium Grid that will coordinate the test across all of these different machines
 
-When you run tests on Sauce Labs, you are using the _Selenium Grid_ to test on multiple operating systems and the _RemoteWebdriver_.  The Sauce Labs Selenium Grid lets you distribute test execution across several machines and you connect to it with [Selenium RemoteWebDriver](https://www.selenium.dev/documentation/en/remote_webdriver/remote_webdriver_client/).
+When you run tests on Sauce Labs, you are using the _Selenium Grid_ to test on multiple operating systems and the _Remote Webdriver_.  The Sauce Labs Selenium Grid lets you distribute test execution across several machines and you connect to it with [Selenium RemoteWebDriver](https://www.selenium.dev/documentation/en/remote_webdriver/remote_webdriver_client/).
 
 You tell the Grid which browser and OS you want your test to run on through the use of Selenium's class object, [MutableCapabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html), and its various subclasses for specific browser options (ChromeOptions, FirefoxOptions, etc.) Sauce Labs has [specific language bindings](https://github.com/saucelabs/sauce_bindings) that act as wrappers for supported programming languages.
 
 
 ### Run the Test Code Locally
 
-If you are cloning a project, follow these steps (after you have uploaded `pom.xml`) if your test isn't running with Maven when you use the command:
+If you are cloning a project, run the command in IntelliJ (after you have updated `pom.xml`):
 
 ```
 mvn clean test
 ```
+
+### WebDriver Manager
+This sample of test code is  using [WebDriver Manager](https://github.com/bonigarcia/webdrivermanager), which handles the downloading of the browser drivers that works with the version of the browser you are working with on your machine, and pointing your tests to the correct driver.
+
+
+
+### Update `pom.xml`
+Add your configurations into `pom.xml` [like the project here](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Quickstart/Mod3/Mod3_Final/pom.xml) to get all the dependencies you will need for this module.
+
+You may need to invalidate caches and restart IntelliJ IDE again to activate the imports specified in `pom.xml`. You can also search for the [latest Maven package versions](https://mvnrepository.com/).
+
+### Troubleshoot Project Setup
+
+If your test isn't running, try the following to troubleshoot to get the tests running locally:
 
 * Right-click on the project name and choose **Add Framework Support**. <img src="assets/QS2.03D.png" alt="Add framework support" width="350"/>
 * Choose **Maven** as a build tool.
 * Go to **File > Project Structure**. Select a JDK that you have installed on your machine.
 * Choose **File > Invalidate Caches and Restart** so the changes can take effect. <img src="assets/QS2.03E.png" alt="Appium Doctor" width="350"/>
 
-### Update pom.xml
-Add your configurations into `pom.xml` [like the project here](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod4/4.05/pom.xml). You may need to invalidate caches and restart IntelliJ IDE again to activate the imports specified in `pom.xml`
 
-### Update Drivers
-This sample of test code is not using [WebDriver Manager](https://github.com/bonigarcia/webdrivermanager) or other similar tool (though it is recommended), and if you want to test out running this locally, make sure that you have downloaded the drivers compatible with the versions of the browsers on you machine, and update the test code to reference those drivers:
-
-<img src="assets/QS3.03A.png" alt="Capabilities for your test" width="750"/>
 
 <!-- ------------------------ -->
 ## 3.03 Update Variables for Capabilities
