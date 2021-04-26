@@ -48,7 +48,7 @@ If you are familiar with using GitHub to write your code, you can also fork/ bra
 **[Example Starting Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Quickstart/Mod3/3.03)**
 
 #### Video
-[Local Test Setup]()
+[Local Test Setup & Code Overview]()
 
 ### Required Dependencies
 To run a local test as shown, you will need to set up and install the following:
@@ -64,32 +64,6 @@ Follow [these instructions](https://docs.google.com/document/d/1herzHbTJdQpa-hAI
 
 #### MacOS
  [See the lesson in the Selenium Java course](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) to see how to set up your local environment on MacOS
-
-### About Running Tests on Sauce Labs
-
-#### Capabilities
-
-Capabilities are sets of settings that you can pass along to the environment your test is being run, using the JSON wire protocol. W3C has a set of capabilities you can use, and you can create your own sets of capabilities using [Mutable Capabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html) to create your own capabilities as well.
-
-Other vendors, such as [Chrome](https://chromedriver.chromium.org/capabilities), [Firefox](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions), and Sauce Labs have created other pre-defined subsets of capabilities that you can set, which are useful when you need to set specific capabilities such as extensions for Chrome, or the Sauce username.
-
-
-
-#### Why Sauce Labs?
-In this module you are going to learn how to move the test suite that you have on your local machine onto the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) cloud platform.
-
-Sauce Labs maintains a set of real and virtual devices, as well as a Selenium grid that you can use to run your test in almost any environment. There are many reasons this is advantageous:
-
-* You don't have to worry about about downloading and matching browser drivers  
-* You can use virtual machines (without having to set it up on your own machine)
-    *   To test older versions of operating systems
-    *   Test browsers that run on different operating systems that your own.
-* You don’t have to provision all the different kinds of virtual machines you will need yourself
-*   You don’t have to set up and maintain the Selenium Grid that will coordinate the test across all of these different machines
-
-When you run tests on Sauce Labs, you are using the _Selenium Grid_ to test on multiple operating systems and the _Remote Webdriver_.  The Sauce Labs Selenium Grid lets you distribute test execution across several machines and you connect to it with [Selenium RemoteWebDriver](https://www.selenium.dev/documentation/en/remote_webdriver/remote_webdriver_client/).
-
-You tell the Grid which browser and OS you want your test to run on through the use of Selenium's class object, [MutableCapabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html), and its various subclasses for specific browser options (ChromeOptions, FirefoxOptions, etc.) Sauce Labs has [specific language bindings](https://github.com/saucelabs/sauce_bindings) that act as wrappers for supported programming languages.
 
 
 ### Run the Test Code Locally
@@ -128,8 +102,33 @@ Duration: 0:05:00
 Once you understand how the test suite functions, you need to update settings such as the capabilities, endpoint to run against the Sauce Labs Cloud, and your Sauce username and access key. If you are using the examples test code, get familiar with the test function and structure:
 
 #### Video
-**[Web App Test Code Overview]()**
+**[Updating Variables for Capabilities]()**
 
+### About Running Tests on Sauce Labs
+
+#### Capabilities
+
+Capabilities are sets of settings that you can pass along to the environment your test is being run, using the JSON wire protocol. W3C has a set of capabilities you can use, and you can create your own sets of capabilities using [Mutable Capabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html) to create your own capabilities as well.
+
+Other vendors, such as [Chrome](https://chromedriver.chromium.org/capabilities), [Firefox](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions), and Sauce Labs have created other pre-defined subsets of capabilities that you can set, which are useful when you need to set specific capabilities such as extensions for Chrome, or the Sauce username.
+
+
+
+#### Why Sauce Labs?
+In this module you are going to learn how to move the test suite that you have on your local machine onto the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) cloud platform.
+
+Sauce Labs maintains a set of real and virtual devices, as well as a Selenium grid that you can use to run your test in almost any environment. There are many reasons this is advantageous:
+
+* You don't have to worry about about downloading and matching browser drivers  
+* You can use virtual machines (without having to set it up on your own machine)
+    *   To test older versions of operating systems
+    *   Test browsers that run on different operating systems that your own.
+* You don’t have to provision all the different kinds of virtual machines you will need yourself
+*   You don’t have to set up and maintain the Selenium Grid that will coordinate the test across all of these different machines
+
+When you run tests on Sauce Labs, you are using the _Selenium Grid_ to test on multiple operating systems and the _Remote Webdriver_.  The Sauce Labs Selenium Grid lets you distribute test execution across several machines and you connect to it with [Selenium RemoteWebDriver](https://www.selenium.dev/documentation/en/remote_webdriver/remote_webdriver_client/).
+
+You tell the Grid which browser and OS you want your test to run on through the use of Selenium's class object, [MutableCapabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html), and its various subclasses for specific browser options (ChromeOptions, FirefoxOptions, etc.) Sauce Labs has [specific language bindings](https://github.com/saucelabs/sauce_bindings) that act as wrappers for supported programming languages.
 
 In the `Config.java` file, you are going to communicate the settings for our test environment with the W3C [Capabilities](https://wiki.saucelabs.com/display/DOCS/Desired+Capabilities+Required+for+Selenium+and+Appium+Tests/?utm_source=referral&utm_medium=LMS&utm_campaign=link), required for every Selenium test.
 
