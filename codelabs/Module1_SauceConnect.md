@@ -26,7 +26,8 @@ This tutorial gives examples you can follow along with using a test suite writte
   * `-v` for verbose logging
   * `-i` for a tunnel identifier
 * Locate the log file & interpret the results
-* Configure a domain for special flags such as SSL Bumping
+* Specify which data center you want to run Sauce Connect with
+<!-- * Configure a domain for special flags such as SSL Bumping -->
 
 
 
@@ -84,6 +85,11 @@ Navigate to the folder using the terminal where you saved the Sauce Connect down
 ```
 bin/ sc -u <SAUCE_USERNAME> -k <SAUCE_ACCESS_KEY> -i <SAUCE_TUNNEL_NAME>
 ```
+
+You should see the output in the terminal, lett you know Sauce Connect Proxy is up and running:
+
+<img src="assets/SC2.03E.png" alt="Sauce Connect is up and running" width="650"/>
+
 ### Stop the Tunnel
 
 You can stop any tunnel that you have running by hitting `cntrl` + `c`
@@ -303,7 +309,9 @@ If you are having issues with your Sauce Connect Tunnel, you know your network c
 ## 1.05 Sauce Connect Options
 Duration: 0:05:00
 
-There are a [lot of different options](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/index.html#sauce-connect-proxy-command-line-options) you can use to change the settings and options for your Sauce Connect Tunnel. This lesson will cover the most commonly use options for a typical user.
+There are a [lot of different options](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/index.html#sauce-connect-proxy-command-line-options) you can use to change the settings and options for your Sauce Connect Tunnel. This lesson will cover the most commonly needed options for a typical user. You can find all the flags that you can use when running Sauce Connect in the [Sauce Connect CLI documentation](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy)
+
+#### Video
 
 ### Generate Verbose Logs
 If you are having trouble running your tests, and were not able to get it working with troubleshooting in the previous lessons, verbose logs will provide mode information that can help give you hints as to what is going wrong.
@@ -317,11 +325,48 @@ When the CLI outputs information about your sauce tunnel, you will see a file lo
 
  <img src="assets/SC1.05A.png" alt="Log File location" width="750"/>
 
-Thi log will genreate a temporary file, which you can `open` with your terminal (cut and paste the log file location):
+Thi log will genrate a temporary file, which you can `open` with your terminal (cut and paste the log file location):
 
  <img src="assets/SC1.05B.png" alt="Log File open" width="750"/>
 
+ Most often this file will be used to sent to [Sauce Labs Support](https://support.saucelabs.com/hc/en-us)(or email help@saucelabs.com) so they can help you troubleshoot your issues.
+
+### Output Your Log Files to a Certain Location.
+If you want to dictate where log files will be stored, yoiu can add the flag `--logfile /filepath/to/logs` to the command when you run Sauce Connect.
+
+For example, if you created a directory called _logfiles_ in your _Documents_ folder to store your files, start Sauce Connect and create a new log called `log1` in that directory.
+
+```
+bin/ sc -u your-username -k your-accesskey -i your-tunnelname -v --logfile ../logfiles/logfile-name
+```
+and if you check you should see *Documents/logfiles/log1*.
+
+ <img src="assets/SC1.05C.png" alt="Save a log file" width="750"/>
+
+### Check Your Sauce Connect Version
+Sometimes it's important to see if you have the most up to date [version of Sauce Connect]() so you can use the latest features & functionality using the sauce connect `--version` flag:
+
+```
+bin/ sc -u your-username -k your-accesskey -i your-tunnelname --version
+```
+#### Note
+Negative
+: If you use the `--version` flag with your tunnel, it will print out the information, then immediately exit, so you will have to start your tunnel again to use it.
+
+### Specify the Sauce Data Center
+Depending which data center (*us-west-1*, *eu-central-1*, etc.) you are running your tests in, you may want to change which data center your tunnel is running through (default *us-west-1*). [See the list of Sauce Connect endpoints](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints#DataCenterEndpoints-EUDataCenter)
+
+Simply add the flag `-x data-center-endpoint` like so:
+
+```
+bin/ sc -u your-username -k your-accesskey -i your-tunnelname -x https://eu-central-1.saucelabs.com/rest/v1
+```
+ <img src="assets/SC1.05D.png" alt="Use a different data center" width="750"/>
 
 <!-- ------------------------ -->
-## Section X
+## 1.06 SSL Bumping
+Duration: 0:05:00
+
+<!-- ------------------------ -->
+## 1.07 Quiz
 Duration: 0:05:00
