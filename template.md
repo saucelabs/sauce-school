@@ -8,7 +8,9 @@ environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
+tags: <tag that matches site/app/views/coursename/view.json>
 author:Lindsay Walker
+
 <!-- ------------------------ -->
 # Module X – Title of codelab
 Add Sections and Durations
