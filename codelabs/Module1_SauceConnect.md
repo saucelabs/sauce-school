@@ -257,7 +257,7 @@ When you have issues with starting a tunnel, and you have verified a firewall is
 One of the most common problems that users have with connecting to a Sauce Connect Proxy tunnel is that their own firewall settings are preventing communication. If you are unable to start a tunnel, try checking whether you can communicate with saucelabs.com and the app you are testing.
 
 #### Check Communication With Sauce Connect
-From the machine you wish to run the Sauce Connect proxy from, use `ping` to check that you machine can communicate with Sauce Connect:
+From the machine you wish to run the Sauce Connect proxy from, use `ping` to check that you machine can communicate with Sauce Labs Server:
 ```
 ping saucelabs.com
 ```
