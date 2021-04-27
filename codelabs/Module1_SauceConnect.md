@@ -348,7 +348,7 @@ Thi log will genrate a temporary file, which you can `open` with your terminal (
 
  <img src="assets/SC1.05B.png" alt="Log File open" width="750"/>
 
- Most often this file will be used to sent to [Sauce Labs Support](https://support.saucelabs.com/hc/en-us)(or email help@saucelabs.com) so they can help you troubleshoot your issues.
+ Most often this file will be used to sent to [Sauce Labs Support](https://support.saucelabs.com/hc/en-us) (or email help@saucelabs.com) so they can help you troubleshoot your issues.
 
 ### Output Your Log Files to a Certain Location.
 If you want to dictate where log files will be stored, yoiu can add the flag `--logfile /filepath/to/logs` to the command when you run Sauce Connect.
@@ -388,12 +388,24 @@ Duration: 0:05:00
 
 ### SSL Bumping
 
-Self-signed and invalid SSL certificates, commonly used in test environments, are not trusted by stock browsers, such as those installed on the Sauce Labs infrastructure. his causes tests to be interrupted with security warnings that can't be dismissed by Selenium.
+Self-signed and invalid SSL certificates, commonly used in test environments, are not trusted by stock browsers, such as those installed on the Sauce Labs infrastructure. This causes tests to be interrupted with security warnings that can't be dismissed by Selenium.
+
+#### Video
+[SSL Bumping – Errors and Disabling]
 
 There are simply too many different certificates for Sauce Labs to add each one. We'd have to add a certificate to every requested browser for every user with a self-signed certificate. This can't always be done automatically, so every new client would have to wait for Sauce Labs staff to re-create all of our images before they could run their tests.
 
-To combat test failures caused by websites without valid SSL certificates, Sauce Connect Proxy has a security feature called SSL Bumping that automatically re-signs certificates in the course of testing.
+To combat test failures caused by websites without valid SSL certificates, Sauce Connect Proxy has a security feature called SSL Bumping that automatically re-signs certificates in the course of testing, which is automatically enabled
 
+### Disable SSL Bumping
+
+SSL Bumping is enabled by default for Sauce Connect Proxy, but there are some situations where it's recommended that you disable it
+
+### Errors with CORS-Enabled Sites
+[Cross-Origin Resource Sharing (CORS)](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Troubleshooting ) errors could be caused by a variety of reasons. We recommend the following solutions:
+
+Make sure that the ulimit/open file limit of your machine is at least 8000, which is the recommend value for Sauce Connect Proxy use
+Start a Sauce Connect Proxy instance using the -B all and -N flags. For more information about what these flags do for your tunnel, please see Sauce Connect Proxy Command-Line Quick Reference Guide.
 <!-- ------------------------ -->
 ## 1.07 Quiz
 Duration: 0:05:00
