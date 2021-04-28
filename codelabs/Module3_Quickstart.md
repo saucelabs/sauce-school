@@ -96,13 +96,13 @@ If your test isn't running, try the following to troubleshoot to get the tests r
 
 
 <!-- ------------------------ -->
-## 3.03 Update Variables for Capabilities
+## 3.03 Update Tests to Run On Sauce Labs
 Duration: 0:05:00
 
 Once you understand how the test suite functions, you need to update settings such as the capabilities, endpoint to run against the Sauce Labs Cloud, and your Sauce username and access key. If you are using the examples test code, get familiar with the test function and structure:
 
 #### Video
-**[Updating Variables for Capabilities]()**
+**[Setup Test to Run On Sauce Labs]()**
 
 ### About Running Tests on Sauce Labs
 
@@ -164,7 +164,26 @@ Notice the new variables you have added:
     *   `accessKey` is generated (and can be regenerated) in your user settings in Sauce Labs
 
 
-### Final Code
+### Add Controls to Switch the `host`
+Now that you have the variables you will you for your capabilities, you want to create `switch` statement with two different cases that you can use: one for running tests on you local machine, and one for running tests on Sauce Labs.\
+
+In the `BaseTest.java` class, within the `before()` method, add a `switch()` method with two different host options:
+
+```
+       switch (host) {
+             case "saucelabs": {
+                  //...
+                  break;
+              }
+              case "localhost":
+                  //...
+                  break;
+              }
+```
+Inside of the first case, `"saucelabs"`, typs in the declaration of the `sauceUrl` variable, and create your Mutable capabilities. We will add more to these capabilities later.
+
+
+#### Final Code
 Notice how many of the variables for capabilities are grey in this example, since they aren’t yet used in the test code:
 
 See the example to compare your code in `config.java`
@@ -199,7 +218,7 @@ Watch This Video to See how to set up your Sauce Credentials as environment vari
 
 
 <!-- ------------------------ -->
-## 3.04 Add Capabilities in Your Test
+## 3.04 Add Capabilities to Run Tests on Sauce Labs
 Duration: 0:05:00
 
 Now you need to update `BaseTest.java `to work with these new values and connect to Sauce Labs. Note that these are called [Capabilities](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options), and the format they are in here is compatible with Selenium WebDriver 4.0, as well as all previous Selenium versions. They set the options for setting up the environment for your tests.
