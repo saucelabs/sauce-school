@@ -43,9 +43,9 @@ If you have your own testing suite written in Java, using the JUnit 4 test runne
 
 #### Use GitHub Repository (Optional)
 
-If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here and run the code in 3.03 as a boilerplate:
+If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here and run the code in 3.02 as a boilerplate:
 
-**[Example Starting Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Quickstart/Mod3/3.03)**
+**[Example Starting Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Quickstart/Mod3/3.02)**
 
 #### Video
 [Local Test Setup & Code Overview]()
@@ -96,7 +96,7 @@ If your test isn't running, try the following to troubleshoot to get the tests r
 
 
 <!-- ------------------------ -->
-## 3.03 Update Tests to Run On Sauce Labs
+## 3.03 Setup to Run Tests on Sauce Labs
 Duration: 0:05:00
 
 Once you understand how the test suite functions, you need to update settings such as the capabilities, endpoint to run against the Sauce Labs Cloud, and your Sauce username and access key. If you are using the examples test code, get familiar with the test function and structure:
@@ -130,9 +130,36 @@ When you run tests on Sauce Labs, you are using the _Selenium Grid_ to test on m
 
 You tell the Grid which browser and OS you want your test to run on through the use of Selenium's class object, [MutableCapabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html), and its various subclasses for specific browser options (ChromeOptions, FirefoxOptions, etc.) Sauce Labs has [specific language bindings](https://github.com/saucelabs/sauce_bindings) that act as wrappers for supported programming languages.
 
+### Setting up your Sauce Labs Account
+
+You'll need an account to use Sauce Labs. Their [free trial](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) offers enough to get you started. And if you're signing up because you want to test an open source project, then be sure to check out their [Open Sauce account](https://saucelabs.com/open-source).
+
+Visit [http://app.saucelabs.com/](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). You can create a free trial account if you haven’t been assigned one.
+
+<img src="assets/4.05A.png" alt="Sauce Labs Account" width="450"/>
+
+Go to **Account> User Settings** to find your username and access key.
+
+<img src="assets/4.05B.png" alt="Sauce Labs User Name Access Key" width="450"/>
+
+
+You will need to set up your username and access key on your machine’s (or CI Tools') environment variables to use them in your test.
+
+To learn more about setting up environment variables, you can see the article [here](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials#BestPractice:UseEnvironmentVariablesforAuthenticationCredentials-SettingUpEnvironmentVariablesonMacOSX/LinuxSystems/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
+
+
+#### Video
+
+Watch This Video to See how to set up your Sauce Credentials as environment variables on MacOS in the [Sauce Credentials](https://www.youtube.com/watch?v=3K1Eu0eTha8&t=12s).
+
+<video id="3K1Eu0eTha8"></video>
+
+
+### Setup Tests for Sauce Labs
+
 In the `Config.java` file, you are going to communicate the settings for our test environment with the W3C [Capabilities](https://wiki.saucelabs.com/display/DOCS/Desired+Capabilities+Required+for+Selenium+and+Appium+Tests/?utm_source=referral&utm_medium=LMS&utm_campaign=link), required for every Selenium test.
 
-In addition, you need to define some variables for your tests to be able to communicate with Sauce Labs:
+Here, you will define some variables that you can use in your Base Test code, for your tests to be able to communicate with Sauce Labs:
 
 
 ```
@@ -170,6 +197,8 @@ Now that you have the variables you will you for your capabilities, you want to 
 In the `BaseTest.java` class, within the `before()` method, add a `switch()` method with two different host options:
 
 ```
+// filename: tests/BaseTest.java
+// ...
        switch (host) {
              case "saucelabs": {
                   //...
@@ -182,39 +211,46 @@ In the `BaseTest.java` class, within the `before()` method, add a `switch()` met
 ```
 Inside of the first case, `"saucelabs"`, typs in the declaration of the `sauceUrl` variable, and create your Mutable capabilities. We will add more to these capabilities later.
 
+```
+// filename: tests/BaseTest.java
+// ...
+    switch (host) {
+        case "saucelabs": {
+            String sauceUrl = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
+            MutableCapabilities capabilities;
+        break;
+    }
+```
+
+Finally, move the `if, else if` statement that checks the `browserName` variable inside of the `"localhost"` case:
+
+```
+// filename: tests/BaseTest.java
+// ...
+    case "localhost": {
+         if ("firefox".equals(browserName)) {
+             WebDriverManager.firefoxdriver().setup();
+             driver = new FirefoxDriver();
+         } else if ("chrome".equals(browserName)) {
+             WebDriverManager.chromedriver().setup();
+             driver = new ChromeDriver();
+         }
+         break;
+     }
+```
+
+
 
 #### Final Code
+See and [example of both BaseTest.java and Config.yml in the 3.03 example](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Quickstart/Mod3/3.03).
+
+<img src="assets/QS3.04A.png" alt="Sauce Labs Account" width="750"/>
+
 Notice how many of the variables for capabilities are grey in this example, since they aren’t yet used in the test code:
-
-See the example to compare your code in `config.java`
-
 
 <img src="assets/4.05J.png" alt="Capabilities for your test" width="750"/>
 
 
-### Setting up your Sauce Labs Account
-
-You'll need an account to use Sauce Labs. Their [free trial](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) offers enough to get you started. And if you're signing up because you want to test an open source project, then be sure to check out their [Open Sauce account](https://saucelabs.com/open-source).
-
-Visit [http://app.saucelabs.com/](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). You can create a free trial account if you haven’t been assigned one.
-
-<img src="assets/4.05A.png" alt="Sauce Labs Account" width="450"/>
-
-Go to **Account> User Settings** to find your username and access key.
-
-<img src="assets/4.05B.png" alt="Sauce Labs User Name Access Key" width="450"/>
-
-
-You will need to set up your username and access key on your machine’s (or CI Tools') environment variables to use them in your test.
-
-To learn more about setting up environment variables, you can see the article [here](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials#BestPractice:UseEnvironmentVariablesforAuthenticationCredentials-SettingUpEnvironmentVariablesonMacOSX/LinuxSystems/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
-
-
-#### Video
-
-Watch This Video to See how to set up your Sauce Credentials as environment variables on MacOS in the [Sauce Credentials](https://www.youtube.com/watch?v=3K1Eu0eTha8&t=12s).
-
-<video id="3K1Eu0eTha8"></video>
 
 
 <!-- ------------------------ -->
