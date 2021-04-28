@@ -207,7 +207,7 @@ Another part of the package that was installed when you ran `saucectl` new is th
 
 
 ```
-// filename: .sauce/config.yml
+# filename: .sauce/config.yml
 apiVersion: v1alpha
 kind: cypress
 showconsolelog: false
@@ -270,8 +270,8 @@ Before you can run your tests using saucectl, you need to tell Cypress where it 
 
 
 ```
-// filename: .sauce/config.yml
-// ...
+# filename: .sauce/config.yml
+# ...
 suites:
 - name: example test
   browser: chrome
