@@ -1,0 +1,29 @@
+.api {
+    color:white;
+    padding: 0 .5rem;
+    font-weight:750;
+    width: fit-content;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.get {
+    background:#0080ff;
+}
+
+.delete {
+    background:#f93e3e;
+}
+
+.post {
+    background:#49cc90;
+
+}
+
+.put {
+    background:#fca130;
+}
+
+.patch {
+    background:#dcb03b;
+}
