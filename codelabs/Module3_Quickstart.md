@@ -16,18 +16,23 @@ author:Lindsay Walker
 Duration: 0:02:00
 
 
-There are many possibilities for testing on [Sauce Labs](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link), and in this module we will cover the specific case of testing a desktop browser web applications using the Sauce Labs Cloud (the virtual machines on Sauce Labs)
+There are many possibilities for testing on [Sauce Labs](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link), and in this module we will cover the specific case of testing a desktop browser web applications using the Sauce Labs Cloud of virtual machines.
 
-**Users who have their local test environment and code set up can [start on module 3.03](https://training.saucelabs.com/codelabs/Module3-Quickstart/index.html?index=..%2F..quickstart#2)**
+**Users who have their own local test environment and code set up can [start on module 3.03](https://training.saucelabs.com/codelabs/Module3-Quickstart/index.html?index=..%2F..quickstart#2)**
+
+You can also use the **[Example Test Suite](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Quickstart/Mod3/3.02)** and follow the next module to get set up.
 
 The examples here use Java code using Selenium version 3.14.15, the Maven build tool, as well as the JUnit4 test runner. The examples are on a MacOS machine, however we do provide examples of environment setup on a Windows machine.
 
 
 ### Skills & Knowledge
 
-In this Module you will learn:
+In this Module you will:
 
-*   The automated
+* Learn how to set up and run a local Java JUnit4 test using the IntelliJ IDE and Maven project management tool
+* The services and advantages available when you use the Sauce Labs Cloud to run automated tests
+* The structure and functionality of a Java Junit test suite that uses the _Page Object Model_ (POM)
+* What capabilities are and how to update a test to connect to sauce labs and use capabilities to communicate test suite information
 
 
 <!-- ------------------------ -->
@@ -55,7 +60,7 @@ To run a local test as shown, you will need to set up and install the following:
 
 *   A Java SDK ([Version 8 used in this example](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html))
 *   An IDE ([IDEA Community Edition](https://www.jetbrains.com/idea/download/))
-*  Apache's [Maven build tool](https://maven.apache.org/)
+*  Apache [Maven](https://maven.apache.org/) to build your project and manage dependencies.
 
 If you would like step-by-step instructions to help installing the dependencies above you can use the instructions in the [Selenium Java course](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4).
 
@@ -102,7 +107,7 @@ Duration: 0:05:00
 Once you understand how the test suite functions, you need to update settings such as the capabilities, endpoint to run against the Sauce Labs Cloud, and your Sauce username and access key. If you are using the examples test code, get familiar with the test function and structure:
 
 #### Video
-**[Setup Test to Run On Sauce Labs]()**
+**[Setup to Run Tests On Sauce Labs]()**
 
 ### About Running Tests on Sauce Labs
 
@@ -132,13 +137,9 @@ You tell the Grid which browser and OS you want your test to run on through the 
 
 ### Setting up your Sauce Labs Account
 
-You'll need an account to use Sauce Labs. Their [free trial](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) offers enough to get you started. And if you're signing up because you want to test an open source project, then be sure to check out their [Open Sauce account](https://saucelabs.com/open-source).
+You'll need an account to use Sauce Labs. Their [free trial](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) offers enough to get you started.
 
-Visit [http://app.saucelabs.com/](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). You can create a free trial account if you haven’t been assigned one.
-
-<img src="assets/4.05A.png" alt="Sauce Labs Account" width="450"/>
-
-Go to **Account> User Settings** to find your username and access key.
+Once you have your account set up, go to **Account> User Settings** to find your username and access key.
 
 <img src="assets/4.05B.png" alt="Sauce Labs User Name Access Key" width="450"/>
 
@@ -157,6 +158,7 @@ Watch This Video to See how to [set up your Sauce Credentials as environment var
 
 ### Setup Tests for Sauce Labs
 
+#### Update `Config.java`
 In the `Config.java` file, you are going to communicate the settings for our test environment with the W3C [Capabilities](https://wiki.saucelabs.com/display/DOCS/Desired+Capabilities+Required+for+Selenium+and+Appium+Tests/?utm_source=referral&utm_medium=LMS&utm_campaign=link), required for every Selenium test.
 
 Here, you will define some variables that you can use in your Base Test code, for your tests to be able to communicate with Sauce Labs:
@@ -191,8 +193,8 @@ Notice the new variables you have added:
     *   `accessKey` is generated (and can be regenerated) in your user settings in Sauce Labs
 
 
-### Add Controls to Switch the `host`
-Now that you have the variables you will you for your capabilities, you want to create `switch` statement with two different cases that you can use: one for running tests on you local machine, and one for running tests on Sauce Labs.\
+### Switch the `host` in `BaseTest.java`
+Now that you have the variables you will you for your capabilities, you want to create `switch` statement with two different cases that you can use: one for running tests on you local machine, and one for running tests on Sauce Labs.
 
 In the `BaseTest.java` class, within the `before()` method, add a `switch()` method with two different host options:
 
@@ -209,7 +211,7 @@ In the `BaseTest.java` class, within the `before()` method, add a `switch()` met
                   break;
               }
 ```
-Inside of the first case, `"saucelabs"`, typs in the declaration of the `sauceUrl` variable, and create your Mutable capabilities. We will add more to these capabilities later.
+Inside of the first case, `"saucelabs"`, type in the declaration of the `sauceUrl` variable, and create your `MutableCapabilities`. We will add more to these capabilities later.
 
 ```
 // filename: tests/BaseTest.java
@@ -254,8 +256,16 @@ Notice how many of the variables for capabilities are grey in this example, sinc
 
 
 <!-- ------------------------ -->
-## 3.04 Add Capabilities to Run Tests on Sauce Labs
+## 3.04 Run Web App Tests on Sauce Labs
 Duration: 0:05:00
+
+Now that you have the pieces in place, such as your Sauce Labs credentials and variables to pass in as capabilities, you can run the example test suite on Sauce Labs by pointing to the Sauce Labs endpoint and adding the required Capabilities.
+
+#### Video
+**[Run a Web App Test on Sauce Labs]()**
+
+
+### Update your URL and Capabilities
 
 Now you need to update `BaseTest.java `to work with these new values and connect to Sauce Labs. Note that these are called [Capabilities](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options), and the format they are in here is compatible with Selenium WebDriver 4.0, as well as all previous Selenium versions. They set the options for setting up the environment for your tests.
 
