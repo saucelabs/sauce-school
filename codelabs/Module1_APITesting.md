@@ -10,15 +10,19 @@ author:Lindsay Walker
 <!-- ------------------------ -->
 # Module 1 – API Testing Basics
 
-<!-- ------------------------ -->
+<!------------------------------>
+
 ## 1.01 What You'll Learn
-* Web Service Basics
-* API Types
-* Authorization Basics
-* The Sauce Labs API Testing Platform
 Duration: 0:02:00
 
-<!-- ------------------------ -->
+Below are the primary learning objectives for this module:
+
+1. **Overview of API Testing Fundamentals**
+  * Understand the relationship between Web Services and APIs
+  * Demonstrate knowledge of API terminology
+  * Demonstrate knowledge of API testing strategies
+
+<!------------------------------>
 ## 1.02 Introduction to APIs
 Duration: 0:06:00
 
@@ -49,7 +53,7 @@ The site uses a login **web service** to determine the appropriate response base
 > *Epic sadface: Sorry, this user has been locked out*.
 
 
-### How Do APIs Fit In?
+### So What are APIs and How Do They Fit In?
 
 An API stands for **Application Programming Interface**. Think of the API as the language, or contract, of the user *input*. APIs allow a user to send commands to a web service in terms the service can understand in order to produce the desired output.
 
@@ -57,19 +61,26 @@ Here's a more complex example using the popular ride-share mobile application Ub
 
 <img src="assets/API1.01A.png" alt="What's an API" width="550"/>
 
-In this application the APIs communicate with multiple web services that in turn connect to different platforms and data services. Each action performed in the app equates to its own web service, and the way you communicate with said web service is via APIs. 
+#### Dissecting the App
+The Uber mobile application consists of multiple web services that in turn connect to different platforms and data services in order to provide the user with the best ride-share experience. Each individual action a user performs in the app equates to an individual web service—and each web service interacts with one another in harmony in what's known as a **microservice reference architecture** (This is a huge software development topic but if you wish to learn more about microservices, visit [this link](https://12factor.net/) and [this link](https://martinfowler.com/articles/microservices.html)). 
 
-In other words, the way you search for a location, choose the type of ride you want, pay for the ride, and rate the driver are all separate web services communicated through APIs.
+In this application model APIs are super important because they are typically the primary method for *service to service* and *user to service* communication. In other words, the way you search for a location, choose the type of ride you want, pay for a ride, and rate the driver are all separate web services that communicate with one another through APIs.
 
-### So What Does an API Look Like? 
+#### So What Does an API Look Like? 
 
-Let's consider a common use case for Uber.
+Let's take a close look at a common service action made in the background, or "under the hood", of the Uber mobile application.
 
-You need to search for a vehicle in Uber. So you open the app, select a destination, and select 'search for ride'. Below is an example Uber API that makes an HTTP request after you input the data:
+When you need to search for a vehicle in Uber, it usually goes like this: 
 
-* `token`: your login access token that proves you are who you say you are
-* `latitude`: the latitude of your current location
-* `longitude`: the longitude of your current location
+1. You open the app
+2. Select a destination
+3. Choose a ride/car type
+4. Select 'search for ride'. 
+   
+Below is how Uber translates that user input data so that it can add it to an API HTTP call:
+
+* `token`: this equates to your login credentials in the form of a token that proves you are who you say you are
+* `latitude` and `longitude`: the physical latitude and longitude of your mobile device's current location
 
 Here's what the formatted URL ends up looking like:
 
@@ -77,7 +88,7 @@ Here's what the formatted URL ends up looking like:
 https://api.uber.com/v1/products?server_token=[token]&latitude=40.6797300818661&longitude=-73.9639477463489
 ```
 
-Uber then performs numerous calculations and actions and returns this **JSON** (JavaScript Object Notation) response to your phone:
+Uber then performs numerous connections and actions to other services, and then returns this **JSON** (JavaScript Object Notation) response to your phone:
 
 ```json
 {
@@ -140,7 +151,7 @@ A querying language made by Facebook that's gaining popularity. It allows you to
 
 <!--------------------------------------->
 
-## 1.04 Requests and Responses
+## 1.03 Requests and Responses
 Duration: 0:04:00
 
 There are commonly used terms when referring to APIs that will help us when we think about how to run our tests, such as **requests** and **responses**.
@@ -238,7 +249,7 @@ This is a prime example of a <span class="api delete">GET</span> request method�
 
 <!-- ------------------------ -->
 
-## 1.05 API Test Preparation
+## 1.04 API Test Preparation
 Duration: 0:04:00
 
 ### Mapping the API
@@ -330,186 +341,7 @@ It's also important, again, to use existing tests as your load tests. You will n
 
 Ultimately, continuous testing means leveraging all of these types of tests, automatically. A constant series of functional and non-functional (performance) tests to constantly validate your APIs.
 
-<!------------------------------>
-
-## 1.06 Introduction to API Fortress
-Duration: 0:04:00
-
-[API Fortress]() is the API Testing Platform of Sauce Labs. We will use this platform throughout the remainder of this course. Some concepts we cover during this course require the API Fortress platform. 
-
-However, you can try and follow along using other tools like [Postman](https://www.postman.com/), and then [import your requests later on](https://docs.saucelabs.com/api-testing/quick-start/importing-postman-collections).
-
-### Getting Started with API Fortress
-
-If you don't have an API Fortress account you can [visit the API Fortress home page](https://apifortress.com/), and select the **Free Trial** button at the top to request a 30-day free trial.
-
-After you fill out the necessary fields, you then receive an email with your login credentials for the platform. 
-
-> **NOTE**: If you don't receive an email confirmation, check your spam folder or please email [support@saucelabs.com](support@saucelabs.com) for assistance.
-
-
-#### Create a Project
-
-For this first test project we will test against the Sauce Labs API.
-
-1. Log in to the platform
-2. Select the **Create Project** button.
-   <img src="assets/apif-mod1/create-project.png" alt="API Fortress: Create Project"/>
-3. The **Add New Project** alert window appears.
-   <img src="assets/apif-mod1/project-fields.png" alt="API Fortress: Project Fields"/>
-   Add the following for each category:
-    * **Project Name**: `SauceUserAPITest`
-    * **Description**: `Simple Test against the Sauce Labs User API`
-    * **Notes**: `https://docs.saucelabs.com/dev/api/accounts#user-methods`
-    * **Alert Distribution lists**: Leave blank
-    
-4. When you're finished, select the **green check mark** <img src="assets/apif-mod1/green-check-mark.png" alt="API Fortress: Green Check Mark" width="30"/> at the top.
-5. Find your project and select the **Project Dashboard button**.
-   <img src="assets/apif-mod1/select-dashboard.png" alt="API Fortress: Project Dashboard Button" />
-
-Upon finishing your project setup, you should see the Project Dashboard.
-
-<img src="assets/apif-mod1/project-dashboard.png" alt="API Fortress: Project Dashboard" />
-
-<!------------------------------>
-
-## 1.07 Run Your First API Test
-Duration: 0:08:00
-
-We now have a project in which we can begin writing API Tests. Let's create the first API Test!
-
-
-#### Create a Test
-
-We're going to test against the [Sauce Labs GET user endpoint](https://docs.saucelabs.com/dev/api/accounts#get-users). In order to successfully create this test we need to complete the following steps using the [Visual Test Composer](https://docs.saucelabs.com/api-testing/learn-more/working-with-the-response-object/index.html#visual-composer-view) view:
-* Send an example HTTP Request using the **HTTP Client**
-* Add the **Basic Authorization Header** to our sample request
-* **Generate a Test** based on the response payload.
-
-From the project dashboard:
-
-1. Select **Tests** at the top of the screen in order to navigate to the project test list
-   <img src="assets/apif-mod1/select-tests.png" alt="API Fortress: Select Tests" />
-2. From the project test list, select **+New Test**
-   <img src="assets/apif-mod1/new-tests.png" alt="API Fortress: New Tests" />
-3. You should now see the new **Test Details** alert window
-   <img src="assets/apif-mod1/test-details.png" alt="API Fortress: Test Details" />
-   Add the following for each category:
-   * **Test Name**: `GET user`
-   * **Description**: `Test for the GET Method`
-   * **Tags**: `get`, `user`
-
-4. When you're finished, select the **green check mark** <img src="assets/apif-mod1/green-check-mark.png" alt="API Fortress: Green Check Mark" width="30"/> at the top.
-5. Now you should see the **Test Status** / **Interstitial** page.
-   <img src="assets/apif-mod1/test-status.png" alt="API Fortress: Test Status / Interstitial Page" />
-   
-### Generate a Test
-
-At the moment, the test content is empty, so we need to **generate a test**. From here there are two ways to generate a test:
-* Generate a test manually with the HTTP Client
-* Generate a test from a spec file.
-  
-For the purposes of this lesson, we will generate a test manually.
-
-> **NOTE**: You must have a Sauce Labs account in order to follow along in this step. [Use this link](https://saucelabs.com/sign-up) to sign up for a free trial.
-
-From the Intersitial page:
-
-1. Select **Compose** at the bottom of the page.
-   <img src="assets/apif-mod1/compose-button.png" alt="API Fortress: Compose Test Button" />
-2. Now you arrive at the [Visual Test Composer](https://docs.saucelabs.com/api-testing/quick-start/composer) page.
-   <img src="assets/apif-mod1/test-composer.png" alt="API Fortress: Test Composer" />
-   In order to create tests we first need to submit a sample HTTP API request. 
-   
-3. At the bottom of the UI, enter the following URL where it says **Request url** in the **HTTP Client**:
-   ```
-   https://api.us-west-1.saucelabs.com/team-management/v1/users?limit=3
-   ```
-   <img src="assets/apif-mod1/test-1.png" alt="API Fortress: Generate Test Step 1" />
-   
-4. Select the **Send** button:
-   
-   <img src="assets/apif-mod1/send-button.png" alt="API Fortress: Send Button" />
-   
-   You should receive the following error response:
-   ```http request
-   "HTTP Code 401: Authorization failed"
-   ```
-   <img src="assets/apif-mod1/401-error.png" alt="API Fortress: HTTP 401 Request Error" />
-   > **NOTE**: To see the raw response body in the HTTP Client select **Body** and then either *Raw* or *Parsed*
-   
-### Adding a Test Component
-
-In the previous step we encountered a common authentication error—[HTTP: 401](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401). In order to fix this error we must add our [Sauce Labs Account Credentails](https://app.saucelabs.com/user-settings) as a [Basic Authentication Header](https://docs.saucelabs.com/api-testing/how-to/authorization-simple-oauth-etc/index.html#overview).
-
-1. At the top of the Test Composer page, select the plus symbol to **add a new request component**:
-   <img src="assets/apif-mod1/add-component-button.png" alt="API Fortress: Add Component Button" />
-   
-2. From the dropdown list, select **GET**:
-   
-   <img src="assets/apif-mod1/select-get-component.png" alt="API Fortress: Select GET Component" />
-   
-#### Create Example GET Component
-1. In the next screen, recreate your HTTP Client request with the following information
-   <img src="assets/apif-mod1/get-request-details.png" alt="API Fortress: GET Request Details" />
-   * **Url**: `https://api.us-west-1.saucelabs.com/team-management/v1/users`
-   * **Variable**: `payload`
-   * **Expect**: Leave blank
-   * **Mode**: `json`
-   * **Query Params**: *Name*: `limit` *String value*: `3`
-   
-2. Then select **Add Authentication** at the bottom right.
-   <img src="assets/apif-mod1/add-authentication.png" alt="API Fortress: Authentication Details" />
-   
-3. Select **Basic Authentication**, then add your [Sauce Labs Username and Access Key](https://app.us-west-1.saucelabs.com/user-settings) in the relevant fields.    When you're finished, select the **green check mark** <img src="assets/apif-mod1/green-check-mark.png" alt="API Fortress: Green Check Mark" width="30"/> in the top right.
-
-   <img src="assets/apif-mod1/basic-auth-component.png" alt="API Fortress: Basic Auth Component" />
-    
-   <img src="assets/apif-mod1/basic-auth-details.png" alt="API Fortress: Basic Auth Details" />
-   
-#### Copy and Paste the Enocded Auth Header
-1. You'll notice that API Fortress automagically encodes and adds the Authorization header for you. Select the component to see the details:
-   <img src="assets/apif-mod1/new-auth-component.png" alt="API Fortress: New Auth Component" />
-2. Copy and paste the details in your HTTP Client **Headers** section:
-   <img src="assets/apif-mod1/copied-to-http-client.png" alt="API Fortress: Copied auth header to http client" />
-   
-3. Select the **Send** button again, and you should see something similar to below in the response body:
-   <img src="assets/apif-mod1/response-body-1.png" alt="API Fortress: Response Body Example" />
-   
-4. Next, select the **Generate Test** button and API Fortress automagically generates a sample test based on the request data.
-   <img src="assets/apif-mod1/generate-test.png" alt="API Fortress: Generate Test Button" />
-   
-5. Click through the prompts, and you should now see many tests in the Visual Test Composer Window.
-   <img src="assets/apif-mod1/visual-composer-view.png" alt="API Fortress: Visual Test Composer View" />
-   
-6. The final step is to run your tests. At the top of the Visual Test Composer, select **Run**
-    <img src="assets/apif-mod1/run-test.png" alt="API Fortress: Run Test Button" />
-
-<!------------------------------>
-
-## 1.08 View Test Results
-Duration: 0:04:00
-
-If your previous step ran without any errors you should see the following test results page:
-<img src="assets/apif-mod1/test-results-1.png" alt="API Fortress: Test Results Page 1" />
-
-You can also view the specific response details by clicking on **See More** next to the input set details:
-<img src="assets/apif-mod1/see-more.png" alt="API Fortress: See More" />
-
-The next page displays all the request and response details, including the headers and raw body in JSON format:
-<img src="assets/apif-mod1/test-results-2.png" alt="API Fortress: Test Results 2" />
-
-To see the response body select Load Source
-<img src="assets/apif-mod1/load-source.png" alt="API Fortress: Load Source" />
-
-This outputs the following:
-
-<img src="assets/apif-mod1/test-results-3.png" alt="API Fortress: Test Results 3" />
-
-Congratulations on running your first API Test! In the next module you will learn how to both **Schedule** and **Publish** a test.
-
-
 <!----------------------------->
 
-## 1.09 Module 1 Quiz
+## 1.05 Module 1 Quiz
 Duration: 0:04:00

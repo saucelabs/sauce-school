@@ -1,6 +1,6 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
-summary: Module 2 of the API Testing course. Once you have completed module 1, jump into module 2 where you will learn some basic and more advances methodologies for creating good API tests.
+summary: Module 2 of the API Testing course. Once you have completed module 1, jump into module 2 where you will learn how to use the API Fortress Platform.
 id: Module2-APITesting
 categories: beginner
 tags: zapi
@@ -10,124 +10,196 @@ feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
 author:Lindsay Walker
 <!-- ------------------------ -->
-# Module 2 – API Test Best Practices
+# Module 2 – Introduction to API Fortress
 
-<!-- ------------------------ -->
-## 2.01 Basic Best Practices
-Duration: 0:05:00
-
-### Test Every Endpoint
-
-Every endpoint is an integral part of an API program, and that means validating each one works as expected. This even means testing endpoints that add items into a database like Create User. A smart platform allows you to create tests that can add users, validate they were properly entered, and if it's a success then the user is deleted.
-
-### Test Everything
-
-API payloads are filled with information. You should not only be testing every _object_, but the header also contains vital information such as _Response-Type_, _Statuscode_, and _Content-Type_ which is important to validate.
-
-<img src="assets/wp-content/uploads/2019/06/uber-payload-header.png" alt="API Payload" width="850"/>
-
-
-### Test Objects Thoroughly
-
-When testing an API you should make sure all the objects exist, but that is only the first step. You should also be validating the objects have data associated that is within an expected range.
-
-For example, in the below Uber payload you'll see that
-
-- **_image_** should always be a properly formatted URL
-- **_shared_** should be boolean (true or false)
-- **_display\_name_** should be UberPool, UberX, UberSUV, UberEats, and whatever other products they have available in that city.
-
-Test objects thoroughly, not only checking if they exist but that they are of the right type.
-
-<img src="assets/wp-content/uploads/2019/06/uber-payload.png" alt="API Payload" width="650"/>
-
-
-
-### Test & Project Organization
-
-Before you begin creating tests for your API program, you should first consider how you want to organize them now and in the future. You may choose to create unique projects for different use cases, or tag the tests thoroughly using a system you create to separate tests that work for version 1 but not version 2. Come up with an organization plan that takes into consideration...
-
-- Expected Audience
-- Integration Test vs Simple Endpoint Test
-- Versioning
-- Legacy vs New APIs
-
-### Monitor Your APIs
-
-Again, monitoring is the most useful and yet underused form of testing. You need to know more about an API than if it's up or down, you need to validate it's functioning correctly.
-
-Schedule your existing functional and integration tests against the live environment to truly understand how your APIs are working in the real world. Every API program should have a status page. [Learn about how to monitor AIPS](https://docs.saucelabs.com/api-testing/quick-start/easy-monitoring/index.html)
-
-### Automate!
-
-The key to delivering new and updated APIs quickly, and with confidence of their quality, is with test execution automation. This is particularly important for organization using CI/CD platforms like Jenkins, TravisCI, Bamboo, Azure DevOps, and more. Add your test suite to your pipelines as soon as you can. [Learn more about integrating CI/CD](https://docs.saucelabs.com/api-testing/quick-start/integrate-with-your-cicd)
-
-
-
-<!-- ------------------------ -->
-## 2.02 Advanced Best Practices
-Duration: 0:04:00
-
-### Variablize for Test Reuse
-
-Domain, endpoints, and data sets are some of the parts of a test that should be easy to change quickly. You should never have to duplicate a test to execute it against a new staging environment. If you are doing that than your system needs to be reconsidered.
-
-As much as possible aim to have only a single test of a certain type. If you built a partner API, then try to have a single detailed test that can be a regression test during a CI pipeline, and then also used to monitor the live environment. [Learn More](https://docs.saucelabs.com/api-testing/quick-start/flexible-variables-for-flexible-environments/index.html)
-
-### Business Logic Validating
-
-As described in Course 1, it is important to go beyond the technical facts of a payload. You should also have knowledge as to the business objects. This means that if the Uber payload includes a reference to _UberSidecar_, but Uber hasn't announced a _[Sidecar](https://en.wikipedia.org/wiki/Sidecar#/media/File:NSU_601_OSL_Steib.jpg)_ product yet, this is a major issue for them from a technical and business secrets perspective.
-
-Perhaps they have a major advertising initiative to announce the ability to order a ride in the sidecar of a motorcycle, and this would undermine that. It's important that your tests are knowledgeable about the goal of the APIs technically, as well as from a business perspective.
-
-### Using Lots of Data
-
-One of the most common errors seen with testing is using the same small set of data for every test. A CSV with 50 product IDs is a good start, but now that you can automate this work there is no reason to not write a much more comprehensive test that can validate hundreds of product IDs. You must break free from using small CSV files for datasets.
-
-If you are already using databases or APIs that’s great! If not, start this process as now. A test is only as good as the amount of information it is testing against.  
-_Learn More [Using Files](https://docs.saucelabs.com/api-testing/how-to/github-for-datasets)_
-
-### Integration / End-to-End Test
-
-Most API programs are a collection of APIs that are meant to interact with each other. Therefore, it is important to create tests that do exactly that. A singular test that goes through a series of calls and validates the responses at each stage. This is what is called an integration test, although it is also called an end-to-end test.  
-
-This means writing detailed tests that reproduce normal user flows. For example, if one is talking about an e-commerce platform, a normal user flow would be:
-
-**_Search > View Product Details Page > Add to Cart > Checkout_**
-
-A functional test for just the _Search_ API is a great start, but the entire flow also needs to be validated. You should have as many integration tests as there are expected user flows. [Learn more about integration tests](https://docs.saucelabs.com/api-testing/quick-start/introduction-to-integration-testing)
-
-### Confirm Response Matches Request
-
-This is in the same thinking as the above, but with that advent of PSD2 and Open Banking it's worth mentioning on its own. When you are requesting information, such as your personal banking history, it is important to make sure only your information is returned. It is also important to validate you can do wildcard searches and get the results of other.
-
-That is exactly the sort of functional error that causes a huge vulnerability for large organizations like the [example here from United States Post Office](https://apifortress.com/usps-api-security-vulnerabilities-caused-by-functional-errors/).
-
-**Integrations Galore**
-
-Every company has an existing workflow, and it's important to choose a platform that helps keep those integrations seamless. In the basics this course talked about integrating with your CI pipeline, but it's also useful to have notifications and data in one place. If your organization has a lot invested in Slack, Kibana, and TestRail (for example) than having API test notifications and results in one place is imperative. [Learn more about connectors](https://docs.saucelabs.com/api-testing/quick-start/setup-connectors)
-
-
-
-
-<!-- ------------------------ -->
-## 2.03 Optional Best Practices
+## 2.01 What You'll Learn
 Duration: 0:02:00
 
-### Integrate with your CI/CD
+1. **Introduction to the API Fortress Platform and Visual Test Composer**
+    * Create a project
+    * Leverage the HTTP Client
+    * Navigate the Test Component library
+    * Generate and run a test
+    * View the test results
+    
+<!------------------------------>
+## 2.02 Introduction to API Fortress
+Duration: 0:04:00
 
-Integrating your API testing into your existing CI/CD flow is key if you are trying to keep all of your deployments quick and frequent. Kicking off a test or suite of tests during the build process allows you to build your new deployment and test it all at once.
+[API Fortress](https://apifortress.com/) is the API Testing Platform of Sauce Labs. We will use this platform throughout the remainder of this course. Some concepts we cover during this course require the API Fortress platform.
 
-### Integrate Notification/Data Analysis Systems
+However, you can try and follow along using other tools like [Postman](https://www.postman.com/), and then [import your requests later on](https://docs.saucelabs.com/api-testing/quick-start/importing-postman-collections).
 
-Set up notifications to alert you via email, slack, and more when tests fail.
+### Getting Started with API Fortress
 
-Do you already use a platform to analyze all your data, well you can send all your API test data out to those platforms as well. Now all of your data can live in one place, making it easy to pull and analyze all project data.
+If you don't have an API Fortress account you can [visit the API Fortress home page](https://apifortress.com/), and select the **Free Trial** button at the top to request a 30-day free trial.
 
-### Integrate with Test Case Managers
+After you fill out the necessary fields, you then receive an email with your login credentials for the platform.
 
-Integrating with your Test Case Manager and communicating the results of tests is important. Having all of your information in your test case manager including test result data makes it easy to understand the entire project. Connectors can be setup to automatically send test results to your test case manager upon completion of scheduled tests.
+> **NOTE**: If you don't receive an email confirmation, check your spam folder or please email [support@saucelabs.com](support@saucelabs.com) for assistance.
+
+
+#### Create a Project
+
+For this first test project we will test against the Sauce Labs API.
+
+1. Log in to the platform
+2. Select the **Create Project** button.
+   <img src="assets/apif-mod2/create-project.png" alt="API Fortress: Create Project"/>
+3. The **Add New Project** alert window appears.
+   <img src="assets/apif-mod2/project-fields.png" alt="API Fortress: Project Fields"/>
+   Add the following for each category:
+    * **Project Name**: `SauceUserAPITest`
+    * **Description**: `Simple Test against the Sauce Labs User API`
+    * **Notes**: `https://docs.saucelabs.com/dev/api/accounts#user-methods`
+    * **Alert Distribution lists**: Leave blank
+
+4. When you're finished, select the **green check mark** <img src="assets/apif-mod2/green-check-mark.png" alt="API Fortress: Green Check Mark" width="30"/> at the top.
+5. Find your project and select the **Project Dashboard button**.
+   <img src="assets/apif-mod2/select-dashboard.png" alt="API Fortress: Project Dashboard Button" />
+
+Upon finishing your project setup, you should see the Project Dashboard.
+
+<img src="assets/apif-mod2/project-dashboard.png" alt="API Fortress: Project Dashboard" />
+
+<!------------------------------>
+
+## 2.03 Run Your First API Test
+Duration: 0:08:00
+
+We now have a project in which we can begin writing API Tests. Let's create the first API Test!
+
+
+#### Create a Test
+
+We're going to test against the [Sauce Labs GET user endpoint](https://docs.saucelabs.com/dev/api/accounts#get-users). In order to successfully create this test we need to complete the following steps using the [Visual Test Composer](https://docs.saucelabs.com/api-testing/learn-more/working-with-the-response-object/index.html#visual-composer-view) view:
+* Send an example HTTP Request using the **HTTP Client**
+* Add the **Basic Authorization Header** to our sample request
+* **Generate a Test** based on the response payload.
+
+From the project dashboard:
+
+1. Select **Tests** at the top of the screen in order to navigate to the project test list
+   <img src="assets/apif-mod2/select-tests.png" alt="API Fortress: Select Tests" />
+2. From the project test list, select **+New Test**
+   <img src="assets/apif-mod2/new-tests.png" alt="API Fortress: New Tests" />
+3. You should now see the new **Test Details** alert window
+   <img src="assets/apif-mod2/test-details.png" alt="API Fortress: Test Details" />
+   Add the following for each category:
+    * **Test Name**: `GET user`
+    * **Description**: `Test for the GET Method`
+    * **Tags**: `get`, `user`
+
+4. When you're finished, select the **green check mark** <img src="assets/apif-mod2/green-check-mark.png" alt="API Fortress: Green Check Mark" width="30"/> at the top.
+5. Now you should see the **Test Status** / **Interstitial** page.
+   <img src="assets/apif-mod2/test-status.png" alt="API Fortress: Test Status / Interstitial Page" />
+
+### Generate a Test
+
+At the moment, the test content is empty, so we need to **generate a test**. From here there are two ways to generate a test:
+* Generate a test manually with the HTTP Client
+* Generate a test from a spec file.
+
+For the purposes of this lesson, we will generate a test manually.
+
+> **NOTE**: You must have a Sauce Labs account in order to follow along in this step. [Use this link](https://saucelabs.com/sign-up) to sign up for a free trial.
+
+From the Intersitial page:
+
+1. Select **Compose** at the bottom of the page.
+   <img src="assets/apif-mod2/compose-button.png" alt="API Fortress: Compose Test Button" />
+2. Now you arrive at the [Visual Test Composer](https://docs.saucelabs.com/api-testing/quick-start/composer) page.
+   <img src="assets/apif-mod2/test-composer.png" alt="API Fortress: Test Composer" />
+   In order to create tests we first need to submit a sample HTTP API request.
+
+3. At the bottom of the UI, enter the following URL where it says **Request url** in the **HTTP Client**:
+   ```
+   https://api.us-west-1.saucelabs.com/team-management/v1/users?limit=3
+   ```
+   <img src="assets/apif-mod2/test-1.png" alt="API Fortress: Generate Test Step 1" />
+
+4. Select the **Send** button:
+
+   <img src="assets/apif-mod2/send-button.png" alt="API Fortress: Send Button" />
+
+   You should receive the following error response:
+   ```http request
+   "HTTP Code 401: Authorization failed"
+   ```
+   <img src="assets/apif-mod2/401-error.png" alt="API Fortress: HTTP 401 Request Error" />
+   > **NOTE**: To see the raw response body in the HTTP Client select **Body** and then either *Raw* or *Parsed*
+
+### Adding a Test Component
+
+In the previous step we encountered a common authentication error—[HTTP: 401](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401). In order to fix this error we must add our [Sauce Labs Account Credentails](https://app.saucelabs.com/user-settings) as a [Basic Authentication Header](https://docs.saucelabs.com/api-testing/how-to/authorization-simple-oauth-etc/index.html#overview).
+
+1. At the top of the Test Composer page, select the plus symbol to **add a new request component**:
+   <img src="assets/apif-mod2/add-component-button.png" alt="API Fortress: Add Component Button" />
+
+2. From the dropdown list, select **GET**:
+
+   <img src="assets/apif-mod2/select-get-component.png" alt="API Fortress: Select GET Component" />
+
+#### Create Example GET Component
+1. In the next screen, recreate your HTTP Client request with the following information
+   <img src="assets/apif-mod2/get-request-details.png" alt="API Fortress: GET Request Details" />
+    * **Url**: `https://api.us-west-1.saucelabs.com/team-management/v1/users`
+    * **Variable**: `payload`
+    * **Expect**: Leave blank
+    * **Mode**: `json`
+    * **Query Params**: *Name*: `limit` *String value*: `3`
+
+2. Then select **Add Authentication** at the bottom right.
+   <img src="assets/apif-mod2/add-authentication.png" alt="API Fortress: Authentication Details" />
+
+3. Select **Basic Authentication**, then add your [Sauce Labs Username and Access Key](https://app.us-west-1.saucelabs.com/user-settings) in the relevant fields.    When you're finished, select the **green check mark** <img src="assets/apif-mod2/green-check-mark.png" alt="API Fortress: Green Check Mark" width="30"/> in the top right.
+
+   <img src="assets/apif-mod2/basic-auth-component.png" alt="API Fortress: Basic Auth Component" />
+
+   <img src="assets/apif-mod2/basic-auth-details.png" alt="API Fortress: Basic Auth Details" />
+
+#### Copy and Paste the Enocded Auth Header
+1. You'll notice that API Fortress automagically encodes and adds the Authorization header for you. Select the component to see the details:
+   <img src="assets/apif-mod2/new-auth-component.png" alt="API Fortress: New Auth Component" />
+2. Copy and paste the details in your HTTP Client **Headers** section:
+   <img src="assets/apif-mod2/copied-to-http-client.png" alt="API Fortress: Copied auth header to http client" />
+
+3. Select the **Send** button again, and you should see something similar to below in the response body:
+   <img src="assets/apif-mod2/response-body-1.png" alt="API Fortress: Response Body Example" />
+
+4. Next, select the **Generate Test** button and API Fortress automagically generates a sample test based on the request data.
+   <img src="assets/apif-mod2/generate-test.png" alt="API Fortress: Generate Test Button" />
+
+5. Click through the prompts, and you should now see many tests in the Visual Test Composer Window.
+   <img src="assets/apif-mod2/visual-composer-view.png" alt="API Fortress: Visual Test Composer View" />
+
+6. The final step is to run your tests. At the top of the Visual Test Composer, select **Run**
+   <img src="assets/apif-mod2/run-test.png" alt="API Fortress: Run Test Button" />
+
+<!------------------------------>
+
+## 2.04 View Test Results
+Duration: 0:04:00
+
+If your previous step ran without any errors you should see the following test results page:
+<img src="assets/apif-mod2/test-results-1.png" alt="API Fortress: Test Results Page 1" />
+
+You can also view the specific response details by clicking on **See More** next to the input set details:
+<img src="assets/apif-mod2/see-more.png" alt="API Fortress: See More" />
+
+The next page displays all the request and response details, including the headers and raw body in JSON format:
+<img src="assets/apif-mod2/test-results-2.png" alt="API Fortress: Test Results 2" />
+
+To see the response body select Load Source
+<img src="assets/apif-mod2/load-source.png" alt="API Fortress: Load Source" />
+
+This outputs the following:
+
+<img src="assets/apif-mod2/test-results-3.png" alt="API Fortress: Test Results 3" />
+
+Congratulations on running your first API Test! In the next module you will learn how to both **Schedule** and **Publish** a test.
 
 <!-- ------------------------ -->
-## 2.04 Module 2 Quiz
+
+## 2.05 Module 2 Quiz
 ![https://docs.google.com/forms/d/e/1FAIpQLScD-Qv4R-99_uW2IumSKhPTkwO3RX-3mU0G-aotTWMrIVVrUA/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScD-Qv4R-99_uW2IumSKhPTkwO3RX-3mU0G-aotTWMrIVVrUA/viewform?usp=sf_link)
