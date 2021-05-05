@@ -1,6 +1,6 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
-summary: Module 2 of the API Testing course. Once you have completed module 1, jump into module 2 where you will learn how to use the API Fortress Platform.
+summary: Once you have completed module 1, jump into module 2 where you will learn how to use the API Fortress Platform.
 id: Module2-APITesting
 categories: beginner
 tags: zapi
