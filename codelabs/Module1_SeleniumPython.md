@@ -5,10 +5,11 @@ tags: python
 environments: Web
 status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
+analytics account: UA-86110990-1
 author:Lindsay Walker
 
 <!-- ------------------------ -->
-# Module 1- Introduction to Selenium with Python
+# Module 1- Introduction Tutorial | Selenium with Python
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
@@ -117,7 +118,7 @@ In the exercises that follow, you will learn more about the different tools you 
 
 
 <!-- ------------------------ -->
-## 1.05  Installing Dependencies
+## 1.05  Installing Python Test Dependencies
 Duration: 0:15:00
 
 
@@ -125,24 +126,28 @@ You will need several dependencies dependencies in order for our test to run as 
 
 If you are installing Python on a Widows or Linux machine, you can follow the instructions found on [_The Hitchikers Guide to Python_](https://docs.python-guide.org/starting/installation/).
 
+### MacOS installation
+The basic things you need to have installed are outlined in the sections below, which you can skip if you already have set up:
+* [Homebrew](https://brew.sh/)
+* Install Python
+  * `brew install python`
+* Install [Pycharm](https://www.jetbrains.com/pycharm/)
+* Install pip3
+  * `pip3 --version`
+* Install testing libraries from PyPI](https://pypi.org/)
+* Install a virtual environment ([venv3](https://docs.python.org/3/library/venv.html))
 
-#### NOTE
-
+### Install HomeBrew
 The easiest way to install Python dependencies on Mac is to enlist the help of another tool called [Homebrew](https://brew.sh/). Homebrew makes it easier to install and keep other files and software up to date on your machine. To install brew, copy and paste the command on there into your terminal:
-
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
+#### Note
+Negative
+: If you type `brew info` in your terminal, and you have homebrew installed correctly, you should see something like this: <img src="assets/5.06C.png" alt="Pencil" width="750"/> The Homebrew installation should also update the PATH variable when you install it, so other programs on your computer know how to access `brew` commands
 
-If you type `brew info` in your terminal, and you have homebrew installed correctly, you should see something like this:
-
-<img src="assets/5.06C.png" alt="Pencil" width="350"/>
-
-The Homebrew installation should also update the PATH variable when you install it, so other programs on your computer know how to access `brew` commands
-
---
 
 ### Install Python
 
@@ -186,12 +191,12 @@ In order to write and edit your test code, you will need an  **I**ntegrated **D*
 <img src="assets/1.05Q.png" alt="PSelenium Diagram" width="550"/>`
 
 
-### Install Pip
+### Install Pip3
 
 The first thing you will need is the standard package manager for Python. It allows you to install and manage tools and libraries that don't come with the regular Python package you installed. When you installed the python package above, a version of pip, called `pip3` was installed. Check that you have it on your machine by typing:
 
 ```
-pip3 --versions
+pip3 --version
 
 ```
 
@@ -199,10 +204,11 @@ You should see an output like this:
 
  <img src="assets/1.05R.png" alt="PIP 3" width="550"/>
 
- #### NOTE
- If you don't have pip3 installed, or you are using an older version of Python, you may want to check to see if you have pip3  installed by typing `pip3 -version` into your terminal. You can also [use this website](https://pip.pypa.io/en/latest/installing/)  get get pip3 installed. It's not recommended that you use Python 2.7 and pip, as it's not supported, but it may be a reason `pip3`  isn't working.
+ #### Note
+ Negative
+: If you don't have pip3 installed, or you are using an older version of Python, you may want to check to see if you have pip3  installed by typing `pip3 -version` into your terminal. You can also [use this website](https://pip.pypa.io/en/latest/installing/)  get get pip3 installed. It's not recommended that you use Python 2.7 and pip, as it's not supported, but it may be a reason `pip3`  isn't working.
 
- --
+
 
 ### Install Libraries from PyPI
 
@@ -231,7 +237,7 @@ For each of these installs you should see the processes processing an output on 
 
 Since there may be more than one version of Python on your machine (being used by different software for different purposes) we want to create a sandbox environment where you can run your tests written for the latest version of Python where you can set up all the dependencies use with that version of Python.
 
-You can install the virtual environment by typing the following command into your terminal:
+You can install the [virtual environment](https://docs.python.org/3/library/venv.html) by typing the following command into your terminal:
 
 ```
 python3 -m venv venv3
@@ -264,6 +270,8 @@ You will have to run the command `source venv3/bin/activate` run the command to 
 **Pytest Test Runner –** An open-source tool that executes the test with commands that allow you to do things like run tests in parallel, run specific sets of tests, and more.
 
 **PyCharm IDE –** This tool helps with the writing, debugging, and organization of your code. It includes features that make your code easier to read and organize, start a virtual environment, as well as update dependencies and run test all in one tool.
+
+**venv –** A Python code module that allows you to create a sandbox virtual environment so you can run & use different versions of Python on one machine, and can have its own independent set of installed Python packages in its site directories
 
 <!-- ------------------------ -->
 

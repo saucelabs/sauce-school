@@ -1,0 +1,10 @@
+{
+  "title": "API Testing Course",
+  "description": "Learn about what API testing is, and why it's important. Learn some basic methodologies for creating good API tests. Create your first test, learn techniques such as dealing with authentication, and exectue tests in different ways.",
+  "logoUrl": "/apiTesting/logo.png",
+  "tags": ["zapi"],
+  "exclude": [
+    ".*-about$",
+    "^lang-.*"
+  ]
+}

@@ -1,6 +1,6 @@
 {
-  "title": "Selenium Python",
-  "description": "In this course, you will learn to use Python with the Pytest test runner to develop an automated testing suite. With these tutorials, you will create autonomous, easy to maintain test code, and use pip3, Jenkins, SauceConnect, and SauceOnDemand along with Selenium, Python, and Pycharm to write a test suite and to gain test automation skills.",
+  "title": "Selenium Python Course",
+  "description": "In this course, you will learn to use Python with the Pytest test runner to develop an automated testing suite. Learn to create autonomous, easy to maintain test code, and use pip3, Jenkins, SauceConnect, and Sauce OnDemand.",
   "logoUrl": "/seleniumpython/logo.png",
   "tags": ["python"],
   "exclude": [

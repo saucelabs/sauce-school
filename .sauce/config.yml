@@ -29,11 +29,11 @@ suites:
         - "**/*.js"
       env:
         HOST_URL: http://127.0.0.1:8080/
-  - name: "Edge Tests"
-    browser: microsoftedge
-    browserVersion: "87"
-    config:
-      testFiles:
-        - "**/*.js"
-      env:
-        HOST_URL: http://127.0.0.1:8080/
+  # - name: "Edge Tests"
+  #   browser: microsoftedge
+  #   browserVersion: "87"
+  #   config:
+  #     testFiles:
+  #       - "**/*.js"
+  #     env:
+  #       HOST_URL: http://127.0.0.1:8080/

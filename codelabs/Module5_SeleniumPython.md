@@ -8,6 +8,7 @@ tags: python
 environments: Web
 status: Hidden
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
+analytics account: UA-86110990-1
 
 <!-- ------------------------ -->
 # Module 5 – Sauce Connect, OnDemand, and Continuous Integration
@@ -23,15 +24,23 @@ This module, based off chapters 13-18 of _The Selenium Guidebook:_ _Python Editi
 
 
 *   Set up and run tests using the Sauce Connect Proxy tunnel with terminal commands and the Sauce Labs application interface. Set up environment variables and access them with the Sauce Connect software to run tests using the tunnel.
+
 *   Use Pytest plugins `xdist` and `randomly` to run tests on the Sauce Platform in parallel and in random order
+
 *   Create a `pytest.ini` file to name categories for different kinds of tests, and use the `@pytest.mark` decorators in your tests  as well as the `pytest -m mark_name` command in the terminal and in Jenkins to run different groups of tests for different purposes
+
 *   Set up the the Jenkins CI server on your local machine and learn how to use the user interface to set up projects that run your tests, as well as configure the Jenkins CI server
+
 *   Add your credentials to your instance of a Jenkins CI server using Sauce OnDemand and run a test that you can view in both the Jenkins console and the Sauce Labs application
+
 *   Run tests using Sauce Connect Proxy through your Jenkins server, passing information back and forth from Sauce Labs to Jenkins using Sauce Connect
-*   Develop a strategy for planning how many and which types of tests your team and company will develop to best build automated testing suites for your product
-*   Connect how the tests that you have written for the user interface of an application using Selenium can be integrated into a comprehensive testing strategy that tests on multiple layers
+
+*   Understand how the tests that you have written for the user interface of an application using Selenium can be integrated into a comprehensive testing strategy that tests on multiple layers
+
 *   Establish autonomous test suites that are set up to run without relying on the execution of any other tests
+
 *   Describe a use case for the Sauce Connect Proxy and how it can allow access to secure applications while maintaining data privacy
+
 *   Understand how a CI server like Jenkins can be used to automate the software development pipeline and automate the testing to run specific tests with certain triggers
 
 <!-- ------------------------ -->
@@ -49,9 +58,9 @@ There are many versions of the pyramid created by experts in the testing field, 
 
 #### Video
 
-Watch [5.02 Testing Strategy](https://drive.google.com/file/d/1RwwCDmqY4Q1H8NG8LFx0VsKxTjb5flCK/view?usp=sharing), Excerpts from “Pyramids Are Ancient” By Richard Bradshaw to learn about how to develop a testing strategy for your business, as well as tip on how to plan and identify the layers of your application you should run your tests on.
+Watch [5.02 Testing Strategy](https://www.youtube.com/watch?v=dPe9hxsbfLg), Excerpts from “Pyramids Are Ancient” By Richard Bradshaw to learn about how to develop a testing strategy for your business, as well as tip on how to plan and identify the layers of your application you should run your tests on.
 
- ![https://drive.google.com/file/d/1RwwCDmqY4Q1H8NG8LFx0VsKxTjb5flCK/preview](https://drive.google.com/file/d/1RwwCDmqY4Q1H8NG8LFx0VsKxTjb5flCK/view?usp=sharing)
+<video id="dPe9hxsbfLg)"></video>
 
 
 ### Testing Layers
@@ -101,12 +110,18 @@ Duration: 0:15:00
 
 [Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#:~:text=Sauce%20Connect%20Proxy%E2%84%A2%20is,or%20behind%20a%20corporate%20firewall.) is software that enables you to establish a secure connection between applications hosted on an internal server and the Sauce Labs virtual machines (such as Jenkins) or real devices that are used for testing. It also allows you to create a secure connection for uploading tests, application, and source code.
 
+#### Video
+[Set Up Sauce Connect Proxy](https://youtu.be/cpBcGeZ_wQU)
+
+<video id="cpBcGeZ_wQU"></video>
+
+
 In many cases, testers need to run their tests on internal sites. These can be dev/staging versions of their production site or actual internal sites only employees use. In either case, these sites are not available out in the open internet for sauce to access. The best, most secure option is to create a connection with Sauce Connect Proxy. Sauce Connect Proxy uses a proprietary [TLS protocol](https://www.cloudflare.com/learning/ssl/transport-layer-security-tls/) to encrypt traffic between Sauce Labs and your network and servers.
 
 
 ### Download Sauce Connect Proxy
 
-The first step is to download The Sauce Connect Proxy software -- available on the **[Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy)** page in the Sauce Labs Cookbook -- and extract the contents of the **.zip** or **.gz** download package. You can also get the software on the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform under **Tunnels.**
+The first step is to download The Sauce Connect Proxy software -- available on the **[Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/index.html)** page in the Sauce Labs Cookbook -- and extract the contents of the **.zip** or **.gz** download package. You can also get the software on the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform under **Tunnels.**
 
 
 <img src="assets/5.03A.png" alt="Tunnels Software" width="750"/>
@@ -133,7 +148,7 @@ bin/ sc -u <SAUCE_USERNAME> -k <SAUCE_ACCESS_KEY> -i <SAUCE_TUNNEL>
 ```
 ###Note
 Negative
-: **Create Environment Variables for Sauce Labs –** The first thing you should do when creating a test is set up environment variables on your local machine in the (.zshrc or .bash profile) for your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`. It is important to save your Sauce username and access key as environment variables, instead of coding them into your test, so that when you share your tests or upload them to Github, your private access keys aren’t shared.   It will also make transitioning to a continuous integration pipeline easier, since they will use the same environment variables.  Watch [this video](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing) to learn how to set up environment variables with your Sauce Labs credentials on a Mac, or view the [instructions for Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
+: **Create Environment Variables for Sauce Labs –** The first thing you should do when creating a test is set up environment variables on your local machine in the (.zshrc or .bash profile) for your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`. It is important to save your Sauce username and access key as environment variables, instead of coding them into your test, so that when you share your tests or upload them to Github, your private access keys aren’t shared.   It will also make transitioning to a continuous integration pipeline easier, since they will use the same environment variables.  Watch [this video](https://youtu.be/3K1Eu0eTha8) to learn how to set up environment variables with your Sauce Labs credentials on a Mac, or view the [instructions for Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
 
 You can copy the command that you will find at the bottom of the **Tunnels** page, and paste this into your terminal as well, instead of typing what is above. take note of what is after the `i` flag as you will need to add this in your code `-i <Sauce tunnel name>`:. In this example, I’ve called mine `linds-proxy-tunnel.`
 
@@ -498,10 +513,10 @@ Typically when you set up tests, you would add your test code as a part of the p
 Jenkins is one of many tools you can use to automate your builds, however it also means that one has to log in to the Jenkins dashboard to debug tests. Using Sauce Labs makes it a lot easier to see, share, and debug tests results that are a part of a release pipeline.
 
 #### Video
-Watch [Run Jenkins with Homebrew and Java](https://drive.google.com/file/d/1nxIM0q-WsiirluFyzCgJ0zooYREQHgrD/view?usp=sharing)
+Watch [Run Jenkins with Homebrew and Python](https://youtu.be/WGvZ_kq5h2o)
 for a walk through of how to run and check the configuration of your test job with Jenkins.
 
-![https://drive.google.com/file/d/1nxIM0q-WsiirluFyzCgJ0zooYREQHgrD/preview](https://drive.google.com/file/d/1nxIM0q-WsiirluFyzCgJ0zooYREQHgrD/view?usp=sharing)
+<video id="WGvZ_kq5h2o"></video>
 
 ### Create a Test Project
 

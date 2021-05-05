@@ -6,9 +6,10 @@ tags: javascript
 status: Published
 authors: Lindsay Walker
 Feedback Link: https://forms.gle/CGu4QchgBxxWnNJK8
+analytics account: UA-86110990-1
 author: Lindsay Walker  
 
-# Module 1 — Introduction to Selenium with JavaScript
+# Module 1 — Introduction Tutorial | Selenium with JavaScript
 
 <!-- ------------------------ -->
 
@@ -142,7 +143,7 @@ Above is an example of how you might connect a framework with the selenium grid 
 As you work through this course, you will learn more about the different tools you use when you write code, they will make more sense.
 
 <!-- ------------------------ -->
-## 1.05  Installing Dependencies
+## 1.05  Installing JavaScript Test Dependencies
 Duration: 0:10:00
 
 We need several dependencies, or tools and libraries, in order for our test to run as planned, which we will install later on, and for now we will get set up to do that. In this module, we’re going to install and set up the NodeJS server, create a project folder and install npm so that later on we can install all the dependencies. The dependencies include WebDrivers that communicate with different browsers, as well as Mocha, to use in writing actual tests.
@@ -161,11 +162,10 @@ In Terminal you can type this command to create a new project directory:
 
 
 #### Note
-If you already have experience with the NodeJS server and an IDE, and know how to install npm in a project folder, you can skip the rest of this Module (on to 2.01) where you can find a Github project directory to download or fork.
 
-Now we are going to install npm. When we run the command `npm install`, it will download dependencies defined in a package.json file and generate a node_modules folder with the installed modules.
+Negative
+: If you already have experience with the NodeJS server and an IDE, and know how to install npm in a project folder, you can skip the rest of this Module (on to 2.01) where you can find a Github project directory to download or fork. Now we are going to install npm. When we run the command `npm install`, it will download dependencies defined in a package.json file and generate a node_modules folder with the installed modules.
 
---
 
 * Navigate to the folder you just made from the terminal.
 
@@ -201,9 +201,9 @@ Most IDEs come with a set of [plugins and packages](https://atom.io/packages) yo
 
 #### NOTE
 
-_if you are using Github, it is recommended that you [delete the package-lock.json](https://www.codementor.io/@johnkennedy/get-rid-of-that-npm-package-lock-json-e0bj7ai42) file._
+Negative
+: _if you are using Github, it is recommended that you [delete the package-lock.json](https://www.codementor.io/@johnkennedy/get-rid-of-that-npm-package-lock-json-e0bj7ai42) file._
 
---
 
 ### Use GitHub Repository (Optional)
 
@@ -214,9 +214,10 @@ If you are familiar with using GitHub to write your code, you can also fork/ bra
 
 #### NOTE
 
-If you download this project, you should open the directory (1.05) in your terminal and run `npm install` before trying to write any tests.
+Negative
+: If you download this project, you should open the directory (1.05) in your terminal and run `npm install` before trying to write any tests.
 
---
+
 
 #### Cheat Sheet
 

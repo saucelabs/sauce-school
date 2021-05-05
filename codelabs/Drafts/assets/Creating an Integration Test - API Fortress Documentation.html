@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<!-- saved from url=(0086)https://apifortress.com/doc/creating-an-integration-test-using-an-api-as-a-datasource/ -->
+<html lang="en-US" class="js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="https://apifortress.com/doc/xmlrpc.php">
+	<!--[if lt IE 9]>
+	<script src="https://apifortress.com/doc/wp-content/themes/twentyfifteen/js/html5.js"></script>
+	<![endif]-->
+	<script async="" src="./Creating an Integration Test - API Fortress Documentation_files/analytics.js"></script><script src="./Creating an Integration Test - API Fortress Documentation_files/collectedforms.js" type="text/javascript" id="CollectedForms-3989196" crossorigin="anonymous" data-leadin-portal-id="3989196" data-leadin-env="prod" data-loader="hs-scriptloader" data-hsjs-portal="3989196" data-hsjs-env="prod" data-hsjs-hublet="na1"></script><script src="./Creating an Integration Test - API Fortress Documentation_files/3989196.js" type="text/javascript" id="cookieBanner-3989196" data-cookieconsent="ignore" data-loader="hs-scriptloader" data-hsjs-portal="3989196" data-hsjs-env="prod" data-hsjs-hublet="na1"></script><script src="./Creating an Integration Test - API Fortress Documentation_files/3989196(1).js" type="text/javascript" id="hs-analytics"></script><script src="./Creating an Integration Test - API Fortress Documentation_files/fb.js" type="text/javascript" id="hs-ads-pixel-3989196" data-ads-portal-id="3989196" data-ads-env="prod" data-loader="hs-scriptloader" data-hsjs-portal="3989196" data-hsjs-env="prod" data-hsjs-hublet="na1"></script><script type="text/javascript" async="" src="./Creating an Integration Test - API Fortress Documentation_files/f.txt"></script><script src="./Creating an Integration Test - API Fortress Documentation_files/lt.min.js"></script><script src="./Creating an Integration Test - API Fortress Documentation_files/322286385242173" async=""></script><script src="./Creating an Integration Test - API Fortress Documentation_files/425401604652090" async=""></script><script async="" src="./Creating an Integration Test - API Fortress Documentation_files/fbevents.js"></script><script async="" src="./Creating an Integration Test - API Fortress Documentation_files/analytics.js"></script><script type="text/javascript" async="" src="./Creating an Integration Test - API Fortress Documentation_files/gvd42gxg3rvz.js"></script><script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<title>Creating an Integration Test - API Fortress Documentation</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v11.7 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="A guide on the best practices on creating an integration test. Learn how to use an API as a datasource to data drive your test.">
+<link rel="canonical" href="https://apifortress.com/doc/creating-an-integration-test-using-an-api-as-a-datasource/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Creating an Integration Test - API Fortress Documentation">
+<meta property="og:description" content="A guide on the best practices on creating an integration test. Learn how to use an API as a datasource to data drive your test.">
+<meta property="og:url" content="https://apifortress.com/doc/creating-an-integration-test-using-an-api-as-a-datasource/">
+<meta property="og:site_name" content="API Fortress Documentation">
+<meta property="article:section" content="Course 3: Writing Your First Test">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="A guide on the best practices on creating an integration test. Learn how to use an API as a datasource to data drive your test.">
+<meta name="twitter:title" content="Creating an Integration Test - API Fortress Documentation">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/i0NjdQurLSqInjd_CMAEsHJC3PBKN-fWkYdIcDzInma7JVw-lizD9AKjxcryamLJ7Baap2uWZZ4zi63PFWi0HfMsz3JOqRw40941xoflsTdWPXJ2F1N7myWBpe8A9bB5zaAV9kVd">
+<script type="application/ld+json" class="yoast-schema-graph yoast-schema-graph--main">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://apifortress.com/doc/#website","url":"https://apifortress.com/doc/","name":"API Fortress Documentation","potentialAction":{"@type":"SearchAction","target":"https://apifortress.com/doc/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://apifortress.com/doc/creating-an-integration-test-using-an-api-as-a-datasource/#primaryimage","url":"https://lh3.googleusercontent.com/i0NjdQurLSqInjd_CMAEsHJC3PBKN-fWkYdIcDzInma7JVw-lizD9AKjxcryamLJ7Baap2uWZZ4zi63PFWi0HfMsz3JOqRw40941xoflsTdWPXJ2F1N7myWBpe8A9bB5zaAV9kVd"},{"@type":"WebPage","@id":"https://apifortress.com/doc/creating-an-integration-test-using-an-api-as-a-datasource/#webpage","url":"https://apifortress.com/doc/creating-an-integration-test-using-an-api-as-a-datasource/","inLanguage":"en-US","name":"Creating an Integration Test - API Fortress Documentation","isPartOf":{"@id":"https://apifortress.com/doc/#website"},"primaryImageOfPage":{"@id":"https://apifortress.com/doc/creating-an-integration-test-using-an-api-as-a-datasource/#primaryimage"},"datePublished":"2019-05-16T15:00:18+00:00","dateModified":"2020-11-10T17:35:10+00:00","description":"A guide on the best practices on creating an integration test. Learn how to use an API as a datasource to data drive your test."}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="API Fortress Documentation » Feed" href="https://apifortress.com/doc/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/apifortress.com\/doc\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.1.8"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Creating an Integration Test - API Fortress Documentation_files/wp-emoji-release.min.js" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="./Creating an Integration Test - API Fortress Documentation_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="responsive-lightbox-tosrus-css" href="./Creating an Integration Test - API Fortress Documentation_files/jquery.tosrus.min.all.css" type="text/css" media="all">
+<link rel="stylesheet" id="twentyfifteen-fonts-css" href="./Creating an Integration Test - API Fortress Documentation_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="genericons-css" href="./Creating an Integration Test - API Fortress Documentation_files/genericons.css" type="text/css" media="all">
+<link rel="stylesheet" id="twentyfifteen-style-css" href="./Creating an Integration Test - API Fortress Documentation_files/style.css" type="text/css" media="all">
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentyfifteen-ie-css'  href='https://apifortress.com/doc/wp-content/themes/twentyfifteen/css/ie.css?ver=20141010' type='text/css' media='all' />
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='twentyfifteen-ie7-css'  href='https://apifortress.com/doc/wp-content/themes/twentyfifteen/css/ie7.css?ver=20141010' type='text/css' media='all' />
+<![endif]-->
+<script type="text/javascript" src="./Creating an Integration Test - API Fortress Documentation_files/jquery.js"></script>
+<script type="text/javascript" src="./Creating an Integration Test - API Fortress Documentation_files/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="./Creating an Integration Test - API Fortress Documentation_files/jquery.tosrus.min.all.js"></script>
+<script type="text/javascript" src="./Creating an Integration Test - API Fortress Documentation_files/infinite-scroll.pkgd.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var rlArgs = {"script":"tosrus","selector":"lightbox","customEvents":"","activeGalleries":"1","effect":"slide","infinite":"1","keys":"1","autoplay":"1","pauseOnHover":"1","timeout":"4000","pagination":"1","paginationType":"bullets","closeOnClick":"1","woocommerce_gallery":"0","ajaxurl":"https:\/\/apifortress.com\/doc\/wp-admin\/admin-ajax.php","nonce":"ef0771690d"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Creating an Integration Test - API Fortress Documentation_files/front.js"></script>
+<link rel="https://api.w.org/" href="https://apifortress.com/doc/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://apifortress.com/doc/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://apifortress.com/doc/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.1.8">
+<link rel="shortlink" href="https://apifortress.com/doc/?p=5686">
+<link rel="alternate" type="application/json+oembed" href="https://apifortress.com/doc/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fapifortress.com%2Fdoc%2Fcreating-an-integration-test-using-an-api-as-a-datasource%2F">
+<!-- Start Drift By WP-Plugin: Drift -->
+<!-- Start of Async Drift Code -->
+<script>
+"use strict";
+
+!function() {
+  var t = window.driftt = window.drift = window.driftt || [];
+  if (!t.init) {
+    if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+    t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+    t.factory = function(e) {
+      return function() {
+        var n = Array.prototype.slice.call(arguments);
+        return n.unshift(e), t.push(n), t;
+      };
+    }, t.methods.forEach(function(e) {
+      t[e] = t.factory(e);
+    }), t.load = function(t) {
+      var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+      o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+      var i = document.getElementsByTagName("script")[0];
+      i.parentNode.insertBefore(o, i);
+    };
+  }
+}();
+drift.SNIPPET_VERSION = '0.3.1';
+drift.load('gvd42gxg3rvz');
+</script>
+<!-- End of Async Drift Code --><!-- end: Drift Code. -->
+	<link href="./Creating an Integration Test - API Fortress Documentation_files/SyntaxHighlighter.css" type="text/css" rel="stylesheet">
+	<style type="text/css" id="syntaxhighlighteranchor"></style>
+<link rel="icon" href="https://apifortress.com/doc/wp-content/uploads/2016/02/cropped-favicon-1-32x32.png" sizes="32x32">
+<link rel="icon" href="https://apifortress.com/doc/wp-content/uploads/2016/02/cropped-favicon-1-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://apifortress.com/doc/wp-content/uploads/2016/02/cropped-favicon-1-180x180.png">
+<meta name="msapplication-TileImage" content="https://apifortress.com/doc/wp-content/uploads/2016/02/cropped-favicon-1-270x270.png">
+		<style type="text/css" id="wp-custom-css">
+			@media screen and (max-width: 600px) {
+  .column {
+    flex: none !important;
+		width: 790px;
+  }
+	.copywrap2{max-width: 600px;}
+	.white-column{margin-bottom: 20px;}
+	.row{margin-bottom:0px !important;}
+	.doublecolumn{margin-bottom:20px;}
+}
+@media screen and (min-width: 600px) {
+  .column {
+    flex: 1 !important;;
+  }
+}
+.site-main-heading {background: url(https://apifortress.com/doc/wp-content/uploads/2021/02/docs-logo-red.png) no-repeat 20px 50% !important;
+
+	background-size: 344px 43px !important;
+}		</style>
+			
+	<link href="./Creating an Integration Test - API Fortress Documentation_files/css(1)" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="./Creating an Integration Test - API Fortress Documentation_files/font-awesome.min.css">
+	<link rel="stylesheet" href="./Creating an Integration Test - API Fortress Documentation_files/animate.css" type="text/css">
+
+	<script type="text/javascript">
+		var catsMap 	= { },
+			QuickSearch = null,
+			SmartTOC 	= null;
+
+		(function ($) {
+
+			SmartTOC = function () {
+				var initd 		= false,
+					view 		= { },
+					settings 	= { },
+					toc 		= {
+						heading: null,
+						subheadings: []
+					},
+					d, w, b;
+
+				function init () {
+					if (!initd) {
+						d 					= $(document);
+						w 					= $(window);
+						b 					= $(document.body);
+
+						view.sidebar 		= jQuery ('#sidebar');
+						view.article	 	= jQuery ('article').first ();
+						view.article_entry 	= view.article.find ('.entry-content').first ();
+						view.side_toc 		= jQuery ('#docs-toc');
+						view.current_toc_i 	= view.side_toc.find ('a.current').first();
+
+						bootstrap ();
+					}
+				}
+
+				function crawl () {
+					var has_subheads = view.article.find ('h2, h3').length > 0;
+					view.article.find ('h1, h2, h3, h4, h5').each (function (index) {
+						var target 		= jQuery (this),
+							nodeType 	= target.get(0).nodeName.toLowerCase (),
+							is_main 	= nodeType == 'h1',
+							h_index 	= parseInt (nodeType.substring (1)),
+							is_par_head = h_index > 3,
+							content 	= target.text().trim (),
+							head_id 	= 'h_' + index;
+
+						// console.log ('node', nodeType, content, is_par_head);
+						if (is_main)
+							toc.heading = { id: head_id, val: content };
+
+						else if (is_par_head && has_subheads) {
+							target.attr ('data-id', head_id);
+							toc.subheadings[toc.subheadings.length - 1].paragraphs.push ({
+								id: head_id,
+								value: content
+							})
+						}
+
+						else {
+							target.attr ('data-id', head_id).addClass ('toc-anchored')
+							toc.subheadings.push ({
+								id: head_id,
+								value: content,
+								paragraphs: []
+							});
+						}
+					});
+
+					generateTOC ();
+				}
+
+				function generateTOC () {
+					var toc_h = '<ul class="toc_list">';
+
+					jQuery.each (toc.subheadings, function (i, it) {
+						var paragraphs 	= it.paragraphs,
+							has_p_heads = paragraphs.length > 0;
+
+						toc_h += '<li><a href="#'+ it.id +'">' + it.value + '</a>';
+
+						if (has_p_heads) {
+							toc_h += '<ul class="paragraphs">';
+							jQuery.each (paragraphs, function (ii, pit) {
+								toc_h += '<li><a href="#'+ pit.id +'">' + pit.value + '</a>';
+							});
+							toc_h += '</ul>';
+						}
+						toc_h += '</li>';
+					});
+
+					toc_h += '</ul>';
+
+					if (toc.subheadings.length) {
+						view.article_entry.prepend ('<div id="page_toc">' + toc_h + '</div>');
+						view.current_toc_i.parent().append (toc_h)
+					}
+
+					// console.log ('==> indexing completed.', toc);
+					setTimeout (onHashChange, 200);
+				}
+
+				function adjustSideScroll () {
+					if (view.side_toc.find ('.current').length) {
+						var offset_current 	= view.side_toc.find ('.current').offset().top,
+							offset_top 		= offset_current - 90;
+						// view.side_toc
+						view.sidebar.scrollTop (offset_top);
+					}
+				}
+
+				function onHashChange () {
+					var url_hash 	= window.location.hash,
+						hash_key 	= url_hash && url_hash.length ? url_hash.substring (1) : null,
+						item 		= hash_key ? jQuery ('[data-id="'+ hash_key +'"]') : [];
+
+					// console.log ('==> onHashChange', hash_key, item.length, item.offset().top);
+					if (item.length)
+						d.scrollTop (item.offset().top - 90);
+				}
+
+				function expandable_blocks () {
+					view.current_toc_i.closest ('.pages').parent().addClass ('expanded');
+				}
+
+				function bootstrap () {
+					expandable_blocks ();
+					d.on ('click', '.category-item', function (e) {
+						jQuery (this).parent().toggleClass ('expanded');
+						e.preventDefault ();
+					});
+					crawl ();
+					setTimeout (adjustSideScroll, 200);
+
+					w.on ('hashchange', onHashChange);
+				}
+
+				return {
+					init: init
+				}
+			}();
+
+
+			QuickSearch = function () {
+				var self 		= this,
+					view 		= {
+						timer: null,
+						suggestionShown: false,
+						overlayShown: false
+					},
+					settings 	= {
+						arrowDown: 40,
+						arrowUp: 38,
+						enter: 13,
+						esc: 27,
+						selectedClss: 'selected',
+						suggestionItemSel: '.quick-search-item',
+						services: {
+							pageSearch: '/doc/wp-json/wp/v2/pages',
+							postsSearch: '/doc/wp-json/wp/v2/posts',
+							WP_Search: '/doc/'
+						},
+						texts: {
+							noresults: '<div class="default-text">Sorry, no results found.</div>',
+							item: '<div class="quick-search-item"><div class="link">{{link}}</div><div class="clear"></div></div>',
+							itemLink: '<a href="{{link}}">{{text}}</a>'
+						}
+					},
+					toc_index 	= { },
+					initd 		= false,
+					d, w, b;
+
+				function init () {
+					if (!initd) {
+						d 					= $(document);
+						w 					= $(window);
+						b 					= $(document.body);
+						view.searchField 	= $('#quick-search');
+						view.suggestion 	= $('#quick-search-results');
+						view.loading 		= $('.quick-search-loading');
+
+						view.searchOverlay 	= $('#quick-search-overlay');
+						view.searchTrigger 	= $('.search-overlay');
+
+
+						if (view.searchField.length)
+							bootstrap ();
+					}
+				}
+
+				function tinyString (text, max) {
+					var max = (max !== undefined) ? max : 20;
+					return (text !== undefined) ?
+						((text.length > max) ? text.substring (0, Math.round (max/2)) + ' ... ' + text.substring (text.length - Math.round (max/2)) : text) : ''
+				}
+
+				function createItem (opts) {
+					var baseItem 	= settings.texts.item,
+						baseLink 	= settings.texts.itemLink,
+						category 	= catsMap[opts.category] !== undefined ? catsMap[opts.category] : 'uncategorized',
+						h 			= '';
+
+					baseLink = baseLink.replace (/{{link}}/, opts.link).replace (/{{text}}/, opts.text);
+					h = baseItem.replace (/{{link}}/, baseLink).replace (/{{category}}/, category);
+
+					return h;
+				}
+
+				function createSuggestionItems (results) {
+					var h = '';
+					for (var j = 0; j < results.length; j++) {
+						var it = results[j];
+
+						if (j <= 40) {
+							h += createItem ({
+								link: it.url,
+								text: it.title,
+								category: ''
+							})
+						} else
+							break;
+					}
+
+					return h;
+				}
+
+				function loadingOn () {
+					view.loading.show();
+					setTimeout (function () {
+						view.loading.addClass ('rubberBand animated');
+					}, 20)
+				}
+
+				function loadingOff () {
+					view.loading.removeClass ('rubberBand animated');
+					setTimeout (function () {
+						view.loading.addClass ('bounceOut animated');
+						setTimeout (function () {
+							view.loading.removeClass ('bounceOut animated').hide();
+						}, 600)
+					}, 10)
+				}
+
+				function showOverlay () {
+					view.overlayShown = true;
+					// animate ({ target: view.searchTrigger, animation: 'zoomOut', complete: function () {
+					// 	view.searchTrigger.hide ();
+					// }});
+
+
+					view.searchOverlay.addClass ('active');
+					// animate ({
+					// 	target: view.searchOverlay,
+					// 	animation: 'slideInDown',
+					// 	timer: 600,
+					// 	complete: function (item) {
+					// 		view.searchField.focus ();
+					// 	}
+					// })
+				}
+
+				function hideOverlay () {
+					view.searchTrigger.show ();
+					view.searchOverlay.removeClass ('active');
+					view.overlayShown = false;
+
+
+					// animate ({
+					// 	target: view.searchOverlay,
+					// 	animation: 'slideOutUp',
+					// 	timer: 600,
+					// 	complete: function (item) {
+					// 		item.removeClass ('active');
+					// 		view.overlayShown = false;
+					// 		view.searchField.val ('');
+
+					// 		view.searchTrigger.show ();
+					// 		animate ({ target: view.searchTrigger, animation: 'bounceIn' });
+					// 	}
+					// })
+				}
+
+				function animate (opts) {
+					if (opts.target.length) {
+						opts.target.addClass ('animated ' + opts.animation);
+						setTimeout (function () {
+							opts.target.removeClass ('animated ' + opts.animation);
+							if ($.isFunction (opts.complete))
+								opts.complete.call (this, opts.target);
+						}, opts.timer || 500)
+					}
+				}
+
+				function fast_search (term) {
+					var results = []
+					for (var key in toc_index) {
+						var data 	= toc_index[key],
+							url 	= data.link,
+							text 	= data.content;
+
+						if (key.indexOf (term) > -1) {
+							results.push ({
+								link: url,
+								title: { rendered: text },
+								categories: []
+							})
+						}
+					}
+
+					// console.log ('==> fast_search', results)
+					// view.suggestion.html (createSuggestionItems (results));
+					showOverlay ();
+					view.suggestion.show ();
+				}
+
+				function search (status) {
+					var segment 		= status.target.val(),
+						pageService 	= settings.services.pageSearch,
+						postService 	= settings.services.postsSearch,
+						hasPagesResults = false,
+						hasPostsResults = false;
+
+					$.ajax ({ type: 'GET', url: settings.services.WP_Search, data: { s: segment } }).done (function (results) {
+						// console.log ('==> page seach completed')
+showOverlay ();
+					view.suggestion.show ();
+						if (results.length) {
+							hasPagesResults = true;
+							view.suggestion.html (createSuggestionItems (results));
+							loadingOff ();
+							// view.suggestion.show ();
+						}
+					});
+
+					ga ('send', {
+						hitType: 'event',
+						eventCategory: 'search',
+						eventAction: 'search',
+						eventLabel: 'docs search: '+ segment
+					})
+				}
+			
+				function showSuggestions (status) {
+					view.suggestionShown = true;
+					loadingOn ();
+					search (status);
+				}
+
+				function hideSuggestions () {
+					view.suggestionShown = false;
+					resetTimer();
+					view.suggestion.hide ();
+				}
+
+				function resetTimer () {
+					if (view.timer)
+						clearTimeout (view.timer),
+						view.timer = null;
+				}
+
+				function toc_indexing () {
+					jQuery ('#docs-toc a[href]').each (function () {
+						var target 	= jQuery (this),
+							href 	= target.attr ('href'),
+							content = target.text().trim (),
+							key 	= content.toLowerCase ();
+
+						toc_index[key] = {
+							link: href,
+							content: content
+						}
+					});
+
+					// console.log ('==> toc_indexing', toc_index);
+				}
+
+				function bootstrap () {
+					// toc_indexing ();
+					if (w.width () > 800)
+						jQuery ('#sidebar').css ({ position: 'fixed' });
+
+					view.suggestion.css ({ height: w.height() - 130 + 'px', "overflow-y": 'scroll' });
+					view.suggestion.on ('click', '.quick-search-item', function (e) {
+						window.location.href = $(this).find ('a').first().attr('href')
+					});
+
+					view.searchOverlay.on ('click', '.overlay-close', hideOverlay);
+
+					d.on ('click', '.search-overlay', function (e) {
+						if (view.overlayShown)
+							hideOverlay();
+						else
+							showOverlay();
+					});
+
+					d.on ('keydown', function (e) {
+						// Esc btn pressed ...
+						if (e.keyCode == 27) {
+							if (view.overlayShown) {
+								hideOverlay ();
+								view.searchField.val ('');
+							}
+							else if (view.searchField.val().length > 0)
+								view.searchField.val('');
+						}
+					});
+
+					// view.searchField.on ('focus', function () {
+					// 	setTimeout (function () {
+					// 		$('.docs-index-main-holder').css ({ "min-height": w.height() + view.searchField.offset().top + 'px' });
+					// 		window.scrollTo (0, view.searchField.offset().top);
+					// 	}, 600)
+					// });
+
+					view.searchField.on ('keyup', function (e) {
+						var target 	= $(this),
+							val 	= target.val(),
+							keyCode = e.keyCode,
+							status 	= {
+								target: target,
+								val: val,
+								key: keyCode
+							};
+
+
+						if (val.trim().length >= 3) {
+							resetTimer();
+							if ($.inArray (keyCode, [16, 17, 18, 38, 39, 40, 91, 93]) == -1) {
+								// showSuggestions (status);
+
+								loadingOn ();
+
+								view.timer = setTimeout (function () {
+									view.suggestion.empty ();
+									search (status);
+								}, 300)
+							}
+						} else {
+							hideOverlay ();
+							view.suggestion.empty ()
+						}
+					})
+				}
+
+				return {
+					init: init,
+					overlay: {
+						show: showOverlay,
+						hide: hideOverlay
+					}
+				}
+			}();
+
+
+
+			$(document).ready ([ QuickSearch.init, SmartTOC.init ])
+		})(jQuery)
+	</script>
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48258703-1', 'apifortress.com');
+  ga('send', 'pageview');
+</script>
+
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async="" defer="" src="./Creating an Integration Test - API Fortress Documentation_files/3989196(2).js"></script>
+<!-- End of HubSpot Embed Code -->
+
+<!-- Global site tag (gtag.js) - Google AdWords: 966887999 --> <script async="" src="./Creating an Integration Test - API Fortress Documentation_files/js"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-966887999'); </script>
+
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '425401604652090');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=425401604652090&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+<!-- AdRoll -->
+<script type="text/javascript">
+    adroll_adv_id = "MSM4PK4GKVEUDBHESA6T5T";
+    adroll_pix_id = "764O3755BVFHVL2VUQ2WRY";
+
+    (function () {
+        var _onload = function(){
+            if (document.readyState && !/loaded|complete/.test(document.readyState)){setTimeout(_onload, 10);return}
+            if (!window.__adroll_loaded){__adroll_loaded=true;setTimeout(_onload, 50);return}
+            var scr = document.createElement("script");
+            var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+            scr.setAttribute('async', 'true');
+            scr.type = "text/javascript";
+            scr.src = host + "/j/roundtrip.js";
+            ((document.getElementsByTagName('head') || [null])[0] ||
+                document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+        };
+        if (window.addEventListener) {window.addEventListener('load', _onload, false);}
+        else {window.attachEvent('onload', _onload)}
+    }());
+</script>
+<!-- End of AdRoll -->
+
+<script type="text/javascript" language="javascript">
+  var sf14gv = 31456;
+  (function() {
+    var sf14g = document.createElement('script');
+    sf14g.src = 'https://tracking.leadlander.com/lt.min.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sf14g, s);
+  })();
+</script>
+
+<script src="./Creating an Integration Test - API Fortress Documentation_files/f(1).txt"></script><script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script><script async="true" type="text/javascript" src="./Creating an Integration Test - API Fortress Documentation_files/roundtrip.js"></script><script id="adroll_scr_exp" onerror="window.adroll_exp_list = [];" type="text/javascript" src="./Creating an Integration Test - API Fortress Documentation_files/index.js"></script><script type="text/javascript" src="./Creating an Integration Test - API Fortress Documentation_files/index(1).js"></script><script type="text/javascript" src="./Creating an Integration Test - API Fortress Documentation_files/MSM4PK4GKVEUDBHESA6T5T"></script><script async="" src="./Creating an Integration Test - API Fortress Documentation_files/js"></script><script src="./Creating an Integration Test - API Fortress Documentation_files/f(2).txt"></script><script async="true" type="text/javascript" src="./Creating an Integration Test - API Fortress Documentation_files/764O3755BVFHVL2VUQ2WRY"></script><div style="width: 1px; height: 1px; display: inline; position: absolute;"><img height="1" width="1" style="border-style:none;" alt="" src="./Creating an Integration Test - API Fortress Documentation_files/out"><img height="1" width="1" style="border-style:none;" alt="" src="./Creating an Integration Test - API Fortress Documentation_files/out(1)"><img height="1" width="1" style="border-style:none;" alt="" src="./Creating an Integration Test - API Fortress Documentation_files/out(2)"><img height="1" width="1" style="border-style:none;" alt="" src="./Creating an Integration Test - API Fortress Documentation_files/out(3)"><img height="1" width="1" style="border-style:none;" alt="" src="./Creating an Integration Test - API Fortress Documentation_files/out(4)"><img height="1" width="1" style="border-style:none;" alt="" src="./Creating an Integration Test - API Fortress Documentation_files/out(5)"><img height="1" width="1" style="border-style:none;" alt="" src="./Creating an Integration Test - API Fortress Documentation_files/out(6)"><img height="1" width="1" style="border-style:none;" alt="" src="./Creating an Integration Test - API Fortress Documentation_files/out(7)"></div><script type="text/javascript" src="./Creating an Integration Test - API Fortress Documentation_files/sendrolling.js"></script><div style="width: 1px; height: 1px; display: inline; position: absolute;"><img height="1" width="1" style="border-style:none;" alt="" src="./Creating an Integration Test - API Fortress Documentation_files/out(5)">
+<img height="1" width="1" style="border-style:none;" alt="" src="./Creating an Integration Test - API Fortress Documentation_files/out(8)">
+<img height="1" width="1" style="border-style:none;" alt="" src="./Creating an Integration Test - API Fortress Documentation_files/out(9)">
+<img height="1" width="1" style="border-style:none;" alt="" src="./Creating an Integration Test - API Fortress Documentation_files/out(10)">
+<img height="1" width="1" style="border-style:none;" alt="" src="./Creating an Integration Test - API Fortress Documentation_files/out(11)">
+<img height="1" width="1" style="border-style:none;" alt="" src="./Creating an Integration Test - API Fortress Documentation_files/out(12)">
+</div></head>
+
+<body class="page-template-default page page-id-5686" data-new-gr-c-s-check-loaded="14.995.0" data-gr-ext-installed="">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="https://apifortress.com/doc/creating-an-integration-test-using-an-api-as-a-datasource/#content">Skip to content</a>
+
+	
+
+	<div id="sticky-header">
+		<header id="masthead" role="banner">
+			<div class="site-branding with-search">
+										<p class="site-main-heading">
+							<a href="https://apifortress.com/doc/" rel="home">
+								<span class="offscreen">API Fortress Documentation</span>
+							</a>
+						</p>
+											<p class="site-description">Documentation for the API Fortress platform.</p>
+									<button class="secondary-toggle">Menu and widgets</button>
+			</div><!-- .site-branding -->
+
+
+			<div class="header-search-holder">
+				<!-- <i class="fa fa-search search-overlay"></i> -->
+				<input id="quick-search" name="s" value="" placeholder="Search Documentation" autocomplete="off">
+				<div class="quick-search-loading">
+					<i class="fa fa-cog fa-spin"></i>
+				</div>
+			</div>
+				<div class="clear"></div>
+		</header>
+		
+		<div class="cta-area">
+			<a target="_blank" href="https://mastiff.apifortress.com/app/web/login/register" class="btn">
+				Free Trial
+			</a>
+			<a target="_blank" href="https://mastiff.apifortress.com/app/web/login/auth" class="link-like">
+				Login
+			</a>
+		</div>
+	</div>
+
+	<div id="quick-search-overlay">
+			<div class="overlay-close-holder">
+				<div class="overlay-close"></div>
+			</div>
+			<div class="overlay-quick-search-holder">
+				<div class="quick-search-holder">
+					<div id="quick-search-results" style="height: 614px; overflow-y: scroll;"> </div>
+				</div>
+			</div>
+		</div>
+
+			<div id="sidebar" class="sidebar" style="position: fixed;">
+				<div id="secondary" class="secondary">
+
+		<!--  -->
+
+		<!--  -->
+
+		<div class="hide">
+							<div id="widget-area" class="widget-area" role="complementary">
+					<aside id="search-2" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://apifortress.com/doc/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search …" value="" name="s">
+				</label>
+				<input type="submit" class="search-submit screen-reader-text" value="Search">
+			</form></aside><aside id="categories-4" class="widget widget_categories"><h2 class="widget-title">Categories</h2>		<ul>
+				<li class="cat-item cat-item-8"><a href="https://apifortress.com/doc/category/quick-start-guides/" title="Some quick facts and guides to get started with that plaform.">A Quick Start</a>
+</li>
+	<li class="cat-item cat-item-29"><a href="https://apifortress.com/doc/category/api-testing-university/" title="These classes include high-level overviews of best practices for API testing that our team has gathered over six years as a leader in the API testing space. ">API Testing University</a>
+<ul class="children">
+	<li class="cat-item cat-item-41"><a href="https://apifortress.com/doc/category/api-testing-university/course-0-introduction/">Course 0: Introduction</a>
+</li>
+	<li class="cat-item cat-item-30"><a href="https://apifortress.com/doc/category/api-testing-university/course-1-api-testing-introduction/">Course 1: API Testing Basics</a>
+</li>
+	<li class="cat-item cat-item-31"><a href="https://apifortress.com/doc/category/api-testing-university/course-2-best-practices/">Course 2: Best Practices</a>
+</li>
+	<li class="cat-item cat-item-32"><a href="https://apifortress.com/doc/category/api-testing-university/course-3-writing-your-first-test/">Course 3: Writing Your First Test</a>
+</li>
+	<li class="cat-item cat-item-34"><a href="https://apifortress.com/doc/category/api-testing-university/course-4-advanced-test-creation-details/">Course 4: Advanced Test Creation</a>
+</li>
+	<li class="cat-item cat-item-35"><a href="https://apifortress.com/doc/category/api-testing-university/course-5-executing-tests-scheduling-and-automation/">Course 5: Executing Tests</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-22"><a href="https://apifortress.com/doc/category/apis-webhooks/" title="Leverage a robust collection of APIs and webhooks to manage everything from execution, test creation, data, and integrations.">APIs &amp; Webhooks</a>
+</li>
+	<li class="cat-item cat-item-43"><a href="https://apifortress.com/doc/category/bloodhound/">Bloodhound</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="https://apifortress.com/doc/category/cicd/" title="Continuous Integration/Continuous Deployment and API Fortress">CI/CD</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="https://apifortress.com/doc/category/guides/" title="General introduction guides to the platform.">How To</a>
+</li>
+	<li class="cat-item cat-item-18"><a href="https://apifortress.com/doc/category/integrations/" title="Platforms that API Fortress integrates with.">Integrations</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="https://apifortress.com/doc/category/learn-more/" title="More detailed information on API Fortress options and features.">Learn More</a>
+</li>
+	<li class="cat-item cat-item-20"><a href="https://apifortress.com/doc/category/load-testing/" title="Learn how you can use your existing functional tests to make sure your APIs work as expected under increased stress. Validating both performance and functionality.">Load Testing</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="https://apifortress.com/doc/category/mock-recording/" title="Learn how you can record and mock APIs to help work in parallel as the APIs are being developed, or to create a more reliable APIs for teams to work with.">Mocking / Service Virtualization</a>
+</li>
+	<li class="cat-item cat-item-21"><a href="https://apifortress.com/doc/category/monitoring/" title="Test the uptime, functional uptime, and SLAs of your own, or 3rd party, APIs using existing functional tests.">Monitoring</a>
+</li>
+	<li class="cat-item cat-item-19"><a href="https://apifortress.com/doc/category/postman/" title="Shared workflows between API Fortress and Postman">Postman</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="https://apifortress.com/doc/category/production-information/" title="Learn more about our offerings.">Product Information</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://apifortress.com/doc/category/reference/" title="Detailed explanations on specific topics.">Reference</a>
+<ul class="children">
+	<li class="cat-item cat-item-10"><a href="https://apifortress.com/doc/category/reference/components/" title="Components from the API Fortress testing GUI">Components</a>
+	<ul class="children">
+	<li class="cat-item cat-item-11"><a href="https://apifortress.com/doc/category/reference/components/assertions/" title="Logical assertions information, including greater than, less than, etc...">Assertion Components</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="https://apifortress.com/doc/category/reference/components/requests/" title="Components designed for getting data.">I/O Components</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="https://apifortress.com/doc/category/reference/components/logicalcomponents/" title="Components for creating and modifying logical flow. (If/Else, Loops, etc)">Logical Components</a>
+</li>
+	</ul>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-42"><a href="https://apifortress.com/doc/category/security-testing/">Security Testing</a>
+</li>
+	<li class="cat-item cat-item-15"><a href="https://apifortress.com/doc/category/docker/" title="Information for self-hosted/on-premises deployments of API Fortress.">Self-Hosted</a>
+</li>
+		</ul>
+			</aside>				</div>
+					</div>
+
+
+
+		<div id="docs-toc">
+			<ul class="cats">
+				<li class="expanded" data-parent="0"><div class="category-item"><a>A Quick Start</a></div><ul class="pages">
+					    <script type="text/javascript">
+					    	if (typeof (catsMap) !== 'undefined') 
+					    		catsMap[8] = 'A Quick Start'
+					    </script>
+
+					    					        	<li>
+						          	<a href="https://apifortress.com/doc/create-a-test-quickly/" rel="bookmark" title="Permanent Link to 01. Create a Test Quickly">01. Create a Test Quickly</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/composer/" rel="bookmark" title="Permanent Link to 02. Test Composer Guide">02. Test Composer Guide</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/build-from-spec/" rel="bookmark" title="Permanent Link to 03. Build from Spec (Mass Generate Tests)       (Swagger / Open API / RAML)">03. Build from Spec (Mass Generate Tests)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Swagger / Open API / RAML)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/test-reports/" rel="bookmark" title="Permanent Link to 04. Test Reports">04. Test Reports</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/quick-start-guide-schedule-a-test/" rel="bookmark" title="Permanent Link to 05. Schedule a Test">05. Schedule a Test</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/dashboard/" rel="bookmark" title="Permanent Link to 06. The Dashboard">06. The Dashboard</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/integrate-with-your-cicd/" rel="bookmark" title="Permanent Link to 07. All – Integrate CI/CD Platforms (simple)">07. All – Integrate CI/CD Platforms (simple)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/introduction-to-integration-testing-new/" rel="bookmark" title="Permanent Link to 08. Introduction to Integration Testing">08. Introduction to Integration Testing</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/adding-a-user/" rel="bookmark" title="Permanent Link to 09. Adding a User">09. Adding a User</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/flexible-variables-for-flexible-environments/" rel="bookmark" title="Permanent Link to 10. Using Variables for Environment Flexibility">10. Using Variables for Environment Flexibility</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/environments-vault-and-overrides-magic/" rel="bookmark" title="Permanent Link to 11. Environments, Vault,        and Variable Overrides">11. Environments, Vault, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and Variable Overrides</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/setup-notifications-email-sms/" rel="bookmark" title="Permanent Link to 12. Setup Notifications (Email &amp; SMS)">12. Setup Notifications (Email &amp; SMS)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/setup-connectors/" rel="bookmark" title="Permanent Link to 13. Setup Connectors        (For Notification and Data)">13. Setup Connectors <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(For Notification and Data)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/environments-and-presets/" rel="bookmark" title="Permanent Link to 14. Change Environments and Presets">14. Change Environments and Presets</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/the-vault/" rel="bookmark" title="Permanent Link to 15. Use the Vault        (Reusable Variables / Code Snippets)">15. Use the Vault <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Reusable Variables / Code Snippets)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/importing-postman-collections/" rel="bookmark" title="Permanent Link to 16. Importing Postman Collections">16. Importing Postman Collections</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/load-testing/" rel="bookmark" title="Permanent Link to 17. Load Testing">17. Load Testing</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/mocking-services/" rel="bookmark" title="Permanent Link to 18. Creating a Mocked API">18. Creating a Mocked API</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/easy-monitoring/" rel="bookmark" title="Permanent Link to 19. Easy Monitoring">19. Easy Monitoring</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/forge/" rel="bookmark" title="Permanent Link to 20. APIF Forge (Local IDE)">20. APIF Forge (Local IDE)</a>
+					        	</li>
+					         </ul></li><li data-parent="0"><div class="category-item"><a>APIs &amp; Webhooks</a></div><ul class="pages">
+					    <script type="text/javascript">
+					    	if (typeof (catsMap) !== 'undefined') 
+					    		catsMap[22] = 'APIs &amp; Webhooks'
+					    </script>
+
+					    					        	<li>
+						          	<a href="https://apifortress.com/doc/api-v3/" rel="bookmark" title="Permanent Link to API Docs – v3 (including Webhooks)">API Docs – v3 (including Webhooks)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/api-fortress-apis/" rel="bookmark" title="Permanent Link to API Fortress – Using the v2 API (deprecated)">API Fortress – Using the v2 API (deprecated)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/using-the-api/" rel="bookmark" title="Permanent Link to Use the API (For CI/CD &amp; More)">Use the API (For CI/CD &amp; More)</a>
+					        	</li>
+					         </ul></li><li data-parent="10"><div class="category-item"><a>Assertion Components</a></div><ul class="pages">
+					    <script type="text/javascript">
+					    	if (typeof (catsMap) !== 'undefined') 
+					    		catsMap[11] = 'Assertion Components'
+					    </script>
+
+					    					        	<li>
+						          	<a href="https://apifortress.com/doc/assert-compares/" rel="bookmark" title="Permanent Link to Assert Compares">Assert Compares</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/assert-contains/" rel="bookmark" title="Permanent Link to Assert Contains">Assert Contains</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/assert-equals/" rel="bookmark" title="Permanent Link to Assert Equals">Assert Equals</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/assert-exists/" rel="bookmark" title="Permanent Link to Assert Exists">Assert Exists</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/assert-greater/" rel="bookmark" title="Permanent Link to Assert Greater">Assert Greater</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/assert-in/" rel="bookmark" title="Permanent Link to Assert In">Assert In</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/assert-is/" rel="bookmark" title="Permanent Link to Assert Is">Assert Is</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/assert-less/" rel="bookmark" title="Permanent Link to Assert Less">Assert Less</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/assert-matches/" rel="bookmark" title="Permanent Link to Assert Matches">Assert Matches</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/assert-valid-json-schema/" rel="bookmark" title="Permanent Link to Assert Valid JSON-Schema">Assert Valid JSON-Schema</a>
+					        	</li>
+					         </ul></li><li data-parent="0"><div class="category-item"><a>Bloodhound</a></div><ul class="pages">
+					    <script type="text/javascript">
+					    	if (typeof (catsMap) !== 'undefined') 
+					    		catsMap[43] = 'Bloodhound'
+					    </script>
+
+					    					        	<li>
+						          	<a href="https://apifortress.com/doc/00_introduction/" rel="bookmark" title="Permanent Link to 00_Introduction">00_Introduction</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/01_basic-configuration/" rel="bookmark" title="Permanent Link to 01_Basic Configuration">01_Basic Configuration</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/02_flows/" rel="bookmark" title="Permanent Link to 02_Flows">02_Flows</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/03_base-actors/" rel="bookmark" title="Permanent Link to 03_Base Actors">03_Base Actors</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/04_load-balancing/" rel="bookmark" title="Permanent Link to 04_Load Balancing">04_Load Balancing</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/05_fine-tuning/" rel="bookmark" title="Permanent Link to 05_Fine Tuning">05_Fine Tuning</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/06_advanced-actors/" rel="bookmark" title="Permanent Link to 06_Advanced Actors">06_Advanced Actors</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/07_module-actors/" rel="bookmark" title="Permanent Link to 07_Module Actors">07_Module Actors</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/08_expressions/" rel="bookmark" title="Permanent Link to 08_Expressions">08_Expressions</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/bloodhound-forward-calls-to-apif-logger/" rel="bookmark" title="Permanent Link to Bloodhound – Forward Calls to APIF Logger">Bloodhound – Forward Calls to APIF Logger</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/bloodhound-using-databases/" rel="bookmark" title="Permanent Link to Bloodhound – Using Databases">Bloodhound – Using Databases</a>
+					        	</li>
+					         </ul></li><li data-parent="0"><div class="category-item"><a>CI/CD</a></div><ul class="pages">
+					    <script type="text/javascript">
+					    	if (typeof (catsMap) !== 'undefined') 
+					    		catsMap[17] = 'CI/CD'
+					    </script>
+
+					    					        	<li>
+						          	<a href="https://apifortress.com/doc/command-line-tools/" rel="bookmark" title="Permanent Link to APIF-Auto – The Command-Line Tool">APIF-Auto – The Command-Line Tool</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/azure-devops-using-apif-auto/" rel="bookmark" title="Permanent Link to Azure DevOps – Using APIF-Auto">Azure DevOps – Using APIF-Auto</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/connecting-with-bamboo/" rel="bookmark" title="Permanent Link to Bamboo – Integrate API Tests &amp; Results">Bamboo – Integrate API Tests &amp; Results</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/bitbucket-using-apif-auto/" rel="bookmark" title="Permanent Link to Bitbucket – Using APIF-Auto">Bitbucket – Using APIF-Auto</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/gitlab-ci-using-apif-auto/" rel="bookmark" title="Permanent Link to GitLab CI – Using APIF-Auto">GitLab CI – Using APIF-Auto</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/jenkins-apif-auto-and-github/" rel="bookmark" title="Permanent Link to Jenkins – APIF-Auto and Github">Jenkins – APIF-Auto and Github</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/apif-auto-and-jenkins/" rel="bookmark" title="Permanent Link to Jenkins – Using APIF-Auto">Jenkins – Using APIF-Auto</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/jenkins-integrate-cicd/" rel="bookmark" title="Permanent Link to Jenkins – Using the API">Jenkins – Using the API</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/jenkins-zephyr-enterprise-integration/" rel="bookmark" title="Permanent Link to Jenkins – Zephyr Enterprise Integration">Jenkins – Zephyr Enterprise Integration</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/micro-focus-alm-integrate/" rel="bookmark" title="Permanent Link to Micro Focus ALM – Integrate and See Results">Micro Focus ALM – Integrate and See Results</a>
+					        	</li>
+					         </ul></li><li data-parent="0"><div class="category-item"><a>How To</a></div><ul class="pages">
+					    <script type="text/javascript">
+					    	if (typeof (catsMap) !== 'undefined') 
+					    		catsMap[5] = 'How To'
+					    </script>
+
+					    					        	<li>
+						          	<a href="https://apifortress.com/doc/assertions-for-metrics-performance/" rel="bookmark" title="Permanent Link to Assertions for Metrics / Performance">Assertions for Metrics / Performance</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/3-leg-oauth/" rel="bookmark" title="Permanent Link to Automating 3-Legged OAuth">Automating 3-Legged OAuth</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/integration-testing/" rel="bookmark" title="Permanent Link to Build an Integration Test (Multistep Test)">Build an Integration Test (Multistep Test)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/copy-a-test/" rel="bookmark" title="Permanent Link to Copy a Test">Copy a Test</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/authorization-simple-oauth-etc/" rel="bookmark" title="Permanent Link to Dealing with Authentication (Simple, oAuth, etc)">Dealing with Authentication (Simple, oAuth, etc)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/different-ways-to-compose-a-request-body/" rel="bookmark" title="Permanent Link to Different ways to compose a Request Body">Different ways to compose a Request Body</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/disable-ssl-validation/" rel="bookmark" title="Permanent Link to Disable SSL Validation">Disable SSL Validation</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/dynamic-dates/" rel="bookmark" title="Permanent Link to Dynamic dates">Dynamic dates</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/tweaking-stateful-email-notifications/" rel="bookmark" title="Permanent Link to Email Notification Adjustments (Environments, Thresholds, Disable)">Email Notification Adjustments (Environments, Thresholds, Disable)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/executing-from-cucumber/" rel="bookmark" title="Permanent Link to Executing from Cucumber">Executing from Cucumber</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/following-redirects/" rel="bookmark" title="Permanent Link to Following redirects">Following redirects</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/footprint/" rel="bookmark" title="Permanent Link to Footprint">Footprint</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/generate-a-status-page/" rel="bookmark" title="Permanent Link to Generate a Status Page">Generate a Status Page</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/generating-fake-test-data/" rel="bookmark" title="Permanent Link to Generating Fake Test Data">Generating Fake Test Data</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/github-for-datasets/" rel="bookmark" title="Permanent Link to GitHub – How to Use Files as Datasource (Large or Small Datasets)">GitHub – How to Use Files as Datasource (Large or Small Datasets)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/how-to-create-a-dynamic-header/" rel="bookmark" title="Permanent Link to How to create a dynamic header">How to create a dynamic header</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/import-export-tests/" rel="bookmark" title="Permanent Link to Import / Export Tests">Import / Export Tests</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/kv/" rel="bookmark" title="Permanent Link to Key/Value Store">Key/Value Store</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/keystores-for-downloader/" rel="bookmark" title="Permanent Link to Keystores for Downloader">Keystores for Downloader</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/load-agent-deployment/" rel="bookmark" title="Permanent Link to Load Agent Deployment (Self-Hosted)">Load Agent Deployment (Self-Hosted)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/setup-notifications-performance-alerts/" rel="bookmark" title="Permanent Link to Setup Notifications (Performance Alerts)">Setup Notifications (Performance Alerts)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/testing-graphql/" rel="bookmark" title="Permanent Link to Testing GraphQL">Testing GraphQL</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/update-input/" rel="bookmark" title="Permanent Link to Update Input">Update Input</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/using-long-lasting-tokens/" rel="bookmark" title="Permanent Link to Use Long Lasting Tokens">Use Long Lasting Tokens</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/apf-local-engine/" rel="bookmark" title="Permanent Link to Using the Local Engine (APIF-Local)">Using the Local Engine (APIF-Local)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/version-control/" rel="bookmark" title="Permanent Link to Version Control">Version Control</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/writing-tests-in-code/" rel="bookmark" title="Permanent Link to Write Tests in Code">Write Tests in Code</a>
+					        	</li>
+					         </ul></li><li data-parent="10"><div class="category-item"><a>I/O Components</a></div><ul class="pages">
+					    <script type="text/javascript">
+					    	if (typeof (catsMap) !== 'undefined') 
+					    		catsMap[13] = 'I/O Components'
+					    </script>
+
+					    					        	<li>
+						          	<a href="https://apifortress.com/doc/jdbc/" rel="bookmark" title="Permanent Link to Databases – JDBC (direct)">Databases – JDBC (direct)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/delete-component/" rel="bookmark" title="Permanent Link to Delete">Delete</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/get-component/" rel="bookmark" title="Permanent Link to Get">Get</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/io-operations/" rel="bookmark" title="Permanent Link to I/O Operations">I/O Operations</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/patch-component/" rel="bookmark" title="Permanent Link to Patch">Patch</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/post-component/" rel="bookmark" title="Permanent Link to Post">Post</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/multipart-upload/" rel="bookmark" title="Permanent Link to Post: Multipart Upload">Post: Multipart Upload</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/put-component/" rel="bookmark" title="Permanent Link to Put">Put</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/update-input/" rel="bookmark" title="Permanent Link to Update Input">Update Input</a>
+					        	</li>
+					         </ul></li><li data-parent="0"><div class="category-item"><a>Integrations</a></div><ul class="pages">
+					    <script type="text/javascript">
+					    	if (typeof (catsMap) !== 'undefined') 
+					    		catsMap[18] = 'Integrations'
+					    </script>
+
+					    					        	<li>
+						          	<a href="https://apifortress.com/doc/add-new-connector/" rel="bookmark" title="Permanent Link to Add New Connector">Add New Connector</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/alerts-thresholds-using-json-connector/" rel="bookmark" title="Permanent Link to Alert Thresholds (Using JSON Connector)">Alert Thresholds (Using JSON Connector)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/connecting-with-bamboo/" rel="bookmark" title="Permanent Link to Bamboo – Integrate API Tests &amp; Results">Bamboo – Integrate API Tests &amp; Results</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/build-from-apiary/" rel="bookmark" title="Permanent Link to Build from Apiary">Build from Apiary</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/build-from-axway/" rel="bookmark" title="Permanent Link to Build from Axway">Build from Axway</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/build-from-mashery/" rel="bookmark" title="Permanent Link to Build from Mashery">Build from Mashery</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/connector-bigpanda-io/" rel="bookmark" title="Permanent Link to Connectors – BigPanda">Connectors – BigPanda</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/setup-connectors-datadog/" rel="bookmark" title="Permanent Link to Connectors – DataDog">Connectors – DataDog</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/connectors-elastic-kibana/" rel="bookmark" title="Permanent Link to Connectors – Elastic/Kibana">Connectors – Elastic/Kibana</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/connector-hipchat/" rel="bookmark" title="Permanent Link to Connectors – Hipchat">Connectors – Hipchat</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/connectors-jira/" rel="bookmark" title="Permanent Link to Connectors – JIRA">Connectors – JIRA</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/connector-pagerduty/" rel="bookmark" title="Permanent Link to Connectors – PagerDuty">Connectors – PagerDuty</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/setup-connectors-slack/" rel="bookmark" title="Permanent Link to Connectors – Slack">Connectors – Slack</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/connectors-statuspage/" rel="bookmark" title="Permanent Link to Connectors – StatusPage">Connectors – StatusPage</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/connectors-twilio/" rel="bookmark" title="Permanent Link to Connectors – Twilio">Connectors – Twilio</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/connectors-xmatters/" rel="bookmark" title="Permanent Link to Connectors – xMatters">Connectors – xMatters</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/connectors-splunk/" rel="bookmark" title="Permanent Link to Connectors – Splunk">Connectors – Splunk</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/helper-databases-jdbc/" rel="bookmark" title="Permanent Link to Helper – Connect to Any Database">Helper – Connect to Any Database</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/helper-connect-to-files/" rel="bookmark" title="Permanent Link to Helper – Connect To Files">Helper – Connect To Files</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/integrate-with-test-modeller/" rel="bookmark" title="Permanent Link to Integrate with Test Modeller (Curiosity Software)">Integrate with Test Modeller (Curiosity Software)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/jenkins-qtest-integration/" rel="bookmark" title="Permanent Link to Jenkins – Tricentis qTest Integration">Jenkins – Tricentis qTest Integration</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/jenkins-zephyr-enterprise-integration/" rel="bookmark" title="Permanent Link to Jenkins – Zephyr Enterprise Integration">Jenkins – Zephyr Enterprise Integration</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/single-sign-on-with-saml-2-0-beta/" rel="bookmark" title="Permanent Link to Single sign-on with SAML 2.0 (beta)">Single sign-on with SAML 2.0 (beta)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/version-control/" rel="bookmark" title="Permanent Link to Version Control">Version Control</a>
+					        	</li>
+					         </ul></li><li data-parent="0"><div class="category-item"><a>Learn More</a></div><ul class="pages">
+					    <script type="text/javascript">
+					    	if (typeof (catsMap) !== 'undefined') 
+					    		catsMap[9] = 'Learn More'
+					    </script>
+
+					    					        	<li>
+						          	<a href="https://apifortress.com/doc/data-manipulation-tricks/" rel="bookmark" title="Permanent Link to Data Manipulation Tricks (Random Numbers &amp; Strings)">Data Manipulation Tricks (Random Numbers &amp; Strings)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/downloader-101/" rel="bookmark" title="Permanent Link to Downloader 101">Downloader 101</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/improving-your-metrics/" rel="bookmark" title="Permanent Link to Improving Your Metrics">Improving Your Metrics</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/input-set-and-global-variables/" rel="bookmark" title="Permanent Link to Input Sets and Global Variables">Input Sets and Global Variables</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/planning-your-test/" rel="bookmark" title="Permanent Link to Outline a Plan For Your Test">Outline a Plan For Your Test</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/the-variables-system-in-api-fortress/" rel="bookmark" title="Permanent Link to The Variables System in API Fortress">The Variables System in API Fortress</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/the-working-copy-published-tests/" rel="bookmark" title="Permanent Link to The Working Copy / Published Tests">The Working Copy / Published Tests</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/using-test-state-variables/" rel="bookmark" title="Permanent Link to Using Test State Variables">Using Test State Variables</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/working-with-the-response-object/" rel="bookmark" title="Permanent Link to Working With the Header (status code, latency, fetch)">Working With the Header (status code, latency, fetch)</a>
+					        	</li>
+					         </ul></li><li data-parent="0"><div class="category-item"><a>Load Testing</a></div><ul class="pages">
+					    <script type="text/javascript">
+					    	if (typeof (catsMap) !== 'undefined') 
+					    		catsMap[20] = 'Load Testing'
+					    </script>
+
+					    					        	<li>
+						          	<a href="https://apifortress.com/doc/load-agent-deployment/" rel="bookmark" title="Permanent Link to Load Agent Deployment (Self-Hosted)">Load Agent Deployment (Self-Hosted)</a>
+					        	</li>
+					         </ul></li><li data-parent="10"><div class="category-item"><a>Logical Components</a></div><ul class="pages">
+					    <script type="text/javascript">
+					    	if (typeof (catsMap) !== 'undefined') 
+					    		catsMap[12] = 'Logical Components'
+					    </script>
+
+					    					        	<li>
+						          	<a href="https://apifortress.com/doc/each-component/" rel="bookmark" title="Permanent Link to Each">Each</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/flow/" rel="bookmark" title="Permanent Link to Flow (Pause or Stop a Test)">Flow (Pause or Stop a Test)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/if-component/" rel="bookmark" title="Permanent Link to If">If</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/set-var/" rel="bookmark" title="Permanent Link to Set">Set</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/tag/" rel="bookmark" title="Permanent Link to Tag">Tag</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/while-component/" rel="bookmark" title="Permanent Link to While">While</a>
+					        	</li>
+					         </ul></li><li data-parent="0"><div class="category-item"><a>Mocking / Service Virtualization</a></div><ul class="pages">
+					    <script type="text/javascript">
+					    	if (typeof (catsMap) !== 'undefined') 
+					    		catsMap[16] = 'Mocking / Service Virtualization'
+					    </script>
+
+					    					        	<li>
+						          	<a href="https://apifortress.com/doc/expressions-in-mocked-apis/" rel="bookmark" title="Permanent Link to Expressions In Mocked APIs">Expressions In Mocked APIs</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/mock-recording-with-kong/" rel="bookmark" title="Permanent Link to Mock Recording Part 1: Starting the Kong Proxy (Deprecated)">Mock Recording Part 1: Starting the Kong Proxy (Deprecated)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/proxying-a-route/" rel="bookmark" title="Permanent Link to Mock Recording Part 2: Proxying a Route (Deprecated)">Mock Recording Part 2: Proxying a Route (Deprecated)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/recording-a-mock-endpoint/" rel="bookmark" title="Permanent Link to Mock Recording Part 3: Recording a Mock Endpoint (Deprecated)">Mock Recording Part 3: Recording a Mock Endpoint (Deprecated)</a>
+					        	</li>
+					         </ul></li><li data-parent="0"><div class="category-item"><a>Monitoring</a></div><ul class="pages">
+					    <script type="text/javascript">
+					    	if (typeof (catsMap) !== 'undefined') 
+					    		catsMap[21] = 'Monitoring'
+					    </script>
+
+					    					        	<li>
+						          	<a href="https://apifortress.com/doc/generate-a-status-page/" rel="bookmark" title="Permanent Link to Generate a Status Page">Generate a Status Page</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/setup-notifications-performance-alerts/" rel="bookmark" title="Permanent Link to Setup Notifications (Performance Alerts)">Setup Notifications (Performance Alerts)</a>
+					        	</li>
+					         </ul></li><li data-parent="0"><div class="category-item"><a>Postman</a></div><ul class="pages">
+					    <script type="text/javascript">
+					    	if (typeof (catsMap) !== 'undefined') 
+					    		catsMap[19] = 'Postman'
+					    </script>
+
+					    					        	<li>
+						          	<a href="https://apifortress.com/doc/build-from-postman-collection/" rel="bookmark" title="Permanent Link to Build from Postman Collections">Build from Postman Collections</a>
+					        	</li>
+					         </ul></li><li data-parent="0"><div class="category-item"><a>Product Information</a></div><ul class="pages">
+					    <script type="text/javascript">
+					    	if (typeof (catsMap) !== 'undefined') 
+					    		catsMap[4] = 'Product Information'
+					    </script>
+
+					    					        	<li>
+						          	<a href="https://apifortress.com/doc/api-tests-vs-schema-validation/" rel="bookmark" title="Permanent Link to API Tests vs. Schema Validation">API Tests vs. Schema Validation</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/cloud-vs-on-premises-local/" rel="bookmark" title="Permanent Link to Hosted Cloud vs Self-Hosted Cloud (local)">Hosted Cloud vs Self-Hosted Cloud (local)</a>
+					        	</li>
+					         </ul></li><li data-parent="0"><div class="category-item"><a>Reference</a></div><ul class="pages">
+					    <script type="text/javascript">
+					    	if (typeof (catsMap) !== 'undefined') 
+					    		catsMap[3] = 'Reference'
+					    </script>
+
+					    					        	<li>
+						          	<a href="https://apifortress.com/doc/assert-compares/" rel="bookmark" title="Permanent Link to Assert Compares">Assert Compares</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/assert-contains/" rel="bookmark" title="Permanent Link to Assert Contains">Assert Contains</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/assert-equals/" rel="bookmark" title="Permanent Link to Assert Equals">Assert Equals</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/assert-exists/" rel="bookmark" title="Permanent Link to Assert Exists">Assert Exists</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/assert-greater/" rel="bookmark" title="Permanent Link to Assert Greater">Assert Greater</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/assert-in/" rel="bookmark" title="Permanent Link to Assert In">Assert In</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/assert-is/" rel="bookmark" title="Permanent Link to Assert Is">Assert Is</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/assert-less/" rel="bookmark" title="Permanent Link to Assert Less">Assert Less</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/assert-matches/" rel="bookmark" title="Permanent Link to Assert Matches">Assert Matches</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/comment/" rel="bookmark" title="Permanent Link to Comment">Comment</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/company-settings/" rel="bookmark" title="Permanent Link to Company settings">Company settings</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/composer-snippets/" rel="bookmark" title="Permanent Link to Composer Snippets">Composer Snippets</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/connecting-to-testrail/" rel="bookmark" title="Permanent Link to Connecting to TestRail">Connecting to TestRail</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/jdbc/" rel="bookmark" title="Permanent Link to Databases – JDBC (direct)">Databases – JDBC (direct)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/delete-component/" rel="bookmark" title="Permanent Link to Delete">Delete</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/each-component/" rel="bookmark" title="Permanent Link to Each">Each</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/execution-context-in-api-fortress/" rel="bookmark" title="Permanent Link to Execution Context in API Fortress">Execution Context in API Fortress</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/expression/" rel="bookmark" title="Permanent Link to Expression">Expression</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/expression-language-extensions/" rel="bookmark" title="Permanent Link to Expression language extensions">Expression language extensions</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/flow/" rel="bookmark" title="Permanent Link to Flow (Pause or Stop a Test)">Flow (Pause or Stop a Test)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/generating-a-jwt/" rel="bookmark" title="Permanent Link to Generating a JSON Web Token">Generating a JSON Web Token</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/get-component/" rel="bookmark" title="Permanent Link to Get">Get</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/github/" rel="bookmark" title="Permanent Link to GitHub – Use a File as a Datasource">GitHub – Use a File as a Datasource</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/io-operations/" rel="bookmark" title="Permanent Link to I/O Operations">I/O Operations</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/if-component/" rel="bookmark" title="Permanent Link to If">If</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/kv/" rel="bookmark" title="Permanent Link to Key/Value Store">Key/Value Store</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/main-dashboard/" rel="bookmark" title="Permanent Link to Main dashboard">Main dashboard</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/patch-component/" rel="bookmark" title="Permanent Link to Patch">Patch</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/post-component/" rel="bookmark" title="Permanent Link to Post">Post</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/project-dashboard/" rel="bookmark" title="Permanent Link to Project dashboard">Project dashboard</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/put-component/" rel="bookmark" title="Permanent Link to Put">Put</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/read-file/" rel="bookmark" title="Permanent Link to Read File (Self-Hosted Only)">Read File (Self-Hosted Only)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/set-var/" rel="bookmark" title="Permanent Link to Set">Set</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/tag/" rel="bookmark" title="Permanent Link to Tag">Tag</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/interstitial-page/" rel="bookmark" title="Permanent Link to Test Control Panel">Test Control Panel</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/update-input/" rel="bookmark" title="Permanent Link to Update Input">Update Input</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/while-component/" rel="bookmark" title="Permanent Link to While">While</a>
+					        	</li>
+					         </ul></li><li data-parent="0"><div class="category-item"><a>Security Testing</a></div><ul class="pages">
+					    <script type="text/javascript">
+					    	if (typeof (catsMap) !== 'undefined') 
+					    		catsMap[42] = 'Security Testing'
+					    </script>
+
+					    					        	<li>
+						          	<a href="https://apifortress.com/doc/example-security-tests/" rel="bookmark" title="Permanent Link to Example Security Tests">Example Security Tests</a>
+					        	</li>
+					         </ul></li><li data-parent="0"><div class="category-item"><a>Self-Hosted</a></div><ul class="pages">
+					    <script type="text/javascript">
+					    	if (typeof (catsMap) !== 'undefined') 
+					    		catsMap[15] = 'Self-Hosted'
+					    </script>
+
+					    					        	<li>
+						          	<a href="https://apifortress.com/doc/backing-up-your-data-kubernetes-on-premises-self-hosted/" rel="bookmark" title="Permanent Link to Backing Up Your Data – Kubernetes (Self-Hosted)">Backing Up Your Data – Kubernetes (Self-Hosted)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/on-premises-backing-up-your-data-self-hosted/" rel="bookmark" title="Permanent Link to Backing Up Your Data (Self-Hosted)">Backing Up Your Data (Self-Hosted)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/best-practices-for-disaster-recovery/" rel="bookmark" title="Permanent Link to Best Practices for Disaster Recovery (Self-Hosted)">Best Practices for Disaster Recovery (Self-Hosted)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/certificate-based-mutual-ssl-tls-authentication/" rel="bookmark" title="Permanent Link to Certificate-based (mutual) SSL/TLS Authentication">Certificate-based (mutual) SSL/TLS Authentication</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/deployment-configure-the-dns-for-the-mocking-service/" rel="bookmark" title="Permanent Link to Deployment – Configure the DNS for the Mocking service">Deployment – Configure the DNS for the Mocking service</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/on-premises-deployment-using-docker-self-hosted/" rel="bookmark" title="Permanent Link to Deployment – Docker (Self-Hosted)">Deployment – Docker (Self-Hosted)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/api-fortress-deployment-kubernetes/" rel="bookmark" title="Permanent Link to Deployment – Kubernetes (Self-Hosted)">Deployment – Kubernetes (Self-Hosted)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/deployment-red-hat-openshift/" rel="bookmark" title="Permanent Link to Deployment – Red Hat OpenShift (Self-Hosted)">Deployment – Red Hat OpenShift (Self-Hosted)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/downloader-101/" rel="bookmark" title="Permanent Link to Downloader 101">Downloader 101</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/enabling-api-fortress-to-read-local-files-on-premises-only-self-hosted/" rel="bookmark" title="Permanent Link to Enabling API Fortress to Read Local Files">Enabling API Fortress to Read Local Files</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/load-agent-deployment/" rel="bookmark" title="Permanent Link to Load Agent Deployment (Self-Hosted)">Load Agent Deployment (Self-Hosted)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/local-downloader-setup/" rel="bookmark" title="Permanent Link to Local Downloader Setup (Self-Hosted)">Local Downloader Setup (Self-Hosted)</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/multiple-client-cert-downloader/" rel="bookmark" title="Permanent Link to Multiple Client-Cert Downloader">Multiple Client-Cert Downloader</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/proxy-settings-in-downloader/" rel="bookmark" title="Permanent Link to Proxy Settings in Downloader">Proxy Settings in Downloader</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/on-premises-requirements-self-hosted/" rel="bookmark" title="Permanent Link to Self-Hosted System Requirements">Self-Hosted System Requirements</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/on-prem-platform-self-hosted/" rel="bookmark" title="Permanent Link to The Self-Hosted Platform">The Self-Hosted Platform</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/updating-an-on-premises-instance-self-hosted/" rel="bookmark" title="Permanent Link to Updating a Self-Hosted Instance">Updating a Self-Hosted Instance</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/updating-the-api-fortress-license-key/" rel="bookmark" title="Permanent Link to Updating the API Fortress License Key">Updating the API Fortress License Key</a>
+					        	</li>
+					         					        	<li>
+						          	<a href="https://apifortress.com/doc/using-rds-and-documentdb/" rel="bookmark" title="Permanent Link to Using RDS and DocumentDB">Using RDS and DocumentDB</a>
+					        	</li>
+					         </ul></li>		
+			</ul>
+			
+			<div class="university-toc">
+				<div class="header">
+					<img class="img" alt="API Fortress University" src="./Creating an Integration Test - API Fortress Documentation_files/APIF_University_Cap@2x.png">
+					<div class="text">
+						API Testing University
+					</div>
+				</div>
+				<ul class="cats university">
+					<li data-parent="29"><div class="category-item"><a>Course 0: Introduction</a></div><ul class="pages">
+								<script type="text/javascript">
+									if (typeof (catsMap) !== 'undefined') 
+										catsMap[41] = 'Course 0: Introduction'
+								</script>
+
+																		<li>
+											<a href="https://apifortress.com/doc/apifu_toc/" rel="bookmark" title="Permanent Link to API Testing University">API Testing University</a>
+										</li>
+									 </ul></li><li data-parent="29"><div class="category-item"><a>Course 1: API Testing Basics</a></div><ul class="pages">
+								<script type="text/javascript">
+									if (typeof (catsMap) !== 'undefined') 
+										catsMap[30] = 'Course 1: API Testing Basics'
+								</script>
+
+																		<li>
+											<a href="https://apifortress.com/doc/what-is-an-api/" rel="bookmark" title="Permanent Link to 1. What is an API?">1. What is an API?</a>
+										</li>
+									 										<li>
+											<a href="https://apifortress.com/doc/isnt-testing-the-ui-enough/" rel="bookmark" title="Permanent Link to 2. Isn’t Testing the UI Enough?">2. Isn’t Testing the UI Enough?</a>
+										</li>
+									 										<li>
+											<a href="https://apifortress.com/doc/what-are-we-testing/" rel="bookmark" title="Permanent Link to 3. What is Continuous Testing?">3. What is Continuous Testing?</a>
+										</li>
+									 </ul></li><li data-parent="29"><div class="category-item"><a>Course 2: Best Practices</a></div><ul class="pages">
+								<script type="text/javascript">
+									if (typeof (catsMap) !== 'undefined') 
+										catsMap[31] = 'Course 2: Best Practices'
+								</script>
+
+																		<li>
+											<a href="https://apifortress.com/doc/best-practices-2/" rel="bookmark" title="Permanent Link to 1. Best Practice – Basic">1. Best Practice – Basic</a>
+										</li>
+									 										<li>
+											<a href="https://apifortress.com/doc/best-practices/" rel="bookmark" title="Permanent Link to 2. Best Practice – Advanced">2. Best Practice – Advanced</a>
+										</li>
+									 										<li>
+											<a href="https://apifortress.com/doc/best-practices-optional/" rel="bookmark" title="Permanent Link to 3. Best Practices – Optional">3. Best Practices – Optional</a>
+										</li>
+									 </ul></li><li data-parent="29" class="expanded"><div class="category-item"><a>Course 3: Writing Your First Test</a></div><ul class="pages">
+								<script type="text/javascript">
+									if (typeof (catsMap) !== 'undefined') 
+										catsMap[32] = 'Course 3: Writing Your First Test'
+								</script>
+
+																		<li>
+											<a href="https://apifortress.com/doc/writing-your-first-test/" rel="bookmark" title="Permanent Link to 1. Quick Test Creation">1. Quick Test Creation</a>
+										</li>
+									 										<li>
+											<a href="https://apifortress.com/doc/building-a-strong-functional-test/" rel="bookmark" title="Permanent Link to 2. Building a Strong Functional Test">2. Building a Strong Functional Test</a>
+										</li>
+									 										<li>
+											<a class="current" href="https://apifortress.com/doc/creating-an-integration-test-using-an-api-as-a-datasource/" rel="bookmark" title="Permanent Link to 3. Creating an Integration Test / Using an API as      a Datasource">3. Creating an Integration Test / Using an API as <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a Datasource</a>
+										</li>
+									 										<li>
+											<a href="https://apifortress.com/doc/4-using-the-vault-variables-and-environments/" rel="bookmark" title="Permanent Link to 4. Using The Vault, Variables and Environments">4. Using The Vault, Variables and Environments</a>
+										</li>
+									 </ul></li><li data-parent="29"><div class="category-item"><a>Course 4: Advanced Test Creation</a></div><ul class="pages">
+								<script type="text/javascript">
+									if (typeof (catsMap) !== 'undefined') 
+										catsMap[34] = 'Course 4: Advanced Test Creation'
+								</script>
+
+																		<li>
+											<a href="https://apifortress.com/doc/advanced-test-creation-details-2/" rel="bookmark" title="Permanent Link to 1. Validate Metrics Within a Test">1. Validate Metrics Within a Test</a>
+										</li>
+									 										<li>
+											<a href="https://apifortress.com/doc/advanced-test-creation-details-3/" rel="bookmark" title="Permanent Link to 2. The IF Component">2. The IF Component</a>
+										</li>
+									 										<li>
+											<a href="https://apifortress.com/doc/advanced-test-creation-details/" rel="bookmark" title="Permanent Link to 3. Dealing with Authentications">3. Dealing with Authentications</a>
+										</li>
+									 										<li>
+											<a href="https://apifortress.com/doc/functionally-test-the-security-of-an-api/" rel="bookmark" title="Permanent Link to 4. Functionally Test the Security of an API">4. Functionally Test the Security of an API</a>
+										</li>
+									 </ul></li><li data-parent="29"><div class="category-item"><a>Course 5: Executing Tests</a></div><ul class="pages">
+								<script type="text/javascript">
+									if (typeof (catsMap) !== 'undefined') 
+										catsMap[35] = 'Course 5: Executing Tests'
+								</script>
+
+																		<li>
+											<a href="https://apifortress.com/doc/executing-tests-scheduling-and-automation/" rel="bookmark" title="Permanent Link to 1. Scheduled">1. Scheduled</a>
+										</li>
+									 										<li>
+											<a href="https://apifortress.com/doc/executing-tests-scheduling-and-automation-2/" rel="bookmark" title="Permanent Link to 2. Automatically">2. Automatically</a>
+										</li>
+									 </ul></li>				</ul>
+			</div>
+		</div>
+
+
+	</div><!-- .secondary -->
+
+		</div>
+	
+	<div id="content" class="site-content">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+<article id="post-5686" class="post-5686 page type-page status-publish hentry category-course-3-writing-your-first-test">
+	
+	<header class="entry-header">
+		<h1 class="entry-title">3. Creating an Integration Test / Using an API as <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a Datasource</h1>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		
+<p>Now let’s take our existing functional test above and use it as the first step in an integration test. Not only that, but that first API call actually contains an array of product IDs. What if we use it as a datasource, and then iterate on each of them individually?</p>
+
+
+
+<p>First, we have the original test:</p>
+
+
+
+<figure class="wp-block-image"><img src="./Creating an Integration Test - API Fortress Documentation_files/pasted image 0.png" alt="Original functional test" width="1306" height="463" class="alignnone"></figure>
+
+
+
+<p>Now, to do this work requires the use of two new components. The <a href="https://apifortress.com/doc/each-component/"><em>For Each</em></a> component helps you iterate through a series of data (product IDs in this case), and the <a href="https://apifortress.com/doc/set-var/"><em>Set</em></a><em> </em>which creates a temporary variable to reference. This should seem fairly straight forward if you have taken some introduction computer science and programming classes.</p>
+
+
+
+<figure class="wp-block-image"><img src="./Creating an Integration Test - API Fortress Documentation_files/pasted image 0(1).png" alt="Looping through data from one API response to data drive a second API call." width="1302" height="699" class="alignnone"></figure>
+
+
+
+<p>If you look at the above GUI view of this test, you see that we have our original test. It makes the first API call, and then tests each object in that response. Then, and this is where this becomes an integration test that is using an API to be data-driven, we have that <em>For Each</em> component. You’ll notice that it is referencing the variable that we stored the entire response, then the array, and finally the object we want to use – <em>productsPayload.content.products.pick(2).</em> You’ll notice the <em>.pick(2)</em> we added at the end. This is entirely optional, and what it does is randomly select X number of items from the list we are iterating through. This is useful if the dataset is far too large. Ours is small so we would remove that and allow every product ID to be tested. We will leave it for training purposes.</p>
+
+
+
+<p>Next we have the <em>Set </em>component, which is creating a new variable called <em>id</em>. The value of that variable depends on the location the <em>For Each</em> is at in the iteration. Here we set the value as ${_1}. This is saying “using the current location in the array”. Traversing an array is a bit of a larger topic, so we’ll get into that later.</p>
+
+
+
+<p>Finally, you see the next <em>GET</em> component. You’ll notice we are using the <em>id</em> that we stored from the first <em>GET</em> call to populate into the second <em>GET</em> call. Each iteration of the <em>For Each</em> will call the current <em>id</em> in the subsequent <em>GET</em> call.</p>
+
+
+
+<p>That’s it! What we’ve done here is made an API call to the products list API, then tested that API thoroughly, and then used that API as the datasource for the subsequent GET which dives into each of those product IDs individually. You then want to test that entire API response as well. So here is what that entire test looks like complete in the GUI.</p>
+
+
+
+<figure class="wp-block-image"><img src="./Creating an Integration Test - API Fortress Documentation_files/full integration test.png" alt="Full integration test that uses an API response to data drive the rest of the flow." width="1127" height="1600" class="alignnone"></figure>
+
+
+
+<p>To see the code itself, go to the Examples directory and open the test <em>Retail: Integration – Products.</em></p>
+
+
+
+<p style="visibility: hidden;">end to end, iterate</p>
+			</div><!-- .entry-content -->
+
+	
+</article><!-- #post-## -->
+
+		</main><!-- .site-main -->
+	</div><!-- .content-area -->
+
+
+	</div><!-- .site-content -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+	</footer><!-- .site-footer -->
+
+</div><!-- .site -->
+
+<script class="javascript" src="./Creating an Integration Test - API Fortress Documentation_files/shCore.js"></script>
+<script class="javascript" src="./Creating an Integration Test - API Fortress Documentation_files/shBrushCSharp.js"></script>
+<script class="javascript" src="./Creating an Integration Test - API Fortress Documentation_files/shBrushPhp.js"></script>
+<script class="javascript" src="./Creating an Integration Test - API Fortress Documentation_files/shBrushJScript.js"></script>
+<script class="javascript" src="./Creating an Integration Test - API Fortress Documentation_files/shBrushJava.js"></script>
+<script class="javascript" src="./Creating an Integration Test - API Fortress Documentation_files/shBrushVb.js"></script>
+<script class="javascript" src="./Creating an Integration Test - API Fortress Documentation_files/shBrushSql.js"></script>
+<script class="javascript" src="./Creating an Integration Test - API Fortress Documentation_files/shBrushXml.js"></script>
+<script class="javascript" src="./Creating an Integration Test - API Fortress Documentation_files/shBrushDelphi.js"></script>
+<script class="javascript" src="./Creating an Integration Test - API Fortress Documentation_files/shBrushPython.js"></script>
+<script class="javascript" src="./Creating an Integration Test - API Fortress Documentation_files/shBrushRuby.js"></script>
+<script class="javascript" src="./Creating an Integration Test - API Fortress Documentation_files/shBrushCss.js"></script>
+<script class="javascript" src="./Creating an Integration Test - API Fortress Documentation_files/shBrushCpp.js"></script>
+<script class="javascript">
+dp.SyntaxHighlighter.ClipboardSwf = 'https://apifortress.com/doc/wp-content/plugins/google-syntax-highlighter/Scripts/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+<script type="text/javascript" src="./Creating an Integration Test - API Fortress Documentation_files/skip-link-focus-fix.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var screenReaderText = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Creating an Integration Test - API Fortress Documentation_files/functions.js"></script>
+<script type="text/javascript" src="./Creating an Integration Test - API Fortress Documentation_files/wp-embed.min.js"></script>
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48258703-1', 'apifortress.com');
+  ga('send', 'pageview');
+</script>
+
+
+
+<iframe owner="archetype" title="archetype" style="display: none; visibility: hidden;" src="./Creating an Integration Test - API Fortress Documentation_files/saved_resource.html"></iframe><div id="drift-widget-container" style="position: absolute; z-index: 2147483647;"><iframe id="drift-widget" src="./Creating an Integration Test - API Fortress Documentation_files/index.html" title="Drift Messenger" role="complementary" class="drift-widget-welcome-away" style="border: none; display: block; height: 76px !important; width: 76px !important; position: fixed; inset: auto 24px 24px auto; visibility: visible; z-index: 2147483647; max-height: 100vh; max-width: 100vw; transition: none 0s ease 0s; background: none transparent; opacity: 1; pointer-events: auto; touch-action: auto;"></iframe></div></body></html>

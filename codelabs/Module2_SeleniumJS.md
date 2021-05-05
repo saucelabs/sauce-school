@@ -5,6 +5,7 @@ tags: javascript
 environments: Web
 status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
+analytics account: UA-86110990-1
 author:Lindsay Walker
 <!-- ------------------------ -->
 
@@ -42,9 +43,10 @@ If you skipped Module 1, make sure you have a project folder set up and have cre
 
 
 
-#### NOTE
+#### Note
 
-_if you are using Github, it is recommended that you [delete the package-lock.json](https://www.codementor.io/@johnkennedy/get-rid-of-that-npm-package-lock-json-e0bj7ai42) file._
+Negative
+: _if you are using Github, it is recommended that you [delete the package-lock.json](https://www.codementor.io/@johnkennedy/get-rid-of-that-npm-package-lock-json-e0bj7ai42) file._
 
 --
 
@@ -55,7 +57,7 @@ If you are familiar with using GitHub to write your code, you can also fork/ bra
 **[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod1/1.05)**
 
 <!-- ------------------------ -->
-## 2.02 Writing Good Acceptance Tests
+## 2.02 Writing Good JavaScript Acceptance Tests
 Duration: 0:10:00
 
 Acceptance tests are an important final step to take when releasing anything you may have designed, to make sure that the software you have created meets the requirements and specifications laid out when you designed and planned your application or platform. Automated testing is an integral tool to use to efficiently and accurately test your product for release.
@@ -112,7 +114,7 @@ Behavior Driven Development and Test Driven Development are two important strate
 
 <!-- ------------------------ -->
 
-## 2.03 Defining a Test Strategy and Picking a Framework.
+## 2.03 Defining a Test Strategy and Picking a Framework
 Duration: 0:05:00
 
 A great way to increase your chances of success with automated web testing is to first map out a testing strategy. The best way to do it is to answer these four questions:
@@ -168,7 +170,7 @@ Having answered these questions, you should now have a prioritized backlog of cr
 
 <!-- ------------------------ -->
 
-## 2.04 Finding & Testing Locators in the Browser
+## 2.04 Finding & Testing Selenium Locators in the Browser
 Duration: 0:15:00
 
 
@@ -186,9 +188,9 @@ If you're fortunate enough to be working with unique IDs and classes, then you'r
 
 #### Video
 
-Watch [Finding Locators with Dev tools](https://www.youtube.com/watch?v=l_oOa7LeHqI&feature=youtu.be) on using locators and follow along in your browser.
+Watch [Finding Locators with Dev tools](https://youtu.be/l_oOa7LeHqI) on using locators and follow along in your browser.
 
- ![https://drive.google.com/file/d/1UkrnRcfnjurdlTiFAHSvpvohy5wdj9FF/preview](https://drive.google.com/file/d/1UkrnRcfnjurdlTiFAHSvpvohy5wdj9FF/view?usp=sharing)
+<video id="l_oOa7LeHqI)"></video>
 
 Use the following notes to help you use the inspector to test elements. Later you will test elements with your code. You can use the webpage here to follow along:
 
@@ -265,7 +267,7 @@ D. `$x(//*[@id="large-2 columns"]/div[1]/div[1])`
 
 <!-- ------------------------ -->
 
-## 2.05 Setting Up Your First Test
+## 2.05 Setting Up Your First JavaScript Test
 Duration: 0:10:00
 
 Here's the markup for a standard login form (pulled from the login example app on [the-internet](http://the-internet.herokuapp.com/login).
@@ -337,11 +339,10 @@ In your file we'll create a new test file called `LoginTest.js`. Next, we will i
 
 
 
-#### NOTE
+#### Note
 
- the versions of the dependencies may have changed to a more updated version, or need a different version for your tests. If you have `npm` installed, it should auto-complete the most recent versions.
-
- --
+Negative
+: The versions of the dependencies may have changed to a more updated version (especially browser drivers when browsers update), or need a different version for your tests. If you need to update the version, simply change the version in `package.json` then run `npm install` in terminal.
 
 Under where it says directories and scripts, change the value of `"test" `to `"mocha"`
 
@@ -362,12 +363,6 @@ and edit to look as follows:
 ![package.json](assets/2.05E.png)
 
 
-#### NOTE
-
-The versions of each of the dependencies will change over time. If you have an IDE, it will give you options for each one & auto-fill the most recent version for you if you use `npm`. Otherwise, research what the most recent or best version of each dependency is.
-
---
-
 After you have adjusted the package.json file, go to the terminal (make sure you are in your ‘SeleniumJS’ project folder that you made, or the ‘javascript’ folder from the repo and enter
 
 <img src="assets/2.05F.png" alt="npm Install" width="250"/>
@@ -381,12 +376,44 @@ When we're done our directory, structure should look like this:
 <img src="assets/2.05G.png" alt="Directory with npm" width="300"/>
 <!-- ![directory with npm](assets/2.05G.png) -->
 
+### Installing Chromedriver
+**This is not rquired if you used npm install to install your drivers**
+
+In order for your test to run on a browser on your local machine, you need to install the driver for the browser, and update your code. A similar set of steps can be followed for any browser.
+
+First, check which version of chrome you are using by opening Chrome on your machine and checking the version.  
+
+<img src="assets/2.05K.png" alt="Chrome Version" width="550"/>
+
+Next, [download Chromedriver](https://chromedriver.chromium.org/downloads]. You can also download [Geckodriver](https://github.com/mozilla/geckodriver) for Chrome browser or [any other driver.](https://automationintesting.com/selenium/java/lessons/drivers.html] you will need for popular browsers) The driver version should match the version of the browser you have on your machine.
+
+#### Cheat Sheet
+
+[Driver Configuration Cheat Sheet](https://docs.google.com/document/d/1FTSxen0sm_3pXERqfVb3txc5f22HyclKeTbeFFbhM9M/edit?usp=sharing)
+
+
+Download the file, then unzip it and move it somewhere outside of your downloads folder. Here, I chose to move it inside of the Documents folder.
+
+<img src="assets/2.05M.png" alt="Driver Folder" width="550"/>
+
+#### Note
+
+Negative
+: Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, first open a terminal, and type in the command `sudo spctl --master-disable` to [disable Gatekeeper](https://osxdaily.com/2015/05/04/disable-gatekeeper-command-line-mac-osx/).
+
+Negative
+: Next, you need to allow app downloads from anywhere. Go to **System Preferences** on your Mac **> Security & Privacy**, then under the **General** tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers. <img src="assets/4.04K.png" alt="Allow Unidentified Files in Security and Privacy" width="650"/>
+
+Negative
+: On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver** or **geckodriver** manually.
+Once you have allowed this, find the Chromedriver in your file directory, double click on it, and force terminal to open it.
+
 
 Now you are ready for the next lessons where you will write your first test!
 
 <!-- ------------------------ -->
 
-## 2.06 Writing & Configuring Your First Test
+## 2.06 Writing & Configuring Your First JavaScript Test
 Duration: 0:10:00
 
 Start by opening the blank `LoginTest.js` file you created in the `test` directory.
@@ -464,9 +491,10 @@ Next we declare a `driver` variable where we'll store our instance of Selenium. 
 In order for Selenium to load an instance of Firefox, we’ll need to specify the path to the directory where the `geckodriver` file is. We do this by finding the path to the current working directory (e.g., `_dirname`, appending `/vendor` to it, and adding this to the execution path.)  
 
 
-#### **NOTE**
+#### Note
 
-If you used `npm` to install your drivers, you will comment the `vendorDirectory` variable declaration out, as you don’t need to specify the path, since `npm` was used to install the dependencies, it takes care of mapping the code in your project to the correct path. The only code you will need inside the vendorDirectory for now is the `driver = await new Builder()`.
+Negative
+: If you used `npm` to install your drivers, you will comment the `vendorDirectory` variable declaration out, as you don’t need to specify the path, since `npm` was used to install the dependencies, it takes care of mapping the code in your project to the correct path. The only code you will need inside the vendorDirectory for now is the `driver = await new Builder()`.
 
 
 ```
@@ -484,7 +512,6 @@ beforeEach(async function() {
 
 
 ```
---
 
 Our test method starts with `it` and a helpful name, `'with valid credentials`. In this test we're visiting the login page by its URL (with `driver.get()`), finding the input fields by their ID (with `driver.findElement({id: 'username'});`), inputting text into them (with `sendKeys`), and submitting the form by clicking the submit button (e.g., `driver.findElement({css: 'button'}).click()`).
 
@@ -515,7 +542,7 @@ See the complete [source code here](https://github.com/walkerlj0/Selenium_Course
 
 <!-- ------------------------ -->
 
-## 2.07 Adding an Assertion
+## 2.07 Adding Mocha Assertions
 Duration: 0:08:00
 
 Assertions are statements that are used at a certain point in the test code (usually following a certain sequence of events) that check to see if some condition is true or false. The test code you created thus far simply tells your test what elements to look for on the page, and what to do with those elements.
@@ -648,10 +675,9 @@ Use the inspector to locate and test finding elements. In this test we are going
 
 #### Video
 
-Watch [2.08 Locator Test](https://drive.google.com/file/d/12p_3_UZkZHNdPHhiVBB4AdX73WFW1mfQ/view?usp=sharing) to help you understand how this test works.
+Watch [2.08 Locator Test](https://youtu.be/1-vK-djB6oo) to help you understand how this test works.
 
-![https://drive.google.com/file/d/12p_3_UZkZHNdPHhiVBB4AdX73WFW1mfQ/preview](https://drive.google.com/file/d/12p_3_UZkZHNdPHhiVBB4AdX73WFW1mfQ/view?usp=sharing)
-
+<video id="1-vK-djB6oo"></video>
 
 #### Cheat Sheet
 

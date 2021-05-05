@@ -5,6 +5,7 @@ tags: java
 status: published
 authors: Lindsay Walker
 Feedback Link: https://forms.gle/CGu4QchgBxxWnNJK8
+analytics account: UA-86110990-1
 author:Lindsay Walker
 
 # Module 3 — Writing Reusable Test Code
@@ -78,10 +79,9 @@ What is the problem with this? It doesn’t give a good sense of the purpose of 
 
 #### Video
 
-Take a look at [this snippet](https://drive.google.com/file/d/1zq2JBVjFwupuq2NbsrkW5vHrIOFR3xer/view?usp=sharing) of a Sauce Labs meetup talk by Titus Fortner to see an example of imperative and declarative language.
+Take a look at [this snippet](https://www.youtube.com/watch?v=a43YfYbdLvY) of a Sauce Labs meetup talk by Titus Fortner to see an example of imperative and declarative language.
 
-![https://drive.google.com/file/d/1zq2JBVjFwupuq2NbsrkW5vHrIOFR3xer/preview](https://drive.google.com/file/d/1zq2JBVjFwupuq2NbsrkW5vHrIOFR3xer/view?usp=sharing)
-
+<video id="a43YfYbdLvY"></video>
 <!--- ------------------------ -->
 
 ## 3.03 Your First Page Object
