@@ -2,6 +2,12 @@
 
 ///start typing below this text
 
+## May 5 - Adekunle's Changes
+
+- Added algolia search markup and styles in `site/app/views/default/index.html`
+- import `algoliasearch-lite.umd.js`, `instantsearch.js@4`, `/docsearch.min.css` and `algolia-min.css`
+- Added algolia secrch interactions in `site/app/scripts/app.js `
+
 ## April 7 - Adekunle's Changes
 
 - Added training as a menu item
