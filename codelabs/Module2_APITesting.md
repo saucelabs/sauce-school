@@ -16,11 +16,12 @@ author:Lindsay Walker
 Duration: 0:02:00
 
 1. **Introduction to the API Fortress Platform and Visual Test Composer**
-    * Create a project
-    * Leverage the HTTP Client
-    * Navigate the Test Component library
-    * Generate and run a test
-    * View the test results
+   * Create a project
+   * Leverage the HTTP Client
+   * Navigate the Test Component library
+   * Generate and run a test
+   * View the test results
+   * Publish and schedule a test run
     
 <!------------------------------>
 ## 2.02 Introduction to API Fortress
@@ -102,7 +103,9 @@ At the moment, the test content is empty, so we need to **generate a test**. Fro
 
 For the purposes of this lesson, we will generate a test manually.
 
-> **NOTE**: You must have a Sauce Labs account in order to follow along in this step. [Use this link](https://saucelabs.com/sign-up) to sign up for a free trial.
+#### Note: 
+Negative
+: You must have a Sauce Labs account in order to follow along in this step. [Use this link](https://saucelabs.com/sign-up) to sign up for a free trial.
 
 From the Intersitial page:
 
@@ -127,7 +130,10 @@ From the Intersitial page:
    "HTTP Code 401: Authorization failed"
    ```
    <img src="assets/apif-mod2/401-error.png" alt="API Fortress: HTTP 401 Request Error" />
-   > **NOTE**: To see the raw response body in the HTTP Client select **Body** and then either *Raw* or *Parsed*
+#### Note:
+
+Negative
+: To see the raw response body in the HTTP Client select **Body** and then either *Raw* or *Parsed*
 
 ### Adding a Test Component
 
@@ -197,9 +203,62 @@ This outputs the following:
 
 <img src="assets/apif-mod2/test-results-3.png" alt="API Fortress: Test Results 3" />
 
-Congratulations on running your first API Test! In the next module you will learn how to both **Schedule** and **Publish** a test.
-
 <!-- ------------------------ -->
 
-## 2.05 Module 2 Quiz
-![https://docs.google.com/forms/d/e/1FAIpQLScD-Qv4R-99_uW2IumSKhPTkwO3RX-3mU0G-aotTWMrIVVrUA/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScD-Qv4R-99_uW2IumSKhPTkwO3RX-3mU0G-aotTWMrIVVrUA/viewform?usp=sf_link)
+## 2.05 Scheduling and Publish a Test
+Duration: 0:04:00
+
+If you navigate back to the Test Status / Intersitial page, you may notice that Test Status is not complete. There's either one of two reasons for this:
+
+* The test wasn't *published*
+* The test isn't *scheduled*
+
+### Publish the Working Copy
+All the work we previously completed only exists as a **Working Copy**. It's basically still in *rough draft* form, and we need to publish the test in order to actually use it in production.
+
+From the Intersitial page, select the **Publish** button to publish the working copy.
+
+<img src="assets/apif-mod2/publish-button.png" alt="API Fortress: Publish Button" />
+
+Immediately, both the Publish button adn the Clear Working Copy button become greyed out. The next step is to schedule a test run.
+
+### Schedule a Test
+
+Scheduling a test basically means we can set up a recurring job (sort of like a [`cron` job](https://www.hostinger.com/tutorials/cron-job)) that can run our published tests at a specific time, along with other test parameters. A test that is published but not scheduled is indicated on the Intersitial page with the following icon:
+
+<img src="assets/apif-mod2/not-scheduled.png" alt="API Fortress: Not Scheduled" />
+
+Below are the steps to schedule a test.
+
+From the Intersitial page, select the **Schedule** button:
+
+   <img src="assets/apif-mod2/schedule-button.png" alt="API Fortress: Schedule Button" />
+   
+You should now see the **Test Scheduler**:
+
+1. Next select **Create New Run**
+   <img src="assets/apif-mod2/create-new-run.png" alt="API Fortress: Create New Run" />
+3. From this page, you can set the test run parameters and scheduling details such as when and how often the test runs. For this example we've set the test to run twice a day, every other day, for each month. We've also indicated that if a test failure occurs to try again after 2 minutes and 30 seconds.
+   <img src="assets/apif-mod2/set-test-run-details.png" alt="API Fortress: Test Details" />
+4. When you're finished, select **Save Run** in the upper right corner:
+   
+   <img src="assets/apif-mod2/save-run.png" alt="API Fortress: Save Run" />
+   
+If everything worked correctly, you should see the following status on the Intersitial page for your test:
+
+<img src="assets/apif-mod2/test-status-live.png" alt="API Fortress: Test Status Live" />
+
+#### Note:
+Negative
+: You may see the notification that you "**won't be notified when a test failure occurs**". If you want to correct this issue feel free to read the documentation for [setting up alert notifications](https://docs.saucelabs.com/api-testing/quick-start/dashboard/index.html#set-alerts).
+
+Congratulations on running, publishing, and scheduling your first API Test! 
+
+In the next module, we will take a step back and dive deeper into the API Fortress Test Component Library where we cover such topics as:
+
+* Adding **Assertions**
+* Working with **Variables** and **Input Sets**
+* Using the **The Vault**
+* and more!
+
+## 2.06 Module 2 Quiz
