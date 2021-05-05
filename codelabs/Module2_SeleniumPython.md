@@ -10,7 +10,7 @@ author:Lindsay Walker
 <!-- ------------------------ -->
 
 
-# Module 2 — Locators and Python Tests
+# Module 2 — Run Your First Selenium Python Test
 <!-- ------------------------ -->
 
 ## 2.01 What You’ll Learn
