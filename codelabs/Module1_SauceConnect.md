@@ -399,7 +399,7 @@ To combat test failures caused by websites without valid SSL certificates, Sauce
 
 ### Disable SSL Bumping
 
-SSL Bumping is enabled by default for Sauce Connect Proxy, but there are some situations where it's recommended that you disable it
+Sauce Connect adds an additional layer of security to SSL encrypted traffic with an additional certificate which is trusted on Sauce Labs Virtual machines. This is known as SSL bumping. in some situations, this additional encryption interferes with the data or tests, and you would like to disable SSL bumping.
 
 ### Errors with CORS-Enabled Sites
 [Cross-Origin Resource Sharing (CORS)](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Troubleshooting ) errors could be caused by a variety of reasons. We recommend the following solutions:
