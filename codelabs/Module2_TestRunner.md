@@ -375,7 +375,8 @@ In this lesson, you are going to use actions to create two jobs:
   * Use the [action](https://github.com/actions/checkout) to checkout the code for the web app from your repo
   * Install `npm` dependencies
   * Build your app (again) to test against
-  * Use the [action](https://github.com/saucelabs/sauce-connect-action) to setup Sauce Connect Tunnel
+  <!-- * Use the [action](https://github.com/saucelabs/sauce-connect-action) to setup Sauce Connect Tunnel -->
+  * Set up a Sauce Connect Tunnel
   * Use the [action](https://github.com/marketplace/actions/saucectl-run-action) to install & use `saucectl` to run your tests
 
 
@@ -570,29 +571,39 @@ See [the example of the testrunner.yml file](https://github.com/walkerlj0/testru
 
 
 <!--
-1. What
+1. Which of the following is NOT a use case for Sauce Connect Proxy?
 
-a. You
-b. You
-c. You
-d. You
+a. You want to test a pre-production version of an app hosted on a your servers that are only available internally.
+b. You want to test an app that is being spun up on your local machine, using saucectl docker mode *
+c. You want to test an app that is being spun up on your local machine, using saucectl sauce mode
+d. You want to be able to pass app files, test  files, and other data securely for use on the Sauce Labs Testing Cloud.
 
-*Sauce CTL...
+* Though you can use saucectl with Docker mode, it's not necessary unless you want have extra security and your app is behind a firewall. It is necessary for Sauce mode since there needs to be a  connection between the Sauce Labs clouds where the tests are run and the local machine where you app is running.
 
-2. Why does
-a. To
-b. To  
-c. To
-d. Its
 
-*The purpose t.
+2. Which of the following do you have to update in the example test suite & saucectl project when you are running in Docker vs. Sauce mode against a local app?
+a. The mode variable in cypress.json
+b. The mode: varible under suites: in config.yml   
+c. ThebaseUrl variable in config.yml
+d. The baseURL variable in cypress.json*
 
-3. The file ? Choose the answer that is the most correct:
+*Though you may want to update mode:  suites:  to sauce or docker, instead of using a flag with --test-env when running your test, it is absolutely necessary that with this test suite that you change the baseUrl variable in config.json to either http://localhost:3000 (for Sauce mode) or http://host.docker.internal:3000 (for Docker mode)
 
-a. The
-b. The
-c. The
-d. The
+3. When you set up your project with GitHub Actions, what did you need to set up to be able to start creating jobs in GitHub Actions?
 
-* The .sauce/config.yml file ...
+a. Github Secrets for your baseUrl and API key, a saucectl Cypress test project in your app project folder, and a testrunner.yml file.
+b.  Github Secrets for your username and password, a saucectl Cypress test project file, and a separate app project folder, and a testrunner.yml file.
+c. Github Secrets for your username and password, a saucectl Cypress test project in your app project folder, and a testrunner.yml file.*
+d. Github Secrets for your baseUrl and API key, a saucectl Cypress test project in your app project folder, and a package.json file.
+
+* In this example, we merged our test files into our app project file so we could upload the project as a single repo in Github, then setup the Github secrets for your Sauce Username and access key. Last, a YAML file called testrunner.yml was created where jobs to build and test the app are created.
+
+4. In the GitHub actions example, why does 
+
+a.
+b.
+c.
+d.
+
+* Answer Text
 -->
