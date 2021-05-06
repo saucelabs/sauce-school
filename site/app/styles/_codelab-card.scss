@@ -50,6 +50,7 @@ $card-col-height: 200px; // column mode
   flex: 0 50%;
   text-align: center;
   padding: 10px;
+  cursor: pointer;
   .card__inner {
     background-color: $pureWhite;
     height: 100%;
@@ -64,6 +65,8 @@ $card-col-height: 200px; // column mode
       margin-bottom: 15px;
       font-family: 'Museo-Sans', sans-serif;
       color: $greyDark;
+      display: block;
+      width: 100%;
     }
     p {
       font-size: 16px;
@@ -72,9 +75,13 @@ $card-col-height: 200px; // column mode
       line-height: 24px;
       font-weight: 300;
       margin-bottom: 10px;
+      display: block;
+      width: 100%;
     }
     .link__button {
       color: $sauceRedAlt;
+      display: block;
+      width: 100%;
     }
   }
 }

@@ -6,6 +6,7 @@ environments: Web
 status: Published
 authors: Lindsay Walker
 Feedback Link: https://forms.gle/CGu4QchgBxxWnNJK8
+analytics account: UA-86110990-1
 author:Lindsay Walker
 
 # Module 3 — Writing Reusable Test Code
@@ -73,10 +74,10 @@ What is the problem with this? It doesn’t give a good sense of the purpose of 
 
 #### Video
 
-Take a look at this snippet of a Sauce Labs meetup talk by Titus Fortner to see an example of imperative and declarative language.
+Take a look at [this snippet](https://www.youtube.com/watch?v=a43YfYbdLvY) of a Sauce Labs meetup talk by Titus Fortner to see an example of imperative and declarative language.
 
-[3.02_Imperative_Declarative](https://drive.google.com/file/d/1zq2JBVjFwupuq2NbsrkW5vHrIOFR3xer/view?usp=sharing)
-![https://drive.google.com/file/d/1zq2JBVjFwupuq2NbsrkW5vHrIOFR3xer/preview](https://drive.google.com/file/d/1zq2JBVjFwupuq2NbsrkW5vHrIOFR3xer/view?usp=sharing)
+<video id="a43YfYbdLvY"></video>
+<!--- ------------------------ -->
 
 ## 3.03 Your First Page Object
 Duration: 0:12:00
@@ -814,7 +815,7 @@ See an example of [the final code here](https://github.com/walkerlj0/Selenium_Co
 <img src="assets/3.07O.png" alt="Final Code 3.07" width="550"/>
 
 
-## 3.08 Quiz
+## 3.08 Module 3 Quiz
 
 ![https://docs.google.com/forms/d/e/1FAIpQLScZ5NZcrKnPNqPaC9vs0pB81unyQHTOdg_Liq-cFQhMm0Jwng/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScZ5NZcrKnPNqPaC9vs0pB81unyQHTOdg_Liq-cFQhMm0Jwng/viewform?usp=sf_link)
 

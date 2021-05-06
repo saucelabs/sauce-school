@@ -1,0 +1,10 @@
+{
+  "title": "Sauce Labs Tools Tutorials",
+  "description": "These tutorial the different features and products that Sauce Labs offers for testers.",
+  "logoUrl": "/sauceconnect/logo.png",
+  "tags": ["saucetools"],
+  "exclude": [
+    ".*-about$",
+    "^lang-.*"
+  ]
+}

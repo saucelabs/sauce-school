@@ -6,6 +6,7 @@ environments: Web
 status: Published
 authors: Lindsay Walker
 Feedback Link: https://forms.gle/CGu4QchgBxxWnNJK8
+analytics account: UA-86110990-1
 author: Lindsay Walker
 
 # Module 3 — Writing Reusable Test Code
@@ -75,10 +76,10 @@ What is the problem with this? It doesn’t give a good sense of the purpose of 
 
 #### Video
 
-Take a look at this snippet of a Sauce Labs meetup talk by Titus Fortner to see an example of imperative and declarative language.
+Take a look at [this snippet](https://www.youtube.com/watch?v=a43YfYbdLvY) of a Sauce Labs meetup talk by Titus Fortner to see an example of imperative and declarative language.
 
-[3.02_Imperative_Declarative](https://drive.google.com/file/d/1zq2JBVjFwupuq2NbsrkW5vHrIOFR3xer/view?usp=sharing)
-![https://drive.google.com/file/d/1zq2JBVjFwupuq2NbsrkW5vHrIOFR3xer/preview](https://drive.google.com/file/d/1zq2JBVjFwupuq2NbsrkW5vHrIOFR3xer/view?usp=sharing)
+<video id="a43YfYbdLvY"></video>
+<!--- ------------------------ -->
 
 ## 3.03 Your First Page Object
 Duration: 0:12:00
@@ -304,7 +305,7 @@ The updated `LoginPage.js` code should look like this:
 <img src="assets/3.04B.png" alt="Login Failure Markup" width="600"/>
 
 
-## Part 2: Check the Page
+### Part 2: Check the Page
 
 Before you can call our page object complete, there's one more addition you should make. We'll want to add a check to make sure that Selenium is on the right page before proceeding, which will in turn, add some resiliency to our tests.
 
@@ -519,7 +520,7 @@ Your final code should look like this:
 <img src="assets/3.05B.png" alt="3.05 Part 1 Code" width="550"/>
 
 
-## Part 2: Fix NoSuchElement Error
+### Part 2: Fix NoSuchElement Error
 
 Notices how you have been getting errors saying ‘no such element’ since either the `.flash.success` or` flash.error` will appear (but never both!)
 
@@ -607,7 +608,7 @@ See the complete [source code here](https://github.com/walkerlj0/Selenium_Course
 
 ![https://docs.google.com/forms/d/e/1FAIpQLSe0UySBd2KO1SL5ytlrmSRuyKyHwM3lz5R_PElfFpMcJJcAQQ/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSe0UySBd2KO1SL5ytlrmSRuyKyHwM3lz5R_PElfFpMcJJcAQQ/viewform?usp=sf_link)
 
-## 3.06  Resilient Test Code and Timing — Page with Explicit Waits
+## 3.06  Resilient Test Code and Timing with Explicit Waits
 Duration: 0:12:00
 
 

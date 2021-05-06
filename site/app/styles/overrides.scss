@@ -33,6 +33,14 @@ google-codelab #drawer ol li .step:before {
 google-codelab google-codelab-step .instructions {
   min-height: 95%;
 }
+google-codelab-step .embedded-iframe {
+  height: inherit!important;
+  min-height: 300px;
+  &.quizform {
+    min-height: 700px;
+  }
+}
+
 
 @media only screen
     and (max-device-width: 740px),

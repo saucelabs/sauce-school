@@ -7,6 +7,7 @@ tags: java
 environments: Web
 status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
+analytics account: UA-86110990-1
 author: Lindsay Walker
 <!-- ------------------------ -->
 # Module 4 – Scaling Tests to the Cloud
@@ -359,10 +360,9 @@ Thus far you have prepared our test suite well to be maintainable. When you have
 
 #### Video
 
-Watch the video [4.04 Non-Duplication](https://drive.google.com/file/d/1LkSIpQ7QBT0Uq5NyTgf0aUnALPy0e3jb/view?usp=sharing) an excerpt from [Sauce Labs’ Tech Talk](https://www.youtube.com/watch?v=ZLS9sU2A9QA&t=24s) by Nikolay Advolodkin
+Watch the video [4.04 Non-Duplication](https://youtu.be/HY8-ikAviFo) an excerpt from [Sauce Labs’ Tech Talk](https://www.youtube.com/watch?v=ZLS9sU2A9QA&t=24s) by Nikolay Advolodkin
 
-![https://drive.google.com/file/d/1Gyv3tO9I4NanOAoCsPi5sVlqMx0iWcm0/preview](https://drive.google.com/file/d/1Gyv3tO9I4NanOAoCsPi5sVlqMx0iWcm0/view?usp=sharing)
-
+<video id="HY8-ikAviFo"></video>
 
 ### Part 1: Running Tests in Different Local Browsers
 
@@ -621,9 +621,9 @@ To learn more about setting up environment variables, you can see the article [h
 
 #### Video
 
-Watch This Video to See how to set up your Sauce Credentials as environment variables on MacOS [4.05 Sauce Credentials](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing)
+Watch This Video to See how to set up your [Sauce Credentials](https://www.youtube.com/watch?v=3K1Eu0eTha8) as environment variables on MacOS
 
-![https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/preview](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing)
+<video id="3K1Eu0eTha8"></video>
 
 
 ### Part 2: Use the Remote Web Driver
@@ -923,7 +923,7 @@ You can see an example of the completed code[ here.](https://github.com/walkerlj
 <img src="assets/4.06L.png" alt="Sauce Rest in pom.xml" width="650"/>
 
 <!-- ------------------------ -->
-## 4.07 Quiz
+## 4.07 Module 4 Quiz
 Duration: 0:05:00
 
 ![https://docs.google.com/forms/d/e/1FAIpQLSdiPBDahX6pf0akZmn0ogA4JLInFa4EAb5HXy-VAa3lsIyEyQ/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSdiPBDahX6pf0akZmn0ogA4JLInFa4EAb5HXy-VAa3lsIyEyQ/viewform?usp=sf_link)

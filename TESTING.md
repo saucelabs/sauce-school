@@ -6,6 +6,7 @@
 - [Node.js 12+](https://nodejs.org/en/download/) + npm
 
 ## Install dependencies
+Make sure Docker is running on your machine, then run:
 
 `$> npm run install-deps`
 
