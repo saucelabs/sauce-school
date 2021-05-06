@@ -563,11 +563,11 @@ See [the example of the testrunner.yml file](https://github.com/walkerlj0/testru
 
 
 
-<!-- ------------------------
-## Module 2 Quiz
+<!-- ------------------------ -->
+## 2.07 Module 2 Quiz
 
 
-![https://docs.google.com/.......](https://docs.google.com/forms/....)
+[https://docs.google.com/forms/d/e/1FAIpQLSfvzURZbjPjNZzw5QpzPYqEBH8hKUK8kzxbik3Oze8V-dnTmg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSfvzURZbjPjNZzw5QpzPYqEBH8hKUK8kzxbik3Oze8V-dnTmg/viewform?usp=sf_link)
 
 
 <!--
@@ -576,15 +576,15 @@ See [the example of the testrunner.yml file](https://github.com/walkerlj0/testru
 a. You want to test a pre-production version of an app hosted on a your servers that are only available internally.
 b. You want to test an app that is being spun up on your local machine, using saucectl docker mode *
 c. You want to test an app that is being spun up on your local machine, using saucectl sauce mode
-d. You want to be able to pass app files, test  files, and other data securely for use on the Sauce Labs Testing Cloud.
+d. You want to be able to pass app files, test  files, and other data securely for use on the Sauce Labs Testing Cloud
 
 * Though you can use saucectl with Docker mode, it's not necessary unless you want have extra security and your app is behind a firewall. It is necessary for Sauce mode since there needs to be a  connection between the Sauce Labs clouds where the tests are run and the local machine where you app is running.
 
 
 2. Which of the following do you have to update in the example test suite & saucectl project when you are running in Docker vs. Sauce mode against a local app?
 a. The mode variable in cypress.json
-b. The mode: varible under suites: in config.yml   
-c. ThebaseUrl variable in config.yml
+b. The mode: variable under suites: in config.yml   
+c. The baseUrl variable in config.yml
 d. The baseURL variable in cypress.json*
 
 *Though you may want to update mode:  suites:  to sauce or docker, instead of using a flag with --test-env when running your test, it is absolutely necessary that with this test suite that you change the baseUrl variable in config.json to either http://localhost:3000 (for Sauce mode) or http://host.docker.internal:3000 (for Docker mode)
@@ -598,12 +598,12 @@ d. Github Secrets for your baseUrl and API key, a saucectl Cypress test project 
 
 * In this example, we merged our test files into our app project file so we could upload the project as a single repo in Github, then setup the Github secrets for your Sauce Username and access key. Last, a YAML file called testrunner.yml was created where jobs to build and test the app are created.
 
-4. In the GitHub actions example, why does 
+4. In the GitHub actions example, why does the test-web-app job contain the field needs: build-web-app?
 
-a.
-b.
-c.
-d.
+a. Because you want to make sure that your app is built (as a test) before you run your test job *
+b. Because you want to make sure your test job uses the GitHub Action to build your app
+c. Because you want to make sure that the correct build tool is used in your test, which is defined in the build-web-app job
+d. Because the app will not be built if you don't create a dependency with the build-web-app
 
-* Answer Text
+* The purpose of the build-web-app job is to do a pre-build of the app before you runt he build in your test job. Adding the needs: build-web-app to your test job ensures that your Actions won't waste time running the test job if the first (test) build isn't successful.
 -->
