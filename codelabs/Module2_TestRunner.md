@@ -1,6 +1,6 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
-summary: Module 2 of the Cypress on Sauce course ...
+summary: In this module, you will learn how and why you use Sauce Connect to run tests through a secure tunnel, and practice running tests against a local app, in the Sauce Labs Cloud. You will also set up an example project  in Github Actions and include the saucectl test in your workflow.
 id: Module2-Testrunner
 categories: beginner
 environments: Web
