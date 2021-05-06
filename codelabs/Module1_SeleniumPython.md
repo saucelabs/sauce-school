@@ -9,7 +9,7 @@ analytics account: UA-86110990-1
 author:Lindsay Walker
 
 <!-- ------------------------ -->
-# Module 1- Introduction Tutorial | Selenium with Python
+# Module 1- Module 1 – Setting Up Your Selenium Python Environment
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
