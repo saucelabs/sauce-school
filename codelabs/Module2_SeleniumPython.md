@@ -231,44 +231,16 @@ Selenium is able to find and interact with elements on a page by way of various 
 
 <!-- ------------------------ -->
 
-## 2.05 Setting Up Your First Python Test
+## 2.05 Setting Up Dependencies & Drivers
 Duration: 0:12:00
 
-### Setup Your Project File
+You should have already setup your project in [module 1.06](https://training.saucelabs.com/codelabs/Module1-SeleniumPython/index.html?index=..%2F..seleniumpython#5). If not, refer to that library to set up a project structure like so:
 
-First we will need to create a new project directory called `SeleniumPython` (your main project directory), and inside create a new Python package named `tests` inside that project directory. This is a default folder that Mocha will know to look for.
-
-
-You can see all of the files here. It is recommended that you follow the steps in this module to correctly configure your test in PyCharm if you don't have experience setting up this type of project before.
-
-**[Selenium_Course_Example_Code ](http://example.com)**
-
-When you Open PyCharm, choose New project
-
-<img src="assets/2.05P.png" alt="First Passed Test" width="450"/>
-
-In the next window, name the project **SeleniumJava**, choose which directory you want to store it in (the example is in **Users/lindsaywalker**), and create a **new environment using Virtualenv**. Make sure you uncheck **create a main.py welcome script** then click **Create**.
-
-<img src="assets/2.05Q.png" alt="New PyCharm Project" width="650"/>
-
-
-Virtualenv will create a 'sandbox' virtual environment for your project with only Python version 3 and the dependencies that go with it.
-
-Right click in the top-level folder and create a **New > Python Package**. name the director **tests**.
-
-<img src="assets/2.05T.png" alt="Create tests package" width="450"/>
-
-Next, right click on the **tests** folder and create a **New > Python File**. name the file **login_test**. There should be a blank file automatically created called `__init__.py` since it is a Python package.
-
-<img src="assets/2.05S.png" alt="Create Login test" width="450"/>
-
-Last, right click in the top-level folder and create a **New > File**. Name it **requirements.txt**. This file will contain the instructions for the dependencies that will be installed in your virtual environment.
-
-<img src="assets/2.05T.png" alt="Create requirements.txt" width="450"/>
+ <img src="assets/1.06J.png" alt="requirements.txt" width="750"/>
 
 ### Test Dependencies & Libraries
 
-Go into the SeleniumJava (your main project) directory using your terminal, then open up the `requirements.txt` and `login_test.py` files by double clicking on them. Copy and paste the following into requirements.txt:
+To quickly install the test libraries for SeleniumPython (your project file) directory using your terminal, open up the `requirements.txt` and `login_test.py` files by double clicking on them. Copy and paste the following into `requirements.txt`:
 
 ```
 selenium==3.14.0
@@ -279,13 +251,15 @@ pytest-randomly
 
 ```
 
-After you add those files, PyCharm will prompt you to install the plugins and requirements - click on the links to install the dependencies listed.
+#### NOTE
+Negative
+: Run `pip3 install -r requirements` to ensure all the requirements have been installed.
+
+If files need updating, PyCharm will prompt you to install the plugins and requirements - click on the links to install the dependencies listed.
 
 <img src="assets/2.05U.png" alt="install dependencies" width="750"/>
 
-#### NOTE
-Negative
-: Another option is to run `pip3 install -r requirements` to ensure all the requirements have been installed.
+
 
 
 ### Install Chromedriver
@@ -327,7 +301,7 @@ Once you have allowed this, find the Chromedriver in your file directory, double
 
 <!-- ------------------------ -->
 
-## 2.06 Pytest Test Code
+## 2.06 Run Pytest Test Code
 
 ### What Are You Testing?
 
@@ -433,7 +407,7 @@ If your code is correct, you driver has been given permission to open, you shoul
 
 <!-- ------------------------ -->
 
-## 2.07 Pytest Test Assertions
+## 2.07 Add Pytest Test Assertions
 Duration: 0:10:00
 
 Assertions are statements that are used at a certain point in the test code (usually following a certain sequence of events) that check to see if some condition is true or false. The test code you created thus far simply tells your test what elements to look for on the page, and what to do with those elements.
