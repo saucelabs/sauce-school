@@ -234,7 +234,7 @@ Selenium is able to find and interact with elements on a page by way of various 
 ## 2.05 Setting Up Dependencies & Drivers
 Duration: 0:12:00
 
-You should have already setup your project in [module 1.06](https://training.saucelabs.com/codelabs/Module1-SeleniumPython/index.html?index=..%2F..seleniumpython#5). If not, refer to that library to set up a project structure like so:
+You should have already setup your project in [lesson module 1.06](https://training.saucelabs.com/codelabs/Module1-SeleniumPython/index.html?index=..%2F..seleniumpython#5). If not, refer to that library to set up a project structure like so:
 
  <img src="assets/1.06J.png" alt="requirements.txt" width="750"/>
 
@@ -301,7 +301,7 @@ Once you have allowed this, find the Chromedriver in your file directory, double
 
 <!-- ------------------------ -->
 
-## 2.06 Run Pytest Test Code
+## 2.06 Run Selenium Pytest Code
 
 ### What Are You Testing?
 
@@ -403,7 +403,7 @@ At the bottom of the PyCharm IDE, you should see a button labeled **Terminal**. 
 
 <img src="assets/2.05X.png" alt="First test" width="850"/>
 
-If your code is correct, you driver has been given permission to open, you should see a browser open, and an output similar to what is above. You have successfully ran your first test code!
+If your code is correct, you have the right driver, and it has been given permission to open by your OS, you should see a browser open, and an output similar to what is above.
 
 <!-- ------------------------ -->
 
@@ -472,7 +472,7 @@ At the bottom of the PyCharm IDE, you should see a button labeled **Terminal**. 
 
 <img src="assets/2.05X.png" alt="First test" width="850"/>
 
-If your code is correct, you driver has been given permission to open, you should see a browser open, and an output similar to what is above. You have successfully ran your first test code!
+If your code is correct, you have the right driver, and it has been given permission to open by your OS, you should see a browser open, and an output similar to what is above. You have successfully ran your first Selenium Python test!
 
 
 #### Final Code
