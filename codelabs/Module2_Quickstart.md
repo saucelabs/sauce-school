@@ -2,7 +2,7 @@
 
 summary: Module 2 of the Sauce Labs Quickstart, this section on Android Mobile Emulator Tests goes over how to test Android mobile apps and browsers with the Appium test runner on Sauce Labs virtual machines.
 id: Module2-Quickstart
-categories: intermediate
+categories: advanced
 tags: quickstart
 environments: Web
 status: Draft

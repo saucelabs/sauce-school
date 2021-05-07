@@ -2,7 +2,7 @@
 
 summary: In this module, you will learn how and why you use Sauce Connect to run tests through a secure tunnel, and practice running tests against a local app, in the Sauce Labs Cloud. You will also set up an example project  in Github Actions and include the saucectl test in your workflow.
 id: Module2-Testrunner
-categories: beginner
+categories: intermediate
 environments: Web
 status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
@@ -567,7 +567,7 @@ See [the example of the testrunner.yml file](https://github.com/walkerlj0/testru
 ## 2.07 Module 2 Quiz
 
 
-[https://docs.google.com/forms/d/e/1FAIpQLSfvzURZbjPjNZzw5QpzPYqEBH8hKUK8kzxbik3Oze8V-dnTmg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSfvzURZbjPjNZzw5QpzPYqEBH8hKUK8kzxbik3Oze8V-dnTmg/viewform?usp=sf_link)
+![https://docs.google.com/forms/d/e/1FAIpQLSfvzURZbjPjNZzw5QpzPYqEBH8hKUK8kzxbik3Oze8V-dnTmg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSfvzURZbjPjNZzw5QpzPYqEBH8hKUK8kzxbik3Oze8V-dnTmg/viewform?usp=sf_link)
 
 
 <!--
