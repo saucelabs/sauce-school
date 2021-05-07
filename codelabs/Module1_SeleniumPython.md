@@ -134,7 +134,7 @@ The basic things you need to have installed are outlined in the sections below, 
 * Install [Pycharm](https://www.jetbrains.com/pycharm/)
 * Install pip3
   * `pip3 --version`
-* Install testing libraries from PyPI](https://pypi.org/)
+* Install testing libraries from [PyPI](https://pypi.org/)
 * Install a virtual environment ([venv3](https://docs.python.org/3/library/venv.html))
 
 ### Install HomeBrew
