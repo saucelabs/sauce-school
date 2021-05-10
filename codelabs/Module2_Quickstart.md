@@ -2,7 +2,7 @@
 
 summary: Module 2 of the Sauce Labs Quickstart, this section on Android Mobile Emulator Tests goes over how to test Android mobile apps and browsers with the Appium test runner on Sauce Labs virtual machines.
 id: Module2-Quickstart
-categories: intermediate
+categories: advanced
 tags: quickstart
 environments: Web
 status: Draft
@@ -10,7 +10,7 @@ feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
 author:Lindsay Walker, Eyal Yovel
 <!-- ------------------------ -->
-# Module 2 – Android Mobile Emulator Tests
+# Module 2 – Android Appium Mobile Emulator Tests
 
 <!-- ------------------------ -->
 ## 2.01 What You’ll Learn
@@ -152,7 +152,7 @@ Open **Android Studio** and start an emulator.
 Now you are ready to get your first local test running for an Android test.
 
 <!-- ------------------------ -->
-## 2.03 Basic Test Code Overview
+## 2.03 Sample Android Appium Test Code Overview
 Duration: 0:10:00
 
 ### Test Suite Components
@@ -473,7 +473,7 @@ Once you have the first project configured, you can start Appium desktop and an 
 
 
 <!-- ------------------------ -->
-## 2.04 Android Emulator App Test on Sauce Labs
+## 2.04 Run an Emulator App Test on Sauce Labs
 Duration: 0:20:00
 
 The first thing you will do with your BasicTest is to add the configurations and capabilities to run that test on an app on a Sauce Labs emulator.
@@ -755,7 +755,7 @@ You can see an [example of the project code here.](https://github.com/walkerlj0/
 ![https://docs.google.com/forms/d/e/1FAIpQLScjcAmkaZ8vc2I016VscegVEOEwHSt9ESRe15gi6WTVMqm5cg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScjcAmkaZ8vc2I016VscegVEOEwHSt9ESRe15gi6WTVMqm5cg/viewform?usp=sf_link)
 
 <!-- ------------------------ -->
-## 2.05 Android Web Browser Test on Sauce Labs
+## 2.05 Run an Emulator Web Browser Test on Sauce Labs
 Duration: 0:15:00
 
 Configuring and running a local test to run as an Android web browser test is very similar to running a mobile test on the [Sauce Labs](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link) emulator platform. The only difference here is that we will run the test in the browser instead of on an app that you install.
@@ -1084,7 +1084,7 @@ You can see an [example of the project code here.](https://github.com/walkerlj0/
 
 
 <!-- ------------------------ -->
-## 2.06 Test Reporting
+## 2.06 Passing Appium Test Information to Sauce Labs
 Duration: 0:12:00
 
 This module will use the test code from the [Mobile_Android_EMU_Test.java](https://github.com/walkerlj0/Quickstart_Android/blob/master/Final/src/test/java/tests/Mobile_Android_EMU_Test.java). You can also add the same features to your `Mobile_Android_Browser_Test.java`, however, and get the same reporting on [Sauce Labs](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
@@ -1108,7 +1108,7 @@ By using a reflection and an interface with your test methods, you will be able 
 
 Without a **Pass** or **Fail** status, you simply see whether or not the test was able to complete without showing an exception (**Complete** or **Error** on Sauce Labs). Without a name, it’s very difficult to understand which test you are debugging.
 
-To follow along with this course, you can use the [Mobile_Android_EMU_Test](https://github.com/walkerlj0/Quickstart_Android/blob/master/Mod2/2.05/src/test/java/tests/Mobile_Android_EMU_Test.java) from the last module – you can use it with the [Mobile_Android_Browser_Test](https://github.com/walkerlj0/Quickstart_Android/blob/master/Mod2/2.05/src/test/java/tests/Mobile_Android_Browser_Test.java) as well
+To follow along with this course, you can use the [Mobile_Android_EMU_Test](https://github.com/walkerlj0/Quickstart_Android/blob/master/Mod2//src/test/java/tests/Mobile_Android_EMU_Test.java) from the last module – you can use it with the [Mobile_Android_Browser_Test](https://github.com/walkerlj0/Quickstart_Android/blob/master/Mod2/2.05/src/test/java/tests/Mobile_Android_Browser_Test.java) as well
 
 
 
