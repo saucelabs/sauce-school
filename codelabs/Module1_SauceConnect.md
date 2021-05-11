@@ -27,9 +27,9 @@ This tutorial gives examples you can follow along with using a test suite writte
   * `-i` for a tunnel identifier (name)
 * Locate and change the directory of the log file
 * Specify which data center you want to run Sauce Connect with
-<!-- * Configure a domain for special flags such as SSL Bumping -->
+* Disable SSL Bumping
 
-
+To find out more about Sauce Connect and the architecture, [see the whitepaper](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview).
 
 <!-- ------------------------ -->
 ## 1.02 Setup and Run Sauce Connect Proxy
@@ -68,7 +68,7 @@ You will need to have environment variables set for Sauce Labs on your local mac
 
 ### Start The Tunnel
 
-Go to the **Tunnels** tab in the Sauce Labs app.
+Sauce Connect Tunnels are initiated from the client side to allow applications behind a firewall to communicate and test on the Sauce Labs Cloud. Start by going to the **Tunnels** tab in the Sauce Labs app.
 
 
 <img src="assets/5.03C.png" alt="Tunnels Menu" width="250"/>
@@ -89,7 +89,7 @@ bin/ sc -u <SAUCE_USERNAME> -k <SAUCE_ACCESS_KEY> -i <SAUCE_TUNNEL_NAME>
 
 You should see the output in the terminal, lett you know Sauce Connect Proxy is up and running:
 
-<img src="assets/SC2.03E.png" alt="Sauce Connect is up and running" width="650"/>
+<img src="assets/SC1.02E.png" alt="Sauce Connect is up and running" width="650"/>
 
 ### Stop the Tunnel
 
@@ -110,19 +110,10 @@ You can stop any tunnel that you have running by hitting `cntrl` + `c`
 Negative
 : If you have trouble running your tunnel, you may need to update your firewall settings to [allow outbound traffic on port 443](https://docs.saucelabs.com/secure-connections/sauce-connect/faq/index.html#what-outbound-ports-do-i-need-open-for-sauce-connect-proxy) or configure Sauce Connect Proxy with a proxy that can reach the `saucelabs.com` domain, using the --proxy or --pac command line options
 
-### Shared Tunnels
+### Live (Manual) Tests with Sauce Connect
+You can easily run any manual tests that you do with Sauce Connect proxy. Simply go to the **Live**, **Cross Browser** testing dashboard, and choose to use any proxy tunnel that is available to you for your manual tests.
 
- Many companies may also choose to have their organization set up _Shared Tunnels_ on Sauce Labs, which anyone in their organization can use without having to worry about configuring their own tunnel.
-
- To use a shared tunnel simply check the **Tunnels** tab on your Sauce Labs app to see your shared tunnels you have access to. You should be able to see the shared tunnel name, the name of the owner of the tunnel as well, as an indication that it is a shared tunnel, then use the `tunnelIdenifier` and the `parentTunnel` in your test suites' capabilities:
-
- <img src="assets/TRT2.03C.png" alt="Shared Runnel" width="850"/>
-
- <img src="assets/TRT2.03D.png" alt="Shared Runnel" width="650"/>
-
-
-
-
+<img src="assets/SC1.02F.png" alt="Tunnel running on Sauce Labs" width="750"/>
 
 <!-- ------------------------ -->
 ## 1.03 Run a Java Test Using Sauce Connect Proxy
@@ -235,6 +226,16 @@ You can see example code for this lesson [here.](https://github.com/walkerlj0/Se
 #### Sauce Connect Architecture
 To learn more about what is happening when you use Sauce Connect tunnel, see the documentation about how network traffic flows through a [Sauce Connect Tunnel](https://docs.saucelabs.com/secure-connections/sauce-connect/setup-configuration/basic-setup#sauce-connect-communication-when-test-is-running)
 
+### Shared Tunnels
+
+ Many companies may also choose to have their organization set up _Shared Tunnels_ on Sauce Labs, which anyone in their organization can use without having to worry about configuring their own tunnel.
+
+ To use a shared tunnel simply check the **Tunnels** tab on your Sauce Labs app to see your shared tunnels you have access to. You should be able to see the shared tunnel name, the name of the owner of the tunnel as well, as an indication that it is a shared tunnel, then use the `tunnelIdenifier` and the `parentTunnel` in your test suites' capabilities:
+
+ <img src="assets/TRT2.03C.png" alt="Shared Runnel" width="850"/>
+
+ <img src="assets/TRT2.03D.png" alt="Shared Runnel" width="650"/>
+
 ### Final Code
 <img src="assets/5.03N.png" alt="Final Java Base Test Code" width="650"/>
 
@@ -320,7 +321,7 @@ If you are having issues with your Sauce Connect Tunnel, you know your network c
 ## 1.05 Sauce Connect Options
 Duration: 0:05:00
 
-There are a [lot of different options](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/index.html#sauce-connect-proxy-command-line-options) you can use to change the settings and options for your Sauce Connect Tunnel. This lesson will cover the most commonly needed options for a typical user. In this lesson you will learn to:
+There are a many options you can use to change the settings and options for your Sauce Connect Tunnel. This lesson will cover the most commonly needed options for a typical user. In this lesson you will learn to:
 
 * Generate a log file to get more information to send to [Sauce Labs Support](https://support.saucelabs.com/hc/en-us)
 * Generate a log file in a specified location
@@ -375,7 +376,7 @@ Negative
 ### Specify the Sauce Data Center
 Depending which data center (*us-west-1*, *eu-central-1*, etc.) you are running your tests in, you may want to change which data center your tunnel is running through (default *us-west-1*). [See the list of Sauce Connect endpoints](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints#DataCenterEndpoints-EUDataCenter)
 
-Simply add the flag `-x data-center-endpoint` like so:
+Simply add a flag for the [data center endpoint](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy#data-center-endpoint) like `-x https://data-center-1.saucelabs.com/rest/v1` when you launch your tunnel:
 
 ```
 bin/ sc -u your-username -k your-accesskey -i your-tunnelname -x https://eu-central-1.saucelabs.com/rest/v1
@@ -388,24 +389,47 @@ Duration: 0:05:00
 
 ### SSL Bumping
 
-Self-signed and invalid SSL certificates, commonly used in test environments, are not trusted by stock browsers, such as those installed on the Sauce Labs infrastructure. This causes tests to be interrupted with security warnings that can't be dismissed by Selenium.
+When users communicate with applications over the internet, they use the SSL (TLS is another version of this) protocol to make sure they are communicating securely. One part of this protocol requires that the app the user is communicating with provides a secure 'certificate' to prove that it is a safe site to send information to.
+
+When developers create and test an app, they typically use self-signed, or invalid SSL certificates, which are not trusted by stock browsers, such as those installed on the Sauce Labs infrastructure. This means that when you are running Selenium tests, the communication with the browser may be interrupted with security warnings that can't be dismissed by Selenium.
+
+ <img src="assets/SC1.06A.png" alt="Error- cannot access website" width="450"/>
 
 #### Video
 [SSL Bumping – Errors and Disabling]
 
-There are simply too many different certificates for Sauce Labs to add each one. We'd have to add a certificate to every requested browser for every user with a self-signed certificate. This can't always be done automatically, so every new client would have to wait for Sauce Labs staff to re-create all of our images before they could run their tests.
+When developers test an internal app they are developing, or one used in a staging environment, often they won't have a publicly-signed network certificate for that app, which means that most likely security warning from the browser will cause your tests to fail.
 
-To combat test failures caused by websites without valid SSL certificates, Sauce Connect Proxy has a security feature called SSL Bumping that automatically re-signs certificates in the course of testing, which is automatically enabled
+To combat test failures caused by websites without valid SSL/ TSL certificates, Sauce Connect Proxy has a security feature called SSL Bumping that automatically re-signs certificates to allow network traffic, when they are run through a Sauce Connect Tunnel.
 
 ### Disable SSL Bumping
 
-Sauce Connect adds an additional layer of security to SSL encrypted traffic with an additional certificate which is trusted on Sauce Labs Virtual machines. This is known as SSL bumping. in some situations, this additional encryption interferes with the data or tests, and you would like to disable SSL bumping.
+If you have a valid certificate for your application, you don't need to use SSL bumping. There are also cases where SSL bumping doesn't help avoid security warnings that will cause tests to fail and you will want to disable it.
 
+To disable SSL bumping, you would want to add the `-B` or `--no-ssl-bump-domians` flag when you start your tunnel, like so:
+
+```
+bin/ sc -u your-username -k your-accesskey -i your-tunnelname -B
+```
+
+#### Situations To Disable SSL Bumping
+If you have a certificate that is recognized by Sauce Labs devices, and one of the following is true about your application, you would want to use the `-B` flag to disable SSL bumping:
+
+* If you are using a WebSocket connection for traffic, which won’t work if the traffic to them has been altered, which Sauce Connects' SSL bumping will do.
+* With certain types of self-signed Android tests that don't check the system's list of trusted TLS certificates.
+  * If you are testing Android version 7 & up on Sauce Labs Emulators (you need to [add a self-signed network cert](https://support.saucelabs.com/hc/en-us/articles/360005488513-Unable-to-Connect-to-https-Site-with-Sauce-Connect-and-Android-7-0-on-Native-Applications) into the app code)
+  * If you are testing a Native app on Android in the Real Device Cloud (you need to [add a self-signed network cert](https://support.saucelabs.com/hc/en-us/articles/360005488513-Unable-to-Connect-to-https-Site-with-Sauce-Connect-and-Android-7-0-on-Native-Applications) into the app code)
+  * Any time you are testing a web app on the Real Device Cloud (cannot be tested with a non-valid cert)
+
+<!--
 ### Errors with CORS-Enabled Sites
 [Cross-Origin Resource Sharing (CORS)](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Troubleshooting ) errors could be caused by a variety of reasons. We recommend the following solutions:
 
+//what is CORS?
+
 Make sure that the ulimit/open file limit of your machine is at least 8000, which is the recommend value for Sauce Connect Proxy use
-Start a Sauce Connect Proxy instance using the -B all and -N flags. For more information about what these flags do for your tunnel, please see Sauce Connect Proxy Command-Line Quick Reference Guide.
+// How is this done
+Start a Sauce Connect Proxy instance using the -B all and -N flags. For more information about what these flags do for your tunnel, please see Sauce Connect Proxy Command-Line Quick Reference Guide. -->
 <!-- ------------------------ -->
 ## 1.07 Quiz
 Duration: 0:05:00
