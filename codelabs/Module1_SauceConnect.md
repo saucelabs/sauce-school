@@ -323,15 +323,25 @@ Duration: 0:05:00
 
 There are a many options you can use to change the settings and options for your Sauce Connect Tunnel. This lesson will cover the most commonly needed options for a typical user. In this lesson you will learn to:
 
+* Check which version of Sauce Connect you are running
 * Generate a log file to get more information to send to [Sauce Labs Support](https://support.saucelabs.com/hc/en-us)
 * Generate a log file in a specified location
-* Check which version of Sauce Connect you are running
 * Run Sauce Connect Proxy with a specific Sauce Labs Data Center
 
 
 You can find all the flags that you can use when running Sauce Connect in the [Sauce Connect CLI documentation](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy)
 
 #### Video
+
+### Check Your Sauce Connect Version
+Sometimes it's important to see if you have the most up to date [version of Sauce Connect]() so you can use the latest features & functionality using the sauce connect `--version` flag:
+
+```
+bin/ sc -u your-username -k your-accesskey -i your-tunnelname --version
+```
+#### Note
+Negative
+: If you use the `--version` flag with your tunnel, it will print out the information, then immediately exit, so you will have to start your tunnel again to use it.
 
 ### Generate Verbose Logs
 If you are having trouble running your tests, and were not able to get it working with troubleshooting in the previous lessons, verbose logs will provide mode information that can help give you hints as to what is going wrong.
@@ -363,15 +373,6 @@ and if you check you should see *Documents/logfiles/log1*.
 
  <img src="assets/SC1.05C.png" alt="Save a log file" width="750"/>
 
-### Check Your Sauce Connect Version
-Sometimes it's important to see if you have the most up to date [version of Sauce Connect]() so you can use the latest features & functionality using the sauce connect `--version` flag:
-
-```
-bin/ sc -u your-username -k your-accesskey -i your-tunnelname --version
-```
-#### Note
-Negative
-: If you use the `--version` flag with your tunnel, it will print out the information, then immediately exit, so you will have to start your tunnel again to use it.
 
 ### Specify the Sauce Data Center
 Depending which data center (*us-west-1*, *eu-central-1*, etc.) you are running your tests in, you may want to change which data center your tunnel is running through (default *us-west-1*). [See the list of Sauce Connect endpoints](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints#DataCenterEndpoints-EUDataCenter)
