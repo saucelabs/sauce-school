@@ -8,7 +8,7 @@ environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
-author:Lindsay Walker
+author: James Tacker & Lindsay Walker
 <!-- ------------------------ -->
 # Module 2 – Introduction to API Fortress
 
@@ -22,7 +22,7 @@ Duration: 0:02:00
    * Generate and run a test
    * View the test results
    * Publish and schedule a test run
-    
+
 <!------------------------------>
 ## 2.02 Introduction to API Fortress
 Duration: 0:04:00
@@ -103,7 +103,7 @@ At the moment, the test content is empty, so we need to **generate a test**. Fro
 
 For the purposes of this lesson, we will generate a test manually.
 
-#### Note: 
+#### Note:
 Negative
 : You must have a Sauce Labs account in order to follow along in this step. [Use this link](https://saucelabs.com/sign-up) to sign up for a free trial.
 
@@ -233,7 +233,7 @@ Below are the steps to schedule a test.
 From the Intersitial page, select the **Schedule** button:
 
    <img src="assets/apif-mod2/schedule-button.png" alt="API Fortress: Schedule Button" />
-   
+
 You should now see the **Test Scheduler**:
 
 1. Next select **Create New Run**
@@ -241,9 +241,9 @@ You should now see the **Test Scheduler**:
 3. From this page, you can set the test run parameters and scheduling details such as when and how often the test runs. For this example we've set the test to run twice a day, every other day, for each month. We've also indicated that if a test failure occurs to try again after 2 minutes and 30 seconds.
    <img src="assets/apif-mod2/set-test-run-details.png" alt="API Fortress: Test Details" />
 4. When you're finished, select **Save Run** in the upper right corner:
-   
+
    <img src="assets/apif-mod2/save-run.png" alt="API Fortress: Save Run" />
-   
+
 If everything worked correctly, you should see the following status on the Intersitial page for your test:
 
 <img src="assets/apif-mod2/test-status-live.png" alt="API Fortress: Test Status Live" />
@@ -252,7 +252,7 @@ If everything worked correctly, you should see the following status on the Inter
 Negative
 : You may see the notification that you "**won't be notified when a test failure occurs**". If you want to correct this issue feel free to read the documentation for [setting up alert notifications](https://docs.saucelabs.com/api-testing/quick-start/dashboard/index.html#set-alerts).
 
-Congratulations on running, publishing, and scheduling your first API Test! 
+Congratulations on running, publishing, and scheduling your first API Test!
 
 In the next module, we will take a step back and dive deeper into the API Fortress Test Component Library where we cover such topics as:
 

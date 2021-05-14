@@ -6,7 +6,7 @@ environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
-author:Lindsay Walker
+author:James Tacker & Lindsay Walker
 <!-- ------------------------ -->
 # Module 1 – API Testing Basics
 
@@ -23,14 +23,14 @@ Below are the primary learning objectives for this module:
   * Demonstrate knowledge of API testing strategies
 
 <!------------------------------>
-## 1.02 Introduction to APIs
+## 1.02 Introduction to Web Services & APIs
 Duration: 0:06:00
 
-Most companies are considered "tech" companies now. More specifically, companies invest a large amount of time, money, and technical resources into delivering digital services over the internet. So what exactly does a web service mean in terms of software development and how it relates to APIs?
+Most companies nowadays invest a large amount of time, money, and technical resources into delivering digital services over the internet. So what exactly does a web service do and how does it relate to APIs?
 
 ### What is a Web Service?
 
-First, let's take a step back and talk about we interact with applications and/or websites over the internet. When you use an app, either on a mobile device or in a web browser, you typically interact by clicking or tapping somewhere on the screen. 
+First, let's take a step back and talk about we interact with applications and/or websites over the internet. When you use an app, either on a mobile device or in a web browser, you typically interact by clicking or tapping somewhere on the screen.
 
 This sort of user activity (clicking or tapping) is defined as user *input*. Input results in a system *output* response—either in the form of the expected result, or an error message. In order for this cycle to occur, a dedicated **web service** exists between you the user, and the data you want to access or manipulate. Here's a practical example:
 
@@ -48,12 +48,12 @@ You should see this screen:
 
 <img src="assets/incorrect-login.png" alt="Incorrect Swaglabs Login"/>
 
-The site uses a login **web service** to determine the appropriate response based on the user *input*; in this case the error: 
+The site uses a login **web service** to determine the appropriate response based on the user *input*; in this case the error:
 
 > *Epic sadface: Sorry, this user has been locked out*.
 
 
-### So What are APIs and How Do They Fit In?
+### What are APIs and How Do They Fit In?
 
 An API stands for **Application Programming Interface**. Think of the API as the language, or contract, of the user *input*. APIs allow a user to send commands to a web service in terms the service can understand in order to produce the desired output.
 
@@ -61,28 +61,30 @@ Here's a more complex example using the popular ride-share mobile application Ub
 
 <img src="assets/API1.01A.png" alt="What's an API" width="550"/>
 
-#### Dissecting the App
-The Uber mobile application consists of multiple web services that in turn connect to different platforms and data services in order to provide the user with the best ride-share experience. Each individual action a user performs in the app equates to an individual web service—and each web service interacts with one another in harmony in what's known as a **microservice reference architecture** (This is a huge software development topic but if you wish to learn more about microservices, visit [this link](https://12factor.net/) and [this link](https://martinfowler.com/articles/microservices.html)). 
+#### Web Services and APIs
+The Uber mobile application consists of multiple web services that in turn connect to different platforms and data services in order to provide the user with the best ride-share experience.
 
-In this application model APIs are super important because they are typically the primary method for *service to service* and *user to service* communication. In other words, the way you search for a location, choose the type of ride you want, pay for a ride, and rate the driver are all separate web services that communicate with one another through APIs.
+Building an app with **microservices** means that you develop a set of several smaller individual services, which each run their own separate process, and communicate information between one another (usually using an API) to form a unified app. This is known as a **microservice reference architecture** (To learn more about microservices, visit [The Twelve-Factor App](https://12factor.net/) and this [microservices article](https://martinfowler.com/articles/microservices.html) by Martin Fowler).
 
-#### So What Does an API Look Like? 
+In this application model APIs are important because they are typically the way that the microservices communicate with *service to service* and *user to service* communication. In other words, the way you search for a location, choose the type of ride you want, pay for a ride, and rate the driver are all separate web services that communicate with one another through APIs.
+
+#### What Does an API Look Like?
 
 Let's take a close look at a common service action made in the background, or "under the hood", of the Uber mobile application.
 
-When you need to search for a vehicle in Uber, it usually goes like this: 
+When you need to search for a vehicle in Uber, you would usually perform the following actions:
 
 1. You open the app
 2. Select a destination
 3. Choose a ride/car type
-4. Select 'search for ride'. 
-   
+4. Select 'search for ride'.
+
 Below is how Uber translates that user input data so that it can add it to an API HTTP call:
 
 * `token`: this equates to your login credentials in the form of a token that proves you are who you say you are
 * `latitude` and `longitude`: the physical latitude and longitude of your mobile device's current location
 
-Here's what the formatted URL ends up looking like:
+Here's what the formatted URL request looks like:
 
 ```http
 https://api.uber.com/v1/products?server_token=[token]&latitude=40.6797300818661&longitude=-73.9639477463489
@@ -118,9 +120,9 @@ Uber then performs numerous connections and actions to other services, and then 
 
 You can see the max number of passengers (`capacity`), the cost (`Price_details`), and other relevant information. Usually as the user you won't see this raw data format, but this is essentially how your mobile app communicates with the necessary web services behind the scenes in order to display information on your phone's UI.
 
-### Why is API Testing so important? 
+## 1.03 Why is API Testing Important?
 
-Let's review how the process works:
+Let's review how the Web Service process works:
 
 * Web service takes in a command (*input*)
 * Performs some action and returns a response (*output*)
@@ -129,7 +131,7 @@ We don't know the internal workings of how the service works, nor how it is impl
 
 ### Types of APIs
 
-You may have guessed but not all APIs are created equal. In fact there are many types and formats and over the years the term API itself is now somewhat vague. For the purposes this course we will always be talking about **HTTP APIs** (APIs that can be hit with an HTTP call). 
+You may have guessed but not all APIs are created equal. In fact there are many types and formats and over the years the term API itself is now somewhat vague. For the purposes this course we will always be talking about **HTTP APIs** (APIs that can be hit with an HTTP call).
 
 Below are some examples of API types.
 
@@ -149,19 +151,35 @@ REST is the most common protocol you see today, and more robust overall. It’s 
 
 A querying language made by Facebook that's gaining popularity. It allows you to specify which data you want (and nothing you don't) returned by an API call in a single request. The response of an API call can come in many formats.
 
+### Public and Private APIs
+Since APIs pass information, there is certain information that you may want to make available to the public (anyone who may want to communicate with your app), and information that you may only want certain people who you give permission to access
+
+#### Public APIs
+Public (or _Open_) APIs have documentation that can be accessed by anyone to explain how to make requests, and format data that is sent via the API. Using public APIs, companies can integrate services and applications together easily. There is a limit, however, to which data you can see and send from another web service.  
+
+As an example, if you were a developer who wanted to use [Gmail's API](https://developers.google.com/gmail/api/guides/sending) you would use the documentation to figure out how to send an e-mail from the application you are developing. The public API shows you how to format and send the correct data in an HTTP request to Gmail's servers.
+
+#### Private APIs
+Private APIs are also a useful way for different apps to communicate. With Private APIs you can communicate data within the same organization, or with other organizations that you choose to share with.
+
+Typically the information about how to use these APIs isn't publicly documented, and the data you can see and send isn't limited.
+
+### Quiz
+![https://docs.google.com/forms/d/e/1FAIpQLScy5KPPp2O2KPRCItl2ETWp1uqt9D02So68SK6WpprRRxDh8g/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScy5KPPp2O2KPRCItl2ETWp1uqt9D02So68SK6WpprRRxDh8g/viewform?usp=sf_link)
+
 <!--------------------------------------->
 
-## 1.03 Requests and Responses
+## 1.04 Requests and Responses
 Duration: 0:04:00
 
 There are commonly used terms when referring to APIs that will help us when we think about how to run our tests, such as **requests** and **responses**.
 
 ### Requests
 
-These are the most common **API request methods**, sometimes referred to as API verbs, that dictate what type of interaction you want to perform.
+These are the most common **API request methods**, sometimes referred to as API verbs, that dictate what type of information you want to send or recieve, and what you want to do with that information.
 
 <ul>
-  <li><p class="api get">GET</p></li>
+  <li><p class="api get">GET </p></li>
   <li><p class="api post">POST</p></li>
   <li><p class="api put">PUT</p></li>
   <li><p class="api delete">DELETE</p></li>
@@ -169,7 +187,7 @@ These are the most common **API request methods**, sometimes referred to as API 
 
 You as the user use these methods to communicate with what's known as a **service endpoint** in order to make a change.
 
-### Wait, What is a Service Endpoint?
+#### What is a Service Endpoint?
 
 A service endpoint is one end of a communication channel. It's typically a URL at which you, the user, can interact with using an API call. The API essentially acts as the language and contract for how the systems interact. For more information regarding the details
 
@@ -177,25 +195,35 @@ A service endpoint is one end of a communication channel. It's typically a URL a
 
 ### GET
 
-The <span class="api get">GET</span> method communicates with the service endpoint when you want to retrieve some data. This is the easiest API to use and understand. For example the [Sauce Labs get users API method](https://docs.saucelabs.com/dev/api/accounts#get-users).
+The <span class="api get">GET</span> method communicates with the service endpoint when you want to get information from another service. This is the easiest API to use and understand. For example the [Sauce Labs get users API method](https://docs.saucelabs.com/dev/api/accounts#get-users).
+
+An example of a GET request would be one app asking to get and read information about a given user, but not modify any of that information.
 
 ### POST
 
-The <span class="api post">POST</span> method communicates with the service endpoint in order to create something. An example of this is the [Sauce Labs create team API method](https://docs.saucelabs.com/dev/api/accounts#create-a-team).
+The <span class="api post">POST</span> method communicates with the service endpoint in order to add or create data. An example of this is the [Sauce Labs create team API method](https://docs.saucelabs.com/dev/api/accounts#create-a-team).
+
+A example of a POST request could be to add information, say a users' address, which was a field that didn't exist before.
 
 ### PUT
 
-The <span class="api put">PUT</span> method communicates with the service endpoint in order to update an existing object or item. An example of this is the [Sauce Labs update team API method](https://docs.saucelabs.com/dev/api/accounts#update-a-team).
+The <span class="api put">PUT</span> method communicates with the service endpoint in order to update or replace an existing object or item. An example of this is the [Sauce Labs update team API method](https://docs.saucelabs.com/dev/api/accounts#update-a-team).
+
+An example of a PUT method would be for a user who has a new address, that has updated their existing address to a new one.
 
 ### DELETE
 
 The <span class="api delete">DELETE</span> method communicates with the service endpoint in order to delete and object or item. An example of this is the [Sauce Labs delete team API method](https://docs.saucelabs.com/dev/api/accounts#delete-a-team).
 
-These are the common response formats that a web service returns after receiving an HTTP API call.
+An example of this would be a user who no longer wants to have their address appear in their profile. A DELETE request would be sent to remove that information.
+
+These are the common response formats that a web service returns after receiving an HTTP API call. You may or may not give permission for each of these actions in a public API. Learn more about [HTTP methods](https://www.restapitutorial.com/lessons/httpmethods.html)
 
 ### Responses
 
 Below are some potential response data formats sent back to the user from the server.
+
+Data is stored in **Objects**, or sets of items that have data associated with them. If you look at the Uber response again, `display_name`, `description`, and `Image` are examples of individual objects within the JSON file.
 
 #### XML
 
@@ -215,17 +243,13 @@ This is a very straightforward format that can return in virtually any layout. A
 
 #### JSON
 
-This is the more commonly seen format in REST APIs today. The Uber example is in JSON. It’s more standardized and therefore cleaned for machines to understand.
+This is the more commonly seen format in REST APIs today. The Uber example is in JSON. It’s more standardized and therefore in a cleaner format for machines to understand.
 
-#### Object
-
-This is the item that has data associated with it. If you look at the Uber response again, `display_name`, `description`, and `Image` are examples of individual objects within the JSON file.
 
 #### Assertion
 
 A rule or specific test against a single object and/or piece of data. The API testing platform is powered by a proprietary XML language with over 70 assertions, that handle just about every scenario in a very quick and easy way to write.
 
-This is a fairly common misconception. While yes, UI testing does trigger API calls, it does nothing to test the API itself.
 
 ### Additional API Terminology
 
@@ -233,7 +257,7 @@ There are a few other terms that you should be aware of when thinking about API 
 
 #### Idempotency
 
-**Idempotency** basically refers to an action that always results in the same server state, regardless of the amount of requests sent to the server. 
+**Idempotency** basically refers to an action that always results in the same server state, regardless of the amount of requests sent to the server.
 
 For example, let's say you have a collection of comic books that exist in a box. If you were to remove all the individual comics from the box, you still wouldn't change the *state* of the box. Even if you make an additional request for more comics when none exist the box still exist, just without comics.
 
@@ -241,7 +265,7 @@ This is a prime example of a <span class="api delete">DELETE</span> request meth
 
 #### Safety
 
-**Safety**, similar to idempotency, means that the request won't have any effect on the state. So going back to our comic book collection example, a *safe* request would be like flipping through the comics and reading the titles. 
+**Safety**, similar to idempotency, means that the request won't have any effect on the state. So going back to our comic book collection example, a *safe* request would be like flipping through the comics and reading the titles.
 
 We didn't remove or place any of the comics in a different order, so we didn't change the state of the comic book collection at all.
 
@@ -249,7 +273,7 @@ This is a prime example of a <span class="api delete">GET</span> request method�
 
 <!-- ------------------------ -->
 
-## 1.04 API Test Preparation
+## 1.05 API Test Creation Best Practices
 Duration: 0:04:00
 
 ### Mapping the API
@@ -259,7 +283,7 @@ One of the most important prerequisites before you begin writing API tests is to
 * [An API List / API Documentation](https://docs.saucelabs.com/dev/api)
 * [A Mind Map](https://blogs.oracle.com/developers/api-design-mind-maps-surfing-v2)
 
-API Documentation in particular is a great resource and source of information when trying to understand the layout and purpose of an application API. Take a moment to read through the [Sauce Labs `users` API](https://docs.saucelabs.com/dev/api/accounts#user-methods). 
+API Documentation in particular is a great resource and source of information when trying to understand the layout and purpose of an application API. Take a moment to read through the [Sauce Labs `users` API](https://docs.saucelabs.com/dev/api/accounts#user-methods).
 
 > **NOTE**: Throughout this course we will use these service endpoints when writing our API Tests.
 
@@ -307,23 +331,29 @@ By examining the fields of an API response, we can determine the items of consid
 
 #### Functional Testing
 
-Looking at the API above, you see a payload with various objects. The first item you should be testing is that the API responds as expected from a functional standpoint.
+Looking at the API above, you see a payload with various objects. The first thing you should test is that the API responds as expected from a functional standpoint.
 
-This means every object exists, and the responses are within expected ranges. For example the quantity object should always be a whole number. There can't be .5 baseball caps.
+This means every data object you request(`id:`, `name:`, `color:`, etc.) exists and the responses are within expected ranges. For example the `quantity` object should always be a integer. There can't be .5 baseball caps.
 
 #### Validating Business Logic
 
-Imagine you are an ecommerce company with a product API, similar to the example shared above. First, you should be testing that each product has all the objects it expects.
 
-The next layer is where skill and creativity in test creation are required. Let's say that you search for ‘red' and you receive both shoes and pants. Now all products should contain a size object, but they are very different size ranges. Adding the intelligence to a test that says, "If this is a pair of shoes, size should be between 4 and 17." That is business logic validation. This is where you need a skilled team that knows the expectations of the API, and how to manipulate and validate them.
+The next layer is where skill and creativity in test creation are required to create a test that searches logically for the right type of response.
 
-#### End-to-End / Integration Testing
+Imagine you are an ecommerce company with a product API, and you search for ‘red'. You know that these fields exist in different objects, and that you receive both shoes and pants. You also know all products should contain a size object, but they are very different size ranges.
 
-APIs are meant to interact with one another, and that flow has to work in its entirety. By creating proper integration tests you can validate flows that resemble actual users behaviors. For example, creating a single test that can:
+Adding the intelligence to a test that says, "If this is a pair of shoes, size should be between 4 and 17." or "The pants and shoes data objects should contain the field red" is business logic validation. This is where you need a skilled team that knows the expectations of the API, and how to manipulate and validate them.
+
+#### End-to-End & Integration Testing
+
+APIs are meant to interact with one another, and that flow has to work in its entirety, while properly integrating different services. By creating proper integration tests you can validate flows that resemble actual users behaviors. For example, creating a single test that can test user flow and service integration such as:
 
 **Search > Pick a Size > Add to Cart> Checkout**
 
 For many companies that entire flow can be done on the API level, and should be. This allows you to confirm that when you add a product to cart, it actually works.
+
+<img src="assets/API1.05A.png" alt="End-to-end Tests" width="750"/>
+
 
 #### Monitoring
 
@@ -343,5 +373,5 @@ Ultimately, continuous testing means leveraging all of these types of tests, aut
 
 <!----------------------------->
 
-## 1.05 Module 1 Quiz
+## 1.06 Module 1 Quiz
 Duration: 0:04:00
