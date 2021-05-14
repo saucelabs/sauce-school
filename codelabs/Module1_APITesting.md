@@ -250,6 +250,15 @@ This is the more commonly seen format in REST APIs today. The Uber example is in
 
 A rule or specific test against a single object and/or piece of data. The API testing platform is powered by a proprietary XML language with over 70 assertions, that handle just about every scenario in a very quick and easy way to write.
 
+### API Status Codes
+APIs return certain codes to let you know whether a API call was successful or not, as well as what kind of error occured. Some common Status Codes include:
+
+* **200** - OK, your API call was successful
+* **401** – Not Authorized, usually the user creditials weren't used or were wrong
+* **404** – Not Found, the URL is invalid or the resource doesn't exist
+* **500** – Internal Server Error, a fairly generic response when the client was unable to get the information from the host's API
+
+There are many [status codes](https://www.restapitutorial.com/httpstatuscodes.html) which can help give indications of what went wrong with an API call.
 
 ### Additional API Terminology
 
@@ -359,7 +368,7 @@ For many companies that entire flow can be done on the API level, and should be.
 
 Monitoring is probably the most valuable, and yet underused, type of testing. APIs issues are often only found in live environments when using live data.
 
-The goal of a proper monitoring strategy is to go beyond measuring uptime, but also measuring functional uptime. An API can return a statuscode of 200 and still be failing. Some APIs are built so that even when there is an error it returns as a 200. What's important to note is that you can use existing functional tests as your monitor. With the right platform choice, you can schedule them to run against live environments in certain intervals. Then use that monitoring to have a real-time status page across departments.
+The goal of a proper monitoring strategy is to go beyond measuring uptime, but also measuring functional uptime. An API can return a status code of 200 and still be failing. Some APIs are built so that even when there is an error it returns as a 200. What's important to note is that you can use existing functional tests as your monitor. With the right platform choice, you can schedule them to run against live environments in certain intervals. Then use that monitoring to have a real-time status page across departments.
 
 #### Load Testing
 
