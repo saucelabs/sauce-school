@@ -251,7 +251,7 @@ This is the more commonly seen format in REST APIs today. The Uber example is in
 A rule or specific test against a single object and/or piece of data. The API testing platform is powered by a proprietary XML language with over 70 assertions, that handle just about every scenario in a very quick and easy way to write.
 
 ### API Status Codes
-APIs return certain codes to let you know whether a API call was successful or not, as well as what kind of error occured. Some common Status Codes include:
+API requests return certain codes to let you know whether a API call was successful or not, as well as what kind of error occured. Some common status codes include:
 
 * **200** - OK, your API call was successful
 * **401** – Not Authorized, usually the user creditials weren't used or were wrong
