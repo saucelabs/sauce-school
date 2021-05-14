@@ -36,9 +36,9 @@ To find out more about Sauce Connect and the architecture, [see the whitepaper](
 ## 1.02 Setup and Run Sauce Connect Proxy
 
 [Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#:~:text=Sauce%20Connect%20Proxy%E2%84%A2%20is,or%20behind%20a%20corporate%20firewall.) is software that enables you to establish a secure connection between applications hosted on an internal server and the Sauce Labs virtual machines or real devices that are used for testing. In this lesson you will learn to:
+
 * Download and start a proxy tunnel
 * Stop a running proxy tunnel
-* Understand how shared tunnels are used
 * Learn how to do a Manual (Live) test with Sauce Connect
 
 #### Video
@@ -123,7 +123,8 @@ This video is intended to show an example for how to update your test capabiliti
 * Start your tunnel
 * Update Sauce Environment Variables
 * Update your `config.java` and `BaseTest.java` files
-* Run the updated test code in Sauce Labs using Sauce Connect Proxy.
+* Run the updated test code in Sauce Labs using Sauce Connect Proxy
+* See how to run your test using shared tunnels
 
 #### Video
 [Run a Test with Sauce Connect Proxy](https://youtu.be/u1kijdRTSv8)
