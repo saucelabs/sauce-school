@@ -1,6 +1,6 @@
 summary: Module 1 of the set of tutorials on Sauce Labs offerings and features.
 id: Module1-SauceConnect
-categories: beginner
+categories: intermediate
 tags: saucetools
 environments: Web
 status: Draft
@@ -34,7 +34,7 @@ To find out more about Sauce Connect and the architecture, [see the whitepaper](
 <!-- ------------------------ -->
 ## 1.02 Setup and Run Sauce Connect Proxy
 
-[Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#:~:text=Sauce%20Connect%20Proxy%E2%84%A2%20is,or%20behind%20a%20corporate%20firewall.) is software that enables you to establish a secure connection between applications hosted on an internal server and the Sauce Labs virtual machines (such as Jenkins) or real devices that are used for testing. In this lesson you will learn to:
+[Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#:~:text=Sauce%20Connect%20Proxy%E2%84%A2%20is,or%20behind%20a%20corporate%20firewall.) is software that enables you to establish a secure connection between applications hosted on an internal server and the Sauce Labs virtual machines or real devices that are used for testing. In this lesson you will learn to:
 * Download and start a proxy tunnel
 * Stop a running proxy tunnel
 * Understand how shared tunnels are used
@@ -124,9 +124,9 @@ This video is intended to show an example for how to update your test capabiliti
 * Run the updated test code in Sauce Labs using Sauce Connect Proxy.
 
 #### Video
-[Run a Test with Sauce Connect Proxy](https://youtu.be/8ZJWuIWz1Q0)
+[Run a Test with Sauce Connect Proxy](https://youtu.be/u1kijdRTSv8)
 
-<video id="8ZJWuIWz1Q0"></video>
+<video id="u1kijdRTSv8"></video>
 
 ### Start Your Tunnel
 Navigate in terminal to the location where you saved the `sc-x.x.x-osx` file, then run the command that you copied from the **Tunnels** tab in the saucelabs dashboards
@@ -254,7 +254,9 @@ This lesson will walk you through the basic things you will need to do if you ar
 * Making sure you don't have colliding tunnels
 
 #### Video
+[User Troubleshooting with Sauce Connect](https://youtu.be/Jx6ED1dNJEA)
 
+<video id="Jx6ED1dNJEA"></video>
 
 ### Find Out About Your Network
 The first thing you may need to do is check that the machine where you installed the Sauce Connect proxy will allow you to access Sauce Labs and your app. For example, if you installed Sauce Connect on a virtual machine that has a firewall or is in a DMZ, you may have issues communicating.
@@ -332,6 +334,9 @@ There are a many options you can use to change the settings and options for your
 You can find all the flags that you can use when running Sauce Connect in the [Sauce Connect CLI documentation](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy)
 
 #### Video
+[Sauce Connect Options](https://youtu.be/D7pfJfHe29k)
+
+<video id="D7pfJfHe29k"></video>
 
 ### Check Your Sauce Connect Version
 Sometimes it's important to see if you have the most up to date [version of Sauce Connect]() so you can use the latest features & functionality using the sauce connect `--version` flag:
@@ -390,14 +395,17 @@ Duration: 0:05:00
 
 ### SSL Bumping
 
-When users communicate with applications over the internet, they use the SSL (TLS is another version of this) protocol to make sure they are communicating securely. One part of this protocol requires that the app the user is communicating with provides a secure 'certificate' to prove that it is a safe site to send information to.
+When users communicate with applications over the internet, they use TLS (successor of SSL) protocol to make sure they are communicating securely. One part of this protocol requires that the app the user is communicating with provides a secure 'certificate' to help verify the identity of server it is sending information to.
 
-When developers create and test an app, they typically use self-signed, or invalid SSL certificates, which are not trusted by stock browsers, such as those installed on the Sauce Labs infrastructure. This means that when you are running Selenium tests, the communication with the browser may be interrupted with security warnings that can't be dismissed by Selenium.
+#### Video
+[SSL Bumping with Sauce Connect](https://youtu.be/Bpayic1W514)
+
+<video id="Bpayic1W514"></video>
+
+When developers create and test an app, they typically use self-signed (considered invalid SSL certificates), which are not trusted by stock browsers, such as those installed on the Sauce Labs infrastructure. This means that when you are running Selenium tests, the communication with the browser may be interrupted with security warnings that can't be dismissed by Selenium.
 
  <img src="assets/SC1.06A.png" alt="Error- cannot access website" width="450"/>
 
-#### Video
-[SSL Bumping – Errors and Disabling]
 
 When developers test an internal app they are developing, or one used in a staging environment, often they won't have a publicly-signed network certificate for that app, which means that most likely security warning from the browser will cause your tests to fail.
 
@@ -407,19 +415,19 @@ To combat test failures caused by websites without valid SSL/ TSL certificates, 
 
 If you have a valid certificate for your application, you don't need to use SSL bumping. There are also cases where SSL bumping doesn't help avoid security warnings that will cause tests to fail and you will want to disable it.
 
-To disable SSL bumping, you would want to add the `-B` or `--no-ssl-bump-domians` flag when you start your tunnel, like so:
+To disable SSL bumping, you would want to add the `-B all`, `-B domain1.com, domain2.com` or `--no-ssl-bump-domain.com` flag when you start your tunnel, like so:
 
 ```
-bin/ sc -u your-username -k your-accesskey -i your-tunnelname -B
+bin/ sc -u your-username -k your-accesskey -i your-tunnelname -B all
 ```
 
 #### Situations To Disable SSL Bumping
-If you have a certificate that is recognized by Sauce Labs devices, and one of the following is true about your application, you would want to use the `-B` flag to disable SSL bumping:
+If you have a certificate that is recognized by Sauce Labs devices, and one of the following is true about your application, you would want to use the `-B all` flag to disable SSL bumping:
 
 * If you are using a WebSocket connection for traffic, which won’t work if the traffic to them has been altered, which Sauce Connects' SSL bumping will do.
 * With certain types of self-signed Android tests that don't check the system's list of trusted TLS certificates.
-  * If you are testing Android version 7 & up on Sauce Labs Emulators (you need to [add a self-signed network cert](https://support.saucelabs.com/hc/en-us/articles/360005488513-Unable-to-Connect-to-https-Site-with-Sauce-Connect-and-Android-7-0-on-Native-Applications) into the app code)
-  * If you are testing a Native app on Android in the Real Device Cloud (you need to [add a self-signed network cert](https://support.saucelabs.com/hc/en-us/articles/360005488513-Unable-to-Connect-to-https-Site-with-Sauce-Connect-and-Android-7-0-on-Native-Applications) into the app code)
+  * If you are testing with Android Version 7 & up on Sauce Labs Emulators (you need to [add a self-signed network cert](https://support.saucelabs.com/hc/en-us/articles/360005488513-Unable-to-Connect-to-https-Site-with-Sauce-Connect-and-Android-7-0-on-Native-Applications) into the app code)
+  * If you are testing a native app on Android in the Real Device Cloud (you need to [add a self-signed network cert](https://support.saucelabs.com/hc/en-us/articles/360005488513-Unable-to-Connect-to-https-Site-with-Sauce-Connect-and-Android-7-0-on-Native-Applications) into the app code)
   * Any time you are testing a web app on the Real Device Cloud (cannot be tested with a non-valid cert)
 
 <!--
@@ -434,3 +442,39 @@ Start a Sauce Connect Proxy instance using the -B all and -N flags. For more inf
 <!-- ------------------------ -->
 ## 1.07 Quiz
 Duration: 0:05:00
+![https://docs.google.com/forms/d/e/1FAIpQLScxabCCwC3afgnxNVeTDSuUbedJRJIYRnMHZhwW3Jg_Mo49Mw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScxabCCwC3afgnxNVeTDSuUbedJRJIYRnMHZhwW3Jg_Mo49Mw/viewform?usp=sf_link)
+
+<!--
+1. Which of the following is NOT a use case for Sauce Connect Proxy?
+a. You would like to run tests on an app hosted on a local machine that is behind a firewall on the Sauce Labs Real Device Cloud
+b. You would like to run tests on a publicly hosted app on the Sauce Labs Real Deice Cloud *
+c. You would like to run tests on an app hosted on a local machine that is behind a firewall on the Sauce Labs Cloud of Virtual Machines
+d. You would like to do a manual (live) test of an app that is hosted on a secure server.
+
+*Sauce Connect is useful for testing apps that are hosted on a secure server (behind a firewall) with the Sauce Labs Cloud of Virtual Machines, Real Device Cloud. This is true for both automated app tests and manual app tests, but it isn't always necessary, especially if you are testing against a publicly hosted app
+
+2. Which of the following is the capability you have to updated in your test code specifically to run your tests through a shared tunnel?
+a. The sharedTunnel capability
+b. The platformName capability
+c. The tunnelIdentifier capability
+d. The parentTunnel capability
+
+*The name for the capability for running through a shared (aka 'parent') tunnel is the parentTunnel capability. Though you will also have to set the platformName and tunnelIdentifier capabilities to run your tests on Sauce Labs, that parentTunnel capability is the one required for shared tunnels specifically.
+
+3. Which of the following are a good basic set of things to check when troubleshooting Sauce Connect Tunnel issues?
+a. That your Username and Access Key are correct, and that you are able to communicate with both your app and Sauce Labs *
+b. That your capabilities haven't changed, and that you are able to communicate with both your app and Sauce Labs
+c. That your Username and Access Key are correct, and that you have set the flag to avoid colliding tunnels.
+d. That you have set the flag to avoid colliding tunnels, and that you are able to communicate with both your app and Sauce Labs
+
+* Though capabilities may be an issue, usually those things would be found if you run your tests locally. It is also an option to add a flag to avoid tunnel collision, however the most common issues are an inability for your tests to communicate with your app as well as Sauce Labs, and issues with your Username and Access Key (the latter of which can be regenerated & changed)
+
+4. Which of the following is a reason you may want to disable SSL bumping with Sauce Connect Proxy?
+a. You are not using a TLS protocol to send your traffic
+b. Your app is hosted in a secure environment such as a DMZ or behind a firewall
+c. You are using a HTTPS connection for network traffic
+d. You are testing a native Android app, and have already added a certificate. *
+
+* All traffic, whether over HTTPs or websockets should use a TLS protocol, and the whole point of Sauce Connect is to test secured apps. HTTPS traffic typically works well with Sauce Connects' SSL bumping, but there are many cases when testing Native Android apps that you may want to disable SSL bumping.
+
+-->
