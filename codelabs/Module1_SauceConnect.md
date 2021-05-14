@@ -239,6 +239,7 @@ To learn more about what is happening when you use Sauce Connect tunnel, see the
  <img src="assets/TRT2.03D.png" alt="Shared Runnel" width="650"/>
 
 ### Final Code
+See the [example test suite](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod5/5.03) with [capabilities set for Sauce Connect](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod5/5.03/src/test/java/tests/BaseTest.java).
 <img src="assets/5.03N.png" alt="Final Java Base Test Code" width="650"/>
 
 <img src="assets/5.03O.png" alt="Final Java Config Code" width="650"/>
