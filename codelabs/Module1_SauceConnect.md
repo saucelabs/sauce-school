@@ -24,6 +24,7 @@ This tutorial gives examples you can follow along with using a test suite writte
   * See how to add the tunnel name in your capabilities or configuration file
 * Run a tunnel with common flags such as:
   * `-v` for verbose logging
+  * `--version` to check Sauce Connect version
   * `-i` for a tunnel identifier (name)
 * Locate and change the directory of the log file
 * Specify which data center you want to run Sauce Connect with
@@ -38,6 +39,7 @@ To find out more about Sauce Connect and the architecture, [see the whitepaper](
 * Download and start a proxy tunnel
 * Stop a running proxy tunnel
 * Understand how shared tunnels are used
+* Learn how to do a Manual (Live) test with Sauce Connect
 
 #### Video
 [Set Up Sauce Connect Proxy](https://youtu.be/cpBcGeZ_wQU)
@@ -119,7 +121,7 @@ You can easily run any manual tests that you do with Sauce Connect proxy. Simply
 ## 1.03 Run a Java Test Using Sauce Connect Proxy
 This video is intended to show an example for how to update your test capabilities, using [this example test written](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.06) in Java, JUnit4, with Maven and InteliiJ. Basically, in this lesson you will:
 * Start your tunnel
-* Updated Sauce Environment Variables
+* Update Sauce Environment Variables
 * Update your `config.java` and `BaseTest.java` files
 * Run the updated test code in Sauce Labs using Sauce Connect Proxy.
 
@@ -339,7 +341,7 @@ You can find all the flags that you can use when running Sauce Connect in the [S
 <video id="D7pfJfHe29k"></video>
 
 ### Check Your Sauce Connect Version
-Sometimes it's important to see if you have the most up to date [version of Sauce Connect]() so you can use the latest features & functionality using the sauce connect `--version` flag:
+Sometimes it's important to see if you have the most up to date [version of Sauce Connect](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/index.html#downloading-sauce-connect-proxy) so you can use the latest features & functionality using the sauce connect `--version` flag:
 
 ```
 bin/ sc -u your-username -k your-accesskey -i your-tunnelname --version
