@@ -17,10 +17,15 @@ Duration: 0:02:00
 
 Below are the primary learning objectives for this module:
 
-1. **Overview of API Testing Fundamentals**
-  * Understand the relationship between Web Services and APIs
-  * Demonstrate knowledge of API terminology
-  * Demonstrate knowledge of API testing strategies
+**Overview of API Testing Fundamentals**
+* Understand the relationship between Web Services and APIs
+* Learn about types of APIs
+* Understand API requests and responses, and what types of data are sent and received
+  * Request methods such as GET, POST, and DELETE
+  * Responses data formats & assertions
+  * API status codes & response terminology
+* Learn to plan and create API tests as a part of a testing strategy
+
 
 <!------------------------------>
 ## 1.02 Introduction to Web Services & APIs
@@ -120,7 +125,7 @@ Uber then performs numerous connections and actions to other services, and then 
 
 You can see the max number of passengers (`capacity`), the cost (`Price_details`), and other relevant information. Usually as the user you won't see this raw data format, but this is essentially how your mobile app communicates with the necessary web services behind the scenes in order to display information on your phone's UI.
 
-## 1.03 Why is API Testing Important?
+## 1.03 Types of APIs
 
 Let's review how the Web Service process works:
 
@@ -248,17 +253,19 @@ This is the more commonly seen format in REST APIs today. The Uber example is in
 
 #### Assertion
 
-A rule or specific test against a single object and/or piece of data. The API testing platform is powered by a proprietary XML language with over 70 assertions, that handle just about every scenario in a very quick and easy way to write.
+A rule or specific test against a single object and/or piece of data. The API testing platform is powered by a proprietary XML language [with several assertions](https://docs.saucelabs.com/api-testing/assertion-components/assert-compares), that handle just about every scenario, and are very quick and easy to write.
 
 ### API Status Codes
-API requests return certain codes to let you know whether a API call was successful or not, as well as what kind of error occured. Some common status codes include:
+API requests return certain codes to let you know whether a API call was successful or not, as well as what kind of error occurred. Some common status codes include:
 
 * **200** - OK, your API call was successful
-* **401** – Not Authorized, usually the user creditials weren't used or were wrong
+* **401** – Not Authorized, usually the user creditials weren't entered, or were wrong
 * **404** – Not Found, the URL is invalid or the resource doesn't exist
-* **500** – Internal Server Error, a fairly generic response when the client was unable to get the information from the host's API
+* **500** – Internal Server Error, a fairly generic response when the client was unable to get the information from the host's API.
 
-There are many [status codes](https://www.restapitutorial.com/httpstatuscodes.html) which can help give indications of what went wrong with an API call.
+<img src="assets/API1.04A.png" alt="API Status code" width="450"/>
+
+There are many [status codes](https://www.restapitutorial.com/httpstatuscodes.html) which can help give indications of what happened with an API call.
 
 ### Additional API Terminology
 
@@ -266,7 +273,7 @@ There are a few other terms that you should be aware of when thinking about API 
 
 #### Idempotency
 
-**Idempotency** basically refers to an action that always results in the same server state, regardless of the amount of requests sent to the server.
+**Idempotency** basically refers to an action that always results in the same server state, regardless of the amount of requests sent to the server (though resources, or data, may change).
 
 For example, let's say you have a collection of comic books that exist in a box. If you were to remove all the individual comics from the box, you still wouldn't change the *state* of the box. Even if you make an additional request for more comics when none exist the box still exist, just without comics.
 
@@ -274,7 +281,7 @@ This is a prime example of a <span class="api delete">DELETE</span> request meth
 
 #### Safety
 
-**Safety**, similar to idempotency, means that the request won't have any effect on the state. So going back to our comic book collection example, a *safe* request would be like flipping through the comics and reading the titles.
+**Safety**, similar to idempotency, means that the request won't have any effect on the state or resource data. So going back to our comic book collection example, a *safe* request would be like flipping through the comics and reading the titles.
 
 We didn't remove or place any of the comics in a different order, so we didn't change the state of the comic book collection at all.
 
@@ -298,7 +305,7 @@ API Documentation in particular is a great resource and source of information wh
 
 ### Types of API Tests
 
-API testing isn't easy, and there are different ways in which a bad API can cause catastrophic harm to an organization. A good [continuous testing](https://saucelabs.com/solutions/continuous-testing) strategy, where you automate testing at every stage of development (when merging a feature, in production, in production, and more) involves doing [API testing](https://saucelabs.com/platform/automation-tools/api-fortress) early and often.
+API testing isn't easy, and there are different ways in which a bad API can cause catastrophic harm to an organization. A good [continuous testing](https://saucelabs.com/solutions/continuous-testing) strategy involves doing [API testing](https://saucelabs.com/platform/automation-tools/api-fortress) early and often.
 
 By examining the fields of an API response, we can determine the items of consideration and what sort of tests we should write. Below is an example API JSON response:
 
@@ -357,7 +364,7 @@ Adding the intelligence to a test that says, "If this is a pair of shoes, size s
 
 APIs are meant to interact with one another, and that flow has to work in its entirety, while properly integrating different services. By creating proper integration tests you can validate flows that resemble actual users behaviors. For example, creating a single test that can test user flow and service integration such as:
 
-**Search > Pick a Size > Add to Cart> Checkout**
+**Sign In > Search > Pick an Item & Size > Add to Cart> Checkout**
 
 For many companies that entire flow can be done on the API level, and should be. This allows you to confirm that when you add a product to cart, it actually works.
 
@@ -376,11 +383,15 @@ When you load test, you make sure your APIs perform when under the stress of a l
 
 It's also important, again, to use existing tests as your load tests. You will never have 10,000 concurrent users only performing a single call. They will perform different types of calls, or a series of calls with some randomness. Use existing functional and end-to-end tests.
 
-### Summary
+### Continuous Testing
 
 Ultimately, continuous testing means leveraging all of these types of tests, automatically. A constant series of functional and non-functional (performance) tests to constantly validate your APIs.
+
+A good [continuous testing strategy](https://saucelabs.com/solutions/continuous-testing), where you automate testing at every stage of development (when merging a feature, in production, in production, and more) involves doing [API testing](https://saucelabs.com/platform/automation-tools/api-fortress) early and often, and using a wide variety of tests, at many stages of the development cycle.
 
 <!----------------------------->
 
 ## 1.06 Module 1 Quiz
-Duration: 0:04:00
+Duration: 0:03:00
+
+![https://docs.google.com/forms/d/e/1FAIpQLSfFQwJD8H8xngxGuLW6SBuBCUcvRVj69HeClX48t8sm3ywAdw/viewform?embedded=true>](https://docs.google.com/forms/d/e/1FAIpQLSfFQwJD8H8xngxGuLW6SBuBCUcvRVj69HeClX48t8sm3ywAdw/viewform?usp=sf_link)
