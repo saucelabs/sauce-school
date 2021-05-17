@@ -16,7 +16,7 @@ Duration: 0:01:00
 
 This tutorial gives examples you can follow along with using a test suite written in Java, using the JUnit4 test runner, as well as the Maven build tool. If you would like to follow along, you can [download or fork and clone this project](https://github.com/walkerlj0/Selenium_Course_Example_Code)
 * Look in the _/java/Mod4/4.06_ directory, and use the version of the test suite **in 4.06** to work from.
-* If you don't have Java and Maven set up on your machine to run test code, [follow this lesson](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4).
+* If you don't have Java and Maven set up on your machine to run test code, [follow this lesson](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4)
 
 ### In This Tutorial
 * Learn to download, setup,  and run the Sauce Connect software on your machine
