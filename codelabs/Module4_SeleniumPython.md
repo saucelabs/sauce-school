@@ -10,7 +10,7 @@ feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
 author:Lindsay Walker
 <!-- ------------------------ -->
-# Module 4 – Scaling Tests to the Cloud
+# Module 4 – Run Selenium Python Tests on Sauce Labs
 <!-- ------------------------ -->
 ## 4.01 What You'll Learn
 Duration: 0:03:00

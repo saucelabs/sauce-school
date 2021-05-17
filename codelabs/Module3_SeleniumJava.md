@@ -8,7 +8,7 @@ Feedback Link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
 author:Lindsay Walker
 
-# Module 3 — Writing Reusable Test Code
+# Module 3 — Write a Selenium Java Test Suite Using Page Object Model
 
 <!--- ------------------------ -->
 

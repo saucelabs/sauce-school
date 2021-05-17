@@ -10,7 +10,7 @@ analytics account: UA-86110990-1
 author: Lindsay Walker
 
 <!-- ------------------------ -->
-# Module 1- Introduction Tutorial | Selenium with Java
+# Module 1 – Setting Up Your Selenium Java Environment
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
@@ -339,7 +339,7 @@ Once you have added your `pom.xml` file update, go to **File > Invalidate Caches
 
 If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
 
-**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod1/1.06)**
+**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod1/1.05)**
 
 
 <!-- ------------------------ -->
