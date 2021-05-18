@@ -46,6 +46,7 @@ IOS is not covered in this module, nor are tests written in Espresso, as you nee
 Duration: 0:07:00
 
 This module is created to walk you through the steps you need to take to get a test running on [Sauce Labs.](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link) You will start with a local test running on the Appium Server, using the Android Studio device emulator. If you would like to follow along, you can start here with the example application and Appium Test code to run on your local machine, or skip ahead to the next module to start running tests on Sauce Labs.
+
 #### Video
 **[Android Appium Project Setup](https://www.youtube.com/watch?v=aRC6WkmFfzc)**
 
@@ -87,7 +88,6 @@ To run a local test, you will need to set up and install the following:
 * An IDE to edit test code like [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
 
 If you would like step-by-step instructions to help with the dependencies above, there are lessons in the Selenium Java Course:
-
 
 
 * [How to set up your environment ](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4)with Java, Maven, and IntelliJ
@@ -1619,13 +1619,13 @@ If you would like, you can copy paste the two `@Test` annotations, renaming them
 #### Final Code
 You can see an [example of the project code here.](https://github.com/walkerlj0/Quickstart_Android/tree/master/Mod2/2.07)
 
-<img src="assets/QS2.07E.png" alt="Paralllel tests TestNG xml file" width="650"/>
+<img src="assets/QS2.07E.png" alt="Parallel tests TestNG xml file" width="650"/>
 
-<img src="assets/QS2.07B.png" alt="Paralllel tests code" width="850"/>
+<img src="assets/QS2.07B.png" alt="Parallel tests code" width="850"/>
 
-<img src="assets/QS2.07C.png" alt="Paralllel tests code" width="850"/>
+<img src="assets/QS2.07C.png" alt="Parallel tests code" width="850"/>
 
-<img src="assets/QS2.07D.png" alt="Paralllel tests code" width="850"/>
+<img src="assets/QS2.07D.png" alt="Parallel tests code" width="850"/>
 
 <!-- ------------------------ -->
 ## 2.08 Quiz

@@ -2,7 +2,7 @@
 
 summary: Module 3 of the Sauce Labs Quickstart course, shows users how to quickly take an automated test written in Java with the JUnit testing library, and update a few settings to run your automated tests on the Sauce Labs platform. Users will add a few things to their tests, including the URL for the Sauce Labs endpoint, a username and access key, and update capabilities
 id: Module3-Quickstart
-categories: intermediate
+categories: advanced
 tags: quickstart
 environments: Web
 status: Draft
@@ -39,12 +39,19 @@ In this Module you will:
 ## 3.02 Setup & Run Your Test Suite Locally
 Duration: 0:05:00
 
+This module contains a list of resources your will need to clone & use the [sample test code](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Quickstart/Mod3) as well as get set up including:
+
+* Access the correct directory to run this example test code
+* Install dependencies to run tests locally
+* Understand dependencies that help you set up & run your tests
+* Troubleshoot issues with running the code.
+
+#### Video
+[Local Test Project Code – Java and JUnit4]()
 
 ### Test Code
 If you have your own testing suite written in Java, using the JUnit 4 test runner, with capabilities set up similar to [the base test here](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod4/4.05/src/test/java/tests/BaseTest.java)  or you understand the differences between the test runner you are using and how to structure capabilities, you jump to the next section. Otherwise, use the example code in the GitHub repo.
 
-#### Video
-[Local Test Project Code – Java and JUnit4]()
 
 #### Use GitHub Repository (Optional)
 
@@ -52,8 +59,6 @@ If you are familiar with using GitHub to write your code, you can also fork/ bra
 
 **[Example Starting Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Quickstart/Mod3/3.02)**
 
-#### Video
-[Local Test Setup & Code Overview]()
 
 ### Required Dependencies
 To run a local test as shown, you will need to set up and install the following:
@@ -99,12 +104,16 @@ If your test isn't running, try the following to troubleshoot to get the tests r
 * Choose **File > Invalidate Caches and Restart** so the changes can take effect. <img src="assets/QS2.03E.png" alt="Appium Doctor" width="350"/>
 
 
-
 <!-- ------------------------ -->
 ## 3.03 Setup to Run Tests on Sauce Labs
 Duration: 0:05:00
 
-Once you understand how the test suite functions, you need to update settings such as the capabilities, endpoint to run against the Sauce Labs Cloud, and your Sauce username and access key. If you are using the examples test code, get familiar with the test function and structure:
+Once you understand how the test suite functions, you need to update settings such as the capabilities, endpoint to run against the Sauce Labs Cloud, and your Sauce username and access key. In this module you will gain understanding about:
+* The features and functionality Sauce Labs offers for automated tests
+* How to get your Sauce Username and Access Key to use in automated tests
+* What settings you will need to run on Sauce Labs
+* How to set up your test structure to easily switch between running a test locally and on Sauce Labs
+
 
 #### Video
 **[Setup to Run Tests On Sauce Labs]()**
@@ -135,7 +144,7 @@ When you run tests on Sauce Labs, you are using the _Selenium Grid_ to test on m
 
 You tell the Grid which browser and OS you want your test to run on through the use of Selenium's class object, [MutableCapabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html), and its various subclasses for specific browser options (ChromeOptions, FirefoxOptions, etc.) Sauce Labs has [specific language bindings](https://github.com/saucelabs/sauce_bindings) that act as wrappers for supported programming languages.
 
-### Setting up your Sauce Labs Account
+### Setup your Sauce Labs Account
 
 You'll need an account to use Sauce Labs. Their [free trial](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) offers enough to get you started.
 
@@ -259,7 +268,10 @@ Notice how many of the variables for capabilities are grey in this example, sinc
 ## 3.04 Run Web App Tests on Sauce Labs
 Duration: 0:05:00
 
-Now that you have the pieces in place, such as your Sauce Labs credentials and variables to pass in as capabilities, you can run the example test suite on Sauce Labs by pointing to the Sauce Labs endpoint and adding the required Capabilities.
+Now that you have the pieces in place, such as your Sauce Labs credentials and variables to pass in as capabilities, you can run the example test suite on Sauce Labs in a few simple steps:
+* Add the endpoint (URL) to run tests on Sauce Labs VMs
+* Add in capabilities to set the browser and operating system for your tests
+* Start a Remote WebDriver and run tests using different options on Sauce Labs
 
 #### Video
 **[Run a Web App Test on Sauce Labs]()**
@@ -341,48 +353,39 @@ You should also visit [http://app.saucelabs.com/](http://app.saucelabs.com/). Go
 <img src="assets/4.05E.png" alt="Jobs Run on Sauce" width="550"/>
 
 
-
-#### NOTE
-
-Negative
-: What did you do? At this point to create an instance of a test, you are dependent on several different objects in your test suite. First, `Base` sets up methods used by your page objects and instantiates a Selenium Webdriver instance. The page objects like `Login` and `Dynamic Loading` use the Base class (and the methods) to interact with the pages.
-
-Negative
-: Once the interactions with the webpage are taken care of, the tests come into play.` BaseTest` imports the settings from `Config`, then the tests use the `Base` class and define the specific tests run on the page. <img src="assets/4.05K.png" alt="Test Suite Structure" width="750"/>
-
-
 #### Final Code
 
-The complete code can be found [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.05). Your final code will look like this:
+The complete code can be found [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Quickstart/Mod3/3.04). Your final code will look like this:
 
-<img src="assets/4.05L.png" alt="Image Name" width="750"/>
+<img src="assets/SC3.04A.png" alt="Updated Sauce Labs capabilities" width="750"/>
 
-<img src="assets/4.05M.png" alt="Image Name" width="750"/>
+<img src="assets/SC3.04B.png" alt="Updated imports" width="750"/>
 
 
 
 
 <!-- ------------------------ -->
-## 3.05 Add a Test Name for Sauce Labs Reporting
+## 3.05 Add a Test Name on Sauce Labs
 Duration: 0:06:00
 
-In this lesson you will add in some elements for better reporting to understand the status of test run on the[ Sauce Labs automated web testing platform](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
+In this lesson you will add in the test name to make it easier to understand which tests you are viewing results for on the [Sauce Labs automated web testing platform](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
+
+#### Video
+**[Adding a Test Name – Java JUnit4]()**
+
 
 Now that your tests are up and running on the Sauce Labs platform, you’ll notice it’s hard to tell one apart from the other. The tests you should have run will show up as **Unnamed job** with a hash identifier- not easy to use for testing and debugging.
 
 <img src="assets/4.06A.png" alt="Unnamed Job" width="550"/>
 
 
-To fix this issue, you can pull in the name and the status from the test and send it to the [Sauce Labs dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)so you can use our tests to effectively debug and improve our application.
-
-In addition, right now regardless of the outcome of a test, the job in Sauce Labs will register as **Finished** or **Error**. Ideally you want to know if the job was a **Pass** or a **Fail**. That way we can tell at a glance if a test failed or not. With a couple of tweaks we can make this happen easily enough.
-
+To fix this issue, you can pull information from the test and send it to the [Sauce Labs dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
 
 ### Use TestWatcher to Add a Test Name
 
-It's great that our tests are running on Sauce Labs. But we're not done yet because the test name in each Sauce job is getting set to an unnamed job. This makes it extremely challenging to know which tests were run in each job. This code will allow you to pass the test name to Sauce Labs.
+Not having test runs that are named makes it extremely challenging to know which tests were run in each job. The [TestWatcher rule](https://github.com/junit-team/junit4/wiki/Rules#testwatchmantestwatcher-rules) will allow you gather information at the right time, and pass the test name to Sauce Labs.
 
-In` BaseTest` you will use another [JUnit rule](https://github.com/junit-team/junit4/wiki/Rules#testwatchmantestwatcher-rules) called `TestWatcher().` First you will need to create a string variable in the` BaseTest `class underneath where you instantiate the driver.
+In` BaseTest` you will use another JUnit rule called `TestWatcher().` First you will need to create a string variable called `testName` in the `BaseTest` class underneath where you instantiate the driver.
 
 
 ```
@@ -391,38 +394,9 @@ In` BaseTest` you will use another [JUnit rule](https://github.com/junit-team/ju
 private String testName;
 // ...
 ```
+Next, before the final closing bracket of the `BaseTest` class, create a new `@Rule`, after the `@Override` that quits the driver. This will create a `TestRule` using [`TestWatcher`](https://junit.org/junit4/javadoc/latest/org/junit/rules/TestWatcher.html) that pulls the display name of the test when the test is starting, so you can pass it in as a Sauce Option.
 
 
-Next, use the  `TestWatcher()`after the second` @Override `annotation, right before the final closing curly braces. It has a method called `starting` that gives us access to the description of each test as its starting. So yougrab the display name for the test and store it in the `testName `string variable.
-
-
-```
-// filename: tests/BaseTest.java
-// ...
-    @Rule
-    public TestRule watcher = new TestWatcher() {
-        @Override
-        protected void starting(Description description) {
-            testName = description.getDisplayName();
-        }
-    };
-}
-```
-
-
-At the top of `BaseTest`, make sure you import `TestRule` and `TestWatcher` and the `Description` in the list of imports at the top:
-
-
-```
-// filename: tests/BaseTest.java
-// ...
-import org.junit.rules.TestRule;
-import org.junit.rules.TestWatcher;
-import org.junit.runner.Description;
-
-// ...
-
-```
 
 ### Add a Sauce Capability for Test Name
 
@@ -437,19 +411,39 @@ sauceOptions.setCapability("name", testName);
 
 ```
 
+### Run Your Test
+Once you have all three elements added, make sure you have imported the JUnit dependencies:
+
+```
+// filename: tests/BaseTest.java
+// ...
+import org.junit.rules.TestRule;
+import org.junit.rules.TestWatcher;
+import org.junit.runner.Description;
+// ...
+```
 
 Run `mvn clean test -Dhost=saucelabs` in your project in terminal to see if it works. Now when you run our tests in Sauce Labs, the [account dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) will show the tests running with the name of the test, test class, and package appearing on the dashboard:
 
 <img src="assets/4.06Q.png" alt="Error or Complete" width="750"/>
 
 #### Final Code
-See an example of the [test with a name added.](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod4/4.06/src/test/java/tests/BaseTest.java)
+See an example of the [test with a name added.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Quickstart/Mod3/3.05)
+
+<img src="assets/QS3.05A.png" alt="Import assets and create test name variable" width="650"/>
+
+<img src="assets/QS3.05B.png" alt="Create test name variable capability" width="650"/>
+
+<img src="assets/QS3.05C.png" alt="Test watcher for test name" width="650"/>
 
 <!-- ------------------------ -->
-## 3.06 Add a Test Status for Sauce Labs Reporting
+## 3.06 Add a Test Status for Sauce Labs 
 Duration: 0:05:00
 
-After adding a test name, you will add in an `id` and `status` for each unique test that you create. First, you will need to update our tests. If you noticed before, the only status was **Complete** or had an **Error**. You will now add in whether a test has passed or failed.
+Right now regardless of the outcome of a test, the job in Sauce Labs will register as **Complete** or **Error**. Ideally you want to know if the job was a **Pass** or a **Fail**. That way we can tell at a glance if a test failed or not. With a couple of tweaks we can make this happen easily enough.
+
+
+After adding a test name, you will add in an `id` and `status` for each unique test that you create....
 
 <img src="assets/4.06F.png" alt="Error or Complete" width="750"/>
 
