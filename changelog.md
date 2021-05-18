@@ -2,6 +2,10 @@
 
 ///start typing below this text
 
+## May 18 - Adekunle's Changes
+
+- Updated favicon
+
 ## April 7 - Adekunle's Changes
 
 - Added training as a menu item
