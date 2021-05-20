@@ -449,42 +449,13 @@ Right now regardless of the outcome of a test, the job in Sauce Labs will regist
 * Create a connection with the [SauceRest API](https://github.com/saucelabs/saucerest-java)
 * Pass information about the pass or fail status with TestWatcher of your test using the Sauce REST API, and the `sessionId`
 
-
-
 <img src="assets/4.06F.png" alt="Error or Complete" width="750"/>
 
 Negative
 : A  _failure_ is different from an _error_. An error means that you test code is erroneous, and you, as the test writer, need to make a change. You should see this error in your terminal output, and if the code is correct to communicate with Sauce Labs, it should be on your dashboard as well. A failure means a test successfully ran, but the conditions it was checking for were not present – in other words, the code for the app isn’t as expected or needs fixing.
 
-### Use the Sauce REST API
-In order to tell Sauce Labs that your test has passed or failed, you will need to use the [SauceREST API](https://github.com/saucelabs/saucerest-java)
 
-You’ll first need install the `saucerest` library is a part of your `pom.xml` file within the `dependencies` tags.
-
-
-```
-// filename: pom.xml
-// ...
-    <dependencies>
-    // ...
-        <dependency>
-            <groupId>com.saucelabs</groupId>
-            <artifactId>saucerest</artifactId>
-            <version>1.0.40</version>
-            <scope>test</scope>
-        </dependency>
-// ...
-
-```
-
-
-
-### NOTE
-
-Negative
-: If you add a dependency and the text appears in red (Maven isn’t recognizing it) you can right click on the pom.xml file in the project directory in IntelliJ then choose **Maven > Reload project**: <img src="assets/4.06G.png" alt="Reload project with Maven" width="450"/>
-
-
+### Create Session ID and Sauce Rest Functionality
 
 In the variable list of the` BaseTest` class (below `private string testName;`) add in the following to create variables to store the `RemoteWebDriver` SessionId and the instance of the SauceREST client:
 
@@ -517,16 +488,47 @@ The `sessionId` is retrieved from the `RemoteWebDriver`. The `sauceClient` creat
 <img src="assets/4.06H.png" alt="Data Center" width="750"/>
 
 
-Now you can` import` the `sauceRest` package in the` imports` list of `BaseTest.java`:
-
+Now you can import the `SauceREST` and `DataCenter` libraries in the` imports` list of `BaseTest.java`:
 
 ```
 // filename: tests/BaseTest.java
 // ...
 import com.saucelabs.saucerest.SauceREST;
+import com.saucelabs.saucerest.DataCenter;
 // ...
 ```
 
+#### Using the Sauce REST API
+In order to tell Sauce Labs that your test has passed or failed, you will need to use the [SauceREST API](https://github.com/saucelabs/saucerest-java)
+
+You’ll first need install the `saucerest` library is a part of your `pom.xml` file within the `dependencies` tags.
+
+
+```
+// filename: pom.xml
+// ...
+    <dependencies>
+    // ...
+        <dependency>
+            <groupId>com.saucelabs</groupId>
+            <artifactId>saucerest</artifactId>
+            <version>1.0.40</version>
+            <scope>test</scope>
+        </dependency>
+// ...
+
+```
+
+
+
+#### NOTE
+
+Negative
+: If you add a dependency and the text appears in red (Maven isn’t recognizing it) you can right click on the pom.xml file in the project directory in IntelliJ then choose **Maven > Reload project**: <img src="assets/4.06G.png" alt="Reload project with Maven" width="450"/>
+
+
+
+#### Get Pass And Fail Status with TestWatcher
 
 Now, go down to the` TestWatcher` rule. Under the first` @Override` annotation, add in two more:
 
@@ -553,7 +555,6 @@ Now, go down to the` TestWatcher` rule. Under the first` @Override` annotation, 
         };
 // ...
 ```
-
 
 Once a Sauce Job is started we're able to get the session ID from `RemoteWebDriver` and store it's string value in the `sessionId` variable. You then connect to the session of the Sauce REST client (which connects to the Sauce API) and use TestWatcher to send either a passed or failed status using the Sauce REST API.
 
