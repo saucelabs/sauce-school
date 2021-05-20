@@ -368,7 +368,10 @@ The complete code can be found [here](https://github.com/walkerlj0/Selenium_Cour
 ## 3.05 Add a Test Name on Sauce Labs
 Duration: 0:06:00
 
-In this lesson you will add in the test name to make it easier to understand which tests you are viewing results for on the [Sauce Labs automated web testing platform](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
+In this lesson you will add in the test name to make it easier to understand which tests you are viewing results for on the [Sauce Labs automated web testing platform](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). In this lesson you will learn to:
+
+* Use the [JUnit TestWatcher](https://junit.org/junit4/javadoc/latest/org/junit/rules/TestWatcher.html) to capture the test method name
+* Set the name capability to pass that information to Sauce Labs
 
 #### Video
 **[Adding a Test Name – Java JUnit4]()**
@@ -437,34 +440,39 @@ See an example of the [test with a name added.](https://github.com/walkerlj0/Sel
 <img src="assets/QS3.05C.png" alt="Test watcher for test name" width="650"/>
 
 <!-- ------------------------ -->
-## 3.06 Add a Test Status for Sauce Labs 
+## 3.06 Add a Test Status for Sauce Labs
 Duration: 0:05:00
 
-Right now regardless of the outcome of a test, the job in Sauce Labs will register as **Complete** or **Error**. Ideally you want to know if the job was a **Pass** or a **Fail**. That way we can tell at a glance if a test failed or not. With a couple of tweaks we can make this happen easily enough.
+Right now regardless of the outcome of a test, the job in Sauce Labs will register as **Complete** or **Error**. Ideally you want to know if the job was a **Pass** or a **Fail**. That way we can tell at a glance if a test failed or not. With a couple of tweaks we can make this happen easily enough. In this lesson you will learn to:
+
+* Capture the `sessionId` from RemoteWebDriver
+* Create a connection with the [SauceRest API](https://github.com/saucelabs/saucerest-java)
+* Pass information about the pass or fail status with TestWatcher of your test using the Sauce REST API, and the `sessionId`
 
 
-After adding a test name, you will add in an `id` and `status` for each unique test that you create....
 
 <img src="assets/4.06F.png" alt="Error or Complete" width="750"/>
 
-
-A  _failure_ is different from an _error_. An error means that you test code is erroneous, and you, as the test writer, need to make a change. You should see this error in your terminal output, and if the code is correct to communicate with Sauce Labs, it should be on your dashboard as well. A failure means a test successfully ran, but the conditions it was checking for were not present – in other words, the code for the app isn’t as expected or needs fixing.
+Negative
+: A  _failure_ is different from an _error_. An error means that you test code is erroneous, and you, as the test writer, need to make a change. You should see this error in your terminal output, and if the code is correct to communicate with Sauce Labs, it should be on your dashboard as well. A failure means a test successfully ran, but the conditions it was checking for were not present – in other words, the code for the app isn’t as expected or needs fixing.
 
 ### Use the Sauce REST API
+In order to tell Sauce Labs that your test has passed or failed, you will need to use the [SauceREST API](https://github.com/saucelabs/saucerest-java)
 
-You’ll first need install the `saucerest` library by adding it to our `pom.xml `file within the `<dependencies>` tags.
+You’ll first need install the `saucerest` library is a part of your `pom.xml` file within the `dependencies` tags.
 
 
 ```
 // filename: pom.xml
 // ...
+    <dependencies>
+    // ...
         <dependency>
             <groupId>com.saucelabs</groupId>
             <artifactId>saucerest</artifactId>
             <version>1.0.40</version>
             <scope>test</scope>
         </dependency>
-
 // ...
 
 ```
@@ -474,11 +482,11 @@ You’ll first need install the `saucerest` library by adding it to our `pom.xml
 ### NOTE
 
 Negative
-: If you add a dependency and the text appears in red (Maven isn’t recognizing it) you can right click on the pom.xml file in the project directory in IntelliJ then choose **Maven > Reload project**: <img src="assets/4.06G.png" alt="Reload project with Maven" width="750"/>
+: If you add a dependency and the text appears in red (Maven isn’t recognizing it) you can right click on the pom.xml file in the project directory in IntelliJ then choose **Maven > Reload project**: <img src="assets/4.06G.png" alt="Reload project with Maven" width="450"/>
 
 
 
-In the variable list of the` BaseTest` class (below `private string testName;`) add in the following:
+In the variable list of the` BaseTest` class (below `private string testName;`) add in the following to create variables to store the `RemoteWebDriver` SessionId and the instance of the SauceREST client:
 
 
 ```
@@ -496,8 +504,9 @@ Under the saucelabs` driver` instantiation in the` before()` rule instantiate a`
 ```
 // filename: tests/BaseTest.java
 // ...
-        sessionId = ((RemoteWebDriver) driver).getSessionId().toString();
-        sauceClient = new SauceREST(sauceUser, sauceKey, DataCenter.US);
+    driver = new RemoteWebDriver(new URL(sauceUrl), capabilities);
+    sessionId = ((RemoteWebDriver) driver).getSessionId().toString();
+    sauceClient = new SauceREST(sauceUser, sauceKey, DataCenter.US);
 
 // ...
 ```
@@ -525,29 +534,32 @@ Now, go down to the` TestWatcher` rule. Under the first` @Override` annotation, 
 ```
 // filename: tests/BaseTest.java
 // ...
-@Override
-        protected void failed(Throwable throwable, Description description) {
-            if (host.equals("saucelabs")) {
-                sauceClient.jobFailed(sessionId);
-                System.out.println(String.format("https://saucelabs.com/tests/%s", sessionId));
-            }
-        }
+  public TestRule watcher;{
+    // ...
+    @Override
+          protected void failed(Throwable throwable, Description description) {
+              if (host.equals("saucelabs")) {
+                  sauceClient.jobFailed(sessionId);
+                  System.out.println(String.format("https://saucelabs.com/tests/%s", sessionId));
+              }
+          }
 
-        @Override
-        protected void succeeded(Description description) {
-            if (host.equals("saucelabs")) {
-                sauceClient.jobPassed(sessionId);
-            }
-        }
+          @Override
+          protected void succeeded(Description description) {
+              if (host.equals("saucelabs")) {
+                  sauceClient.jobPassed(sessionId);
+              }
+          }
+        };
 // ...
 ```
 
 
-Once a Sauce job is established we're able to get the session ID from `RemoteWebDriver` and store it's string value in` sessionId`. youthen create an instance of `SauceREST` (which connects to the Sauce API) and store the session in `sauceClient`.
+Once a Sauce Job is started we're able to get the session ID from `RemoteWebDriver` and store it's string value in the `sessionId` variable. You then connect to the session of the Sauce REST client (which connects to the Sauce API) and use TestWatcher to send either a passed or failed status using the Sauce REST API.
 
-With a conditional check in each you make sure the sauceClient commands only trigger when a Sauce session has been established.
+With a conditional check in each `@Override` statement you make sure the sauceClient commands only trigger when a Sauce session has been established.
 
-When a test is successful the `succeeded()` method will fire, marking the Sauce job for the test as `passed`. When a test fails the failed method will trigger, and the job will be marked as `failed`. When there's a failure, we'll want to know the URL to view the job on [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) so you concatenate the URL and output it to the console using the `System.out.println` command.
+When a test is successful the `succeeded()` method will fire, marking the Sauce job for the test as `passed`. When a test fails the `failed()` method will trigger, and the job will be marked as `failed`. When there's a failure, we'll want to know the URL to view the job on [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) so you concatenate the URL and output it to the console using the `System.out.println` command.
 
 Now when you run `mvn clean test -Dhost=saucelabs` in terminal, then check your [Sauce Labs dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). On the right you should be able to see a status of passed with each test.
 
