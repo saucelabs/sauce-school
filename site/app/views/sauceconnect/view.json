@@ -1,0 +1,10 @@
+{
+  "title": "Sauce Connect Course",
+  "description": "This course offers lessons to help users get up and running with the Sauce Connect Proxy Tunnel, as well as content to help Sauce Connect administrators configure and maintain the proxy tunnels for their organization.",
+  "logoUrl": "/sauceconnect/logo.png",
+  "tags": ["saucetools"],
+  "exclude": [
+    ".*-about$",
+    "^lang-.*"
+  ]
+}
