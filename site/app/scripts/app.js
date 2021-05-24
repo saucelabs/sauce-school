@@ -438,37 +438,3 @@
       analytics.page();
     }
 })();
-
-// window.addEventListener("DOMContentLoaded", (event) => {
-//   console.log("DOM fully loaded and parsed");
-
-//   function addH2Anchor() {
-//     const content = document.querySelector("#main");
-//     const geth2 = content.querySelectorAll("h2:not(.step-title)");
-
-//     geth2.forEach((h2) => {
-//       console.log(h2.innerHTML);
-//     });
-//   }
-
-//   addH2Anchor();
-// });
-
-// (function () {
-//   const content = document.querySelector("#main");
-//   const geth2 = content.querySelectorAll("h2:not(.step-title)");
-
-//   geth2.forEach((element) => {
-//     if (element.parentElement.classList.contains("inner")) {
-//       var anchorGroup = document.createElement("div");
-//       anchorGroup.classList.add("anchorGroup");
-//       anchorGroup.append(element);
-//       console.log(anchorGroup.innerHTML);
-
-//       return element;
-//     }
-//     return element;
-//   });
-// })();
-
-window.addEventListener("DOMContentLoaded", (event) => {});
