@@ -134,7 +134,7 @@ The basic things you need to have installed are outlined in the sections below, 
 * Install [Pycharm](https://www.jetbrains.com/pycharm/)
 * Install pip3
   * `pip3 --version`
-* Install testing libraries from PyPI](https://pypi.org/)
+* Install testing libraries from [PyPI](https://pypi.org/)
 * Install a virtual environment ([venv3](https://docs.python.org/3/library/venv.html))
 
 ### Install HomeBrew
@@ -306,10 +306,13 @@ Right click on the main Seleniun Python project folder and choose **New > Direct
 
 <img src="assets/1.06E.png" alt="new directory" width="550"/>
 
-Right click on the `tests` directory you created and choose **New > Python File**. Name the file `login_test`.
+Next, right click on the **tests** folder and create a **New > Python File**. name the file **login_test**. There should be a blank file automatically created called `__init__.py` since it is a Python package.
 
-<img src="assets/1.06F.png" alt="New python file" width="550"/>
+<img src="assets/2.05S.png" alt="Create Login test" width="450"/>
 <img src="assets/1.06G.png" alt="login test" width="350"/>
+
+
+#### Test Dependencies – Test Libraries
 
 Last, you are going to add a requirements file that woeks with `pip3` install, update, and manage the dependencies. In the top level **SeleniumJava** directory right click and choose **New > File** and name it `requirements.txt`.
 
@@ -330,8 +333,8 @@ pytest-randomly
 
  <img src="assets/1.06J.png" alt="requirements.txt" width="750"/>
 
-### The Requirements File
- This repository contains a file called [requirements.txt](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/python/Mod1/1.05/requirements.txt) that can be used in the PyCharm IDE to automatically install the dependencies from the previous lesson, and make sure they are available in this particular virtual environment. All you need to do is open the terminal in the PyCharm IDE and type in the command:
+#### The Requirements File
+ The file called [requirements.txt](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/python/Mod1/1.05/requirements.txt) that can be used in the PyCharm IDE to automatically install the dependencies from the previous lesson, and make sure they are available in this particular virtual environment. All you need to do is open the terminal in the PyCharm IDE and type in the command:
 
  ```
  pip3 install -r requirements.txt
