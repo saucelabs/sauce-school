@@ -4,7 +4,7 @@
 
 ## May 18 - Adekunle's Changes
 
-- Updated favicon
+- Updated favicon in `site/app/images/favicons/browserconfig.xml`
 
 ## April 7 - Adekunle's Changes
 
