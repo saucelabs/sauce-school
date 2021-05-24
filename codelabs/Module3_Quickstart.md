@@ -475,9 +475,11 @@ Under the saucelabs` driver` instantiation in the` before()` rule instantiate a`
 ```
 // filename: tests/BaseTest.java
 // ...
-    driver = new RemoteWebDriver(new URL(sauceUrl), capabilities);
-    sessionId = ((RemoteWebDriver) driver).getSessionId().toString();
-    sauceClient = new SauceREST(sauceUser, sauceKey, DataCenter.US);
+  case "saucelabs":}
+  // ...
+      driver = new RemoteWebDriver(new URL(sauceUrl), capabilities);
+      sessionId = ((RemoteWebDriver) driver).getSessionId().toString();
+      sauceClient = new SauceREST(sauceUser, sauceKey, DataCenter.US);
 
 // ...
 ```
@@ -538,7 +540,7 @@ Now, go down to the` TestWatcher` rule. Under the first` @Override` annotation, 
 // ...
   public TestRule watcher;{
     // ...
-    @Override
+          @Override
           protected void failed(Throwable throwable, Description description) {
               if (host.equals("saucelabs")) {
                   sauceClient.jobFailed(sessionId);
