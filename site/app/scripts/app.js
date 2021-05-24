@@ -373,7 +373,6 @@
       // Replace h2 with anchor group
       element.parentNode.replaceChild(anchorGroup, element);
     }
-    // return element;
   });
 })(window, document);
 
