@@ -645,7 +645,7 @@ Now you need to update `BaseTest.java `to work with these new values and connect
                 capabilities.setCapability("browserVersion", browserVersion);
                 capabilities.setCapability("platformName", platformName);
                 capabilities.setCapability("sauce:options", sauceOptions);
-                String sauceUrl = String.format("https://ondemand.saucelabs.com/wd/hub");
+                String sauceUrl = String.format(" https://ondemand.us-west-1.saucelabs.com/wd/hub");
                 driver = new RemoteWebDriver(new URL(sauceUrl), capabilities);
             } else if (host.equals("localhost")) {
                 if (browserName.equals("firefox")) {
