@@ -583,6 +583,71 @@ See an example of the [completed code to compare.](https://github.com/walkerlj0/
 
 <!-- ------------------------ -->
 ## 3.07 Run Web App Tests in Different Browsers
+Duration: 0:04:00
+
+It's easy to add in a new type of browser in your Config file, however there is a caveat-- Each browser has other capabilities that are possible to add along with it. You also want to set capabilities are driver options (such as SafariOptions(), FirefoxOptions(), etc.) so the the RemoteWebDriver on Sauce Labs can recognize which driver it should run your tests with on the Sauce Labs Cloud.
+
+#### Video
+**[Run Tests on Different Browsers on Sauce Labs]()**
+
+### Use Browser Options Capabilities
+Currently in your test, you are using [`MutableCapabilities`](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html), which allow you to add any capability in that you want (you can even make up and add a capability that doesn't exist, or make up your own).
+
+Each browser has also created a limited set of 'capabilities' or settings that you can use for each browser. The different capabilities we will use are:
+* [`SafariOptions`](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/safari/SafariOptions.html)
+* [`Firefox Options`](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions)
+* [`InternetExplorerOptions`](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/ie/InternetExplorerOptions.html)
+* [`EdgeOptions`](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/edge/EdgeOptions.html)
+* [`ChromeOptions`](https://chromedriver.chromium.org/capabilities)
+
+### Update Capabilities
+
+First, you are going to remove the `new Mutablecapabilities();` from the capabilities declaration since you will be declaring browser capabilities depending on which browser you are using:
+
+```
+// filename BaseTest.java
+// ...
+  @Override
+          protected void before() throws Exception {
+              switch (host) {
+                  case "saucelabs": {
+                      String sauceUrl = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
+                      MutableCapabilities sauceOptions = new MutableCapabilities();
+                      sauceOptions.setCapability("username", sauceUser);
+                      sauceOptions.setCapability("accesskey", sauceKey);
+                      sauceOptions.setCapability("name", testName);
+                      MutableCapabilities capabilities; //modified
+```
+
+Next, add in a `switch` statement with four cases and a default:
+
+```
+// filename BaseTest.java
+// ...
+        MutableCapabilities capabilities;
+                 switch(browserName) {
+                     case : {
+                         capabilities =
+                         break;
+                     }
+                     case : {
+                         capabilities =
+                         break;
+                     }
+                     case : {
+                         capabilities =
+                         break;
+                     }
+                     case : {
+                         capabilities =
+                         break;
+                     }
+                     default: {
+                         capabilities =
+                         break;
+                     }
+                 }
+```
 
 <!-- ------------------------ -->
 ## 3.08 Run Web App Tests in Parallel Operating Systems
