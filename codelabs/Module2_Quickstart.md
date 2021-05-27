@@ -1,6 +1,6 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
-summary: Module 2 of the Sauce Labs Quickstart course, this section on Android Mobile Emulator Tests goes over how to test Android mobile apps and browsers with the Appium test runner on Sauce Labs virtual machines.
+summary: Module 2 of the Sauce Labs Quickstart course. This tutorial on Android Mobile Emulator Tests goes over how to use & configure  Android mobile app tests using the TestNG testrunner to run on mobile browsers & apps on Sauce Labs virtual machines.
 id: Module2-Quickstart
 categories: advanced
 tags: quickstart
