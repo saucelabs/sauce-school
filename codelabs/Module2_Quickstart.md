@@ -55,9 +55,9 @@ This module is created to walk you through the steps you need to take to get a t
 ### Resources
 Download the following resources on your computer:
 
-* Fork the [Android Test Code](https://github.com/walkerlj0/Quickstart_Android). See the _/Mod2/2.03_ folder to follow along starting on the next module.
+* Download or fork and clone the [Android Test Code](https://github.com/walkerlj0/Quickstart_Android). See the _/Mod2/2.03_ folder to follow along starting on the next module.
 
-* Swag Labs [Android Native Demo App](https://github.com/saucelabs/sample-app-mobile/releases)
+* Download the Swag Labs [Android Native Demo App](https://github.com/saucelabs/sample-app-mobile/releases) mobile app.
 
 * Scroll down and find the **Android.SauceLabs.Mobile.Sample.app.x.x.x.apk** file. Choose the latest version you can find.
 
@@ -69,9 +69,6 @@ Download the following resources on your computer:
 
 <video id="aRC6WkmFfzc"></video>
 
-#### Note
-Negative
-: These instructions are not intended to show you how to write Android applications or Appium test code. The exercises here are intended to give instructions on how to start with test code written in Appium and Java, run it locally, and configure those same tests to run on Sauce Labs. If you would like to learn more about writing Appium tests, the course on [Mobile Testing with Appium](https://www.linkedin.com/learning/mobile-testing-with-appium) by Jonathan Lipps is a great place to start.
 
 ### Dependencies
 
@@ -80,20 +77,20 @@ To run a local test, you will need to set up and install the following:
 * Appium
     * [Appium Desktop App](https://github.com/appium/appium-desktop/releases) or
     * Appium Server: [Set it up ](https://www.swtestacademy.com/how-to-install-appium-on-mac/)with Android Studio
-* JDK 8 or higher
-* [Android Studio](https://developer.android.com/studio)
-* [Appium Doctor](https://github.com/appium/appium-doctor)
-    * `npm install appium-doctor -g`
+* Java JDK 8 or higher
 * [Maven build tool](https://maven.apache.org/)
 * An IDE to edit test code like [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
 
-If you would like step-by-step instructions to help with the dependencies above, there are lessons in the Selenium Java Course:
+Negative
+: If you would like step-by-step instructions to help with the dependencies below, there are lessons in the Selenium Java Course on [how to set up your MacOS environment](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) with Java, Maven, and IntelliJ ([or set up your Windows environment](https://docs.google.com/document/d/1herzHbTJdQpa-hAIR5llTfbbw20PeM99-BAoVTeuC8U/edit?usp=sharing).), then learn to [create your first project file in IntelliJ](https://training.saucelabs.com/codelabs/Module2-SeleniumJava/index.html?index=..%2F..SeleniumJava#5)
+
+* [Android Studio](https://developer.android.com/studio)
+* [Appium Doctor](https://github.com/appium/appium-doctor)
+    * `npm install appium-doctor -g`
 
 
-* [How to set up your environment ](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4)with Java, Maven, and IntelliJ
-* [Create your first project file in IntelliJ](https://training.saucelabs.com/codelabs/Module2-SeleniumJava/index.html?index=..%2F..SeleniumJava#5)
 
-See instructions for [setting up your Windows environment here](https://docs.google.com/document/d/1herzHbTJdQpa-hAIR5llTfbbw20PeM99-BAoVTeuC8U/edit?usp=sharing).
+
 
 ### Capabilities
 

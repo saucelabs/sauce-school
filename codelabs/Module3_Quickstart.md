@@ -648,6 +648,10 @@ Next, add in a `switch` statement with four cases and a default:
                      }
                  }
 ```
+For this code, we are going to use the Selenium `BrowserType` interface to determine the type of browser and use the correct set of browser capabilities:
+
+```
+```
 
 <!-- ------------------------ -->
 ## 3.08 Run Web App Tests in Parallel Operating Systems
