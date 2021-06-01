@@ -585,7 +585,9 @@ See an example of the [completed code to compare.](https://github.com/walkerlj0/
 ## 3.07 Run Web App Tests in Different Browsers
 Duration: 0:04:00
 
-It's easy to add in a new type of browser in your Config file, however there is a caveat-- Each browser has other capabilities that are possible to add along with it. You also want to set capabilities are driver options (such as SafariOptions(), FirefoxOptions(), etc.) so the the RemoteWebDriver on Sauce Labs can recognize which driver it should run your tests with on the Sauce Labs Cloud.
+It's easy to add in a new type of browser in your Config file, however there is a caveat; each browser has other capabilities that are possible to add along with it.
+
+The best way to set these capabilities is with sets of browser options (such as `SafariOptions()`, `FirefoxOptions()`, etc.) so the the remote driver you are running your tests with on Sauce Labs can recognize which driver it should run your tests with on the Sauce Labs Cloud.
 
 #### Video
 **[Run Tests on Different Browsers on Sauce Labs]()**
@@ -593,7 +595,7 @@ It's easy to add in a new type of browser in your Config file, however there is 
 ### Use Browser Options Capabilities
 Currently in your test, you are using [`MutableCapabilities`](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html), which allow you to add any capability in that you want (you can even make up and add a capability that doesn't exist, or make up your own).
 
-Each browser has also created a limited set of 'capabilities' or settings that you can use for each browser. The different capabilities we will use are:
+Each browser has created a limited set of 'capabilities' or settings that are possible use with each browser, which we are going to start using for testing on different browsers. The different capabilities we will use are:
 * [`SafariOptions`](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/safari/SafariOptions.html)
 * [`Firefox Options`](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions)
 * [`InternetExplorerOptions`](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/ie/InternetExplorerOptions.html)
@@ -648,13 +650,161 @@ Next, add in a `switch` statement with four cases and a default:
                      }
                  }
 ```
-For this code, we are going to use the Selenium `BrowserType` interface to determine the type of browser and use the correct set of browser capabilities:
+
+Now, import the `BrowserType` class from Selenium:
 
 ```
+// filename BaseTest.java
+// ...
+import org.openqa.selenium.remote.BrowserType;
 ```
+
+For this code, we are going to use the [Selenium `BrowserType`](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/remote/BrowserType.html) interface to determine the type of browser and use the correct set of browser capabilities:
+
+```
+// filename BaseTest.java
+// ...
+                MutableCapabilities capabilities;
+                switch(browserName) {
+                    case BrowserType.SAFARI: {
+                        capabilities = new SafariOptions();
+                        break;
+                    }
+                    case BrowserType.FIREFOX: {
+                        capabilities = new FirefoxOptions();
+                        break;
+                    }
+                    case BrowserType.IE: {
+                        capabilities = new InternetExplorerOptions();
+                        break;
+                    }
+                    case BrowserType.EDGE: {
+                        capabilities = new EdgeOptions();
+                        break;
+                    }
+                    default: {
+                        capabilities = new ChromeOptions();
+                        break;
+                    }
+                }
+```
+
+Now, you will need to make sure you have imported the different sets of options for each browser you have set up to test on. You should already have Chrome and Firefox options since you used those to test locally. Right underneath those, import the options for the rest of the options:
+
+```
+// filename BaseTest.java
+// ...
+
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.ie.InternetExplorerOptions;
+import org.openqa.selenium.safari.SafariOptions;
+```
+
 
 <!-- ------------------------ -->
-## 3.08 Run Web App Tests in Parallel Operating Systems
+## 3.08 Run Web App Tests in Parallel
+Duration: 0:08:00
+
+Your tests still take a good deal of time to run since they're executing in series (i.e., one after another). As our suite grows, test latency will grow with it, if you continue to run tests in series the time it takes to run your test suite can grow exponentially.
+
+In this lesson you will be learning how to set up Sauce Labs to run tests in parallel. This means that you can run two or more tests, using two or more instances of `BaseTest.java `at the same time.  Previously what you were doing was running` TestLogin.java `first, then running `TestDynamicLoading.java` once it was done.
+
+Parallelization is one of the main advantages to using a platform like Sauce Labs, however you also must be careful when designing a test suite to make sure the tests can be run in parallel, and in any order, or else account for and create code that does run certain tests in order. Luckily, our test suite has been well set up to run in parallel.
+
+To run the tests in parallel, you will be using [JUnit and Maven's Surefire Plugin.](http://maven.apache.org/surefire/maven-surefire-plugin/examples/junit.html)
+
+
+### Add Configuration Options to your Maven Surefire Plugin
+
+You should already have the `maven-surefire-plugin` in your `pom.xml` file within the <`build`> tags. If for some reason you don’t, add it in now:
+
+
+```
+// filename: pom.xml
+// ...
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.18.1</version>
+    </plugin>
+// ...
+```
+
+
+What you will do is add in <`configuration`> options that will allow you to run tests in parallel. Underneath `artifactID`, add in a <`configuration`> opening and closing tag, and within that tag add in the all <`parallel`> parameter.
+
+
+```
+// filename: pom.xml
+// ...
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+            <parallel>all</parallel>
+        </configuration>
+        <version>2.18.1</version>
+    </plugin>
+
+```
+
+
+The `all` value tells you to run all suites, classes, and methods in parallel. You can also choose to run one or multiple of those options.
+
+Underneath parallel, add in parameters for the number of thread counts for methods, set unlimited thread counts to `true`. This will allow you to use as many threads as CPUs you have available to you, and not run multiple tests in the same thread. <`threadCountMethods`> sets the number of methods (but not classes or suites)  to be tested at once at a limit of `30`. These configurations optimize the running of large test suites.
+
+You also don’t want to put the output for the reporting to be created in a file, otherwise you cannot run tests in parallel, so we set  <`redirectTestOutputToFile`> to` false`.
+
+
+```
+// filename: pom.xml
+// ...
+           <threadCountMethods>30</threadCountMethods>
+           <useUnlimitedThreads>true</useUnlimitedThreads>                    
+           <redirectTestOutputToFile>false</redirectTestOutputToFile>
+// ...
+```
+
+
+### Run Parallel Tests
+
+Before you get started, head to the [Sauce Labs Dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) and look under **Account > User settings** and check out how many tests you (and your team) can run at once.
+
+<img src="assets/5.04C.png" alt="Sauce W3C case" width="650"/>
+
+Once you are sure that you are able to run tests in parallel (you should have less tests than your concurrency limit), you can run your tests. If you send more jobs than your concurrency limit, Sauce Labs will queue the excess and run them as the initial batch of jobs finish.
+
+Run `mvn clean test -Dhost=saucelabs` and visit the [Sauce Labs Dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)while your tests are running. You should see more than one test running at the same time, and notice that your test suite as a whole runs more quickly! You can see the completed code [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod5/5.04).
+
+<img src="assets/5.04H.png" alt="Concurrent tests running" width="650"/>
+
+### Part 3: Randomize Your Tests
+
+You might ask, why randomization? This is a very effective way to see if your tests are truly atomic and independent of one another. As you run more and more tests, it’s important to make sure that they aren’t dependent on the behavior of a different test, because conditions will not always be the same as you use tests for different cases.
+
+In your `pom.xml` file, below the <`redirectTestOutputToFile`>, add in:
+
+
+```
+// filename: pom.xml
+// ...
+           <runOrder>random</runOrder>
+// ...
+```
+
+
+Now run your tests using `mvn clean test -Dhost=saucelabs` and you should see your tests run in a different order than before.
+
+You can see the [example code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod5/5.04).
+
+
+### Final Code
+<img src="assets/5.04I.png" alt="pom.xml Final code" width="650"/>
+
+###Quiz
+
+![https://docs.google.com/forms/d/e/1FAIpQLSeOGIO9dymQ9r4VAiX1ZzpmMFfiwJn9zS5RYM37tJL05OS8qg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSeOGIO9dymQ9r4VAiX1ZzpmMFfiwJn9zS5RYM37tJL05OS8qg/viewform?usp=sf_link)
+
 
 <!-- ------------------------ -->
 ## 3.09 Module 3 Quiz
