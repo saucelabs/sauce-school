@@ -2,13 +2,15 @@
 
 summary: Module X of the course X. Learn to write Selenium tests in X programming language with X Test runner and X framework
 id: ModuleX-SeleniumLang
-categories: <enter a single category for drop-down filter>
+categories: <enter a single category for drop-down filter & card icon [beginner, intermediate, advaned, expert]>
 tags: <enter Language names here from tools/site/app/views what is labeled in the view.json tag: attribute>  
 environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
+tags: <tag that matches site/app/views/coursename/view.json>
 author:Lindsay Walker
+
 <!-- ------------------------ -->
 # Module X – Title of codelab
 Add Sections and Durations

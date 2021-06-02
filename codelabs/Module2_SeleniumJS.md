@@ -9,8 +9,7 @@ analytics account: UA-86110990-1
 author:Lindsay Walker
 <!-- ------------------------ -->
 
-
-# Module 2 — Locators and JavaScript Tests
+# Module 2 — Run Your First Selenium JavaScript Test
 <!-- ------------------------ -->
 
 ## 2.01 What You’ll Learn

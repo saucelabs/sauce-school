@@ -9,7 +9,7 @@ analytics account: UA-86110990-1
 author: Lindsay Walker
 <!-- ------------------------ -->
 
-# Module 2 — Selenium Locators and Java Tests
+# Module 2 — Run Your First Selenium Java Test
 <!-- ------------------------ -->
 
 ## 2.01 What You’ll Learn
@@ -49,7 +49,7 @@ If you are familiar with using GitHub to write your code, you can also fork/ bra
 ## 2.02 Writing Good Acceptance Tests
 Duration: 0:10:00
 
-Acceptance tests are an important final step to take when releasing anything you may have designed, to make sure that the software you have created meets the requirements and specifications laid out when you designed and planned your application or platform. Automated testing is an integral tool to use to efficiently and accurately test your product for release.
+Acceptance tests are an important final step to take when releasing anything you may have designed, to make sure that the software you have created meets the requirements and specifications laid out when your designed and planned your application or platform. Automated testing is an integral tool to use to efficiently and accurately test your product for release.
 
  In order to write automated web tests that are easy to maintain, perform well, and are ultimately resilient, there are some simple guidelines to follow:
 

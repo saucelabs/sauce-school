@@ -1,31 +1,34 @@
+@import "_variables";
+
 body h1.title {
-  font-family: museo-sans, sans-serif!important;
+  font-family: museo-sans, sans-serif !important;
 }
 body {
-  font-family: museo-sans, sans-serif!important;
+  font-family: museo-sans, sans-serif !important;
 }
 google-codelab #drawer ol li[completed] .step:before {
-  background-color: #E12726;
+  background-color: #e12726;
 }
 google-codelab-step h2.step-title {
-  font-family: museo-sans, sans-serif!important;
+  font-family: museo-sans, sans-serif !important;
 }
 google-codelab #drawer ol li a {
-  font-family: museo-sans, sans-serif!important;
+  font-family: museo-sans, sans-serif !important;
 }
 google-codelab #drawer ol ::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: #EDEDEF;
-  -webkit-box-shadow: none!important;
+  background-color: #ededef;
+  -webkit-box-shadow: none !important;
 }
-#next-step, #done {
+#next-step,
+#done {
   color: #fff;
-  background: #E12726;
-  font-family: museo-sans, sans-serif!important;
+  background: #e12726;
+  font-family: museo-sans, sans-serif !important;
 }
 #previous-step {
-  font-family: museo-sans, sans-serif!important;
-  color: #464B54;
+  font-family: museo-sans, sans-serif !important;
+  color: #464b54;
 }
 google-codelab #drawer ol li .step:before {
   content: "";
@@ -34,24 +37,44 @@ google-codelab google-codelab-step .instructions {
   min-height: 95%;
 }
 google-codelab-step .embedded-iframe {
-  height: inherit!important;
+  height: inherit !important;
   min-height: 300px;
   &.quizform {
     min-height: 700px;
   }
 }
 
+// Styles for Anchor Links
 
-@media only screen
-    and (max-device-width: 740px),
-    only screen and (max-device-width: 740px),
-    only screen and (max-width: 740px)
-  {
+.anchorWrapper {
+  position: relative;
 
-    body google-codelab #codelab-nav-buttons #arrow-back {
-      display: inline-block!important;
-      position: absolute;
-      right: 0px;
-      margin-top: 15px;
+  &:hover {
+    .anchorLink {
+      display: initial;
     }
+  }
+
+  .anchorLink {
+    color: $darkRed !important;
+    font-size: 20px;
+    text-decoration: none;
+    margin-left: 8px;
+    display: none;
+  }
+
+  h2 {
+    display: inline-block;
+  }
+}
+
+@media only screen and (max-device-width: 740px),
+  only screen and (max-device-width: 740px),
+  only screen and (max-width: 740px) {
+  body google-codelab #codelab-nav-buttons #arrow-back {
+    display: inline-block !important;
+    position: absolute;
+    right: 0px;
+    margin-top: 15px;
+  }
 }
