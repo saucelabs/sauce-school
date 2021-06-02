@@ -256,7 +256,7 @@ saucectl run
 ## 1.04 Run Your Cypress Test on Sauce
 Duration: 0:03:00
 
-There are two options to run your test on Sauce Labs, using either _Docker mode_ to run tests on  a local Docker container and pass test run information to Sauce Labs, or using _Sauce mode_ to run your tests on a Sauce Labs VM. [Start with Cypress test code](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.04), and make sure you have set up your `saucectl` environment.
+To run Cypress tests on sauce labs, you will [Start with Cypress test code](https://github.com/saucelabs/saucectl-cypress-example), and run the example tests, or use the project structure to set up your own tests.
 
 #### Video
 
@@ -300,7 +300,9 @@ Negative
 
 ### Run Your Test on a Sauce Labs VM
 
-If instead of installing Docker you would like to run on the Sauce Labs cloud, you have the choice of a wide variety of browser and operating systems.
+There are two options to run your test on Sauce Labs, using either _Docker mode_ to run tests on  a local Docker container and pass test run information to Sauce Labs, or using _Sauce mode_ to run your tests on a Sauce Labs VM, with _Sauce mode_ being the default.
+
+Running tests on the Sauce Labs Cloud, give you the choice of a wide variety of browsers and operating systems.
 
 Make sure you have the latest version of `saucectl`. Check your version with the command `saucectl --version`. You can [check the latest version of saucectl here](https://github.com/saucelabs/saucectl)
 
