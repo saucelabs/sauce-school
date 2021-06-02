@@ -162,9 +162,9 @@ You have the following options to test out Cypress on Sauce:
 
 Once you have a project directory containing cypress tests on your machine, navigate to the directory where the `cypress.json ` and `/cypress` directory are, you can update the configuration file to run your tests.
 
-#### Note
+<!-- #### Note
 Negative
-: You will want to make sure your Cypress tests are (and the project structure) works with the same version that you have listed in the `.sauce/config.yml` file. If you are installing `saucectl` in an existing project, make sure that in the setup workflow, you do not overwrite any of the existing files. <img src="assets/TRT1.03D.png" alt="Project directory setup" width="800"/>
+: You will want to make sure your Cypress tests are (and the project structure) works with the same version that you have listed in the `.sauce/config.yml` file. If you are installing `saucectl` in an existing project, make sure that in the setup workflow, you do not overwrite any of the existing files. <img src="assets/TRT1.03D.png" alt="Project directory setup" width="800"/> -->
 
 ### The Configuration File
 
@@ -202,10 +202,10 @@ rootDir: ./
 suites:
   - name:
     browser: "chrome"
-    platformName: "Windows 10" # Only relevant when running a test against the sauce cloud mode.
-    screenResolution: "1920x1080"  # (optional) Only relevant when running a test against the sauce cloud mode.
+    platformName: "Windows 10"
+    screenResolution: "1920x1080"
     config:
-      testFiles: [ "**/*.*" ] # Cypress native glob support.
+      testFiles: [ "**/*.*" ]
   - name: "Firefox in docker"
     mode: docker
     browser: "firefox"
@@ -225,18 +225,17 @@ artifacts:
       - console.log
     directory: ./artifacts/
 ```
-.
 
 Take a look at the top of the config file. There are several important elements here that can be modified.
 *   The `apiVersion` is the Saucectl API Version
 *   The `kind` is the testing framework
 * You can set the mode (_Docker_ or _Sauce_) in `mode` at this level, or as a field that is a part of a `suite`
 * If you are using _Docker mode_, you can `mount` or `copy` files
-*   The `cypress` information tells your cypress tests where to look for the test configuration file, and which version of cypress you are running. Other file locations are relative to where `config.json` is place. See the docs for a [list of supported versions]((https://docs.saucelabs.com/testrunner-toolkit)).
-* An optional setting is where the `rootDir` or root directory is placed.
+*   The `cypress` information tells your cypress tests where to look for the test configuration file, and which version of cypress you are running. Other file locations are relative to where `config.json` is place. See the docs for a [list of supported versions]((https://docs.saucelabs.com/testrunner-toolkit))
+* An optional setting is where the `rootDir` or root directory is placed
 * The `sauce` information. Here is where you will put information that will be passed to sauce and can be used for debugging tests, such as the name, `build` number from your CI tool, and number of machines you would like to run concurrently
 *   The `suites` information includes the name, browser, and the configuration for your test suites such as what types of file names to look for to run as tests, and other metadata that is passed to the Sauce Labs dashboard for running tests and displaying results.
-  * The `config: testFiles:` specify the directory relative to `cypress.json` or `rootDir` and THE file names
+  * The `config: testFiles:` specify the directory relative to `cypress.json` or `rootDir` and the file names of your tests
 *   The `artifact` information includes what assets (such as images and videos of your tests) are fetched and stored locally
 
 
