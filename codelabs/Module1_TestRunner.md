@@ -249,9 +249,9 @@ saucectl run
 ```
 ### Install Docker (Optional)
 
-If you would like to run your tests in a DOcker container and pass the results to the Sauce Labs platform, [docker download website ](https://docs.docker.com/get-docker/)and install the correct version on your machine.
+If you would like to run your tests in a Docker container and pass the results to the Sauce Labs platform, visit the [docker download website ](https://docs.docker.com/get-docker/)and install the newest version of Docker on your machine.
 
-Keep in mind that a Docker container is essentially it's own lightweight operating system. This means that any software you have installed on your own machine, or variables that you have set up on your local machine (except for Sauce Labs username and access key, which is detected by Saucectl) won't be available in the Docker environment that is running your Saucectl & Cypress tests without you setting it up in Docker as well.
+Keep in mind that a Docker container is essentially it's own lightweight operating system. This means that any software you have installed on your own machine, or variables that you have set up on your local machine (except for Sauce Labs username and access key, which is detected by `saucectl`) won't be available in the Docker environment that is running your saucectl & Cypress tests without you setting it up in Docker as well.
 
 Start up Docker to ensure it’s running properly on your machine. Most likely, Docker will be set up to start once you have logged on. You can check to see if it’s running with the command `docker info`, and see which version you have with the command `docker -v`.  
 
