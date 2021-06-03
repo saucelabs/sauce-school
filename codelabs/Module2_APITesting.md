@@ -8,13 +8,11 @@ environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
-<<<<<<< HEAD
-author: James Tacker
-=======
 author: James Tacker & Lindsay Walker
->>>>>>> e3af76f1837a49137540cf18cf23b40cfd94744a
 <!-- ------------------------ -->
 # Module 2 – Introduction to API Fortress
+
+<!------------------------------>
 
 ## 2.01 What You'll Learn
 Duration: 0:02:00
