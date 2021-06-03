@@ -660,7 +660,9 @@ Now, import the `BrowserType` class from Selenium:
 import org.openqa.selenium.remote.BrowserType;
 ```
 
-For this code, we are going to use the [Selenium `BrowserType`](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/remote/BrowserType.html) interface to determine the type of browser and use the correct set of browser capabilities:
+For this code, we are going to use the [Selenium `BrowserType`](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/remote/BrowserType.html) interface to determine the type of browser and use the correct set of browser capabilities.
+
+Inside each of the `switch` cases, add the name of the browser type, and the options for each browser, setting the default to `ChromeOptions`:
 
 ```
 // filename BaseTest.java
@@ -700,7 +702,46 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.safari.SafariOptions;
 ```
+### Run Tests in Different Environments
+Now, when you replace the options using the Sauce Labs [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to find the values for `browserName`, `browserVersion`, and `platformName` you should be able to run in any browser & version that is supported by Sauce Labs.
 
+This example will run on version 90.0 of the Edge browser:
+
+```
+// filename: tests/Config.java
+package tests;
+
+public class Config {
+    // ...
+    public static final String browserName = System.getProperty("browserName", "MicrosoftEdge");
+    public static final String browserVersion = System.getProperty("browserVersion", "90.0");
+    public static final String platformName = System.getProperty("platformName", "macOS 10.14");
+   // ...
+```
+#### Use Maven and the -D Flag
+Beacuse we have set up variables for each of the capabilities, you can use the `-D` flag with your `mvn clean test` command to run your suite of tests in a certain operating system. For each variable you want to change, add  `-DvariableName="variableValue"` after the `mvn clean test` command.
+
+This example would run your tests on Firefox Version 86.0 on a Windows 10 machine:
+
+```
+mvn clean test -DbrowserName="firefox" -DbrowserVersion="86.0" -DplatformName="Windows 10"   
+```
+
+Using these commands can be helpful if you want to use a Continuous Integration tool (such as Jenkins of Github Actions)
+
+<img src="assets/QS3.07A.png" alt="Sauce W3C case" width="650"/>
+
+_Learn more about setting up tests with Jenkins in the [Selenium Java Course](https://training.saucelabs.com/codelabs/Module5-SeleniumJava/index.html?index=..%2F..SeleniumJava#5)_
+
+#### Final Code
+See an example of the [completed code to compare](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Quickstart/Mod3/3.07).
+
+<img src="assets/QS3.07B.png" alt="Import browser options" width="650"/>
+
+
+<img src="assets/QS3.07C.png" alt="Switch statement with browser options" width="650"/>
+
+<img src="assets/QS3.07D.png" alt="Modifying environment with config" width="650"/>
 
 <!-- ------------------------ -->
 ## 3.08 Run Web App Tests in Parallel
@@ -801,10 +842,6 @@ You can see the [example code here](https://github.com/walkerlj0/Selenium_Course
 
 ### Final Code
 <img src="assets/5.04I.png" alt="pom.xml Final code" width="650"/>
-
-###Quiz
-
-![https://docs.google.com/forms/d/e/1FAIpQLSeOGIO9dymQ9r4VAiX1ZzpmMFfiwJn9zS5RYM37tJL05OS8qg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSeOGIO9dymQ9r4VAiX1ZzpmMFfiwJn9zS5RYM37tJL05OS8qg/viewform?usp=sf_link)
 
 
 <!-- ------------------------ -->
