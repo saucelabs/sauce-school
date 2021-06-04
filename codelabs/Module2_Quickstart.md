@@ -789,9 +789,9 @@ In this lesson, you will configure and running a local test to run on an **Andro
 * Create Environment variables for Sauce Sauce Labs credentials
 * Remove the `APP` and `Appium` variables
 * Create a new test and `xml` file for your Sauce Labs app test, including
-  * Updating capabilities for Sauce Labs, removing capabilities for app tests
   * Adding Sauce Labs credentials and data center
-  * Adding a `url` endpoint to test on Sauce labs  
+  * Adding a `url` endpoint to test on Sauce Labs
+  * Update capabilities for a web browser, removing capabilities for app tests  
   * Update test methods to work with a web browser
   * Add a config file to set a region variable
   * Add test log information
@@ -1123,7 +1123,9 @@ You can see an [example of the project code here.](https://github.com/walkerlj0/
 ## 2.06 Passing Test Name and Status to Sauce Labs
 Duration: 0:12:00
 
-This module will use the test code from the [Mobile_Android_EMU_Test.java](https://github.com/walkerlj0/Quickstart_Android/blob/master/Final/src/test/java/tests/Mobile_Android_EMU_Test.java). You can also add the same features to your `Mobile_Android_Browser_Test.java`, however, and get the same reporting on [Sauce Labs](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
+This module will use the test code from the [Mobile_Android_EMU_Test.java](https://github.com/walkerlj0/Quickstart_Android/blob/master/Final/src/test/java/tests/Mobile_Android_EMU_Test.java). You can also add the same features to your `Mobile_Android_Browser_Test.java`, however, and get the same reporting on [Sauce Labs](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link). In this lesson you will learn to:
+* Update the setup to get the method name and pass it as a capability
+* Use the `ITestResult` interface and JavaScript to pass the test result information to Sauce Labs using SauceREST API
 
 #### Video
 
@@ -1310,11 +1312,11 @@ Negative
 ```
 // filename pom.xml
 //...
-    <dependency>
-        <groupId>com.saucelabs</groupId>
-        <artifactId>saucerest</artifactId>
-        <version>${sauce.version}</version>
-    </dependency>
+    dependency
+        groupId com.saucelabs groupId
+        artifactId saucerest artifactId
+        version ${sauce.version} version
+    dependency
 
 // ...
 ```
@@ -1369,7 +1371,10 @@ You can see an [example of the project code here.](https://github.com/walkerlj0/
 ## 2.07 Run Tests in Parallel
 Duration: 0:10:00
 
-The last thing we will do in this module is show you how to modify your TestNG test so that it can be run in parallel. To do this, we will add a couple elements to your TestNG xml file, as well as refactor the driver instantiation for each test so each test can run in it’s own thread.
+The last thing we will do in this module is show you how to modify your TestNG test so that it can be run in parallel. To do this, you will:
+* Add a couple elements to your TestNG xml file
+* Refactor the driver instantiation for each test to create threads
+* Update to add logging for before and after methods
 
 #### Video
 [Sauce Labs Parallel Appium Tests](https://www.youtube.com/watch?v=p8nBIN9-ONE)
