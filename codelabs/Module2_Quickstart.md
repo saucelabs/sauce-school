@@ -16,32 +16,41 @@ author:Lindsay Walker, Eyal Yovel
 ## 2.01 What You’ll Learn
 Duration: 0:01:00
 
-There are many possibilities for testing in[ Sauce Labs](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link), and in this module we will cover two specific cases: Testing an Android mobile application, and testing an Android mobile  web application on the Sauce Labs Emulators. Both of these tests will be created using the Appium driver, Java, and the TestNG testing library, and will be run against virtual devices and browsers on Sauce Labs. IOS is not covered in this module, nor are tests written in Espresso, as you need a different environment to test locally, and would need to upload your project file Sauce Labs in a different way.
+### Appium Tutorial
+In this module, you will be walked through an example of setting up and running an Appium Java test with Android, covering two specific cases:
+* Testing an [Android mobile application](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#3) on Sauce Labs Emulators
+* Testing an [Android mobile web](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#4) application on the Sauce Labs Emulators
 
+Both of these tests will be created using the **Appium driver, Java, and the TestNG test runner**, and will be run locally and using the virtual devices on the Sauce Labs Cloud.
 
 ### Skills & Knowledge
 
-* Learn about how to set up your environment to set up an Appium Mobile App test on your machine using Appium and Android Studio, among other tools
+* Learn about how to set up your environment to run an Appium mobile app or mobile browser test
 
-* Understand the elements of an Appium Android mobile app test suite and run it locally, understanding how all the elements of code in a simple test suite interact
+* Understand the elements of an Appium Android mobile app test suite and run it locally
 
-* Learn about how an Appium test suite is written with the TestNG testing framework and run tests using Maven and TestNG `xml` files
+* Run tests using Maven and TestNG
 
-* Update the configuration to run an Appium Android Mobile app test suite on Sauce Labs by uploading your app, and adding the information to run your test including app name or URL, `SAUCE_USERNAME`, and `SAUCE_ACCESS_KEY`
+* Update the configuration to run an Appium Android Mobile app test suite on Sauce Labs
 
 * Update capabilities and test code to run both an Appium Android mobile app test and an Appium Android mobile browser test on Sauce Labs
 
 * Add features to your test suite using the Sauce Options (capabilities) that allow you to add names, session IDs, and pass fail conditions
 
-* Add in the capabilities `extendedDebugging` and `capturePerformance == "true"`, then use Sauce Performance to view resources that are loaded with the network tab in automated test results
+* Add in the capabilities `extendedDebugging` and `capturePerformance == "true"`, to use Sauce Performance
 
-* Add in features to the test code and TestNG `xml` file, and set your test to run tests in parallel for Android Appium app test
+* Set your test to run tests in parallel using the TestNG `xml` file
 
 <!-- ------------------------ -->
 ## 2.02 Set Up a Local Android Test Environment
 Duration: 0:07:00
 
-This module is created to walk you through the steps you need to take to get a test running on [Sauce Labs.](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link) You will start with a local test running on the Appium Server, using the Android Studio device emulator. If you would like to follow along, you can start here with the example application and Appium Test code to run on your local machine, or skip ahead to the next module to start running tests on Sauce Labs.
+This module is created to walk you through the steps you need to take to get a test running on [Sauce Labs.](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link) In this lesson you will:
+
+* Install dependencies to run local Appium tests
+* Start with a local test running on the Appium Server, using the Android Studio device emulator.
+
+If you would like to follow along, you can start here with the example application and Appium Test code to run on your local machine, or **skip ahead to the next module to start running tests on Sauce Labs**.
 #### Video
 **[Android Appium Project Setup](https://www.youtube.com/watch?v=aRC6WkmFfzc)**
 
@@ -137,7 +146,6 @@ Once you have everything downloaded and installed, you need to do the following 
 Open **Android Studio** and start an emulator.
 
 
-
 * Go to **Tools > AVD Manager**
 
 <img src="assets/QS2.02C.png" alt="Appium Doctor Interface" width="250"/>
@@ -157,7 +165,14 @@ Duration: 0:10:00
 
 ### Test Suite Components
 
-The local Appium test is made up of a few basic files. We will use and edit all of them as we add capabilities to the Android app tests. This example uses the Java programming language, the TestNG testing framework, Appium commands, and the Maven resource manager. You will need to update code` tests/BasicTest.java`, `pom.xml`, and `/resources/config/basic_test.xml `to get your tests started.
+In this module, you will learn about the files in this Appium test suite. You will understand:
+* Which capabilities are required for an app tests
+* How to use Appium Desktop and Android Studio to run a local test
+* How to modify the <`properties`> tag in the TestNG `xml` file.
+* How to identify the main test file
+* How and why you update `pom.xml`
+
+This lesson will show you which code to add to `tests/BasicTest.java`, `pom.xml`, and `/resources/config/basic_test.xml` to create an appium test you can run on your local machine.
 
 #### Video
 
@@ -165,8 +180,8 @@ The local Appium test is made up of a few basic files. We will use and edit all 
 
 <video id="B-IV9Sog2vw"></video>
 
-### Test Code Overview
-You can see an [example of the project code here.](https://github.com/walkerlj0/Quickstart_Android/tree/master/Mod2/2.03). You can either fork this code, or follow the steps in this module to copy & create the same project code.
+
+### Appium Capabilities
 
 The first thing you need to know is which capabilities are required to run a test using Appium and a local Android Device:
 
@@ -182,10 +197,14 @@ The first thing you need to know is which capabilities are required to run a tes
 Negative
 : React Native apps (which is the type of app you are using in this example) also require the `appWaitActivity `or `appActivity` set to the the name of the first activity (the “screen” or class that is invoked when the app is started) that your application lands on. With this capability your app knows which view should be loaded before initializing the test, which is not always communicated with React applications.
 
+
+### The Appium Server
 You can use the **Start Inspector Session** button to test your capabilities in Appium Desktop.
 
 <img src="assets/QS2.03A.png" alt="Appium Doctor" width="750"/>
 
+
+### Test Code Overview
 
 **pom.xml –** This file contains the libraries and configurations used by Maven to build the project. The versions for important dependencies, such as Appium, TestNG, logging, and Sauce Labs are included in this file. Any dependency you want to import in your project classes are specified here. You can easily update the variable with the version number in the `properties` tag at the top.
 
@@ -203,15 +222,14 @@ Access the Base Code in this [GitHub repo](https://github.com/walkerlj0/Quicksta
 
 ### Create Your Project
 
-This course will demonstrate using the IntelliJ IDEA code editor, which allows you to set up a project using Maven and JDK 1.8. If you are setting up a new project, and copying and pasting the code, you will need to choose Maven as a build tool and choose a Java SDK you have as you set up the project.
+Options for Setting up the project:
+* You can copy [example of the project code here](https://github.com/walkerlj0/Quickstart_Android/tree/master/Mod2/2.03). Make sure that you [add Maven support](https://www.jetbrains.com/help/idea/convert-a-regular-project-into-a-maven-project.html) if you use a copy of the code.
+* [Create your own project using IntelliJ IDE](https://training.saucelabs.com/codelabs/Module2-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) and add the code with the instructions below.
+
+Make sure either way, you have [set up your project](https://training.saucelabs.com/codelabs/Module2-SeleniumJava/index.html?index=..%2F..SeleniumJava#copy-the-project-code-optional) with **Maven** as a build tool and **choosen a Java SDK** you have as you set up the project.
 
 
-### Final Code
-
-You can see an [example of the project code here.](https://github.com/walkerlj0/Quickstart_Android/tree/master/Mod2/2.03)
-
-
-### Update pom.xml
+### Add to `pom.xml`
 Add your configuration into `pom.xml`. You may need to invalidate and restart again to activate the imports:
 
 
@@ -325,17 +343,15 @@ Add your configuration into `pom.xml`. You may need to invalidate and restart ag
 </project>
 
 ```
-#### Note
-Negative
-: If you are cloning a project, follow these steps (after you have uploaded `pom.xml`): Right-click on the project name and choose **Add Framework Support** So you can make sure you are using Maven and can choose a Java version.     <img src="assets/QS2.03D.png" alt="Appium Doctor" width="450"/>.  
-
-Negative
-: Choose **Maven** as a build tool. –– Go to **File > Project Structure**. –– Select a JDK that you have installed on your machine. –– Choose **File > Invalidate Caches and Restart** so the changes can take effect. <img src="assets/QS2.03E.png" alt="Appium Doctor" width="450"/>
 
 ### Update Test Files
 Once you have all your directories and files set up, add the following code to your test files.
 
-Add the following to `BasicTest.java`: under the APP variable, and add the absolute file path to where the `.apk` file for the Swag Labs App is stored on your local machine.
+#### Note
+Negative
+: You will have to modify the `APP` variable, adding the absolute file path to where the `.apk` file for the Swag Labs App is stored on your local machine.
+
+Add the following to `BasicTest.java`:
 
 
 ```
@@ -476,7 +492,17 @@ Once you have the first project configured, you can start Appium desktop and an 
 ## 2.04 Run an Emulator App Test on Sauce Labs
 Duration: 0:20:00
 
-The first thing you will do with your BasicTest is to add the configurations and capabilities to run that test on an app on a Sauce Labs emulator.
+In the lesson, you will modify BasicTest is to add the configurations and capabilities and run that test on an app test on a Sauce Labs emulator. You will:
+
+* Create Environment variables for Sauce Sauce Labs credentials
+* Upload your app file to Sauce Labs & update the `APP` variable
+* Create a new test and `xml` file for your Sauce Labs app test, including
+  * Updating capabilities for Sauce Labs
+  * Adding Sauce Labs credentials and data center
+  * Adding a `url`endpoint to test on Sauce labs  
+  * Adding test logging to help with debugging
+  * Delete the APPIUM variable used for local tests
+  * Add a config file to set a region variable
 
 To do this tutorial, start with the **[Basic Test](https://github.com/walkerlj0/Quickstart_Android/blob/master/Mod2/2.04/src/test/java/tests/BasicTest.java)** and follow along to make the changes.
 
@@ -522,7 +548,7 @@ First, we will create a separate test file, based on `BasicTest.java`. The first
 <img src="assets/QS2.04E.png" alt="New Android Emulator Test" width="250"/>
 
 
-Lastly, update the `pom.xml` in the `properties` tag where you see the `<testNGxml file> `tag to say `mobile_android_EMU_test.xml`. Now, TestNG will run that test when you run the `mvn clean test` command in terminal.
+Lastly, update the `pom.xml` in the `properties` tag where you see the <`testNGxml file`> tag to say `mobile_android_EMU_test.xml`. Now, TestNG will run that test when you run the `mvn clean test` command in terminal.
 
 <img src="assets/QS2.04F.png" alt="Emulator Test TestNG File" width="750"/>
 
@@ -758,7 +784,17 @@ You can see an [example of the project code here.](https://github.com/walkerlj0/
 ## 2.05 Run an Emulator Web Browser Test on Sauce Labs
 Duration: 0:15:00
 
-Configuring and running a local test to run as an Android web browser test is very similar to running a mobile test on the [Sauce Labs](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link) emulator platform. The only difference here is that we will run the test in the browser instead of on an app that you install.
+In this lesson, you will configure and running a local test to run on an **Android web browser**.
+
+* Create Environment variables for Sauce Sauce Labs credentials
+* Remove the `APP` and `Appium` variables
+* Create a new test and `xml` file for your Sauce Labs app test, including
+  * Updating capabilities for Sauce Labs, removing capabilities for app tests
+  * Adding Sauce Labs credentials and data center
+  * Adding a `url` endpoint to test on Sauce labs  
+  * Update test methods to work with a web browser
+  * Add a config file to set a region variable
+  * Add test log information
 
 To do this tutorial, start with the **[Basic Test](http://BasicTestLink.com)** and follow along to make the changes.
 
@@ -1084,7 +1120,7 @@ You can see an [example of the project code here.](https://github.com/walkerlj0/
 
 
 <!-- ------------------------ -->
-## 2.06 Passing Appium Test Information to Sauce Labs
+## 2.06 Passing Test Name and Status to Sauce Labs
 Duration: 0:12:00
 
 This module will use the test code from the [Mobile_Android_EMU_Test.java](https://github.com/walkerlj0/Quickstart_Android/blob/master/Final/src/test/java/tests/Mobile_Android_EMU_Test.java). You can also add the same features to your `Mobile_Android_Browser_Test.java`, however, and get the same reporting on [Sauce Labs](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
@@ -1301,7 +1337,12 @@ Now to run your test, creating a new TestNG xml file entitled `mobile_android_EM
 
 ```
 
-Then update your `pom.xml` with `<testngXmlFile>mobile_android_EMU_reporting_test.xml<testngXmlFile> `
+Then update your `pom.xml` with:
+
+```
+ mobile_android_EMU_reporting_test.xml
+ ```
+
 
 #### Note
 Negative
@@ -1378,7 +1419,7 @@ Next, make a copy of any of the TestNG xml files, and name this one `mobile_andr
 
 ### Update the TestNG xml File
 
-The first thing you will need to do is update the TestNg xml file to enable your tests to run in parallel. Inside of the `<suite>` tag you will add three fields, `parallel="methods"` to enable you to run the methods in parallel threads, `thread-count="10`” to run 10 threads at once, and `verbose="1"` to run the lowest level of reporting. This allows you to run up to 10 methods in your test suite at once in parallel.
+The first thing you will need to do is update the TestNg xml file to enable your tests to run in parallel. Inside of the <`suite`> tag you will add three fields, `parallel="methods"` to enable you to run the methods in parallel threads, `thread-count="10`” to run 10 threads at once, and `verbose="1"` to run the lowest level of reporting. This allows you to run up to 10 methods in your test suite at once in parallel.
 
 
 ```
@@ -1398,7 +1439,7 @@ The first thing you will need to do is update the TestNg xml file to enable your
 
 TestNG allows you to output report files to be used with other tools to send information when a test fails, however since you are using Sauce Labs for reporting, we won’t cover this in detail.
 
-Next you want to add in the fields `parallel="methods"` and `enabled="true"` to the `<test>` tag so that you can run methods within the same test class in parallel. This is a bit redundant as we are only running one suite at first, but can come in handy later.
+Next you want to add in the fields `parallel="methods"` and `enabled="true"` to the <`test`> tag so that you can run methods within the same test class in parallel. This is a bit redundant as we are only running one suite at first, but can come in handy later.
 
 
 ```
@@ -1416,7 +1457,7 @@ Next you want to add in the fields `parallel="methods"` and `enabled="true"` to 
 ```
 
 
-Once you start to build out your test, you can add different `<tests>` containing multiple `<classes>` and use `enabled="true"` to run them, or switch certain tests off by setting `enabled="false"`.
+Once you start to build out your test, you can add different <`tests`> containing multiple <`classes`> and use `enabled="true"` to run them, or switch certain tests off by setting `enabled="false"`.
 
 You can also run [classes](https://www.seleniumeasy.com/testng-tutorials/parallel-execution-of-classes-in-testng), [tests](https://www.seleniumeasy.com/selenium-tutorials/testing-in-multiple-browsers), and [suites](https://howtodoinjava.com/testng/testng-executing-parallel-tests/#parallel_test_suite) in parallel using TestNG.
 
