@@ -227,9 +227,15 @@ Selenium is able to find and interact with elements on a page by way of various 
 Duration: 0:15:00
 
 ### Project Setup
-In order to run your you first need to install a driver that can communicate with the version of the browser (Chrome, Firefox, etc) you have on your local machine.
 
+Open up the [IntelliJ IDE](https://www.google.com/search?q=download+intellij+idea&oq=download+IntelliJ+IDe&aqs=chrome.0.0j69i57j0l3j69i64l3.6131j0j7&sourceid=chrome&ie=UTF-8) and create a new project using Maven and your JDK (1.8 is recommended)
 
+<img src="assets/2.06H.png" alt="New IntelliJ project" width="350"/> <img src="assets/2.06I.png" alt="New IntelliJ project maven JDK" width="350"/>
+
+Choose which directory you want to store your project in, and give it a name such as **SeleniumJava**:
+<img src="assets/2.06J.png" alt="New IntelliJ project directory and name" width="550"/>
+
+In order to run your you will also need to install a driver that can communicate with the version of the browser (Chrome, Firefox, etc) you have on your local machine.
 
 ### Installing Chromedriver
 In order for your test to run on a browser on your local machine, you need to install the driver for the browser, and update your code. A similar set of steps can be followed for any browser.
@@ -297,7 +303,7 @@ Under **Project Settings**, choose **Project**, then choose your SDK in the drop
 ## 2.06 Create Your Java Test Code
 Duration: 0:15:00
 
-Now we are ready to start writing the code for your first test. Create a new project directory called **SeleniumJava** (in your main project directory on your computer), and inside create the directory **java**. This is a default folder that Maven will know to look for.
+First you will need to create a new project directory called `SeleniumJava` (your main project directory), and navigate into the `src/test/java` inside that project directory. This is where we will place our Selenium Java Tests.
 
 Inside of your Java file create a package. This example is named **tests.** Inside of that create a file called **TestLogin.java**.
 
