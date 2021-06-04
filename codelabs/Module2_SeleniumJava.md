@@ -227,7 +227,10 @@ Selenium is able to find and interact with elements on a page by way of various 
 Duration: 0:15:00
 
 ### Project Setup
-In order to run your you first need to install a driver that can communicate with the version of the browser (Chrome, Firsfox, etc) you have on your local machine.
+In order to run your you first need to install a driver that can communicate with the version of the browser (Chrome, Firefox, etc) you have on your local machine.
+
+
+
 ### Installing Chromedriver
 In order for your test to run on a browser on your local machine, you need to install the driver for the browser, and update your code. A similar set of steps can be followed for any browser.
 

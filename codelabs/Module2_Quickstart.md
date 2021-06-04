@@ -16,32 +16,41 @@ author:Lindsay Walker, Eyal Yovel
 ## 2.01 What You’ll Learn
 Duration: 0:01:00
 
-There are many possibilities for testing in[ Sauce Labs](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link), and in this module we will cover two specific cases: Testing an Android mobile application, and testing an Android mobile  web application on the Sauce Labs Emulators. Both of these tests will be created using the Appium driver, Java, and the TestNG testing library, and will be run against virtual devices and browsers on Sauce Labs. IOS is not covered in this module, nor are tests written in Espresso, as you need a different environment to test locally, and would need to upload your project file Sauce Labs in a different way.
+### Appium Tutorial
+In this module, you will be walked through an example of setting up and running an Appium Java test with Android, covering two specific cases:
+* Testing an Android mobile application on Sauce Labs Emulators
+* Testing an Android mobile  web application on the Sauce Labs Emulators
 
+Both of these tests will be created using the **Appium driver, Java, and the TestNG test runner**, and will be run locally and using the virtual devices on the Sauce Labs Cloud.
 
 ### Skills & Knowledge
 
-* Learn about how to set up your environment to set up an Appium Mobile App test on your machine using Appium and Android Studio, among other tools
+* Learn about how to set up your environment to run an Appium mobile app or mobile browser test
 
-* Understand the elements of an Appium Android mobile app test suite and run it locally, understanding how all the elements of code in a simple test suite interact
+* Understand the elements of an Appium Android mobile app test suite and run it locally
 
-* Learn about how an Appium test suite is written with the TestNG testing framework and run tests using Maven and TestNG `xml` files
+* Run tests using Maven and TestNG
 
-* Update the configuration to run an Appium Android Mobile app test suite on Sauce Labs by uploading your app, and adding the information to run your test including app name or URL, `SAUCE_USERNAME`, and `SAUCE_ACCESS_KEY`
+* Update the configuration to run an Appium Android Mobile app test suite on Sauce Labs
 
 * Update capabilities and test code to run both an Appium Android mobile app test and an Appium Android mobile browser test on Sauce Labs
 
 * Add features to your test suite using the Sauce Options (capabilities) that allow you to add names, session IDs, and pass fail conditions
 
-* Add in the capabilities `extendedDebugging` and `capturePerformance == "true"`, then use Sauce Performance to view resources that are loaded with the network tab in automated test results
+* Add in the capabilities `extendedDebugging` and `capturePerformance == "true"`, to use Sauce Performance
 
-* Add in features to the test code and TestNG `xml` file, and set your test to run tests in parallel for Android Appium app test
+* Set your test to run tests in parallel using the TestNG `xml` file
 
 <!-- ------------------------ -->
 ## 2.02 Set Up a Local Android Test Environment
 Duration: 0:07:00
 
-This module is created to walk you through the steps you need to take to get a test running on [Sauce Labs.](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link) You will start with a local test running on the Appium Server, using the Android Studio device emulator. If you would like to follow along, you can start here with the example application and Appium Test code to run on your local machine, or skip ahead to the next module to start running tests on Sauce Labs.
+This module is created to walk you through the steps you need to take to get a test running on [Sauce Labs.](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link) In this lesson you will:
+
+* Install dependencies to run local Appium tests
+* Start with a local test running on the Appium Server, using the Android Studio device emulator.
+
+If you would like to follow along, you can start here with the example application and Appium Test code to run on your local machine, or **skip ahead to the next module to start running tests on Sauce Labs**.
 #### Video
 **[Android Appium Project Setup](https://www.youtube.com/watch?v=aRC6WkmFfzc)**
 
@@ -157,7 +166,14 @@ Duration: 0:10:00
 
 ### Test Suite Components
 
-The local Appium test is made up of a few basic files. We will use and edit all of them as we add capabilities to the Android app tests. This example uses the Java programming language, the TestNG testing framework, Appium commands, and the Maven resource manager. You will need to update code` tests/BasicTest.java`, `pom.xml`, and `/resources/config/basic_test.xml `to get your tests started.
+In this module, you will learn about the files in this Appium test suite. You will understand:
+* Which capabilities are required for an app tests
+* How to use Appium Desktop and Android Studio to run a local test
+* How to modify the <`properties`> tag in the TestNG `xml` file.
+* How to identify the main test file
+* How and why you update `pom.xml`
+
+This lesson will show you which code to add to `tests/BasicTest.java`, `pom.xml`, and `/resources/config/basic_test.xml` to create an appium test you can run on your local machine.
 
 #### Video
 
@@ -165,7 +181,11 @@ The local Appium test is made up of a few basic files. We will use and edit all 
 
 <video id="B-IV9Sog2vw"></video>
 
-### Test Code Overview
+### Example Code
+
+You can copy [example of the project code here](https://github.com/walkerlj0/Quickstart_Android/tree/master/Mod2/2.03), or create your own project with the instructions below. Make sure that you [add Maven support](https://www.jetbrains.com/help/idea/convert-a-regular-project-into-a-maven-project.html) if you use a copy of the code.
+
+### Appium Capabilities
 You can see an [example of the project code here.](https://github.com/walkerlj0/Quickstart_Android/tree/master/Mod2/2.03). You can either fork this code, or follow the steps in this module to copy & create the same project code.
 
 The first thing you need to know is which capabilities are required to run a test using Appium and a local Android Device:
@@ -182,10 +202,14 @@ The first thing you need to know is which capabilities are required to run a tes
 Negative
 : React Native apps (which is the type of app you are using in this example) also require the `appWaitActivity `or `appActivity` set to the the name of the first activity (the “screen” or class that is invoked when the app is started) that your application lands on. With this capability your app knows which view should be loaded before initializing the test, which is not always communicated with React applications.
 
+
+### The Appium Server
 You can use the **Start Inspector Session** button to test your capabilities in Appium Desktop.
 
 <img src="assets/QS2.03A.png" alt="Appium Doctor" width="750"/>
 
+
+### Test Code Overview
 
 **pom.xml –** This file contains the libraries and configurations used by Maven to build the project. The versions for important dependencies, such as Appium, TestNG, logging, and Sauce Labs are included in this file. Any dependency you want to import in your project classes are specified here. You can easily update the variable with the version number in the `properties` tag at the top.
 
@@ -203,15 +227,12 @@ Access the Base Code in this [GitHub repo](https://github.com/walkerlj0/Quicksta
 
 ### Create Your Project
 
+Another option, if you don't want to clone the github repo, is to copy and paste the code below.
+
 This course will demonstrate using the IntelliJ IDEA code editor, which allows you to set up a project using Maven and JDK 1.8. If you are setting up a new project, and copying and pasting the code, you will need to choose Maven as a build tool and choose a Java SDK you have as you set up the project.
 
 
-### Final Code
-
-You can see an [example of the project code here.](https://github.com/walkerlj0/Quickstart_Android/tree/master/Mod2/2.03)
-
-
-### Update pom.xml
+### Add to `pom.xml`
 Add your configuration into `pom.xml`. You may need to invalidate and restart again to activate the imports:
 
 
@@ -325,17 +346,14 @@ Add your configuration into `pom.xml`. You may need to invalidate and restart ag
 </project>
 
 ```
-#### Note
-Negative
-: If you are cloning a project, follow these steps (after you have uploaded `pom.xml`): Right-click on the project name and choose **Add Framework Support** So you can make sure you are using Maven and can choose a Java version.     <img src="assets/QS2.03D.png" alt="Appium Doctor" width="450"/>.  
-
-Negative
-: Choose **Maven** as a build tool. –– Go to **File > Project Structure**. –– Select a JDK that you have installed on your machine. –– Choose **File > Invalidate Caches and Restart** so the changes can take effect. <img src="assets/QS2.03E.png" alt="Appium Doctor" width="450"/>
 
 ### Update Test Files
 Once you have all your directories and files set up, add the following code to your test files.
 
-Add the following to `BasicTest.java`: under the APP variable, and add the absolute file path to where the `.apk` file for the Swag Labs App is stored on your local machine.
+Add the following to `BasicTest.java`:
+
+Negative
+: Under the `APP` variable, and add the absolute file path to where the `.apk` file for the Swag Labs App is stored on your local machine.
 
 
 ```
