@@ -48,7 +48,7 @@ This module contains a list of resources your will need to clone & use the [samp
 * Troubleshoot issues with running the code.
 
 #### Video
-**[Local Test Project Code – Java and JUnit4]()**
+**[Local Test Project Code – Java and JUnit4](https://drive.google.com/file/d/1YFyvUfB758KdRto9m71SaEbbrIHD9dVb/view?usp=sharing)**
 
 ### Test Code
 If you have your own testing suite written in Java, using the JUnit 4 test runner, with capabilities set up similar to [the base test here](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod4/4.05/src/test/java/tests/BaseTest.java)  or you understand the differences between the test runner you are using and how to structure capabilities, you jump to the next section. Otherwise, use the example code in the GitHub repo.
@@ -117,7 +117,7 @@ Once you understand how the test suite functions, you need to update settings su
 
 
 #### Video
-**[Setup to Run Web App Tests On Sauce Labs]()**
+**[Setup to Run Web App Tests On Sauce Labs](https://drive.google.com/file/d/1oTTLA3n0fKLgy0DBtcxoZz3tyo4QiCZX/view?usp=sharing)**
 
 ### About Running Tests on Sauce Labs
 
@@ -275,7 +275,7 @@ Now that you have the pieces in place, such as your Sauce Labs credentials and v
 * Start a Remote WebDriver and run tests using different options on Sauce Labs
 
 #### Video
-**[Run a Web App Test on Sauce Labs]()**
+**[Run a Web App Test on Sauce Labs](https://drive.google.com/file/d/1PDaEdpvqfqd_zHcSCW67IRTYuAHyXSGG/view?usp=sharing)**
 
 
 ### Update your URL and Capabilities
@@ -375,7 +375,7 @@ In this lesson you will add in the test name to make it easier to understand whi
 * Set the name capability to pass that information to Sauce Labs
 
 #### Video
-**[Adding a Test Name on Sauce Labs – Java JUnit4]()**
+**[Adding a Test Name on Sauce Labs – Java JUnit4](https://drive.google.com/file/d/13OvxqtE2Tupym0bzRu8Op4VSpHOFRJ5t/view?usp=sharing)**
 
 
 Now that your tests are up and running on the Sauce Labs platform, you’ll notice it’s hard to tell one apart from the other. The tests you should have run will show up as **Unnamed job** with a hash identifier- not easy to use for testing and debugging.
@@ -451,7 +451,7 @@ Right now regardless of the outcome of a test, the job in Sauce Labs will regist
 * Pass information about the pass or fail status with TestWatcher of your test using the Sauce REST API, and the `sessionId`
 
 #### Video
-**[Add a Test Status on Sauce Labs – Java JUnit4]()**
+**[Add a Test Status on Sauce Labs – Java JUnit4](https://drive.google.com/file/d/1ux5cF5dD1tV93258L36lBhYgFWYJ8a6T/view?usp=sharing)**
 
 <img src="assets/4.06F.png" alt="Error or Complete" width="750"/>
 
@@ -597,7 +597,7 @@ It's easy to add in a new type of browser in your Config file, however there is 
 
 
 #### Video
-**[Run Tests on Different Browsers on Sauce Labs]()**
+**[Run Tests on Different Browsers on Sauce Labs](https://drive.google.com/file/d/1cWi7KDJdaoq6_Dh6FmJxekeUBxaPbAqC/view?usp=sharing)**
 
 ### Use Browser Options Capabilities
 Currently in your test, you are using [`MutableCapabilities`](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html), which allow you to add any capability in that you want (you can even make up and add a capability that doesn't exist, or make up your own).
@@ -764,7 +764,7 @@ In this lesson you will be learning how to set up Sauce Labs to run tests in par
 
 
 #### Video
-**[Title]()**
+**[Running Java Tests in Parallel on Sauce Labs](https://drive.google.com/file/d/18uD6zJKqikmNho3dDE6NHzTTklJ9nLeT/view?usp=sharing)**
 
 Parallelization is one of the main advantages to using a platform like Sauce Labs, however you also must be careful when designing a test suite to make sure the tests can be run in parallel, and in any order, or else account for and create code that does run certain tests in order. Luckily, our test suite has been well set up to run in parallel.
 
