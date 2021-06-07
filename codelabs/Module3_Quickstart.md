@@ -453,11 +453,12 @@ Right now regardless of the outcome of a test, the job in Sauce Labs will regist
 #### Video
 **[Add a Test Status on Sauce Labs – Java JUnit4](https://drive.google.com/file/d/1ux5cF5dD1tV93258L36lBhYgFWYJ8a6T/view?usp=sharing)**
 
-<img src="assets/4.06F.png" alt="Error or Complete" width="750"/>
+
 
 Negative
 : A  _failure_ is different from an _error_. An error means that you test code is erroneous, and you, as the test writer, need to make a change. You should see this error in your terminal output, and if the code is correct to communicate with Sauce Labs, it should be on your dashboard as well. A failure means a test successfully ran, but the conditions it was checking for were not present – in other words, the code for the app isn’t as expected or needs fixing.
 
+<img src="assets/4.06F.png" alt="Error or Complete" width="750"/>
 
 ### Create Session ID and Sauce Rest Functionality
 
@@ -524,15 +525,6 @@ You’ll first need install the `saucerest` library is a part of your `pom.xml` 
 // ...
 
 ```
-
-
-
-#### NOTE
-
-Negative
-: If you add a dependency and the text appears in red (Maven isn’t recognizing it) you can right click on the pom.xml file in the project directory in IntelliJ then choose **Maven > Reload project**: <img src="assets/4.06G.png" alt="Reload project with Maven" width="450"/>
-
-
 
 #### Get Pass And Fail Status with TestWatcher
 
@@ -735,7 +727,7 @@ This example would run your tests on Firefox Version 86.0 on a Windows 10 machin
 mvn clean test -DbrowserName="firefox" -DbrowserVersion="86.0" -DplatformName="Windows 10"   
 ```
 
-Using these commands can be helpful if you want to use a Continuous Integration tool (such as Jenkins of Github Actions)
+Using these commands can be helpful if you want to use a Continuous Integration tool (such as Jenkins of Github Actions) to schedule tests to run in several environments at once.
 
 <img src="assets/QS3.07A.png" alt="Sauce W3C case" width="650"/>
 
