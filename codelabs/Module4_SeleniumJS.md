@@ -130,7 +130,7 @@ cd lib
 touch DriverFactory.js
 cd ..
 cd test
-Touch spec_helper.js
+touch spec_helper.js
 ```
 
 
@@ -394,7 +394,7 @@ Next, find the` visit()` function in the `BasePage `class. You will delete what 
 ```
 // filename: pages/BasePage.js
 //...
-async function visit(url) {
+async visit(url) {
   if (url.startsWith('http')) {
     await this.driver.get(url)
   } else {
@@ -419,7 +419,7 @@ const config = require('../lib/config.js')
 ```
 
 
-Now you need to go into the page objects (`BasePage.js` and `DynamicLoadingPage.js`) and take out the hard-coded URL inside the `visit() `method. Instead we will only have the sub-pages that will append on to the baseURL from the-internet [heroku app](https://the-internet.herokuapp.com/).
+Now you need to go into the page objects (`LoginPage.js` and `DynamicLoadingPage.js`) and take out the hard-coded URL inside the `visit() `method. Instead we will only have the sub-pages that will append on to the baseURL from the-internet [heroku app](https://the-internet.herokuapp.com/).
 
 
 ```
@@ -649,7 +649,7 @@ class DriverFactory {
     let builder = new Builder()
     switch (this.config.host) {
       case 'saucelabs':
-        const url = 'https://ondemand.saucelabs.com/wd/hub'
+        const url = ' https://ondemand.us-west-1.saucelabs.com/wd/hub'
         builder.usingServer(url)
         builder.withCapabilities(this.config.sauce)
         break

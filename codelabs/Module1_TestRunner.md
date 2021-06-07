@@ -92,14 +92,14 @@ You can install Saucectl then pass your entire test suite, including dependencie
 
 ### What is a Containerized Solution?
 
-When you use the Docker mode to run your tests, you are using a simple virtual environment that includes an OS, all the software you would need to run the test, as well as test libraries and dependencies. This means that you, the user, doesn’t have to worry about installing and setting these things up on your machine.
+When you use the Docker mode to run your tests, you are using a simple virtual environment that includes an OS, all the software you would need to run the test, as well as test libraries and dependencies. This means that you, the user, don’t have to worry about installing and setting these things up on your machine.
 
 
 <!-- ------------------------ -->
 ## 1.03 Set Up the Testrunner Toolkit Environment
 Duration: 0:07:00
 
-In this module, you will see how you can set up the Testrunner Toolkit along with Docker _or_ run Saucectl on Sauce Labs VMs on your computer MacOS Computer. The basic steps include:
+In this module, you will see how you can set up the Testrunner Toolkit along with Docker _or_ run Saucectl on Sauce Labs VMs on your MacOS Computer. The basic steps include:
 
 * Install Saucectl with `npm i -g saucectl`
 * Download an [example project](https://github.com/saucelabs/saucectl-cypress-example)
@@ -127,6 +127,23 @@ _More detailed instructions are below_
 
 Negative
 : Note that the config file in the video may be out of date, and the [correct configuration can be found in the documentation.](https://docs.staging.saucelabs.net/testrunner-toolkit/configuration/cypress). This video also doesn't include the `.sauceignore` file, where you can list the files & directories you don't want uploaded when you run your tests in _sauce mode_.
+
+
+
+### Install Docker (Optional)
+
+The first thing you need to do visit the [docker download website ](https://docs.docker.com/get-docker/)and install the correct version on your machine.
+
+Keep in mind that a Docker container is essentially it's own lightweight operating system. This means that any software you have installed on your own machine, or variables that you have set up on your local machine (except for Sauce Labs username and access key, which is detected by Saucectl) won't be available in the Docker environment that is running your Saucectl & Cypress tests without you setting it up in Docker as well.
+
+Start up Docker to ensure it’s running properly on your machine. Most likely, Docker will be set up to start once you have logged on. You can check to see if it’s running with the command `docker info`, and see which version you have with the command `docker -v`.  
+
+
+#### Note
+
+Negative
+: Typically, one would need to import a Docker image, however since you installed Saucectl, the image has been specified in the config file for Saucectl and imported for you.
+
 
 ### Download and Install Saucectl
 
@@ -164,7 +181,19 @@ Once you have a project directory containing cypress tests on your machine, navi
 
 <!-- #### Note
 Negative
-: You will want to make sure your Cypress tests are (and the project structure) works with the same version that you have listed in the `.sauce/config.yml` file. If you are installing `saucectl` in an existing project, make sure that in the setup workflow, you do not overwrite any of the existing files. <img src="assets/TRT1.03D.png" alt="Project directory setup" width="800"/> -->
+: You will want to make sure your Cypress tests works with the same version that you have listed in the `.sauce/config.yml` file. If you are installing `saucectl` in an existing project, make sure that in the setup workflow, you do not overwrite any of the existing files. <img src="assets/TRT1.03D.png" alt="Project directory setup" width="800"/>
+
+To create a new directory, you can use the command
+
+`mkdir testrunner-tests`
+
+<img src="assets/TRT1.03A.png" alt="Create project directory" width="400"/>
+
+To start the toolkit and create your testrunner project, run the command `saucectl new`, then choose the Cypress framework.  Choose the region nearest to you, and you should have the Saucectl client up and running.
+
+<img src="assets/TRT1.03B.png" alt="Choose a framework with Sauce C T L" width="800"/>
+
+
 
 ### The Configuration File
 
@@ -334,7 +363,7 @@ Once you have your tests running, learn more about what you can do with Sauce La
 Now that you have your config file set up, you can run your tests on a Docker container on your machine (Testrunner Toolkit helped set this all up for you) and the results will be sent to Sauce Labs.
 
 Negative
-: Your tests will run more quickly in Docker mode, since you aren't sending you tests to the Sauce Labs Platform, and this mode is good for writing & editing tests. Ensure you’ve set the Docker image tag in your `config.yml`
+: Your tests will run more quickly in Docker mode, since you aren't sending your tests to the Sauce Labs Platform, and this mode is good for writing & editing tests. Ensure you’ve set the Docker image tag in your `config.yml`
 
 
 ####Run Your Tests in Docker Mode
@@ -370,13 +399,17 @@ See an example of the test suite with a [updated suites in `config.yml`](https:/
 ## 1.05 Run Cypress Tests in Parallel
 Duration: 0:03:00
 
-Running Cypress tests in parallel using the Testrunner toolkit is as simple as updating a single field in your `.sauce/config.yml` file:
+Running Cypress tests in parallel in **Sauce mode** using the Testrunner toolkit is as simple as updating a single field in your `.sauce/config.yml` file:
 
 <img src="assets/TRT1.05A.gif" alt="Sauce Cypress Test Results" width="850"/>
 
 Inside of the `.sauce` data object, find the `concurrency` field, and change it from `1` to a larger number (`2` or `10`)
 
 You are able to run suites of tests in parallel using the `concurrency` field in `config.yml`, running as many test suites in parallel as you would like (limited by the of virtual machines you have available on your Sauce Labs account).
+
+Negative
+: In order to run tests in parallel, you must have a paid account that has a concurrency of more than one. See the docs to learn more about concurrency, and check your concurrency  under **User Settings**. <img src="assets/TRT1.05B.png" alt="Concurrency in user settings" width="550"/>
+
 
 ### Run Tests in Multiple Browsers
 To run tests in multiple browsers, simply create a different suite for each browser. You can run the same tests (or different tests) for each suite, and label them according to which OS and browser they will be run in:
@@ -450,7 +483,7 @@ d. The number of machines you want to run concurrently on Sauce Labs, which test
 ## 1.07 Create Page Objects (Optional)
 Duration: 0:05:00
 
-Sauce Labs’ Testrunner Toolkit allows you to take existing Cypress test suites (or build a cypress test suite) and quickly run it on Sauce Labs. In this lesson, you will learn how to modify a couple settings in the `cypress.json` and `.sauce/config.yml` files, then write a basic test and run it on Sauce Labs.
+Sauce Labs’ Testrunner Toolkit allows you to take existing Cypress test suites (or build a cypress test suite) and quickly run them on Sauce Labs. In this lesson, you will learn how to modify a couple settings in the `cypress.json` and `.sauce/config.yml` files, then write a basic test and run it on Sauce Labs.
 
 #### Video
 
@@ -468,7 +501,7 @@ Negative
 
 #### Cypress.json
 
-The inside your **testrunner-tests** project file that you created, you will notice the cypress.json file. This file is used to set [all kinds of options for your Cypress test](https://docs.cypress.io/guides/references/configuration.html). If you don’t set any options, Cypress will use a set of default values. You can pull in data from this file into your tests, to make it easier to preload data in your test.
+Inside your **testrunner-tests** project file that you created, you will notice the cypress.json file. This file is used to set [all kinds of options for your Cypress test](https://docs.cypress.io/guides/references/configuration.html). If you don’t set any options, Cypress will use a set of default values. You can pull in data from this file into your tests, to make it easier to preload data in your test.
 
 First, you will need to add information for your tests about the URL of the app you are testing against. Add the following line to `cypress.json`, which you will use in your tests to pull in the site you are testing against.
 
@@ -723,7 +756,7 @@ describe('LoginPage', () => {
 ```
 
 
-Finally at one last `it() `method to try login in with invalid user credentials, and verify that the error message shows up:
+Finally, add one last `it()` method to create a test that will login in with invalid user credentials, and verify that the error message shows up:
 
 
 ```
@@ -779,7 +812,7 @@ It often helps to debug on your local machine, and the Cypress client provides s
 
 ### Install npm Packages
 
-Install npm in the project folder by navigating and running `npm init` and initialize node package manager (`npm`) in your project.
+Install node package manager (`npm`) in the project folder by navigating to your project directory and running `npm init` to initialize it in your project.
 
 What this does is install node package manager, which will allow you to install cypress on your machine so you can try running the tests locally first. When you do this, you will see a file called `package.json`, which you will need to update.
 

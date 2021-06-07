@@ -48,7 +48,7 @@ This module contains a list of resources your will need to clone & use the [samp
 * Troubleshoot issues with running the code.
 
 #### Video
-[Local Test Project Code – Java and JUnit4]()
+**[Local Test Project Code – Java and JUnit4]()**
 
 ### Test Code
 If you have your own testing suite written in Java, using the JUnit 4 test runner, with capabilities set up similar to [the base test here](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod4/4.05/src/test/java/tests/BaseTest.java)  or you understand the differences between the test runner you are using and how to structure capabilities, you jump to the next section. Otherwise, use the example code in the GitHub repo.
@@ -117,7 +117,7 @@ Once you understand how the test suite functions, you need to update settings su
 
 
 #### Video
-**[Setup to Run Tests On Sauce Labs]()**
+**[Setup to Run Web App Tests On Sauce Labs]()**
 
 ### About Running Tests on Sauce Labs
 
@@ -375,7 +375,7 @@ In this lesson you will add in the test name to make it easier to understand whi
 * Set the name capability to pass that information to Sauce Labs
 
 #### Video
-**[Adding a Test Name – Java JUnit4]()**
+**[Adding a Test Name on Sauce Labs – Java JUnit4]()**
 
 
 Now that your tests are up and running on the Sauce Labs platform, you’ll notice it’s hard to tell one apart from the other. The tests you should have run will show up as **Unnamed job** with a hash identifier- not easy to use for testing and debugging.
@@ -449,6 +449,9 @@ Right now regardless of the outcome of a test, the job in Sauce Labs will regist
 * Capture the `sessionId` from RemoteWebDriver
 * Create a connection with the [SauceRest API](https://github.com/saucelabs/saucerest-java)
 * Pass information about the pass or fail status with TestWatcher of your test using the Sauce REST API, and the `sessionId`
+
+#### Video
+**[Add a Test Status on Sauce Labs – Java JUnit4]()**
 
 <img src="assets/4.06F.png" alt="Error or Complete" width="750"/>
 
@@ -569,9 +572,9 @@ Now when you run `mvn clean test -Dhost=saucelabs` in terminal, then check your 
 
 <img src="assets/4.06C.png" alt="Passed Tests" width="550"/>
 
+#### Final Code
 See an example of the [completed code to compare.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.06)
 
-#### Final Code
 
 <img src="assets/4.06I.png" alt="Test Rule and Watcher" width="550"/>
 
@@ -586,15 +589,20 @@ See an example of the [completed code to compare.](https://github.com/walkerlj0/
 ## 3.07 Run Web App Tests in Different Browsers
 Duration: 0:04:00
 
-It's easy to add in a new type of browser in your Config file, however there is a caveat; each browser has other capabilities that are possible to add along with it.
+It's easy to add in a new type of browser in your Config file, however there is a caveat; each browser has other capabilities that are possible to add along with it. In this module you will:
 
-The best way to set these capabilities is with sets of browser options (such as `SafariOptions()`, `FirefoxOptions()`, etc.) so the the remote driver you are running your tests with on Sauce Labs can recognize which driver it should run your tests with on the Sauce Labs Cloud.
+* Add a switch statement using Selenium `BrowserType` class to detect the browser
+* Add browser options to set capabilities for 5 different types of browsers
+* Run tests on different browser (and operating systems)
+
 
 #### Video
 **[Run Tests on Different Browsers on Sauce Labs]()**
 
 ### Use Browser Options Capabilities
 Currently in your test, you are using [`MutableCapabilities`](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html), which allow you to add any capability in that you want (you can even make up and add a capability that doesn't exist, or make up your own).
+
+A better way to set these capabilities is with sets of browser options, such as `SafariOptions()`, `FirefoxOptions()`, etc.
 
 Each browser has created a limited set of 'capabilities' or settings that are possible use with each browser, which we are going to start using for testing on different browsers. The different capabilities we will use are:
 * [`SafariOptions`](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/safari/SafariOptions.html)
@@ -747,9 +755,16 @@ See an example of the [completed code to compare](https://github.com/walkerlj0/S
 ## 3.08 Run Web App Tests in Parallel
 Duration: 0:08:00
 
-Your tests still take a good deal of time to run since they're executing in series (i.e., one after another). As our suite grows, test latency will grow with it, if you continue to run tests in series the time it takes to run your test suite can grow exponentially.
+Your tests are currently taking a good deal of time to run since they're executing in series (i.e., one after another).
 
-In this lesson you will be learning how to set up Sauce Labs to run tests in parallel. This means that you can run two or more tests, using two or more instances of `BaseTest.java `at the same time.  Previously what you were doing was running` TestLogin.java `first, then running `TestDynamicLoading.java` once it was done.
+In this lesson you will be learning how to set up Sauce Labs to run tests in parallel. This means that you can run two or more tests or classes at the same time. In this lesson you will:
+* Include the Maven Surefire Plugin in `pom.xml`
+* Use the [plugin with the <`parallel`> tag](https://maven.apache.org/surefire/maven-surefire-plugin/examples/fork-options-and-parallel-execution.html) to run tests in parallel
+* Add some additional configuration to optimize running tests in parallel on Sauce Labs
+
+
+#### Video
+**[Title]()**
 
 Parallelization is one of the main advantages to using a platform like Sauce Labs, however you also must be careful when designing a test suite to make sure the tests can be run in parallel, and in any order, or else account for and create code that does run certain tests in order. Luckily, our test suite has been well set up to run in parallel.
 
@@ -795,7 +810,7 @@ The `all` value tells you to run all suites, classes, and methods in parallel. Y
 
 Underneath parallel, add in parameters for the number of thread counts for methods, set unlimited thread counts to `true`. This will allow you to use as many threads as CPUs you have available to you, and not run multiple tests in the same thread. <`threadCountMethods`> sets the number of methods (but not classes or suites)  to be tested at once at a limit of `30`. These configurations optimize the running of large test suites.
 
-You also don’t want to put the output for the reporting to be created in a file, otherwise you cannot run tests in parallel, so we set  <`redirectTestOutputToFile`> to` false`.
+You also don’t want the output for the reporting to be created in a file, otherwise you cannot run tests in parallel, so we set  <`redirectTestOutputToFile`> to` false`.
 
 
 ```
@@ -837,10 +852,8 @@ In your `pom.xml` file, below the <`redirectTestOutputToFile`>, add in:
 
 Now run your tests using `mvn clean test -Dhost=saucelabs` and you should see your tests run in a different order than before.
 
-You can see the [example code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod5/5.04).
-
-
 ### Final Code
+You can see the [example code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Quickstart/Mod3/3.08)
 <img src="assets/5.04I.png" alt="pom.xml Final code" width="650"/>
 
 
