@@ -141,7 +141,7 @@ First, anywhere on your machine install the Saucectl tool globally, using this c
 
 ### Cypress Test Code
 
-You want to fork and clone or download a .zip copy of the [example project](https://docs.saucelabs.com/testrunner-toolkit/installation), then place your tests in the **cypress** directory that contains your tests.
+You want to fork, clone or download a .zip copy of the [example project](https://docs.saucelabs.com/testrunner-toolkit/installation), then place your tests in the **cypress** directory that contains your tests.
 
 You have the following options to test out Cypress on Sauce:
 * Use an existing project you have already (copy-paste in `/cypress`)
