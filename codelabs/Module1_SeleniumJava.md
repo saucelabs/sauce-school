@@ -10,7 +10,7 @@ analytics account: UA-86110990-1
 author: Lindsay Walker
 
 <!-- ------------------------ -->
-# Module 1- Introduction Tutorial | Selenium with Java
+# Module 1 – Setting Up Your Selenium Java Environment
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
@@ -319,9 +319,7 @@ The `pom.xml` file is what Maven uses to identify which dependencies to install 
 ```
 
 
-This sets up all the dependencies, however, you may need to research to make sure you have the most updated or correct version of these dependencies. Each dependency's `version` may need to be updated. You can check Maven
-
-This sets up all the dependencies, however, you may need to research to make sure you have the most updated or correct version of these dependencies. Each dependency's `version` may need to be updated.
+This sets up all the dependencies, however, you may need to research to make sure you have the most updated or correct version of these dependencies. Each dependency's `version` may need to be updated. You can [search the Maven repositories](https://mvnrepository.com/) to find the latest versions of dependencies for your `pom.xml` file.
 
 Once you have added your `pom.xml` file update, go to **File > Invalidate Caches and Restart** for everything to take effect and to get Maven to import the dependencies.
 
@@ -379,7 +377,7 @@ Take a look at the first test code we will be creating in the next module. There
 
 **[Driver.quit](https://artoftesting.com/difference-between-driver-close-and-driver-quit-command-in-selenium-webdriver) –** An important Selenium command to use within **@After** annotations, this closes any browser windows that may be open and terminates the WebDriver session.
 
-You can see an example of the project we will begin to be setting up in the next module](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2/2.06/src/test/java/companyname)
+You can see an example of the project we will begin to be setting up in the next module](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod1/1.06)
 
 <!-- ------------------------ -->
 

@@ -8,7 +8,7 @@ Feedback Link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
 author:Lindsay Walker
 
-# Module 3 — Writing Reusable Test Code
+# Module 3 — Write a Selenium Java Test Suite Using Page Object Model
 
 <!--- ------------------------ -->
 
@@ -272,7 +272,7 @@ Duration: 0:10:00
 
 When you write tests, you are checking for one specific thing to occur. In the last example, you were checking for a specific situation where the user logs into the login page, enters their username and password, and then they get a message indicating their success.
 
-There is more than one reason, however, that that test can fail. The test you wrote kind of assumes that the user and server for the website did everything right, and is testing to see if the app is responding with a success message as expected. Some other reasons that the success message might not display include:
+There is more than one reason, however, that test can fail. The test you wrote kind of assumes that the user and server for the website did everything right, and is testing to see if the app is responding with a success message as expected. Some other reasons that the success message might not display include:
 
 
 
@@ -448,7 +448,7 @@ Source: [Giphy](https://giphy.com/gifs/baby-bye-slide-m9eG1qVjvN56H0MXt8)
 
 Since you are not really using `TestLocator.java`, now would be a good time to delete that test before adding in the new classes in this module.
 
-To delete` LocatorTest.java`, right click on it in the project window in IntelliJ and choose **Refactor > Safe Delete**, as you won’t be using it any longer.
+To delete` TestLocator.java`, right click on it in the project window in IntelliJ and choose **Refactor > Safe Delete**, as you won’t be using it any longer.
 
 <img src="assets/3.05I.png" alt="Refactor and safe delete" width="550"/>
 
@@ -890,11 +890,11 @@ public class TestDynamicLoading {
 
     @Before
     public void setUp() {
-      System.setProperty("webdriver.chrome.driver", "<insert path to chromedriver here>");
-      ChromeOptions browserOptions = new ChromeOptions();
-      browserOptions.setCapability("browserVersion", "86.0");
-      driver = new ChromeDriver(browserOptions);
-      login = new Login(driver)
+        System.setProperty("webdriver.chrome.driver", "<insert path to chromedriver here>");
+        ChromeOptions browserOptions = new ChromeOptions();
+        browserOptions.setCapability("browserVersion", "86.0");
+        driver = new ChromeDriver(browserOptions);
+        dynamicLoading = new DynamicLoading(driver);
     }
 
     @Test

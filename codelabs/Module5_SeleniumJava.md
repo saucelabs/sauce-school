@@ -194,7 +194,7 @@ else if (host.equals("saucelabs-tunnel")) {
     capabilities.setCapability("browserVersion", browserVersion);
     capabilities.setCapability("platformName", platformName);
     capabilities.setCapability("sauce:options", sauceOptions);
-    String sauceUrl = String.format("https://ondemand.saucelabs.com/wd/hub");
+    String sauceUrl = String.format(" https://ondemand.us-west-1.saucelabs.com/wd/hub");
     driver = new RemoteWebDriver(new URL(sauceUrl), capabilities);
     sessionId = ((RemoteWebDriver) driver).getSessionId().toString();
     sauceClient = new SauceREST(sauceUser, sauceKey, DataCenter.US);
