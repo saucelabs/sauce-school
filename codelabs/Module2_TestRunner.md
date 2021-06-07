@@ -1,8 +1,8 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
-summary: Module 2 of the Cypress on Sauce course ...
+summary: In this module, you will learn how and why you use Sauce Connect to run tests through a secure tunnel, and practice running tests against a local app, in the Sauce Labs Cloud. You will also set up an example project  in Github Actions and include the saucectl test in your workflow.
 id: Module2-Testrunner
-categories: beginner
+categories: intermediate
 environments: Web
 status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
@@ -110,7 +110,7 @@ After `-u` you see your username and after `-k` you have your access key, and `-
 ## 2.03 Run Your Cypress Test with Sauce Connect
 Duration: 0:04:00
 
-With Sauce Control and Testrunner Toolkit, you can use Sauce Connect Proxy to run your Cypress tests thorugh a secure proxy tunnel when you run tests the Sauce Labs cloud of virtual machines (in `--test-env sauce`) or in Docker, passing the data to Sauce Labs.
+With Sauce Control and Testrunner Toolkit, you can use Sauce Connect Proxy to run your Cypress tests thorugh a secure proxy tunnel when you run tests the Sauce Labs cloud of virtual machines (in `--test-env sauce`), passing the data to Sauce Labs.
 
 Negative
 : First, make sure that your Sauce Connect tunnel is currently running, as per the instructions in the last module. Now you can make a simple change to `.sauce/config.yml` and run your Cypress test
@@ -375,7 +375,8 @@ In this lesson, you are going to use actions to create two jobs:
   * Use the [action](https://github.com/actions/checkout) to checkout the code for the web app from your repo
   * Install `npm` dependencies
   * Build your app (again) to test against
-  * Use the [action](https://github.com/saucelabs/sauce-connect-action) to setup Sauce Connect Tunnel
+  <!-- * Use the [action](https://github.com/saucelabs/sauce-connect-action) to setup Sauce Connect Tunnel -->
+  * Set up a Sauce Connect Tunnel
   * Use the [action](https://github.com/marketplace/actions/saucectl-run-action) to install & use `saucectl` to run your tests
 
 
@@ -562,37 +563,47 @@ See [the example of the testrunner.yml file](https://github.com/walkerlj0/testru
 
 
 
-<!-- ------------------------
-## Module 2 Quiz
+<!-- ------------------------ -->
+## 2.07 Module 2 Quiz
 
 
-![https://docs.google.com/.......](https://docs.google.com/forms/....)
+![https://docs.google.com/forms/d/e/1FAIpQLSfvzURZbjPjNZzw5QpzPYqEBH8hKUK8kzxbik3Oze8V-dnTmg/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSfvzURZbjPjNZzw5QpzPYqEBH8hKUK8kzxbik3Oze8V-dnTmg/viewform?usp=sf_link)
 
 
 <!--
-1. What
+1. Which of the following is NOT a use case for Sauce Connect Proxy?
 
-a. You
-b. You
-c. You
-d. You
+a. You want to test a pre-production version of an app hosted on a your servers that are only available internally.
+b. You want to test an app that is being spun up on your local machine, using saucectl docker mode *
+c. You want to test an app that is being spun up on your local machine, using saucectl sauce mode
+d. You want to be able to pass app files, test  files, and other data securely for use on the Sauce Labs Testing Cloud
 
-*Sauce CTL...
+* Though you can use saucectl with Docker mode, it's not necessary unless you want have extra security and your app is behind a firewall. It is necessary for Sauce mode since there needs to be a  connection between the Sauce Labs clouds where the tests are run and the local machine where you app is running.
 
-2. Why does
-a. To
-b. To  
-c. To
-d. Its
 
-*The purpose t.
+2. Which of the following do you have to update in the example test suite & saucectl project when you are running in Docker vs. Sauce mode against a local app?
+a. The mode variable in cypress.json
+b. The mode: variable under suites: in config.yml   
+c. The baseUrl variable in config.yml
+d. The baseURL variable in cypress.json*
 
-3. The file ? Choose the answer that is the most correct:
+*Though you may want to update mode:  suites:  to sauce or docker, instead of using a flag with --test-env when running your test, it is absolutely necessary that with this test suite that you change the baseUrl variable in config.json to either http://localhost:3000 (for Sauce mode) or http://host.docker.internal:3000 (for Docker mode)
 
-a. The
-b. The
-c. The
-d. The
+3. When you set up your project with GitHub Actions, what did you need to set up to be able to start creating jobs in GitHub Actions?
 
-* The .sauce/config.yml file ...
+a. Github Secrets for your baseUrl and API key, a saucectl Cypress test project in your app project folder, and a testrunner.yml file.
+b.  Github Secrets for your username and password, a saucectl Cypress test project file, and a separate app project folder, and a testrunner.yml file.
+c. Github Secrets for your username and password, a saucectl Cypress test project in your app project folder, and a testrunner.yml file.*
+d. Github Secrets for your baseUrl and API key, a saucectl Cypress test project in your app project folder, and a package.json file.
+
+* In this example, we merged our test files into our app project file so we could upload the project as a single repo in Github, then setup the Github secrets for your Sauce Username and access key. Last, a YAML file called testrunner.yml was created where jobs to build and test the app are created.
+
+4. In the GitHub actions example, why does the test-web-app job contain the field needs: build-web-app?
+
+a. Because you want to make sure that your app is built (as a test) before you run your test job *
+b. Because you want to make sure your test job uses the GitHub Action to build your app
+c. Because you want to make sure that the correct build tool is used in your test, which is defined in the build-web-app job
+d. Because the app will not be built if you don't create a dependency with the build-web-app
+
+* The purpose of the build-web-app job is to do a pre-build of the app before you runt he build in your test job. Adding the needs: build-web-app to your test job ensures that your Actions won't waste time running the test job if the first (test) build isn't successful.
 -->
