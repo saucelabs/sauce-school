@@ -200,7 +200,7 @@ $color-weave-green, 'weave.svg');
 @include codelab-card(['web'],
   $color-google-blue, 'web.svg');
 
-@include codelab-card(['beginner'], $pantoneRed, 'magGlass.png');
-@include codelab-card(['intermediate'], $pantoneRed, 'seleniumSml.png');
-@include codelab-card(['advanced'], $pantoneRed, 'checkSml.png');
-@include codelab-card(['ee-info'], $pantoneRed, 'xcheckSml.png');
+@include codelab-card(['beginner'], $pantoneRed, 'Beginner.svg');
+@include codelab-card(['intermediate'], $pantoneRed, 'Intermediate.svg');
+@include codelab-card(['advanced'], $pantoneRed, 'Advanced.svg');
+@include codelab-card(['expert'], $pantoneRed, 'Expert.svg');
