@@ -16,7 +16,7 @@ author:Lindsay Walker, Eyal Yovel
 ## 2.01 What You’ll Learn
 Duration: 0:01:00
 
-### Appium Tutorial
+### Android Appium Tutorial
 In this module, you will be walked through an example of setting up and running an Appium Java test with Android, covering two specific cases:
 * Testing an [Android mobile application](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#3) on Sauce Labs Emulators
 * Testing an [Android mobile web](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#4) application on the Sauce Labs Emulators
@@ -66,12 +66,6 @@ Download the following resources on your computer:
 * Scroll down and find the **Android.SauceLabs.Mobile.Sample.app.x.x.x.apk** file. Choose the latest version you can find.
 
 <img src="assets/QS2.02A.png" alt="Swag Labs Mobile App Repo" width="650"/>
-
-
-#### Video
-**[Android Appium Project Setup](https://www.youtube.com/watch?v=aRC6WkmFfzc)**
-
-<video id="aRC6WkmFfzc"></video>
 
 
 ### Dependencies
