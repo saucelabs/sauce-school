@@ -400,7 +400,20 @@ private String testName;
 ```
 Next, before the final closing bracket of the `BaseTest` class, create a new `@Rule`, after the `@Override` that quits the driver. This will create a `TestRule` using [`TestWatcher`](https://junit.org/junit4/javadoc/latest/org/junit/rules/TestWatcher.html) that pulls the display name of the test when the test is starting, so you can pass it in as a Sauce Option.
 
-
+```
+// filename: tests/BaseTest.java
+// ...
+@Rule
+   public TestRule watcher; {
+       watcher = new TestWatcher() {
+           @Override
+           protected void starting (Description description) {
+               testName = description.getDisplayName();
+           }
+       };
+   }
+};
+```
 
 ### Add a Sauce Capability for Test Name
 
