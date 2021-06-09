@@ -38,9 +38,11 @@ Duration: 0:05:00
 This module is created to walk you through the steps you need to take to get a test running on [Sauce Labs.](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link) In this lesson you will:
 
 * Install dependencies to run local Appium tests
-* Start with a local test running on the Appium Server, using the XCode device emulator.
+* Download test code for running a test on a local Appium Server
+* STart an Appium Server
+* Start an Emulator to run your app & tests on, using the XCode device emulator.
 
-If you would like to follow along, you can start here with the example application and Appium Test code to run on your local machine, or **skip ahead to the next module to start running tests on Sauce Labs**.
+If you would like to follow along, you can start with the [example application]() and [Appium Test code]() to run on your local machine, or **skip ahead to module 4.03 to start running tests on Sauce Labs**.
 #### Video
 **[iOS Appium Project Setup]()**
 
@@ -51,7 +53,7 @@ Download the following resources on your computer:
 
 * Download or fork and clone the [iOS Test Code](). See the _/Mod4/??_ folder to follow along starting on the next module.
 
-* Download the Swag Labs [App?](https://github.com/saucelabs/sample-app-mobile/releases) mobile app.
+* Download the [Swag Labs Mobile App .apk file](https://github.com/saucelabs/sample-app-mobile/releases).
 
 * Scroll down and find the **filename** file. Choose the latest version you can find.
 
@@ -70,6 +72,35 @@ To run a local test, you will need to set up and install the following:
 * [Carthage](https://formulae.brew.sh/formula/carthage)
 * An IDE to edit test code like [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
 
+### Getting It Running
+
+To run an app on your local machine, first install all the dependencies above and download the resources. If you are unfamiliar with using Appium and Android Studio to create an emulator and environment to run your tests against, use the following cheat sheet.
+
+
+#### Cheat Sheet
+
+[Quickstart – XCode and Appium Environment Setup](https://docs.google.com/document/d/1e9KEhn0BP9GMGG0ynfcKSMctbLw-IS1w3mseyYAgrbI/edit?usp=sharing)
+
+
+
+#### Appium Doctor
+
+Appium Doctor is a useful tool for checking to make sure that the dependencies and necessary variables are set correctly for your native test to run. Simply install it and run the command `appium-doctor. `
+
+<img src="assets/QS2.02B.png" alt="Appium Doctor Interface" width="550"/>
+
+
+Check to make sure all your dependencies for Appium are installed, such as `NodeJS` and...
+
+
+### Basic Local Run Steps
+
+Once you have everything downloaded and installed, you need to do the following before you can run your code:
+
+Open **Android Studio** and start an emulator.
+
+
+* Go to
 <!-- ------------------------ -->
 ## 4.03 Sample iOS Appium Test Code Overview
 Duration: 0:10:00
