@@ -157,7 +157,7 @@ Negative
 ### Adding a Test Component
 Lets add a GET component that can make a successful API call against the Sauce Labs REST API.
 
-In the previous step we encountered a common authentication error **[HTTP: 401](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401**) since you didn't send the username and access key that Sauce Labs requires to communicate with their API. In order to fix this error we must add our [Sauce Labs Account Credentails](https://app.saucelabs.com/user-settings) as a [Basic Authentication Header](https://docs.saucelabs.com/api-testing/how-to/authorization-simple-oauth-etc/index.html#overview).
+In the previous step we encountered a common authentication error, **[HTTP: 401](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401**), since you didn't send the username and access key that Sauce Labs requires to communicate with their API. In order to fix this error we must add our [Sauce Labs Account Credentails](https://app.saucelabs.com/user-settings) as a [Basic Authentication Header](https://docs.saucelabs.com/api-testing/how-to/authorization-simple-oauth-etc/index.html#overview).
 
 1. At the top of the Test Composer page, select the plus symbol to **add a new request component**:
    <img src="assets/apif-mod2/add-component-button.png" alt="API Fortress: Add Component Button" />
