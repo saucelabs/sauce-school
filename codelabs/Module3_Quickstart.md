@@ -865,4 +865,4 @@ You can see the [example code here](https://github.com/walkerlj0/Selenium_Course
 <!-- ------------------------ -->
 ## 3.09 Module 3 Quiz
 Duration: 0:02:00
-![https://docs.google.com/forms/d/e/1FAIpQLScD-Qv4R-99_uW2IumSKhPTkwO3RX-3mU0G-aotTWMrIVVrUA/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScD-Qv4R-99_uW2IumSKhPTkwO3RX-3mU0G-aotTWMrIVVrUA/viewform?usp=sf_link)
+![]()
