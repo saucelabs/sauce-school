@@ -226,7 +226,7 @@ artifacts:
 
 Take a look at the top of the config file. There are several important elements here that can be modified.
 *   The `apiVersion` is the Saucectl API Version
-*   The `kind` is the testing framework
+*   The `kind` is the tesing framework
 * You can set the mode (_Docker_ or _Sauce_) in `mode` at this level, or as a field that is a part of a `suite`
 * If you are using _Docker mode_, you can `mount` or `copy` files
 *   The `cypress` information tells your cypress tests where to look for the test configuration file, and which version of cypress you are running. Other file locations are relative to where `config.json` is place. See the docs for a [list of supported versions]((https://docs.saucelabs.com/testrunner-toolkit))
