@@ -48,8 +48,8 @@ Duration: 0:07:00
 This module is created to walk you through the steps you need to take to get a test running on [Sauce Labs.](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link) In this lesson you will:
 
 * Install dependencies to run local Appium tests
-* [Configure and run Appium Desktop](https://docs.google.com/document/d/1Q1b744PYJs7aMmpiUfgHPpnjB5SKG3nMKqWx8bYfEUs/edit?usp=sharing)
-* [Start an Android Emulator](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#basic-local-run-steps)
+* [Configure](https://docs.google.com/document/d/1Q1b744PYJs7aMmpiUfgHPpnjB5SKG3nMKqWx8bYfEUs/edit?usp=sharing) and [run Appium Desktop](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#environment-run-steps)
+* [Start an Android Emulator](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#environment-run-steps)
 
 If you would like to follow along, you can start here with the example application and Appium Test code to run on your local machine, or **skip ahead to the next module to start running tests on Sauce Labs**.
 
@@ -243,7 +243,12 @@ Make sure either way, you have [set up your project](https://training.saucelabs.
 
 
 ### Add to `pom.xml`
-Add your configuration into `pom.xml`. You may need to invalidate and restart again to activate the imports:
+Add your configuration into `pom.xml`.
+
+Negative
+: The latest versions for the <`properties`> tags can be found in the Maven Repositories [like this one for the Appium Java client](https://mvnrepository.com/artifact/io.appium/java-client)
+
+You may need to invalidate and restart again to activate the imports:
 
 
 ```
@@ -364,7 +369,7 @@ Once you have all your directories and files set up, add the following code to y
 Negative
 : You will have to modify the `APP` variable, adding the absolute file path to where the `.apk` file for the Swag Labs App is stored on your local machine.
 
-Add the following to `BasicTest.java`:
+If you didn't clone [the repo](https://github.com/walkerlj0/Quickstart_Android), you can create and copy the following to `BasicTest.java`:
 
 
 ```
@@ -478,7 +483,7 @@ public class BasicTest {
 ```
 
 
-Add the following to `basic_test.xml`:
+If you didn't clone [the repo](https://github.com/walkerlj0/Quickstart_Android), you can create and copy the following in `basic_test.xml`:
 
 
 ```
@@ -500,6 +505,9 @@ Add the following to `basic_test.xml`:
 
 Once you have the first project configured, you can start Appium desktop and an Android emulator and run your test, using the command `mvn clean test.`
 
+#### Note
+Negative
+: If you are simply modifying an Appium test that is already configured to run on an Emulator on Sauce Labs, all you need to do is remove the `"app" `and `"appWaitActivity" `capabilities, then add in a `mobile_android_browser_test.xml` file and update the `pom.xml `to run based on that file.
 
 <!-- ------------------------ -->
 ## 2.04 Run an Emulator App Test on Sauce Labs
@@ -817,11 +825,6 @@ To do this tutorial, start with the **[Basic Test](http://BasicTestLink.com)** a
 **[Android Appium Mobile Browser Test](https://www.youtube.com/watch?v=jfYyL8Tdqk8)**
 
 <video id="jfYyL8Tdqk8"></video>
-
-#### Note
-Negative
-: If you are simply modifying an Appium test that is already configured to run on an Emulator on Sauce Labs, all you need to do is remove the `"app" `and `"appWaitActivity" `capabilities, then add in a `mobile_android_browser_test.xml` file and update the `pom.xml `to run based on that file.
-
 
 ### Create Environment Variables for Sauce Labs
 
