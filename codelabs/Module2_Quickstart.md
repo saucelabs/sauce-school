@@ -48,9 +48,11 @@ Duration: 0:07:00
 This module is created to walk you through the steps you need to take to get a test running on [Sauce Labs.](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link) In this lesson you will:
 
 * Install dependencies to run local Appium tests
-* Start with a local test running on the Appium Server, using the Android Studio device emulator.
+* [Configure and run Appium Desktop](https://docs.google.com/document/d/1Q1b744PYJs7aMmpiUfgHPpnjB5SKG3nMKqWx8bYfEUs/edit?usp=sharing)
+* [Start an Android Emulator](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#basic-local-run-steps)
 
 If you would like to follow along, you can start here with the example application and Appium Test code to run on your local machine, or **skip ahead to the next module to start running tests on Sauce Labs**.
+
 #### Video
 **[Android Appium Project Setup](https://www.youtube.com/watch?v=aRC6WkmFfzc)**
 
@@ -87,16 +89,7 @@ Negative
     * `npm install appium-doctor -g`
 
 
-
-
-
-### Capabilities
-
-Capabilities are sets of settings that you can pass along to the environment your test is being run, using the JSON wire protocol. W3C has a set of capabilities you can use, and you can create your own sets of capabilities using [Mutable Capabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html) to create your own capabilities as well.
-
-Other vendors, such as [Chrome](https://chromedriver.chromium.org/capabilities), [Firefox](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions), and Sauce Labs have created other pre-defined subsets of capabilities that you can set, which are useful when you need to set specific capabilities such as extensions for Chrome, or the Sauce username.
-
-### Appium
+### About Appium
 
 Appium was built off of the Selenium library to extend testing capabilities to include things you can only do on a mobile device or application. With Appium you are able to do more, with capabilities like pinching and zooming the way you would on a mobile device screen, and scanning a QR code with a native mobile application.
 
@@ -115,16 +108,7 @@ Notice how in this example, you find an element by the accessibility ID, which i
 Appium is also using the new W3C WebDriver Protocol (changed from the JSON Wire Protocol) This is an agreed-upon protocol to support web automation that means that commands sent will be implemented in the same way for different browsers. It also makes it easier to use Appium because a new set of functionality such as multi-touch actions and zooming are supported.
 
 
-### Getting It Running
-
-To run an app on your local machine, first install all the dependencies above and download the resources. If you are unfamiliar with using Appium and Android Studio to create an emulator and environment to run your tests against, use the following cheat sheet.
-
-
-#### Cheat Sheet
-
-[Quickstart – Android Studio and Appium Environment Setup](https://docs.google.com/document/d/1Q1b744PYJs7aMmpiUfgHPpnjB5SKG3nMKqWx8bYfEUs/edit?usp=sharing)
-
-
+### Troubleshooting Appium Environment Setup
 
 #### Appium Doctor
 
@@ -136,7 +120,25 @@ Appium Doctor is a useful tool for checking to make sure that the dependencies a
 Check to make sure all your dependencies for Appium are installed, such as `NodeJS `and the `ANDROID_HOME` and` JAVA_HOME` variables are correct. In this example, the` xcrun` dependency isn’t installed, which is a necessary dependency for iOS tests.
 
 
-### Basic Local Run Steps
+### Environment Run Steps
+Before you can run the elements in your Appium environment, you first need to [download the resources](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#resources) and [install all the dependencies](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#dependencies).
+
+For in-depth configuration insturctions, see the **Cheat Sheet**
+
+#### Cheat Sheet
+
+[Quickstart – Android Studio and Appium Environment Setup](https://docs.google.com/document/d/1Q1b744PYJs7aMmpiUfgHPpnjB5SKG3nMKqWx8bYfEUs/edit?usp=sharing)
+
+#### Start Appium Desktop
+
+Find the Appium desktop on your local machine, and double-click to open the APP
+* Click the **Start Server** button
+
+<img src="assets/QS2.02E.png" alt="Start Server" width="250"/>
+
+* Click **Edit Configurations** in Appium and make sure you have the `JAVA_HOME` and `ANDROID_HOME` paths set.
+
+#### Start Android Studio
 
 Once you have everything downloaded and installed, you need to do the following before you can run your code:
 
@@ -149,15 +151,12 @@ Open **Android Studio** and start an emulator.
 
 * In the AVD manager window, click on the green run arrow next to one of the emulators you have set up. Note the version of Android in the **Target** column.
 
-<img src="assets/QS2.02D.png" alt="Appium Doctor Interface" width="550"/>
-
-* Open Appium and make sure you have the `JAVA_HOME` and `ANDROID_HOME` paths set.
-* Click the **Start Server** button on Appium Desktop.
+<img src="assets/QS2.02D.png" alt="Start Server" width="450"/>
 
 Now you are ready to get your first local test running for an Android test.
 
 <!-- ------------------------ -->
-## 2.03 Sample Android Appium Test Code Overview
+## 2.03 Run a Local Android Appium Test
 Duration: 0:10:00
 
 ### Test Suite Components
@@ -177,6 +176,23 @@ This lesson will show you which code to add to `tests/BasicTest.java`, `pom.xml`
 
 <video id="B-IV9Sog2vw"></video>
 
+### TLDR
+If you are familiar with running app tests, simply:
+* Start the Appium Server
+* Start the Emulator
+* [Open _Mod2/2.03/src/test/java/tests/BasicTest.java_](https://github.com/walkerlj0/Quickstart_Android/blob/master/Mod2/2.03/src/test/java/tests/BasicTest.java)
+* Update the path to your app file & capabilities in `BasicTest.java` to match your Emulator
+* Run `mvn clean test` from the 2.03 directory
+
+<img src="assets/QS2.03F.png" alt="Appium Doctor" width="750"/>
+
+### About Capabilities
+
+Capabilities are sets of settings that you can pass along to the environment your test is being run, using the JSON wire protocol. W3C has a set of capabilities you can use.
+
+Other vendors, such as [Chrome](https://chromedriver.chromium.org/capabilities), [Firefox](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions), and Sauce Labs have created other pre-defined subsets of capabilities that you can set, which are useful when you need to set specific capabilities such as extensions for Chrome, or the Sauce username.
+
+Appium has a certain set of capabilities that must be included in your test code, so your test knows which device and simulator (and sometimes web browser) it should run on. Learn more about capabilities in [Sauce Labs Docs](https://docs.saucelabs.com/dev/test-configuration-options).
 
 ### Appium Capabilities
 
@@ -196,7 +212,7 @@ Negative
 
 
 ### The Appium Server
-You can use the **Start Inspector Session** button to test your capabilities in Appium Desktop.
+You can use the **Start Inspector Session** button to test your capabilities in Appium Desktop before trying to run your test. This way you can see if the set of capabilities you are using will work without having to debug a test.
 
 <img src="assets/QS2.03A.png" alt="Appium Doctor" width="750"/>
 

@@ -39,8 +39,8 @@ This module is created to walk you through the steps you need to take to get a t
 
 * Install dependencies to run local Appium tests
 * Download test code for running a test on a local Appium Server
-* STart an Appium Server
-* Start an Emulator to run your app & tests on, using the XCode device emulator.
+* Start an Appium Server
+* Create a new project with XCode and use it to starts an emulator.
 
 If you would like to follow along, you can start with the [example application]() and [Appium Test code]() to run on your local machine, or **skip ahead to module 4.03 to start running tests on Sauce Labs**.
 #### Video
@@ -53,9 +53,8 @@ Download the following resources on your computer:
 
 * Download or fork and clone the [iOS Test Code](). See the _/Mod4/??_ folder to follow along starting on the next module.
 
-* Download the [Swag Labs Mobile App .apk file](https://github.com/saucelabs/sample-app-mobile/releases).
-
-* Scroll down and find the **filename** file. Choose the latest version you can find.
+* Download the [Swag Labs Mobile App .zip file](https://github.com/saucelabs/sample-app-mobile/releases).
+  * Scroll down and find the **iOS.Simulator.SauceLabs.Mobile.Sample.app.x.x.x.zip** file. Choose the latest version you can find.
 
 <img src="assets/QS2.02A.png" alt="Swag Labs Mobile App Repo" width="650"/>
 
@@ -72,9 +71,14 @@ To run a local test, you will need to set up and install the following:
 * [Carthage](https://formulae.brew.sh/formula/carthage)
 * An IDE to edit test code like [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
 
+
+### About Appium
+
+Appium was built off of the Selenium library to extend testing capabilities to include things you can only do on a mobile device or application. With Appium you are able to do more, with capabilities like pinching and zooming the way you would on a mobile device screen, and scanning a QR code with a native mobile application.
+
 ### Getting It Running
 
-To run an app on your local machine, first install all the dependencies above and download the resources. If you are unfamiliar with using Appium and Android Studio to create an emulator and environment to run your tests against, use the following cheat sheet.
+To run an app on your local machine, first install all the dependencies above and download the resources. If you are unfamiliar with using Appium and XCode to create an emulator and environment to run your tests against, use the following cheat sheet.
 
 
 #### Cheat Sheet
