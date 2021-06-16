@@ -221,7 +221,7 @@ Take a look at the top of the config file. There are several important elements 
 *   The `kind` is the testing framework
 * You can set the mode (_Docker_ or _Sauce_) in `mode` at this level, or as a field that is a part of a `suite`
 * If you are using _Docker mode_, you can `mount` or `copy` files
-*   The `cypress` information tells your cypress tests where to look for the test configuration file, and which version of cypress you are running. Other file locations are relative to where `config.json` is place. See the docs for a [list of supported versions]((https://docs.saucelabs.com/testrunner-toolkit))
+*   The `cypress` information tells your cypress tests where to look for the test configuration file, and which version of cypress you are running. Other file locations are relative to where `config.json` is placed. See the docs for a [list of supported versions](https://docs.saucelabs.com/testrunner-toolkit)
 * An optional setting is where the `rootDir` or root directory is placed
 * The `sauce` information. Here is where you will put information that will be passed to sauce and can be used for debugging tests, such as the name, `build` number from your CI tool, and number of machines you would like to run concurrently
 *   The `suites` information includes the name, browser, and the configuration for your test suites such as what types of file names to look for to run as tests, and other metadata that is passed to the Sauce Labs dashboard for running tests and displaying results.

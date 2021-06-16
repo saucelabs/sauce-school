@@ -14,8 +14,7 @@ author:Lindsay Walker
 
 <!-- ------------------------ -->
 ## 3.01 What You'll Learn
-Duration: 0:02:00
-
+Duration: 0:01:00
 
 There are many possibilities for testing on [Sauce Labs](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link), and in this module we will cover the specific case of testing a desktop browser web applications using the Sauce Labs Cloud of virtual machines.
 
@@ -23,7 +22,7 @@ There are many possibilities for testing on [Sauce Labs](http://app.saucelabs.co
 
 You can also use the **[Example Test Suite](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Quickstart/Mod3/3.02)** and follow the next module to get set up.
 
-The examples here use Java code using Selenium version 3.14.15, the Maven build tool, as well as the JUnit4 test runner. The examples are on a MacOS machine, however we do provide examples of environment setup on a Windows machine.
+The examples here uses Java code using Selenium version 3.14.15, the Maven build tool, as well as the JUnit4 test runner. The examples are on a MacOS machine, however we do provide examples of environment setup on a Windows machine.
 
 
 ### Skills & Knowledge
@@ -51,7 +50,7 @@ This module contains a list of resources your will need to clone & use the [samp
 **[Local Test Project Code – Selenium Java and JUnit4](https://drive.google.com/file/d/1YFyvUfB758KdRto9m71SaEbbrIHD9dVb/view?usp=sharing)**
 
 ### Test Code
-If you have your own testing suite written in Java, using the JUnit 4 test runner, with capabilities set up similar to [the base test here](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod4/4.05/src/test/java/tests/BaseTest.java)  or you understand the differences between the test runner you are using and how to structure capabilities, you jump to the next section. Otherwise, use the example code in the GitHub repo.
+If you have your own testing suite written in Java, using the JUnit4 test runner, with capabilities set up similar to [the base test here](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod4/4.05/src/test/java/tests/BaseTest.java) or you understand the differences between the test runner you are using and how to structure capabilities, you jump to the next section. Otherwise, use the example code in the GitHub repo.
 
 
 #### Use GitHub Repository (Optional)
