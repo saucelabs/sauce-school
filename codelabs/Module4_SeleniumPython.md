@@ -462,14 +462,14 @@ Duration: 0:15:00
 
 In this lesson you are going to learn how to move the test suite that you have written from your local machine onto the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) cloud provider. They maintain a set of real and virtual devices, as well as a Selenium grid that you can use to run your test in almost any environment. There are many reasons this is advantageous:
 
-
-
-*   You can use virtual machines (without having to set it up on your own machine)
+* You don't have to worry about about downloading and matching browser drivers  
+* You can use virtual machines (without having to set it up on your own machine)
     *   To test older versions of operating systems
-    *   Test browsers that only run on older operating systems.
-*   You don’t have to provision all the different kinds of virtual machines you will need yourself.
-*   You don’t have to set up and maintain the Selenium Grid that will coordinate the test across all of these different machines.
+    *   Test browsers that run on different operating systems that your own.
+* You don’t have to provision all the different kinds of virtual machines you will need yourself
+*   You don’t have to set up and maintain the Selenium Grid that will coordinate the test across all of these different machines
 
+When you run tests on Sauce Labs, you are using the _Selenium Grid_ and the _RemoteWebdriver._  The Selenium Grid lets you distribute test execution across several machines and you connect to it with Selenium _RemoteWebDriver_.
 
 ### Part 1: Update Config
 

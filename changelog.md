@@ -6,6 +6,14 @@
 
 - Updated favicon in `site/app/images/favicons/browserconfig.xml`
 
+## May 24 - Adekunle's Changes
+
+- Added h2 anchor styles in `site/app/styles`
+- Added h2 anchor functionality to `site/app/scripts/app.js`
+  * ln 334-376, 380-349
+  * not sure why ln 325 Segment.io was removed
+
+
 ## April 7 - Adekunle's Changes
 
 - Added training as a menu item

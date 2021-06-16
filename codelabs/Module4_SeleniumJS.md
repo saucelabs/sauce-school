@@ -130,7 +130,7 @@ cd lib
 touch DriverFactory.js
 cd ..
 cd test
-Touch spec_helper.js
+touch spec_helper.js
 ```
 
 
@@ -394,7 +394,7 @@ Next, find the` visit()` function in the `BasePage `class. You will delete what 
 ```
 // filename: pages/BasePage.js
 //...
-async function visit(url) {
+async visit(url) {
   if (url.startsWith('http')) {
     await this.driver.get(url)
   } else {
@@ -419,7 +419,7 @@ const config = require('../lib/config.js')
 ```
 
 
-Now you need to go into the page objects (`BasePage.js` and `DynamicLoadingPage.js`) and take out the hard-coded URL inside the `visit() `method. Instead we will only have the sub-pages that will append on to the baseURL from the-internet [heroku app](https://the-internet.herokuapp.com/).
+Now you need to go into the page objects (`LoginPage.js` and `DynamicLoadingPage.js`) and take out the hard-coded URL inside the `visit() `method. Instead we will only have the sub-pages that will append on to the baseURL from the-internet [heroku app](https://the-internet.herokuapp.com/).
 
 
 ```
@@ -539,11 +539,14 @@ In this lesson you are going to learn how to move the test suite that you have w
 
 
 
-*   You can use virtual machines (without having to set it up on your own machine)
+* You don't have to worry about about downloading and matching browser drivers  
+* You can use virtual machines (without having to set it up on your own machine)
     *   To test older versions of operating systems
-    *   Test browsers that only run on older operating systems.
-*   You don’t have to provision all the different kinds of virtual machines you will need yourself.
-*   You don’t have to set up and maintain the Selenium Grid that will coordinate the test across all of these different machines.
+    *   Test browsers that run on different operating systems that your own.
+* You don’t have to provision all the different kinds of virtual machines you will need yourself
+*   You don’t have to set up and maintain the Selenium Grid that will coordinate the test across all of these different machines
+
+When you run tests on Sauce Labs, you are using the _Selenium Grid_ and the _RemoteWebdriver._  The Selenium Grid lets you distribute test execution across several machines and you connect to it with Selenium _RemoteWebDriver_.
 
 
 ### Update Config
@@ -646,7 +649,7 @@ class DriverFactory {
     let builder = new Builder()
     switch (this.config.host) {
       case 'saucelabs':
-        const url = 'https://ondemand.saucelabs.com/wd/hub'
+        const url = ' https://ondemand.us-west-1.saucelabs.com/wd/hub'
         builder.usingServer(url)
         builder.withCapabilities(this.config.sauce)
         break

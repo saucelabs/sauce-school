@@ -16,7 +16,7 @@ Duration: 0:01:00
 
 This tutorial gives examples you can follow along with using a test suite written in Java, using the JUnit4 test runner, as well as the Maven build tool. If you would like to follow along, you can [download or fork and clone this project](https://github.com/walkerlj0/Selenium_Course_Example_Code)
 * Look in the _/java/Mod4/4.06_ directory, and use the version of the test suite **in 4.06** to work from.
-* If you don't have Java and Maven set up on your machine to run test code, [follow this lesson](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4).
+* If you don't have Java and Maven set up on your machine to run test code, [follow this lesson](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4)
 
 ### In This Tutorial
 * Learn to download, setup,  and run the Sauce Connect software on your machine
@@ -24,6 +24,7 @@ This tutorial gives examples you can follow along with using a test suite writte
   * See how to add the tunnel name in your capabilities or configuration file
 * Run a tunnel with common flags such as:
   * `-v` for verbose logging
+  * `--version` to check Sauce Connect version
   * `-i` for a tunnel identifier (name)
 * Locate and change the directory of the log file
 * Specify which data center you want to run Sauce Connect with
@@ -35,9 +36,10 @@ To find out more about Sauce Connect and the architecture, [see the whitepaper](
 ## 1.02 Setup and Run Sauce Connect Proxy
 
 [Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#:~:text=Sauce%20Connect%20Proxy%E2%84%A2%20is,or%20behind%20a%20corporate%20firewall.) is software that enables you to establish a secure connection between applications hosted on an internal server and the Sauce Labs virtual machines or real devices that are used for testing. In this lesson you will learn to:
+
 * Download and start a proxy tunnel
 * Stop a running proxy tunnel
-* Understand how shared tunnels are used
+* Learn how to do a Manual (Live) test with Sauce Connect
 
 #### Video
 [Set Up Sauce Connect Proxy](https://youtu.be/cpBcGeZ_wQU)
@@ -119,9 +121,10 @@ You can easily run any manual tests that you do with Sauce Connect proxy. Simply
 ## 1.03 Run a Java Test Using Sauce Connect Proxy
 This video is intended to show an example for how to update your test capabilities, using [this example test written](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.06) in Java, JUnit4, with Maven and InteliiJ. Basically, in this lesson you will:
 * Start your tunnel
-* Updated Sauce Environment Variables
+* Update Sauce Environment Variables
 * Update your `config.java` and `BaseTest.java` files
-* Run the updated test code in Sauce Labs using Sauce Connect Proxy.
+* Run the updated test code in Sauce Labs using Sauce Connect Proxy
+* See how to run your test using shared tunnels
 
 #### Video
 [Run a Test with Sauce Connect Proxy](https://youtu.be/u1kijdRTSv8)
@@ -237,6 +240,7 @@ To learn more about what is happening when you use Sauce Connect tunnel, see the
  <img src="assets/TRT2.03D.png" alt="Shared Runnel" width="650"/>
 
 ### Final Code
+See the [example test suite](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod5/5.03) with [capabilities set for Sauce Connect](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod5/5.03/src/test/java/tests/BaseTest.java).
 <img src="assets/5.03N.png" alt="Final Java Base Test Code" width="650"/>
 
 <img src="assets/5.03O.png" alt="Final Java Config Code" width="650"/>
@@ -348,7 +352,7 @@ You can find all the flags that you can use when running Sauce Connect in the [S
 <video id="D7pfJfHe29k"></video>
 
 ### Check Your Sauce Connect Version
-Sometimes it's important to see if you have the most up to date [version of Sauce Connect]() so you can use the latest features & functionality using the sauce connect `--version` flag:
+Sometimes it's important to see if you have the most up to date [version of Sauce Connect](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/index.html#downloading-sauce-connect-proxy) so you can use the latest features & functionality using the sauce connect `--version` flag:
 
 ```
 bin/ sc -u your-username -k your-accesskey -i your-tunnelname --version
