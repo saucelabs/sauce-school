@@ -122,7 +122,7 @@ Once you understand how the test suite functions, you need to update settings su
 
 #### Capabilities
 
-Capabilities are sets of settings that you can pass along to the environment your test is being run, using the JSON wire protocol. W3C has a set of capabilities you can use, and you can create your own sets of capabilities using [Mutable Capabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html) to create your own capabilities as well.
+When you run tests in any evvironment, using the W3C WebDriver protocol, which Selenium does, you need to pass along information about what environment you want your tests are run in, which are known as [_options_ or _capabilities_](https://docs.saucelabs.com/dev/test-configuration-options). W3C has a set of capabilities you can use, and you can create your own sets of capabilities using [Mutable Capabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html) to create your own capabilities as well.
 
 Other vendors, such as [Chrome](https://chromedriver.chromium.org/capabilities), [Firefox](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions), and Sauce Labs have created other pre-defined subsets of capabilities that you can set, which are useful when you need to set specific capabilities such as extensions for Chrome, or the Sauce username.
 
@@ -864,4 +864,4 @@ You can see the [example code here](https://github.com/walkerlj0/Selenium_Course
 <!-- ------------------------ -->
 ## 3.09 Module 3 Quiz
 Duration: 0:02:00
-![]()
+![https://docs.google.com/forms/d/e/1FAIpQLSf3OnRNVlymlyGNRuXlaDwCRh_Zos50L6ni8AwMOaBXulPexA/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSf3OnRNVlymlyGNRuXlaDwCRh_Zos50L6ni8AwMOaBXulPexA/viewform?usp=sf_link)
