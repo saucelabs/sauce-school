@@ -1,6 +1,6 @@
-summary: Module 1 of the set of tutorials on Sauce Labs offerings and features.
-id: Module1-SauceConnect
+summary: Module 1 – The first of the Sauce Labs Tutorial collection shows users how to set up and run manual and automated tests through Sauce Connect Proxy, Sauce Labs' secure proxy tunnel, and how to use some of he common flags and features necessary.
 categories: intermediate
+id: Module1-SauceConnect
 tags: saucetools
 environments: Web
 status: Draft
@@ -8,7 +8,7 @@ feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
 author: Lindsay Walker, Evelyn Coleman
 <!-- ------------------------ -->
-# Tutorial 1 – Sauce Connect for Testers
+# Module 1 – Sauce Connect for Testers
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
@@ -317,6 +317,15 @@ Sometimes more than one tunnel is created with the same name, which is known as 
 <img src="assets/SC1.04G.png" alt="Error creating pidfile" width="750"/>
 
 This is an error creating the process id file (pidfile) which should be unique to each tunnel, but cannot be created if there are two tunnels running with the same name
+
+
+#### File Upload Limit
+If you are sending a large amount of test or application files to Sauce Labs with Sauce Connect, the file limit set on your machine for upload may affect Sauce Connecr. If you are having issues or get a warning like:
+
+```
+[30070] PROXY error 24 (Too many open files) on listener
+```
+See the knowledge base article on [increasing your open file limit](https://support.saucelabs.com/hc/en-us/articles/115005571668-Setting-the-Open-File-Limit-for-Use-with-Sauce-Connect-Proxy).
 
 
 #### Generate Logs
