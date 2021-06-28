@@ -223,7 +223,15 @@ configure() {
   }
 
 ```
+You will also want to update the `quit` method so it will print out the test name and result when you use the `W3C` case:
 
+```
+// filename: lib/DriverFactory.js
+//...
+  async quit(testPassed) {
+    if (this.config.host === 'saucelabs' || 'sauce-W3C') {
+  //...
+```
 
 Last but not least, update `config.js` so that the `host` variable is set to `sauce-W3C` so it matches the third case in `DriverFactory.js:`
 
@@ -258,6 +266,8 @@ Now you can run `npm test` in terminal and see your tests run both in Jenkins an
 <img src="assets/5.03J.png" alt="Sauce W3C environment variable" width="750"/>
 
 <img src="assets/5.03K.png" alt="Sauce W3C case" width="750"/>
+
+<img src="assets/5.03R.png" alt="Sauce W3C case in quit method" width="650"/>
 
 
 
@@ -872,7 +882,7 @@ _configure() {
         builder.withCapabilities(this.config.sauceW3C)
         break
       case 'ondemand':
-        const url3 = "https://ondemand.saucelabs.com/wd/hub"
+        const url3 = " https://ondemand.us-west-1.saucelabs.com/wd/hub"
         builder.usingServer(url3)
         builder.withCapabilities(this.config.jenkins)
     }

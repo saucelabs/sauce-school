@@ -194,7 +194,7 @@ else if (host.equals("saucelabs-tunnel")) {
     capabilities.setCapability("browserVersion", browserVersion);
     capabilities.setCapability("platformName", platformName);
     capabilities.setCapability("sauce:options", sauceOptions);
-    String sauceUrl = String.format("https://ondemand.saucelabs.com/wd/hub");
+    String sauceUrl = String.format(" https://ondemand.us-west-1.saucelabs.com/wd/hub");
     driver = new RemoteWebDriver(new URL(sauceUrl), capabilities);
     sessionId = ((RemoteWebDriver) driver).getSessionId().toString();
     sauceClient = new SauceREST(sauceUser, sauceKey, DataCenter.US);
@@ -269,7 +269,7 @@ Duration: 0:12:00
 
 Your tests still take a good deal of time to run since they're executing in series (i.e., one after another). As our suite grows, test latency will grow with it, if you continue to run tests in series the time it takes to run your test suite can grow exponentially.
 
-In this lesson you will be learning how to set up Sauce Labs to run tests in parallel. This means that you can run two or more tests, using two or more instances of` BaseTest.java `at the same time.  Previously what you were doing was running` TestLogin.java `first, then running `TestDynamicLoading.java `once it was done.
+In this lesson you will be learning how to set up Sauce Labs to run tests in parallel. This means that you can run two or more tests, using two or more instances of `BaseTest.java `at the same time.  Previously what you were doing was running` TestLogin.java `first, then running `TestDynamicLoading.java` once it was done.
 
 Parallelization is one of the main advantages to using a platform like Sauce Labs, however you also must be careful when designing a test suite to make sure the tests can be run in parallel, and in any order, or else account for and create code that does run certain tests in order. Luckily, our test suite has been well set up to run in parallel.
 
@@ -297,9 +297,9 @@ As an example, if the SauceClient  was declared as `private static SauceRest sau
 
 
 
-### Part 1: Add Configuration Options to your Surefire Plugin
+### Part 1: Add Configuration Options to your Maven Surefire Plugin
 
-You should already have the `maven-surefire-plugin` in your `pom.xml` file within the `<build>` tags. If for some reason you don’t, add it in now:
+You should already have the `maven-surefire-plugin` in your `pom.xml` file within the <`build`> tags. If for some reason you don’t, add it in now:
 
 
 ```
@@ -314,7 +314,7 @@ You should already have the `maven-surefire-plugin` in your `pom.xml` file withi
 ```
 
 
-What you will do is add in `<configuration>` options that will allow you to run tests in parallel. Underneath `<artifactID>`, add in a `<configuration>` opening and closing tag, and within that tag add in the all <`parallel>` parameter.
+What you will do is add in <`configuration`> options that will allow you to run tests in parallel. Underneath `artifactID`, add in a <`configuration`> opening and closing tag, and within that tag add in the all <`parallel`> parameter.
 
 
 ```
@@ -332,11 +332,11 @@ What you will do is add in `<configuration>` options that will allow you to run 
 ```
 
 
-The `all `parameter tells you to run all suites, classes, and methods in parallel. You can also choose to run one or multiple of those options.
+The `all` value tells you to run all suites, classes, and methods in parallel. You can also choose to run one or multiple of those options.
 
-Underneath parallel, add in parameters for the number of thread counts for methods, set unlimited thread counts to `true`. This will allow you to use as many threads as CPUs you have available to you, and not run multiple tests in the same thread. `<threadCountMethods>` sets the number of methods (but not classes or suites)  to be tested at once at a limit of `30`. These configurations optimize the running of large test suites.
+Underneath parallel, add in parameters for the number of thread counts for methods, set unlimited thread counts to `true`. This will allow you to use as many threads as CPUs you have available to you, and not run multiple tests in the same thread. <`threadCountMethods`> sets the number of methods (but not classes or suites)  to be tested at once at a limit of `30`. These configurations optimize the running of large test suites.
 
-You also don’t want to put the output for the reporting to be created in a file, otherwise you cannot run tests in parallel, so we set  `<redirectTestOutputToFile>` to` false`.
+You also don’t want to put the output for the reporting to be created in a file, otherwise you cannot run tests in parallel, so we set  <`redirectTestOutputToFile`> to` false`.
 
 
 ```
@@ -351,7 +351,7 @@ You also don’t want to put the output for the reporting to be created in a fil
 
 ### Part 2: Run Parallel Tests
 
-Before you get started, head to the [Sauce Labs Dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) and look under **Account **>** User settings** and check out how many tests you (and your team) can run at once.
+Before you get started, head to the [Sauce Labs Dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) and look under **Account > User settings** and check out how many tests you (and your team) can run at once.
 
 <img src="assets/5.04C.png" alt="Sauce W3C case" width="650"/>
 
@@ -365,7 +365,7 @@ Run `mvn clean test -Dhost=saucelabs` and visit the [Sauce Labs Dashboard ](http
 
 You might ask, why randomization? This is a very effective way to see if your tests are truly atomic and independent of one another. As you run more and more tests, it’s important to make sure that they aren’t dependent on the behavior of a different test, because conditions will not always be the same as you use tests for different cases.
 
-In your `pom.xml` file, below the `<redirectTestOutputToFile>, `add in:
+In your `pom.xml` file, below the <`redirectTestOutputToFile`>, add in:
 
 
 ```
