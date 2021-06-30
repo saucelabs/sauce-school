@@ -1,6 +1,8 @@
 ### _Changelog- Add newest additions in an .md file at top_
 
 ///start typing below this text
+##June 30 - Rich's Changes
+- Modified default string for `gulpfile.js`'s default `BASE_URL` value to remove `example.com` artifact on certain pages. (gulpfile.js, 61)
 
 ## May 18 - Adekunle's Changes
 
