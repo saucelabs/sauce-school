@@ -103,6 +103,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="twitter:description" property="twitter:description" content="{{view.description}}" />
   <meta name="twitter:image" property="twitter:image" content="/images/og-image.png" />
   <meta name="twitter:url" property="twitter:url" content="{{canonicalViewUrl(view)}}" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css" />
 </head>
 
 <body id="app" is="body-bind" class="loading fullbleed {% if view.id != 'default' -%}view{%- endif -%}">
@@ -116,13 +118,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <navigation-element></navigation-element>
 
-        <div id="searchbar" class="--desktop">
-          <paper-input-container no-label-float>
-            <paper-icon-button prefix icon="search"></paper-icon-button>
-            <label>Search</label>
-            <input is="iron-input" bind-value="{{searchVal}}" on-keydown="onSearchKeyDown">
-          </paper-input-container>
-        </div>
+        <algolia-search></algolia-search>
+
       </div>
     </div>
     {% endraw %}
@@ -278,6 +275,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   </paper-header-panel>
 
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
   <!-- build:js /scripts/main.js -->
   <script src="/scripts/app.js"></script>
   <!-- endbuild-->
