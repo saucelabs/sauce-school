@@ -402,7 +402,7 @@
     - Move client info to .env 
    */
   const sl_search = instantsearch({
-    indexName: "training.saucelabs.com",
+    indexName: "saucelabs_crawler_production_training",
     searchClient: algoliasearch(
       "RO95H65NEO",
       "63ef6fd845955e82ecb703bc813cce8d"
