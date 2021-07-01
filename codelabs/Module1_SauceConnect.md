@@ -1,6 +1,6 @@
-summary: Module 1 of the set of tutorials on Sauce Labs offerings and features.
-id: Module1-SauceConnect
+summary: Module 1 – The first of the Sauce Labs Tutorial collection shows users how to set up and run manual and automated tests through Sauce Connect Proxy, Sauce Labs' secure proxy tunnel, and how to use some of he common flags and features necessary.
 categories: intermediate
+id: Module1-SauceConnect
 tags: saucetools
 environments: Web
 status: Draft
@@ -8,7 +8,7 @@ feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
 author: Lindsay Walker, Evelyn Coleman
 <!-- ------------------------ -->
-# Tutorial 1 – Sauce Connect for Testers
+# Module 1 – Sauce Connect for Testers
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
@@ -319,6 +319,15 @@ Sometimes more than one tunnel is created with the same name, which is known as 
 This is an error creating the process id file (pidfile) which should be unique to each tunnel, but cannot be created if there are two tunnels running with the same name
 
 
+#### File Upload Limit
+If you are sending a large amount of test or application files to Sauce Labs with Sauce Connect, the file limit set on your machine for upload may affect Sauce Connecr. If you are having issues or get a warning like:
+
+```
+[30070] PROXY error 24 (Too many open files) on listener
+```
+See the knowledge base article on [increasing your open file limit](https://support.saucelabs.com/hc/en-us/articles/115005571668-Setting-the-Open-File-Limit-for-Use-with-Sauce-Connect-Proxy).
+
+
 #### Generate Logs
 If you are having issues with your Sauce Connect Tunnel, you know your network connection is not the issue, and you have tried all of the above, generating logs as described in the next lesson.
 
@@ -391,7 +400,32 @@ Simply add a flag for the [data center endpoint](https://docs.saucelabs.com/dev/
 ```
 bin/ sc -u your-username -k your-accesskey -i your-tunnelname -x https://eu-central-1.saucelabs.com/rest/v1
 ```
- <img src="assets/SC1.05D.png" alt="Use a different data center" width="750"/>
+<img src="assets/SC1.05D.png" alt="Use a different data center" width="750"/>
+
+### Traffic Routing
+
+When you are using Sauce Connect tunnel, there may be some situations where you want all your traffic to be sent through the Sauce Connect tunnel for security purposes.
+
+Sometimes, however, sending everything to Sauce Labs through a tunnel may cause your tests to take a long time to execute, and you would want to send some requests directly to Sauce Labs, without using a tunnel.
+
+#### Direct Domain Traffic
+
+To specify certain domains whose traffic you don't want to go through the tunnel, simply add a `-D` flag with the argument: `"*.domainName.com, *.otherDomainName.net"`, to the command when you run your tunnel.
+
+
+As an example, if you are starting up a tunnel, and you want all traffic to and from **https://www.saucedemo.com/**  be sent directly to Sauce Labs (not through a tunnel) you would start your tunnel with the command:
+
+```
+bin/ sc -u your-username -k your-accesskey -i your-tunnelname -D "*.saucedemo.com/"
+```
+
+#### Tunnel Domain Traffic
+
+If you would like to do the opposite and make sure that all traffic is _not_ run through a tunnel, except for certain domains, you would use the `-T` flag with the name of the domain you do want run through the Sauce Connect tunnel.
+
+```
+bin/ sc -u your-username -k your-accesskey -i your-tunnelname -T "*.sensitiveDomain.com/"
+```
 
 <!-- ------------------------ -->
 ## 1.06 SSL Bumping

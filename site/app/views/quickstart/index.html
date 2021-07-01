@@ -29,6 +29,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     {% endif %}
   </script>
   <script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  <script src="https://use.typekit.net/zmt8tam.js"></script><script>try{Typekit.load({ async: false });}catch(e){}</script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=DEFAULT_GA">
   </script>
@@ -234,7 +236,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 {%- endif -%}
 
                 {%- if codelab.id == 'Module2-Quickstart' -%}
-                  <p>Learn how to take your Appium test code written for Android mobile and web applications, and run them on Sauce Labs. Add test names, status, as well as run your tests in parallel on the cloud platform.</p>
+                  <p>Learn how to take your Appium Java (with TestNG) test code written for Android mobile and web applications, and run them on Sauce Labs. Add test names, status, as well as run your tests in parallel on the cloud platform.</p>
+                {%- endif -%}
+
+                {%- if codelab.id == 'Module3-Quickstart' -%}
+                  <p>Learn how to take your Selenium Java code with JUnit4 for web applications, and run them on Sauce Labs. Add test names, status, as well as run your tests in parallel on the cloud platform.</p>
                 {%- endif -%}
 
               </div>
