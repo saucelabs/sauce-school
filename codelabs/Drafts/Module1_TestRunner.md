@@ -38,12 +38,21 @@ Negative
 If you would like to follow along with the course, using the exact sample code, you can use the [example tests here](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.04).
 
 <!-- ------------------------ -->
+<<<<<<< HEAD
 ## 1.02 What Is saucectl?
 Duration: 0:03:00
 
 Sauce Labs has developed a set of tools in conjunction with saucectl to enable test developers to get set up quickly to scale up their testing to more browsers and devices, and to be able to do this with a wider range of testing frameworks than ever before.
 
 This is a testing solution for developers that simplifies user setup, speeds up test execution time, unifies test results, and supports new open source frameworks like Playwright, Cypress, TestCafe, Espresson, and XCUI for running end-to-end web & mobile tests.
+=======
+## 1.02 What Is saucectl with the Sauce Labs platform
+Duration: 0:03:00
+
+saucectl with the Sauce Labs platform was designed to enable test developers to get set up quickly to scale up their testing to more browsers and devices, and to be able to do this with a wider range of testing frameworks than ever before.
+
+This is a testing solution for developers that simplifies user setup, speeds up test execution time, unifies test results, and supports new open source frameworks like Playwright, Cypress, TestCafe, and Puppeteer for running end-to-end web tests.
+>>>>>>> master
 
 <img src="assets/TRT1.02A.png" alt="Testrunner Toolkit tools" width="600"/>
 
