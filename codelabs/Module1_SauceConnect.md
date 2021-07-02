@@ -400,7 +400,32 @@ Simply add a flag for the [data center endpoint](https://docs.saucelabs.com/dev/
 ```
 bin/ sc -u your-username -k your-accesskey -i your-tunnelname -x https://eu-central-1.saucelabs.com/rest/v1
 ```
- <img src="assets/SC1.05D.png" alt="Use a different data center" width="750"/>
+<img src="assets/SC1.05D.png" alt="Use a different data center" width="750"/>
+
+### Traffic Routing
+
+When you are using Sauce Connect tunnel, there may be some situations where you want all your traffic to be sent through the Sauce Connect tunnel for security purposes.
+
+Sometimes, however, sending everything to Sauce Labs through a tunnel may cause your tests to take a long time to execute, and you would want to send some requests directly to Sauce Labs, without using a tunnel.
+
+#### Direct Domain Traffic
+
+To specify certain domains whose traffic you don't want to go through the tunnel, simply add a `-D` flag with the argument: `"*.domainName.com, *.otherDomainName.net"`, to the command when you run your tunnel.
+
+
+As an example, if you are starting up a tunnel, and you want all traffic to and from **https://www.saucedemo.com/**  be sent directly to Sauce Labs (not through a tunnel) you would start your tunnel with the command:
+
+```
+bin/ sc -u your-username -k your-accesskey -i your-tunnelname -D "*.saucedemo.com/"
+```
+
+#### Tunnel Domain Traffic
+
+If you would like to do the opposite and make sure that all traffic is _not_ run through a tunnel, except for certain domains, you would use the `-T` flag with the name of the domain you do want run through the Sauce Connect tunnel.
+
+```
+bin/ sc -u your-username -k your-accesskey -i your-tunnelname -T "*.sensitiveDomain.com/"
+```
 
 <!-- ------------------------ -->
 ## 1.06 SSL Bumping

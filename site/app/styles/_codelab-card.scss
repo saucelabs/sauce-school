@@ -122,7 +122,10 @@ $card-col-height: 200px; // column mode
     width: 100%;
     text-align: left;
     display: inline-block;
+    line-height: 24px;
     padding: 10px 0px 15px 0px;
+    font-weight: 300;
+    font-size: 16px;
   }
 
   .card-duration {
