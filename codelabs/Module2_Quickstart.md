@@ -48,8 +48,8 @@ Duration: 0:07:00
 This module is created to walk you through the steps you need to take to get a test running on [Sauce Labs.](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link) In this lesson you will:
 
 * Install dependencies to run local Appium tests
-* [Configure](https://docs.google.com/document/d/1Q1b744PYJs7aMmpiUfgHPpnjB5SKG3nMKqWx8bYfEUs/edit?usp=sharing) and [run Appium Desktop](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#environment-run-steps)
-* [Start an Android Emulator](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#environment-run-steps)
+* [Configure](https://docs.google.com/document/d/1Q1b744PYJs7aMmpiUfgHPpnjB5SKG3nMKqWx8bYfEUs/edit?usp=sharing) and [run Appium Desktop](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#start-appium-desktop)
+* [Start an Android Emulator](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#start-android-studio)
 
 If you would like to follow along, you can start here with the example application and Appium Test code to run on your local machine, or **skip ahead to the next module to start running tests on Sauce Labs**.
 
@@ -120,7 +120,7 @@ Appium Doctor is a useful tool for checking to make sure that the dependencies a
 Check to make sure all your dependencies for Appium are installed, such as `NodeJS `and the `ANDROID_HOME` and` JAVA_HOME` variables are correct. In this example, the` xcrun` dependency isn’t installed, which is a necessary dependency for iOS tests.
 
 
-### Environment Run Steps
+### Appium Environment Setup Steps
 Before you can run the elements in your Appium environment, you first need to [download the resources](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#resources) and [install all the dependencies](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#dependencies).
 
 For in-depth configuration insturctions, see the **Cheat Sheet**
@@ -129,7 +129,7 @@ For in-depth configuration insturctions, see the **Cheat Sheet**
 
 [Quickstart – Android Studio and Appium Environment Setup](https://docs.google.com/document/d/1Q1b744PYJs7aMmpiUfgHPpnjB5SKG3nMKqWx8bYfEUs/edit?usp=sharing)
 
-#### Start Appium Desktop
+### Start Appium Desktop
 
 Find the Appium desktop on your local machine, and double-click to open the APP
 * Click the **Start Server** button
@@ -138,7 +138,7 @@ Find the Appium desktop on your local machine, and double-click to open the APP
 
 * Click **Edit Configurations** in Appium and make sure you have the `JAVA_HOME` and `ANDROID_HOME` paths set.
 
-#### Start Android Studio
+### Start Android Studio
 
 Once you have everything downloaded and installed, you need to do the following before you can run your code:
 
