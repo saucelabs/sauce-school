@@ -1,6 +1,6 @@
 {
   "title": "Cypress on Sauce Course",
-  "description": "Learn to run Cypress tests on the Sauce Labs Cloud along with saucectl. Run a Cypress test suite you already have on Sauce Labs, or use a sample Cypress test suite to explore the Sauce Labs automated testing features.  With a few quick changes to a config file, you can customeize the environments your tests are run in, then share and analyze your test results on the Sauce Labs App.",
+  "description": "Learn to run Cypress tests on the Sauce Labs Cloud along with saucectl. Run a Cypress test suite you already have on Sauce Labs, or use a sample Cypress test suite to explore the Sauce Labs automated testing features.  With a few quick changes to a config file, you can customize the environments your tests are run in, then share and analyze your test results on the Sauce Labs App.",
   "logoUrl": "/saucectl/logo.png",
   "tags": ["saucectl"],
   "exclude": [

@@ -1,4 +1,4 @@
-summary: Module 1 of the Cypress on Sauce course will introduce you how to set up a Cypress test with Testrunner Toolkit, in a Docker container or Sauce VM, and use saucectl to run your automated tests on Sauce Labs. Create a basic Cypress test suite, or use your own Cypress test code.
+ summary: Module 1 of the Cypress on Sauce course will introduce you how to set up a Cypress test with saucectl on the Sauce Labs Cloud virtual machines, and use saucectl to run your automated tests creating artifacts to share and analyze. In this module, you can learn to create a basic Cypress test suite, or use your own Cypress test code to run tests with saucectl.
 id: Module1-saucectl
 categories: beginner
 environments: Web
@@ -92,8 +92,8 @@ Duration: 0:07:00
 
 In this module, you will see how you can set up   saucectl on Sauce Labs VMs _or_ use saucectl along with Docker on your MacOS Computer. The basic steps include:
 
+* Setup an [example Cypress project](https://github.com/saucelabs/saucectl-cypress-example)
 * Install saucectl with `npm i -g saucectl`
-* Download an [example project](https://github.com/saucelabs/saucectl-cypress-example)
 * Set your Sauce username and access key with `saucectl configure`
 * Update `.sauce/config.yml` with test suite information
 
@@ -147,25 +147,31 @@ Negative
 
 ### Set Sauce Username and Access Key
 
-You can access your Sauce Username and Access Key on the Sauce Labs Platform
+You can access your Sauce Username and Access Key on the [Sauce Labs App](https://app.saucelabs.com/user-settings) and go to **Account> User Settings** . There are three ways you can configure your credentials with saucectl:
 
-Visit [ttps://accounts.saucelabs.com](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). You can create a free trial account if you haven’t been assigned one.
+* Set them as environment variables (saucectl will detect them)
+* Enter them when you run `saucectl init`
+* Use `saucectl configure`
 
-<img src="assets/4.05A.png" alt="Sauce Labs Account" width="450"/>
-
-Go to **Account> User Settings** to find your username and access key.
-
-Watch [this video](https://www.youtube.com/watch?v=3K1Eu0eTha8&t=12s) to see how to set up your Sauce username and access key as environment variables on your machine, or use [the instructions here to set them up on Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
-
-Testrunner Toolkit will detect your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`, but you can run the following optional command to edit these:
+To manually configure your usename and access key, simply type the command:
 
 ```
 saucectl configure
 ```
 
-This command prompts you to manually enter your credentials if it cannot detect any environment variables, and will generate a `credentials.yml` file in a .sauce directory in your home folder. To see it you can go to the top level directory and search for a hidden directory (Cntrl + Shit + .) called `.sauce`.
+This command prompts you to manually enter your credentials if it cannot detect any environment variables, and will generate a `credentials.yml` file in a `.sauce directory` where you installed saucectl initially (in your home folder).
+
+To find `credentials.yml`, search for a hidden directory (Cntrl + Shit + .) called `.sauce`.
 
 <img src="assets/SCTL1.03A.png" alt="the .sauce directory with credentials.yml" width="500"/>
+
+Visit [accounts.saucelabs.com](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). You can create a free trial account if you haven’t been assigned one.
+
+<img src="assets/4.05A.png" alt="Sauce Labs Account" width="450"/>
+
+Watch [this video](https://www.youtube.com/watch?v=3K1Eu0eTha8&t=12s) to see how to set up your Sauce username and access key as environment variables on your machine, or use [the instructions here to set them up on Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
+
+
 
 
 ### Initialize saucectl
@@ -289,7 +295,7 @@ Start up Docker to ensure it’s running properly on your machine. Most likely, 
 Duration: 0:03:00
 
 To run Cypress tests on sauce labs, you will can:
-* Use the[simplified Cypress test code ](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.04)from modules 1.07-1.08 that goed along with the `suites` examples
+* Use the [simplified Cypress test code ](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.04)from modules 1.07-1.08 that goed along with the `suites` examples
 * Use the [Sauce Labs Cypress Test Code](https://github.com/saucelabs/saucectl-cypress-example)
 * Use your own Cypress tests and modify `suites:` accordingly
 
@@ -301,7 +307,7 @@ To run Cypress tests on sauce labs, you will can:
 
 ### Update Sauce Config File
 
-Before you can run your tests using saucectl, you need to tell Cypress where it can find the test files it needs to run. You will do this in `.sauce/config.yml`. Under the [`suites` tag](https://docs.saucelabs.com/testrunner-toolkit/configuration/common-syntax#suites),  add and modify the existing entry under the `"suites"` field:
+Before you can run your own tests using saucectl, you need to tell Cypress where it can find the test files it needs to run. You will do this in `.sauce/config.yml`. Under the [`suites` tag](https://docs.saucelabs.com/testrunner-toolkit/configuration/common-syntax#suites),  replace the following under the `"suites"` field:
 
 
 
@@ -322,12 +328,20 @@ suites:
   screenResolution: 2560x1600
   config:
     testFiles: ['**/login.spec.js']
-artifacts:
 # ...
 ```
+After you have updated the `suites:` to run the tests, use the commands
 
+```
+saucectl run
+```
+You should see the example test run in **Docker Mode** and the login test run on the **Sauce Cloud**
 
-Options like `platformName` and `screenResolution` are optional capabilities that you can define for your test, and can be omitted, Testrunner will run using defaults for these values if these aren’t specified. [See the documentation for all configuration options](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
+<img src="assets/SCTL1.04A.png" alt="Running on Docker" width="400"/> <img src="assets/SCTL1.04B.png" alt="Running on Sauce" width="400"/>
+
+Options like `platformName` and `screenResolution` are optional capabilities that you can define for your test, and can be omitted, as can the mode. By default your tests will be run in **Sauce Mode**.
+
+[See the documentation for all configuration options](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
 
 
 #### Note
@@ -376,11 +390,11 @@ Negative
 Once you have your updates to your config file, save your work, and navigate to your project folder (it should contain a `/cypress` directory and `cypress.json `file) and run your tests to execute the tests on Sauce Labs. Run the tests using
 
 Set mode in `config.yml`:
-* Set it as a global setting
+* Set it as a global setting (all tests will run in _Docker Mode_)
 
 ```
-  defaults:
-    mode: sauce
+defaults:
+      mode: docker
 ```
 * Set it on the suite level (override)
 
@@ -399,8 +413,10 @@ saucectl run
 
 You should see output like this in your console.
 
-<img src="assets/TRT1.06A.png" alt="All Spects passed" width="450"/>
+<img src="assets/SCTL1.04A.png" alt="All Spects passed" width="450"/>
 <!-- Need to update this screenshot -->
+
+### View Your Test Results
 
 If you go to [app.saucelabs.com](https://accounts.saucelabs.com/am/XUI/#login/&utm_source=referral&utm_medium=LMS&utm_campaign=link ), you should see the two tests on your automated test results dashboard:
 
