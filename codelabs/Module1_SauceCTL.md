@@ -439,7 +439,7 @@ See an example of the test suite with [updated suites in `config.yml`](https://g
 ## 1.05 Run Cypress Tests in Parallel
 Duration: 0:03:00
 
-Running Cypress tests in parallel in **Sauce mode** using the Testrunner toolkit is as simple as updating a single field in your `.sauce/config.yml` file:
+Running Cypress tests in parallel in **Sauce Mode** using the Testrunner toolkit is as simple as updating a single field in your `.sauce/config.yml` file:
 
 <img src="assets/TRT1.05A.gif" alt="Sauce Cypress Test Results" width="850"/>
 
@@ -472,12 +472,12 @@ suites:
     config:
       testFiles: [ "**/login.*" ]
  # Firefox
-   - name: "Swag Labs Login Firefox"
-     browser: "firefox"
-     platformName: "Windows 10"
-     screenResolution: "1400x1050"
-     config:
-       testFiles: [ "**/login.*" ]
+  - name: "Swag Labs Login Firefox"
+    browser: "firefox"
+    platformName: "Windows 10"
+    screenResolution: "1400x1050"
+    config:
+      testFiles: [ "**/login.*" ]
 ```
 To find out more about the names for the different browser and platform  (OS) combinations, visit the [platform configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/), and [see the docs](https://docs.saucelabs.com/testrunner-toolkit/running-tests#cross-browser-tests) for the most up to date config.
 
