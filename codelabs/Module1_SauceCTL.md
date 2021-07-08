@@ -83,7 +83,7 @@ Using Cypress alongside Sauce Labs also allow you to:
 By default, when you use saucectl, it works by passing your entire test suite, including dependencies and configurations to Sauce Labs Cloud of Virtual Machines, where your tests will be executed as per your configurations. Use the command `saucectl run` or update `mode: sauce` in `config.yml`, to run your tests on Sauce Labs VMs.
 
 #### Docker Mode
-With saucectl, you can also install Docker and run a containerized version of your test environment, then pass the results to the Sauce Labs Dashboard , by setting the `mode: docker` in `config.yml`.`
+With saucectl, you can also install Docker and run a containerized version of your test environment, then pass the results to the Sauce Labs Dashboard , by setting `mode: docker` in `config.yml`.`
 
 
 <!-- ------------------------ -->
@@ -159,9 +159,9 @@ To manually configure your usename and access key, simply type the command:
 saucectl configure
 ```
 
-This command prompts you to manually enter your credentials if it cannot detect any environment variables, and will generate a `credentials.yml` file in a `.sauce directory` where you installed saucectl initially (in your home folder).
+This command prompts you to manually enter your credentials, and will generate a `credentials.yml` file in a `.sauce directory` where you installed saucectl initially (in your home folder).
 
-To find `credentials.yml`, search for a hidden directory (Cntrl + Shit + .) called `.sauce`.
+To find `credentials.yml`, search for a file called `credentials.yml` in a hidden directory (Cntrl + Shit + .) called `.sauce`.
 
 <img src="assets/SCTL1.03A.png" alt="the .sauce directory with credentials.yml" width="500"/>
 
@@ -257,8 +257,9 @@ Take a look at the top of the config file. There are several important elements 
   * The `config: testFiles:` specify the directory relative to `cypress.json` or `rootDir` and the file names of your tests
 *   The `artifact` information includes what assets (such as images and videos of your tests) are fetched and stored locally. The options for downloading assets include `always`, `never`, `pass`, `fail`.
 
-#### `.sauceignore`
-This is a file that is essential to use to speed up your test runs. By default, everything that is in your project folder will be uploaded to Sauce Labs when you run your tests, however, it's important to include things like asset directories or other files that aren't necessary for a test run to this file.
+#### .sauceignore
+
+The `sauceignore` file that is essential to use to speed up your test runs. By default, everything that is in your project folder will be uploaded to Sauce Labs when you run your tests, however, it's important to include things like asset directories or other files that aren't necessary for a test run to this file.
 
 **Example :**
 
@@ -276,7 +277,7 @@ __assets__
 
 ### Run a Cypress Test
 
-Now that you have everything installed and a project created, you can use saucectl to run a test in a Docker container, and pass the info to Sauce Labs by running this command from your project directory:
+Now that you have everything installed and a project created, you can use saucectl to run a test on the Sauce Labs Cloud with this command (`cd` in terminal to your project directory):
 
 ```
 saucectl run
@@ -285,9 +286,9 @@ saucectl run
 
 If you would like to run your tests in a Docker container and pass the results to the Sauce Labs platform, visit the [docker download website ](https://docs.docker.com/get-docker/)and install the newest version of Docker on your machine.
 
-Keep in mind that a Docker container is essentially it's own lightweight operating system. This means that any software you have installed on your own machine, or variables that you have set up on your local machine (except for Sauce Labs username and access key, which is detected by `saucectl`) won't be available in the Docker environment that is running your saucectl & Cypress tests without you setting it up in Docker as well.
+Start up Docker to ensure it’s running properly on your machine, and follow the instructions in the next module to modify  `config.yml` to run tests in _Docker Mode_.
 
-Start up Docker to ensure it’s running properly on your machine. Most likely, Docker will be set up to start once you have logged on. You can check to see if it’s running with the command `docker info`, and see which version you have with the command `docker -v`.  
+You can check to see if it’s running with the command `docker info`, and see which version you have with the command `docker -v`.  
 
 
 <!-- ------------------------ -->
