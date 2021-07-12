@@ -244,7 +244,9 @@ First, check which version of chrome you are using by opening Chrome on your mac
 
 <img src="assets/2.05K.png" alt="Chrome Version" width="550"/>
 
-Next, [download Chromedriver](https://chromedriver.chromium.org/). You can also download [Geckodriver](https://github.com/mozilla/geckodriver) for Chrome browser or [any other driver.](https://automationintesting.com/selenium/java/lessons/drivers.html] you will need for popular browsers) The driver version should match the version of the browser you have on your machine.
+Next, [download Chromedriver](https://chromedriver.chromium.org/). You can also download [Geckodriver](https://github.com/mozilla/geckodriver) for Chrome browser or [any other driver.](https://automationintesting.com/selenium/java/lessons/drivers.html) you will need for popular browsers The driver version should match the version of the browser you have on your machine.
+
+
 
 #### Cheat Sheet
 
@@ -277,27 +279,26 @@ The next tutorial will show you how to write the code, step by step, but you als
 
 **[Selenium Course Example Code](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2/2.05)**
 
+### Troubleshoot
 
-If you pull down a project file from Github you will have to use IntelliJ to set up your environment to make sure you have a JDK & Maven set up with your project.
+#### Update Drivers
+This sample of test code is not using [WebDriver Manager](https://github.com/bonigarcia/webdrivermanager) or other similar tool (though it is recommended), and if you want to test out running this locally, make sure that you have downloaded the drivers compatible with the versions of the browsers on you machine, and update the test code to reference those drivers:
 
-Go to File → **Add Framework Support**.
+<img src="assets/QS3.03A.png" alt="Capabilities for your test" width="750"/>
 
-<img src="assets/2.05GG.png" alt="Add framework Support" width="350"/>
+#### Update `pom.xml`
+Add your configurations into `pom.xml` [like the project here](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod4/4.05/pom.xml). You may need to invalidate caches and restart IntelliJ IDE again to activate the imports specified in `pom.xml`. You can also search for the [latest Maven package versions](https://mvnrepository.com/).
+
+#### Project Setup
+
+If your test isn't running, try the following to troubleshoot to get the tests running locally:
+
+* Right-click on the project name and choose **Add Framework Support**. <img src="assets/QS2.03D.png" alt="Add framework support" width="350"/>
+* Choose **Maven** as a build tool.
+* Go to **File > Project Structure**. Select a JDK that you have installed on your machine.
+* Choose **File > Invalidate Caches and Restart** so the changes can take effect. <img src="assets/QS2.03E.png" alt="Appium Doctor" width="350"/>
 
 
-Choose **Maven** and click **OK**.
-
-<img src="assets/2.05H.png" alt="Maven OK" width="350"/>
-
-
-Next, set up the SDK used to compile your Java code. Go to **File → Project Structure**.
-
-<img src="assets/2.05I.png" alt="Project structure" width="350"/>
-
-
-Under **Project Settings**, choose **Project**, then choose your SDK in the dropdown menu. You should see the SDK
-
-<img src="assets/2.05J.png" alt="Choose SDK" width="450"/>
 
 <!-- --------------- -->
 ## 2.06 Create Your Java Test Code
