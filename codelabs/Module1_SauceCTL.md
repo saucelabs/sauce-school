@@ -295,10 +295,21 @@ You can check to see if it’s running with the command `docker info`, and see w
 ## 1.04 Run Your Cypress Test on Sauce
 Duration: 0:03:00
 
-To run Cypress tests on sauce labs, you will can:
-* Use the [simplified Cypress test code ](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.04)from modules 1.07-1.08 that goed along with the `suites` examples
+Running a Cypress test on sauce is easy. If you follow the configuration steps in the last module, all you need to do is run the command:
+
+```
+saucectl run
+```
+
+Specifying which tests you want to run in which environment can be configured in the `suites:` tab in the `.sauce/config.yml` file.
+
+#### Example Cypress Code
+For example Cypress tests, you can:
+* Use the [simplified Cypress test code ](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.04)from modules 1.07-1.08 that goes along with the `suites` examples
 * Use the [Sauce Labs Cypress Test Code](https://github.com/saucelabs/saucectl-cypress-example)
-* Use your own Cypress tests and modify `suites:` accordingly
+* Use your own Cypress tests
+
+Cypress and saucectl offer you the options to run different groupings of tests in different browsers, and use _Sauce Mode_, _Docker Mode_ or a combination of the two.
 
 #### Video
 
@@ -306,11 +317,9 @@ To run Cypress tests on sauce labs, you will can:
 
 <video id="9hojw_PMYqk"></video>
 
-### Update Sauce Config File
+### Modify `config.yml` to Run Your Tests
 
 Before you can run your own tests using saucectl, you need to tell Cypress where it can find the test files it needs to run. You will do this in `.sauce/config.yml`. Under the [`suites` tag](https://docs.saucelabs.com/testrunner-toolkit/configuration/common-syntax#suites),  replace the following under the `"suites"` field:
-
-
 
 ```
 # filename: .sauce/config.yml
