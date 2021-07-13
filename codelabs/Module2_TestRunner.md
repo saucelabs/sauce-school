@@ -81,6 +81,7 @@ In this example, my tunnel name is `linds-proxy-tunnel.`
 <img src="assets/5.03E.png" alt="Command to run tunnel" width="750"/>
 
 ###Note
+
 Negative
 : **Create Environment Variables for Sauce Labs –** The first thing you should do when creating a test is set up environment variables on your local machine or CI tool for your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`. It is important to save your Sauce username and access key as environment variables, instead of coding them into your test.  It will also make transitioning to a continuous integration pipeline easier, since they will use the same environment variables.  Watch [this video](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing) to learn how to set up environment variables with your Sauce Labs credentials on a Mac, or view the [instructions for Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
 
@@ -285,6 +286,7 @@ Now that you have a copy of your Cypress test files in your app. This can be don
 <img src="assets/TRT2.05F.png" alt="files copied into project" width="650"/>
 
 #### Note
+
 Negative
 : If you are using the sample app, you will want to make it so the workflows from the other `.yml` files included in this app don't run (in the directory `.github/workflow`) by appending `.bak` on the end, this way the other workflows in the app won't run when you commit or push. <img src="assets/TRT2.05G.png" alt="The YML file" width="550"/>
 
@@ -524,7 +526,7 @@ steps:
 Note that in this case the flag -`i proxy-tunnel-$GITHUB_RUN_ID` spins up (& tears down) a new tunnel each time the workflow is run.
 
 Negative
-: Make sure you have GitHub secrets set up for your SAUCE_USERNAME and SAUCE_ACCESS_KEY.
+: Make sure you have GitHub secrets set up for your SAUCE_USERNAME and SAUCE_ACCESS_KEY, and that the version of `sc-x.x.x` is set to the [latest version](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/index.html#downloading-sauce-connect-proxy)  
 
 #### Use SauceCTL to Run Tests
 Use the action to install Sauce Control, then run the tests by building on `port 8000` and running the tests:
