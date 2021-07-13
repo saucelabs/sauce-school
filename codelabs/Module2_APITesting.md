@@ -10,7 +10,7 @@ feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
 author: James Tacker & Lindsay Walker
 <!-- ------------------------ -->
-# Module 2 – Introduction to API Fortress
+# Module 2 – Run an API Fortress Test
 
 <!------------------------------>
 
@@ -18,10 +18,11 @@ author: James Tacker & Lindsay Walker
 Duration: 0:02:00
 
 1. **Introduction to the API Fortress Platform and Visual Test Composer**
-   * Create a project
-   * Leverage the HTTP Client
-   * Navigate the Test Component library
-   * Generate and run a test
+   * Create a project & test file
+   * Use the **HTTP Client** to generate a GET request
+   * Use the **Test Component Library** to create a request
+   * Add authorization credentials to a request
+   * Generate a test from a valid GET request
    * View the test results
    * Publish and schedule a test run
 
@@ -67,13 +68,17 @@ Upon finishing your project setup, you should see the Project Dashboard.
 
 <!------------------------------>
 
-## 2.03 Run Your First API Test
-Duration: 0:08:00
+## 2.03 Create an API Test File
+Duration: 0:04:00
 
 We now have a project in which we can begin writing API Tests. Let's create the first API Test!
 
+#### Note:
+Negative
+: You must have a [API Fortress account](https://apifortress.com/) in order to follow along in this step. [Use this link](https://saucelabs.com/sign-up) to sign up for a free trial. If you have an account, [Sign In](https://mastiff.apifortress.com/app/web/login/auth).
 
-#### Create a Test
+
+#### Create a Test File
 
 We're going to test against the [Sauce Labs GET user endpoint](https://docs.saucelabs.com/dev/api/accounts#get-users). In order to successfully create this test we need to complete the following steps using the [Visual Test Composer](https://docs.saucelabs.com/api-testing/learn-more/working-with-the-response-object/index.html#visual-composer-view) view:
 * Send an example HTTP Request using the **HTTP Client**
@@ -84,8 +89,12 @@ From the project dashboard:
 
 1. Select **Tests** at the top of the screen in order to navigate to the project test list
    <img src="assets/apif-mod2/select-tests.png" alt="API Fortress: Select Tests" />
+
+
 2. From the project test list, select **+New Test**
    <img src="assets/apif-mod2/new-tests.png" alt="API Fortress: New Tests" />
+
+
 3. You should now see the new **Test Details** alert window
    <img src="assets/apif-mod2/test-details.png" alt="API Fortress: Test Details" />
    Add the following for each category:
@@ -93,35 +102,41 @@ From the project dashboard:
     * **Description**: `Test for the GET Method`
     * **Tags**: `get`, `user`
 
+
 4. When you're finished, select the **green check mark** <img src="assets/apif-mod2/green-check-mark.png" alt="API Fortress: Green Check Mark" width="30"/> at the top.
+
+
 5. Now you should see the **Test Status** / **Interstitial** page.
    <img src="assets/apif-mod2/test-status.png" alt="API Fortress: Test Status / Interstitial Page" />
 
-### Generate a Test
+<!------------------------------>
 
-At the moment, the test content is empty, so we need to **generate a test**. From here there are two ways to generate a test:
+## 2.04 Generate a Test
+Duration: 0:04:00  
+
+At the moment, the test content is empty, so we need to [generate a test](https://docs.saucelabs.com/api-testing/quick-start#step-3-create-an-http-request). From here there are two ways to generate a test:
 * Generate a test manually with the HTTP Client
 * Generate a test from a spec file.
 
 For the purposes of this lesson, we will generate a test manually.
 
-#### Note:
-Negative
-: You must have a Sauce Labs account in order to follow along in this step. [Use this link](https://saucelabs.com/sign-up) to sign up for a free trial.
-
-From the Intersitial page:
+From the Interstitial page:
 
 1. Select **Compose** at the bottom of the page.
    <img src="assets/apif-mod2/compose-button.png" alt="API Fortress: Compose Test Button" />
+
+
 2. Now you arrive at the [Visual Test Composer](https://docs.saucelabs.com/api-testing/quick-start/composer) page.
    <img src="assets/apif-mod2/test-composer.png" alt="API Fortress: Test Composer" />
    In order to create tests we first need to submit a sample HTTP API request.
+
 
 3. At the bottom of the UI, enter the following URL where it says **Request url** in the **HTTP Client**:
    ```
    https://api.us-west-1.saucelabs.com/team-management/v1/users?limit=3
    ```
    <img src="assets/apif-mod2/test-1.png" alt="API Fortress: Generate Test Step 1" />
+
 
 4. Select the **Send** button:
 
@@ -132,33 +147,39 @@ From the Intersitial page:
    "HTTP Code 401: Authorization failed"
    ```
    <img src="assets/apif-mod2/401-error.png" alt="API Fortress: HTTP 401 Request Error" />
+
+
 #### Note:
 
 Negative
 : To see the raw response body in the HTTP Client select **Body** and then either *Raw* or *Parsed*
 
 ### Adding a Test Component
+Lets add a GET component that can make a successful API call against the Sauce Labs REST API.
 
-In the previous step we encountered a common authentication error—[HTTP: 401](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401). In order to fix this error we must add our [Sauce Labs Account Credentails](https://app.saucelabs.com/user-settings) as a [Basic Authentication Header](https://docs.saucelabs.com/api-testing/how-to/authorization-simple-oauth-etc/index.html#overview).
+In the previous step we encountered a common authentication error, **[HTTP: 401](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401**), since you didn't send the username and access key that Sauce Labs requires to communicate with their API. In order to fix this error we must add our [Sauce Labs Account Credentails](https://app.saucelabs.com/user-settings) as a [Basic Authentication Header](https://docs.saucelabs.com/api-testing/how-to/authorization-simple-oauth-etc/index.html#overview).
 
 1. At the top of the Test Composer page, select the plus symbol to **add a new request component**:
    <img src="assets/apif-mod2/add-component-button.png" alt="API Fortress: Add Component Button" />
+
 
 2. From the dropdown list, select **GET**:
 
    <img src="assets/apif-mod2/select-get-component.png" alt="API Fortress: Select GET Component" />
 
-#### Create Example GET Component
+
+### Create A GET Component
 1. In the next screen, recreate your HTTP Client request with the following information
    <img src="assets/apif-mod2/get-request-details.png" alt="API Fortress: GET Request Details" />
-    * **Url**: `https://api.us-west-1.saucelabs.com/team-management/v1/users`
-    * **Variable**: `payload`
+    * **Url**: `https://api.us-west-1.saucelabs.com/team-management/v1/users` – The URL that you are retrieving data from
+    * **Variable**: `payload` - The variable where the response to GET is stored
     * **Expect**: Leave blank
-    * **Mode**: `json`
-    * **Query Params**: *Name*: `limit` *String value*: `3`
+    * **Mode**: `json` - The format of the information from the GET call
+    * **Query Params**: *Name*: `limit` *String value*: `3` – Sets the number of responses to a limit of 3 so your test doesn't take too long
 
 2. Then select **Add Authentication** at the bottom right.
    <img src="assets/apif-mod2/add-authentication.png" alt="API Fortress: Authentication Details" />
+
 
 3. Select **Basic Authentication**, then add your [Sauce Labs Username and Access Key](https://app.us-west-1.saucelabs.com/user-settings) in the relevant fields.    When you're finished, select the **green check mark** <img src="assets/apif-mod2/green-check-mark.png" alt="API Fortress: Green Check Mark" width="30"/> in the top right.
 
@@ -166,27 +187,40 @@ In the previous step we encountered a common authentication error—[HTTP: 401](
 
    <img src="assets/apif-mod2/basic-auth-details.png" alt="API Fortress: Basic Auth Details" />
 
-#### Copy and Paste the Enocded Auth Header
-1. You'll notice that API Fortress automagically encodes and adds the Authorization header for you. Select the component to see the details:
+
+
+#### Note
+Negative
+: It's important to save each time you make a change to your test. <img src="assets/apif-mod2/APIF2.04A.png" alt="API Fortress: Save" />  
+
+
+### Copy and Paste the Enocded Auth Header
+1. You'll notice that API Fortress automagically encodes and adds the Authorization header for you. Double-click the component to see the details:
    <img src="assets/apif-mod2/new-auth-component.png" alt="API Fortress: New Auth Component" />
-2. Copy and paste the details in your HTTP Client **Headers** section:
-   <img src="assets/apif-mod2/copied-to-http-client.png" alt="API Fortress: Copied auth header to http client" />
+
+
+2. Copy and paste the details in your HTTP Client **Headers** section, and make sure the endpoint URL `https://api.us-west-1.saucelabs.com/team-management/v1/users` is still there:
+   <img src="assets/apif-mod2/APIF2.04B.png" alt="Past Auth" />  
+
 
 3. Select the **Send** button again, and you should see something similar to below in the response body:
    <img src="assets/apif-mod2/response-body-1.png" alt="API Fortress: Response Body Example" />
 
+
 4. Next, select the **Generate Test** button and API Fortress automagically generates a sample test based on the request data.
    <img src="assets/apif-mod2/generate-test.png" alt="API Fortress: Generate Test Button" />
+
 
 5. Click through the prompts, and you should now see many tests in the Visual Test Composer Window.
    <img src="assets/apif-mod2/visual-composer-view.png" alt="API Fortress: Visual Test Composer View" />
 
-6. The final step is to run your tests. At the top of the Visual Test Composer, select **Run**
+
+6. The final step is to run your tests. At the top of the Visual Test Composer, select **Save** then **Run**
    <img src="assets/apif-mod2/run-test.png" alt="API Fortress: Run Test Button" />
 
 <!------------------------------>
 
-## 2.04 View Test Results
+## 2.05 View Test Results
 Duration: 0:04:00
 
 If your previous step ran without any errors you should see the following test results page:
@@ -207,7 +241,7 @@ This outputs the following:
 
 <!-- ------------------------ -->
 
-## 2.05 Scheduling and Publish a Test
+## 2.06 Schedule and Publish a Test
 Duration: 0:04:00
 
 If you navigate back to the Test Status / Intersitial page, you may notice that Test Status is not complete. There's either one of two reasons for this:
@@ -263,4 +297,7 @@ In the next module, we will take a step back and dive deeper into the API Fortre
 * Using the **The Vault**
 * and more!
 
-## 2.06 Module 2 Quiz
+<!-- ------------------------ -->
+## 2.07 Module 2 Quiz
+
+![https://docs.google.com/forms/d/e/1FAIpQLScD-Qv4R-99_uW2IumSKhPTkwO3RX-3mU0G-aotTWMrIVVrUA/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScD-Qv4R-99_uW2IumSKhPTkwO3RX-3mU0G-aotTWMrIVVrUA/viewform?usp=sf_link)
