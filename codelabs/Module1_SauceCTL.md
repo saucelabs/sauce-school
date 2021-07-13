@@ -275,13 +275,6 @@ __assets__
 **/__assets__
 ```
 
-### Run a Cypress Test
-
-Now that you have everything installed and a project created, you can use saucectl to run a test on the Sauce Labs Cloud with this command (`cd` in terminal to your project directory):
-
-```
-saucectl run
-```
 ### Install Docker (Optional)
 
 If you would like to run your tests in a Docker container and pass the results to the Sauce Labs platform, visit the [docker download website ](https://docs.docker.com/get-docker/)and install the newest version of Docker on your machine.
@@ -290,12 +283,13 @@ Start up Docker to ensure it’s running properly on your machine, and follow th
 
 You can check to see if it’s running with the command `docker info`, and see which version you have with the command `docker -v`.  
 
+See the next module for more about running tests with the command `saucectl run`
 
 <!-- ------------------------ -->
 ## 1.04 Run Your Cypress Test on Sauce
 Duration: 0:03:00
 
-Running a Cypress test on sauce is easy. If you follow the configuration steps in the last module, all you need to do is run the command:
+Running a Cypress test on sauce is easy. If you follow the configuration steps using `saucectl init` in the last module, all you need to do is run the command:
 
 ```
 saucectl run
@@ -303,13 +297,7 @@ saucectl run
 
 Specifying which tests you want to run in which environment can be configured in the `suites:` tab in the `.sauce/config.yml` file.
 
-#### Example Cypress Code
-For example Cypress tests, you can:
-* Use the [simplified Cypress test code ](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.04)from modules 1.07-1.08 that goes along with the `suites` examples
-* Use the [Sauce Labs Cypress Test Code](https://github.com/saucelabs/saucectl-cypress-example)
-* Use your own Cypress tests
-
-Cypress and saucectl offer you the options to run different groupings of tests in different browsers, and use _Sauce Mode_, _Docker Mode_ or a combination of the two.
+Cypress and saucectl also offers you the options to run different groupings of tests in different browsers, and use _Sauce Mode_, _Docker Mode_ or a combination of the two.
 
 #### Video
 
@@ -317,41 +305,30 @@ Cypress and saucectl offer you the options to run different groupings of tests i
 
 <video id="9hojw_PMYqk"></video>
 
-### Modify `config.yml` to Run Your Tests
+#### Example Cypress Code
+For example Cypress tests, you can:
+* Use the [simplified Cypress test code ](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.04)from modules 1.07-1.08 that goes along with the `suites` examples
+* Use the [Sauce Labs Cypress Test Code](https://github.com/saucelabs/saucectl-cypress-example)
+* Use your own Cypress tests
 
-Before you can run your own tests using saucectl, you need to tell Cypress where it can find the test files it needs to run. You will do this in `.sauce/config.yml`. Under the [`suites` tag](https://docs.saucelabs.com/testrunner-toolkit/configuration/common-syntax#suites),  replace the following under the `"suites"` field:
+
+### Add and Run New Tests
+As you grow your testing suite, you may want to add new tests to run, and you may want to have the option to run different specific groups of tests, and run on different browsers. The `config: testFiles:` objects under the `suites:` tag allow you to specify which tests are run, when:
+
+If you used `saucectl init` the object test will automatically run any tests in the `cypress/integrations` directory with a [supported Cypress test file type](https://docs.cypress.io/guides/core-concepts/writing-and-organizing-tests#Test-files) and look something like this:
 
 ```
-# filename: .sauce/config.yml
-# ...
 suites:
-- name: example test
+- name: cypress - windows 10 - chrome
+  browser: chrome
+  platformName: windows 10
+  config:
+    testFiles:
+    - '**/*.*'
   mode: sauce
-  browser: chrome
-  config:
-    testFiles: ['**/example.test.js']
-
-- name: login test
-  mode: docker #change to sauce to run in Sauce Mode
-  browser: chrome
-  platformName: "Windows 10"
-  screenResolution: 2560x1600
-  config:
-    testFiles: ['**/login.spec.js']
-# ...
+rootDir: .
 ```
-After you have updated the `suites:` to run the tests, use the commands
 
-```
-saucectl run
-```
-You should see the example test run in **Docker Mode** and the login test run on the **Sauce Cloud**
-
-<img src="assets/SCTL1.04A.png" alt="Running on Docker" width="400"/> <img src="assets/SCTL1.04B.png" alt="Running on Sauce" width="400"/>
-
-Options like `platformName` and `screenResolution` are optional capabilities that you can define for your test, and can be omitted, as can the mode. By default your tests will be run in **Sauce Mode**.
-
-[See the documentation for all configuration options](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
 
 
 #### Note
@@ -359,22 +336,11 @@ Options like `platformName` and `screenResolution` are optional capabilities tha
 Negative
 : There are also two alternatives for listing the `testFiles;` in your suite, either in brackets `[]` [like the example here](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress#suites/&utm_source=referral&utm_medium=LMS&utm_campaign=link), or underneath tabbed in, in front of a dash with a space: `-'**/login].spec.js' `
 
-### Run Your Test on a Sauce Labs VM
+### Run Your Tests in Different Browsers
 
-There are two options to run your test on Sauce Labs, using either _Docker mode_ to run tests on  a local Docker container and pass test run information to Sauce Labs, or using _Sauce mode_ to run your tests on a Sauce Labs VM, with _Sauce mode_ being the default.
+Sauce Labs supports running Cypress tests in the [environments that are supported](https://docs.saucelabs.com/testrunner-toolkit/index.html#supported-frameworks-in-sauce-cloud) by the Cypress test runner. This means you can run using the Chrome, Microsoft Edge, and Firefox browsers.
 
-Running tests on the Sauce Labs Cloud, give you the choice of a wide variety of browsers and operating systems.
-
-Make sure you have the latest version of `saucectl`. Check your version with the command `saucectl --version`. You can [check the latest version of saucectl here](https://github.com/saucelabs/saucectl)
-
-<img src="assets/TRT1.06D.png" alt="Sauce C T L version" width="750"/>
-
-
-If your saucectl version isn’t up to date, you can use `npm` to update it with:
-
-```
-npm update -g saucectl
-```
+### Run Your Tests in Different Modes
 
 
 #### Run Your Test in Sauce Mode
