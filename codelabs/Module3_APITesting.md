@@ -19,7 +19,8 @@ Duration: 0:02:00
 Below are the primary learning objectives for this module:
 
 **Assertions and Request Components**
-* Determine the different types and desired output when adding assertions to an a API test
+* Determine the different types of assertions and requests you can use with your API test
+* Understand the different types of output when adding assertions to an a API test
 * Understand the various use cases for adding a request component to an API test.
 
 **Variables**
@@ -44,6 +45,8 @@ All available test components, as well as a search bar, appears on the next scre
 
 <img src="assets/apif-mod3/component_library.png" alt="Component Library" width="500"/>
 
+#### Example
+
 If you select the **Tag** component at the top, it will automatically add this component to the bottom of your test like in this image:
 
 <img src="assets/apif-mod3/example_component.png" alt="Example Component"/>
@@ -54,7 +57,9 @@ You can add any of the following components to your test, depending on your use 
 * **JDBC**: Connect this request to a database using a [JDBC API](https://en.wikipedia.org/wiki/Java_Database_Connectivity#).
 * **K/V Store**: Store and retrieve ephemeral data from a `key:value` store.
 
-There are many components, and feel free to hover over them to see what they do, but our next focus is on the **Request**, the building block of every API test.
+<img src="assets/apif-mod2/APIF3.02A.png" alt="Update Input" width="75"/><img src="assets/apif-mod2/APIF3.02B.png" alt="Update Input" width="75"/><img src="assets/apif-mod2/APIF3.02C.png" alt="Update Input" width="75"/>
+
+There are many components you can play around with, and hover over them to see what they do, but our next focus is on the **Request**, the building block of every API test.
 
 <!-- ------------------------ -->
 
@@ -73,7 +78,7 @@ Refer to the [API Testing Basics](https://training.saucelabs.com/codelabs/Module
 
 ### Note:
 Negative
-: In the previous module, [_Introduction to API Fortress_](https://training.saucelabs.com/codelabs/Module2-APITesting/index.html#0), we used the **Generate Test** button. This button automagically generates the HTTP request, assertions, and other test elements so that you can focus on the more intricate and tricky parts of your tests. In this module we will begin anew in order to fully grasp the importance of assertions, but refer back to that test for inspiration and ideas on how to design your assertions.
+: In the previous module, [_Introduction to API Fortress_](https://training.saucelabs.com/codelabs/Module2-APITesting/index.html#0), we used the **Generate Test** button. This button automagically generates the HTTP request, assertions, and other test elements so that you can focus on the more intricate and tricky parts of your tests. In this module we will build a test from scratch to build understanding of the importance of assertions, but refer back to that test for inspiration and ideas on how to design your assertions.
 
 ### Exercise: Add a GET Request Component
 
