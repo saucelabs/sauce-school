@@ -111,9 +111,9 @@ _More detailed instructions are below_
 
 #### Video
 
-[saucectl Introduction](https://youtu.be/gWAu1L8Ich0)
+[Cypress and saucectl Setup](https://www.youtube.com/watch?v=XCzmAbXyK-A&list=PL67l1VPxOnT7YTdCbpvSpJ8FF-sNxm8r-&index=1)
 
-<video id="gWAu1L8Ich0"></video>
+<video id="XCzmAbXyK-A"></video>
 
 
 Negative
@@ -307,9 +307,9 @@ Running tests using Cypress and saucectl allows you to run as many combinations 
 
 #### Video
 
-[Running Tests with Sauce and Cypress](https://youtu.be/9hojw_PMYqk)
+[Running Tests with Sauce and Cypress](https://www.youtube.com/watch?v=ofa9Y1u6RAc&list=PL67l1VPxOnT7YTdCbpvSpJ8FF-sNxm8r-&index=3)
 
-<video id="9hojw_PMYqk"></video>
+<video id="ofa9Y1u6RAc"></video>
 
 #### Example Cypress Code
 For example Cypress tests, you can:
@@ -563,7 +563,7 @@ Sauce Labs’ Testrunner Toolkit allows you to take existing Cypress test suites
 
 #### Video
 
-[Page Objects Setup](https://youtu.be/GTGlkiUCRLM)
+[Create Page Objects For a Cypress Test](https://www.youtube.com/watch?v=GTGlkiUCRLM&list=PL67l1VPxOnT7YTdCbpvSpJ8FF-sNxm8r-&index=3)
 
 <video id="GTGlkiUCRLM"></video>
 
@@ -759,7 +759,7 @@ Now that you have all the configuration files and page objects created, you can 
 
 #### Video
 
-[Write a Cypress Test](https://youtu.be/0zYCOeATnnM)
+[Write a Cypress Test](https://www.youtube.com/watch?v=0zYCOeATnnM&list=PL67l1VPxOnT7YTdCbpvSpJ8FF-sNxm8r-&index=4)
 
 <video id="0zYCOeATnnM"></video>
 
@@ -882,7 +882,7 @@ It often helps to debug on your local machine, and the Cypress client provides s
 
 #### Video
 
-[Running and Debugging Test on Cypress Locally](https://youtu.be/GBgJR-w2Kew)
+[Run and Debug A Cypress Test Locally](https://www.youtube.com/watch?v=0zYCOeATnnM&list=PL67l1VPxOnT7YTdCbpvSpJ8FF-sNxm8r-&index=4)
 
 <video id="GBgJR-w2Kew"></video>
 

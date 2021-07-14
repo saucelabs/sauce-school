@@ -1,7 +1,7 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
 summary: In this module, you will learn how and why you use Sauce Connect to run tests through a secure tunnel, and practice running tests against a local app, in the Sauce Labs Cloud. You will also set up an example project  in Github Actions and include the saucectl test in your workflow.
-id: Module2-Testrunner
+id: Module2-saucectl
 categories: intermediate
 environments: Web
 status: Published
@@ -40,7 +40,7 @@ Duration: 0:03:00
 
 #### Video
 
-**[Setup Sauce Connect for saucectl](https://youtu.be/tz1GPfFUxz0)**
+**[Setup Sauce Connect for saucectl](https://www.youtube.com/watch?v=tz1GPfFUxz0&list=PL67l1VPxOnT7YTdCbpvSpJ8FF-sNxm8r-&index=6)**
 
 <video id="tz1GPfFUxz0"></video>
 
@@ -117,7 +117,7 @@ Negative
 : First, make sure that your Sauce Connect tunnel is currently running, as per the instructions in the last module. Now you can make a simple change to `.sauce/config.yml` and run your Cypress test
 
 #### Video
-**[Run a Cypress Test With Sauce Connect](https://www.youtube.com/watch?v=AO3CavnpKq8)**
+**[Run a Cypress Test With Sauce Connect](https://www.youtube.com/watch?v=AO3CavnpKq8&list=PL67l1VPxOnT7YTdCbpvSpJ8FF-sNxm8r-&index=7)**
 
 <video id="AO3CavnpKq8"></video>
 
@@ -169,7 +169,7 @@ Cypress on Sauce with saucectl allows you to perform tests on an app that you ha
 In this example, we will be downloading the [Swag Labs web app](https://github.com/saucelabs/sample-app-web), and running it locally.
 
 #### Video
-**[Test a Local App With Saucectl](https://www.youtube.com/watch?v=N2qUff6KZ-M)**
+**[Test a Local App With Saucectl](https://www.youtube.com/watch?v=N2qUff6KZ-M&list=PL67l1VPxOnT7YTdCbpvSpJ8FF-sNxm8r-&index=8)**
 
 <video id="N2qUff6KZ-M"></video>
 
@@ -221,13 +221,25 @@ First, update the BaseURL in your `cypress.json` file to `http://host.docker.int
 <img src="assets/TRT2.04F.png" alt="Update Cypress Test BaseURL to run local app in Docker mode" width="650"/>
 
 #### Run Your Test in Docker Mode
-Now, you simply need to ensure your app is running on your local machine, and run the command:
+To run your tests in docker mode, you can either specify _Docker Mode_ for all your tests:
 
 ```
-saucectl run --test-env docker
+apiVersion: v1alpha
+kind: cypress
+defaults:
+  mode: docker
+```
+or, set specific tests to run in _Docker Mode_:
+
+```
+suites:
+- name: cypress - windows 10 - chrome
+  mode: docker
 ```
 
-<img src="assets/TRT2.04D.png" alt="Running Cypress Test local app in Docker mode" width="650"/>
+when you use `saucectl run` you should see output like this in your terminal:
+
+<img src="assets/SCTL2.04D.png" alt="Running Cypress Test local app in Docker mode" width="650"/>
 
 #### Final Code
 [See the example project](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod2/2.04) with the swag labs app set to run locally, testing on Sauce Labs' VM
@@ -240,7 +252,7 @@ Duration: 0:07:00
 In this lesson you will learn how to set up everything you need to run the example Swag Labs app with Github Actions. If you already have a pipeline set up in GitHub actions, you can quickly set things up using the [page in docs](https://docs.saucelabs.com/testrunner-toolkit/integrations/github-actions).
 
 #### Video
-[Set up a Cypress Test Project with Github Actions](https://youtu.be/JIPH-43KuxQ)
+[Set up a Cypress Test Project with Github Actions](https://www.youtube.com/watch?v=JIPH-43KuxQ&list=PL67l1VPxOnT7YTdCbpvSpJ8FF-sNxm8r-&index=9)
 
 <video id="JIPH-43KuxQ"></video>
 
@@ -365,7 +377,7 @@ Github Actions is a community that has [a collection of repositories](https://gi
 
 #### Video
 
-[Create and Run Jobs with a Cypress Test in GitHub Actions](https://youtu.be/6NViGmm4baY)
+**[Create and Run Jobs with a Cypress Test in GitHub Actions](https://www.youtube.com/watch?v=6NViGmm4baY&list=PL67l1VPxOnT7YTdCbpvSpJ8FF-sNxm8r-&index=10)**
 
 <video id="6NViGmm4baY"></video>
 
