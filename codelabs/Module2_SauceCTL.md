@@ -111,7 +111,7 @@ After `-u` you see your username and after `-k` you have your access key, and `-
 ## 2.03 Run Your Cypress Test with Sauce Connect
 Duration: 0:04:00
 
-With Sauce Control and Testrunner Toolkit, you can use Sauce Connect Proxy to run your Cypress tests thorugh a secure proxy tunnel when you run tests the Sauce Labs cloud of virtual machines (in `--test-env sauce`), passing the data to Sauce Labs.
+With saucectl and Sauce Labs, you can use Sauce Connect Proxy to run your Cypress tests thorough a secure proxy tunnel when you run tests the Sauce Labs cloud of virtual machines (in `--test-env sauce`), passing the data to Sauce Labs.
 
 Negative
 : First, make sure that your Sauce Connect tunnel is currently running, as per the instructions in the last module. Now you can make a simple change to `.sauce/config.yml` and run your Cypress test
@@ -164,7 +164,7 @@ See the [example project](https://github.com/walkerlj0/testrunner-course-example
 ## 2.04 Test a Local App With Sauce Labs
 Duration: 0:05:00
 
-Cypress on Sauce with Testrunner Toolkit allows you to perform tests on an app that you have on your local machine (or other non-public environments), then test it against the wide variety of devices available on Sauce Labs.
+Cypress on Sauce with saucectl allows you to perform tests on an app that you have on your local machine (or other non-public environments), then test it against the wide variety of devices available on Sauce Labs.
 
 In this example, we will be downloading the [Swag Labs web app](https://github.com/saucelabs/sample-app-web), and running it locally.
 
@@ -216,7 +216,7 @@ To run tests in _Docker mode_ (test are running in a Docker container) against a
 
 #### Update the Test URL
 
-First, update the BaseURL in your `cypress.json` file to `http://host.docker.internal:3000` so Testrunner Toolkit will run against the app running on port 3000 on your local machine:
+First, update the BaseURL in your `cypress.json` file to `http://host.docker.internal:3000` so saucectl will run against the app running on port 3000 on your local machine:
 
 <img src="assets/TRT2.04F.png" alt="Update Cypress Test BaseURL to run local app in Docker mode" width="650"/>
 
