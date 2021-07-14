@@ -7,7 +7,7 @@ environments: Web
 status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
-tags: saucectl
+tags: testrunner
 authors: Lindsay Walker
 <!-- ------------------------ -->
 # Module 2 – Continuous Integration with Cypress and Sauce

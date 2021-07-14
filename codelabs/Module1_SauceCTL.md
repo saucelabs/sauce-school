@@ -35,7 +35,7 @@ Negative
 : Developers that **already have a test suite do not have to do Modules 1.07 - 1.09**. If you have one, simply create a new saucectl project in the folder with your Cypress test suites to get started quickly, moving on to Module 2 after 1.06.
 
 #### Clone the Project
-If you would like to follow along with the course, using the exact sample code, you can use the [example tests here](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.04).
+If you would like to follow along with the course, using the exact sample code, you can use the [example tests here](https://github.com/walkerlj0/saucectl-course-example-code/tree/main/Mod1/1.03).
 
 <!-- ------------------------ -->
 ## 1.02 What Is saucectl?
@@ -121,7 +121,7 @@ Negative
 
 ### Download and Install saucectl
 
-Next you need to download and install the Sauce Control Command Line Interface (CLI) that you will use to run Sauce Labs. This is a part of the Sauce Labs set of tools that allows you to set a configuration location & update the file in your local directory.  There are several options (https://docs.saucelabs.com/testrunner-toolkit/installation) for installing it, and in this tutorial we will use npm, which means you need to have [NodeJS installed on your machine](https://nodejs.org/en/download/).
+Next you need to download and install the saucectl Command Line Interface (CLI) that you will use to run Sauce Labs. This is a part of the Sauce Labs set of tools that allows you to set a configuration location & update the file in your local directory.  There are several options (https://docs.saucelabs.com/testrunner-toolkit/installation) for installing it, and in this tutorial we will use npm, which means you need to have [NodeJS installed on your machine](https://nodejs.org/en/download/).
 
 It also allows you to run commands to run tests locally or remotely on the Sauce Labs platform.
 
@@ -135,9 +135,9 @@ First, anywhere on your machine install the saucectl tool globally, using this c
 You want to fork, clone or download a .zip copy of the [example project](https://docs.saucelabs.com/testrunner-toolkit/installation), then place your tests in the **cypress** directory that contains your tests.
 
 You have the following options to test out Cypress on Sauce:
-* Use an existing project you have already (copy-paste in `/cypress`)
+* Use an existing project you have already (copy-paste in `/cypress` & `cypress.json`)
 * Follow [lessons 1.07 - 1.08](https://training.saucelabs.com/codelabs/Module1-Testrunner/index.html?index=..%2F..testrunner#5) to write simple tests
-* Clone or download [this example cypress test suite](https://training.saucelabs.com/codelabs/Module1-Testrunner/index.html?index=..%2F..saucectl#6)
+* Clone or download [this example cypress test suite](https://github.com/saucelabs/saucectl)
 
 Once you have a project directory containing cypress tests on your machine, navigate to the directory where the `cypress.json ` and `/cypress` directory are, you can update the configuration file to run your tests.
 
@@ -295,9 +295,15 @@ Running a Cypress test on sauce is easy. If you follow the configuration steps u
 saucectl run
 ```
 
-Specifying which tests you want to run in which environment can be configured in the `suites:` tab in the `.sauce/config.yml` file.
+Specifying which tests you want to run in which environment can be configured in the `suites:` tab in the `.sauce/config.yml` file. This lesson will cover:
 
-Cypress and saucectl also offers you the options to run different groupings of tests in different browsers, and use _Sauce Mode_, _Docker Mode_ or a combination of the two.
+* Setting different directories
+* Specifying certain test files
+* Running in different web browsers
+* Executing test in _Docker Mode_ or _Sauce Mode_
+* View test results on the Sauce Labs App
+
+Running tests using Cypress and saucectl allows you to run as many combinations of tests and environments as you would like
 
 #### Video
 
@@ -307,7 +313,7 @@ Cypress and saucectl also offers you the options to run different groupings of t
 
 #### Example Cypress Code
 For example Cypress tests, you can:
-* Use the [simplified Cypress test code ](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod1/1.04)from modules 1.07-1.08 that goes along with the `suites` examples
+* Use the [simplified Cypress test code ](https://github.com/walkerlj0/saucectl-course-example-code/tree/main/Mod1)you can learn more about in 1.07-1.08 that goes along with the `suites` examples
 * Use the [Sauce Labs Cypress Test Code](https://github.com/saucelabs/saucectl-cypress-example)
 * Use your own Cypress tests
 
@@ -315,7 +321,7 @@ For example Cypress tests, you can:
 ### Add and Run New Tests
 As you grow your testing suite, you may want to add new tests to run, and you may want to have the option to run different specific groups of tests, and run on different browsers. The `config: testFiles:` objects under the `suites:` tag allow you to specify which tests are run, when:
 
-If you used `saucectl init` the object test will automatically run any tests in the `cypress/integrations` directory with a [supported Cypress test file type](https://docs.cypress.io/guides/core-concepts/writing-and-organizing-tests#Test-files) and look something like this:
+If you used `saucectl init` the object test will automatically run any tests in the `cypress/integration` directory with a [supported Cypress test file type](https://docs.cypress.io/guides/core-concepts/writing-and-organizing-tests#Test-files) and look something like this:
 
 ```
 suites:
@@ -329,12 +335,41 @@ suites:
 rootDir: .
 ```
 
+Lets create two directories within your `cypress/integration` directory so that you can learn to specify both directories and files. create a `/smoke` and a `/regression` directory, and paste copies of your tests in each.
 
+<img src="assets/SCTL1.04C.png" alt="saucectl init workflow" width="700"/>
+
+You will want to modify any code that refers to the project structure that may change. In this example, you will want to update the imports in `login.spec.js` with an additional `../` to account for the re-organization:
+
+<img src="assets/SCTL1.04E.png" alt="saucectl init workflow" width="700"/>
+
+Now you can modify your `config.yml` to run one test from each directory. You will need to create two `-name:` objects under the `suites:`;
+
+```
+suites:
+- name: cypress - windows 10 - chrome smoke
+  browser: chrome
+  platformName: windows 10
+  config:
+    testFiles:
+    - 'smoke/*.spec.*'
+  mode: sauce
+- name: cypress - windows 10 - chrome regression
+  browser: chrome
+  platformName: windows 10
+  config:
+    testFiles:
+      ['regression/*.test.*']
+```
 
 #### Note
 
 Negative
 : There are also two alternatives for listing the `testFiles;` in your suite, either in brackets `[]` [like the example here](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress#suites/&utm_source=referral&utm_medium=LMS&utm_campaign=link), or underneath tabbed in, in front of a dash with a space: `-'**/login].spec.js' `
+
+Now when you use the command `saucectl run` you should see both test suites, **chrome smoke** and **chrome regression** having run:
+
+<img src="assets/SCTL1.04D.png" alt="saucectl init workflow" width="700"/>
 
 ### Run Your Tests in Different Browsers
 
@@ -342,37 +377,28 @@ Sauce Labs supports running Cypress tests in the [environments that are supporte
 
 ### Run Your Tests in Different Modes
 
+#### Run All Tests in One Mode
 
-#### Run Your Test in Sauce Mode
+If you do not have the `mode:` specified anywhere in your `.sauce/config.yml` file, then, by default, all your tests will be bundled, and uploaded and run on the Sauce Labs Cloud of virtual machines.
 
-In order to upload your tests to the Sauce Labs Cloud, and run your tests on a Sauce Labs virtual machine, all you need to do is run the command in terminal:
-
-
-```
-saucectl run
-```
-Once you have your tests running, learn more about what you can do with Sauce Labs and Cypress in [Module 2](https://training.saucelabs.com/codelabs/Module2-Testrunner/index.html?index=..%2F..testrunner#0)
-
-### Run Your Test with Docker & Sauce Labs
-
-Now that you have your config file set up, you can run your tests on a Docker container on your machine (Testrunner Toolkit helped set this all up for you) and the results will be sent to Sauce Labs.
-
-Negative
-: Your tests will run more quickly in Docker mode, since you aren't sending your tests to the Sauce Labs Platform, and this mode is good for writing & editing tests. Ensure you’ve set the Docker image tag in your `config.yml`
-
-
-####Run Your Tests in Docker Mode
-
-Once you have your updates to your config file, save your work, and navigate to your project folder (it should contain a `/cypress` directory and `cypress.json `file) and run your tests to execute the tests on Sauce Labs. Run the tests using
-
-Set mode in `config.yml`:
-* Set it as a global setting (all tests will run in _Docker Mode_)
+If you would like to try running tests in docker, you can set all your test suites to run, by default, in docker mode by setting the `defaults:` option:
 
 ```
 defaults:
-      mode: docker
+  mode: docker
 ```
-* Set it on the suite level (override)
+
+#### Note
+Negative
+: Not all browsers may be supported in _Docker Mode_, see the [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.1.0).
+
+#### Run Certain Tests in Different Modes
+
+Though you can set a default for the entire suite, there is also an option to set the mode for each suite. This setting will override whatever is set in `default:`. That is to say, if you have the default mode for all your suites set to (Docker, but specify the mode in a suite to run in
+
+With this option, you can run some suites in _Docker Mode_, and some suites in _Sauce Mode_, all from the same test run.
+
+To set the mode on the suite level, simply add the `mode:` option somewhere under your test suite `name;`
 
 ```
   suites:
@@ -380,17 +406,48 @@ defaults:
       mode: docker
 ```
 
-Run the command:
+The following configuration will run two of your tests in _Docker Mode_ (by default) and two of your tests in _Sauce Mode_:
 
 ```
-saucectl run
+apiVersion: v1alpha
+kind: cypress
+defaults:
+  mode: docker
+```
+```
+suites:
+- name: cypress - windows 10 - chrome smoke
+  mode: sauce
+  browser: chrome
+  platformName: windows 10
+  config:
+    testFiles:
+    - 'smoke/*.spec.*'
+- name: cypress - windows 10 - chrome regression
+  browser: chrome
+  platformName: windows 10
+  config:
+    testFiles:
+      ['regression/*.test.*']
+- name: cypress - windows 10 - firefox - all
+  browser: firefox
+  browserVersion: 86.0
+  platformName: windows 10
+  config:
+    testFiles:
+      - '**/*.*'
+- name: cypress - windows 10 - edge -all
+  browser: microsoftedge
+  browserVersion: 90.0
+  platformName: windows 10
+  config:
+    testFiles:
+      - '**/*.*'
+  mode: sauce
 ```
 
 
-You should see output like this in your console.
-
-<img src="assets/SCTL1.04A.png" alt="All Spects passed" width="450"/>
-<!-- Need to update this screenshot -->
+Now, when you run the command `saucectl run`, you should see output like this in your console.
 
 ### View Your Test Results
 
@@ -405,17 +462,18 @@ If you click into the tests, you can see the video of the test running on the Cy
 Once you have your tests running, learn more about what you can do with Sauce Labs and Cypress in [Module 2](https://training.saucelabs.com/codelabs/Module2-Testrunner/index.html?index=..%2F..testrunner#0)
 
 #### Final Code
-See an example of the test suite with [updated suites in `config.yml`](https://github.com/walkerlj0/testrunner-course-example-code/blob/main/Mod1/1.08/.sauce/config.yml)
-<!-- Need to update this sample -->
+See an example of the test suite with [updated suites in `.sauce/config.yml`](https://github.com/walkerlj0/saucectl-course-example-code/tree/main/Mod1/1.04)
 
-<img src="assets/TRT1.06E.png" alt="Sauce Cypress Test Results" width="850"/>
-<!-- Need to update this screenshot -->
+<img src="assets/SCTL1.04F.png" alt="All Specs passed" width="550"/>
+
+
+<img src="assets/SCTL1.04G.png" alt="All Specs passed" width="550"/>
 
 <!-- ------------------------ -->
 ## 1.05 Run Cypress Tests in Parallel
 Duration: 0:03:00
 
-Running Cypress tests in parallel in **Sauce Mode** using the Testrunner toolkit is as simple as updating a single field in your `.sauce/config.yml` file:
+Running Cypress tests in parallel on the Sauce Labs Cloud using the saucectl is as simple as updating a single field in your `.sauce/config.yml` file:
 
 <img src="assets/TRT1.05A.gif" alt="Sauce Cypress Test Results" width="850"/>
 
@@ -427,28 +485,30 @@ Negative
 : In order to run tests in parallel, you must have a paid account that has a concurrency of more than one. See the docs to learn more about concurrency, and check your concurrency  under **User Settings**. <img src="assets/TRT1.05B.png" alt="Concurrency in user settings" width="550"/>
 
 
-### Run Tests in Multiple Browsers
-To run tests in multiple browsers, simply create a different suite for each browser. You can run the same tests (or different tests) for each suite, and label them according to which OS and browser they will be run in:
+### Run Parallel Tests in Multiple Browsers
+Suites will automatically be run in parallel depending on your teams' allowed concurrency.
+
+In this example, _Login Chrome_, _Login Edge_, and _Login  Firefox_ will have all the test files in each suite run in parallel on a different machine.
 
 ```
 ...
 suites:
   # Chrome
-  - name: "Swag Labs Login Chrome"
+  - name: "Login Chrome"
     browser: "chrome"
     platformName: "Windows 10"
     screenResolution: "1400x1050"
     config:
       testFiles: [ "**/login.*" ]
   # MicrosoftEdge
-  - name: "Swag Labs Login MicrosoftEdge"
+  - name: "Login MicrosoftEdge"
     browser: "edge"
     platformName: "Windows 10"
     screenResolution: "1400x1050"
     config:
       testFiles: [ "**/login.*" ]
  # Firefox
-  - name: "Swag Labs Login Firefox"
+  - name: "Login Firefox"
     browser: "firefox"
     platformName: "Windows 10"
     screenResolution: "1400x1050"
