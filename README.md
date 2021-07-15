@@ -9,7 +9,7 @@ The course are located in `codelabs` directory. Each course will contain a markd
 
 ## Option 1- Local Setup
 ### 1. Get the Tools
- Install [Golang](https://golang.org/dl/) and [nodeJS v.10 and NPM](https://nodejs.org/en/download/) on your computer. [More instructions here](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
+ Install [Golang](https://golang.org/dl/) and [nodeJS and NPM](https://nodejs.org/en/download/) on your computer. [More instructions here](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
 
 ### 2. Get Claat
 Download the [claat binary](https://github.com/googlecodelabs/tools/tree/master/claat#install). When you installed GO on your computer, you should have a folder called go/bin and inside that file will be claat.
@@ -25,7 +25,33 @@ export GOROOT=/usr/local/go
 export PATH=$PATH:$HOME/go/bin
 ```
 
-### 3. Update PATH
+### 3. Clone this repository
+Choose where you would like to install sauce-school and either use SSH or HTTPS and install sauce-schools with:
+
+```
+git clone <insert copied url here>
+```
+<img src="assets/Readme_Git_Clone.png">
+
+### 4. Install Gulp
+
+Use instructions [here](https://github.com/gulpjs/gulp/blob/master/docs/getting-started/1-quick-start.md#install-the-gulp-command-line-utility)
+
+* Install guulp locally with:
+```
+npm install --global gulp-cli
+```
+
+From within the `sauce-school` directory you installed in the last step, run the command:
+
+```
+npm install
+```
+This will install node-modules for
+
+
+
+### 5. Update PATH
  In your `~/.bash_profile` (or `~/.zshenv` if you're using Catalina MacOSX) set the `go` `$PATH` environment variable:
 
 ```
@@ -34,7 +60,7 @@ export PATH=$PATH:$HOME/go/bin
 
 > For Windows users you will have to set this variable in the [Advanced System Settings](https://docs.oracle.com/en/database/oracle/r-enterprise/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html#GUID-DD6F9982-60D5-48F6-8270-A27EC53807D0)
 
-### 4. Project Setup
+### 6. Project Setup
  The project setup is labeled sauce-school. Within it you should see the directories:
  * `/site`
  * `/codelabs`
@@ -46,13 +72,13 @@ export PATH=$PATH:$HOME/go/bin
 cd site
 ```
 
-#### Install package dependencies and gulp dependencies
+#### Install package dependencies and gulp dependencies in site directory
 
 ```
 npm install
 ```
 
-### 5. Add .md Files to add Course Module3_SeleniumJS
+### 7. Add .md Files to add Course Module3_SeleniumJS
 
 [Claat](https://github.com/googlecodelabs/tools) will render an HTML page/ JSON file inside of `site/codelabs`.
 
@@ -63,7 +89,7 @@ npm install
  * Each Course module `.md.` file is labeled by language and module number (e.g. Module3_SeleniumJS.md).
  * The `tag` at the top of each codelab markdown file identifies the course e.g. java, javascript, python etc.) which are made of many 'modules' with several lessons in it. The codelabs will br grouped together into a course (aka `views`) according to this tag.
 
-  **!IMPORTANT at the top of the .md file , you need to have project information with the id- this is the name of the rendered codelab in `site/buile/codelabs`* (see below).
+  **!IMPORTANT at the top of the .md file , you need to have project information with the id- this is the name of the rendered codelab in `site/build/codelabs`* (see below).
 
 
 
@@ -88,14 +114,14 @@ analytics account: Google Analytics ID
 ```
 #### More on [markdown here](https://docs.google.com/document/d/1C7CunszYBCTAgzwYbDdtHS7yjwLEYQJuvKVC2ff4MZY/edit?usp=sharing)
 
-### 6. Serve it Locally
+### 8. Serve it Locally
  To serve it up locally, ensure you are in `site` folder:
 ```
 gulp serve
 ```
 It will automatically regenerate the codelabs when they are modified.
 
-### 7. Docs to Markdown
+### 9. Docs to Markdown
 When you create a new codelab markdown file from a GDoc, you can use the [Docs to Markdown tool](https://gsuite.google.com/marketplace/app/docs_to_markdown/700168918607), however there will be some HTML tags at the top you need to delete, as well as title cleanup you need to do
  - Make sure each title has one hash `#` for the course name. Each sub-category ('lesson') should have two hashes in front `##`)
  - Delete any HTML tags, they will screw things up
@@ -103,10 +129,10 @@ When you create a new codelab markdown file from a GDoc, you can use the [Docs t
  - before each lesson with `##`, above it insert `<!-- ------------------------ -->` to denote a new pages
 
 
-###  8. Images
+###  10. Images
 Images can mess things up. Make sure you list an image as `assets/imagename.png` withing the markdown file. The assets folder will be at the same level as the markdown page in `/codelabs` (not within a `/codelabs/ModuleX` folder)
 
-### 9. Adding in Elements to .md files
+### 11. Adding in Elements to .md files
     Format for Images `!(Image title)[imageDirInCodelab/Imagename,extension]``
     Format for Links `[Text to be highlighted](URL)`
     Format for <iframes> `![embed URL](regular URL)`
