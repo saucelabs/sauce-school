@@ -39,7 +39,7 @@ git clone <insert copied url here>
 
 Use instructions [here](https://github.com/gulpjs/gulp/blob/master/docs/getting-started/1-quick-start.md#install-the-gulp-command-line-utility)
 
-* Install guulp locally with:
+* Install gulp locally with:
 ```
 npm install --global gulp-cli
 ```
@@ -54,7 +54,7 @@ This will install node-modules for
 
 
 ### 5. Update PATH
- In your `~/.bash_profile` (or `~/.zshenv` if you're using Catalina MacOSX) set the `go` `$PATH` environment variable:
+ In your `~/.bash_profile` (or `~/.zshrc` if you're using Catalina MacOSX +) set the `go` `$PATH` environment variable:
 
 ```
 export PATH=$PATH:$HOME/go/bin
@@ -117,7 +117,8 @@ analytics account: Google Analytics ID
 #### More on [markdown here](https://docs.google.com/document/d/1C7CunszYBCTAgzwYbDdtHS7yjwLEYQJuvKVC2ff4MZY/edit?usp=sharing)
 
 ### 8. Serve it Locally
- To serve it up locally, ensure you are in `site` folder:
+ To serve it up locally, ensure you are in `site` folder and run the command:
+
 ```
 gulp serve
 ```
