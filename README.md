@@ -39,7 +39,7 @@ git clone <insert copied url here>
 
 Use instructions [here](https://github.com/gulpjs/gulp/blob/master/docs/getting-started/1-quick-start.md#install-the-gulp-command-line-utility)
 
-* Install guulp locally with:
+* Install gulp globally with:
 ```
 npm install --global gulp-cli
 ```
@@ -49,12 +49,12 @@ From within the `sauce-school` directory you installed in the last step, run the
 ```
 npm install
 ```
-This will install node-modules for
+This will install node-modules.
 
 
 
 ### 5. Update PATH
- In your `~/.bash_profile` (or `~/.zshenv` if you're using Catalina MacOSX) set the `go` `$PATH` environment variable:
+ In your `~/.bash_profile` (or `~/.zshrc` if you're using Catalina MacOSX +) set the `go` `$PATH` environment variable:
 
 ```
 export PATH=$PATH:$HOME/go/bin
@@ -80,21 +80,26 @@ cd site
 npm install
 ```
 
-### 7. Add .md Files to add Course Module3_SeleniumJS
+### 7. Serve it Locally
+ To serve it up locally, ensure you are in `site` folder and run the command:
+
+```
+gulp serve
+```
+It will automatically render your markdown files as a static website. Open a browser and type in `localhost:8080` and you should see the codelabs site.
+
+### 8. Add .md Files to add Courses
 
 [Claat](https://github.com/googlecodelabs/tools) will render an HTML page/ JSON file inside of `site/codelabs`.
 
 *   The `/codelab` directory contains all courses, each with several modules in it.
-<!-- -->
- Place a markdown file for course modules in a folder called _/site/codelabs_. When you use CLAAT for export it, go to the root golder `sauce-school` and run the command `claat export codelabs/Module4_SeleniumJS.md` so it will be exported into the build folder (the .md files are kept separately). Move
+
+ Place a markdown file for course modules in a folder called _/site/codelabs_. When you use CLAAT to export it, go to the root golder `sauce-school` and run the command `gulp serve` the markdown files will create directories in the `/site/codelabs` folder which is what is rendered
 
  * Each Course module `.md.` file is labeled by language and module number (e.g. Module3_SeleniumJS.md).
  * The `tag` at the top of each codelab markdown file identifies the course e.g. java, javascript, python etc.) which are made of many 'modules' with several lessons in it. The codelabs will br grouped together into a course (aka `views`) according to this tag.
 
   **!IMPORTANT at the top of the .md file , you need to have project information with the id- this is the name of the rendered codelab in `site/build/codelabs`* (see below).
-
-
-
 
 * The `feedback link` is [a G-Form](https://docs.google.com/forms/d/1QKpJDvv64-YXrCPr_unHL-fBAezRnGzqjruLMKC4ssQ/edit?usp=sharing) for people to fill out about bugs/ issues/ questions.
 
@@ -116,12 +121,7 @@ analytics account: Google Analytics ID
 ```
 #### More on [markdown here](https://docs.google.com/document/d/1C7CunszYBCTAgzwYbDdtHS7yjwLEYQJuvKVC2ff4MZY/edit?usp=sharing)
 
-### 8. Serve it Locally
- To serve it up locally, ensure you are in `site` folder:
-```
-gulp serve
-```
-It will automatically regenerate the codelabs when they are modified.
+
 
 ### 9. Docs to Markdown
 When you create a new codelab markdown file from a GDoc, you can use the [Docs to Markdown tool](https://gsuite.google.com/marketplace/app/docs_to_markdown/700168918607), however there will be some HTML tags at the top you need to delete, as well as title cleanup you need to do
@@ -135,12 +135,20 @@ When you create a new codelab markdown file from a GDoc, you can use the [Docs t
 Images can mess things up. Make sure you list an image as `assets/imagename.png` withing the markdown file. The assets folder will be at the same level as the markdown page in `/codelabs` (not within a `/codelabs/ModuleX` folder)
 
 ### 11. Adding in Elements to .md files
-    Format for Images `!(Image title)[imageDirInCodelab/Imagename,extension]``
-    Format for Links `[Text to be highlighted](URL)`
-    Format for <iframes> `![embed URL](regular URL)`
-    - Get the embed URL and copy the content within src="" like the following: `<iframe src="` **https://docs.google.com/forms/d/e/1FAIpQLSfF6_0V7jEE9JYF4vWDUsHTuYYHnQbaEsMGtfeTcr8arxZgzg/viewform?embedded=true** `" width="640" height="1240" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>`
+See the template.md file for how to format most items
 
-    More on how to convert markdown files is [here](https://docs.google.com/document/d/1C7CunszYBCTAgzwYbDdtHS7yjwLEYQJuvKVC2ff4MZY/edit?usp=sharing)
+ * Format for Images `!(Image title)[imageDirInCodelab/Imagename,extension]``
+* Format for Links `[Text to be highlighted](URL)`
+* Format for iframes `![embed URL](regular URL)`
+* Format for YouTube videos:
+
+```
+<video id="DWAinkJ54D8"></video>
+<video id=""></video>
+```
+_Video ID can be found in the url for the YouTube video=_
+
+More on how to convert markdown files is [here](https://docs.google.com/document/d/1C7CunszYBCTAgzwYbDdtHS7yjwLEYQJuvKVC2ff4MZY/edit?usp=sharing)
 
 ## Option 2 Setup in Visual Studio Container
 As I was going through the README I wanted to codify my dependencies and task definitions so that I don’t have to refresh myself the next time I contribute to the repository.
