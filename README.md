@@ -25,6 +25,8 @@ export GOROOT=/usr/local/go
 export PATH=$PATH:$HOME/go/bin
 ```
 
+You will want to make sure the the path for the `GOROOT` variable does in fact point to where your files are stored. use `cd ..` as many times as you need to get to the very top directory on your system, then `cd usr/local` and check to make sure the `/go` directory is installed there.
+
 ### 3. Clone this repository
 Choose where you would like to install sauce-school and either use SSH or HTTPS and install sauce-schools with:
 
