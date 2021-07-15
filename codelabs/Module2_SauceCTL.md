@@ -76,7 +76,7 @@ Navigate to the folder using the terminal where you saved the Sauce Connect down
 bin/ sc -u <SAUCE_USERNAME> -k <SAUCE_ACCESS_KEY> -i <SAUCE_TUNNEL>
 ```
 
-In this example, my tunnel name is `linds-proxy-tunnel.`
+In this example, the tunnel name is `linds-proxy-tunnel.`
 
 <img src="assets/5.03E.png" alt="Command to run tunnel" width="750"/>
 
