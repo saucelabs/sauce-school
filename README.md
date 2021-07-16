@@ -35,6 +35,7 @@ git clone <insert copied url here>
 ```
 <img src="assets/Readme_Git_Clone.png">
 
+
 ### 4. Install Gulp
 Install node modules in `sauce-school` main folder:
 ```
@@ -79,6 +80,7 @@ It will automatically render your markdown files as a static website. Open a bro
 
 ## Access 'Codelabs' or Course files
 The course are located in `codelabs` directory. Each course will contain a markdown file for each module by language (which contains several lessons) which is compiled into a directory containing an index.html rendered from the corresponding markdown page.
+
 
 ### 1. Add .md Files to add Courses
 
