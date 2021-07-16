@@ -123,7 +123,7 @@ jobs:
           sauce-username: ${{ secrets.SAUCE_USERNAME }}
           sauce-access-key: ${{ secrets.SAUCE_ACCESS_KEY }}
           tunnel-id: ci-${{ github.sha }}
-          testing-environment: sauce
+          testing-environment: ""
           region: us-west-1
 
       - name: End Webserver

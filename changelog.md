@@ -2,6 +2,10 @@
 
 ///start typing below this text
 
+## June 24 - Rich's Changes
+- Added missing Typekit script in all views/*/index.html head (lines 32 or 33)
+- Modified `.codelab-card` styles to match front page, corrected font weight and line height (_codelab-card.scss, 125-128)
+
 ## May 18 - Adekunle's Changes
 
 - Updated favicon in `site/app/images/favicons/browserconfig.xml`
