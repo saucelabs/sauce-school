@@ -205,7 +205,7 @@ In the Vault, you can store data at three different levels: scope, project, and 
 
 #### Note:
 Negative
-: If you plan on re-using code snippets from the Vault, make sure those variables remain consistent across each test. Also note that if you set an input set or global parameter with the same name, those values will override what is saved in the Vault.
+: If you plan on re-using code snippets from the Vault, make sure those variables remain consistent across each test. Also note that if you add an input set or global parameter with the same name, those values will override what is saved in the Vault.
 
 ### Exercise: Use the Vault to Store a Snippet
 To add a snippet to your account.
