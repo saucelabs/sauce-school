@@ -195,7 +195,7 @@ Duration: 0:07:00
 
 The Vault is a unique feature of the API Fortress platform that allows you to store information for use across all projects. while Input Sets are typically only used within the same test or project, the vault allows you to store things that can be used across any project.
 
-The Vault allow you to save more than just variables, with the vault you can save, edit, and reuse almost anything including:
+The Vault allows you to save more than just variables, with the vault you can save, edit, and reuse almost anything including:
 
 * Variables
 * Code snippets (think reused authentication flows)
