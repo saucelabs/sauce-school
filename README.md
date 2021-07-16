@@ -16,7 +16,7 @@ The course are located in `codelabs` directory. Each course will contain a markd
 Download the [claat binary](https://github.com/googlecodelabs/tools/tree/master/claat#install) using the command `go get github.com/googlecodelabs/tools/claat`. When you installed GO on your computer, you should have a folder called go/bin and if you navigate to the folder after installing claat, you should see a claat folder as well..
  [_more detailed instructions can be found here_](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
 
- > Make sure you have the Go environment variables set up so you can run your test.
+ > Make sure you have the Go environment variables set up so you can run your test. in either `.bash_profile` or `.zshrc`, add the following:
 
 ```
 ## not required if you’re only using Go modules
@@ -26,9 +26,11 @@ export GOROOT=/usr/local/go
 export PATH=$PATH:$HOME/go/bin
 ```
 
+> For Windows users you will have to set this variable in the [Advanced System Settings](https://docs.oracle.com/en/database/oracle/r-enterprise/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html#GUID-DD6F9982-60D5-48F6-8270-A27EC53807D0)
+
 You will want to make sure the the path for the `GOROOT` variable does in fact point to where your files are stored. use `cd ..` as many times as you need to get to the very top directory on your system, then `cd usr/local` and check to make sure the `/go` directory is installed there.
 
-### 3. Clone this repository
+### 3. Clone This Repository
 Choose where you would like to install sauce-school and either use SSH or HTTPS and install sauce-schools with:
 
 ```
@@ -38,32 +40,15 @@ git clone <insert copied url here>
 
 ### 4. Install Gulp
 
-Use instructions [here](https://github.com/gulpjs/gulp/blob/master/docs/getting-started/1-quick-start.md#install-the-gulp-command-line-utility)
-
-* Install gulp globally with:
+Install gulp globally with:
 ```
 npm install --global gulp-cli
 ```
 
-From within the `sauce-school` directory you installed in the last step, run the command:
-
-```
-npm install
-```
-This will install node-modules.
+Find more detailed instructions [here](https://github.com/gulpjs/gulp/blob/master/docs/getting-started/1-quick-start.md#install-the-gulp-command-line-utility)
 
 
-
-### 5. Update PATH
- In your `~/.bash_profile` (or `~/.zshrc` if you're using Catalina MacOSX +) set the `go` `$PATH` environment variable:
-
-```
-export PATH=$PATH:$HOME/go/bin
-```
-
-> For Windows users you will have to set this variable in the [Advanced System Settings](https://docs.oracle.com/en/database/oracle/r-enterprise/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html#GUID-DD6F9982-60D5-48F6-8270-A27EC53807D0)
-
-### 6. Project Setup
+### 5. Project Setup
  The project setup is labeled sauce-school. Within it you should see the directories:
  * `/site`
  * `/codelabs`
@@ -76,6 +61,7 @@ cd site
 ```
 
 #### Install package dependencies and gulp dependencies in site directory
+In order to use claat and gulp, you will need to install the node dependencies in the `site` folder:
 
 ```
 npm install
