@@ -39,12 +39,15 @@ git clone <insert copied url here>
 <img src="assets/Readme_Git_Clone.png">
 
 ### 4. Install Gulp
+Install node modules in `sauce-school` main folder:
+```
+npm install
+```
 
 Install gulp globally with:
 ```
 npm install --global gulp-cli
 ```
-
 Find more detailed instructions [here](https://github.com/gulpjs/gulp/blob/master/docs/getting-started/1-quick-start.md#install-the-gulp-command-line-utility)
 
 
@@ -137,8 +140,8 @@ See the template.md file for how to format most items
 _Video ID can be found in the url for the YouTube video=_
 
 More on how to convert markdown files is [here](https://docs.google.com/document/d/1C7CunszYBCTAgzwYbDdtHS7yjwLEYQJuvKVC2ff4MZY/edit?usp=sharing)
- 
-## Option 2 Setup  – Visual Studio Container
+
+## Optional Setup  – Visual Studio Container
 As I was going through the README I wanted to codify my dependencies and task definitions so that I don’t have to refresh myself the next time I contribute to the repository.
 
 ### Dependencies:
