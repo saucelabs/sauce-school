@@ -604,11 +604,7 @@ Notice how many of the capabilities are grey in this example, since they aren’
 
 ### Setting up your Sauce Labs Account
 
-You'll need an account to use Sauce Labs. Their [free trial](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) offers enough to get you started. And if you're signing up because you want to test an open source project, then be sure to check out their [Open Sauce account](https://saucelabs.com/open-source).
-
-Visit [http://app.saucelabs.com/](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). You can create a free trial account if you haven’t been assigned one.
-
-<img src="assets/4.05A.png" alt="Sauce Labs Account" width="450"/>
+You'll need an account to use Sauce Labs. Their [free trial](ttps://accounts.saucelabs.com) offers enough to get you started.
 
 Go to **Account> User Settings** to find your username and access key.
 
