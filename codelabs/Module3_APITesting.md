@@ -260,3 +260,5 @@ To learn more about The Vault and Environments see below links: [Learn the Basic
 
 ## 3.07 Module 3 Quiz
 Duration: 0:03:00
+
+![https://docs.google.com/forms/d/e/1FAIpQLScNPr_oYqWe0_PD3oil_iebFvZ9ejV96z-UZ3quytHXYXUOnw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScNPr_oYqWe0_PD3oil_iebFvZ9ejV96z-UZ3quytHXYXUOnw/viewform?usp=sf_link)
