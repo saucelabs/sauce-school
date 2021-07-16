@@ -102,7 +102,7 @@ In the next section you will work with  **Assertion** components, learning how t
 ## 3.04 Assertion Component
 Duration: 0:04:00
 
-There's a common phrase in the automated testing space: "If there is **no assertion**, it **isn't a test**." The previous sentence demonstrates a common [testing anti-pattern](http://www.everydayunittesting.com/2017/03/unit-testing-anti-pattern-not-asserting.html); even if your code doesn't throw an errors or crash, it doesn't mean it's a valid test.
+There's a common phrase in the automated testing space: "If there is **no assertion**, it **isn't a test**." The previous sentence demonstrates a common [testing anti-pattern](http://www.everydayunittesting.com/2017/03/unit-testing-anti-pattern-not-asserting.html); even if your code doesn't throw errors or crash, it doesn't mean it's a valid test.
 
 In order to validate an API endpoint works properly, you must _assert_ whether the API's expected output is correct or incorrect.
 
