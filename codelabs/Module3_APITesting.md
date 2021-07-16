@@ -179,7 +179,7 @@ Next we need to substitute the `domain` value in the current GET request:
 1. Substitute `saucelabs.com` with the `${domain}` global parameter:
    <img src="assets/apif-mod3/use-param.png" alt="Use Param" />
 1. Run the test again to ensure the test still passes with the same result.
-1. Create `protocol` and `uri` global parameters. The values should `https://` and `/versions.json` respectively
+1. Create `protocol` and `uri` global parameters. The values should be `https://` and `/versions.json` respectively
 1. Add  Below is what the finished result should look like:
    <img src="assets/apif-mod3/APIF3.05B.png" alt="Finished Result of Global Params" />
 
