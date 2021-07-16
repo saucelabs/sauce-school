@@ -78,7 +78,7 @@ Refer to the [API Testing Basics](https://training.saucelabs.com/codelabs/Module
 
 ### Note:
 Negative
-: In the previous module, [_Introduction to API Fortress_](https://training.saucelabs.com/codelabs/Module2-APITesting/index.html#0), we used the **Generate Test** button. This button automagically generates the HTTP request, assertions, and other test elements so that you can focus on the more intricate and tricky parts of your tests. In this module we will build a test from scratch to build understanding of the importance of assertions, but refer back to that test for inspiration and ideas on how to design your assertions.
+: In the previous module, [_Introduction to API Fortress_](https://training.saucelabs.com/codelabs/Module2-APITesting/index.html#0), we used the **Generate Test** button. This button automagically generates the HTTP request, assertions, and other test elements so that you can focus on the more intricate and tricky parts of your tests. In this module we will build a test from scratch in order to understand the importance of assertions, but refer back to that test for inspiration and ideas on how to design your assertions.
 
 ### Exercise: Add a GET Request Component
 
