@@ -75,7 +75,7 @@ We now have a project in which we can begin writing API Tests. Let's create the 
 
 #### Note:
 Negative
-: You must have an [API Fortress account](https://apifortress.com/) in order to follow along in this step. [Use this link](https://saucelabs.com/sign-up) to sign up for a free trial. If you have an account, [Sign In](https://mastiff.apifortress.com/app/web/login/auth).
+: You must have a [API Fortress account](https://apifortress.com/) in order to follow along in this step. [Use this link](https://saucelabs.com/sign-up) to sign up for a free trial. If you have an account, [Sign In](https://mastiff.apifortress.com/app/web/login/auth).
 
 
 #### Create a Test File
@@ -155,6 +155,7 @@ Negative
 : To see the raw response body in the HTTP Client select **Body** and then either *Raw* or *Parsed*
 
 ### Adding a Test Component
+
 Lets add a GET component that makes a successful API call against the Sauce Labs REST API.
 
 In the previous step we encountered a common authentication error, **[HTTP: 401](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401)**, because you didn't send the `username` and `accesskey` that Sauce Labs requires to communicate with their API. In order to fix this error we must add our [Sauce Labs Account Credentials](https://app.saucelabs.com/user-settings) as a [Basic Authentication Header](https://docs.saucelabs.com/api-testing/how-to/authorization-simple-oauth-etc/index.html#overview).

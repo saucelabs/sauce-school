@@ -5,10 +5,7 @@ This document will be for documenting sauce_school specific changes and specific
 <!-- -->
 # Setup The Environment
 
-## Access 'Codelabs' or Course files
-The course are located in `codelabs` directory. Each course will contain a markdown file for each module by language (which contains several lessons) which is compiled into a directory containing an index.html rendered from the corresponding markdown page.
-
-## Option 1- Local Setup
+## Local Setup
 ### 1. Get the Tools
  Install [Golang](https://golang.org/dl/) and [nodeJS and NPM](https://nodejs.org/en/download/) on your computer. [More instructions here](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
 
@@ -37,6 +34,7 @@ Choose where you would like to install sauce-school and either use SSH or HTTPS 
 git clone <insert copied url here>
 ```
 <img src="assets/Readme_Git_Clone.png">
+
 
 ### 4. Install Gulp
 Install node modules in `sauce-school` main folder:
@@ -79,6 +77,11 @@ gulp serve
 It will automatically render your markdown files as a static website. Open a browser and type in `localhost:8080` and you should see the codelabs site.
 
 # Publishing with Codelabs in Sauce School
+
+## Access 'Codelabs' or Course files
+The course are located in `codelabs` directory. Each course will contain a markdown file for each module by language (which contains several lessons) which is compiled into a directory containing an index.html rendered from the corresponding markdown page.
+
+
 ### 1. Add .md Files to add Courses
 
 [Claat](https://github.com/googlecodelabs/tools) will render an HTML page/ JSON file inside of `site/codelabs`.
