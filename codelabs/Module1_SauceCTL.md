@@ -586,7 +586,7 @@ First, you will need to add information for your tests about the URL of the app 
 ```
 //filename: testrunner-tests/cypress.json
 {
- "baseUrl": "https://www.saucedemo.com"
+ "baseUrl": "https://www.saucedemo.com/v1/"
 }
 ```
 
@@ -665,7 +665,7 @@ class LoginPage {
 ```
 
 
-Since you have baseUrl specified in `cypress.json`, your tests know to visit [https://www.saucedemo.com](https://www.saucedemo.com). The first `get` method locates the div in blue below, where the other elements are found.
+Since you have baseUrl specified in `cypress.json`, your tests know to visit a page that looks like [https://www.saucedemo.com/v1/](https://www.saucedemo.com). The first `get` method locates the div in blue below, where the other elements are found.
 
 <img src="assets/TRT1.04B.png" alt="Login Page elements" width="850"/>
 
