@@ -5,10 +5,7 @@ This document will be for documenting sauce_school specific changes and specific
 <!-- -->
 # Setup The Environment
 
-## Access 'Codelabs' or Course files
-The course are located in `codelabs` directory. Each course will contain a markdown file for each module by language (which contains several lessons) which is compiled into a directory containing an index.html rendered from the corresponding markdown page.
-
-## Option 1- Local Setup
+## Local Setup
 ### 1. Get the Tools
  Install [Golang](https://golang.org/dl/) and [nodeJS and NPM](https://nodejs.org/en/download/) on your computer. [More instructions here](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
 
@@ -39,7 +36,6 @@ git clone <insert copied url here>
 <img src="assets/Readme_Git_Clone.png">
 
 ### 4. Install Gulp
-
 Install node modules in `sauce-school` main folder:
 ```
 npm install
@@ -80,6 +76,10 @@ gulp serve
 It will automatically render your markdown files as a static website. Open a browser and type in `localhost:8080` and you should see the codelabs site.
 
 # Publishing with Codelabs in Sauce School
+
+## Access 'Codelabs' or Course files
+The course are located in `codelabs` directory. Each course will contain a markdown file for each module by language (which contains several lessons) which is compiled into a directory containing an index.html rendered from the corresponding markdown page.
+
 ### 1. Add .md Files to add Courses
 
 [Claat](https://github.com/googlecodelabs/tools) will render an HTML page/ JSON file inside of `site/codelabs`.
@@ -142,7 +142,7 @@ _Video ID can be found in the url for the YouTube video=_
 
 More on how to convert markdown files is [here](https://docs.google.com/document/d/1C7CunszYBCTAgzwYbDdtHS7yjwLEYQJuvKVC2ff4MZY/edit?usp=sharing)
 
-## Option 2 Setup  – Visual Studio Container
+## Optional Setup  – Visual Studio Container
 As I was going through the README I wanted to codify my dependencies and task definitions so that I don’t have to refresh myself the next time I contribute to the repository.
 
 ### Dependencies:
