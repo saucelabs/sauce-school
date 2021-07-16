@@ -3,6 +3,7 @@ Navigate to tools/README.md to learn more about this tool, how to use it, and ge
 
 This document will be for documenting sauce_school specific changes and specifications.
 <!-- -->
+# Setup The Environment
 
 ## Access 'Codelabs' or Course files
 The course are located in `codelabs` directory. Each course will contain a markdown file for each module by language (which contains several lessons) which is compiled into a directory containing an index.html rendered from the corresponding markdown page.
@@ -11,8 +12,8 @@ The course are located in `codelabs` directory. Each course will contain a markd
 ### 1. Get the Tools
  Install [Golang](https://golang.org/dl/) and [nodeJS and NPM](https://nodejs.org/en/download/) on your computer. [More instructions here](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
 
-### 2. Get Claat
-Download the [claat binary](https://github.com/googlecodelabs/tools/tree/master/claat#install). When you installed GO on your computer, you should have a folder called go/bin and inside that file will be claat.
+### 2. Get Claat & Go Env Variables
+Download the [claat binary](https://github.com/googlecodelabs/tools/tree/master/claat#install) using the command `go get github.com/googlecodelabs/tools/claat`. When you installed GO on your computer, you should have a folder called go/bin and if you navigate to the folder after installing claat, you should see a claat folder as well..
  [_more detailed instructions can be found here_](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
 
  > Make sure you have the Go environment variables set up so you can run your test.
@@ -88,7 +89,8 @@ gulp serve
 ```
 It will automatically render your markdown files as a static website. Open a browser and type in `localhost:8080` and you should see the codelabs site.
 
-### 8. Add .md Files to add Courses
+# Publishing with Codelabs in Sauce School
+### 1. Add .md Files to add Courses
 
 [Claat](https://github.com/googlecodelabs/tools) will render an HTML page/ JSON file inside of `site/codelabs`.
 
@@ -123,7 +125,7 @@ analytics account: Google Analytics ID
 
 
 
-### 9. Docs to Markdown
+### 2. Docs to Markdown
 When you create a new codelab markdown file from a GDoc, you can use the [Docs to Markdown tool](https://gsuite.google.com/marketplace/app/docs_to_markdown/700168918607), however there will be some HTML tags at the top you need to delete, as well as title cleanup you need to do
  - Make sure each title has one hash `#` for the course name. Each sub-category ('lesson') should have two hashes in front `##`)
  - Delete any HTML tags, they will screw things up
@@ -131,10 +133,10 @@ When you create a new codelab markdown file from a GDoc, you can use the [Docs t
  - before each lesson with `##`, above it insert `<!-- ------------------------ -->` to denote a new pages
 
 
-###  10. Images
+###  3. Images
 Images can mess things up. Make sure you list an image as `assets/imagename.png` withing the markdown file. The assets folder will be at the same level as the markdown page in `/codelabs` (not within a `/codelabs/ModuleX` folder)
 
-### 11. Adding in Elements to .md files
+### 4. Adding in Elements to .md files
 See the template.md file for how to format most items
 
  * Format for Images `!(Image title)[imageDirInCodelab/Imagename,extension]``
@@ -149,8 +151,8 @@ See the template.md file for how to format most items
 _Video ID can be found in the url for the YouTube video=_
 
 More on how to convert markdown files is [here](https://docs.google.com/document/d/1C7CunszYBCTAgzwYbDdtHS7yjwLEYQJuvKVC2ff4MZY/edit?usp=sharing)
-
-## Option 2 Setup in Visual Studio Container
+ 
+## Option 2 Setup  – Visual Studio Container
 As I was going through the README I wanted to codify my dependencies and task definitions so that I don’t have to refresh myself the next time I contribute to the repository.
 
 ### Dependencies:
