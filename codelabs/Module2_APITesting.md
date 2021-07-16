@@ -75,7 +75,7 @@ We now have a project in which we can begin writing API Tests. Let's create the 
 
 #### Note:
 Negative
-: You must have a [API Fortress account](https://apifortress.com/) in order to follow along in this step. [Use this link](https://saucelabs.com/sign-up) to sign up for a free trial. If you have an account, [Sign In](https://mastiff.apifortress.com/app/web/login/auth).
+: You must have an [API Fortress account](https://apifortress.com/) in order to follow along in this step. [Use this link](https://saucelabs.com/sign-up) to sign up for a free trial. If you have an account, [Sign In](https://mastiff.apifortress.com/app/web/login/auth).
 
 
 #### Create a Test File
