@@ -560,7 +560,7 @@ Our test should test clicking first the green button, then the blue button, the 
 
 <img src="assets/2.07J.png" alt="Add locators and HTML elements" width="550"/>
 
-Use the documentation here on using the[ By Selenium class ](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_By.html)to figure out how to complete the code. You can also use the **[Cheat Sheet](https://docs.google.com/document/d/18Gyd31KeQRbIKBzQfbbKA7o3bta_cdA6VVryDti5R2E/edit?usp=sharing)** to help.
+Use the documentation here on using the [By Selenium class](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_By.html)to figure out how to complete the code. You can also use the **[Cheat Sheet](https://docs.google.com/document/d/18Gyd31KeQRbIKBzQfbbKA7o3bta_cdA6VVryDti5R2E/edit?usp=sharing)** to help.
 
 If you were successful, you should see both the locator and login tests (both are in the test folder) run, and below your locator, you should see the text that appeared on the red button when it was run:
 
