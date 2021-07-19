@@ -16,7 +16,7 @@ author:Lindsay Walker
 ## 2.01 What You’ll Learn
 Duration: 0:05:00
 
-This module is derived from content in chapters 6-7 of _The Selenium Guidebook_ _JavaScript Edition_ By Dave Haeffner. This module will touch lightly on how to write a basic test, and teach users about how to set up a project, as well as learn about how Selenium locates and interacts with elements on a “page”, which can be any view or even object within a webpage.
+This module is derived from content in chapters 6-7 of _The Selenium Guidebook_ _Python Edition_ By Dave Haeffner. This module will touch lightly on how to write a basic test, and teach users about how to set up a project, as well as learn about how Selenium locates and interacts with elements on a “page”, which can be any view or even object within a webpage.
 
 
 ### Objectives
@@ -43,7 +43,7 @@ If you skipped Module 1, make sure you have a project folder set up and have cre
 
 If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
 
-**[Module 1 Project Folder](http://example.com)**
+**[Module 1 Project Examples](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python)**
 
 
 #### Note
@@ -234,7 +234,7 @@ Selenium is able to find and interact with elements on a page by way of various 
 ## 2.05 Setting Up Dependencies & Drivers
 Duration: 0:12:00
 
-You should have already setup your project in [lesson module 1.06](https://training.saucelabs.com/codelabs/Module1-SeleniumPython/index.html?index=..%2F..seleniumpython#5). If not, refer to that library to set up a project structure like so:
+You should have already setup your project as shown in modules [1.05 to 1.06](https://training.saucelabs.com/codelabs/Module1-SeleniumPython/index.html?index=..%2F..seleniumpython#4). If not, refer to that library to set up a project structure like so:
 
  <img src="assets/1.06J.png" alt="requirements.txt" width="750"/>
 
@@ -298,7 +298,9 @@ Negative
 : On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver** or **geckodriver** manually.
 Once you have allowed this, find the Chromedriver in your file directory, double click on it, and force terminal to open it.
 
+#### Final Code
 
+See the [example repo](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod2/2.05) (with option to clone or download) for the project setup. Simply copy, and move the contects in `/python/2.05` into your own project and run `pip3 install -r requirements` to get started with a working project.
 <!-- ------------------------ -->
 
 ## 2.06 Run Selenium Pytest Code
@@ -477,8 +479,9 @@ If your code is correct, you have the right driver, and it has been given permis
 
 #### Final Code
 
-
 <img src="assets/2.06D.png" alt="First test" width="750"/>
+
+See the [example test code](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/python/Mod2/2.07/tests/login_test.py) for help
 
 
 <!-- ------------------------ -->
@@ -490,7 +493,7 @@ Selenium uses locators to find elements on the page and interact with them.
 
 Instead of the painful and tedious process of trying out various locators in your tests until you get what you're looking for, try verifying them in the browser instead.
 
-Once you have identified a class, id, name, link text, Xpath, etc. for an element, you can use the Selenium `findElement()` method along with the driver object in your JavaScript test code.
+Once you have identified a class, id, name, link text, Xpath, etc. for an element, you can use the Selenium `findElement()` method along with the driver object in your Python test code.
 
 In this exercise we can create a similar test using another page from the _the-internet _app called
 
@@ -557,7 +560,7 @@ Our test should test clicking first the green button, then the blue button, the 
 
 <img src="assets/2.07J.png" alt="Add locators and HTML elements" width="550"/>
 
-Use the documentation here on using the[ By Selenium class ](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_By.html)to figure out how to complete the code. You can also use the **[Cheat Sheet](?)** to help.
+Use the documentation here on using the[ By Selenium class ](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_By.html)to figure out how to complete the code. You can also use the **[Cheat Sheet](https://docs.google.com/document/d/18Gyd31KeQRbIKBzQfbbKA7o3bta_cdA6VVryDti5R2E/edit?usp=sharing)** to help.
 
 If you were successful, you should see both the locator and login tests (both are in the test folder) run, and below your locator, you should see the text that appeared on the red button when it was run:
 
@@ -568,9 +571,9 @@ If the test failed (e.g. the red button didn't contain the word 'foo'), then you
 
 <img src="assets/2.07L.png" alt="Failure message" width="750"/>
 
-See the complete [Source Code](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod2/2.07) for the outilne of the test.
+See the complete [Source Code](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod2/2.08) for the outilne of the test.
 
-You can see the [Solution Here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod2/2.07_solutions).
+You can see the [Solution Here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod2/2.08_solutions).
 
 
 

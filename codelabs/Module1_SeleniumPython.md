@@ -9,7 +9,7 @@ analytics account: UA-86110990-1
 author:Lindsay Walker
 
 <!-- ------------------------ -->
-# Module 1- Module 1 – Setting Up Your Selenium Python Environment
+# Module 1 – Setting Up Your Selenium Python Environment
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
@@ -314,7 +314,7 @@ Next, right click on the **tests** folder and create a **New > Python File**. na
 
 #### Test Dependencies – Test Libraries
 
-Last, you are going to add a requirements file that woeks with `pip3` install, update, and manage the dependencies. In the top level **SeleniumJava** directory right click and choose **New > File** and name it `requirements.txt`.
+Last, you are going to add a requirements file that woeks with `pip3` install, update, and manage the dependencies. In the top level **SeleniumPython** directory right click and choose **New > File** and name it `requirements.txt`.
 
 <img src="assets/1.06H.png" alt="New file" width="550"/>
 <img src="assets/1.06I.png" alt="requirements.txt" width="350"/>
@@ -355,7 +355,7 @@ If you are familiar with using GitHub to write your code, you can fork/ branch t
 ## 1.07 Editing Code and Python Summary
 Duration: 0:10:00
 
-Take a look at the first test code we will be creating in the next module inside the file `test-login.py`. There are several things at play:
+Take a look at the first test code we will be creating in the next module inside the file `login_test.py`. There are several things at play:
 
 ```
 # filename: tests/login_test.py
@@ -404,7 +404,7 @@ def test_valid_credentials(driver):
 
 **Fixture** – The [fixture](https://www.tutorialspoint.com/pytest/pytest_fixtures.htm) is a type of function are run before a test, and provides input, or data to the test you choose to run(`test_valid_credentials`). In this case it is providing the information about the driver to the `driver` method. Fixtures help define when you should (and should not) use certain methods defined in a function by passing the fixture function in as a parameter.
 
-**Assert** – Not used yet in this code sample, however [assertions](https://docs.pytest.org/en/3.0.2/assert.html) are important to check is elements are present (`assert true' or 'false`), or if the outcome to a certain action has a certain value. (`assert a == b`)
+**Assert** – Not used yet in this code sample, however [assertions](https://docs.pytest.org/en/6.2.x/assert.html) are important to check is elements are present (`assert true' or 'false`), or if the outcome to a certain action has a certain value. (`assert a == b`)
 
 
 ### Selenium Elements
