@@ -1,4 +1,4 @@
-summary: Module 2 ....
+gulsummary: Module 2 ....
 id: Module2-SauceConnect
 categories: intermediate
 tags: saucetools
@@ -55,9 +55,9 @@ This is the highest level of access for a Sauce Labs Account. These user can:
 * Can see team members' tests (if that is available for their organization)
 * Can start tunnels that others in their team can use
 
-<img src="assets/SC2.02A.png" alt="Sauce Labs Access" width="750"/>
+<img src="assets/SC2.02F.png" alt="Sauce Labs Access" width="550"/>
 
-// Make my own version
+
 
 ### Start a Shared Tunnel
 
@@ -139,17 +139,58 @@ Negative
 Duration: 0:05:00
 
 
-In this section, you will learn about using **high availability tunnels**. These are persistent tunnels that are always available to an organization or team (they are't stopped after a test). Typically, instances of the high availability tunnel are created and spun up with the same name (on the same server or different servers), typically as a shared tunnel so users in an organization can access tunnels as needed without having to start their own.
+In this section, you will learn about using **high availability tunnels**. These are persistent tunnels that are always available to an organization or team (they are't stopped after a test).
 
-and edit the code to run a test using the tunnel and [this example test written](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.06) in Java, JUnit4, with Maven and InteliiJ. This lesson covers:
+Typically, instances of the high availability tunnel are created and spun up with the same name (on the same server or different servers), typically as a shared tunnel so users in an organization can access tunnels as needed without having to start their own.
+
+This lesson covers:
 
 * How to start a new shared tunnel alongside an existing tunnel, with the same name
-* How to update Java test code to run your test through a shared tunnel by updating the `--no-removing-colliding-tunnels` capability.
+* How to update Java test code to run your test through a shared tunnel by updating the `--no-remove-colliding-tunnels` capability.
 
+To follow along, edit the code to run a test using [this example test written](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.06) in Java, JUnit4, with Maven and InteliiJ. (Copy the tests in `/java/Mod4/4.06` and run your tests from there).
 
+### Start High Availability Tunnels
+
+To start a high-availability tunnel and create a resilient system for your team to run tests in, simply start a test as you normally with a `-s` flag for a shared tunnel and `--no-remove-colliding-tunnels` with Sauce Connect 4.6.5 +, like so:
+
+```
+bin/sc -u your-username -k ******************** -i your_tunnel_id -s --no-remove-colliding-tunnels
+```
+Typically when you start a tunnel somewhere, you have tunnel that is running 24/7, however if you or someone in your organization were to start two tunnels with the same name on the same server, they would 'collide' and stop running.
+
+#### Start a Second Tunnel
+
+Now, to illustrate how high-availability tunnels work, we will start another tunnel with the same name (in a new terminal):
+
+```
+bin/sc -u your-username -k ******************** -i your_tunnel_id -s --no-remove-colliding-tunnels
+```
+
+Since you have more than one tunnel with the same name, when others in your organization use that tunnel, the traffic will be balanced across these tunnels, and if one tunnel goes down, you will still be able to run tests without having to change the tunnel name.
+
+<img src="assets/SC2.03B.png" alt="Start a shared tunnel" width="850"/>
+
+### Adding Resiliency
+There are two ways that your automated test runs may fail when using Sauce Connect, since they do not self-heal or restart automatically:
+
+1. A tunnel could fail
+2. Your server hosting the tunnel crashes and your connection is severed
+
+To protect against tunnnel unavailability, you should start more than one tunnel, hosted on more than one server:
+
+<img src="assets/SC2.03A.png" alt="Start a shared tunnel" width="850"/>
+// See Evelyn's resiliency ladder
+
+#### Restarting Tunnels
+It's important to setup your tunnels to restart every 24 hours in order to reduce to improve resiliency.
+
+//read about/ ask Max for 'restart code' example
+
+### Run Tests with High Availability Tunnels
 
 <!-- ------------------------ -->
-## Section 1
+## 2.04
 Duration: 0:10:00
 
 
