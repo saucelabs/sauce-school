@@ -725,7 +725,7 @@ Here is a list breaking down a majority of the Selenium resources available, alo
 
 This is the official Sauce Labs documentation. You can find updated and maintained tips and tricks regarding web/mobile automated testing.
 
-#### [Sauce Labs Whitepapers](https://saucelabs.com/resources/white-papers/?utm_source=referral&utm_medium=LMS&utm_campaign=link )
+#### [Sauce Labs Whitepapers](https://saucelabs.com/resources/white-papers)
 
 A collection on advanced topics and testing best practices.
 
@@ -749,7 +749,7 @@ These are tips that will help you expand your Selenium skills to write tests for
 
 A wealth of information about Sauce Labs tools, products, and related technologies
 
-#### [Sauec Labs Video Archive](https://saucelabs.com/resources/videos)
+#### [Sauce Labs Video Archive](https://saucelabs.com/resources/videos)
 
 A curated collection of the best, featuring tech talks, feature Selenium meetups, and industry talks.
 
@@ -779,19 +779,6 @@ At some point, someone rounded up a large list of blogs from Selenium practition
 #### [The Sauce Labs blog](https://saucelabs.com/blog/?utm_source=referral&utm_medium=LMS&utm_campaign=link )
 
 This is where you can find product announcements and great articles regarding Sauce Labs and the automated testing space.
-
-
-### Other Books
-
-
-#### [Selenium Testing Tools Cookbook](http://bit.ly/se-info-18)_
-
-This book outlines some great ways to leverage Selenium, using a pragmatic approach.
-
-
-#### [Selenium Design Patterns and Best Practices](http://bit.ly/se-info-21)
-
-This book covers useful tactics and strategies for successful test automation with Selenium. While the book covers Ruby, the author has also ported the [examples into Java](https://github.com/dimacus/SeleniumBestPracticesBook).
 
 
 ### Meetups

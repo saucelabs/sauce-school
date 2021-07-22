@@ -16,7 +16,7 @@ author:Lindsay Walker
 ## 3.01 What You’ll Learn
 Duration: 0:03:00
 
-This module is derived from content in chapters 8-10 of _The Selenium Guidebook JavaScript Edition_ By Dave Haeffner. This module focuses on writing tests in Selenium that follow the Page Object Model (POM) for organizing test suites and abstracting imperative code into separate classes from the page and test classes. Add error handling to your test suit to detect and debug more easily, as well as learn about explicit and implicit waits and how they should be used.
+This module is derived from content in chapters 8-10 of _The Selenium Guidebook Python Edition_ By Dave Haeffner. This module focuses on writing tests in Selenium that follow the Page Object Model (POM) for organizing test suites and abstracting imperative code into separate classes from the page and test classes. Add error handling to your test suit to detect and debug more easily, as well as learn about explicit and implicit waits and how they should be used.
 
 ### Objectives
 
@@ -36,10 +36,11 @@ This module is derived from content in chapters 8-10 of _The Selenium Guidebook 
 
 ### Base Code
 
-If you skipped Modules 1 & 2, make sure you have a project folder set up and have created the following files, as well as have NodeJS installed and init for this project:
+If you skipped Modules 1 & 2, clone the following to work from:
 
-**[Final Module 2 Project Code](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod2/2.07_solutions)**
+**[Final Module 2 Project Code](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod2/2.08_solutions)**
 
+You will also need to have Python 3, pytest, pytest-xdist, and pytest-randomly installed for this project. [See setup instructions](http://localhost:8080/codelabs/Module2-SeleniumPython/index.html?index=..%2F..seleniumpython#4):
 
 #### NOTE
 Negative
@@ -230,7 +231,7 @@ Negative
 #### Final Code
 
 
-Your new code in `test_login.py` should look like this. See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.03).
+Your new code in `login_test.py` should look like this. See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/python/Mod3/3.03).
 
 <img src="assets/3.03P.png" alt="Login Failure Markup" width="600"/>
 
@@ -402,7 +403,7 @@ After declaring the class `BasePage()` you receive and store an instance of the 
 
 Now that we have all of our Selenium actions in one place, let's update our login page object to leverage this facade.
 
-At the top of the `base_page.py` object, you can now import the `BasePage` class:
+At the top of the `login_page.py` object, you can now import the `BasePage` class:
 
 ```
 #  filename: pages/login_page.py
@@ -644,7 +645,7 @@ There is the `__init__` method to instantiate a driver, then two methods. The `l
 
 Since there are two different **Dynamimc Loading** pages, you will pass in either a `1` or `2` when you call `load_example`.
 
-Next, we will modify the `BasePage`. First you need to import three packages, on extra from `seslnium.comon exceptions`, and two new ones::
+Next, we will modify the `BasePage`. First you need to import three packages, on extra from `selenium.common exceptions`, and two new ones::
 
 ```
 # filename: pages/base_page.py
