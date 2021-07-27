@@ -14,7 +14,10 @@ author: Lindsay Walker, Evelyn Coleman
 ## 1.01 What You'll Learn
 Duration: 0:01:00
 
-This tutorial gives examples you can follow along with using a test suite written in Java, using the JUnit4 test runner, as well as the Maven build tool. If you would like to follow along, you can [download or fork and clone this project](https://github.com/walkerlj0/Selenium_Course_Example_Code)
+This course covers the basic setup and use of the Sauce Connect Proxy Tunnel, which is a tool created by Sauce Labs that customers can use to establish a secure, private connection between your app and the Sauce Labs Cloud.
+
+This tutorial gives examples written in Java, using the JUnit4 test runner, as well as the Maven build tool. If you would like to follow along, you can [download or fork and clone this project](https://github.com/walkerlj0/Selenium_Course_Example_Code)
+
 * Look in the _/java/Mod4/4.06_ directory, and use the version of the test suite **in 4.06** to work from.
 * If you don't have Java and Maven set up on your machine to run test code, [follow this lesson](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4)
 
@@ -35,7 +38,9 @@ To find out more about Sauce Connect and the architecture, [see the whitepaper](
 <!-- ------------------------ -->
 ## 1.02 Setup and Run Sauce Connect Proxy
 
-[Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#:~:text=Sauce%20Connect%20Proxy%E2%84%A2%20is,or%20behind%20a%20corporate%20firewall.) is software that enables you to establish a secure connection between applications hosted on an internal server and the Sauce Labs virtual machines or real devices that are used for testing. In this lesson you will learn to:
+
+[Sauce Connect](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#:~:text=Sauce%20Connect%20Proxy%E2%84%A2%20is,or%20behind%20a%20corporate%20firewall.) is a secure tunneling application that allows you to connect the Sauce Labs Cloud to applications you want to test that are hosted on your local machine or behind a firewall.
+In this lesson you will learn to:
 
 * Download and start a proxy tunnel
 * Stop a running proxy tunnel

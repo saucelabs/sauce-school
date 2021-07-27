@@ -180,12 +180,25 @@ There are two ways that your automated test runs may fail when using Sauce Conne
 To protect against tunnnel unavailability, you should start more than one tunnel, hosted on more than one server:
 
 <img src="assets/SC2.03A.png" alt="Start a shared tunnel" width="850"/>
-// See Evelyn's resiliency ladder
+
+#### Use systemd to Manage Tunnels
+[systemd](https://www.freedesktop.org/wiki/Software/systemd/) is a system and service manager for Linux that, among other things, can be used to control the starting and stopping of services.
+
+For instructions on how to set up systemd, check the `sc-x.x.x-osx` package that you installed, inside the `/config-examples/systemd` folder, and open the `README`. This contains instructions for setting up Sauce Connect with systemd on your Linux machine.
+
+<img src="assets/SC2.03C.png" alt="Start a shared tunnel" width="650"/>
+
+The systemd service will automatically start the Sauce Connect service, monitor each client, and tranparently restart the client if the client gets disconnected or a tunnel goes down.
+
+There are two other files besides the README in the `/systemd` directory:
+* The `sc.service` file describes the service
+* The `sc@.service` creates an instance of a Sauce Connect tunnel that the service will start.
 
 #### Restarting Tunnels
-It's important to setup your tunnels to restart every 24 hours in order to reduce to improve resiliency.
+It's important to setup your tunnels to restart every 24 hours in order to reduce to improve resiliency. If you take a look at the
 
-//read about/ ask Max for 'restart code' example
+//read about/ ask Max for 'restart code' example-- is it in systemd? Como?
+// got stuck on parts 2 & 3 of step 5
 
 ### Run Tests with High Availability Tunnels
 
