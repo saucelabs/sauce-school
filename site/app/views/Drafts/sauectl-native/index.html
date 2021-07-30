@@ -1,13 +1,14 @@
-<!-- @license
+<!--
+@license
 Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
 The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
- -->
+-->
 
-<doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -26,12 +27,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     ga('create', '{{view.ga}}', 'auto', { name: 'view' });
     ga('view.send', 'pageview');
     {% endif %}
-
   </script>
   <script async src='https://www.google-analytics.com/analytics.js'></script>
-
   <script src="https://use.typekit.net/zmt8tam.js"></script><script>try{Typekit.load({ async: false });}catch(e){}</script>
-
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=DEFAULT_GA">
   </script>
@@ -71,6 +69,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
   </style>
 
+
+
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="#455a64">
   <meta name="apple-mobile-web-app-title" content="{{view.title}}">
@@ -79,7 +79,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="icon" type="image/png" sizes="194x194" href="/images/favicons/favicon-194x194.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/images/favicons/android-chrome-192x192.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
-  <link rel="manifest" href="site.webmanifest">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#455a64">
   <meta name="msapplication-TileColor" content="#455a64">
   <meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png">
@@ -110,18 +110,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <paper-header-panel id="main" mode="standard" main>
     {% raw %}
     <div id="mainToolbar" class="paper-header">
-      <div class="site-width layout horizontal justified">
+      <div class="site-width layout horizontal">
         <a href="/">
           <img src="/images/logo.png" class="logo-devs" alt="Codelabs Logo">
         </a>
 
         <navigation-element></navigation-element>
 
-        <div class="searchWrapper">
-          <div id="searchBox" class="searchBox"></div>
-          <div id="searchResults" class="searchResults isHidden"></div>
+        <div id="searchbar" class="--desktop">
+          <paper-input-container no-label-float>
+            <paper-icon-button prefix icon="search"></paper-icon-button>
+            <label>Search</label>
+            <input is="iron-input" bind-value="{{searchVal}}" on-keydown="onSearchKeyDown">
+          </paper-input-container>
         </div>
-
       </div>
     </div>
     {% endraw %}
@@ -130,11 +132,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <header id="banner" {% if view.id != 'default' -%}down{%- else %}down$="[[_toBoolean(selectedFilter)]]"{%- endif %}>
       <div class="site-width">
         {% if view.id == 'default' %}
-        <h2 class="banner-title">Elemental Selenium with JavaScript</h2>
+        <h2 class="banner-title">Elemental Selenium with Java</h2>
         <div class="banner-description"
              data-filter-selected$="{% raw %}[[_toBoolean(selectedFilter)]]{% endraw %}">
           <p class="banner-info">
-            <br>
           </p>
         {%- else -%}
           <div class="banner-description">
@@ -226,28 +227,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <div class="card-pin"></div>
               {%- endif -%}
               <div class="description">{{codelab.title}}</div>
-              <!-- Add card descriptions -->
+              <!-- Add in module descriptions -->
               <div class="card__summary">
 
-                {%- if codelab.id == 'Module1-SeleniumPython' -%}
-                  <p>Set up your Python Selenium Test environment with Pytest, Venv, Pip3 and Pycharm, IDE, and learn about the components of a Selenium test.</p>
+                {%- if codelab.id == 'Module1-SauceCTL-Native' -%}
+                  <p>The first module shows users how to set up and run manual and automated tests through Sauce Connect Proxy, Sauce Labs' secure proxy tunnel. This module also covers troubleshooting, as well as how and when to use different options when running a Sauce Connect Tunnel.</p>
                 {%- endif -%}
 
-                {%- if codelab.id == 'Module2-SeleniumPython' -%}
-                  <p>Understand the basic features of an atomic test, and write your first basic test with @pytest.fixture. Write a test using locators and assertions.</p>
-                {%- endif -%}
-
-                {%- if codelab.id == 'Module3-SeleniumPython' -%}
-                  <p>Learn about using a Page Object Model (POM) structure for your test code, create page and test objects, and add error handling and explicit waits to your test code.</p>
-                {%- endif -%}
-
-                {%- if codelab.id == 'Module4-SeleniumPython' -%}
-                  <p>Add code to run your test on Sauce Labs, and learn about the different types of tests. Create a base test with the Pytest fixture to set up and tear down all your tests, and run tests in different browsers.</p>
-                {%- endif -%}
-
-                {%- if codelab.id == 'Module5-SeleniumPython' -%}
-                  <p>Learn to plan your testing strategy. Use Sauce Connect to run tests through a secure proxy tunnel, and set up your tests to run in the Jenkins CI tool, grouping tests to run at different times.</p>
-                {%- endif -%}
+                <!-- {%- if codelab.id == 'Module2-Quickstart' -%}
+                  <p>Learn how to take your Appium test code written for Android mobile and web applications, and run them on Sauce Labs. Add test names, status, as well as run your tests in parallel on the cloud platform.</p>
+                {%- endif -%} -->
 
               </div>
               <div class="card-duration">
@@ -272,8 +261,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   </paper-header-panel>
 
-  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
   <!-- build:js /scripts/main.js -->
   <script src="/scripts/app.js"></script>
   <!-- endbuild-->

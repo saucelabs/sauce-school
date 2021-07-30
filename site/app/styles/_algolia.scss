@@ -1,0 +1,66 @@
+.searchWrapper {
+  display: flex;
+  place-items: center;
+  position: relative;
+}
+
+.searchBox {
+  width: 163px;
+}
+
+.searchResults {
+  position: absolute;
+  background: white;
+  max-height: 500px;
+  width: 540px;
+  overflow-y: scroll;
+  top: 100%;
+  right: 0;
+  border: 1px solid #e2e2e2;
+  padding: 16px;
+
+  &.isHidden {
+    display: none;
+  }
+
+  &.isActive {
+    display: initial;
+  }
+
+  /* Overriding instant search styles */
+  .ais-Hits-list {
+    display: grid;
+  }
+
+  .ais-Hits-item {
+    width: 500px;
+  }
+}
+
+
+#searchResults {
+  .ais-Hits-item .hit-group {
+    display: grid;
+    gap: 8px;
+  }
+}
+
+#searchResults .ais-Hits-item .hit-name {
+  font-weight: 400;
+  font-family: 'Museo-Sans', sans-serif;
+  color: #464B54;
+}
+
+#searchResults .ais-Hits-item .hit-description {
+  font-size: 16px;
+  font-family: 'Museo-Sans', sans-serif;
+  color: #464B54;
+  font-weight: 300;
+}
+
+#searchBox .ais-SearchBox-input {
+  background: #ededef;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 30px;
+}
