@@ -1,6 +1,24 @@
 ### _Changelog- Add newest additions in an .md file at top_
 
 ///start typing below this text
+##June 30 - Rich's Changes
+- Modified default string for `gulpfile.js`'s default `BASE_URL` value to remove `example.com` artifact on certain pages. (gulpfile.js, 61)
+
+## June 24 - Rich's Changes
+- Added missing Typekit script in all views/*/index.html head (lines 32 or 33)
+- Modified `.codelab-card` styles to match front page, corrected font weight and line height (_codelab-card.scss, 125-128)
+
+## May 18 - Adekunle's Changes
+
+- Updated favicon in `site/app/images/favicons/browserconfig.xml`
+
+## May 24 - Adekunle's Changes
+
+- Added h2 anchor styles in `site/app/styles`
+- Added h2 anchor functionality to `site/app/scripts/app.js`
+  * ln 334-376, 380-349
+  * not sure why ln 325 Segment.io was removed
+
 
 ## May 5 - Adekunle's Changes
 

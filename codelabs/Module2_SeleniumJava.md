@@ -49,7 +49,7 @@ If you are familiar with using GitHub to write your code, you can also fork/ bra
 ## 2.02 Writing Good Acceptance Tests
 Duration: 0:10:00
 
-Acceptance tests are an important final step to take when releasing anything you may have designed, to make sure that the software you have created meets the requirements and specifications laid out when you designed and planned your application or platform. Automated testing is an integral tool to use to efficiently and accurately test your product for release.
+Acceptance tests are an important final step to take when releasing anything you may have designed, to make sure that the software you have created meets the requirements and specifications laid out when your designed and planned your application or platform. Automated testing is an integral tool to use to efficiently and accurately test your product for release.
 
  In order to write automated web tests that are easy to maintain, perform well, and are ultimately resilient, there are some simple guidelines to follow:
 
@@ -227,7 +227,16 @@ Selenium is able to find and interact with elements on a page by way of various 
 Duration: 0:15:00
 
 ### Project Setup
-In order to run your you first need to install a driver that can communicate with the version of the browser (Chrome, Firsfox, etc) you have on your local machine.
+
+Open up the [IntelliJ IDE](https://www.google.com/search?q=download+intellij+idea&oq=download+IntelliJ+IDe&aqs=chrome.0.0j69i57j0l3j69i64l3.6131j0j7&sourceid=chrome&ie=UTF-8) and create a new project using Maven and your JDK (1.8 is recommended)
+
+<img src="assets/2.06H.png" alt="New IntelliJ project" width="350"/> <img src="assets/2.06I.png" alt="New IntelliJ project maven JDK" width="350"/>
+
+Choose which directory you want to store your project in, and give it a name such as **SeleniumJava**:
+<img src="assets/2.06J.png" alt="New IntelliJ project directory and name" width="550"/>
+
+In order to run your you will also need to install a driver that can communicate with the version of the browser (Chrome, Firefox, etc) you have on your local machine.
+
 ### Installing Chromedriver
 In order for your test to run on a browser on your local machine, you need to install the driver for the browser, and update your code. A similar set of steps can be followed for any browser.
 
@@ -235,7 +244,9 @@ First, check which version of chrome you are using by opening Chrome on your mac
 
 <img src="assets/2.05K.png" alt="Chrome Version" width="550"/>
 
-Next, [download Chromedriver](https://chromedriver.chromium.org/). You can also download [Geckodriver](https://github.com/mozilla/geckodriver) for Chrome browser or [any other driver.](https://automationintesting.com/selenium/java/lessons/drivers.html] you will need for popular browsers) The driver version should match the version of the browser you have on your machine.
+Next, [download Chromedriver](https://chromedriver.chromium.org/). You can also download [Geckodriver](https://github.com/mozilla/geckodriver) for Chrome browser or [any other driver.](https://automationintesting.com/selenium/java/lessons/drivers.html) you will need for popular browsers The driver version should match the version of the browser you have on your machine.
+
+
 
 #### Cheat Sheet
 
@@ -268,33 +279,32 @@ The next tutorial will show you how to write the code, step by step, but you als
 
 **[Selenium Course Example Code](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod2/2.05)**
 
+### Troubleshoot
 
-If you pull down a project file from Github you will have to use IntelliJ to set up your environment to make sure you have a JDK & Maven set up with your project.
+#### Update Drivers
+This sample of test code is not using [WebDriver Manager](https://github.com/bonigarcia/webdrivermanager) or other similar tool (though it is recommended), and if you want to test out running this locally, make sure that you have downloaded the drivers compatible with the versions of the browsers on you machine, and update the test code to reference those drivers:
 
-Go to File → **Add Framework Support**.
+<img src="assets/QS3.03A.png" alt="Capabilities for your test" width="750"/>
 
-<img src="assets/2.05GG.png" alt="Add framework Support" width="350"/>
+#### Update `pom.xml`
+Add your configurations into `pom.xml` [like the project here](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod4/4.05/pom.xml). You may need to invalidate caches and restart IntelliJ IDE again to activate the imports specified in `pom.xml`. You can also search for the [latest Maven package versions](https://mvnrepository.com/).
+
+#### Project Setup
+
+If your test isn't running, try the following to troubleshoot to get the tests running locally:
+
+* Right-click on the project name and choose **Add Framework Support**. <img src="assets/QS2.03D.png" alt="Add framework support" width="350"/>
+* Choose **Maven** as a build tool.
+* Go to **File > Project Structure**. Select a JDK that you have installed on your machine.
+* Choose **File > Invalidate Caches and Restart** so the changes can take effect. <img src="assets/QS2.03E.png" alt="Appium Doctor" width="350"/>
 
 
-Choose **Maven** and click **OK**.
-
-<img src="assets/2.05H.png" alt="Maven OK" width="350"/>
-
-
-Next, set up the SDK used to compile your Java code. Go to **File → Project Structure**.
-
-<img src="assets/2.05I.png" alt="Project structure" width="350"/>
-
-
-Under **Project Settings**, choose **Project**, then choose your SDK in the dropdown menu. You should see the SDK
-
-<img src="assets/2.05J.png" alt="Choose SDK" width="450"/>
 
 <!-- --------------- -->
 ## 2.06 Create Your Java Test Code
 Duration: 0:15:00
 
-Now we are ready to start writing the code for your first test. Create a new project directory called **SeleniumJava** (in your main project directory on your computer), and inside create the directory **java**. This is a default folder that Maven will know to look for.
+First you will need to create a new project directory called `SeleniumJava` (your main project directory), and navigate into the `src/test/java` inside that project directory. This is where we will place our Selenium Java Tests.
 
 Inside of your Java file create a package. This example is named **tests.** Inside of that create a file called **TestLogin.java**.
 

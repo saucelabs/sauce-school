@@ -544,17 +544,18 @@ You can see the final code [here](https://github.com/walkerlj0/Selenium_Course_E
 ## 4.05 Testing on Sauce Labs
 Duration: 0:15:00
 
-In this lesson you are going to learn how to move the test suite that you have written from your local machine onto the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) cloud provider. They maintain a set of real and virtual devices, as well as a Selenium grid that you can use to run your test in almost any environment. There are many reasons this is advantageous:
+In this lesson you are going to learn how to move the test suite that you have on your local machine onto the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) cloud platform.
 
+Sauce Labs maintains a set of real and virtual devices, as well as a Selenium grid that you can use to run your test in almost any environment. There are many reasons this is advantageous:
 
-
-*   You can use virtual machines (without having to set it up on your own machine)
+* You don't have to worry about about downloading and matching browser drivers  
+* You can use virtual machines (without having to set it up on your own machine)
     *   To test older versions of operating systems
-    *   Test browsers that only run on older operating systems.
-*   You don’t have to provision all the different kinds of virtual machines you will need yourself
+    *   Test browsers that run on different operating systems that your own.
+* You don’t have to provision all the different kinds of virtual machines you will need yourself
 *   You don’t have to set up and maintain the Selenium Grid that will coordinate the test across all of these different machines
 
-To do this you are going to need something called the _Selenium Grid_ and the _RemoteWebdriver._  The Selenium Grid lets you distribute test execution across several machines and you connect to it with Selenium _RemoteWebDrive_r.
+When you run tests on Sauce Labs, you are using the _Selenium Grid_ and the _RemoteWebdriver._  The Selenium Grid lets you distribute test execution across several machines and you connect to it with Selenium _RemoteWebDriver_.
 
 You tell the Grid which browser and OS you want your test to run on through the use of Selenium's class object [MutableCapabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/MutableCapabilities.html), and its various subclasses for specific browser options (ChromeOptions, FirefoxOptions, etc.) Sauce Labs has [specific language bindings](https://github.com/saucelabs/sauce_bindings) that act as wrappers for supported programming languages.
 
@@ -603,11 +604,7 @@ Notice how many of the capabilities are grey in this example, since they aren’
 
 ### Setting up your Sauce Labs Account
 
-You'll need an account to use Sauce Labs. Their [free trial](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) offers enough to get you started. And if you're signing up because you want to test an open source project, then be sure to check out their [Open Sauce account](https://saucelabs.com/open-source).
-
-Visit [http://app.saucelabs.com/](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). You can create a free trial account if you haven’t been assigned one.
-
-<img src="assets/4.05A.png" alt="Sauce Labs Account" width="450"/>
+You'll need an account to use Sauce Labs. Their [free trial](ttps://accounts.saucelabs.com) offers enough to get you started.
 
 Go to **Account> User Settings** to find your username and access key.
 
@@ -645,7 +642,7 @@ Now you need to update `BaseTest.java `to work with these new values and connect
                 capabilities.setCapability("browserVersion", browserVersion);
                 capabilities.setCapability("platformName", platformName);
                 capabilities.setCapability("sauce:options", sauceOptions);
-                String sauceUrl = String.format("https://ondemand.saucelabs.com/wd/hub");
+                String sauceUrl = String.format(" https://ondemand.us-west-1.saucelabs.com/wd/hub");
                 driver = new RemoteWebDriver(new URL(sauceUrl), capabilities);
             } else if (host.equals("localhost")) {
                 if (browserName.equals("firefox")) {
@@ -724,7 +721,7 @@ The complete code can be found [here](https://github.com/walkerlj0/Selenium_Cour
 
 
 <!-- ------------------------ -->
-## 4.06  Setup for Sauce Labs Reporting
+## 4.06 Setup for Sauce Labs Reporting
 Duration: 0:12:00
 
 In this lesson you will add in some elements for better reporting to understand the status of test run on the[ Sauce Labs automated web testing platform](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
@@ -747,7 +744,7 @@ In` BaseTest` you will use another [JUnit rule](https://github.com/junit-team/ju
 
 
 ```
-// filename: lib/DriverFactory.java
+// filename: tests/BaseTest.java
 // ...
 private String testName;
 // ...
@@ -758,7 +755,7 @@ Next, use the  `TestWatcher()`after the second` @Override `annotation, right bef
 
 
 ```
-// filename: lib/DriverFactory.java
+// filename: tests/BaseTest.java
 // ...
     @Rule
     public TestRule watcher = new TestWatcher() {
@@ -798,7 +795,9 @@ sauceOptions.setCapability("name", testName);
 ```
 
 
-Run `mvn clean test -Dhost=saucelabs` to see if it works. Now when you run our tests in Sauce Labs, the [account dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) will show the tests running with the name of the test outside of the parentheses, and the class inside of the parentheses:
+Run `mvn clean test -Dhost=saucelabs` to see if it works. Now when you run our tests in Sauce Labs, the [account dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) will show the tests running with the name of the test, test class, and package appearing on the dashboard:
+
+<img src="assets/4.06Q.png" alt="Error or Complete" width="750"/>
 
 ### Part 2: Add a Test Status
 
