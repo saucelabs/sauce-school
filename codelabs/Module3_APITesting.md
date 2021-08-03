@@ -39,25 +39,26 @@ To access the component library:
 * Open a test
 * Select the `+` symbol at the top of the Test Composer
 
-<img src="assets/apif-mod3/add_component.png" alt="Add Component" width="500"/>
+<img src="assets/apif-mod3/05/testComponent.png" alt="Add a Test Component" />
 
 All available test components, as well as a search bar, appears on the next screen.
 
-<img src="assets/apif-mod3/component_library.png" alt="Component Library" width="500"/>
+<img src="assets/apif-mod3/05/componentLibrary.png" alt="Component Library" />
 
 #### Example
 
 If you select the **Tag** component at the top, it will automatically add this component to the bottom of your test like in this image:
 
-<img src="assets/apif-mod3/example_component.png" alt="Example Component"/>
+<img src="assets/apif-mod3/05/tagComponent.png" alt="Example Tag Component"/>
 
-You can add any of the following components to your test, depending on your use case. For example:
+You can add any of the following components to your test, depending on your use case. For an example some examples in the screenshot below:
 
-* **Update Input**: Store and/or updates a variable in an _input set_
-* **JDBC**: Connect this request to a database using a [JDBC API](https://en.wikipedia.org/wiki/Java_Database_Connectivity#).
+* **Comment**: When executed, adds a comment to the document, to better describe steps or leaves notes.
+* **Flow**: Creates a flow component for your test.
 * **K/V Store**: Store and retrieve ephemeral data from a `key:value` store.
+* **Fake**: Generates fake data for your test, particularly for `POST` and `PUT` requests.
 
-<img src="assets/apif-mod2/APIF3.02A.png" alt="Update Input" width="75"/><img src="assets/apif-mod2/APIF3.02B.png" alt="Update Input" width="75"/><img src="assets/apif-mod2/APIF3.02C.png" alt="Update Input" width="75"/>
+<img src="assets/apif-mod3/05/exampleComponents.png" alt="Example components"/>
 
 There are many components you can play around with, and hover over them to see what they do, but next you will focus on **Request**, the building block of every API test.
 
@@ -83,17 +84,21 @@ Negative
 ### Exercise: Add a GET Request Component
 
 1. Open your project and create a new test:
-   <img src="assets/apif-mod3/create-new-test.png" alt="Create New Test" />
+   <img src="assets/apif-mod3/05/createNewTest.png" alt="Create New Test", width="500" />
 1. Name it **AssertionTest** (we cover _assertions_ in the next module):
-   <img src="assets/apif-mod3/assertionTest.png" alt="Assertion Test" />
-1. Select **Compose**, then select **+Add Request/Assertions** in the Test Composer.
-   <img src="assets/apif-mod3/addRequestAssertion.png" alt="Add Request / Assertion" />
+   <img src="assets/apif-mod3/05/assertionTestDetails.png" alt="Assertion Test Details", width="500" />
+1. Select **+Add Request/Assertions** in the Tests page.
+   <img src="assets/apif-mod3/05/addRequestComponent.png" alt="Add Request / Assertion", width="500" />
 1. Select the **GET Request** component and add the following data:
    * url: `https://saucelabs.com/versions.json`
    * var: `payload`
-     <img src="assets/apif-mod3/addRequest.png" alt="Add GET Request" />
+   
+   <img src="assets/apif-mod3/05/getMethod.png" alt="Add GET Request", width="400" />
+     
+   <img src="assets/apif-mod3/05/getRequestDetails.png" alt="Add GET Request", width="500" />
+
 1. This is what the finished result should look like:
-   <img src="assets/apif-mod3/example_get_component.png" alt="Finished result of GET component" />
+   <img src="assets/apif-mod3/05/finishedExample.png" alt="Finished result of GET component" />
 
 In the next section you will work with  **Assertion** components, learning how they are a vital part of your API tests.
 
@@ -119,14 +124,16 @@ There are several assertions to choose from and below are a few examples, along 
    * Expression: `payload['Sauce Connect']`
    * Mode: `one`
    * Click the check mark to save
+     <img src="assets/apif-mod3/05/assertExists.png" alt="Assert Exists Component" />
 1. Next, select **+Add Request/Assertions** again. This time select **Assert Is**, and add the following data:
    * Expression: `payload['Sauce Connect'].download_url`
    * Type: `url`
    * Click the check mark to save
+     <img src="assets/apif-mod3/05/assertIs.png" alt="Assert Is Component" />
 1. Here's what the final result should look like:
-   <img src="assets/apif-mod3/sample_payload_test.png" alt="Sample Payload Test" />
+   <img src="assets/apif-mod3/05/finishedAssertionResult.png" alt="Finished Assertion Results" />
 1. Click **Save** to save your test, then select **Run > Default Downloader**. The test results should look like this:
-   <img src="assets/apif-mod3/sample_test_results.png" alt="Sample Test Results" />
+   <img src="assets/apif-mod3/05/finishedAssertionResult.png" alt="Finished Assertion Result" />
 
 ### Recap
 * We created a **GET** request in the previous module that returned a JSON object
@@ -149,39 +156,46 @@ As the complexity and number of tests in your test suite increase, it's a best p
 
 The global variables (referred to as **parameters** in the API Fortress interface), are usually common variables designed to run with an entire test such as authentication API Key, or a domain name. Global variables can be used across different tests in a project.
 
-To add a global variable/parameter select the **Input Set** tab to the right of the interface, and select **Add Global Param**.
+To add a global variable/parameter select the **Input** tab in the top left, and select **Add Global Param**.
 
-<img src="assets/apif-mod3/APIF3.05A.png" alt="Sample Test Results" width="400"/>
+<img src="assets/apif-mod3/05/addGlobalParam.png" alt="Add Global Parameter", width="400"/>
 
 
 ### Input Sets
 
 An input set differs from a global parameter in that it is usually a group of input variables related to a specific scneario or contextual use case—for example a list of relevant product ids returned from a product API endpoint. Input sets are used within a single test.
 
-To add an input set select the **Input Set** tab to the right of the interface, and select **Input Set**.
+To add an input set select the **Input** tab in the top left, and select **Add Param to Default**.
+
+<img src="assets/apif-mod3/05/addInputSet.png" alt="Add Input Set", width="400"/>
 
 ### Create Global Parameters
 
-Navigate and select the Input Set tab on the left side of the interface to begin the exercise.
+Navigate and select the **Input** tab on the left side of the interface to begin the exercise.
 
-   <img src="assets/apif-mod3/input-set-tab.png" alt="Input Set Tab" width="200" />
+   <img src="assets/apif-mod3/05/selectInputTab.png" alt="Input Set Tab" width="600" />
 
-1. Select **Add Global Parameters** in the _Global Parameters_ section
-   <img src="assets/apif-mod3/global-params.png" alt="Global Parameter" />
+1. Select **Add Global Param** in the _Global Parameters_ section
 1. Add the following data to the global parameter:
    * Name: `domain`
    * Value: `saucelabs.com`
-   <img src="assets/apif-mod3/domain-param.png" alt="Domain Parameter" />
+   
+   <img src="assets/apif-mod3/05/addDomain.png" alt="Domain Parameter" />
+   
+   The parameter now appears in the **Global Parameters** section 
+   <img src="assets/apif-mod3/05/domainResult.png" alt="Domain in Global Param section", width="500" />
 
 Next we need to substitute the `domain` value in the current GET request:
-1. In the menu to the left of the **GET** request component, select **Edit component**
-   <img src="assets/apif-mod3/edit-component.png" alt="Edit Component" />
+1. To get back to our test code, select **Unit** in the tab at the top
+   <img src="assets/apif-mod3/05/selectUnit.png" alt="Select Unit Tab" />
+1. Select the ellipsis to the left of the **GET** request component, then select **Edit component**
+   <img src="assets/apif-mod3/05/editComponent.png" alt="Edit Component", width="500" />
 1. Substitute `saucelabs.com` with the `${domain}` global parameter:
-   <img src="assets/apif-mod3/use-param.png" alt="Use Param" />
+   <img src="assets/apif-mod3/05/editDomain.png" alt="Use domain Param", width="500" />
 1. Run the test again to ensure the test still passes with the same result.
-1. Create `protocol` and `uri` global parameters. The values should be `https://` and `/versions.json` respectively
+1. Repeat steps 1-3 above and create `protocol` and `endpoint` global parameters. The values for the respective params should be `https://` and `/versions.json` respectively
 1. Below is what the finished result should look like:
-   <img src="assets/apif-mod3/APIF3.05B.png" alt="Finished Result of Global Params" />
+   <img src="assets/apif-mod3/05/finishedResult2.png" alt="Finished Result of Global Params" width="500"/>
 
 ### Note:
 Negative
@@ -193,68 +207,112 @@ In the next section we will discover how to store some of the information we cre
 ## 3.06 The Vault
 Duration: 0:07:00
 
-The Vault is a unique feature of the API Fortress platform that allows you to store information for use across all projects. While Input Sets are typically only used within the same test or project, the vault allows you to store things that can be used across any project.
+The Vault is a unique feature of the API Fortress platform that allows you to store information for use across all projects or tests. 
 
-The Vault allows you to save more than just variables, with the vault you can save, edit, and reuse almost anything including:
+### The Vault vs. Inputs
+
+While Input Sets are typically only used within a given test, the vault allows you to store inputs and parameters that can be used across multiple test in your project. This is known as your **Project Vault**
+
+The **Project Vault** allows you to save more than just variables, with the vault you can save, edit, and reuse almost anything including:
 
 * Variables
 * Code snippets (think reused authentication flows)
 * Any assertions and code elements
 
-In the Vault, you can store data at three different levels: scope, project, and global. At the project level the vault will allow you to reuse those values across any test within that project scope. Similarly, the global level allows use of stored values across any test within any project.
-
 #### Note:
 Negative
-: If you plan on re-using code snippets from the Vault, make sure those variables remain consistent across each test. Also note that if you add an input set or global parameter with the same name, those values will override what is saved in the Vault.
+: A quick note on "Vault Scope." There is a key difference between the **Project Vault** vs. the **Company Vault**. In general, whatever you store in the Company Vault can be used across all project tests, but if there exists a similar value in your _Project Vault_, that value wins and overrides the value in the _Company Vault_. [More on this later](#company-vault).
+
 
 ### Exercise: Use the Vault to Store a Snippet
-To add a snippet to your account.
-1. Select the elements you wish to store (hold **SHIFT** and click _first and last elements_ to select a range).
-1. Open the Vault side Menu. Then select the `+` icon next to **Snippets**:
-   <img src="assets/apif-mod3/select-snippets.png" alt="Select Snippets" />
+
+First, what is a **Code Snippet**? A snippet is a fragment of a test, stored in the Vault, that can be reused. For example if you want to re-use an authentication header, or perhaps there's a `POST` body vaule you wish to re-use in multiple requests. For this example, we will store and re-use our assertion test from earlier.
+
+To add the snippet to your project Vault:
+1. Open your test.
+1. Select all the elements (hold **SHIFT** and click the _first and last elements_ to select a range).
+1. Select the **Export to Snippet** icon from the toolbar.
+   <img src="assets/apif-mod3/05/createSnippet.png" alt="Create Snippets" />
 1. Fill in the following details for the snippet:
    * Name: `QuickAssertionSnippet`
    * Description: `quick test to store snippet in the vault`
-   <img src="assets/apif-mod3/snippet-details.png" alt="Snippet Details" />
-1. Save the snippet. It should now appear in the Snippets section of the vault:
-   <img src="assets/apif-mod3/new-snippet.png" alt="New Snippet" />
+   <img src="assets/apif-mod3/05/quickAssertSnippet.png" alt="QuickAssertion Snippet Details" />
+1. Select **Save Snippet**.
+1. The snippet now appears in the Snippets section of the project vault. To get back to the vault, go to the **Tests Page** and select **Vault** in the toolbar, then the **Code Snippets** radial button:
+   <img src="assets/apif-mod3/05/projectVaultSnippet.png" alt="Project Vault Snippet" />
 
 #### Note
 Negative
-: In order to delete a snippet, select **Vault** in the top menu, find the project where the snippet is stored, and click on the snippet to access the trash can icon. <img src="assets/apif-mod3/APIF3.06A.png" alt="Invoke Snippet" />
+: There are two ways to delete a snippet:
+   * **Option 1**: Select the checkbox next to the snippet, then select **Delete Selected** <img src="assets/apif-mod3/05/delete1.png" alt="Delete option 1" />
+   * **Option 2**: Hover over the snippet, then select the trash icon to the right that states **Delete** <img src="assets/apif-mod3/05/delete2.png" alt="Delete option 2" />
 
 
 ### Using a Snippet
-If you wish to re-use this snippet in a different project, create a new empty test, and open up the **Vault** menu on the side. Choose the bottom element in your test, and click the arrow to either invoke the snippet, or to copy and paste the component:
+If you wish to re-use this snippet in a different project/test there are two options: **Invoke a Snippet** or **Insert a Snippet**. Invoking a snippet doesn't actually modify your test components, instead it makes an API call to the Vault, which inserts the snippet at test runtime. In contrast, inserting a snippet literally inserts the code into your existing test.
 
-<img src="assets/apif-mod3/invoke-snippet.png" alt="Invoke Snippet" />
+Let's try adding a snippet to an empty test:
+1. Create an empty test (call it whatever you want)
+1. Select the **Invoke Snippet** icon:
+   <img src="assets/apif-mod3/05/invoke1.png" alt="Invoke Snippet" />
+1. Hover over the snippet, and select **Open**:
+   <img src="assets/apif-mod3/05/invoke3.png" alt="Invoke Snippet" />
+1. Select either **Invoke Snippet** or **Insert Snippet**, below are examples screenshots of both:
+   <img src="assets/apif-mod3/05/invoke4.png" alt="Invoke Snippet" />
+   
+#### Invoked Snippet
 
-Now you just need to make sure variables are aligned:
+<img src="assets/apif-mod3/05/invoke5.png" alt="Invoke Snippet" />
 
-<img src="assets/apif-mod3/payload-vars.png" alt="Payload Variables" />
+#### Inserted Snippet
 
-The finished result should be identical to your previous test:
+<img src="assets/apif-mod3/05/invoke6.png" alt="Invoke Snippet" />
 
-<img src="assets/apif-mod3/finished-global-params.png" alt="Finished Result of Global Params" />
+### Company Vault
+Now you just need to make sure variables are aligned. Now we reach the dilemma of having to re-create our variables that we used from earlier: `${domain}`, `${protocol}`, and `${endpoint}`. The better approach is to use the **Company Vault**, which allows us to re-use variables across all projects.
+
+To access the **Company Vault**
+1. Go to your Project page
+1. Select the **Company Vault**
+1. Select the **Variables** radial button
+1. Add the following variables from your AssertionTest: `${domain}`, `${protocol}`, `${endpoint}`
+
+The end result should look like the screenshot below:
+
+<img src="assets/apif-mod3/05/payloadVars.png" alt="Payload Variables" />
+
+Now if your run your new empty test (where you invoked or inserted the assertion snippet), all variables will default to the values in the Company Vault.
+
+#### What about Snippets?
+If you want to re-use a code snippet across different projects, it's a bit easier than re-creating variables from scratch. You can actually export it from the project vault, into the company vault.
+
+To export a Snippet into the Company Vault:
+
+1. Open your Project
+1. Select **The Vault** from the toolbar
+1. Select the **Code Snippet** radial button
+1. Select the checkbox next to the desired snippet, then select the **Export*** button:
+   <img src="assets/apif-mod3/05/export1.png" alt="Export Code Snippet" />
+1. Choose your file type (`.csv` is recommended here)
+   <img src="assets/apif-mod3/05/export2.png" alt="Choose File Type" />
+1. Save the file to your computer
+1. Go back to the **Company Vault** page and select **Import**
+   <img src="assets/apif-mod3/05/export3.png" alt="Import the Snippet" />
+1. Choose your file to add it to the Company Vault
+   <img src="assets/apif-mod3/05/export4.png" alt="Import the Snippet", width="500" />
+   
+
+This is a screenshot of the end result:
+<img src="assets/apif-mod3/05/export5.png" alt="Import the Snippet" />
+
 
 
 This approach is much easier than recreating the entire test from scratch! Run your test to see the report.
 
-### Adding and Editing Variables in the Vault
-
-Access the Vault and add variables and code snippets by first clicking on the **Vault** in the main menu.
-
-<img src="assets/apif-mod3/access-vault.png" alt="Vault in the Toolbar" />
-
-From here you can access and edit code for snippets:
-
-<img src="assets/apif-mod3/access-snippet.png" alt="Access Snippet" />
-
-Or access and edit variables for both global project-specific snippets and variables.
-
-<img src="assets/apif-mod3/edit-snippet-variables.png" alt="Edit Snippet Variables" />
-
-To learn more about The Vault and Environments see below links: [Learn the Basics](https://docs.saucelabs.com/api-testing/quick-start/the-vault/index.html), [Environments Basics](https://apifortress.com/doc/environments-vault-and-overrides-magic/), [Using Variables](https://docs.saucelabs.com/api-testing/quick-start/flexible-variables-for-flexible-environments)
+To learn more about The Vault and Environments see below links:
+* [Learn the Basics](https://docs.saucelabs.com/api-testing/mark3/quick-start/the-vault)
+* [Environments Basics](https://docs.saucelabs.com/api-testing/mark3/quick-start/environments-vault-and-overrides-magic)
+* [Using Variables](https://docs.saucelabs.com/api-testing/mark3/quick-start/flexible-variables-for-flexible-environments)
 
 <!-- ------------------------ -->
 
