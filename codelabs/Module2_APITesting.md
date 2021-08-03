@@ -52,6 +52,7 @@ For this first test project we will test against the Sauce Labs API.
    <img src="assets/apif-mod2/01/createProject.png" alt="API Fortress: Create Project"/>
 3. The **Add New Project** alert window appears.
    <img src="assets/apif-mod2/01/newProject.png" alt="API Fortress: Project Fields"/>
+   
    Add the following for each category:
     * **Project Name**: `Test Project`
     * **Description**: `Simple Test against the Sauce Labs User API`
