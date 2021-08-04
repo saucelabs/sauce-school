@@ -181,26 +181,43 @@ To protect against tunnnel unavailability, you should start more than one tunnel
 
 <img src="assets/SC2.03A.png" alt="Start a shared tunnel" width="850"/>
 
-#### Use systemd to Manage Tunnels
-[systemd](https://www.freedesktop.org/wiki/Software/systemd/) is a system and service manager for Linux that, among other things, can be used to control the starting and stopping of services.
 
-For instructions on how to set up systemd, check the `sc-x.x.x-osx` package that you installed, inside the `/config-examples/systemd` folder, and open the `README`. This contains instructions for setting up Sauce Connect with systemd on your Linux machine.
 
-<img src="assets/SC2.03C.png" alt="Start a shared tunnel" width="650"/>
+### Restarting Tunnels
+It's important to setup your tunnels to restart every 24 hours in order to improve resiliency. There are many services available to schedule a task such as stopping and restarting your Sauce Connect Tunnels. If you are using a Unix system (Mac or Linux) you can use a [Cron  daemon](https://kb.iu.edu/d/afiz).
 
-The systemd service will automatically start the Sauce Connect service, monitor each client, and tranparently restart the client if the client gets disconnected or a tunnel goes down.
+#### Using Cron with Sauce Connect
+In order to kick off a script that will execute the starting and stopping of Sauce Labs tunnels, you can use the `crontab` command to create a file that will start the scripts.
 
-There are two other files besides the README in the `/systemd` directory:
-* The `sc.service` file describes the service
-* The `sc@.service` creates an instance of a Sauce Connect tunnel that the service will start.
+First, get the bash scripts from this repository, and place it somewhere on your computer, noting the filepath
 
-#### Restarting Tunnels
-It's important to setup your tunnels to restart every 24 hours in order to reduce to improve resiliency. If you take a look at the
+//Get script from Max & put in sauceconnect repo, then link
 
-//read about/ ask Max for 'restart code' example-- is it in systemd? Como?
-// got stuck on parts 2 & 3 of step 5
+Next Create a crontab file with the command `creontab -e`.
 
-### Run Tests with High Availability Tunnels
+Use [vim](https://www.cyberciti.biz/faq/how-do-i-save-changes-in-vim/) to insert and save the timing for when you want to run your files, and the path to the bash script it will execute. This will execute the `start.bash` script every 6 hours:
+
+```
+0 */6 * * * /Users/yourusername/Documents/start.bash
+```
+
+// image <img> of an actual cron job that will run on a computer
+
+#### Note
+Negative
+: You can use [`crontab guru`](https://crontab.guru/examples.html) con configure how frequently your bash script will run. Any time you want to access all cron jobs, simly use the command `crontab -e`
+
+
+<!--
+ #### Note
+Negative
+: **Use systemd to Manage Tunnels – **
+[systemd](https://www.freedesktop.org/wiki/Software/systemd/) is a system and service manager for Linux that, among other things, can be used to control the starting and stopping of services. For instructions on how to set up systemd, check the `sc-x.x.x-osx` package that you installed, inside the `/config-examples/systemd` folder, and open the `README`. This contains instructions for setting up Sauce Connect with systemd on your Linux machine. <img src="assets/SC2.03C.png" alt="Start a shared tunnel" width="650"/>
+-->
+
+
+#### Run Tests with High Availability Tunnels
+Now that you have several tunnels up and running with the same tunnel id (name) you can, [run any test the same way you would with any parent tunnel](https://training.saucelabs.com/codelabs/Module2-SauceConnect/index.html?index=..%2F..sauceconnect#1), but now if a tunnel or server fails, your tests will still be able to run because of the resiliency of your tunnels.
 
 <!-- ------------------------ -->
 ## 2.04
