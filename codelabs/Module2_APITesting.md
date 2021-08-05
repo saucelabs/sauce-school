@@ -270,7 +270,7 @@ You should now see the **Test Scheduler**:
 If everything worked correctly, you should see the following status on the **Schedule** page:
 <img src="assets/apif-mod2/01/scheduleExample.png" alt="API Fortress: Schedule Example" />
 
-Also, you will see the following on the actual **Tests Page**:
+Also, you will see the following on the page where the tests for your project are listed:
 <img src="assets/apif-mod2/01/schedulesOnTest.png" alt="API Fortress: Schedule Icon" />
 
 
