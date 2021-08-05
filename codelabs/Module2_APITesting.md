@@ -146,7 +146,7 @@ Let's add a GET component that makes a successful API call against the Sauce Lab
 
 In the previous step we encountered a common authentication error, **[HTTP: 401](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401)**, because you didn't send the `username` and `accesskey` that Sauce Labs requires to communicate with their API. In order to fix this error we must add our [Sauce Labs Account Credentials](https://app.saucelabs.com/user-settings) as a [Basic Authentication Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication).
 
-1. Navigate  back to the **Tests** page.
+1. Navigate  back to the **Tests** page and click to edit the test you created.
    <img src="assets/apif-mod2/01/goBackTests.png" alt="API Fortress: Go back to the tests page" />
    
 2. Select **+ Add Request / Assertions**
