@@ -238,7 +238,7 @@ There's either one of two reasons for this:
 ### Publish the Working Copy
 All the work we previously completed only exists as a **Working Copy**. It's basically still in *rough draft* form, and we need to publish the test in order to actually use it in production.
 
-From the Tests page, hover over the message that states "Unpublished changes" and select the **Publish** button to publish the working copy.
+From the Test editing page, hover over the message that states "Unpublished changes" and select the **Publish** button to publish the working copy.
 
 <img src="assets/apif-mod2/01/publish.png" alt="API Fortress: Publish Button" />
 
