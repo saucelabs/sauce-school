@@ -57,7 +57,6 @@ For this first test project we will test against the Sauce Labs API.
     * **Project Name**: `Test Project`
     * **Description**: `Simple Test against the Sauce Labs User API`
     * **Notes**: `https://docs.saucelabs.com/dev/api/accounts#user-methods`
-    * **Alert Distribution lists**: Leave blank
 
 5. Find your project and select the **Tests Icon** to continue.
    
