@@ -248,7 +248,7 @@ Immediately, the Publish button turns green to indicate your test is ready for a
 
 ### Schedule a Test
 
-Scheduling a test basically means we can set up a recurring job (sort of like a [`cron` job](https://www.hostinger.com/tutorials/cron-job)) that can run our published tests at a specific time, along with other test parameters. A test that is published, but not scheduled, appears with a `-` underneath the **Schedules** tab like this:
+Scheduling a test basically means we can set up a recurring job (sort of like a [`cron` job](https://www.hostinger.com/tutorials/cron-job)) that can run our published tests at a specific time, along with other test parameters. If you look on the project page where your tests are listed, a test that is published, but not scheduled, appears with a `-` underneath the **Schedules** tab like this:
 
 <img src="assets/apif-mod2/01/unscheduled.png" alt="API Fortress: Not Scheduled" />
 
