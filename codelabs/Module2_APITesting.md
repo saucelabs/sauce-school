@@ -194,7 +194,7 @@ Negative
    <img src="assets/apif-mod2/01/get3Users.png" alt="Add Auth details to request" />
 
 
-5. Save your HTTP request to use later. Name it whatever you wish (here it is named `GET 3 Users`):
+5. Save your HTTP request in your project to use later. Name it whatever you wish (here it is named `GET 3 Users`):
    <img src="assets/apif-mod2/01/save3UsersTest.png" alt="Add Auth details to request" />
    
 
