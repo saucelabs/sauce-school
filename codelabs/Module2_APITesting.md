@@ -89,6 +89,7 @@ From the project:
 
 3. You should now see the new **Test Details** alert window
    <img src="assets/apif-mod2/01/testDetails.png" alt="API Fortress: Test Details" />
+   
    Add the following for each category:
     * **Test Name**: `GET User Info`
     * **Description**: `Test for /team-management/users method`
