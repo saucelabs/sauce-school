@@ -205,7 +205,7 @@ Negative
 7. Next, select the **Generate Test** button and API Fortress automagically generates a sample test based on the request data.
    <img src="assets/apif-mod2/01/generateTest.png" alt="API Fortress: Generate Test Button" />
 
-8. Enter the test details, select **Save**, and click through the prompts, and you should now see a full test back in the **Tests** page.
+8. Enter the test details (a name such as `First GET Test` and a description), select **Save**, and click through the prompts, and you should now see a full test back in the **Tests** page.
    <img src="assets/apif-mod2/01/generatedTest.png" alt="API Fortress: Generated Test" />
 
 
