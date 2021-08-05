@@ -242,7 +242,7 @@ From the Tests page, hover over the message that states "Unpublished changes" an
 
 <img src="assets/apif-mod2/01/publish.png" alt="API Fortress: Publish Button" />
 
-Immediately, the Publish button turns green to indicate your test is ready for a scheduled a test run.
+Immediately, the Publish button turns green to indicate your test is ready for a scheduled a test run. Save your test.
 
 <img src="assets/apif-mod2/01/published2.png" alt="API Fortress: Publish Status" />
 
