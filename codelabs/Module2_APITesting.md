@@ -254,7 +254,7 @@ Scheduling a test basically means we can set up a recurring job (sort of like a 
 
 Below are the steps to schedule a test.
 
-From the Tests page, select the **Schedule Test** button:
+From the page where your projects' tests are listed, select the **Schedule Test** button:
 
    <img src="assets/apif-mod2/01/schedule1.png" alt="API Fortress: Schedule Button" />
 
