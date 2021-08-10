@@ -36,9 +36,8 @@ However, you can try and follow along using other tools like [Postman](https://w
 
 ### Getting Started with API Fortress
 
-If you don't have an API Fortress account you can [visit the API Fortress home page](https://apifortress.com/), and select the **Free Trial** button at the top to request a 30-day free trial.
+If you don't have an API Fortress account you can [Create a Sauce Labs Account](https://saucelabs.com/sign-up/), and get started with a free trial. You can now access [API testing](https://app.saucelabs.com/api-testing).
 
-After you fill out the necessary fields, you then receive an email with your login credentials for the platform.
 
 > **NOTE**: If you don't receive an email confirmation, check your spam folder or please email [support@saucelabs.com](support@saucelabs.com) for assistance.
 
@@ -71,11 +70,7 @@ Upon finishing your project setup, you should see the Project Dashboard.
 ## 2.03 Create an API Test File
 Duration: 0:04:00
 
-We now have a project in which we can begin writing API Tests. Let's create the first API Test!
-
-#### Note:
-Negative
-: You must have a [API Fortress account](https://apifortress.com/) in order to follow along in this step. [Use this link](https://saucelabs.com/sign-up) to sign up for a free trial. If you have an account, [Sign In](https://mastiff.apifortress.com/app/web/login/auth).
+We now have a project in which we can begin writing API Tests. Let's create the first API Test. Sign in to Sauce Labs and access [API testing](https://app.saucelabs.com/api-testing).
 
 
 #### Create a Test File
