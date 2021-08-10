@@ -15,13 +15,12 @@ author: James Tacker
 ## 3.01 What You'll Learn
 Duration: 0:02:00
 
-
-Below are the primary learning objectives for this module:
+In this module, you will be learning to create your own test from scratch with test components, using requests (such as GET or POST), assertions that check if data exists, and use variables, input sets, and the Vault to store and reuse elements of your tests.
 
 **Assertions and Request Components**
 * Determine the different types of assertions and requests you can use with your API test
 * Understand the different types of output when adding assertions to an a API test
-* Understand the various use cases for adding a request component to an API test.
+* Understand when and why you want to use certain request components in an API test.
 
 **Variables**
 * Understand the difference between global variables and input sets
@@ -34,9 +33,11 @@ Duration: 0:03:00
 
 The test component library contains many useful test components that can enrich and add further validity to your API Tests.
 
+### Experiment with Components
+
 To access the component library:
 
-* Open a test
+* Open a new blank test
 * Select the `+` symbol at the top of the Test Composer
 
 <img src="assets/apif-mod3/05/testComponent.png" alt="Add a Test Component" />
@@ -92,9 +93,9 @@ Negative
 1. Select the **GET Request** component and add the following data:
    * url: `https://saucelabs.com/versions.json`
    * var: `payload`
-   
+
    <img src="assets/apif-mod3/05/getMethod.png" alt="Add GET Request", width="400" />
-     
+
    <img src="assets/apif-mod3/05/getRequestDetails.png" alt="Add GET Request", width="500" />
 
 1. This is what the finished result should look like:
@@ -107,7 +108,9 @@ In the next section you will work with  **Assertion** components, learning how t
 ## 3.04 Assertion Component
 Duration: 0:04:00
 
-There's a common phrase in the automated testing space: "If there is **no assertion**, it **isn't a test**." The previous sentence demonstrates a common [testing anti-pattern](http://www.everydayunittesting.com/2017/03/unit-testing-anti-pattern-not-asserting.html); even if your code doesn't throw errors or crash, it doesn't mean it's a valid test.
+There's a common phrase in the automated testing space: "If there is **no assertion**, it **isn't a test**."
+
+This sentence demonstrates a common [testing anti-pattern](http://www.everydayunittesting.com/2017/03/unit-testing-anti-pattern-not-asserting.html); even if your code doesn't throw errors or crash, it doesn't mean it's a valid test.
 
 In order to validate an API endpoint works properly, you must _assert_ whether the API's expected output is correct or incorrect.
 
@@ -132,8 +135,9 @@ There are several assertions to choose from and below are a few examples, along 
      <img src="assets/apif-mod3/05/assertIs.png" alt="Assert Is Component" />
 1. Here's what the final result should look like:
    <img src="assets/apif-mod3/05/finishedAssertionResult.png" alt="Finished Assertion Results" />
-1. Click **Save** to save your test, then select **Run > Default Downloader**. The test results should look like this:
-   <img src="assets/apif-mod3/05/finishedAssertionResult.png" alt="Finished Assertion Result" />
+1. Click **Save** to save your test, then select **Run**. The test results should show up in the UI:
+   <img src="assets/apif-mod3/05/finishedTest.png" alt="Finished Assertion Result" width="700"/>
+
 
 ### Recap
 * We created a **GET** request in the previous module that returned a JSON object
@@ -147,7 +151,7 @@ In the next section we will cover how to store information as a **Global Variabl
 ## 3.05 Global Variables vs. Input Sets
 Duration: 0:04:00
 
-As the complexity and number of tests in your test suite increase, it's a best practice to parametrize test details and data to allow more flexibility. There are generally two ways to store data within API Fortress:
+As the complexity and number of tests in your test suite increase, it's a best practice to name and store test details such as common variables or data sets to allow more flexibility. There are generally two ways to store data within API Fortress:
 
 * **Global Variables**
 * **Input Set**
@@ -163,7 +167,7 @@ To add a global variable/parameter select the **Input** tab in the top left, and
 
 ### Input Sets
 
-An input set differs from a global parameter in that it is usually a group of input variables related to a specific scneario or contextual use case—for example a list of relevant product ids returned from a product API endpoint. Input sets are used within a single test.
+An input set is an object (usually a group of input variables related to a specific scenario or use case). For example a list of relevant product ids returned from a product API endpoint. Input sets are used within a single test.
 
 To add an input set select the **Input** tab in the top left, and select **Add Param to Default**.
 
@@ -179,10 +183,10 @@ Navigate and select the **Input** tab on the left side of the interface to begin
 1. Add the following data to the global parameter:
    * Name: `domain`
    * Value: `saucelabs.com`
-   
+
    <img src="assets/apif-mod3/05/addDomain.png" alt="Domain Parameter" />
-   
-   The parameter now appears in the **Global Parameters** section 
+
+   The parameter now appears in the **Global Parameters** section
    <img src="assets/apif-mod3/05/domainResult.png" alt="Domain in Global Param section", width="500" />
 
 Next we need to substitute the `domain` value in the current GET request:
@@ -207,7 +211,7 @@ In the next section we will discover how to store some of the information we cre
 ## 3.06 The Vault
 Duration: 0:07:00
 
-The Vault is a unique feature of the API Fortress platform that allows you to store information for use across all projects or tests. 
+The Vault is a unique feature of the API Fortress platform that allows you to store information for use across all projects or tests.
 
 ### The Vault vs. Inputs
 
@@ -259,7 +263,7 @@ Let's try adding a snippet to an empty test:
    <img src="assets/apif-mod3/05/invoke3.png" alt="Invoke Snippet" />
 1. Select either **Invoke Snippet** or **Insert Snippet**, below are examples screenshots of both:
    <img src="assets/apif-mod3/05/invoke4.png" alt="Invoke Snippet" />
-   
+
 #### Invoked Snippet
 
 <img src="assets/apif-mod3/05/invoke5.png" alt="Invoke Snippet" />
@@ -300,7 +304,7 @@ To export a Snippet into the Company Vault:
    <img src="assets/apif-mod3/05/export3.png" alt="Import the Snippet" />
 1. Choose your file to add it to the Company Vault
    <img src="assets/apif-mod3/05/export4.png" alt="Import the Snippet", width="500" />
-   
+
 
 This is a screenshot of the end result:
 <img src="assets/apif-mod3/05/export5.png" alt="Import the Snippet" />
