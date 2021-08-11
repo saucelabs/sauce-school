@@ -10,6 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="description" content="{{view.description}}">
@@ -21,7 +22,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="stylesheet" href="https://use.typekit.net/uws2znl.css">
 
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
     ga('create', '{{ga}}', 'auto');
     ga('send', 'pageview');
     {% if view.ga %}
@@ -36,14 +37,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script async src='https://www.google-analytics.com/analytics.js'></script>
 
-  <script src="https://use.typekit.net/zmt8tam.js"></script><script>try{Typekit.load({ async: false });}catch(e){}</script>
+  <script src="https://use.typekit.net/zmt8tam.js"></script>
+  <script>try { Typekit.load({ async: false }); } catch (e) { }</script>
 
   <title>{{view.title}}</title>
 
   <link rel="stylesheet" href="/styles/main.css">
 
   {% if view.customStyle %}
-    <link rel="stylesheet" href="{{view.customStyle}}">
+  <link rel="stylesheet" href="{{view.customStyle}}">
   {%- endif %}
 
   <link rel="import" href="/elements/elements.html">
@@ -51,12 +53,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <style is="custom-style">
     :root {
       --paper-tabs-selection-bar-color: currentcolor;
+
       --paper-input-container-underline: {
         display: none;
-      };
+      }
+
+      ;
+
       --paper-input-container-underline-focus: {
         display: none;
-      };
+      }
+
+      ;
     }
 
     .dropdown-filter {
@@ -64,7 +72,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding: 8px;
       }
     }
-
   </style>
 
   <meta name="google-site-verification" content="mrgJk8Sag_ofnUlGxFAZfGRJmI1rkRPibiyQ8WFY3bA" />
@@ -102,10 +109,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="twitter:description" property="twitter:description" content="{{view.description}}" />
   <meta name="twitter:image" property="twitter:image" content="/images/og-image.png" />
   <meta name="twitter:url" property="twitter:url" content="{{canonicalViewUrl(view)}}" />
-  <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/docsearch.js@2.0/dist/cdn/docsearch.min.css"
-/>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css" />
 </head>
 
 <body id="app" is="body-bind" class="loading fullbleed {% if view.id != 'default' -%}view{%- endif -%}">
@@ -119,61 +124,42 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <navigation-element></navigation-element>
 
-        <div id="searchbar" class="--desktop">
-          <paper-input-container no-label-float>
-            <paper-icon-button prefix icon="search"></paper-icon-button>
-            <label>Search</label>
-            <input class="search-box" is="iron-input" bind-value="{{searchVal}}" on-keydown="onSearchKeyDown">
-          </paper-input-container>
+        <div class="searchWrapper">
+          <div id="searchBox" class="searchBox"></div>
+          <div id="searchResults" class="searchResults isHidden"></div>
         </div>
 
-        <!--
-        <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.0/dist/cdn/docsearch.min.js"></script>
-        <script>
-          docsearch({
-            // Your apiKey and indexName will be given to you once
-            // we create your config
-            apiKey: '25626fae796133dc1e734c6bcaaeac3c',
-            indexName: 'docsearch',
-            //appId: '<APP_ID>', // Should be only included if you are running DocSearch on your own.
-            // Replace inputSelector with a CSS selector
-            // matching your search input
-            inputSelector: '.search-box',
-            // Set debug to true to inspect the dropdown
-            debug: false,
-          });
-        </script>
-        -->
       </div>
     </div>
     {% endraw %}
 
     {# Event pages force down attribute. On homepage, it's applied dynamically. #}
-    <header id="banner" {% if view.id != 'default' -%}down{%- else %}down$="[[_toBoolean(selectedFilter)]]"{%- endif %}>
+    <header id="banner" {% if view.id !='default' -%}down{%- else %}down$="[[_toBoolean(selectedFilter)]]" {%- endif %}>
       <div class="site-width">
         {% if view.id == 'default' %}
         <div class="section-heading"></div>
         <span class="banner__subtext">Training</span>
         <h2 class="banner-title">Sauce School</h2>
-        <div class="banner-description"
-             data-filter-selected$="{% raw %}[[_toBoolean(selectedFilter)]]{% endraw %}">
+        <div class="banner-description" data-filter-selected$="{% raw %}[[_toBoolean(selectedFilter)]]{% endraw %}">
           <p class="banner-info">
-            Sauce School is the official training portal for Sauce Labs. The courses here offer automation code tutorials with best practices for both beginners and experienced automated test developers. Courses cover topics including Selenium & Appium automation test frameworks, JavaScript testing frameworks, Sauce Labs specific tools, continuous integration, and more.
+            Sauce School is the official training portal for Sauce Labs. The courses here offer automation code
+            tutorials with best practices for both beginners and experienced automated test developers. Courses cover
+            topics including Selenium & Appium automation test frameworks, JavaScript testing frameworks, Sauce Labs
+            specific tools, continuous integration, and more.
           </p>
-        {%- else -%}
+          {%- else -%}
           <div class="banner-description">
             <img id="logo" src="{{view.logoUrl}}" alt="Event logo">
             <div class="banner-meta">
               <h3>{{view.title}}</h3>
               {% if view.description -%}
-                <p>{{view.description}}</p>
+              <p>{{view.description}}</p>
               {%- endif %}
             </div>
-        {%- endif %}
+            {%- endif %}
           </div>
-      </div>
+        </div>
     </header>
-
     <main>
       <div id="filters" class="site-width layout horizontal center justified">
         <!-- sortby only work with courses. this is showing views -->
@@ -209,24 +195,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         {% endif %}
 
         {%- if showcats -%}
-        <paper-dropdown-menu
-          label="Filter by category"
-          class="dropdown-filter"
-          no-label-float
-          noink no-animations
-        >
-          <paper-listbox
-            id="categorylist"
-            slot="dropdown-content"
-            class="dropdown-content"
-            on-iron-activate="onCategoryActivate"
-            attr-for-selected="filter"
-          >
-              {% for category in categories -%}
-                {%- if categoryHasShowableCodelabs(category, codelabs) -%}
-                  <paper-item filter="{{category}}">{{category}}</paper-item>
-                {%- endif -%}
-              {%- endfor %}
+        <paper-dropdown-menu label="Filter by category" class="dropdown-filter" no-label-float noink no-animations>
+          <paper-listbox id="categorylist" slot="dropdown-content" class="dropdown-content"
+            on-iron-activate="onCategoryActivate" attr-for-selected="filter">
+            {% for category in categories -%}
+            {%- if categoryHasShowableCodelabs(category, codelabs) -%}
+            <paper-item filter="{{category}}">{{category}}</paper-item>
+            {%- endif -%}
+            {%- endfor %}
           </paper-listbox>
         </paper-dropdown-menu>
         {%- endif -%}
@@ -264,15 +240,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <div class="landing__cards">
           {%- for view in views -%}
-            {%- if view.id != 'default' && !view.hidden -%}
-            <div class="codelab-category__card">
-              <div class="card__inner">
-                <h1><a href="/{{view.url}}/" tabindex="-1">{{view.title}}</a></h1>
-                <p><a href="/{{view.url}}/" tabindex="-1">{{view.description}}</a></p>
-                <p><a class="link__button" href="/{{view.url}}/">Begin Course »</a></p>
-              </div>
+          {%- if view.id != 'default' && !view.hidden -%}
+          <div class="codelab-category__card">
+            <div class="card__inner">
+              <h1><a href="/{{view.url}}/" tabindex="-1">{{view.title}}</a></h1>
+              <p><a href="/{{view.url}}/" tabindex="-1">{{view.description}}</a></p>
+              <p><a class="link__button" href="/{{view.url}}/">Begin Course »</a></p>
             </div>
-            {%- endif -%}
+          </div>
+          {%- endif -%}
           {%- endfor %}
         </div>
 
@@ -286,12 +262,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <footer-element></footer-element>
   </paper-header-panel>
 
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
   <!-- build:js /scripts/main.js -->
   <script src="/scripts/app.js"></script>
-
   <!-- endbuild-->
-  <script>
 
-  </script>
 </body>
+
 </html>
