@@ -186,26 +186,95 @@ To protect against tunnnel unavailability, you should start more than one tunnel
 ### Restarting Tunnels
 It's important to setup your tunnels to restart every 24 hours in order to improve resiliency. There are many services available to schedule a task such as stopping and restarting your Sauce Connect Tunnels. If you are using a Unix system (Mac or Linux) you can use a [Cron  daemon](https://kb.iu.edu/d/afiz).
 
-#### Using Cron with Sauce Connect
+#### Create Scripts to Start and Stop Tunnels
+
 In order to kick off a script that will execute the starting and stopping of Sauce Labs tunnels, you can use the `crontab` command to create a file that will start the scripts.
 
-First, get the bash scripts from this repository, and place it somewhere on your computer, noting the filepath
+First, get the bash scripts from this repository, and place it somewhere on your computer, noting the filepath.
+
+The `kill.sh` script will kill any existing tunnels you have running. In this script, update the `tunnelname` variable with the name you plan on using for your high-availability tunnels.
+
+```
+#!/bin/bash
+#Kill  tunnels with a -9 hard kill.  Will cause jobs in tunnel to error.
+
+tunnelname=your_tunnel_id
+
+echo "Killing $tunnelname processes"
+for x in $(ps aux | grep "\s$tunnelname\s" | grep -v grep | awk '{ print $2 }' );
+do
+  kill -9 $x
+  echo "$tunnelname tunnel with PID $x was sent kill -9"
+done
+
+echo "all $tunnelname tunnels given the kill signal"
+```
+
+To restart the tunnel, create the `start.sh` script that will start a pool of tunnels. For the variables `user=`, `key=`you will need to add you Sauce username and access key.
+
+For `tunnelname=`, and `sc-path=` you will need to add the name you will use for your high availability tunnels, and the path to where you installed Sauce Connect (and the correct version) on your machine:
+
+```
+#!/bin/bash
+# DO NOT ATTEMPT TO DERIVE MEANING FROM THESE TUNNEL NAMES!!
+# Each tunnel pool gets 10 ports
+
+user=your_username
+key=your_access_key
+tunnelname=your_tunnel_id
+tunnels=3
+tunnel_port_num=5000
+sc_path=/Users/your_user/sc-X.X.X-OSVersion/bin/sc
+
+for tunnel in $(seq 1 $tunnels);
+do
+    if [[ ! $(ps axuf | grep sc_$tunnelname-$tunnel_port_num | grep -v grep | awk '{ print $2 }') ]]; then
+        $sc_path -u $user -k $key --tunnel-identifier $tunnelname --no-remove-colliding-tunnels -P $tunnel_port_num -d /tmp/sc_$tunnelname-$tunnel_port_num -s -v --extra-info '{"inject_job_id":true}' &
+        sleep 5
+    fi
+
+    tunnel_port_num=$((tunnel_port_num+1))
+done
+```
+
+Test our your scripts by running them on your machine. Start with the `chmod` command to give the permission these two bash scripts to execute on your machine:
+
+```
+chmod 754 start.sh
+```
+and
+
+```
+chmod 754 kill.sh
+```
+
+Next, run the start script, & check the Sauce Labs dashboard for the tunnel:
+```
+./start.sh
+```
 
 //Get script from Max & put in sauceconnect repo, then link
 
-Next Create a crontab file with the command `creontab -e`.
+#### Using Cron with Sauce Connect
 
-Use [vim](https://www.cyberciti.biz/faq/how-do-i-save-changes-in-vim/) to insert and save the timing for when you want to run your files, and the path to the bash script it will execute. This will execute the `start.bash` script every 6 hours:
+Next Create a crontab file with the command `crontab -e`.
+
+Use [vim](https://www.cyberciti.biz/faq/how-do-i-save-changes-in-vim/) to insert and save the timing for when you want to run your files, and the path to the bash script it will execute.
+
+This will execute the `start.bash` script every hour, which will check if you have a tunnel up, and if not, start one:
+```
+0 * * * * /Users/yourusername/Documents/start.bash
+```
+This will execute the `kill.bash` script at 1 am every day, then execute the `start.bash` script at 1:15 am to start 3 new tunnels:
 
 ```
-0 */6 * * * /Users/yourusername/Documents/start.bash
+0 1 * * * /Users/yourusername/Documents/kill.bash
+15 1 * * * /Users/yourusername/Documents/start.bash
 ```
-
-// image <img> of an actual cron job that will run on a computer
 
 #### Note
 Negative
-: You can use [`crontab guru`](https://crontab.guru/examples.html) con configure how frequently your bash script will run. Any time you want to access all cron jobs, simly use the command `crontab -e`
+: You can use [`crontab guru`](https://crontab.guru/examples.html) con configure how frequently your bash script will run. Any time you want to access all cron jobs, simply use the command `crontab -e`
 
 
 <!--
