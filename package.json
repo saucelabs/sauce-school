@@ -12,6 +12,7 @@
     "gulp": "^4.0.2"
   },
   "devDependencies": {
+    "cypress": "^7.3.0",
     "wait-port": "^0.2.9"
   }
 }

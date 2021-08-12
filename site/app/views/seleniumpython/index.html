@@ -117,13 +117,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <navigation-element></navigation-element>
 
-        <div id="searchbar" class="--desktop">
-          <paper-input-container no-label-float>
-            <paper-icon-button prefix icon="search"></paper-icon-button>
-            <label>Search</label>
-            <input is="iron-input" bind-value="{{searchVal}}" on-keydown="onSearchKeyDown">
-          </paper-input-container>
+        <div class="searchWrapper">
+          <div id="searchBox" class="searchBox"></div>
+          <div id="searchResults" class="searchResults isHidden"></div>
         </div>
+
       </div>
     </div>
     {% endraw %}
@@ -274,9 +272,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   </paper-header-panel>
 
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
   <!-- build:js /scripts/main.js -->
-  <script src="bower_components/url-search-params-polyfill/build/url-search-params.js"></script>
-  <script src="scripts/app.js"></script>
+  <script src="/scripts/app.js"></script>
   <!-- endbuild-->
 </body>
 </html>
