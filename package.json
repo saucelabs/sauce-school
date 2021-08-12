@@ -9,7 +9,7 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
-    "gulp": "^4.0.2"
+ 
   },
   "devDependencies": {
     "cypress": "^7.3.0",
