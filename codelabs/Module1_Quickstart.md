@@ -10,7 +10,7 @@ feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
 author:Lindsay Walker
 <!-- ------------------------ -->
-# Module 1 - Automated Testing with Sauce Labs
+# Module 1 - Sauce Labs Tour
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
