@@ -1,6 +1,6 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
-summary: Module 1 of the Sauce Labs Quickstart course, introducing the Sauce Labs UI for automated testers
+summary: Module 1 of the Automated Testing with Sauce Labs course, introducing the Sauce Labs UI for automated testers
 id: Module1-Quickstart
 categories: beginner
 tags: quickstart
@@ -10,18 +10,18 @@ feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
 author:Lindsay Walker
 <!-- ------------------------ -->
-# Module 1 - Sauce Labs for Automated Testing
+# Module 1 - Automated Testing with Sauce Labs
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
 Duration: 0:02:00
 
-In this module, you will get a demo of the most commonly used products by Sauce Labs to run automated tests on applications.
+In this module, see how to use Sauce Labs to run automated tests on applications.
 
 
 ### Skills & Knowledge
 
-In this Module you will learn:
+In this Module, you will learn:
 
 *   The automated testing tools available to use with Sauce Labs
 *   How you can use Sauce Labs to do desktop browser testing
