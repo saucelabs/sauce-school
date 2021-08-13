@@ -102,7 +102,7 @@ A good test would tell you exactly what failed and how it failed. Some examples 
 Duration: 0:15:00
 
 
-[Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#:~:text=Sauce%20Connect%20Proxy%E2%84%A2%20is,or%20behind%20a%20corporate%20firewall.) is software that enables you to establish a secure connection between applications hosted on an internal server and the Sauce Labs virtual machines (such as Jenkins) or real devices that are used for testing. It also allows you to create a secure connection for uploading tests, application, and source code.
+[Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/sauce-connect) is software that enables you to establish a secure connection between applications hosted on an internal server and the Sauce Labs virtual machines (such as Jenkins) or real devices that are used for testing. It also allows you to create a secure connection for uploading tests, application, and source code.
 
 #### Video
 [Set Up Sauce Connect Proxy](https://youtu.be/cpBcGeZ_wQU)
@@ -151,7 +151,7 @@ Your command should look like this:
 
 <img src="assets/5.03E.png" alt="Terminal command to run tunnel" width="750"/>
 
-After `-u` you will see your username and after` -k `you will have your access key, and `-i  `prepend the name you made up for your tunnel. Learn more about the other commands you can use to configure your tunnel at [Sauce Connect Proxy Command-Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide). Hit enter and you should see your tunnel up and running.
+After `-u` you will see your username and after` -k `you will have your access key, and `-i  `prepend the name you made up for your tunnel. Learn more about the other commands you can use to configure your tunnel at [Sauce Connect Proxy CLI Reference](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy). Hit enter and you should see your tunnel up and running.
 
 <img src="assets/5.03F.png" alt="Terminal running tunnel" width="500"/>
 
@@ -765,7 +765,7 @@ Now let's run our Jenkins project by clicking **Build Now** from the left-hand s
 
 ### Set Up Sauce Labs OnDemand
 
-The full reference for configuring Sauce OnDemand and support can be found [here.](https://wiki.saucelabs.com/display/DOCS/Jenkins+and+Sauce+OnDemand+Plugin+Quickstart+Guide)
+The full reference for configuring Sauce OnDemand and support can be found [here.](https://docs.saucelabs.com/ci/jenkins)
 
 The first thing you will need to do is install the Git Jenkins plugin, then go to **Manage Jenkins >  Manage Plugins**. Search for **Sauce** under the **Available** tab.
 
@@ -813,7 +813,7 @@ You can configure a failed build to trigger things like e-mail messages or send 
 
 ### Run Tests with Sauce OnDemand
 
-You can now run a test with [Sauce OnDemand](https://wiki.saucelabs.com/display/DOCS/Installing+and+Configuring+the+Sauce+OnDemand+Plugin+for+Jenkins) with just a couple of tweaks to the code. We’re going to create a setup in our `config.js` file. The only difference from the sauceW3C configuration will be the lack of a `tunnelIdentifier`.
+You can now run a test with [Sauce OnDemand](https://docs.saucelabs.com/ci/jenkins) with just a couple of tweaks to the code. We’re going to create a setup in our `config.js` file. The only difference from the sauceW3C configuration will be the lack of a `tunnelIdentifier`.
 
 Open `config.js`. Below the `sauceW3C `object, create a` jenkins `object (don’t forget the comma after the previous object). This will include a build name that you can view on the Sauce Labs **Builds** dashboard:
 
@@ -853,7 +853,7 @@ In this example, you are setting up our test with Chrome 75 and you need to use 
 
 Name it **Shallow Test Chrome 75 Windows 10**.
 
-Next, you are going to delete the old `PLATFORM` and `BROWSER` variables. With newer versions of W3C compliant browsers, these [variables have new names](https://wiki.saucelabs.com/display/DOCS/W3C+Capabilities+Support), and you will add them in `config.js`. Delete the old variables from the **Configure > Build** page so it simply says `npm test -- --grep @shallow`:
+Next, you are going to delete the old `PLATFORM` and `BROWSER` variables. With newer versions of W3C compliant browsers, these [variables have new names](https://docs.saucelabs.com/dev/test-configuration-options), and you will add them in `config.js`. Delete the old variables from the **Configure > Build** page so it simply says `npm test -- --grep @shallow`:
 
 
 <img src="assets/5.07I.png" alt="Execute Shell Command" width="750"/>
@@ -952,7 +952,7 @@ Now you can run your tests. If you would like, you can also comment out the fail
 
 You can see the complete source code for this module [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod5/5.07).
 
-Congratulations!  You now have the skills to create a basic test suite, plan your test strategy using testing best practices, and even work with your team to add testing to your software development pipeline. There is a lot more to explore both with tests and with Jenkins, so after the quiz, take a look at Module 5.09 for more resources, and visit the [Sauce Labs Documentation](https://wiki.saucelabs.com/display/DOCS/The+Sauce+Labs+Cookbook+Home) for more information.
+Congratulations!  You now have the skills to create a basic test suite, plan your test strategy using testing best practices, and even work with your team to add testing to your software development pipeline. There is a lot more to explore both with tests and with Jenkins, so after the quiz, take a look at Module 5.09 for more resources, and visit the [Sauce Labs Documentation](https://docs.saucelabs.com/) for more information.
 
 
 #### Final Code
@@ -997,7 +997,7 @@ This is where all the good stuff is — mainly, documentation about the various 
 These are tips that will help you expand your Selenium skills to write tests for nearly anything you can imagine using Selenium for. There are over 70 different Selenium problems and solutions covered. They're in Ruby, but the code has been open-sourced with a fair number of them being ported into other programming languages. You can find the code for them [here](https://github.com/tourdedave/elemental-selenium-tips).
 
 
-#### [Sauce Labs Wiki](https://wiki.saucelabs.com/)
+#### [Sauce Labs Documentation](https://docs.saucelabs.com/)
 
 This is the official Sauce Labs documentation. You can find updated and maintained tips and tricks regarding web/mobile automated testing.
 
