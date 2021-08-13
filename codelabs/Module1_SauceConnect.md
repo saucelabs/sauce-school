@@ -35,7 +35,7 @@ To find out more about Sauce Connect and the architecture, [see the whitepaper](
 <!-- ------------------------ -->
 ## 1.02 Setup and Run Sauce Connect Proxy
 
-[Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#:~:text=Sauce%20Connect%20Proxy%E2%84%A2%20is,or%20behind%20a%20corporate%20firewall.) is software that enables you to establish a secure connection between applications hosted on an internal server and the Sauce Labs virtual machines or real devices that are used for testing. In this lesson you will learn to:
+[Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/sauce-connect) is software that enables you to establish a secure connection between applications hosted on an internal server and the Sauce Labs virtual machines or real devices that are used for testing. In this lesson you will learn to:
 
 * Download and start a proxy tunnel
 * Stop a running proxy tunnel
@@ -101,7 +101,7 @@ You can stop any tunnel that you have running by hitting `cntrl` + `c`
 
 
 
- Learn more about the other commands you can use to configure your tunnel at [Sauce Connect Proxy Command-Line Quick Reference Guide](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/index.html#sauce-connect-proxy-command-line-options).
+ Learn more about the other commands you can use to configure your tunnel at [Sauce Connect Proxy CLI Reference](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/index.html#sauce-connect-proxy-command-line-options).
 
 <img src="assets/5.03F.png" alt="Terminal running tunnel" width="500"/>
 
@@ -274,7 +274,7 @@ ping saucelabs.com
 ```
 <img src="assets/SC1.04A.png" alt="Tunnels Menu" width="450"/>
 
-_[See other commands you can use](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Troubleshooting)_
+_[See other commands you can use](https://docs.saucelabs.com/secure-connections/sauce-connect/troubleshooting)_
 
 #### Check Communication With App Under Test
 From the machine you wish to run the Sauce Connect proxy from, you also want to check and make sure you can communicate with the application you are testing against. Again, use `ping` to check that your machine can communicate with the example site (like [saucedemo.com](https://www.saucedemo.com/))
@@ -344,7 +344,7 @@ There are a many options you can use to change the settings and options for your
 * Run Sauce Connect Proxy with a specific Sauce Labs Data Center
 
 
-You can find all the flags that you can use when running Sauce Connect in the [Sauce Connect CLI documentation](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy)
+You can find all the flags that you can use when running Sauce Connect in the [Sauce Connect Proxy CLI Reference](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy)
 
 #### Video
 [Sauce Connect Options](https://youtu.be/D7pfJfHe29k)
@@ -393,7 +393,7 @@ and if you check you should see *Documents/logfiles/log1*.
 
 
 ### Specify the Sauce Data Center
-Depending which data center (*us-west-1*, *eu-central-1*, etc.) you are running your tests in, you may want to change which data center your tunnel is running through (default *us-west-1*). [See the list of Sauce Connect endpoints](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints#DataCenterEndpoints-EUDataCenter)
+Depending which data center (*us-west-1*, *eu-central-1*, etc.) you are running your tests in, you may want to change which data center your tunnel is running through (default *us-west-1*). [See the list of Sauce Connect endpoints](https://docs.saucelabs.com/basics/data-center-endpoints/data-center-endpoints).
 
 Simply add a flag for the [data center endpoint](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy#data-center-endpoint) like `-x https://data-center-1.saucelabs.com/rest/v1` when you launch your tunnel:
 
@@ -470,7 +470,7 @@ If you have a certificate that is recognized by Sauce Labs devices, and one of t
 
 <!--
 ### Errors with CORS-Enabled Sites
-[Cross-Origin Resource Sharing (CORS)](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Troubleshooting ) errors could be caused by a variety of reasons. We recommend the following solutions:
+[Cross-Origin Resource Sharing (CORS)](https://docs.saucelabs.com/secure-connections/sauce-connect/troubleshooting) errors could be caused by a variety of reasons. We recommend the following solutions:
 
 //what is CORS?
 
