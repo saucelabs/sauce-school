@@ -101,8 +101,6 @@ Negative
 1. This is what the finished result should look like:
    <img src="assets/apif-mod3/05/finishedExample.png" alt="Finished result of GET component" />
 
-What this GET call is doing is requesting information from the `saucelabs.com/versions` endpoint. What this is doing is pinging an endpoint that gives you information about the latest version of Sauce Connect available for each operating system (`linx`, `osx`, `win32`).
-
 In the next section you will work with  **Assertion** components, learning how they are a vital part of your API tests.
 
 <!-- ------------------------ -->
@@ -116,10 +114,6 @@ This sentence demonstrates a common [testing anti-pattern](http://www.everydayun
 
 In order to validate an API endpoint works properly, you must _assert_ whether the API's expected output is correct or incorrect.
 
-One of the pieces of information returned from this API is a URL where the software can be downloaded.
-
-
-#### Types of Assertions
 There are several assertions to choose from and below are a few examples, along with the accompanying documentation:
 
 * **[Assert Exists](https://docs.saucelabs.com/api-testing/assertion-components/assert-exists)**: Checks whether an item exists or not
@@ -157,18 +151,18 @@ In the next section we will cover how to store information as a **Global Variabl
 ## 3.05 Global Variables vs. Input Sets
 Duration: 0:04:00
 
-As the complexity and number of tests in your test suite increase, it's a best practice to name and store test details such as common variables or data sets to allow more flexibility. There are generally two ways to store data within an API Fortress Test:
+As the complexity and number of tests in your test suite increase, it's a best practice to name and store test details such as common variables or data sets to allow more flexibility. There are generally two ways to store data within API Fortress:
 
 * **Global Variables**
 * **Input Set**
 
-You can add these in under the **Input** Tab for each test:
-
-<img src="assets/apif-mod3/05/addParamInput.png" alt="Add Global Parameter", width="400"/>
-
 ### Global Variables
 
 The global variables (referred to as **parameters** in the API Fortress interface), are usually common variables designed to run with an entire test such as authentication API Key, or a domain name. Global variables can be used across different tests in a project.
+
+To add a global variable/parameter select the **Input** tab in the top left, and select **Add Global Param**.
+
+<img src="assets/apif-mod3/05/addGlobalParam.png" alt="Add Global Parameter", width="400"/>
 
 
 ### Input Sets
@@ -176,6 +170,8 @@ The global variables (referred to as **parameters** in the API Fortress interfac
 An input set is an object (usually a group of input variables related to a specific scenario or use case). For example a list of relevant product ids returned from a product API endpoint. Input sets are used within a single test.
 
 To add an input set select the **Input** tab in the top left, and select **Add Param to Default**.
+
+<img src="assets/apif-mod3/05/addInputSet.png" alt="Add Input Set", width="400"/>
 
 ### Create Global Parameters
 
