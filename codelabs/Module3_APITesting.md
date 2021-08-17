@@ -129,7 +129,7 @@ There are several assertions to choose from and below are a few examples, along 
    * Click the check mark to save
      <img src="assets/apif-mod3/05/assertExists.png" alt="Assert Exists Component" />
 1. Next, select **+Add Request/Assertions** again. This time select **Assert Is**, and add the following data:
-   * Expression: `payload['Sauce Connect'].download_url`
+   * Expression: `payload['Sauce Connect'].info_url`
    * Type: `url`
    * Click the check mark to save
      <img src="assets/apif-mod3/05/assertIs.png" alt="Assert Is Component" />
