@@ -91,7 +91,7 @@ Negative
 1. Select **+Add Request/Assertions** in the Tests page.
    <img src="assets/apif-mod3/05/addRequestComponent.png" alt="Add Request / Assertion", width="500" />
 1. Select the **GET Request** component and add the following data:
-   * url: `https://saucelabs.com/versions.json`
+   * url: `saucelabs.com/rest/v1/public/tunnels/info/versions`
    * var: `payload`
 
    <img src="assets/apif-mod3/05/getMethod.png" alt="Add GET Request", width="400" />

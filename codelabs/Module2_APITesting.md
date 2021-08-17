@@ -221,7 +221,7 @@ If you ran into any errors, they appear here.
 
 If you are getting  a test error, and want to find out more about what an HTTP call you are making is returning, The HTTP Client, accessible from your project dashaboard, can be a useful tool.
 
-You can use the HTTP Client to send a request, and even add in headers &  key- value pairs to 
+You can use the HTTP Client to send a request, and even add in headers (suach as authorization credentials) &  other information to  a
 
 <img src="assets/apif-mod2/HTTP_Test.png" alt="Add Global Parameter", width="600"/>
 
