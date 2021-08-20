@@ -48,7 +48,7 @@ The option shown here is using Sauce Connect Proxy which uses a proprietary [TLS
 
 ### Download Sauce Connect Proxy
 
-The first step is to download The Sauce Connect Proxy software -- available on the **[Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/index.html)** page in the Sauce Labs Docs -- and extract the contents of the **.zip** or **.gz** download package. You can also get the software on the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform under **Tunnels.**
+The first step is to download The Sauce Connect Proxy software -- available on the **[Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/sauce-connect)** page in the Sauce Labs Docs -- and extract the contents of the **.zip** or **.gz** download package. You can also get the software on the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform under **Tunnels.**
 
 
 <img src="assets/5.03A.png" alt="Tunnels Software" width="750"/>
@@ -98,7 +98,7 @@ You can stop any tunnel that you have running by hitting `cntrl` + `c`
 
 
 
- Learn more about the other commands you can use to configure your tunnel at [Sauce Connect Proxy CLI Reference](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/index.html#sauce-connect-proxy-command-line-options).
+ Learn more about the other commands you can use to configure your tunnel at [Sauce Connect Proxy CLI Reference](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/#sauce-connect-proxy-command-line-options).
 
 <img src="assets/5.03F.png" alt="Terminal running tunnel" width="500"/>
 
@@ -107,7 +107,7 @@ You can stop any tunnel that you have running by hitting `cntrl` + `c`
 
 #### Note
 Negative
-: If you have trouble running your tunnel, you may need to update your firewall settings to [allow outbound traffic on port 443](https://docs.saucelabs.com/secure-connections/sauce-connect/faq/index.html#what-outbound-ports-do-i-need-open-for-sauce-connect-proxy) or configure Sauce Connect Proxy with a proxy that can reach the `saucelabs.com` domain, using the --proxy or --pac command line options
+: If you have trouble running your tunnel, you may need to update your firewall settings to [allow outbound traffic on port 443](https://docs.saucelabs.com/secure-connections/sauce-connect/faq/#what-outbound-ports-do-i-need-open-for-sauce-connect-proxy) or configure Sauce Connect Proxy with a proxy that can reach the `saucelabs.com` domain, using the --proxy or --pac command line options
 
 ### Shared Tunnels
 
@@ -309,7 +309,7 @@ If you are having issues with your Sauce Connect Tunnel, you know your network c
 ## 1.05 Sauce Connect Options
 Duration: 0:05:00
 
-There are a [lot of different options](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/index.html#sauce-connect-proxy-command-line-options) you can use to change the settings and options for your Sauce Connect Tunnel. This lesson will cover the most commonly needed options for a typical user. You can find all the flags that you can use when running Sauce Connect in the [Sauce Connect CLI documentation](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy)
+There are a [lot of different options](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/) you can use to change the settings and options for your Sauce Connect Tunnel. This lesson will cover the most commonly needed options for a typical user. You can find all the flags that you can use when running Sauce Connect in the [Sauce Connect CLI documentation](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy)
 
 #### Video
 
@@ -354,7 +354,7 @@ Negative
 : If you use the `--version` flag with your tunnel, it will print out the information, then immediately exit, so you will have to start your tunnel again to use it.
 
 ### Specify the Sauce Data Center
-Depending which data center (*us-west-1*, *eu-central-1*, etc.) you are running your tests in, you may want to change which data center your tunnel is running through (default *us-west-1*). [See the list of Sauce Connect endpoints](https://docs.saucelabs.com/basics/data-center-endpoints/data-center-endpoints/index.html)
+Depending which data center (*us-west-1*, *eu-central-1*, etc.) you are running your tests in, you may want to change which data center your tunnel is running through (default *us-west-1*). [See the list of Sauce Connect endpoints](https://docs.saucelabs.com/basics/data-center-endpoints/data-center-endpoints/)
 
 Simply add the flag `-x data-center-endpoint` like so:
 

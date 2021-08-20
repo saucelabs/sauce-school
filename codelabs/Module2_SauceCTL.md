@@ -538,7 +538,7 @@ steps:
 Note that in this case the flag -`i proxy-tunnel-$GITHUB_RUN_ID` spins up (& tears down) a new tunnel each time the workflow is run.
 
 Negative
-: Make sure you have GitHub secrets set up for your SAUCE_USERNAME and SAUCE_ACCESS_KEY, and that the version of `sc-x.x.x` is set to the [latest version](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/index.html#downloading-sauce-connect-proxy)  
+: Make sure you have GitHub secrets set up for your SAUCE_USERNAME and SAUCE_ACCESS_KEY, and that the version of `sc-x.x.x` is set to the [latest version](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/)  
 
 #### Use SauceCTL to Run Tests
 Use the action to install Sauce Control, then run the tests by building on `port 8000` and running the tests:

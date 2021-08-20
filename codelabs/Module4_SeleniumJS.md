@@ -551,7 +551,7 @@ When you run tests on Sauce Labs, you are using the _Selenium Grid_ and the _Rem
 
 ### Update Config
 
-We are going to use the `config.js` file that you used earlier to set up the the capabilities. [Capabilities](https://docs.saucelabs.com/dev/test-configuration-options/index.html) are a way of communicating information to other services, such as Sauce Labs, that you need to covey in order to run your Tests.
+We are going to use the `config.js` file that you used earlier to set up the the capabilities. [Capabilities](https://docs.saucelabs.com/dev/test-configuration-options/) are a way of communicating information to other services, such as Sauce Labs, that you need to covey in order to run your Tests.
 
 Open `config.js` and update it to look like the following:
 
@@ -603,7 +603,7 @@ Go to **Account > User Settings** to find your username and access key.
 
 You will need to set up your username and access key on your machine’s environment variables either in your bash profile (Mac/Linux) or in the system properties (Windows).
 
-To learn more about setting up environment variables, you can see the article [here](https://docs.saucelabs.com/basics/environment-variables/index.html).
+To learn more about setting up environment variables, you can see the article [here](https://docs.saucelabs.com/basics/environment-variables/).
 
 
 #### Video

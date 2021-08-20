@@ -53,7 +53,7 @@ The option shown here is using Sauce Connect Proxy which uses a proprietary [TLS
 
 ### Download Sauce Connect Proxy
 
-The first step is to download The Sauce Connect Proxy software -- available on the **[Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/index.html)** page in the Sauce Labs Docs -- and extract the contents of the **.zip** or **.gz** download package. You can also get the software on the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform under **Tunnels.**
+The first step is to download The Sauce Connect Proxy software -- available on the **[Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/)** page in the Sauce Labs Docs -- and extract the contents of the **.zip** or **.gz** download package. You can also get the software on the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform under **Tunnels.**
 
 
 <img src="assets/5.03A.png" alt="Tunnels Software" width="750"/>
@@ -101,7 +101,7 @@ You can stop any tunnel that you have running by hitting `cntrl` + `c`
 
 
 
- Learn more about the other commands you can use to configure your tunnel at [Sauce Connect Proxy CLI Reference](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/index.html#sauce-connect-proxy-command-line-options).
+ Learn more about the other commands you can use to configure your tunnel at [Sauce Connect Proxy CLI Reference](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/).
 
 <img src="assets/5.03F.png" alt="Terminal running tunnel" width="500"/>
 
@@ -110,7 +110,7 @@ You can stop any tunnel that you have running by hitting `cntrl` + `c`
 
 #### Note
 Negative
-: If you have trouble running your tunnel, you may need to update your firewall settings to [allow outbound traffic on port 443](https://docs.saucelabs.com/secure-connections/sauce-connect/faq/index.html#what-outbound-ports-do-i-need-open-for-sauce-connect-proxy) or configure Sauce Connect Proxy with a proxy that can reach the `saucelabs.com` domain, using the --proxy or --pac command line options
+: If you have trouble running your tunnel, you may need to update your firewall settings to [allow outbound traffic on port 443](https://docs.saucelabs.com/secure-connections/sauce-connect/faq#what-outbound-ports-do-i-need-open-for-sauce-connect-proxy) or configure Sauce Connect Proxy with a proxy that can reach the `saucelabs.com` domain, using the --proxy or --pac command line options
 
 ### Live (Manual) Tests with Sauce Connect
 You can easily run any manual tests that you do with Sauce Connect proxy. Simply go to the **Live**, **Cross Browser** testing dashboard, and choose to use any proxy tunnel that is available to you for your manual tests.
@@ -352,7 +352,7 @@ You can find all the flags that you can use when running Sauce Connect in the [S
 <video id="D7pfJfHe29k"></video>
 
 ### Check Your Sauce Connect Version
-Sometimes it's important to see if you have the most up to date [version of Sauce Connect](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/index.html#downloading-sauce-connect-proxy) so you can use the latest features & functionality using the sauce connect `--version` flag:
+Sometimes it's important to see if you have the most up to date [version of Sauce Connect](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/#downloading-sauce-connect-proxy) so you can use the latest features & functionality using the sauce connect `--version` flag:
 
 ```
 bin/ sc -u your-username -k your-accesskey -i your-tunnelname --version

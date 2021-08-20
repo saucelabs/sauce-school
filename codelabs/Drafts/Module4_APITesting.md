@@ -43,7 +43,7 @@ Another use case is to build resilient tests that can work with asynchronous API
 ## 4.03 Dealing with Authentications
 Duration: 0:02:00
 
-The API platform can handle just about any sort of authentication scheme your API is using, including simple, oAuth, etc. See how [authentication is handled](https://docs.saucelabs.com/api-testing/how-to/authorization-simple-oauth-etc/index.html).  
+The API platform can handle just about any sort of authentication scheme your API is using, including simple, oAuth, etc. See how [authentication is handled](https://docs.saucelabs.com/api-testing/how-to/authorization-simple-oauth-etc/).  
 
 The only authentication that is a problem is one that is specifically built to not allow for automation, though we have taken steps to support those as well. For example, 3-legged OAuth can now be automated using our open-source helper tool called [3loa](https://github.com/apifortress/3loa).  
 

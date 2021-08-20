@@ -155,7 +155,7 @@ Once you have your account set up, go to **Account> User Settings** to find your
 
 You will need to set up your username and access key on your machine’s (or CI Tools') environment variables to use them in your test.
 
-To learn more about setting up environment variables, you can see the article [here](https://docs.saucelabs.com/basics/environment-variables/index.html).
+To learn more about setting up environment variables, you can see the article [here](https://docs.saucelabs.com/basics/environment-variables/).
 
 
 #### Video

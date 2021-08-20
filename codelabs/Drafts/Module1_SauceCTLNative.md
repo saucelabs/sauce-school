@@ -368,7 +368,7 @@ Now when you use the command `saucectl run` you should see both test suites, **c
 
 ### Run Your Tests in Different Browsers
 
-Sauce Labs supports running XCUITest tests in the [environments that are supported](https://docs.saucelabs.com/testrunner-toolkit/index.html#supported-frameworks-in-sauce-cloud) by the XCUITest test runner. This means you can run using the Chrome, Microsoft Edge, and Firefox browsers.
+Sauce Labs supports running XCUITest tests in the [environments that are supported](https://docs.saucelabs.com/testrunner-toolkit/#supported-frameworks-in-sauce-cloud) by the XCUITest test runner. This means you can run using the Chrome, Microsoft Edge, and Firefox browsers.
 
 ### Run Your Tests in Different Modes
 
