@@ -29,7 +29,7 @@ Simply use the HTTP Client from your test editing dashboard to auto generate a f
 
 ### From a Spec File
 
-The above video shows you the method using Generate Test from a payload, and to generate a test from a spec file you can review [this page](https://docs.saucelabs.com/api-testing/quick-start/build-from-spec/index.html#generate-a-single-test-from-a-spec-file). This includes [Postman Collections](https://apifortress.com/doc/importing-postman-collections/).
+The above video shows you the method using Generate Test from a payload, and to generate a test from a spec file you can review [this page](https://docs.saucelabs.com/api-testing/quick-start/build-from-spec/#generate-a-single-test-from-a-spec-file). This includes [Postman Collections](https://apifortress.com/doc/importing-postman-collections/).
 
 ```
 {
@@ -234,7 +234,7 @@ Now, the assertions. [There are over 70 assertions](https://assertible.com/docs/
 ```
 
 * This line calls the `assert-equals` assertion, which validates an object exists and is equal to a chosen amount.  The `productsPayload.status`  is referencing the `status` object within the `productsPayload` variable.
-* The `assert-is expression` [checks that an object is a certain data type](https://docs.saucelabs.com/api-testing/assertion-components/assert-is/index.html).
+* The `assert-is expression` [checks that an object is a certain data type](https://docs.saucelabs.com/api-testing/assertion-components/assert-is/).
 
 The GET call gets an API response and stores it in that variable. This is useful for when you are dealing with multiple payloads (variables) in an integration test.  
 
@@ -264,7 +264,7 @@ Click to edit the variable to say `productsPayload`, and make sure all your chec
 
 <img src="assets/API3.03W.png" alt="The payload var" width="750"/>
 
-Creating an integration test requires the use of two new components. The **[For Each](https://docs.saucelabs.com/api-testing/logical-components/each/index.html)** component helps you iterate through a series of data (product IDs in this case), and the **[Set](https://docs.saucelabs.com/api-testing/learn-more/the-variables-system-in-api-fortress/index.html#set-component)** which creates a temporary variable to reference.
+Creating an integration test requires the use of two new components. The **[For Each](https://docs.saucelabs.com/api-testing/logical-components/each/)** component helps you iterate through a series of data (product IDs in this case), and the **[Set](https://docs.saucelabs.com/api-testing/learn-more/the-variables-system-in-api-fortress/#set-component)** which creates a temporary variable to reference.
 
 
 #### Note
@@ -420,7 +420,7 @@ From here you can access and edit code for snippets and variables for both globa
 
 <img src="assets/API3.04F.png" alt="The Vault" width="750"/>
 
-To learn more about The Vault and Environments see below links: [Learn the Basics](https://docs.saucelabs.com/api-testing/quick-start/the-vault/index.html), [Environments Basics](https://apifortress.com/doc/environments-vault-and-overrides-magic/), [Using Variables](https://docs.saucelabs.com/api-testing/quick-start/flexible-variables-for-flexible-environments)
+To learn more about The Vault and Environments see below links: [Learn the Basics](https://docs.saucelabs.com/api-testing/quick-start/the-vault/), [Environments Basics](https://apifortress.com/doc/environments-vault-and-overrides-magic/), [Using Variables](https://docs.saucelabs.com/api-testing/quick-start/flexible-variables-for-flexible-environments)
 
 <!-- ------------------------ -->
 ## 3.06 API Test Publishing and Reporting

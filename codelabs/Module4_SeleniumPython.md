@@ -473,7 +473,7 @@ When you run tests on Sauce Labs, you are using the _Selenium Grid_ and the _Rem
 
 ### Part 1: Update Config
 
-We are going to use the`config.py` file that you used earlier to set up the browser and baseURL. Inside `unfig.py`, underneath the browser, add in variables for `host`, `browserversion`, and `platform`. These variables will be used to set the [ capabilities](https://docs.saucelabs.com/dev/test-configuration-options/index.html) required to run a Selenium test on Sauce Labs:
+We are going to use the`config.py` file that you used earlier to set up the browser and baseURL. Inside `unfig.py`, underneath the browser, add in variables for `host`, `browserversion`, and `platform`. These variables will be used to set the [ capabilities](https://docs.saucelabs.com/dev/test-configuration-options/) required to run a Selenium test on Sauce Labs:
 
 
 Open `config.py` and update it to look like the following:
@@ -590,7 +590,7 @@ Notice the new variables you have added:
 * `browserName` specifies the browser for a test.
 * `browserVersion` specifies which version of the browser for a test
 You aren't quite ready yet, however to run on Sauce Labs. You will need to create a driver instance using your Sauce Labs creadentials
- * `sauce:options` contain capabilities with options for information you can pass to Sauce Labs. Currently this is empty, but you can set any of the [Sauce Options here](https://docs.saucelabs.com/dev/test-configuration-options/index.html).
+ * `sauce:options` contain capabilities with options for information you can pass to Sauce Labs. Currently this is empty, but you can set any of the [Sauce Options here](https://docs.saucelabs.com/dev/test-configuration-options/).
 
 
 ### Part 2: Setting up your Sauce Labs Account
@@ -608,7 +608,7 @@ Go to **Account> User Settings** to find your username and access key.
 
 You will need to set up your username and access key on your machine’s environment variables either in your bash profile (Mac/Linux) or in the system properties (Windows).
 
-Learn more about setting up environment variables [here](https://docs.saucelabs.com/basics/environment-variables/index.html).
+Learn more about setting up environment variables [here](https://docs.saucelabs.com/basics/environment-variables/).
 
 
 #### Video

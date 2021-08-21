@@ -1155,8 +1155,8 @@ By using a reflection and an interface with your test methods, you will be able 
 
 
 
-*   Pass the `name` as a [capability to Sauce Labs](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation/index.html#use-build-ids-tags-and-names-to-identify-your-tests)
-*   [Send a pass or fail status](https://docs.saucelabs.com/test-results/test-status/index.html) using the [Sauce Labs REST API](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation#sauce-labs-rest-api) using JavaScript
+*   Pass the `name` as a [capability to Sauce Labs](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation/#use-build-ids-tags-and-names-to-identify-your-tests/)
+*   [Send a pass or fail status](https://docs.saucelabs.com/test-results/test-status/) using the [Sauce Labs REST API](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation/#sauce-labs-rest-api) using JavaScript
 
 Without a **Pass** or **Fail** status, you simply see whether or not the test was able to complete without showing an exception (**Complete** or **Error** on Sauce Labs). Without a name, it’s very difficult to understand which test you are debugging.
 

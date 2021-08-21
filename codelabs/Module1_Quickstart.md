@@ -202,7 +202,7 @@ With these tools, developers have the ability to debug faster, facilitate collab
 
 
 
-Learn how to setup and use Live Testing features [here](https://docs.saucelabs.com/mobile-apps/live-testing/live-mobile-app-testing/index.html).
+Learn how to setup and use Live Testing features [here](https://docs.saucelabs.com/mobile-apps/live-testing/live-mobile-app-testing/).
 
 Download the demo mobile app and see features in the [Github repo](https://github.com/saucelabs/sample-app-mobile/#gestures).
 
@@ -225,7 +225,7 @@ By testing manually throughout your software development lifecycle, you can debu
 
 ### Zero in on Automation Test Bugs
 
-To get a closer look at bugs you uncover in automated tests, run a live test session to investigate it in more detail. One way to do this is by using your IDE or our JS executor to add a breakpoint in your code, and then take over the session. See [Annotating Tests with Selenium's JavaScript Executor](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation/index.html).
+To get a closer look at bugs you uncover in automated tests, run a live test session to investigate it in more detail. One way to do this is by using your IDE or our JS executor to add a breakpoint in your code, and then take over the session. See [Annotating Tests with Selenium's JavaScript Executor](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation/).
 
 
 ### Improve Collaboration and Productivity
@@ -243,9 +243,9 @@ Invite someone to watch your Live Test session (while it’s running) to observe
 
 **More on Sharing Test Results**
 
-*   [Sharing the Results of Sauce Labs Tests](https://docs.saucelabs.com/test-results/sharing-test-results/index.html)
-*   [Generate Shareable External Links to Test Results](https://docs.saucelabs.com/test-results/sharing-test-results/index.html)
-*   [Viewing and Managing Test Results](https://docs.saucelabs.com/test-results/viewing-test-results/index.html)
+*   [Sharing the Results of Sauce Labs Tests](https://docs.saucelabs.com/test-results/sharing-test-results/)
+*   [Generate Shareable External Links to Test Results](https://docs.saucelabs.com/test-results/sharing-test-results/)
+*   [Viewing and Managing Test Results](https://docs.saucelabs.com/test-results/viewing-test-results/)
 
 
 

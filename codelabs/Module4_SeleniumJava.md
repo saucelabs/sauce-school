@@ -613,7 +613,7 @@ Go to **Account> User Settings** to find your username and access key.
 
 You will need to set up your username and access key on your machine’s environment variables either in your bash profile (Mac/Linux) or in the system properties (Windows).
 
-To learn more about setting up environment variables, you can see the article [here](https://docs.saucelabs.com/basics/environment-variables/index.html).
+To learn more about setting up environment variables, you can see the article [here](https://docs.saucelabs.com/basics/environment-variables/).
 
 
 #### Video
@@ -625,7 +625,7 @@ Watch This Video to See how to set up your [Sauce Credentials](https://www.youtu
 
 ### Part 2: Use the Remote Web Driver
 
-Now you need to update `BaseTest.java `to work with these new values and connect to Sauce Labs. Note that these are called [***capabilities***](https://docs.saucelabs.com/dev/test-configuration-options/index.html), and the format they are in here is compatible with the Selenium 4.0 web driver, as well as all prevous Selenium versions. They set the options for setting up the environment for your tests.
+Now you need to update `BaseTest.java `to work with these new values and connect to Sauce Labs. Note that these are called [***capabilities***](https://docs.saucelabs.com/dev/test-configuration-options/), and the format they are in here is compatible with the Selenium 4.0 web driver, as well as all prevous Selenium versions. They set the options for setting up the environment for your tests.
 
 
 ```
