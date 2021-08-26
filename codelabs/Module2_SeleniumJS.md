@@ -189,7 +189,7 @@ If you're fortunate enough to be working with unique IDs and classes, then you'r
 
 Watch [Finding Locators with Dev tools](https://youtu.be/l_oOa7LeHqI) on using locators and follow along in your browser.
 
-<video id="l_oOa7LeHqI)"></video>
+<video id="l_oOa7LeHqI"></video>
 
 Use the following notes to help you use the inspector to test elements. Later you will test elements with your code. You can use the webpage here to follow along:
 
