@@ -1066,6 +1066,10 @@ This is the Sauce Labs annual conference, where they invite speakers from the in
 
 ### Videos
 
+#### [An Introduction to JavaScript Testing at Scale](https://www.youtube.com/playlist?list=PL67l1VPxOnT4kdoFKN1M4yTOvCwgD7BDY)
+
+A 10-part video workshop that takes a look at the JavaScript framework landscape for automated functional testing. You'll learn the principles of browser automation and how to pick the right JavaScript framework for your project.
+
 
 #### [Selenium Conference Talks](http://bit.ly/se-info-15)
 
