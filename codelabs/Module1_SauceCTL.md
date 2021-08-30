@@ -303,7 +303,7 @@ Specifying which tests you want to run in which environment can be configured in
 * Executing test in _Docker Mode_ or _Sauce Mode_
 * View test results on the Sauce Labs App
 
-Running tests using Cypress and saucectl allows you to run as many combinations of tests and environments as you would like
+Running tests using Cypress and saucectl allows you to run as many combinations of tests and environments as you would like.
 
 #### Video
 
@@ -335,7 +335,7 @@ suites:
 rootDir: .
 ```
 
-Lets create two directories within your `cypress/integration` directory so that you can learn to specify both directories and files. create a `/smoke` and a `/regression` directory, and paste copies of your tests in each.
+Lets create two directories within your `cypress/integration` directory so that you can learn to specify both directories and files. Create both a `/smoke` and a `/regression` directory, and paste copies of your tests in each.
 
 <img src="assets/SCTL1.04C.png" alt="saucectl init workflow" width="700"/>
 
@@ -379,14 +379,21 @@ Sauce Labs supports running Cypress tests in the [environments that are supporte
 
 #### Run All Tests in One Mode
 
-If you do not have the `mode:` specified anywhere in your `.sauce/config.yml` file, then, by default, all your tests will be bundled, and uploaded and run on the Sauce Labs Cloud of virtual machines.
+If you do not have the `mode:` specified anywhere in your `.sauce/config.yml` file, then, by default, all your tests will be bundled, and uploaded and run on the Sauce Labs Cloud of Virtual Machines.
 
-If you would like to try running tests in docker, you can set all your test suites to run, by default, in docker mode by setting the `defaults:` option:
+If you would like to try running tests in Docker, you can set all your test suites to run, by default, in docker mode by setting the `defaults:` option:
 
 ```
+apiVersion: v1alpha
+kind: cypress
 defaults:
   mode: docker
+  # ...
 ```
+
+You can change this setting back to default to _Sauce mode_ by changing `mode: sauce` or delete the `mode:` option.
+
+Unless you specify a different mode in a suite, all tests will run in _Docker Mode_:
 
 #### Note
 Negative
@@ -394,9 +401,7 @@ Negative
 
 #### Run Certain Tests in Different Modes
 
-Though you can set a default for the entire suite, there is also an option to set the mode for each suite. This setting will override whatever is set in `default:`. That is to say, if you have the default mode for all your suites set to (Docker, but specify the mode in a suite to run in
-
-With this option, you can run some suites in _Docker Mode_, and some suites in _Sauce Mode_, all from the same test run.
+You also have the ability to run some suites in _Docker Mode_, and some suites in _Sauce Mode_, all from the same test run, by setting individual suites to run in different modes.
 
 To set the mode on the suite level, simply add the `mode:` option somewhere under your test suite `name;`
 
@@ -406,14 +411,8 @@ To set the mode on the suite level, simply add the `mode:` option somewhere unde
       mode: docker
 ```
 
-The following configuration will run two of your tests in _Docker Mode_ (by default) and two of your tests in _Sauce Mode_:
+The following settings in your `config.yml` file will run two of your tests in _Docker Mode_ (by default) and two of your tests in _Sauce Mode_:
 
-```
-apiVersion: v1alpha
-kind: cypress
-defaults:
-  mode: docker
-```
 ```
 suites:
 - name: cypress - windows 10 - chrome smoke
@@ -447,7 +446,9 @@ suites:
 ```
 
 
-Now, when you run the command `saucectl run`, you should see output like this in your console.
+Now, when you run the command `saucectl run`, you should see output like this in your console:
+
+<img src="assets/TRT1.04I.png" alt="Cypress Tests on Sauce" width="550"/>
 
 ### View Your Test Results
 
