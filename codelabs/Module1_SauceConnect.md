@@ -14,7 +14,10 @@ author: Lindsay Walker, Evelyn Coleman
 ## 1.01 What You'll Learn
 Duration: 0:01:00
 
-This tutorial gives examples you can follow along with using a test suite written in Java, using the JUnit4 test runner, as well as the Maven build tool. If you would like to follow along, you can [download or fork and clone this project](https://github.com/walkerlj0/Selenium_Course_Example_Code)
+This course covers the basic setup and use of the Sauce Connect Proxy Tunnel, which is a tool created by Sauce Labs that customers can use to establish a secure, private connection between your app and the Sauce Labs Cloud.
+
+This tutorial gives examples written in Java, using the JUnit4 test runner, as well as the Maven build tool. If you would like to follow along, you can [download or fork and clone this project](https://github.com/walkerlj0/Selenium_Course_Example_Code)
+
 * Look in the _/java/Mod4/4.06_ directory, and use the version of the test suite **in 4.06** to work from.
 * If you don't have Java and Maven set up on your machine to run test code, [follow this lesson](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4)
 
@@ -35,11 +38,12 @@ To find out more about Sauce Connect and the architecture, [see the whitepaper](
 <!-- ------------------------ -->
 ## 1.02 Setup and Run Sauce Connect Proxy
 
-[Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/sauce-connect) is software that enables you to establish a secure connection between applications hosted on an internal server and the Sauce Labs virtual machines or real devices that are used for testing. In this lesson you will learn to:
+[Sauce Connect](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#:~:text=Sauce%20Connect%20Proxy%E2%84%A2%20is,or%20behind%20a%20corporate%20firewall.) is a secure tunneling application that allows you to connect the Sauce Labs Cloud to applications you want to test that are hosted on your local machine or behind a firewall.
+In this lesson you will learn to:
 
-* Download and start a proxy tunnel
-* Stop a running proxy tunnel
-* Learn how to do a Manual (Live) test with Sauce Connect
+* [Download and start](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#download-sauce-connect-proxy) a proxy tunnel
+* [Stop](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#stop-the-tunnel) a running proxy tunnel
+* Learn how to do a [Manual (Live) test](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#live-manual-tests-with-sauce-connect) with Sauce Connect
 
 #### Video
 [Set Up Sauce Connect Proxy](https://youtu.be/cpBcGeZ_wQU)
@@ -119,12 +123,12 @@ You can easily run any manual tests that you do with Sauce Connect proxy. Simply
 
 <!-- ------------------------ -->
 ## 1.03 Run a Java Test Using Sauce Connect Proxy
-This video is intended to show an example for how to update your test capabilities, using [this example test written](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.06) in Java, JUnit4, with Maven and InteliiJ. Basically, in this lesson you will:
-* Start your tunnel
+This video is intended to show an example for how to update your test capabilities, using [this example test written](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.06) in Java, JUnit4, with Maven and InteliiJ. Iin this lesson you will:
+* [Start](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#start-your-tunnel) your tunnel
 * Update Sauce Environment Variables
-* Update your `config.java` and `BaseTest.java` files
-* Run the updated test code in Sauce Labs using Sauce Connect Proxy
-* See how to run your test using shared tunnels
+* [Update](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#update-test-code) your `config.java` and `BaseTest.java` files
+* [Run](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#run-your-tests) the updated test code in Sauce Labs using Sauce Connect Proxy
+* See how to run your test using [shared tunnels](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#shared-tunnels)
 
 #### Video
 [Run a Test with Sauce Connect Proxy](https://youtu.be/u1kijdRTSv8)
@@ -253,9 +257,10 @@ See the [example test suite](https://github.com/walkerlj0/Selenium_Course_Exampl
 Duration: 0:05:00
 
 This lesson will walk you through the basic things you will need to do if you are having issues connecting and running a Sauce Connect Proxy Tunnel. These steps include:
-* Checking to see if your network allows you to communicate with both Sauce Labs and the App under test
-* Double-checking that your Sauce Username and Access Key
-* Making sure you don't have colliding tunnels
+* [Checking](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#find-out-about-your-network) to see if your network allows you to communicate with both Sauce Labs and the App under test
+* Double-checking [other issues](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#other-common-tunnel-issues) such as:
+  * Making sure your Sauce Username and Access Key is correct
+  * Making sure you don't have colliding tunnels
 
 #### Video
 [User Troubleshooting with Sauce Connect](https://youtu.be/Jx6ED1dNJEA)
@@ -338,10 +343,11 @@ Duration: 0:05:00
 
 There are a many options you can use to change the settings and options for your Sauce Connect Tunnel. This lesson will cover the most commonly needed options for a typical user. In this lesson you will learn to:
 
-* Check which version of Sauce Connect you are running
-* Generate a log file to get more information to send to [Sauce Labs Support](https://support.saucelabs.com/hc/en-us)
-* Generate a log file in a specified location
-* Run Sauce Connect Proxy with a specific Sauce Labs Data Center
+* Check which [version of Sauce Connect](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#check-your-sauce-connect-version) you are running
+* Generate a [log file](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#generate-verbose-logs) to get more information to send to [Sauce Labs Support](https://support.saucelabs.com/hc/en-us)
+* Generate a log file in a [specified location](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#output-your-log-files-to-a-certain-location)
+* Run Sauce Connect Proxy with a specific [Sauce Labs Data Center](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#traffic-routing)
+* Route [only some traffic](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#traffic-routing) through the Sauce Connect proxy
 
 
 You can find all the flags that you can use when running Sauce Connect in the [Sauce Connect Proxy CLI Reference](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy)
@@ -379,7 +385,8 @@ Thi log will genrate a temporary file, which you can `open` with your terminal (
 
  Most often this file will be used to sent to [Sauce Labs Support](https://support.saucelabs.com/hc/en-us) (or email help@saucelabs.com) so they can help you troubleshoot your issues.
 
-### Output Your Log Files to a Certain Location.
+### Output Your Log Files to a Certain Location
+
 If you want to dictate where log files will be stored, yoiu can add the flag `--logfile /filepath/to/logs` to the command when you run Sauce Connect.
 
 For example, if you created a directory called _logfiles_ in your _Documents_ folder to store your files, start Sauce Connect and create a new log called `log1` in that directory.
@@ -516,3 +523,25 @@ d. You are testing a native Android app, and have already added a certificate. *
 * All traffic, whether over HTTPs or websockets should use a TLS protocol, and the whole point of Sauce Connect is to test secured apps. HTTPS traffic typically works well with Sauce Connects' SSL bumping, but there are many cases when testing Native Android apps that you may want to disable SSL bumping.
 
 -->
+<!-- ------------------------ -->
+## 1.08 Resources & Support
+Duration: 0:00:30
+
+### Resources
+
+**[Sauce REST API](https://docs.saucelabs.com/dev/api/connect/) –** A list of API methods you can use to manage tunnels
+
+**[Command Line Reference –](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/index.html)** A list of commands and options for the Sauce Connect CLI
+
+**[Troubleshooting Guide –](https://docs.saucelabs.com/secure-connections/sauce-connect/troubleshooting/index.html)** Some extra help, tips, and tricks to get your Sauce Connect tunnels working
+
+**[Change Logs –](https://changelog.saucelabs.com/en?category=sauce%20connect)** See the latest updates and versions of Sauce Connect
+
+
+### Support
+
+Sauce Connect logs are hard, and we have experts to help you. Visit **[support.saucelabs.com](https://support.saucelabs.com)** to get help with your Sauce Connect issues. Having log files ready will help speed up the process.
+
+* Tunnel logs can be obtained by adding the -v flag to your start-up command
+
+* Fresh logs are the easiest for support to read, so it may be helpful to rename the old log file, then re-run your tunnel so a new one gets created. Alternatively you can specify a new file for test runs with the `-l <file>` command when you run your test
