@@ -155,7 +155,7 @@ Once you have your account set up, go to **Account> User Settings** to find your
 
 You will need to set up your username and access key on your machine’s (or CI Tools') environment variables to use them in your test.
 
-To learn more about setting up environment variables, you can see the article [here](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials#BestPractice:UseEnvironmentVariablesforAuthenticationCredentials-SettingUpEnvironmentVariablesonMacOSX/LinuxSystems/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
+To learn more about setting up environment variables, you can see the article [here](https://docs.saucelabs.com/basics/environment-variables/).
 
 
 #### Video
@@ -168,7 +168,7 @@ Watch This Video to See how to [set up your Sauce Credentials as environment var
 ### Setup Tests for Sauce Labs
 
 #### Update `Config.java`
-In the `Config.java` file, you are going to communicate the settings for our test environment with the W3C [Capabilities](https://wiki.saucelabs.com/display/DOCS/Desired+Capabilities+Required+for+Selenium+and+Appium+Tests/?utm_source=referral&utm_medium=LMS&utm_campaign=link), required for every Selenium test.
+In the `Config.java` file, you are going to communicate the settings for our test environment with the [W3C Capabilities](https://docs.saucelabs.com/dev/w3c-webdriver-capabilities), required for every Selenium test.
 
 Here, you will define some variables that you can use in your Base Test code, for your tests to be able to communicate with Sauce Labs:
 
@@ -194,7 +194,7 @@ Notice the new variables you have added:
 
 
 *   `host `enables you to specify whether our tests run locally or on Sauce Labs. Right now, the host is either` "saucelabs`” or `"localhost"`
-*   The [Sauce Labs Test Configuration Options](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options) contains information for each specific test. You assume you may pass in unique usernames and access keys
+*   The [Sauce Labs Test Configuration Options](https://docs.saucelabs.com/dev/test-configuration-options) contains information for each specific test. You assume you may pass in unique usernames and access keys
     *   `browserName` specifies the browser for a test.
     *   `browserVersion` specifies which version of the browser for a test
     *   `platformName` specifies the operating system for a test.
@@ -279,7 +279,7 @@ Now that you have the pieces in place, such as your Sauce Labs credentials and v
 
 ### Update your URL and Capabilities
 
-Now you need to update `BaseTest.java `to work with these new values and connect to Sauce Labs. Note that these are called [Capabilities](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options), and the format they are in here is compatible with Selenium WebDriver 4.0, as well as all previous Selenium versions. They set the options for setting up the environment for your tests.
+Now you need to update `BaseTest.java `to work with these new values and connect to Sauce Labs. Note that these are called [***capabilities***](https://docs.saucelabs.com/dev/test-configuration-options), and the format they are in here is compatible with Selenium WebDriver 4.0, as well as all previous Selenium versions. They set the options for setting up the environment for your tests.
 
 
 ```
@@ -512,7 +512,7 @@ Under the saucelabs` driver` instantiation in the` before()` rule instantiate a`
 ```
 
 
-The `sessionId` is retrieved from the `RemoteWebDriver`. The `sauceClient` creates an instance using the Sauce Labs REST API, passing in the username, access key, and data center location. You can change the data center on the Sauce Labs dashboard. Once that is changed, if you would like, go into your code and [change](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints) the `DataCenter` option in your code to reflect this.
+The `sessionId` is retrieved from the `RemoteWebDriver`. The `sauceClient` creates an instance using the Sauce Labs REST API, passing in the username, access key, and data center location. You can change the data center on the Sauce Labs dashboard. Once that is changed, if you would like, go into your code and [change](https://docs.saucelabs.com/basics/data-center-endpoints/data-center-endpoints) the `DataCenter` option in your code to reflect this.
 
 <img src="assets/4.06H.png" alt="Data Center" width="750"/>
 

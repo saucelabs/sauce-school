@@ -306,6 +306,7 @@ To export a Snippet into the Company Vault:
    <img src="assets/apif-mod3/05/export4.png" alt="Import the Snippet", width="500" />
 
 
+<<<<<<< HEAD
 This is a screenshot of the end result:
 <img src="assets/apif-mod3/05/export5.png" alt="Import the Snippet" />
 
@@ -317,6 +318,9 @@ To learn more about The Vault and Environments see below links:
 * [Learn the Basics](https://docs.saucelabs.com/api-testing/mark3/quick-start/the-vault)
 * [Environments Basics](https://docs.saucelabs.com/api-testing/mark3/quick-start/environments-vault-and-overrides-magic)
 * [Using Variables](https://docs.saucelabs.com/api-testing/mark3/quick-start/flexible-variables-for-flexible-environments)
+=======
+To learn more about The Vault and Environments see below links: [Learn the Basics](https://docs.saucelabs.com/api-testing/mark2/quick-start/the-vault/), [Environments Basics](https://apifortress.com/doc/environments-vault-and-overrides-magic/), [Using Variables](https://docs.saucelabs.com/api-testing/quick-start/flexible-variables-for-flexible-environments)
+>>>>>>> master
 
 <!-- ------------------------ -->
 
