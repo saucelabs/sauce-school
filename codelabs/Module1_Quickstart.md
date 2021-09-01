@@ -1,6 +1,6 @@
 <!-- Copy this file into tools/site/coursenameFolder & start editing -->
 
-summary: Module 1 of the Sauce Labs Quickstart course, introducing the Sauce Labs UI for automated testers
+summary: Module 1 of the Automated Testing with Sauce Labs course, introducing the Sauce Labs UI for automated testers
 id: Module1-Quickstart
 categories: beginner
 tags: quickstart
@@ -10,18 +10,18 @@ feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
 author:Lindsay Walker
 <!-- ------------------------ -->
-# Module 1 - Sauce Labs for Automated Testing
+# Module 1 - Sauce Labs Tour
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
 Duration: 0:02:00
 
-In this module, you will get a demo of the most commonly used products by Sauce Labs to run automated tests on applications.
+In this module, see how to use Sauce Labs to run automated tests on applications.
 
 
 ### Skills & Knowledge
 
-In this Module you will learn:
+In this Module, you will learn:
 
 *   The automated testing tools available to use with Sauce Labs
 *   How you can use Sauce Labs to do desktop browser testing
@@ -53,14 +53,14 @@ You can categorize the types of tests run in two main categories- automated test
 
 ### Desktop Testing
 
-Sauce Labs enables automated testers to do [web application testing](https://wiki.saucelabs.com/display/DOCS/Web+Application+Testing/?utm_source=referral&utm_medium=LMS&utm_campaign=link) on all of the modern desktop operating system versions and the different browsers that run on them. [Headless ](https://wiki.saucelabs.com/display/DOCS/Getting+Started+with+Sauce+Headless//?utm_source=referral&utm_medium=LMS&utm_campaign=link )testing is available for chrome and firefox browsers for testers who want to run quick tests without having to load and wait for visual components.
+Sauce Labs enables automated testers to do [web application testing](https://docs.saucelabs.com/web-apps) on all of the modern desktop operating system versions and the different browsers that run on them. [Headless testing](https://docs.saucelabs.com/headless) is available for chrome and firefox browsers for testers who want to run quick tests without having to load and wait for visual components.
 
 
 ### Mobile Testing
 
-[Sauce Labs provides mobile testing ](https://wiki.saucelabs.com/display/DOCS/Automated+Mobile+Application+Testing+with+Sauce+Labs/?utm_source=referral&utm_medium=LMS&utm_campaign=link)in two different types of environments. You can test mobile apps and browsers on emulators & simulators, and you can test using the devices on the Sauce Labs Real Device Cloud. Depending on what you would like to test, one or both of the plans may be right for you.
+Sauce Labs provides [mobile app testing](https://docs.saucelabs.com/mobile-apps) in two different types of environments. You can test mobile apps and browsers on emulators & simulators, and you can test using the devices on the Sauce Labs Real Device Cloud. Depending on what you would like to test, one or both of the plans may be right for you.
 
-Sauce Labs also offers the option of testing mobile apps, or testing on mobile web browsers. Learn more about [different plans and pricing ](https://saucelabs.com/pricing/?utm_source=referral&utm_medium=LMS&utm_campaign=link)on the Sauce Labs website
+Sauce Labs also offers the option of testing mobile apps, or testing on mobile web browsers. Learn more about [different plans and pricing](https://saucelabs.com/pricing) on the Sauce Labs website.
 
 
 
@@ -202,7 +202,7 @@ With these tools, developers have the ability to debug faster, facilitate collab
 
 
 
-Learn how to setup and use Live Testing features on the[ Sauce Labs Wiki](https://wiki.saucelabs.com/pages/viewpage.action?pageId=115061210&utm_source=referral&utm_medium=LMS&utm_campaign=link)
+Learn how to setup and use Live Testing features [here](https://docs.saucelabs.com/mobile-apps/live-testing/live-mobile-app-testing/).
 
 Download the demo mobile app and see features in the [Github repo](https://github.com/saucelabs/sample-app-mobile/#gestures).
 
@@ -211,7 +211,7 @@ Download the demo mobile app and see features in the [Github repo](https://githu
 
 Manual testing fills in the gaps and ensures that your final product works as intended. You’re stepping into the shoes of an actual user to test out your app’s functionality and features on mobile devices and websites in the Sauce Labs cloud, navigating with clicks and gestures as a user would.
 
-What automated testersmay use Live Testing for:
+What automated testers may use Live Testing for:
 *   Exploratory tests
 *   Test conditions that are subject to change
 *   Tests that are run infrequently
@@ -225,7 +225,7 @@ By testing manually throughout your software development lifecycle, you can debu
 
 ### Zero in on Automation Test Bugs
 
-To get a closer look at bugs you uncover in automated tests, run a live test session to investigate it in more detail. One way to do this is by using your IDE or our JS executor to add a breakpoint in your code, and then take over the session. More information: [Annotating Tests with Selenium's JavaScript Executor](https://wiki.saucelabs.com/display/DOCS/Annotating+Tests+with+Selenium%27s+JavaScript+Executor?utm_source=referral&utm_medium=LMS&utm_campaign=link).
+To get a closer look at bugs you uncover in automated tests, run a live test session to investigate it in more detail. One way to do this is by using your IDE or our JS executor to add a breakpoint in your code, and then take over the session. See [Annotating Tests with Selenium's JavaScript Executor](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation/).
 
 
 ### Improve Collaboration and Productivity
@@ -243,9 +243,9 @@ Invite someone to watch your Live Test session (while it’s running) to observe
 
 **More on Sharing Test Results**
 
-*   [Sharing the Results of Sauce Labs Tests](https://wiki.saucelabs.com/display/DOCS/Sharing+the+Results+of+Sauce+Labs+Tests?utm_source=referral&utm_medium=LMS&utm_campaign=link)
-*   [Generate Shareable External Links to Test Results](https://wiki.saucelabs.com/display/DOCS/Building+Sharable+Links+to+Test+Results?utm_source=referral&utm_medium=LMS&utm_campaign=link)
-*   [Viewing and Managing Test Results](https://wiki.saucelabs.com/display/DOCS/Viewing+and+Managing+Test+Results?utm_source=referral&utm_medium=LMS&utm_campaign=link)
+*   [Sharing the Results of Sauce Labs Tests](https://docs.saucelabs.com/test-results/sharing-test-results/)
+*   [Generate Shareable External Links to Test Results](https://docs.saucelabs.com/test-results/sharing-test-results/)
+*   [Viewing and Managing Test Results](https://docs.saucelabs.com/test-results/viewing-test-results/)
 
 
 

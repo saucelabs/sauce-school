@@ -33,7 +33,7 @@ Duration: 0:01:00
 ## 2.02 Set Up Sauce Connect
 Duration: 0:03:00
 
-[Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#:~:text=Sauce%20Connect%20Proxy%E2%84%A2%20is,or%20behind%20a%20corporate%20firewall.) is software that enables you to establish a secure connection between applications hosted on an internal server, or other location that is behind a firewall, and the Sauce Labs virtual machines that are used for testing. To use Sauce Connect you  simply need to:
+[Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/sauce-connect) is software that enables you to establish a secure connection between applications hosted on an internal server, or other location that is behind a firewall, and the Sauce Labs virtual machines that are used for testing. To use Sauce Connect you  simply need to:
 * Install the Sauce Connect Software
 * Start a tunnel from Terminal
 * Run your tests with the flag `-i sauce-tunnel-name`  
@@ -50,7 +50,7 @@ Sauce Connect Proxy also allows you to create a secure connection for uploading 
 
 ### Download Sauce Connect Proxy
 
-The first step is to download The Sauce Connect Proxy software -- available on the **[Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCSDEV/Sauce+Connect+Proxy)** page in the Sauce Labs Cookbook -- and extract the contents of the **.zip** or **.gz** download package. You can also get the software on the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform under **Tunnels.**
+The first step is to download The Sauce Connect Proxy software -- available on the **[Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/sauce-connect)** page in the Sauce Labs Cookbook -- and extract the contents of the **.zip** or **.gz** download package. You can also get the software on the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform under **Tunnels.**
 
 
 <img src="assets/5.03A.png" alt="Tunnels Software" width="750"/>
@@ -94,7 +94,7 @@ Your copied command will look like this:
 
 <img src="assets/TRT2.02A.png" alt="Terminal command to run tunnel" width="750"/>
 
-After `-u` you see your username and after `-k` you have your access key, and `-i` add the name you made up for your tunnel. Learn more about the other flags you can use to configure your tunnel at [Sauce Connect Proxy Command-Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide). Hit enter and you should see your tunnel up and running:
+After `-u` you see your username and after `-k` you have your access key, and `-i` add the name you made up for your tunnel. Learn more about the other flags you can use to configure your tunnel at [Sauce Connect Proxy Command-Line Quick Reference Guide](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy). Hit enter and you should see your tunnel up and running:
 
 <img src="assets/5.03F.png" alt="Terminal running tunnel" width="500"/>
 
@@ -526,7 +526,7 @@ steps:
 Note that in this case the flag -`i proxy-tunnel-$GITHUB_RUN_ID` spins up (& tears down) a new tunnel each time the workflow is run.
 
 Negative
-: Make sure you have GitHub secrets set up for your SAUCE_USERNAME and SAUCE_ACCESS_KEY, and that the version of `sc-x.x.x` is set to the [latest version](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/index.html#downloading-sauce-connect-proxy)  
+: Make sure you have GitHub secrets set up for your SAUCE_USERNAME and SAUCE_ACCESS_KEY, and that the version of `sc-x.x.x` is set to the [latest version](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/)  
 
 #### Use SauceCTL to Run Tests
 Use the action to install Sauce Control, then run the tests by building on `port 8000` and running the tests:

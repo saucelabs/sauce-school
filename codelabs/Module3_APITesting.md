@@ -254,7 +254,7 @@ Or access and edit variables for both global project-specific snippets and varia
 
 <img src="assets/apif-mod3/edit-snippet-variables.png" alt="Edit Snippet Variables" />
 
-To learn more about The Vault and Environments see below links: [Learn the Basics](https://docs.saucelabs.com/api-testing/quick-start/the-vault/index.html), [Environments Basics](https://apifortress.com/doc/environments-vault-and-overrides-magic/), [Using Variables](https://docs.saucelabs.com/api-testing/quick-start/flexible-variables-for-flexible-environments)
+To learn more about The Vault and Environments see below links: [Learn the Basics](https://docs.saucelabs.com/api-testing/mark2/quick-start/the-vault/), [Environments Basics](https://apifortress.com/doc/environments-vault-and-overrides-magic/), [Using Variables](https://docs.saucelabs.com/api-testing/quick-start/flexible-variables-for-flexible-environments)
 
 <!-- ------------------------ -->
 

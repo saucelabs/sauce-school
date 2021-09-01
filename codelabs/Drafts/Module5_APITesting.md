@@ -64,4 +64,4 @@ See the API documentation at [Apiary](https://apifortressv3.docs.apiary.io/#refe
 
 The platform also has command-line tools available to paying customers, or potential customers doing a proof of concept. It allows full execution of test, and is particularly useful for CI pipelines. It can help return a lot of useful test report data right back into your CI platforms, like Jenkins.
 
-The API testing platform has [its own set of commands and flags](https://docs.saucelabs.com/api-testing/ci/apif-auto/index.html) to execute tests, incorporating tests in Git, and pushing test code.
+The API testing platform has [its own set of commands and flags](https://docs.saucelabs.com/api-testing/ci/apif-auto/) to execute tests, incorporating tests in Git, and pushing test code.

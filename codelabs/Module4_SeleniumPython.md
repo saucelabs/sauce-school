@@ -473,7 +473,7 @@ When you run tests on Sauce Labs, you are using the _Selenium Grid_ and the _Rem
 
 ### Part 1: Update Config
 
-We are going to use the`config.py` file that you used earlier to set up the browser and baseURL. Inside `unfig.py`, underneath the browser, add in variables for `host`, `browserversion`, and `platform`. These variables will be used to set the the[ capabilities](https://wiki.saucelabs.com/display/DOCS/Desired+Capabilities+Required+for+Selenium+and+Appium+Tests/?utm_source=referral&utm_medium=LMS&utm_campaign=link) required to run a Selenium test on Sauce Labs:
+We are going to use the`config.py` file that you used earlier to set up the browser and baseURL. Inside `unfig.py`, underneath the browser, add in variables for `host`, `browserversion`, and `platform`. These variables will be used to set the [ capabilities](https://docs.saucelabs.com/dev/test-configuration-options/) required to run a Selenium test on Sauce Labs:
 
 
 Open `config.py` and update it to look like the following:
@@ -590,7 +590,7 @@ Notice the new variables you have added:
 * `browserName` specifies the browser for a test.
 * `browserVersion` specifies which version of the browser for a test
 You aren't quite ready yet, however to run on Sauce Labs. You will need to create a driver instance using your Sauce Labs creadentials
- * `sauce:options` contain capabilities with options for information you can pass to Sauce Labs. Currently this is empty, but you can set any of the [Sauce Options here](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options).
+ * `sauce:options` contain capabilities with options for information you can pass to Sauce Labs. Currently this is empty, but you can set any of the [Sauce Options here](https://docs.saucelabs.com/dev/test-configuration-options/).
 
 
 ### Part 2: Setting up your Sauce Labs Account
@@ -608,7 +608,7 @@ Go to **Account> User Settings** to find your username and access key.
 
 You will need to set up your username and access key on your machine’s environment variables either in your bash profile (Mac/Linux) or in the system properties (Windows).
 
-To learn more about setting up environment variables, you can see the article [here](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials#BestPractice:UseEnvironmentVariablesforAuthenticationCredentials-SettingUpEnvironmentVariablesonMacOSX/LinuxSystems).
+Learn more about setting up environment variables [here](https://docs.saucelabs.com/basics/environment-variables/).
 
 
 #### Video
@@ -630,7 +630,7 @@ Negative
 
 Now, when you run a program it will have the updated username and access key. **IMPORTANT** you need to do this with any new project file you create, and also any time you update your bash profile.
 
-Now you can update the config file and try out different combinations of platforms. You can use the [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/) to try out different settings.  
+Now you can update the config file and try out different combinations of platforms. You can use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to try out different settings.  
 
 Run your test using the command `pytest`. You can still also use flags such as `pytest --browser="internet explorer" --platform="Windows 10" --browserversion="11.285"`
 
@@ -748,7 +748,7 @@ Next, we are going to use this hook as a part of the `quit()` method and create 
 # ...
 ```
 
-Last, we will add in  `JavaScriptExecutor` [to pass in the sauce:job-result](https://wiki.saucelabs.com/display/DOCS/Annotating+Tests+with+Selenium%27s+JavaScript+Executor/?utm_source=referral&utm_medium=LMS&utm_campaign=link) to the Sauce Rest API:
+Last, we will add in  `JavaScriptExecutor` [to pass in the sauce:job-result](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation) to the Sauce Rest API:
 
 ```
 # filename: tests/conftest.py
