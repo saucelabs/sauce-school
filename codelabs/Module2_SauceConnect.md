@@ -352,10 +352,12 @@ In this lesson you will be creating a repo in GitHub actions that includes a Sel
 * Thing 1
 * Thing 2
 
+Though this app is publicly hosted and doesn't require a secure tunnel to be accessed, this tutorial will walk you through the steps to access test the app with GitHub Actions using a Sauce Connect tunnel as an example of what you would do to test a restricted app.
+
 ### What You'll Need
 * [GitHub Account](https://github.com/join)
 * [Sauce Labs Account](https://saucelabs.com/sign-up)
-* Tests for the [Sauce Labs Demo App](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.06)
+* [Tests](https://github.com/walkerlj0/sauceconnect-github-actions/tree/main/tests) for the Sauce Labs Demo App (www.saucedemo.com)
 * The following permissions in GitHub:
     * The ability to create and manage workflows
     * The ability to create and store [GitHub secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)
