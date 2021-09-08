@@ -254,12 +254,12 @@ For `tunnelname=`, and `sc-path=` you will need to add the name you will use for
 # DO NOT ATTEMPT TO DERIVE MEANING FROM THESE TUNNEL NAMES!!
 # Each tunnel pool gets 10 ports
 
-user=walkerlj0
-key=9f3531d6-d2ce-4643-955d-ddca42d8eda6
-tunnelname=bash_script_tunnel_id
+user=your_username
+key=xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+tunnelname=your_tunnel_id
 tunnels=3
 tunnel_port_num=5000
-sc_path=/Users/lindsaywalker/Documents/sc-4.6.5-osx/bin/sc
+sc_path=/Users/youruser/Documents/sc-4.x.x-operatingsystem/bin/sc
 
 for tunnel in $(seq 1 $tunnels);
 do
