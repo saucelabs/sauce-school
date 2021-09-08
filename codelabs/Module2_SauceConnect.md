@@ -349,8 +349,9 @@ Duration: 0:07:00
 
 In this lesson you will be creating a repo in GitHub actions that includes a Selenium Java test and a workflow that can run a Sauce Connect tunnel in Github actions, and test against the [Sauce Labs Demo app](https://www.saucedemo.com/).
 
-* Thing 1
-* Thing 2
+* See what you'll need
+* Create a GitHub Repo for your action & tests
+* Create GitHub Secrets
 
 Though this app is publicly hosted and doesn't require a secure tunnel to be accessed, this tutorial will walk you through the steps to access test the app with GitHub Actions using a Sauce Connect tunnel as an example of what you would do to test a restricted app.
 
@@ -398,15 +399,41 @@ The first order of business is to export your [Sauce Labs account credentials](h
 
 In your project file (in this example we will use the Swag Labs web app you downloaded) create a directory called `.github`, then within that, create a directory called `workflows`.
 
+We will need to create a new `.yml` file [like this example](https://github.com/saucelabs-training/demo-sauce-connect/blob/main/ci-examples/githubActionsExample.yml) that is used to give instructions to Github Actions.
 
-<!-- <img src="assets/SC2.05A.png" alt="Set up github directory" width="450"/> -->
+This file will define the test jobs that will run on certain triggers called [events](https://docs.github.com/en/actions/reference/events-that-trigger-workflows).
 
-We will need to create a [new `.yml` file](https://docs.github.com/en/actions/quickstart) that is used to give instructions to Github Actions. This file will define the test jobs that will run on certain triggers called [events](https://docs.github.com/en/actions/reference/events-that-trigger-workflows).
-Create a new file called `testrunner.yml`:
+Create a new file called `sc-actions-demo.yml`:
 
-<!-- <img src="assetsSC2.05.png" alt="The YML file" width="450"/> -->
+<img src="assets/SC2.05A.png" alt="The YML file" width="450"/>
 
-In the `githubActionsExample.yml` file, copy and paste in the following:
+In the `sc-actions-demo.yml` file, use vim to or an IDE to copy and paste in the following:
+
+//Stopped here. Time to break it dowwwwn.
+```
+# This workflow uses the Sauce Labs Sauce Connect Github action to create an instance of Sauce Connect.
+# This example specifies the name and version of the requested tunnel.
+
+name: Swag Labs Sample App Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    defaults:
+      run:
+        working-directory: ./
+    env:
+      BUILD_PREFIX: true
+      IS_MAIN: ${{ github.ref == 'refs/heads/main' }}
+      SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+      SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+```
 
 
 
