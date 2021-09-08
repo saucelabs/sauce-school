@@ -14,6 +14,22 @@ author: Lindsay Walker, Evelyn Coleman
 <!-- ------------------------ -->
 ## 2.01 What You'll Learn
 Duration: 0:01:00
+
+### What You'll Need
+In order to follow along with the course, you will need a few things set up ahead of time:
+
+* A Sauce [Username and Access Key](https://app.saucelabs.com/user-settings)
+* The [Tunnel Name](https://app.saucelabs.com/tunnels) of a running tunnel
+* A copy of [Sauce Connect](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/)
+* Example [Selenium Java test code](https://github.com/walkerlj0/sauceconnect-github-actions)
+* A computer with unrestricted access to saucelabs.com
+
+This tutorial gives examples written in Java, using the JUnit4 test runner, as well as the Maven build tool. If you would like to follow along, you can [download or fork and clone this project](https://github.com/walkerlj0/sauceconnect-github-actions).
+
+### Skills & knowledge
+*
+
+
 <!-- ------------------------ -->
 ## 2.02 Shared Tunnels
 Duration: 0:06:00
@@ -141,14 +157,14 @@ Duration: 0:05:00
 
 In this section, you will learn about using **high availability tunnels**. These are persistent tunnels that are always available to an organization or team (they are't stopped after a test).
 
-Typically, instances of the high availability tunnel are created and spun up with the same name (on the same server or different servers), typically as a shared tunnel so users in an organization can access tunnels as needed without having to start their own.
-
 This lesson covers:
 
 * How to start a new shared tunnel alongside an existing tunnel, with the same name
 * How to update Java test code to run your test through a shared tunnel by updating the `--no-remove-colliding-tunnels` capability.
 
-To follow along, edit the code to run a test using [this example test written](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.06) in Java, JUnit4, with Maven and InteliiJ. (Copy the tests in `/java/Mod4/4.06` and run your tests from there).
+Typically, instances of the high availability tunnel are created and spun up with the same name (on the same server or different servers) as a shared tunnel so users in an organization can access tunnels as needed without having to start their own.
+
+To follow along, edit the code to run a test using [this example test written](https://github.com/walkerlj0/sauceconnect-github-actions) in Java, JUnit4, with Maven and InteliiJ. (Copy the tests in `/java/Mod4/4.06` and run your tests from there).
 
 ### Start High Availability Tunnels
 
@@ -183,53 +199,72 @@ To protect against tunnnel unavailability, you should start more than one tunnel
 
 
 
-### Restarting Tunnels
+#### Restarting Tunnels
 It's important to setup your tunnels to restart every 24 hours in order to improve resiliency. There are many services available to schedule a task such as stopping and restarting your Sauce Connect Tunnels. If you are using a Unix system (Mac or Linux) you can use a [Cron  daemon](https://kb.iu.edu/d/afiz).
 
-#### Create Scripts to Start and Stop Tunnels
+## 2.04 Create Bash Scripts to Restart Tunnels
+
+One way you can automatically restart a tunnel is to create bash scripts to start and stop a sauce connect tunnel, and run these automatically every day.
+In this lesson, you will learn to:
+
+* Create scripts to:
+  * [Start]() multiple tunnels
+  * [Kill all]() your running tunnels
+* Create [`crontab` jobs]() to run the start & kill your tunnels every 24 hours
 
 In order to kick off a script that will execute the starting and stopping of Sauce Labs tunnels, you can use the `crontab` command to create a file that will start the scripts.
 
-First, get the bash scripts from this repository, and place it somewhere on your computer, noting the filepath.
+### Create Script Files
+First, create two bash scripts on your computer, one named `start.sh` and the other called `kill.sh`. You can create these files with the `touch` command like so:
+
+```
+touch kill.sh
+```
+```
+touch start.sh
+```
+
+### Add Code to `kill.sh`
 
 The `kill.sh` script will kill any existing tunnels you have running. In this script, update the `tunnelname` variable with the name you plan on using for your high-availability tunnels.
 
 ```
 #!/bin/bash
-#Kill  tunnels with a -9 hard kill.  Will cause jobs in tunnel to error.
+#Kill  tunnels with a -SIGINT hard kill.  Will cause jobs in tunnel to error.
 
 tunnelname=your_tunnel_id
 
 echo "Killing $tunnelname processes"
 for x in $(ps aux | grep "\s$tunnelname\s" | grep -v grep | awk '{ print $2 }' );
 do
-  kill -9 $x
-  echo "$tunnelname tunnel with PID $x was sent kill -9"
+  kill -SIGINT $x
+  echo "$tunnelname tunnel with PID $x was sent kill -SIGINT"
 done
 
 echo "all $tunnelname tunnels given the kill signal"
 ```
 
+### Add Code to `start.sh`
 To restart the tunnel, create the `start.sh` script that will start a pool of tunnels. For the variables `user=`, `key=`you will need to add you Sauce username and access key.
 
-For `tunnelname=`, and `sc-path=` you will need to add the name you will use for your high availability tunnels, and the path to where you installed Sauce Connect (and the correct version) on your machine:
+For `tunnelname=`, and `sc-path=` you will need to add the name you will use for your high availability tunnels, and the path to where you installed Sauce Connect (and the correct version) on your machine. You will also want to make sure `sc_path=` lists the latest version of [Sauce Connect](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/index.html) (also should be installed on your machine):
 
 ```
 #!/bin/bash
 # DO NOT ATTEMPT TO DERIVE MEANING FROM THESE TUNNEL NAMES!!
 # Each tunnel pool gets 10 ports
 
-user=your_username
-key=your_access_key
-tunnelname=your_tunnel_id
+user=walkerlj0
+key=9f3531d6-d2ce-4643-955d-ddca42d8eda6
+tunnelname=bash_script_tunnel_id
 tunnels=3
 tunnel_port_num=5000
-sc_path=/Users/your_user/sc-X.X.X-OSVersion/bin/sc
+sc_path=/Users/lindsaywalker/Documents/sc-4.6.5-osx/bin/sc
 
 for tunnel in $(seq 1 $tunnels);
 do
-    if [[ ! $(ps axuf | grep sc_$tunnelname-$tunnel_port_num | grep -v grep | awk '{ print $2 }') ]]; then
-        $sc_path -u $user -k $key --tunnel-identifier $tunnelname --no-remove-colliding-tunnels -P $tunnel_port_num -d /tmp/sc_$tunnelname-$tunnel_port_num -s -v --extra-info '{"inject_job_id":true}' &
+    if [[ ! $(ps aux | grep sc_$tunnelname-$tunnel_port_num | grep -v grep | awk '{ print $2 }') ]]; then
+        $sc_path -u $user -k $key --tunnel-identifier $tunnelname --no-remove-colliding-tunnels -d /tmp/sc_$tunnelname-$tunnel_port_num -s -v --extra-info '{"inject_job_id":true}' &
         sleep 5
     fi
 
@@ -239,23 +274,40 @@ done
 
 Test our your scripts by running them on your machine. Start with the `chmod` command to give the permission these two bash scripts to execute on your machine:
 
+### Update Permissions To Run `bash` Scripts
+
+When you create bash scripts, you need to let your system know what permission those script have in terms of changing files, directories, settings, and more. The `chmod` command allows you to set those permissions for each script.
+
+For each of the scripts you created, [set the permissions](https://linuxcommand.org/lc3_lts0090.php) to read write, and execute as needed:
+
 ```
 chmod 754 start.sh
 ```
-and
-
 ```
 chmod 754 kill.sh
 ```
+### Run Your Scripts
+Before you rely on the cron tab to run your scripts, you will probably want to test them out. navigate to the folder where you saved the scripts, and run the command:
 
-Next, run the start script, & check the Sauce Labs dashboard for the tunnel:
 ```
-./start.sh
+sudo bash ./start.sh
 ```
+You should see three Sauce Connect tunnel start in your console and on the [Sauce Labs app](https://app.saucelabs.com/tunnels).
 
-//Get script from Max & put in sauceconnect repo, then link
 
-#### Using Cron with Sauce Connect
+<img src="assets/SC2.04A.png" alt="Start a shared tunnel" width="750"/>
+
+Once you have verification that your script is running, try out the kill command:
+
+```
+sudo bash ./kill.sh
+
+```
+You should see a verification on your console that the tunnels have been shut down, as well as on the Sauce Labs [tunnels page](https://app.saucelabs.com/tunnels).
+
+<img src="assets/SC2.04B.png" alt="Start a shared tunnel" width="750"/>
+
+### Using Cron with Sauce Connect `bash` Scripts
 
 Next Create a crontab file with the command `crontab -e`.
 
@@ -274,7 +326,7 @@ This will execute the `kill.bash` script at 1 am every day, then execute the `st
 
 #### Note
 Negative
-: You can use [`crontab guru`](https://crontab.guru/examples.html) con configure how frequently your bash script will run. Any time you want to access all cron jobs, simply use the command `crontab -e`
+: You can use [`crontab guru`](https://crontab.guru/examples.html) to configure how frequently your bash script will run. Any time you want to access all cron jobs, simply use the command `crontab -e`
 
 
 <!--
@@ -286,11 +338,75 @@ Negative
 
 
 #### Run Tests with High Availability Tunnels
-Now that you have several tunnels up and running with the same tunnel id (name) you can, [run any test the same way you would with any parent tunnel](https://training.saucelabs.com/codelabs/Module2-SauceConnect/index.html?index=..%2F..sauceconnect#1), but now if a tunnel or server fails, your tests will still be able to run because of the resiliency of your tunnels.
+
+Once you have several tunnels configured to restart on more than one machine, and have several tunnels up and running with the same tunnel id (name) you can [run any of your tests the same way you would with any parent tunnel](https://training.saucelabs.com/codelabs/Module2-SauceConnect/index.html?index=..%2F..sauceconnect#1),
+
+You have now set up resilient, secure testing infastructure with the Sauce Labs Cloud, which comes with the peace of mind that if a single tunnel or server fails, your tests will still run and you can deliver digital confidence.
 
 <!-- ------------------------ -->
-## 2.04
-Duration: 0:10:00
+## 2.05 Set Up Sauce Connect with Github Actions
+Duration: 0:07:00
+
+In this lesson you will be creating a repo in GitHub actions that includes a Selenium Java test and a workflow that can run a Sauce Connect tunnel in Github actions, and test against the [Sauce Labs Demo app](https://www.saucedemo.com/).
+
+* Thing 1
+* Thing 2
+
+### What You'll Need
+* [GitHub Account](https://github.com/join)
+* [Sauce Labs Account](https://saucelabs.com/sign-up)
+* Tests for the [Sauce Labs Demo App](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.06)
+* The following permissions in GitHub:
+    * The ability to create and manage workflows
+    * The ability to create and store [GitHub secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)
+
+_Learn more at the [Github Actions Homepage](https://github.com/features/actions)._
+### Set Up Your Project
+
+#### Create a Project for Your Action and Tests
+First, you will need to create a repo where you will put your tests. Name it whatever you wish.
+
+<img src="assets/TRT2.05C.png" alt="Set up Github repo" width="450"/>
+
+
+We will set up our test to run on every push request made to the main branch of a repository
+
+### Run the Tests Locally (Optional)
+
+If you would like to poke around the code
+
+### Create GitHub Secrets
+
+The first order of business is to export your [Sauce Labs account credentials](https://app.saucelabs.com/user-settings) and store them as GitHub Secrets.
+
+1. Navigate to your project repository and select the __settings__ icon
+
+
+2. Select __Secrets__
+3. Click the __New secret__ button
+4. Add the following:
+    * Name: `SAUCE_USERNAME`
+    * Value: `your-sauce-username`
+5. Click __Add secret__ to finish.
+6. Repeat the same steps above for your `SAUCE_ACCESS_KEY` (Not sure where to find `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` in Sauce Labs? They're [here](https://app.saucelabs.com/user-settings)).
+
+<img src="assets/TRT2.05E.png" alt="Github Secrets" width="750"/>
+
+#### Create YAML File
+
+In your project file (in this example we will use the Swag Labs web app you downloaded) create a directory called `.github`, then within that, create a directory called `workflows`.
+
+
+<!-- <img src="assets/SC2.05A.png" alt="Set up github directory" width="450"/> -->
+
+We will need to create a [new `.yml` file](https://docs.github.com/en/actions/quickstart) that is used to give instructions to Github Actions. This file will define the test jobs that will run on certain triggers called [events](https://docs.github.com/en/actions/reference/events-that-trigger-workflows).
+Create a new file called `testrunner.yml`:
+
+<!-- <img src="assetsSC2.05.png" alt="The YML file" width="450"/> -->
+
+In the `githubActionsExample.yml` file, copy and paste in the following:
+
+
 
 
 <!-- ------------------------ -->
