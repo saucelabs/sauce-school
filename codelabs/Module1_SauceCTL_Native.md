@@ -1,4 +1,4 @@
- summary: Module 1 of the Native Apps on Sauce Labs course will should you how to user the saucectl set of tools to run your XCUI iOS tests on the Sauce Labs Cloud of virtual machines. You will use saucectl to uploadyour app, run your automated tests creating artifacts to share and analyze. In this module, you can learn to create a basic Cypress test suite, or use your own Cypress test code to run tests with saucectl.
+ summary: Module 1 of the Native Apps on Sauce Labs course will should you how to user the saucectl set of tools to run your XCUI iOS tests on the Sauce Labs Cloud of virtual machines. You will use saucectl to upload your app, run your automated tests creating artifacts to share and analyze.
 id: Module1-saucectl-native
 categories: beginner
 environments: Web
@@ -8,7 +8,7 @@ analytics account: UA-86110990-1
 tags: saucectl-native
 authors: Lindsay Walker
 <!-- ------------------------ -->
-# Module 1 – Intro to saucectl with Cypress
+# Module 1 – Intro to saucectl with XCUITest on iOS
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
@@ -16,7 +16,7 @@ Duration: 0:01:00
 
 ### Skills & Knowledge
 <!--
-* How saucectl with the Sauce Labs platform is different than other automated test solutions that you can use with Sauce Labs
+* Understand how saucectl with the Sauce Labs platform is different than other automated test solutions that you can use with Sauce Labs
 
 * Learn about the components of saucectl with the Sauce Labs platform, including the command line tool, Docker, and the Cypress.io client
 
@@ -36,12 +36,15 @@ Duration: 0:01:00
 <!-- ------------------------ -->
 ## 1.02 What Is saucectl?
 Duration: 0:03:00
-<!--
+
 Sauce Labs has developed a set of tools in conjunction with a command line tool called `saucectl` to enable test developers to get setup quickly to scale up their testing to more browsers and devices using the Sauce Labs Cloud, and to be able to do this with a wider range of testing frameworks than ever before.
 
 This is a testing solution for developers that simplifies user setup, speeds up test execution time, unifies test results, and supports new open source frameworks like Playwright, Cypress, TestCafe, Espresso, and XCUI for running end-to-end web & mobile tests.
 
 <img src="assets/TRT1.02A.png" alt="saucectl tools" width="600"/>
+
+### Native Testing
+
 
 #### Scalable Testing, Quickly
 Installing with `saucectl` allows you to quickly and easily install all dependencies and start testing
@@ -57,19 +60,16 @@ Installing with `saucectl` allows you to quickly and easily install all dependen
 
 ### Why Use saucectl
 
-Historically, most end-to-end testing consisted of various components such as Selenium, mocha-chai (test assertion frameworks), and other tools that are necessary to run, automate, and debug tests. Users would create a remote session to test a web application. With [Sauce Labs saucectl and Cypress](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress), you have an all-in-one test framework, runner, and assertion platform that doesn’t require the client to send commands and wait for a response in order to run.
+Appium can be a great solution for automating mobile tests, however there are cases where using a native framework, with test code alongside the application code, is better suited to your testing needs.
 
-In other words, saucectl with Cypress provides a powerful [clear-box testing](https://en.wikipedia.org/wiki/White-box_testing) tool that doesn’t require downloading and installing several tools and libraries:
+Using XCUI along with Sauce Labs also allows you to:
 
-<img src="assets/TRT1.02B.png" alt="Testrunner Toolkit setup" width="600"/>
-
-Using Cypress alongside Sauce Labs also allow you to:
-
-
-
-*   Run your tests using a containerized solution, to simplify setting up your environment and dependencies
+*   Run your tests using either a Sauce Labs VM or Docker container
+* All you need to run a test is an application file and a test file, eliminating the need for setting up an environment and dependencies
 *   Review, share, and evaluate your test assets, such as logs, test results, and test videos
 *   Use our Insights feature to perform deeper analysis of test outcomes
+
+//update
 
 <img src="assets/TRT1.02C.png" alt="Testrunner Toolkit Sauce Labs dashboard" width="600"/>
 
@@ -79,7 +79,7 @@ Using Cypress alongside Sauce Labs also allow you to:
 By default, when you use saucectl, it works by passing your entire test suite, including dependencies and configurations to Sauce Labs Cloud of Virtual Machines, where your tests will be executed as per your configurations. Use the command `saucectl run` or update `mode: sauce` in `config.yml`, to run your tests on Sauce Labs VMs.
 
 #### Docker Mode
-With saucectl, you can also install Docker and run a containerized version of your test environment, then pass the results to the Sauce Labs Dashboard , by setting `mode: docker` in `config.yml`.` -->
+With saucectl, you can also install Docker and run a containerized version of your test environment, then pass the results to the Sauce Labs Dashboard , by setting `mode: docker` in `config.yml`. 
 
 
 <!-- ------------------------ -->
