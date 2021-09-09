@@ -144,11 +144,11 @@ There are several assertions to choose from and below are a few examples, along 
 * We created an **Assertion** to validate the "Sauce Connect" object existed
 * We created another **Assertion** to verify that the object field "download_url" was indeed a `url`
 
-In the next section we will cover how to store information as a **Global Variable**, or an **Input Set**.
+In the next section we will cover how to store information as a **Global Variable**.
 
 <!-- ------------------------ -->
 
-## 3.05 Global Variables vs. Input Sets
+## 3.05 Global Variables
 Duration: 0:04:00
 
 As the complexity and number of tests in your test suite increase, it's a best practice to name and store test details such as common variables or data sets to allow more flexibility. There are generally two ways to store data within API Fortress:
@@ -164,14 +164,6 @@ To add a global variable/parameter select the **Input** tab in the top left, and
 
 <img src="assets/apif-mod3/05/addGlobalParam.png" alt="Add Global Parameter", width="400"/>
 
-
-### Input Sets
-
-An input set is an object (usually a group of input variables related to a specific scenario or use case). For example a list of relevant product ids returned from a product API endpoint. Input sets are used within a single test.
-
-To add an input set select the **Input** tab in the top left, and select **Add Param to Default**.
-
-<img src="assets/apif-mod3/05/addInputSet.png" alt="Add Input Set", width="400"/>
 
 ### Create Global Parameters
 
@@ -205,10 +197,35 @@ Next we need to substitute the `domain` value in the current GET request:
 Negative
 : Please refer to the documentation for further information on [using variables](https://docs.saucelabs.com/api-testing/quick-start/flexible-variables-for-flexible-environments).
 
+
+In the next section we will cover how to store information as a an **Input Set**.
+
+<!-- ------------------------ -->
+## 3.06 Input Sets
+Duration: 0:07:00
+
+### Input Sets
+An input set is an object (usually a group of input variables related to a specific scenario or use case), For example a list of relevant product ids returned from a product API endpoint.
+
+When you add and use an Input Set, it means you will run a separate instance of your tests for each Input Set Created. For example, if you created three Input Sets for `username` and `password`, your tests would be run three times, using each set of credentials. An input sets are used within a single test.
+
+To add an input set select the **Input** tab in the top left, and select **Add Param to Default**.
+
+<img src="assets/apif-mod3/05/addInputSet.png" alt="Add Input Set", width="400"/>
+
+### Add an Input Set
+
+
+### Add Parameters to the Input Sets
+
+### Create a New GET Component
+
+### Use Input Sets in a Test
+
 In the next section we will discover how to store some of the information we created in the [Vault](https://docs.saucelabs.com/api-testing/quick-start/the-vault#vault-overview).
 
 <!-- ------------------------ -->
-## 3.06 The Vault
+## 3.07 The Vault
 Duration: 0:07:00
 
 The Vault is a unique feature of the API Fortress platform that allows you to store information for use across all projects or tests.
@@ -324,7 +341,7 @@ To learn more about The Vault and Environments see below links: [Learn the Basic
 
 <!-- ------------------------ -->
 
-## 3.07 Module 3 Quiz
+## 3.08 Module 3 Quiz
 Duration: 0:03:00
 
 ![https://docs.google.com/forms/d/e/1FAIpQLScNPr_oYqWe0_PD3oil_iebFvZ9ejV96z-UZ3quytHXYXUOnw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScNPr_oYqWe0_PD3oil_iebFvZ9ejV96z-UZ3quytHXYXUOnw/viewform?usp=sf_link)
