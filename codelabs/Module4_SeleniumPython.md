@@ -672,7 +672,7 @@ Now that your tests are up and running on the Sauce Labs platform, you’ll noti
 <img src="assets/4.06A.png" alt="Unnamed Job" width="550"/>
 
 
-To fix this issue, you can pull in the name and the status from the test and send it to the [Sauce Labs dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)so we can use our tests to effectively debug and improve our application.
+To fix this issue, you can pull in the name and the status from the test and send it to [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) so we can use our tests to effectively debug and improve our application.
 
 In addition, right now regardless of the outcome of a test, the job in Sauce Labs will register as **Finished.** Ideally we want to know if the job was a **Pass** or a **Fail**. That way we can tell at a glance if a test failed or not. With a couple of tweaks we can make this happen easily enough.
 
@@ -829,7 +829,7 @@ Which of the following is the most accurate description of the purpose of the py
 
 It defines (creates) the variable job-result in the execute-script method, which doesn’t exist unless all other test code has successfully completed, and makes it possible to send test results, which isn't a built in function of pytest.
 
-It uses the variable rep_ defined (created) in pytest_runtest_makereport which is used with JavaScript to send a pass or fail status to Sauce Labs Dashboard, and makes it possible to send test results, which isn't a built in function of pytest.*
+It uses the variable rep_ defined (created) in pytest_runtest_makereport which is used with JavaScript to send a pass or fail status to Sauce Labs, and makes it possible to send test results, which isn't a built in function of pytest.*
 
 It defines (creates) setattr which allows the creation of the rep_ variable, that can also only be created if all other test code has successfully completed. It makes it possible to send test results, which isn't a built in function of pytest.
 
