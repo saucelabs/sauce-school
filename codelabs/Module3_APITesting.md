@@ -1,7 +1,7 @@
 summary: Module 3 of the API Testing course. In the last module, you used the capabilities of the API testing platform to auto-generate a test. In this module you willlearn about the components you can add to a test, and practice createing a test using assertion components, request components, global variables, input sets, and the vault.
 id: Module3-APITesting
-categories: beginner
-tags: zapi
+categories: intermediate
+tags: zapis
 environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
@@ -31,7 +31,7 @@ In this module, you will be learning to create your own test from scratch with t
 ## 3.02 Component Library
 Duration: 0:03:00
 
-The test component library contains many useful test components that can enrich and add further validity to your API Tests.
+The test component library contains many useful test components that can enrich and add further validity to your API Tests. This level covers the basics of components you can add to your API test.
 
 ### Experiment with Components
 
@@ -68,6 +68,10 @@ There are many components you can play around with, and hover over them to see w
 ## 3.03 Request Component
 Duration: 0:04:00
 
+In this lesson you will learn to add a GET request component in a test.
+
+### Types of Requests
+
 A **Request** component is the foundation for creating a new test in API Fortress. Whether you wish to test a chain of multiple requests, or a single request, the request component is where your test should begin. The available request components are:
 
 * GET
@@ -82,7 +86,7 @@ Refer to the [API Testing Basics](https://training.saucelabs.com/codelabs/Module
 Negative
 : In the previous module, [_Introduction to API Fortress_](https://training.saucelabs.com/codelabs/Module2-APITesting/index.html#0), we used the **Generate Test** button. This button automagically generates the HTTP request, assertions, and other test elements so that you can focus on the more intricate and tricky parts of your tests. In this module we will build a test from scratch in order to understand the importance of assertions, but refer back to that test for inspiration and ideas on how to design your assertions.
 
-### Exercise: Add a GET Request Component
+### Add a GET Request Component
 
 1. Open your project and create a new test:
    <img src="assets/apif-mod3/05/createNewTest.png" alt="Create New Test", width="500" />
@@ -108,7 +112,9 @@ In the next section you will work with  **Assertion** components, learning how t
 ## 3.04 Assertion Component
 Duration: 0:04:00
 
-There's a common phrase in the automated testing space: "If there is **no assertion**, it **isn't a test**."
+There's a common phrase in the automated testing space: "If there is **no assertion**, it **isn't a test**." In this lesson, you will add an assertion after the GET request in the **Sauce_Connect_Test** you created in the last lesson
+
+### Why Assertions?
 
 This sentence demonstrates a common [testing anti-pattern](http://www.everydayunittesting.com/2017/03/unit-testing-anti-pattern-not-asserting.html); even if your code doesn't throw errors or crash, it doesn't mean it's a valid test.
 
@@ -120,7 +126,7 @@ There are several assertions to choose from and below are a few examples, along 
 * **[Assert Contains](https://docs.saucelabs.com/api-testing/assertion-components/assert-contains)**: Checks an item has a specific substring (e.g. test the word _Uber_ for product names like: _UberX_, _UberBlack_, etc.)
 * **[Assert Is](https://docs.saucelabs.com/api-testing/assertion-components/assert-is)**: Checks whether the value of an item is correctly defined (e.g. _url_, _boolean_, _integer_, etc.)
 
-### Exercise: Add an Assertion
+### Add an Assertion
 
 1. Open the previous test  you created, called **Sauce_Connect_Test**.
 1. Select **+Add Request/Assertions**, and select **Assert Exists** with the following data:
@@ -151,10 +157,13 @@ In the next section we will cover how to store information as a **Global Variabl
 ## 3.05 Global Variables
 Duration: 0:04:00
 
-As the complexity and number of tests in your test suite increase, it's a best practice to name and store test details such as common variables or data sets to allow more flexibility. There are generally two ways to store data within API Fortress:
+As the complexity and number of tests in your test suite increase, it's a best practice to name and store test details such as common variables or data sets to allow more flexibility. There are three ways to store data within the API Testing platform:
 
 * **Global Variables**
-* **Input Set**
+* **Input Sets**
+* **The Vault**
+
+This level covers how to use Global Variables.
 
 ### Global Variables
 
@@ -198,7 +207,7 @@ The finished result should look like this:
 
 ### Note:
 Negative
-: Please refer to the documentation for further information on [using variables](https://docs.saucelabs.com/api-testing/quick-start/flexible-variables-for-flexible-environments).
+: Please refer to the documentation for further information on [using variables](https://docs.saucelabs.com/api-testing/mark3/quick-start/flexible-variables-for-flexible-environments/).
 
 
 In the next section we will cover how to store information as a an **Input Set**.
@@ -208,14 +217,14 @@ In the next section we will cover how to store information as a an **Input Set**
 Duration: 0:07:00
 
 ### Input Sets
-An input set is an object (usually a group of input variables related to a specific scenario or use case), For example a list of relevant product ids returned from a product API endpoint. In this module you will:
+An input set is an object (usually a group of input variables related to a specific scenario or use case), For example a list of relevant product ids returned from a product API endpoint. In this lesson you will:
 
 * Create Input Sets
 * Add information about Sauce Connect Tunnels to an Input Set
 * Use Input Sets with a GET component
 * Create and run tests with Input Sets
 
-When you add and use an Input Set, it means you will run a separate instance of your tests for each Input Set created. For example, if you created three Input Sets for `username` and `password`, your tests would be run three times, using each set of credentials. An input sets are used within a single test.
+When you add and use an Input Set, it means you will run a separate instance of your tests for each Input Set created. For example, if you created three Input Sets for `username` and `password`, your tests would be run three times, using each set of credentials. Input Sets are used within a single test.
 
 To add an input set select the **Input** tab in the top left. If there is a default input set, you will want to edit or delete it before creating your own.
 
@@ -281,21 +290,35 @@ Now, lets add two simple checks after this get request. Add in two components:
 
 <img src="assets/apif-mod3/sc_assert_equals.png" alt="Add Input Set", width="700"/>
 
-Now, once you save and **Run** your test, the test will be run one foe the input set `tunnel_owner1` and once for the input set
+The test should now look like this:
+<img src="assets/apif-mod3/final_input_sets_test.png" alt="Add Input Set", width="700"/>
+
+Now, once you save and **Run** your test, the test will be run one for the input set `tunnel_owner1` and once for the input set `tunnel_owner2`, a total of 4 GET commands, since there are 2 GET commands in each tests.
 
 <img src="assets/apif-mod3/Input_Sets_Tests.png" alt="Add Input Set", width="700"/>
 
-In the next section we will discover how to store some of the information we created in the [Vault](https://docs.saucelabs.com/api-testing/quick-start/the-vault#vault-overview).
+#### Recap
+
+In summary, we have created a test that:
+* Checks to make sure that the endpoint where you download the Sauce Connect software is working
+* Checks to see that the tunnels running for as many sets of user/ tunnel id combination as you would like.
+
+In the next section we will discover how to store some of the information we created in the Vault.
 
 <!-- ------------------------ -->
 ## 3.07 The Vault
 Duration: 0:07:00
 
-The Vault is a unique feature of the API Fortress platform that allows you to store information for use across all projects or tests.
+The  [Vault](https://docs.saucelabs.com/api-testing/mark3/quick-start/environments-vault-and-overrides-magic/) is a unique feature of the API Fortress platform that allows you to store information for use across all projects or tests.
 
 ### The Vault vs. Inputs
 
-While Input Sets are typically only used within a given test, the vault allows you to store inputs and parameters that can be used across multiple test in your project. This is known as your **Project Vault**
+While Input Sets are typically only used within a given test, the vault allows you to store inputs and parameters that can be used across multiple test in your project. This is known as your **Project Vault**. In this lesson you will learn how to
+
+* Save code Snippets (or Variables) to a project vault
+* Use Snippets(or Variables) across tests in a project
+* Save a Variable (or Snippet) in a company Vault
+* Use  Variables (or Snippets) across tests in different projects
 
 The **Project Vault** allows you to save more than just variables, with the vault you can save, edit, and reuse almost anything including:
 
@@ -310,20 +333,20 @@ Negative
 
 ### Exercise: Use the Vault to Store a Snippet
 
-First, what is a **Code Snippet**? A snippet is a fragment of a test, stored in the Vault, that can be reused. For example if you want to re-use an authentication header, or perhaps there's a `POST` body vaule you wish to re-use in multiple requests. For this example, we will store and re-use our assertion test from earlier.
+First, what is a **Code Snippet**? A snippet is a fragment of a test, stored in the Vault, that can be reused. For example if you want to re-use an authentication header, or perhaps there's a `POST` body vaule you wish to re-use in multiple requests.
+
+For this example, we don't need both the GET methods in the same test since the first one only needs to be run once (and not for every input set) we will store and re-use this part of the test.
 
 To add the snippet to your project Vault:
 1. Open your test.
 1. Select all the elements (hold **SHIFT** and click the _first and last elements_ to select a range).
 1. Select the **Export to Snippet** icon from the toolbar.
-   <img src="assets/apif-mod3/05/createSnippet.png" alt="Create Snippets" />
+   <img src="assets/apif-mod3/sc_snippet.png" alt="Create Snippets" />
 1. Fill in the following details for the snippet:
-   * Name: `QuickAssertionSnippet`
-   * Description: `quick test to store snippet in the vault`
-   <img src="assets/apif-mod3/05/quickAssertSnippet.png" alt="QuickAssertion Snippet Details" />
+   * Name: `SC_Download_Snippet`
 1. Select **Save Snippet**.
-1. The snippet now appears in the Snippets section of the project vault. To get back to the vault, go to the **Tests Page** and select **Vault** in the toolbar, then the **Code Snippets** radial button:
-   <img src="assets/apif-mod3/05/projectVaultSnippet.png" alt="Project Vault Snippet" />
+1. The snippet now appears in the Snippets section of the project vault. To get back to the vault, go to the **Project** where your tests are listed and select **Vault** in the toolbar, then the **Code Snippets** radial button:
+   <img src="assets/apif-mod3/SCSnippet.png" alt="Project Vault Snippet" />
 
 #### Note
 Negative
@@ -337,20 +360,24 @@ If you wish to re-use this snippet in a different project/test there are two opt
 
 Let's try adding a snippet to an empty test:
 1. Create an empty test (call it whatever you want)
+
 1. Select the **Invoke Snippet** icon:
    <img src="assets/apif-mod3/05/invoke1.png" alt="Invoke Snippet" />
+
 1. Hover over the snippet, and select **Open**:
-   <img src="assets/apif-mod3/05/invoke3.png" alt="Invoke Snippet" />
+
 1. Select either **Invoke Snippet** or **Insert Snippet**, below are examples screenshots of both:
-   <img src="assets/apif-mod3/05/invoke4.png" alt="Invoke Snippet" />
+   <img src="assets/apif-mod3/Invoke_Snippet.png" alt="Invoke Snippet" />
 
 #### Invoked Snippet
 
-<img src="assets/apif-mod3/05/invoke5.png" alt="Invoke Snippet" />
+<img src="assets/apif-mod3/Invoked_Snippet.png" alt="Invoke Snippet" />
 
 #### Inserted Snippet
 
-<img src="assets/apif-mod3/05/invoke6.png" alt="Invoke Snippet" />
+<img src="assets/apif-mod3/Inserted_Snipped.png" alt="Invoke Snippet" />
+
+You can now remove the first **GET** component and related checks from the **Sauce_Connect_Test**.
 
 ### Company Vault
 Now you just need to make sure variables are aligned. Now we reach the dilemma of having to re-create our variables that we used from earlier: `${domain}`, `${protocol}`, and `${endpoint}`. The better approach is to use the **Company Vault**, which allows us to re-use variables across all projects.
@@ -359,13 +386,22 @@ To access the **Company Vault**
 1. Go to your Project page
 1. Select the **Company Vault**
 1. Select the **Variables** radial button
-1. Add the following variables from your Sauce_Connect_Test: `${domain}`, `${protocol}`, `${endpoint}`
+1. Click the **+ New Entry** button
+1. Add the following variables from your Sauce_Connect_Test:
+
+```
+domain = saucelabs.com
+
+protocol = https://
+
+endpoint = /rest/v1/public/tunnels/info/versions
+```
 
 The end result should look like the screenshot below:
 
-<img src="assets/apif-mod3/05/payloadVars.png" alt="Payload Variables" />
+<img src="assets/apif-mod3/Vault_Vars.png" alt="Payload Variables" />
 
-Now if your run your new empty test (where you invoked or inserted the assertion snippet), all variables will default to the values in the Company Vault.
+Now if your run your new test that you created with a snippet (where you invoked or inserted the assertion snippet), all variables will default to the values in the Company Vault, and you test should run without you having to add new Variables to that test.
 
 #### What about Snippets?
 If you want to re-use a code snippet across different projects, it's a bit easier than re-creating variables from scratch. You can actually export it from the project vault, into the company vault.
@@ -376,26 +412,30 @@ To export a Snippet into the Company Vault:
 1. Select **The Vault** from the toolbar
 1. Select the **Code Snippet** radial button
 1. Select the checkbox next to the desired snippet, then select the **Export*** button:
-   <img src="assets/apif-mod3/05/export1.png" alt="Export Code Snippet" />
+   <img src="assets/apif-mod3/Exp_Snip.png" alt="Export Code Snippet" />
+
 1. Choose your file type (`.csv` is recommended here)
    <img src="assets/apif-mod3/05/export2.png" alt="Choose File Type" />
+
 1. Save the file to your computer
+
 1. Go back to the **Company Vault** page and select **Import**
    <img src="assets/apif-mod3/05/export3.png" alt="Import the Snippet" />
+
 1. Choose your file to add it to the Company Vault
    <img src="assets/apif-mod3/05/export4.png" alt="Import the Snippet", width="500" />
 
 
 This is a screenshot of the end result:
-<img src="assets/apif-mod3/05/export5.png" alt="Import the Snippet" />
+<img src="assets/apif-mod3/Comp_Snip.png" alt="Import the Snippet" />
 
 
-This approach is much easier than recreating the entire test from scratch! Run your test to see the report.
+Now you can add this snippet to any test in any project. This approach is much easier than recreating the entire test from scratch! Run your test to see the report.
 
 To learn more about The Vault and Environments see below links:
-* [Learn the Basics](https://docs.saucelabs.com/api-testing/mark3/quick-start/the-vault)
+* [Learn the Basics](https://docs.saucelabs.com/api-testing/mark3/quick-start/)
 * [Environments Basics](https://docs.saucelabs.com/api-testing/mark3/quick-start/environments-vault-and-overrides-magic)
-* [Using Variables](https://docs.saucelabs.com/api-testing/mark3/quick-start/flexible-variables-for-flexible-environments)
+* [Using Variables](https://docs.saucelabs.com/api-testing/mark3/quick-start/flexible-variables-for-flexible-environments/)
 
 
 <!-- ------------------------ -->
