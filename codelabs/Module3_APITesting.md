@@ -8,7 +8,7 @@ feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
 author: James Tacker
 <!-- ------------------------ -->
-# Module 3 – Test Component Library
+# Module 3 – Create a Test with Test Components
 
 <!------------------------------>
 
