@@ -748,7 +748,7 @@ Now that your tests are up and running on the Sauce Labs platform, you’ll noti
 <img src="assets/4.06A.png" alt="Unnamed Job" width="550"/>
 
 
-To fix this issue, you can pull in the name and the status from the test and send it to the [Sauce Labs dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)so we can use our tests to effectively debug and improve our application.
+To fix this issue, you can pull in the name and the status from the test and send it to [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)so we can use our tests to effectively debug and improve our application.
 
 In addition, right now regardless of the outcome of a test, the job in Sauce Labs will register as **Finished.** Ideally we want to know if the job was a **Pass** or a **Fail**. That way we can tell at a glance if a test failed or not. With a couple of tweaks we can make this happen easily enough.
 
@@ -859,7 +859,7 @@ afterEach(async function() {
 ```
 
 
-Now when you run `npm test` in terminal (if your test fails try `source ~/.bash_profile`), then check your [Sauce Labs dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). On the left you should be able to see a status of passed with each test.
+Now when you run `npm test` in terminal (if your test fails try `source ~/.bash_profile`), then check your [Sauce Labs page](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). On the left, you should be able to see a status of passed with each test.
 
 
 <img src="assets/4.06C.png" alt="Passed Tests" width="550"/>

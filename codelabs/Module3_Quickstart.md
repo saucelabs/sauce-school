@@ -388,7 +388,7 @@ Now that your tests are up and running on the Sauce Labs platform, you’ll noti
 <img src="assets/4.06A.png" alt="Unnamed Job" width="550"/>
 
 
-To fix this issue, you can pull information from the test and send it to the [Sauce Labs dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
+To fix this issue, you can pull information from the test and send it to [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
 
 ### Use TestWatcher to Add a Test Name
 
@@ -508,7 +508,7 @@ Under the saucelabs` driver` instantiation in the` before()` rule instantiate a`
 ```
 
 
-The `sessionId` is retrieved from the `RemoteWebDriver`. The `sauceClient` creates an instance using the Sauce Labs REST API, passing in the username, access key, and data center location. You can change the data center on the Sauce Labs dashboard. Once that is changed, if you would like, go into your code and [change](https://docs.saucelabs.com/basics/data-center-endpoints/data-center-endpoints) the `DataCenter` option in your code to reflect this.
+The `sessionId` is retrieved from the `RemoteWebDriver`. The `sauceClient` creates an instance using the Sauce Labs REST API, passing in the username, access key, and data center location. You can change the data center on your Sauce Labs homepage. Once that is changed, if you would like, go into your code and [change](https://docs.saucelabs.com/basics/data-center-endpoints/data-center-endpoints) the `DataCenter` option in your code to reflect this.
 
 <img src="assets/4.06H.png" alt="Data Center" width="750"/>
 
@@ -578,7 +578,7 @@ With a conditional check in each `@Override` statement you make sure the sauceCl
 
 When a test is successful the `succeeded()` method will fire, marking the Sauce job for the test as `passed`. When a test fails the `failed()` method will trigger, and the job will be marked as `failed`. When there's a failure, we'll want to know the URL to view the job on [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) so you concatenate the URL and output it to the console using the `System.out.println` command.
 
-Now when you run `mvn clean test -Dhost=saucelabs` in terminal, then check your [Sauce Labs dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). On the right you should be able to see a status of passed with each test.
+Now when you run `mvn clean test -Dhost=saucelabs` in terminal, then check your [Sauce Labs account page](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). On the right, you should be able to see a status of passed with each test.
 
 <img src="assets/4.06C.png" alt="Passed Tests" width="550"/>
 
@@ -839,13 +839,13 @@ You also don’t want the output for the reporting to be created in a file, othe
 
 ### Run Parallel Tests
 
-Before you get started, head to the [Sauce Labs Dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) and look under **Account > User settings** and check out how many tests you (and your team) can run at once.
+Before you get started, head to [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) and look under **Account** > **User settings** and check out how many tests you (and your team) can run at once.
 
 <img src="assets/5.04C.png" alt="Sauce W3C case" width="650"/>
 
 Once you are sure that you are able to run tests in parallel (you should have less tests than your concurrency limit), you can run your tests. If you send more jobs than your concurrency limit, Sauce Labs will queue the excess and run them as the initial batch of jobs finish.
 
-Run `mvn clean test -Dhost=saucelabs` and visit the [Sauce Labs Dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)while your tests are running. You should see more than one test running at the same time, and notice that your test suite as a whole runs more quickly! You can see the completed code [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod5/5.04).
+Run `mvn clean test -Dhost=saucelabs` and visit [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) while your tests are running. You should see more than one test running at the same time, and notice that your test suite as a whole runs more quickly! You can see the completed code [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod5/5.04).
 
 <img src="assets/5.04H.png" alt="Concurrent tests running" width="650"/>
 

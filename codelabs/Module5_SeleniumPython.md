@@ -305,7 +305,7 @@ You should get messages that they were successfull installed, or are a part of y
 
 ### Run Random Parallel Tests
 
-Before you get started, head to the [Sauce Labs Dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) and look under **Account > User settings** and check out how many tests you (and your team) can run at once.
+Before you get started, head to [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) and look under **Account > User settings** and check out how many tests you (and your team) can run at once.
 
 <img src="assets/5.04C.png" alt="Sauce W3C case" width="650"/>
 
@@ -314,7 +314,7 @@ Once you are sure that you are able to run tests in parallel (you should have le
 Run `pytest -n 5` to run 5 tests at the same time in parallel. If you run your tests more than once, they should run in a different order
 
 
-Next, visit the [Sauce Labs Dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)while your tests are running. You should see more than one test running at the same time, and notice that your test suite as a whole runs more quickly! You can see the completed code [here]().
+Next, visit [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) while your tests are running. You should see more than one test running at the same time, and notice that your test suite as a whole runs more quickly! You can see the completed code [here]().
 
 <img src="assets/5.04K.png" alt="Parallel tests" width="750"/>
 
@@ -697,7 +697,7 @@ You don’t have to do anything to set the variable, or install any software or 
 
 Run your tests in Jenkins using **Build Now** (You can change the build configuration and delete `-m deep` command back to run all tests.)
 
-If you look on the Sauce Labs dashboard, you should see tests being run, an active tunnel, and even past builds listed:
+If you look on Sauce Labs, you should see tests being run, an active tunnel, and even past builds listed:
 
 <img src="assets/5.07Q.png" alt="Sauce Labs Builds" width="750"/>
 
