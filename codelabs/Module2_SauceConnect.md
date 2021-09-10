@@ -1,4 +1,4 @@
-gulsummary: Module 2 ....
+summary: Module 2 ....
 id: Module2-SauceConnect
 categories: intermediate
 tags: saucetools
@@ -21,7 +21,7 @@ In order to follow along with the course, you will need a few things set up ahea
 * A Sauce [Username and Access Key](https://app.saucelabs.com/user-settings)
 * The [Tunnel Name](https://app.saucelabs.com/tunnels) of a running tunnel
 * A copy of [Sauce Connect](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/)
-* Example [Selenium Java test code](https://github.com/walkerlj0/sauceconnect-github-actions)
+* Example [Selenium Java test code](https://github.com/walkerlj0/sauceconnect-github-actions/tree/main/java_tests)
 * A computer with unrestricted access to saucelabs.com
 
 This tutorial gives examples written in Java, using the JUnit4 test runner, as well as the Maven build tool. If you would like to follow along, you can [download or fork and clone this project](https://github.com/walkerlj0/sauceconnect-github-actions).
@@ -358,7 +358,7 @@ Though this app is publicly hosted and doesn't require a secure tunnel to be acc
 ### What You'll Need
 * [GitHub Account](https://github.com/join)
 * [Sauce Labs Account](https://saucelabs.com/sign-up)
-* [Tests](https://github.com/walkerlj0/sauceconnect-github-actions/tree/main/tests) for the Sauce Labs Demo App (www.saucedemo.com)
+* [Tests](https://github.com/walkerlj0/sauceconnect-github-actions/tree/main/java_tests) for the Sauce Labs Demo App (www.saucedemo.com)
 * The following permissions in GitHub:
     * The ability to create and manage workflows
     * The ability to create and store [GitHub secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)
@@ -391,9 +391,9 @@ The first order of business is to export your [Sauce Labs account credentials](h
     * Name: `SAUCE_USERNAME`
     * Value: `your-sauce-username`
 5. Click __Add secret__ to finish.
-6. Repeat the same steps above for your `SAUCE_ACCESS_KEY` (Not sure where to find `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` in Sauce Labs? They're [here](https://app.saucelabs.com/user-settings)).
+6. Repeat the same steps above for your `SAUCE_ACCESS_KEY`, and make up a value for `SAUCE_TUNNEL_NAME` (Not sure where to find `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` in Sauce Labs? They're [here](https://app.saucelabs.com/user-settings)).
 
-<img src="assets/TRT2.05E.png" alt="Github Secrets" width="750"/>
+<img src="assets/SC2.05E.png" alt="Github Secrets" width="750"/>
 
 #### Create YAML File
 
