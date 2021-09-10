@@ -1,4 +1,5 @@
-summary: Module 3 of the API Testing course. In the last module, you used the capabilities of the API testing platform to auto-generate a test. In this module you willlearn about the components you can add to a test, and practice createing a test using assertion components, request components, global variables, input sets, and the vault.
+summary: Module 3 of the API Testing course. In this module you will learn about the components you can add to a test, and practice creating a test using assertion components, request components, global variables, input sets, and the vault.
+  {%- endif -%}
 id: Module3-APITesting
 categories: intermediate
 tags: zapis
@@ -24,6 +25,7 @@ In this module, you will be learning to create your own test from scratch with t
 
 **Variables**
 * Understand the difference between global variables and input sets
+* Learn about how and when to use Input Sets and Variables
 * Demonstrate how to store sensitive variable data and/or secrets in the Vault
 
 

@@ -32,7 +32,7 @@ This module is derived from content in chapters 11-13 of _The Selenium Guidebook
 *   Create a <code>Config</code> file that sets the W3C<em> capabilities </em>for <code>BaseTest</code> to set up the environment for each, which set up variables for the environment, that dictate what your test is run in.
 *   Set up a <code>baseURL</code> variable in <code>Config</code> that points to the app you are running tests on in the <code>BasePage</code>, and remove hard-coded URLs from other page objects, allowing you to specify just a sub-domain from page objects
 *   Update your Sauce Labs credentials on your machine, then add functionality in your config file, using the sauceOption capabilities to run your tests on Sauce Labs
-*   Add variables and logic to your <code>BaseTest</code> to pass information such as the test name, and pass or failure status to the Sauce Labs dashboard
+*   Add variables and logic to your <code>BaseTest</code> to pass information such as the test name, and pass or failure status to Sauce Labs
 
 <!-- ------------------------ -->
 ## 4.02 Types of Tests
@@ -731,7 +731,7 @@ Now that your tests are up and running on the Sauce Labs platform, you’ll noti
 <img src="assets/4.06A.png" alt="Unnamed Job" width="550"/>
 
 
-To fix this issue, you can pull in the name and the status from the test and send it to the [Sauce Labs dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)so you can use our tests to effectively debug and improve our application.
+To fix this issue, you can pull in the name and the status from the test and send it to [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) so you can use our tests to effectively debug and improve our application.
 
 In addition, right now regardless of the outcome of a test, the job in Sauce Labs will register as **Finished** or **Error**. Ideally you want to know if the job was a **Pass** or a **Fail**. That way we can tell at a glance if a test failed or not. With a couple of tweaks we can make this happen easily enough.
 
@@ -859,7 +859,7 @@ Under the saucelabs` driver` instantiation in the` before()` rule instantiate a`
 ```
 
 
-The `sessionId` is retrieved from the `RemoteWebDriver`. The `sauceClient` creates an instance using the Sauce Labs REST API, passing in the username, access key, and data center location. You can change the data center on the Sauce Labs dashboard. Once that is changed, if you would like, go into your code and [change](https://docs.saucelabs.com/basics/data-center-endpoints/data-center-endpoints) the `DataCenter` option in your code to reflect this.
+The `sessionId` is retrieved from the `RemoteWebDriver`. The `sauceClient` creates an instance using the Sauce Labs REST API, passing in the username, access key, and data center location. You can change the data center in the Sauce Labs UI. Once that is changed, if you would like, go into your code and [change](https://docs.saucelabs.com/basics/data-center-endpoints/data-center-endpoints) the `DataCenter` option in your code to reflect this.
 
 <img src="assets/4.06H.png" alt="Data Center" width="750"/>
 
@@ -905,7 +905,7 @@ With a conditional check in each you make sure the sauceClient commands only tri
 
 When a test is successful the `succeeded()` method will fire, marking the Sauce job for the test as `passed`. When a test fails the failed method will trigger, and the job will be marked as `failed`. When there's a failure, we'll want to know the URL to view the job on [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)so you concatenate the URL and output it to the console using the `System.out.println` command.
 
-Now when you run `mvn clean test -Dhost=saucelabs` in terminal, then check your [Sauce Labs dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). On the right you should be able to see a status of passed with each test.
+Now when you run `mvn clean test -Dhost=saucelabs` in terminal, then check your [Sauce Labs account](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). On the right you should be able to see a status of passed with each test.
 
 <img src="assets/4.06C.png" alt="Passed Tests" width="550"/>
 
