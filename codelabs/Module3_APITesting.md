@@ -86,7 +86,7 @@ Negative
 
 1. Open your project and create a new test:
    <img src="assets/apif-mod3/05/createNewTest.png" alt="Create New Test", width="500" />
-1. Name it **AssertionTest** (we cover _assertions_ in the next module):
+1. Name it **Sauce_Connect_Test** (This example is named **AssertionTest**):
    <img src="assets/apif-mod3/05/assertionTestDetails.png" alt="Assertion Test Details", width="500" />
 1. Select **+Add Request/Assertions** in the Tests page.
    <img src="assets/apif-mod3/05/addRequestComponent.png" alt="Add Request / Assertion", width="500" />
@@ -122,7 +122,7 @@ There are several assertions to choose from and below are a few examples, along 
 
 ### Exercise: Add an Assertion
 
-1. Open the previous test  you created, called **AssertionTest**.
+1. Open the previous test  you created, called **Sauce_Connect_Test**.
 1. Select **+Add Request/Assertions**, and select **Assert Exists** with the following data:
    * Expression: `payload['Sauce Connect']`
    * Mode: `one`
@@ -167,7 +167,7 @@ To add a global variable/parameter select the **Input** tab in the top left, and
 
 ### Create Global Parameters
 
-Navigate and select the **Input** tab on the left side of the interface to begin the exercise.
+In your **Sauce_Connect_Test** navigate and select the **Input** tab on the left side of the interface to begin the exercise.
 
    <img src="assets/apif-mod3/05/selectInputTab.png" alt="Input Set Tab" width="600" />
 
@@ -189,9 +189,12 @@ Next we need to substitute the `domain` value in the current GET request:
 1. Substitute `saucelabs.com` with the `${domain}` global parameter:
    <img src="assets/apif-mod3/05/editDomain.png" alt="Use domain Param", width="500" />
 1. Run the test again to ensure the test still passes with the same result.
-1. Repeat steps 1-3 above and create `protocol` and `endpoint` global parameters. The values for the respective params should be `https://` and `/versions.json` respectively
-1. Below is what the finished result should look like:
-   <img src="assets/apif-mod3/05/finishedResult2.png" alt="Finished Result of Global Params" width="500"/>
+1. Repeat steps 1-3 above and create `protocol` and `endpoint` global parameters. The values for the respective params should be `https://` and `/rest/v1/public/tunnels/info/versions` respectively.
+
+
+The finished result should look like this:
+
+<img src="assets/apif-mod3/05/finishedResult2.png" alt="Finished Result of Global Params" width="500"/>
 
 ### Note:
 Negative
@@ -205,22 +208,82 @@ In the next section we will cover how to store information as a an **Input Set**
 Duration: 0:07:00
 
 ### Input Sets
-An input set is an object (usually a group of input variables related to a specific scenario or use case), For example a list of relevant product ids returned from a product API endpoint.
+An input set is an object (usually a group of input variables related to a specific scenario or use case), For example a list of relevant product ids returned from a product API endpoint. In this module you will:
+
+* Create Input Sets
+* Add information about Sauce Connect Tunnels to an Input Set
+* Use Input Sets with a GET component
+* Create and run tests with Input Sets
 
 When you add and use an Input Set, it means you will run a separate instance of your tests for each Input Set created. For example, if you created three Input Sets for `username` and `password`, your tests would be run three times, using each set of credentials. An input sets are used within a single test.
 
-To add an input set select the **Input** tab in the top left, and select **Add Param to Default**.
+To add an input set select the **Input** tab in the top left. If there is a default input set, you will want to edit or delete it before creating your own.
 
-<img src="assets/apif-mod3/05/addInputSet.png" alt="Add Input Set", width="400"/>
+### Create Input Sets
 
-### Add an Input Set
+First, click on the **Input** button on the top left hand side of the test page, and under the **Input Set** section you create an input two Input Sets called `tunnel_owner_1` and `tunnel_owner_2`
 
+<img src="assets/apif-mod3/add_input_sets.png" alt="Add Input Set", width="500"/>
+
+In each of the input sets, add in the following sets of variables:
+
+```
+tunnel_owner_1
+
+owner
+xxxxx
+
+tunnel_id
+xxxx
+
+tunnel_owner_2
+
+owner
+xxxxx
+
+tunnel_id
+xxxx
+
+```
+You will replace the `x`s with values once you get owner and tunnel ids form the Sauce Labs Tunnels dashboard.
+
+### Get Information About Sauce Connect Tunnels
+For this course, we will be using Sauce Connect Tunnels, since this is something every Sauce Labs User can do. To learn how to start a tunnel, see the [video](https://www.youtube.com/watch?v=cpBcGeZ_wQU&t=9s) or [Module 1 of the Sauce Connect Course](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#1). You should use tunnels that you own, or shared tunnels you have access to start and stop.
+
+Start at least two tunnels, and go to the [Tunnels page on Sauce Labs](https://app.saucelabs.com/tunnels). Get the values for the **Tunnel ID** and **Owner**, and replace those values in the **Input Sets** you created on the API Testing dashboard.
+
+<img src="assets/apif-mod3/multiple_tunnels2.png" alt="Add Input Set", width="800"/>
 
 ### Add Parameters to the Input Sets
 
-### Create a New GET Component
+Now, you should have values like so (which match the values on the [Tunnels page](https://app.saucelabs.com/tunnels)):
+
+<img src="assets/apif-mod3/inputset_tunnel_owners.png" alt="Add Input Set", width="500"/>
+
+### Create a New GET Component with Input Sets
+Now, you will create another GET component in your **Sauce_Connect_Test** that will use the input sets you just created.
+
+This request will use the Sauce Connect API Call to [GET Tunnel Information](https://docs.saucelabs.com/dev/api/connect/#get-tunnel-information). Add a GET component to your test.
+ * For **Url** add in `https://api.us-west-1.saucelabs.com/rest/v1/${owner}/tunnels/${tunnel_id}`
+ * Store the response in the **Variable** `scpayload`
+
+ <img src="assets/apif-mod3/GET_SauceAPI.png" alt="Add Input Set", width="800"/>
+
+ You will also need to add a **Add Authentication** (Basic) with a Sauce username and access key  for a user who has access to both the tunnels you used in your Input Set.
+
 
 ### Use Input Sets in a Test
+
+Now, lets add two simple checks after this get request. Add in two components:
+
+* An **Assert Exists**, checking that there is in face, an `scpayload` variable with the response
+* Use the `owner` variable in an **Assert Equals** component, one that checks that the owner retrieved from the GET request matches the owner your set for that tunnel:
+
+<img src="assets/apif-mod3/sc_assert_equals.png" alt="Add Input Set", width="700"/>
+
+Now, once you save and **Run** your test, the test will be run one foe the input set `tunnel_owner1` and once for the input set
+
+<img src="assets/apif-mod3/Input_Sets_Tests.png" alt="Add Input Set", width="700"/>
 
 In the next section we will discover how to store some of the information we created in the [Vault](https://docs.saucelabs.com/api-testing/quick-start/the-vault#vault-overview).
 
@@ -296,7 +359,7 @@ To access the **Company Vault**
 1. Go to your Project page
 1. Select the **Company Vault**
 1. Select the **Variables** radial button
-1. Add the following variables from your AssertionTest: `${domain}`, `${protocol}`, `${endpoint}`
+1. Add the following variables from your Sauce_Connect_Test: `${domain}`, `${protocol}`, `${endpoint}`
 
 The end result should look like the screenshot below:
 
@@ -323,10 +386,8 @@ To export a Snippet into the Company Vault:
    <img src="assets/apif-mod3/05/export4.png" alt="Import the Snippet", width="500" />
 
 
-<<<<<<< HEAD
 This is a screenshot of the end result:
 <img src="assets/apif-mod3/05/export5.png" alt="Import the Snippet" />
-
 
 
 This approach is much easier than recreating the entire test from scratch! Run your test to see the report.
@@ -335,9 +396,7 @@ To learn more about The Vault and Environments see below links:
 * [Learn the Basics](https://docs.saucelabs.com/api-testing/mark3/quick-start/the-vault)
 * [Environments Basics](https://docs.saucelabs.com/api-testing/mark3/quick-start/environments-vault-and-overrides-magic)
 * [Using Variables](https://docs.saucelabs.com/api-testing/mark3/quick-start/flexible-variables-for-flexible-environments)
-=======
-To learn more about The Vault and Environments see below links: [Learn the Basics](https://docs.saucelabs.com/api-testing/mark2/quick-start/the-vault/), [Environments Basics](https://apifortress.com/doc/environments-vault-and-overrides-magic/), [Using Variables](https://docs.saucelabs.com/api-testing/quick-start/flexible-variables-for-flexible-environments)
->>>>>>> master
+
 
 <!-- ------------------------ -->
 
