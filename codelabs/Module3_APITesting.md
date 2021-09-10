@@ -1,4 +1,4 @@
-summary: Module 3 of the API Testing course. Now that you have learned the basics of API Testing and the API Fortress Interface, let's dive deeper into the test component library.
+summary: Module 3 of the API Testing course. In the last module, you used the capabilities of the API testing platform to auto-generate a test. In this module you willlearn about the components you can add to a test, and practice createing a test using assertion components, request components, global variables, input sets, and the vault.
 id: Module3-APITesting
 categories: beginner
 tags: zapi
@@ -8,7 +8,7 @@ feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
 author: James Tacker
 <!-- ------------------------ -->
-# Module 3 – Test Component Library
+# Module 3 – Create a Test Using Components
 
 <!------------------------------>
 
@@ -207,7 +207,7 @@ Duration: 0:07:00
 ### Input Sets
 An input set is an object (usually a group of input variables related to a specific scenario or use case), For example a list of relevant product ids returned from a product API endpoint.
 
-When you add and use an Input Set, it means you will run a separate instance of your tests for each Input Set Created. For example, if you created three Input Sets for `username` and `password`, your tests would be run three times, using each set of credentials. An input sets are used within a single test.
+When you add and use an Input Set, it means you will run a separate instance of your tests for each Input Set created. For example, if you created three Input Sets for `username` and `password`, your tests would be run three times, using each set of credentials. An input sets are used within a single test.
 
 To add an input set select the **Input** tab in the top left, and select **Add Param to Default**.
 
