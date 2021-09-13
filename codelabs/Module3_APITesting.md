@@ -97,15 +97,15 @@ Negative
 1. Select **+Add Request/Assertions** in the Tests page.
    <img src="assets/apif-mod3/05/addRequestComponent.png" alt="Add Request / Assertion", width="500" />
 1. Select the **GET Request** component and add the following data:
-   * url: `saucelabs.com/rest/v1/public/tunnels/info/versions`
+   * url: `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions`
    * var: `payload`
 
-   <img src="assets/apif-mod3/05/getMethod.png" alt="Add GET Request", width="400" />
+   <img src="assets/apif-mod3/getMethod.png" alt="Add GET Request", width="600" />
 
-   <img src="assets/apif-mod3/05/getRequestDetails.png" alt="Add GET Request", width="500" />
 
-1. This is what the finished result should look like:
-   <img src="assets/apif-mod3/05/finishedExample.png" alt="Finished result of GET component" />
+This is what the finished result should look like:
+
+   <img src="assets/apif-mod3/finishedExample.png" alt="Finished result of GET component" />
 
 In the next section you will work with  **Assertion** components, learning how they are a vital part of your API tests.
 
@@ -128,23 +128,30 @@ There are several assertions to choose from and below are a few examples, along 
 * **[Assert Contains](https://docs.saucelabs.com/api-testing/assertion-components/assert-contains)**: Checks an item has a specific substring (e.g. test the word _Uber_ for product names like: _UberX_, _UberBlack_, etc.)
 * **[Assert Is](https://docs.saucelabs.com/api-testing/assertion-components/assert-is)**: Checks whether the value of an item is correctly defined (e.g. _url_, _boolean_, _integer_, etc.)
 
+In this example, you will be checking that when you ping the endpoint `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions` that a payload is return (it exists) and the one of the fields, the `"info_url
+"` is in fact a url.
+
+If you check the **HTTP Client** tool you should see the elements we are checking for:
+
+<img src="assets/apif-mod3/APICallContent.png" alt="Finished Content of the API" width="700"/>
+
 ### Add an Assertion
 
 1. Open the previous test  you created, called **Sauce_Connect_Test**.
 1. Select **+Add Request/Assertions**, and select **Assert Exists** with the following data:
-   * Expression: `payload['Sauce Connect']`
+   * Expression: `payload['downloads']`
    * Mode: `one`
    * Click the check mark to save
-     <img src="assets/apif-mod3/05/assertExists.png" alt="Assert Exists Component" />
+     <img src="assets/apif-mod3/assertExists.png" alt="Assert Exists Component" />
 1. Next, select **+Add Request/Assertions** again. This time select **Assert Is**, and add the following data:
-   * Expression: `payload['Sauce Connect'].info_url`
+   * Expression: `payload['info_url`]
    * Type: `url`
    * Click the check mark to save
-     <img src="assets/apif-mod3/05/assertIs.png" alt="Assert Is Component" />
+     <img src="assets/apif-mod3/assertIs.png" alt="Assert Is Component" />
 1. Here's what the final result should look like:
-   <img src="assets/apif-mod3/05/finishedAssertionResult.png" alt="Finished Assertion Results" />
+   <img src="assets/apif-mod3/finishedAssertionResult.png" alt="Finished Assertion Results" />
 1. Click **Save** to save your test, then select **Run**. The test results should show up in the UI:
-   <img src="assets/apif-mod3/05/finishedTest.png" alt="Finished Assertion Result" width="700"/>
+   <img src="assets/apif-mod3/finishedTest.png" alt="Finished Assertion Result" width="700"/>
 
 
 ### Recap
