@@ -192,9 +192,9 @@ In your **Sauce_Connect_Test** navigate and select the **Input** tab on the left
 1. Select **Add Global Param** in the _Global Parameters_ section
 1. Add the following data to the global parameter:
    * Name: `domain`
-   * Value: `saucelabs.com`
+   * Value: `api.us-west-1.saucelabs.com`
 
-   <img src="assets/apif-mod3/05/addDomain.png" alt="Domain Parameter" />
+   <img src="assets/apif-mod3/addDomain.png" alt="Domain Parameter" />
 
    The parameter now appears in the **Global Parameters** section
    <img src="assets/apif-mod3/05/domainResult.png" alt="Domain in Global Param section", width="500" />
@@ -399,7 +399,7 @@ To access the **Company Vault**
 1. Add the following variables from your Sauce_Connect_Test:
 
 ```
-domain = saucelabs.com
+domain = api.us-west-1.saucelabs.com
 
 protocol = https://
 
