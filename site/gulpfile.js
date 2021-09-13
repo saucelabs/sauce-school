@@ -257,21 +257,10 @@ gulp.task('codelabs:export', (callback) => {
   }
 });
 
-// build:sitemap builds the sitemap based .html tags, and places in the build directory
-gulp.task('build:sitemap', () => {
-  const srcs = [
-    'app/**/*.html',
-  ];
-  return gulp.src(srcs, { base: 'app/', read: false })
-      .pipe(sitemap({siteUrl: `${BASE_URL}`}))
-      .pipe(gulp.dest('build'));
-});
-
 gulp.task('copy', () => {
   return gulp.src('app/public/**/*')
     .pipe(gulp.dest('build'));
 });
-
 
 // build builds all the assets
 gulp.task('build', gulp.series(
@@ -284,8 +273,7 @@ gulp.task('build', gulp.series(
   'build:js',
   'build:elements_js',
   'build:vulcanize',
-  'build:sitemap',
-  'copy'
+  'copy',
 ));
 
 // copy copies the built artifacts in build into dist/
@@ -330,11 +318,28 @@ gulp.task('minify:js', () => {
     .pipe(gulp.dest('dist'));
 });
 
+// build:sitemap builds the sitemap based .html tags, and places in the build directory
+gulp.task('build:sitemap', () => {
+  const srcs = [
+    'dist/**/*.html',
+    '!dist/bower_components/**/*.html',
+    '!dist/codelabs/**/*.html',
+    '!dist/default/**/*.html',
+    '!dist/elements/**/*.html',
+    '!dist/scripts/**/*.html',
+    '!dist/styles/**/*.html',
+  ];
+  return gulp.src(srcs, { base: 'dist/', read: false })
+      .pipe(sitemap({siteUrl: `${BASE_URL}`}))
+      .pipe(gulp.dest('dist'));
+});
+
 // minify minifies all minifiable things in dist
 gulp.task('minify', gulp.parallel(
   'minify:css',
   'minify:html',
   'minify:js',
+  'build:sitemap'
 ));
 
 // dist packages the build for distribution, compressing and condensing where
@@ -385,7 +390,7 @@ gulp.task('watch:images', () => {
 
 // watch:sitemap watches sitemap file for changes and updates it
 gulp.task('watch:sitemap', () => {
-  gulp.watch('app/sitemap.xml', gulp.series('build:sitemap'));
+  gulp.watch('app/public/sitemap.xml', gulp.series('build:sitemap'));
 });
 
 // watch:images watches js files for changes and re-builds them
