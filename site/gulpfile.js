@@ -18,6 +18,7 @@ const useref = require('gulp-useref');
 const vulcanize = require('gulp-vulcanize');
 const replace = require('gulp-replace');
 const connect = require('gulp-connect');
+const sitemap = require('gulp-sitemap');
 
 // Uglify ES6
 const uglifyes = require('uglify-es');
@@ -256,10 +257,21 @@ gulp.task('codelabs:export', (callback) => {
   }
 });
 
+// build:sitemap builds the sitemap based .html tags, and places in the build directory
+gulp.task('build:sitemap', () => {
+  const srcs = [
+    'app/**/*.html',
+  ];
+  return gulp.src(srcs, { base: 'app/', read: false })
+      .pipe(sitemap({siteUrl: `${BASE_URL}`}))
+      .pipe(gulp.dest('build'));
+});
+
 gulp.task('copy', () => {
   return gulp.src('app/public/**/*')
     .pipe(gulp.dest('build'));
 });
+
 
 // build builds all the assets
 gulp.task('build', gulp.series(
@@ -272,6 +284,7 @@ gulp.task('build', gulp.series(
   'build:js',
   'build:elements_js',
   'build:vulcanize',
+  'build:sitemap',
   'copy'
 ));
 
@@ -370,6 +383,11 @@ gulp.task('watch:images', () => {
   gulp.watch('app/images/**/*', gulp.series('build:images'));
 });
 
+// watch:sitemap watches sitemap file for changes and updates it
+gulp.task('watch:sitemap', () => {
+  gulp.watch('app/sitemap.xml', gulp.series('build:sitemap'));
+});
+
 // watch:images watches js files for changes and re-builds them
 gulp.task('watch:js', () => {
   const srcs = [
@@ -391,6 +409,7 @@ gulp.task('watch', gulp.parallel(
   'watch:css',
   'watch:html',
   'watch:images',
+  'watch:sitemap',
   'watch:js',
   'watch:codelabs',
 ));
