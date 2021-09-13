@@ -331,7 +331,7 @@ gulp.task('build:sitemap', () => {
   ];
   return gulp.src(srcs, { base: 'dist/', read: false })
       .pipe(sitemap({siteUrl: `${BASE_URL}`}))
-      .pipe(gulp.dest('dist'));
+      .pipe(gulp.dest('dist' && 'app/public'));
 });
 
 // minify minifies all minifiable things in dist
