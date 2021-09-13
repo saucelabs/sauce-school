@@ -2,7 +2,7 @@ summary: Module 3 of the API Testing course. In this module you will learn about
   {%- endif -%}
 id: Module3-APITesting
 categories: intermediate
-tags: zapis
+tags: zapi
 environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
