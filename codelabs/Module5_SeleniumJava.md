@@ -351,13 +351,13 @@ You also don’t want to put the output for the reporting to be created in a fil
 
 ### Part 2: Run Parallel Tests
 
-Before you get started, head to the [Sauce Labs Dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) and look under **Account > User settings** and check out how many tests you (and your team) can run at once.
+Before you get started, head to [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) and look under **Account** > **User settings** and check out how many tests you (and your team) can run at once.
 
 <img src="assets/5.04C.png" alt="Sauce W3C case" width="650"/>
 
 Once you are sure that you are able to run tests in parallel (you should have less tests than your concurrency limit), you can run your tests. If you send more jobs than your concurrency limit, Sauce Labs will queue the excess and run them as the initial batch of jobs finish.
 
-Run `mvn clean test -Dhost=saucelabs` and visit the [Sauce Labs Dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)while your tests are running. You should see more than one test running at the same time, and notice that your test suite as a whole runs more quickly! You can see the completed code [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod5/5.04).
+Run `mvn clean test -Dhost=saucelabs` and visit [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) while your tests are running. You should see more than one test running at the same time, and notice that your test suite as a whole runs more quickly! You can see the completed code [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod5/5.04).
 
 <img src="assets/5.04H.png" alt="Concurrent tests running" width="650"/>
 
@@ -524,7 +524,7 @@ mvn clean test -Dgroups=tests.groups.Shallow,tests.groups.Deep
 ```
 
 
-Try running your tests with the following commands above, and check to see if the same tests are run on the Sauce Labs dashboard:
+Try running your tests with the following commands above, and check to see if the same tests are run on Sauce Labs:
 
 <img src="assets/5.05F.png" alt="Running grouped tests" width="850"/>
 
@@ -914,7 +914,7 @@ You don’t have to do anything to set the variable, or install any software or 
 
 Run your tests in Jenkins using **Build Now**. (You can change the build configuration to run all tests vy removing the `-m deep` flag.)
 
-If you look on the Sauce Labs dashboard, you should see tests being run, an active tunnel, and even past builds listed:
+If you look on Sauce Labs, you should see tests being run, an active tunnel, and even past builds listed:
 
 <img src="assets/5.07Q.png" alt="Sauce Labs Builds" width="450"/>
 

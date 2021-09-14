@@ -1,4 +1,5 @@
-summary: Module 3 of the API Testing course. Now that you have learned the basics of API Testing and the API Fortress Interface, let's dive deeper into the test component library.
+summary: Module 3 of the API Testing course. In this module you will learn about the components you can add to a test, and practice creating a test using assertion components, request components, global variables, input sets, and the vault.
+  {%- endif -%}
 id: Module3-APITesting
 categories: beginner
 tags: zapi
@@ -8,7 +9,7 @@ feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
 author: James Tacker
 <!-- ------------------------ -->
-# Module 3 – Test Component Library
+# Module 3 – Create a Test with Test Components
 
 <!------------------------------>
 

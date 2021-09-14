@@ -83,7 +83,7 @@ Using Cypress alongside Sauce Labs also allow you to:
 By default, when you use saucectl, it works by passing your entire test suite, including dependencies and configurations to Sauce Labs Cloud of Virtual Machines, where your tests will be executed as per your configurations. Use the command `saucectl run` or update `mode: sauce` in `config.yml`, to run your tests on Sauce Labs VMs.
 
 #### Docker Mode
-With saucectl, you can also install Docker and run a containerized version of your test environment, then pass the results to the Sauce Labs Dashboard , by setting `mode: docker` in `config.yml`.`
+With saucectl, you can also install Docker and run a containerized version of your test environment, then pass the results to your Sauce Labs account, by setting `mode: docker` in `config.yml`.`
 
 
 <!-- ------------------------ -->
@@ -253,7 +253,7 @@ Take a look at the top of the config file. There are several important elements 
 *   The `cypress` information tells your cypress tests where to look for the test configuration file, and which version of cypress you are running. Other file locations are relative to where `config.json` is place. See the docs for a [list of supported versions](https://docs.saucelabs.com/testrunner-toolkit)
 * An optional setting is where the `rootDir` or root directory is placed
 * The `sauce` information. Here is where you will put information that will be passed to sauce and can be used for debugging tests, such as the name, `build` number from your CI tool, and number of machines you would like to run concurrently
-*   The `suites` information includes the name, browser, and the configuration for your test suites such as what types of file names to look for to run as tests, and other metadata that is passed to the Sauce Labs dashboard for running tests and displaying results.
+*   The `suites` information includes the name, browser, and the configuration for your test suites such as what types of file names to look for to run as tests, and other metadata that is passed to your Sauce Labs account for running tests and displaying results.
   * The `config: testFiles:` specify the directory relative to `cypress.json` or `rootDir` and the file names of your tests
 *   The `artifact` information includes what assets (such as images and videos of your tests) are fetched and stored locally. The options for downloading assets include `always`, `never`, `pass`, `fail`.
 
