@@ -344,7 +344,24 @@ Once you have several tunnels configured to restart on more than one machine, an
 You have now set up resilient, secure testing infastructure with the Sauce Labs Cloud, which comes with the peace of mind that if a single tunnel or server fails, your tests will still run and you can deliver digital confidence.
 
 <!-- ------------------------ -->
-## 2.05 Set Up Sauce Connect with Github Actions
+## 2.05 Set Up Sauce Connect in CI
+Duration: 0:03:00
+
+In this module, we will explore how and when a Sauce Connect tunnel can be used with a Continuous Integration (CI) tool. CI tools are used to start automated tests, and can also be used to spin up (host) an instance of the application you are testing.
+
+There are different ways you can configure the setup of your application (system) under test, your test suites, the Sauce Connect host, and the Sauce Labs Cloud of virtual machines. We will cover a couple use cases that will work with Sauce Connect:
+
+* Hosting your system under test, and application tests in separate environments
+* Hosting your system under test and an application in the same secure environment 
+
+The most important thing you need to understand is that the Sauce Connect proxy software needs to be running in the same environment that your system under test is running.
+
+### Test Scenarios
+
+You application
+
+<!-- ------------------------ -->
+## 2.06 Sauce Connect Example with Github Actions
 Duration: 0:07:00
 
 In this lesson you will be creating a repo in GitHub actions that includes a Selenium Java test and a workflow that can run a Sauce Connect tunnel in Github actions, and test against the [Sauce Labs Demo app](https://www.saucedemo.com/).
@@ -439,9 +456,5 @@ jobs:
 
 
 <!-- ------------------------ -->
-## Section 1
-Duration: 0:10:00
-
-<!-- ------------------------ -->
-## Section 1
+## 2.07 Module 2 Quiz
 Duration: 0:10:00
