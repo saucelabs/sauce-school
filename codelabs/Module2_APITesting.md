@@ -36,9 +36,8 @@ However, you can try and follow along using other tools like [Postman](https://w
 
 ### Getting Started with API Fortress
 
-If you don't have an API Fortress account, you can [visit the API Fortress home page](https://apifortress.com/), and select the **Free Trial** button at the top to request a 30-day free trial.
+If you don't have an API Fortress account you can [Create a Sauce Labs Account](https://saucelabs.com/sign-up/), and get started with a free trial. You can now access [API testing](https://app.saucelabs.com/api-testing).
 
-After you fill out the necessary fields, you then receive an email with your login credentials for the platform.
 
 > **NOTE**: If you don't receive an email confirmation, check your spam folder or please email [support@saucelabs.com](support@saucelabs.com) for assistance.
 
@@ -67,11 +66,7 @@ For this first test project, we will test against the Sauce Labs API.
 ## 2.03 Create the API Test
 Duration: 0:04:00
 
-We now have a project in which we can begin writing API Tests. Let's create the first API Test!
-
-#### Note:
-Negative
-: You must have a [API Fortress account](https://apifortress.com/) in order to follow along in this step. [Use this link](https://saucelabs.com/sign-up) to sign up for a free trial. If you have an account, [Sign In](https://mastiff.apifortress.com/app/web/login/auth).
+We now have a project in which we can begin writing API Tests. Let's create the first API Test. Sign in to Sauce Labs and access [API testing](https://app.saucelabs.com/api-testing).
 
 
 #### Create a Test File
@@ -220,7 +215,16 @@ Duration: 0:01:00
 If your previous step ran without any errors, you should see the following test results page:
 <img src="assets/apif-mod2/01/testResults.png" alt="API Fortress: Test Results Page 1" />
 
-If you ran into any errors, they appear here along with troubleshooting tips.
+If you ran into any errors, they appear here.
+
+### Troubleshooting API Test Errors
+
+If you are getting  a test error, and want to find out more about what an HTTP call you are making is returning, The HTTP Client, accessible from your project dashaboard, can be a useful tool.
+
+You can use the HTTP Client to send a request, and even add in headers (suach as authorization credentials) &  other information to  a
+
+<img src="assets/apif-mod2/HTTP_Test.png" alt="Add Global Parameter", width="600"/>
+
 <!-- ------------------------ -->
 
 ## 2.06 Schedule and Publish a Test
