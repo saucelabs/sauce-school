@@ -8,7 +8,7 @@ analytics account: UA-86110990-1
 tags: saucectl-native
 authors: Lindsay Walker
 <!-- ------------------------ -->
-# Module 1 – Intro to saucectl with XCUITest on iOS
+# Module 1 – Intro to saucectl with XCUI
 
 <!-- ------------------------ -->
 ## 1.01 What You'll Learn
@@ -79,14 +79,16 @@ Using XCUI along with Sauce Labs also allows you to:
 By default, when you use saucectl, it works by passing your entire test suite, including dependencies and configurations to Sauce Labs Cloud of Virtual Machines, where your tests will be executed as per your configurations. Use the command `saucectl run` or update `mode: sauce` in `config.yml`, to run your tests on Sauce Labs VMs.
 
 #### Docker Mode
-With saucectl, you can also install Docker and run a containerized version of your test environment, then pass the results to the Sauce Labs Dashboard , by setting `mode: docker` in `config.yml`. 
+With saucectl, you can also install Docker and run a containerized version of your test environment, then pass the results to the Sauce Labs Dashboard , by setting `mode: docker` in `config.yml`.
 
 
 <!-- ------------------------ -->
 ## 1.03 Setup saucectl to Run Tests on Sauce Labs
 Duration: 0:07:00
 
-<!-- In this module, you will see how you can set up   saucectl on Sauce Labs VMs _or_ use saucectl along with Docker on your MacOS Computer. The basic steps include:
+text
+
+In this module, you will see how you can set up   saucectl on Sauce Labs VMs _or_ use saucectl along with Docker on your MacOS Computer. The basic steps include:
 
 * Setup an [example Cypress project](https://github.com/saucelabs/saucectl-cypress-example)
 * Install saucectl with `npm i -g saucectl`
@@ -98,17 +100,17 @@ _More detailed instructions are below_
 
 #### Video
 
-[Cypress and saucectl Setup](https://www.youtube.com/watch?v=XCzmAbXyK-A&list=PL67l1VPxOnT7YTdCbpvSpJ8FF-sNxm8r-&index=1)
+<!-- [XCUI and saucectl Setup]()
 
-<video id="XCzmAbXyK-A"></video>
+<video id=""></video> -->
 
 
 Negative
-: Note that the config file in the video may be out of date, and the [correct configuration can be found in the documentation.](https://docs.staging.saucelabs.net/testrunner-toolkit/configuration/cypress). This video also doesn't include the `.sauceignore` file, where you can list the files & directories you don't want uploaded when you run your tests in _sauce mode_.
+: Note that the config file in the video may be out of date, and the most up-to date [configuration can be found in the documentation.](https://docs.saucelabs.com/testrunner-toolkit/configuration/xcuitest/).
 
 ### Download and Install saucectl
 
-Next you need to download and install the saucectl Command Line Interface (CLI) that you will use to run Sauce Labs. This is a part of the Sauce Labs set of tools that allows you to set a configuration location & update the file in your local directory.  There are several options (https://docs.saucelabs.com/testrunner-toolkit/installation) for installing it, and in this tutorial we will use npm, which means you need to have [NodeJS installed on your machine](https://nodejs.org/en/download/).
+First, you need to download and install the saucectl Command Line Interface (CLI) that you will use to run Sauce Labs. This is a part of the Sauce Labs set of tools that allows you to set a configuration location & update the file in your local directory.  There are several options (https://docs.saucelabs.com/testrunner-toolkit/installation) for installing it, and in this tutorial we will use npm, which means you need to have [NodeJS installed on your machine](https://nodejs.org/en/download/).
 
 It also allows you to run commands to run tests locally or remotely on the Sauce Labs platform.
 
@@ -117,9 +119,9 @@ First, anywhere on your machine install the saucectl tool globally, using this c
 `npm i -g saucectl`.
 
 
-### Cypress Test Code
+### XCUI Test Code
 
-You want to fork, clone or download a .zip copy of the [example project](https://docs.saucelabs.com/testrunner-toolkit/installation), then place your tests in the **cypress** directory that contains your tests.
+<!-- You want to fork, clone or download a .zip copy of the [example project](https://docs.saucelabs.com/testrunner-toolkit/installation), then place your tests in the **cypress** directory that contains your tests.
 
 You have the following options to test out Cypress on Sauce:
 * Use an existing project you have already (copy-paste in `/cypress` & `cypress.json`)
@@ -176,6 +178,8 @@ Once you make all the choices in your workflow, you should be able to see the hi
 <!-- ------------------------ -->
 ## 1.04 Customize Your Test Runs
 Duration: 0:03:00
+
+text
 
 <!-- ### The Configuration File
 
@@ -273,6 +277,8 @@ See the next module for more about running tests with the command `saucectl run`
 <!-- ------------------------ -->
 ## 1.05 Run Your XCUI Test on Sauce
 Duration: 0:03:00
+
+text
 
 <!-- Running a Cypress test on sauce is easy. If you follow the configuration steps using `saucectl init` in the last module, all you need to do is run the command:
 
@@ -459,6 +465,8 @@ See an example of the test suite with [updated suites in `.sauce/config.yml`](ht
 ## 1.06 Run Cypress Tests in Parallel
 Duration: 0:03:00
 
+text
+
 <!-- Running Cypress tests in parallel on the Sauce Labs Cloud using the saucectl is as simple as updating a single field in your `.sauce/config.yml` file:
 
 <img src="assets/TRT1.05A.gif" alt="Sauce Cypress Test Results" width="850"/>
@@ -507,12 +515,21 @@ To find out more about the names for the different browser and platform  (OS) co
 See [an example suite](https://github.com/walkerlj0/testrunner-course-example-code/blob/main/Mod1/1.05/.sauce/config.yml) set to run in parallel on multiple browsers. -->
 
 <!-- ------------------------ -->
-## 1.07 Setup the Slack Plugin
+## 1.08 Check `config.yml` Syntax
 Duration: 0:02:00
+
+Lesson about installing and using JSON schema
 
 <!-- ------------------------ -->
-## 1.08 Module 1 Quiz
+## 1.09 Setup the Slack Plugin
 Duration: 0:02:00
 
+text
 
-![embedURL](linkURl)
+<!-- ------------------------ -->
+## 1.10 Module 1 Quiz
+Duration: 0:02:00
+
+text
+
+<!-- ![embedURL](linkURl) -->
