@@ -56,8 +56,10 @@ If you select the **Tag** component at the top, it will automatically add this c
 
 You can add any of the following components to your test, depending on your use case. For an example some examples in the screenshot below:
 
-* **Comment**: When executed, adds a comment to the document, to better describe steps or leaves notes.
-* **Flow**: Creates a flow component for your test.
+
+* **Update Input**: Store and/or updates a variable in an _input set_.
+* **JDBC**: Connect this request to a database using a [JDBC API](https://en.wikipedia.org/wiki/Java_Database_Connectivity#).
+
 * **K/V Store**: Store and retrieve ephemeral data from a `key:value` store.
 * **Fake**: Generates fake data for your test, particularly for `POST` and `PUT` requests.
 
@@ -86,7 +88,7 @@ Refer to the [API Testing Basics](https://training.saucelabs.com/codelabs/Module
 
 ### Note:
 Negative
-: In the previous module, [_Introduction to API Fortress_](https://training.saucelabs.com/codelabs/Module2-APITesting/index.html#0), we used the **Generate Test** button. This button automagically generates the HTTP request, assertions, and other test elements so that you can focus on the more intricate and tricky parts of your tests. In this module we will build a test from scratch in order to understand the importance of assertions, but refer back to that test for inspiration and ideas on how to design your assertions.
+: In the previous module, [_Introduction to API Fortress_](https://training.saucelabs.com/codelabs/Module2-APITesting/index.html#0), we used the **Generate Test** button. This button automatically generates the HTTP request, assertions, and other test elements so that you can focus on the more intricate and tricky parts of your tests. In this module we will build a test from scratch in order to understand the importance of assertions, but refer back to that test for inspiration and ideas on how to design your assertions.
 
 ### Add a GET Request Component
 
@@ -107,7 +109,7 @@ This is what the finished result should look like:
 
    <img src="assets/apif-mod3/finishedExample.png" alt="Finished result of GET component" />
 
-In the next section you will work with  **Assertion** components, learning how they are a vital part of your API tests.
+In the next section you will work with **Assertion** components, learning how they are a vital part of your API tests.
 
 <!-- ------------------------ -->
 
@@ -124,9 +126,9 @@ In order to validate an API endpoint works properly, you must _assert_ whether t
 
 There are several assertions to choose from and below are a few examples, along with the accompanying documentation:
 
-* **[Assert Exists](https://docs.saucelabs.com/api-testing/assertion-components/assert-exists)**: Checks whether an item exists or not
-* **[Assert Contains](https://docs.saucelabs.com/api-testing/assertion-components/assert-contains)**: Checks an item has a specific substring (e.g. test the word _Uber_ for product names like: _UberX_, _UberBlack_, etc.)
-* **[Assert Is](https://docs.saucelabs.com/api-testing/assertion-components/assert-is)**: Checks whether the value of an item is correctly defined (e.g. _url_, _boolean_, _integer_, etc.)
+* **[Assert Exists](https://docs.saucelabs.com/api-testing/assertion-components/assert-exists)**: Checks whether an item exists or not.
+* **[Assert Contains](https://docs.saucelabs.com/api-testing/assertion-components/assert-contains)**: Checks an item has a specific substring (e.g., test the word _Uber_ for product names like: _UberX_, _UberBlack_)
+* **[Assert Is](https://docs.saucelabs.com/api-testing/assertion-components/assert-is)**: Checks whether the value of an item is correctly defined (e.g., _url_, _boolean_, _integer_)
 
 In this example, you will be checking that when you ping the endpoint `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions` that a payload is return (it exists) and the one of the fields, the `"info_url
 "` is in fact a url.
