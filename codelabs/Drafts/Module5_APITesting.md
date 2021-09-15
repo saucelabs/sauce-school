@@ -31,7 +31,7 @@ To access a published test that you want to schedule, go to the test list within
 ## 5.02 Executing Scheduled API Tests
 Duration: 0:05:00
 
-Just as important as testing an API before and after release is validating that API is always up and functioning as expected. This is the difference between _Uptime_ (which an API can measure) and _Functional Uptime_, which is a powerful and unique aspect of the API testing platform .
+Just as important as testing an API before and after release is validating that API is always up and functioning as expected. This is the difference between _Uptime_ (which an API can measure) and _Functional Uptime_, which is a powerful and unique aspect of the API testing platform.
 
 Ultimately, it means using your existing detailed functional/integration tests, and scheduling them to run against a live environment. This way they are constantly testing for uptime, functionality, and performance. Take a look at the details on [using the scheduler](https://docs.saucelabs.com/api-testing/quick-start/schedule-a-test):
 
@@ -48,7 +48,7 @@ Duration: 0:03:00
 
 ### By API
 
-The platform has extensive APIs specifically created to empower engineers and testers to execute tests however they choose. You can read more about integration into a CI pipeline here. For specific use cases see some below, or search our docs.
+The platform has extensive APIs specifically created to empower engineers and testers to execute tests however they choose. You can read more about integration into a CI pipeline here. For specific use cases, see some below, or search our docs.
 
 - [Jenkins](https://docs.saucelabs.com/api-testing/ci/jenkins/using-the-api)
 - [Bamboo](https://docs.saucelabs.com/api-testing/ci/connecting-with-bamboo)
