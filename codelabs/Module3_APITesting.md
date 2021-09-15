@@ -19,13 +19,13 @@ Duration: 0:02:00
 Below are the primary learning objectives for this module:
 
 **Assertions and Request Components**
-* Determine the different types of assertions and requests you can use with your API test
-* Understand the different types of output when adding assertions to an a API test
+* Determine the different types of assertions and requests you can use with your API test.
+* Understand the different types of output when adding assertions to an a API test.
 * Understand the various use cases for adding a request component to an API test.
 
 **Variables**
-* Understand the difference between global variables and input sets
-* Demonstrate how to store sensitive variable data and/or secrets in the Vault
+* Understand the difference between global variables and input sets.
+* Demonstrate how to store sensitive variable data and/or secrets in the Vault.
 
 
 <!------------------------------>
@@ -53,7 +53,7 @@ If you select the **Tag** component at the top, it will automatically add this c
 
 You can add any of the following components to your test, depending on your use case. For example:
 
-* **Update Input**: Store and/or updates a variable in an _input set_
+* **Update Input**: Store and/or updates a variable in an _input set_.
 * **JDBC**: Connect this request to a database using a [JDBC API](https://en.wikipedia.org/wiki/Java_Database_Connectivity#).
 * **K/V Store**: Store and retrieve ephemeral data from a `key:value` store.
 
@@ -78,7 +78,7 @@ Refer to the [API Testing Basics](https://training.saucelabs.com/codelabs/Module
 
 ### Note:
 Negative
-: In the previous module, [_Introduction to API Fortress_](https://training.saucelabs.com/codelabs/Module2-APITesting/index.html#0), we used the **Generate Test** button. This button automagically generates the HTTP request, assertions, and other test elements so that you can focus on the more intricate and tricky parts of your tests. In this module we will build a test from scratch in order to understand the importance of assertions, but refer back to that test for inspiration and ideas on how to design your assertions.
+: In the previous module, [_Introduction to API Fortress_](https://training.saucelabs.com/codelabs/Module2-APITesting/index.html#0), we used the **Generate Test** button. This button automatically generates the HTTP request, assertions, and other test elements so that you can focus on the more intricate and tricky parts of your tests. In this module we will build a test from scratch in order to understand the importance of assertions, but refer back to that test for inspiration and ideas on how to design your assertions.
 
 ### Exercise: Add a GET Request Component
 
@@ -95,7 +95,7 @@ Negative
 1. This is what the finished result should look like:
    <img src="assets/apif-mod3/example_get_component.png" alt="Finished result of GET component" />
 
-In the next section you will work with  **Assertion** components, learning how they are a vital part of your API tests.
+In the next section you will work with **Assertion** components, learning how they are a vital part of your API tests.
 
 <!-- ------------------------ -->
 
@@ -108,13 +108,13 @@ In order to validate an API endpoint works properly, you must _assert_ whether t
 
 There are several assertions to choose from and below are a few examples, along with the accompanying documentation:
 
-* **[Assert Exists](https://docs.saucelabs.com/api-testing/assertion-components/assert-exists)**: Checks whether an item exists or not
-* **[Assert Contains](https://docs.saucelabs.com/api-testing/assertion-components/assert-contains)**: Checks an item has a specific substring (e.g. test the word _Uber_ for product names like: _UberX_, _UberBlack_, etc.)
-* **[Assert Is](https://docs.saucelabs.com/api-testing/assertion-components/assert-is)**: Checks whether the value of an item is correctly defined (e.g. _url_, _boolean_, _integer_, etc.)
+* **[Assert Exists](https://docs.saucelabs.com/api-testing/assertion-components/assert-exists)**: Checks whether an item exists or not.
+* **[Assert Contains](https://docs.saucelabs.com/api-testing/assertion-components/assert-contains)**: Checks an item has a specific substring (e.g., test the word _Uber_ for product names like: _UberX_, _UberBlack_)
+* **[Assert Is](https://docs.saucelabs.com/api-testing/assertion-components/assert-is)**: Checks whether the value of an item is correctly defined (e.g., _url_, _boolean_, _integer_)
 
 ### Exercise: Add an Assertion
 
-1. Open the previous test  you created, called **AssertionTest**.
+1. Open the previous test you created, called **AssertionTest**.
 1. Select **+Add Request/Assertions**, and select **Assert Exists** with the following data:
    * Expression: `payload['Sauce Connect']`
    * Mode: `one`
@@ -125,7 +125,7 @@ There are several assertions to choose from and below are a few examples, along 
    * Click the check mark to save
 1. Here's what the final result should look like:
    <img src="assets/apif-mod3/sample_payload_test.png" alt="Sample Payload Test" />
-1. Click **Save** to save your test, then select **Run > Default Downloader**. The test results should look like this:
+1. Click **Save** to save your test, then select **Run** > **Default Downloader**. The test results should look like this:
    <img src="assets/apif-mod3/sample_test_results.png" alt="Sample Test Results" />
 
 ### Recap
@@ -133,7 +133,7 @@ There are several assertions to choose from and below are a few examples, along 
 * We created an **Assertion** to validate the "Sauce Connect" object existed
 * We created another **Assertion** to verify that the object field "download_url" was indeed a `url`
 
-In the next section we will cover how to store information as a **Global Variable**, or an **Input Set**.
+In the next section, we will cover how to store information as a **Global Variable**, or an **Input Set**.
 
 <!-- ------------------------ -->
 
@@ -149,16 +149,16 @@ As the complexity and number of tests in your test suite increase, it's a best p
 
 The global variables (referred to as **parameters** in the API Fortress interface), are usually common variables designed to run with an entire test such as authentication API Key, or a domain name. Global variables can be used across different tests in a project.
 
-To add a global variable/parameter select the **Input Set** tab to the right of the interface, and select **Add Global Param**.
+To add a global variable/parameter, select the **Input Set** tab to the right of the interface, and select **Add Global Param**.
 
 <img src="assets/apif-mod3/APIF3.05A.png" alt="Sample Test Results" width="400"/>
 
 
 ### Input Sets
 
-An input set differs from a global parameter in that it is usually a group of input variables related to a specific scneario or contextual use case—for example a list of relevant product ids returned from a product API endpoint. Input sets are used within a single test.
+An input set differs from a global parameter in that it is usually a group of input variables related to a specific scenario or contextual use case (e.g., a list of relevant product ids returned from a product API endpoint). Input sets are used within a single test.
 
-To add an input set select the **Input Set** tab to the right of the interface, and select **Input Set**.
+To add an input set, select the **Input Set** tab to the right of the interface, and select **Input Set**.
 
 ### Create Global Parameters
 
@@ -173,7 +173,7 @@ Navigate and select the Input Set tab on the left side of the interface to begin
    * Value: `saucelabs.com`
    <img src="assets/apif-mod3/domain-param.png" alt="Domain Parameter" />
 
-Next we need to substitute the `domain` value in the current GET request:
+Next, we need to substitute the `domain` value in the current GET request:
 1. In the menu to the left of the **GET** request component, select **Edit component**
    <img src="assets/apif-mod3/edit-component.png" alt="Edit Component" />
 1. Substitute `saucelabs.com` with the `${domain}` global parameter:
@@ -187,7 +187,7 @@ Next we need to substitute the `domain` value in the current GET request:
 Negative
 : Please refer to the documentation for further information on [using variables](https://docs.saucelabs.com/api-testing/quick-start/flexible-variables-for-flexible-environments).
 
-In the next section we will discover how to store some of the information we created in the [Vault](https://docs.saucelabs.com/api-testing/quick-start/the-vault#vault-overview).
+In the next section, we will discover how to store some of the information we created in the [Vault](https://docs.saucelabs.com/api-testing/quick-start/the-vault#vault-overview).
 
 <!-- ------------------------ -->
 ## 3.06 The Vault
@@ -195,7 +195,7 @@ Duration: 0:07:00
 
 The Vault is a unique feature of the API Fortress platform that allows you to store information for use across all projects. While Input Sets are typically only used within the same test or project, the vault allows you to store things that can be used across any project.
 
-The Vault allows you to save more than just variables, with the vault you can save, edit, and reuse almost anything including:
+The Vault allows you to save more than just variables. With the vault, you can save, edit, and reuse almost anything including:
 
 * Variables
 * Code snippets (think reused authentication flows)
@@ -208,7 +208,7 @@ Negative
 : If you plan on re-using code snippets from the Vault, make sure those variables remain consistent across each test. Also note that if you add an input set or global parameter with the same name, those values will override what is saved in the Vault.
 
 ### Exercise: Use the Vault to Store a Snippet
-To add a snippet to your account.
+To add a snippet to your account:
 1. Select the elements you wish to store (hold **SHIFT** and click _first and last elements_ to select a range).
 1. Open the Vault side Menu. Then select the `+` icon next to **Snippets**:
    <img src="assets/apif-mod3/select-snippets.png" alt="Select Snippets" />
@@ -246,7 +246,7 @@ Access the Vault and add variables and code snippets by first clicking on the **
 
 <img src="assets/apif-mod3/access-vault.png" alt="Vault in the Toolbar" />
 
-From here you can access and edit code for snippets:
+From here, you can access and edit code for snippets:
 
 <img src="assets/apif-mod3/access-snippet.png" alt="Access Snippet" />
 
