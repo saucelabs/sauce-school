@@ -1,6 +1,6 @@
 {
   "title": "Native App Tests on Sauce Labs",
-  "description": "This course offers lessons to help users get up and running with XCUI tests using the Sauce Labs Clous and saucectl",
+  "description": "This course offers lessons to help users get up and running you iOS with XCUI tests using the Sauce Labs Cloud and saucectl",
   "logoUrl": "/sauceconnect/logo.png",
   "tags": ["saucectl-native"],
   "exclude": [
