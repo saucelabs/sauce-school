@@ -18,6 +18,7 @@ const useref = require('gulp-useref');
 const vulcanize = require('gulp-vulcanize');
 const replace = require('gulp-replace');
 const connect = require('gulp-connect');
+const sitemap = require('gulp-sitemap');
 
 // Uglify ES6
 const uglifyes = require('uglify-es');
@@ -272,7 +273,7 @@ gulp.task('build', gulp.series(
   'build:js',
   'build:elements_js',
   'build:vulcanize',
-  'copy'
+  'copy',
 ));
 
 // copy copies the built artifacts in build into dist/
@@ -317,11 +318,28 @@ gulp.task('minify:js', () => {
     .pipe(gulp.dest('dist'));
 });
 
+// build:sitemap builds the sitemap based .html tags, and places in the build directory
+gulp.task('build:sitemap', () => {
+  const srcs = [
+    'dist/**/*.html',
+    '!dist/bower_components/**/*.html',
+    '!dist/codelabs/**/*.html',
+    '!dist/default/**/*.html',
+    '!dist/elements/**/*.html',
+    '!dist/scripts/**/*.html',
+    '!dist/styles/**/*.html',
+  ];
+  return gulp.src(srcs, { base: 'dist/', read: false })
+      .pipe(sitemap({siteUrl: `${BASE_URL}`}))
+      .pipe(gulp.dest('dist' && 'app/public'));
+});
+
 // minify minifies all minifiable things in dist
 gulp.task('minify', gulp.parallel(
   'minify:css',
   'minify:html',
   'minify:js',
+  'build:sitemap'
 ));
 
 // dist packages the build for distribution, compressing and condensing where
@@ -370,6 +388,11 @@ gulp.task('watch:images', () => {
   gulp.watch('app/images/**/*', gulp.series('build:images'));
 });
 
+// watch:sitemap watches sitemap file for changes and updates it
+gulp.task('watch:sitemap', () => {
+  gulp.watch('app/public/sitemap.xml', gulp.series('build:sitemap'));
+});
+
 // watch:images watches js files for changes and re-builds them
 gulp.task('watch:js', () => {
   const srcs = [
@@ -391,6 +414,7 @@ gulp.task('watch', gulp.parallel(
   'watch:css',
   'watch:html',
   'watch:images',
+  'watch:sitemap',
   'watch:js',
   'watch:codelabs',
 ));
