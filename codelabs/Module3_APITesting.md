@@ -243,7 +243,7 @@ To add an input set select the **Input** tab in the top left. If there is a defa
 
 First, click on the **Input** button on the top left hand side of the test page, and under the **Input Set** section you create an input two Input Sets called `tunnel_owner_1` and `tunnel_owner_2`
 
-<img src="assets/apif-mod3/add_input_sets.png" alt="Add Input Set", width="500"/>
+<img src="assets/apif-mod3/add_input_sets.png" alt="Add Input Set" width="500"/>
 
 In each of the input sets, add in the following sets of variables:
 
@@ -272,13 +272,13 @@ For this course, we will be using Sauce Connect Tunnels, since this is something
 
 Start at least two tunnels, and go to the [Tunnels page on Sauce Labs](https://app.saucelabs.com/tunnels). Get the values for the **Tunnel ID** and **Owner**, and replace those values in the **Input Sets** you created on the API Testing dashboard.
 
-<img src="assets/apif-mod3/multiple_tunnels2.png" alt="Add Input Set", width="800"/>
+<img src="assets/apif-mod3/multiple_tunnels2.png" alt="Add Input Set" width="800"/>
 
 ### Add Parameters to the Input Sets
 
 Now, you should have values like so (which match the values on the [Tunnels page](https://app.saucelabs.com/tunnels)):
 
-<img src="assets/apif-mod3/inputset_tunnel_owners.png" alt="Add Input Set", width="500"/>
+<img src="assets/apif-mod3/inputset_tunnel_owners.png" alt="Add Input Set" width="500"/>
 
 ### Create a New GET Component with Input Sets
 Now, you will create another GET component in your **Sauce_Connect_Test** that will use the input sets you just created.
@@ -287,7 +287,7 @@ This request will use the Sauce Connect API Call to [GET Tunnel Information](htt
  * For **Url** add in `https://api.us-west-1.saucelabs.com/rest/v1/${owner}/tunnels/${tunnel_id}`
  * Store the response in the **Variable** `scpayload`
 
- <img src="assets/apif-mod3/GET_SauceAPI.png" alt="Add Input Set", width="800"/>
+ <img src="assets/apif-mod3/GET_SauceAPI.png" alt="Add Input Set" width="800"/>
 
  You will also need to add a **Add Authentication** (Basic) with a Sauce username and access key  for a user who has access to both the tunnels you used in your Input Set.
 
@@ -299,14 +299,14 @@ Now, lets add two simple checks after this get request. Add in two components:
 * An **Assert Exists**, checking that there is in face, an `scpayload` variable with the response
 * Use the `owner` variable in an **Assert Equals** component, one that checks that the owner retrieved from the GET request matches the owner your set for that tunnel:
 
-<img src="assets/apif-mod3/sc_assert_equals.png" alt="Add Input Set", width="700"/>
+<img src="assets/apif-mod3/sc_assert_equals.png" alt="Add Input Set" width="700"/>
 
 The test should now look like this:
-<img src="assets/apif-mod3/final_input_sets_test.png" alt="Add Input Set", width="700"/>
+<img src="assets/apif-mod3/final_input_sets_test.png" alt="Add Input Set" width="700"/>
 
 Now, once you save and **Run** your test, the test will be run one for the input set `tunnel_owner1` and once for the input set `tunnel_owner2`, a total of 4 GET commands, since there are 2 GET commands in each tests.
 
-<img src="assets/apif-mod3/Input_Sets_Tests.png" alt="Add Input Set", width="700"/>
+<img src="assets/apif-mod3/Input_Sets_Tests.png" alt="Add Input Set" width="700"/>
 
 #### Recap
 
