@@ -92,13 +92,18 @@ Negative
 
 ### Add a GET Request Component
 
-1. Open your project and create a new test:
+* Open your project and create a new test:
    <img src="assets/apif-mod3/05/createNewTest.png" alt="Create New Test", width="500" />
-1. Name it **Sauce_Connect_Test** (This example is named **AssertionTest**):
+* Name it **Sauce_Connect_Test** (This example is named **AssertionTest**):
+
    <img src="assets/apif-mod3/05/assertionTestDetails.png" alt="Assertion Test Details", width="500" />
-1. Select **+Add Request/Assertions** in the Tests page.
+
+* Select **+Add Request/Assertions** in the Tests page.
+
    <img src="assets/apif-mod3/05/addRequestComponent.png" alt="Add Request / Assertion", width="500" />
-1. Select the **GET Request** component and add the following data:
+
+* Select the **GET Request** component and add the following data:
+
    * url: `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions`
    * var: `payload`
 
@@ -139,20 +144,27 @@ If you check the **HTTP Client** tool you should see the elements we are checkin
 
 ### Add an Assertion
 
-1. Open the previous test  you created, called **Sauce_Connect_Test**.
-1. Select **+Add Request/Assertions**, and select **Assert Exists** with the following data:
+* Open the previous test  you created, called **Sauce_Connect_Test**.
+* Select **+Add Request/Assertions**, and select **Assert Exists** with the following data:
    * Expression: `payload['downloads']`
    * Mode: `one`
    * Click the check mark to save
+
      <img src="assets/apif-mod3/assertExists.png" alt="Assert Exists Component" />
-1. Next, select **+Add Request/Assertions** again. This time select **Assert Is**, and add the following data:
+
+* Next, select **+Add Request/Assertions** again. This time select **Assert Is**, and add the following data:
    * Expression: `payload['info_url`]
    * Type: `url`
    * Click the check mark to save
-     <img src="assets/apif-mod3/assertIs.png" alt="Assert Is Component" />
-1. Here's what the final result should look like:
+
+     <img src="assets/apif-mod3/assertIs.png" alt="Assert Is Component"/>
+
+* Here's what the final result should look like:
+
    <img src="assets/apif-mod3/finishedAssertionResult.png" alt="Finished Assertion Results" />
-1. Click **Save** to save your test, then select **Run**. The test results should show up in the UI:
+
+* Click **Save** to save your test, then select **Run**. The test results should show up in the UI:
+
    <img src="assets/apif-mod3/finishedTest.png" alt="Finished Assertion Result" width="700"/>
 
 
@@ -191,25 +203,34 @@ In your **Sauce_Connect_Test** navigate and select the **Input** tab on the left
 
    <img src="assets/apif-mod3/05/selectInputTab.png" alt="Input Set Tab" width="600" />
 
-1. Select **Add Global Param** in the _Global Parameters_ section
-1. Add the following data to the global parameter:
+Select **Add Global Param** in the _Global Parameters_ section
+
+Add the following data to the global parameter:
    * Name: `domain`
    * Value: `api.us-west-1.saucelabs.com`
 
    <img src="assets/apif-mod3/addDomain.png" alt="Domain Parameter" />
 
    The parameter now appears in the **Global Parameters** section
-   <img src="assets/apif-mod3/05/domainResult.png" alt="Domain in Global Param section", width="500" />
+
+   <img src="assets/apif-mod3/05/domainResult.png" alt="Domain in Global Param section" width="500" />
 
 Next we need to substitute the `domain` value in the current GET request:
-1. To get back to our test code, select **Unit** in the tab at the top
+* To get back to our test code, select **Unit** in the tab at the top
+
    <img src="assets/apif-mod3/05/selectUnit.png" alt="Select Unit Tab" />
-1. Select the ellipsis to the left of the **GET** request component, then select **Edit component**
+
+* Select the ellipsis to the left of the **GET** request component, then select **Edit component**
+
    <img src="assets/apif-mod3/05/editComponent.png" alt="Edit Component", width="500" />
-1. Substitute `saucelabs.com` with the `${domain}` global parameter:
-   <img src="assets/apif-mod3/05/editDomain.png" alt="Use domain Param", width="500" />
-1. Run the test again to ensure the test still passes with the same result.
-1. Repeat steps 1-3 above and create `protocol` and `endpoint` global parameters. The values for the respective params should be `https://` and `/rest/v1/public/tunnels/info/versions` respectively.
+
+* Substitute `saucelabs.com` with the `${domain}` global parameter:
+
+   <img src="assets/apif-mod3/05/editDomain.png" alt="Use domain Param" width="500" />
+
+* Run the test again to ensure the test still passes with the same result.
+
+* Repeat steps 1-3 above and create `protocol` and `endpoint` global parameters. The values for the respective params should be `https://` and `/rest/v1/public/tunnels/info/versions` respectively.
 
 
 The finished result should look like this:
@@ -349,14 +370,21 @@ First, what is a **Code Snippet**? A snippet is a fragment of a test, stored in 
 For this example, we don't need both the GET methods in the same test since the first one only needs to be run once (and not for every input set) we will store and re-use this part of the test.
 
 To add the snippet to your project Vault:
-1. Open your test.
-1. Select all the elements (hold **SHIFT** and click the _first and last elements_ to select a range).
-1. Select the **Export to Snippet** icon from the toolbar.
+* Open your test.
+
+* Select all the elements (hold **SHIFT** and click the _first and last elements_ to select a range).
+
+* Select the **Export to Snippet** icon from the toolbar.
+
    <img src="assets/apif-mod3/sc_snippet.png" alt="Create Snippets" />
-1. Fill in the following details for the snippet:
+
+* Fill in the following details for the snippet:
+
    * Name: `SC_Download_Snippet`
-1. Select **Save Snippet**.
-1. The snippet now appears in the Snippets section of the project vault. To get back to the vault, go to the **Project** where your tests are listed and select **Vault** in the toolbar, then the **Code Snippets** radial button:
+
+* Select **Save Snippet**.
+
+* The snippet now appears in the Snippets section of the project vault. To get back to the vault, go to the **Project** where your tests are listed and select **Vault** in the toolbar, then the **Code Snippets** radial button:
    <img src="assets/apif-mod3/SCSnippet.png" alt="Project Vault Snippet" />
 
 #### Note
@@ -370,14 +398,15 @@ Negative
 If you wish to re-use this snippet in a different project/test there are two options: **Invoke a Snippet** or **Insert a Snippet**. Invoking a snippet doesn't actually modify your test components, instead it makes an API call to the Vault, which inserts the snippet at test runtime. In contrast, inserting a snippet literally inserts the code into your existing test.
 
 Let's try adding a snippet to an empty test:
-1. Create an empty test (call it whatever you want)
+* Create an empty test (call it whatever you want)
 
-1. Select the **Invoke Snippet** icon:
+* Select the **Invoke Snippet** icon:
    <img src="assets/apif-mod3/05/invoke1.png" alt="Invoke Snippet" />
 
-1. Hover over the snippet, and select **Open**:
+* Hover over the snippet, and select **Open**:
 
-1. Select either **Invoke Snippet** or **Insert Snippet**, below are examples screenshots of both:
+* Select either **Invoke Snippet** or **Insert Snippet**, below are examples screenshots of both:
+
    <img src="assets/apif-mod3/Invoke_Snippet.png" alt="Invoke Snippet" />
 
 #### Invoked Snippet
@@ -394,11 +423,15 @@ You can now remove the first **GET** component and related checks from the **Sau
 Now you just need to make sure variables are aligned. Now we reach the dilemma of having to re-create our variables that we used from earlier: `${domain}`, `${protocol}`, and `${endpoint}`. The better approach is to use the **Company Vault**, which allows us to re-use variables across all projects.
 
 To access the **Company Vault**
-1. Go to your Project page
-1. Select the **Company Vault**
-1. Select the **Variables** radial button
-1. Click the **+ New Entry** button
-1. Add the following variables from your Sauce_Connect_Test:
+* Go to your Project page
+
+* Select the **Company Vault**
+
+* Select the **Variables** radial button
+
+* Click the **+ New Entry** button
+
+* Add the following variables from your Sauce_Connect_Test:
 
 ```
 domain = api.us-west-1.saucelabs.com
@@ -419,21 +452,28 @@ If you want to re-use a code snippet across different projects, it's a bit easie
 
 To export a Snippet into the Company Vault:
 
-1. Open your Project
-1. Select **The Vault** from the toolbar
-1. Select the **Code Snippet** radial button
-1. Select the checkbox next to the desired snippet, then select the **Export*** button:
+* Open your Project
+
+* Select **The Vault** from the toolbar
+
+* Select the **Code Snippet** radial button
+
+* Select the checkbox next to the desired snippet, then select the **Export*** button:
+
    <img src="assets/apif-mod3/Exp_Snip.png" alt="Export Code Snippet" />
 
-1. Choose your file type (`.csv` is recommended here)
+* Choose your file type (`.csv` is recommended here)
+
    <img src="assets/apif-mod3/05/export2.png" alt="Choose File Type" />
 
-1. Save the file to your computer
+* Save the file to your computer
 
-1. Go back to the **Company Vault** page and select **Import**
+* Go back to the **Company Vault** page and select **Import**
+
    <img src="assets/apif-mod3/05/export3.png" alt="Import the Snippet" />
 
-1. Choose your file to add it to the Company Vault
+* Choose your file to add it to the Company Vault
+
    <img src="assets/apif-mod3/05/export4.png" alt="Import the Snippet", width="500" />
 
 

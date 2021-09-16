@@ -223,7 +223,7 @@ If you are getting  a test error, and want to find out more about what an HTTP c
 
 You can use the HTTP Client to send a request, and even add in headers (suach as authorization credentials) &  other information to  a
 
-<img src="assets/apif-mod2/HTTP_Test.png" alt="Add Global Parameter", width="600"/>
+<img src="assets/apif-mod2/HTTP_Test.png" alt="Add Global Parameter" width="600"/>
 
 <!-- ------------------------ -->
 
