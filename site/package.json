@@ -24,7 +24,7 @@
     "gulp-if": "^2.0.2",
     "gulp-posthtml": "^3.0.5",
     "gulp-replace": "^1.0.0",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^4.1.0",
     "gulp-uglify": "^3.0.1",
     "gulp-useref": "^3.1.6",
     "gulp-vulcanize": "^7.0.0",
@@ -40,5 +40,7 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "node-sass": "^4.13.0"
+  }
 }
