@@ -182,7 +182,7 @@ The global variables (referred to as **parameters** in the API Fortress interfac
 
 To add a global variable/parameter select the **Input** tab in the top left, and select **Add Global Param**.
 
-<img src="assets/apif-mod3/05/addGlobalParam.png" alt="Add Global Parameter", width="400"/>
+<img src="assets/apif-mod3/05/addGlobalParam.png" alt="Add Global Parameter" width="400"/>
 
 
 ### Create Global Parameters
@@ -278,7 +278,7 @@ Start at least two tunnels, and go to the [Tunnels page on Sauce Labs](https://a
 
 Now, you should have values like so (which match the values on the [Tunnels page](https://app.saucelabs.com/tunnels)):
 
-<img src="assets/apif-mod3/inputset_tunnel_owners.png" alt="Add Input Set" width="500"/>
+<img src="assets/apif-mod3/inputset_tunnel_owners.png" alt="Navigate to Input" width="500"/>
 
 ### Create a New GET Component with Input Sets
 Now, you will create another GET component in your **Sauce_Connect_Test** that will use the input sets you just created.
