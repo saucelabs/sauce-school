@@ -263,7 +263,7 @@ ping saucelabs.com
 ```
 <img src="assets/SC1.04A.png" alt="Tunnels Menu" width="450"/>
 
-_[See other commands you can use](https://docs.saucelabs.com/secure-connections/sauce-connect/troubleshooting)_
+_[See other commands you can use](https://docs.saucelabs.com/secure-connections/sauce-connect/troubleshooting/)_
 
 #### Check Communication With App Under Test
 From the machine you wish to run the Sauce Connect proxy from, you also want to check and make sure you can communicate with the application you are testing against. Again, use `ping` to check that your machine can communicate with the example site (like saucedemo.com)
