@@ -50,7 +50,7 @@ Sauce Connect Proxy also allows you to create a secure connection for uploading 
 
 ### Download Sauce Connect Proxy
 
-The first step is to [download the Sauce Connect Proxy software](https://docs.saucelabs.com/secure-connections/sauce-connect/installation) and extract the contents of the **.zip** or **.gz** download package. You can also get the software on the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform under **Tunnels**.
+The first step is to [download the Sauce Connect Proxy software](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/) and extract the contents of the **.zip** or **.gz** download package. You can also get the software on the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform under **Tunnels**.
 
 
 <img src="assets/5.03A.png" alt="Tunnels Software" width="750"/>
