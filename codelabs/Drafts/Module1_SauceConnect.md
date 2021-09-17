@@ -34,7 +34,7 @@ This tutorial gives examples you can follow along with using a test suite writte
 <!-- ------------------------ -->
 ## 1.02 Setup and Run Sauce Connect Proxy
 
-[Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/sauce-connect) is software that enables you to establish a secure connection between applications hosted on an internal server and the Sauce Labs virtual machines (such as Jenkins) or real devices that are used for testing.
+[Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/sauce-connect/troubleshooting/) is software that enables you to establish a secure connection between applications hosted on an internal server and the Sauce Labs virtual machines (such as Jenkins) or real devices that are used for testing.
 
 #### Video
 [Set Up Sauce Connect Proxy](https://youtu.be/cpBcGeZ_wQU)
