@@ -50,7 +50,7 @@ Duration: 0:03:00
 
 The platform has extensive APIs specifically created to empower engineers and testers to execute tests however they choose. You can read more about integration into a CI pipeline here. For specific use cases, see some below, or search our docs.
 
-- [Jenkins](https://docs.saucelabs.com/api-testing/ci/jenkins/using-the-api)
+- [Jenkins](https://docs.saucelabs.com/api-testing/ci/jenkins/using-the-api/)
 - [Bamboo](https://docs.saucelabs.com/api-testing/ci/connecting-with-bamboo)
 - [Microfocus ALM](https://docs.saucelabs.com/api-testing/ci/micro-focus-alm-integration)
 - [Azure DevOps](https://docs.saucelabs.com/api-testing/ci/azure-devops)
