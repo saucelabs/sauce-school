@@ -33,7 +33,7 @@ Duration: 0:01:00
 ## 2.02 Set Up Sauce Connect
 Duration: 0:03:00
 
-[Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/sauce-connect) is software that enables you to establish a secure connection between applications hosted on an internal server, or other location that is behind a firewall, and the Sauce Labs virtual machines that are used for testing. To use Sauce Connect:
+[Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/sauce-connect/) is software that enables you to establish a secure connection between applications hosted on an internal server, or other location that is behind a firewall, and the Sauce Labs virtual machines that are used for testing. To use Sauce Connect:
 * Install the Sauce Connect software
 * Start a tunnel from Terminal
 * Run your tests with the flag `-i sauce-tunnel-name`  
@@ -50,7 +50,7 @@ Sauce Connect Proxy also allows you to create a secure connection for uploading 
 
 ### Download Sauce Connect Proxy
 
-The first step is to [download the Sauce Connect Proxy software](https://docs.saucelabs.com/secure-connections/sauce-connect/installation) and extract the contents of the **.zip** or **.gz** download package. You can also get the software on the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform under **Tunnels**.
+The first step is to [download the Sauce Connect Proxy software](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/) and extract the contents of the **.zip** or **.gz** download package. You can also get the software on the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform under **Tunnels**.
 
 
 <img src="assets/5.03A.png" alt="Tunnels Software" width="750"/>

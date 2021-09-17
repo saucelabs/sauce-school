@@ -1292,7 +1292,7 @@ Add in a `System.out.println("Sauce- release driver")` inside of the `finally` s
 ```
 
 
-Last, we will add in `JavaScriptExecutor` [to pass in the sauce:job-result](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation#selenium-javascript-executor) to the Sauce Rest API:
+Last, we will add in `JavaScriptExecutor` [to pass in the sauce:job-result](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation/#selenium-javascript-executor) to the Sauce Rest API:
 
 
 ```

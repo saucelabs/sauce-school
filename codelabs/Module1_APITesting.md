@@ -200,13 +200,13 @@ A service endpoint is one end of a communication channel. It's typically a URL a
 
 ### GET
 
-The <span class="api get">GET</span> method communicates with the service endpoint when you want to get information from another service. This is the easiest API to use and understand. For example, the [Sauce Labs get users API method](https://docs.saucelabs.com/dev/api/accounts#get-users).
+The <span class="api get">GET</span> method communicates with the service endpoint when you want to get information from another service. This is the easiest API to use and understand. For example, the [Sauce Labs get users API method](https://docs.saucelabs.com/dev/api/accounts/#get-users).
 
 An example of a GET request would be one app asking to get and read information about a given user, but not modify any of that information.
 
 ### POST
 
-The <span class="api post">POST</span> method communicates with the service endpoint in order to add or create data. An example of this is the [Sauce Labs create team API method](https://docs.saucelabs.com/dev/api/accounts#create-a-team).
+The <span class="api post">POST</span> method communicates with the service endpoint in order to add or create data. An example of this is the [Sauce Labs create team API method](https://docs.saucelabs.com/dev/api/accounts/#create-a-team).
 
 A example of a POST request could be to add information, say a user's address, which was a field that didn't exist before.
 
