@@ -71,7 +71,7 @@ We now have a project in which we can begin writing API Tests. Let's create the 
 
 #### Create a Test File
 
-We're going to test against the [Sauce Labs GET user endpoint](https://docs.saucelabs.com/dev/api/accounts#get-users). In order to successfully create this test we need to complete the following steps using the Visual Editor:
+We're going to test against the [Sauce Labs GET user endpoint](https://docs.saucelabs.com/dev/api/accounts/#get-users). In order to successfully create this test we need to complete the following steps using the Visual Editor:
 * Send an example HTTP Request using the **HTTP Client**
 * Add the **Basic Authorization Header** to our sample request
 * **Generate a Test** based on the response payload.
