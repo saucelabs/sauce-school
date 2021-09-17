@@ -206,7 +206,7 @@ An example of a GET request would be one app asking to get and read information 
 
 ### POST
 
-The <span class="api post">POST</span> method communicates with the service endpoint in order to add or create data. An example of this is the [Sauce Labs create team API method](https://docs.saucelabs.com/dev/api/accounts#create-a-team).
+The <span class="api post">POST</span> method communicates with the service endpoint in order to add or create data. An example of this is the [Sauce Labs create team API method](https://docs.saucelabs.com/dev/api/accounts/#create-a-team).
 
 A example of a POST request could be to add information, say a user's address, which was a field that didn't exist before.
 
