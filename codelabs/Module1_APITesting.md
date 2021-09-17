@@ -200,7 +200,7 @@ A service endpoint is one end of a communication channel. It's typically a URL a
 
 ### GET
 
-The <span class="api get">GET</span> method communicates with the service endpoint when you want to get information from another service. This is the easiest API to use and understand. For example, the [Sauce Labs get users API method](https://docs.saucelabs.com/dev/api/accounts#get-users).
+The <span class="api get">GET</span> method communicates with the service endpoint when you want to get information from another service. This is the easiest API to use and understand. For example, the [Sauce Labs get users API method](https://docs.saucelabs.com/dev/api/accounts/#get-users).
 
 An example of a GET request would be one app asking to get and read information about a given user, but not modify any of that information.
 
