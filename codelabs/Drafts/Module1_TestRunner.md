@@ -454,7 +454,7 @@ suites:
      config:
        testFiles: [ "**/login.*" ]
 ```
-To find out more about the names for the different browser and platform  (OS) combinations, visit the [platform configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/), and [see the docs](https://docs.saucelabs.com/testrunner-toolkit/running-tests#cross-browser-tests) for the most up to date config.
+To find out more about the names for the different browser and platform  (OS) combinations, visit the [platform configurator](https://saucelabs.com/platform/platform-configurator), and [see the docs](https://docs.saucelabs.com/testrunner-toolkit/running-tests/#cross-browser-tests) for the most up to date config.
 
 #### Final Code
 See [an example suite](https://github.com/walkerlj0/testrunner-course-example-code/blob/main/Mod1/1.05/.sauce/config.yml) set to run in parallel on multiple browsers.

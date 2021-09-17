@@ -108,7 +108,7 @@ A good test would tell you exactly what failed and how it failed. Some examples 
 Duration: 0:15:00
 
 
-[Sauce Connect Proxy](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy#:~:text=Sauce%20Connect%20Proxy%E2%84%A2%20is,or%20behind%20a%20corporate%20firewall.) is software that enables you to establish a secure connection between applications hosted on an internal server and the Sauce Labs virtual machines (such as Jenkins) or real devices that are used for testing. It also allows you to create a secure connection for uploading tests, application, and source code.
+[Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/sauce-connect) is software that enables you to establish a secure connection between applications hosted on an internal server and the Sauce Labs virtual machines (such as Jenkins) or real devices that are used for testing. It also allows you to create a secure connection for uploading tests, application, and source code.
 
 #### Video
 [Set Up Sauce Connect Proxy](https://youtu.be/cpBcGeZ_wQU)
@@ -121,7 +121,7 @@ In many cases, testers need to run their tests on internal sites. These can be d
 
 ### Download Sauce Connect Proxy
 
-The first step is to download The Sauce Connect Proxy software -- available on the **[Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/index.html)** page in the Sauce Labs Cookbook -- and extract the contents of the **.zip** or **.gz** download package. You can also get the software on the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform under **Tunnels.**
+The first step is to download The Sauce Connect Proxy software -- available on the **[Sauce Connect Proxy](https://docs.saucelabs.com/secure-connections/sauce-connect)** page in the Sauce Labs Cookbook -- and extract the contents of the **.zip** or **.gz** download package. You can also get the software on the [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform under **Tunnels.**
 
 
 <img src="assets/5.03A.png" alt="Tunnels Software" width="750"/>
@@ -158,7 +158,7 @@ Your command should look like this:
 
 <img src="assets/5.03E.png" alt="Terminal command to run tunnel" width="750"/>
 
-Learn more about the other commands you can use to configure your tunnel at [Sauce Connect Proxy Command-Line Quick Reference Guide](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide). Hit enter and you should see your tunnel up and running.
+Learn more about the other commands you can use to configure your tunnel at [Sauce Connect Proxy CLI Reference](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy). Hit enter and you should see your tunnel up and running.
 
 <img src="assets/5.03F.png" alt="Terminal running tunnel" width="500"/>
 
@@ -305,7 +305,7 @@ You should get messages that they were successfull installed, or are a part of y
 
 ### Run Random Parallel Tests
 
-Before you get started, head to the [Sauce Labs Dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) and look under **Account > User settings** and check out how many tests you (and your team) can run at once.
+Before you get started, head to [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) and look under **Account > User settings** and check out how many tests you (and your team) can run at once.
 
 <img src="assets/5.04C.png" alt="Sauce W3C case" width="650"/>
 
@@ -314,7 +314,7 @@ Once you are sure that you are able to run tests in parallel (you should have le
 Run `pytest -n 5` to run 5 tests at the same time in parallel. If you run your tests more than once, they should run in a different order
 
 
-Next, visit the [Sauce Labs Dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)while your tests are running. You should see more than one test running at the same time, and notice that your test suite as a whole runs more quickly! You can see the completed code [here]().
+Next, visit [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) while your tests are running. You should see more than one test running at the same time, and notice that your test suite as a whole runs more quickly! You can see the completed code [here]().
 
 <img src="assets/5.04K.png" alt="Parallel tests" width="750"/>
 
@@ -639,7 +639,7 @@ You haven’t run a test yet that has successfully passed in Sauce Labs. In this
 
 ### Set Up Sauce Labs OnDemand
 
-The full reference for configuring Sauce OnDemand and support can be found [here.](https://wiki.saucelabs.com/display/DOCS/Jenkins+and+Sauce+OnDemand+Plugin+Quickstart+Guide)
+The full reference for configuring Sauce OnDemand and support can be found [here.](https://docs.saucelabs.com/ci/jenkins)
 The first thing you will need to do is install the Git Jenkins plugin, then go to **Manage Jenkins >  Manage Plugins**. Search for **Sauce** under the **Available** tab.
 
 <img src="assets/5.07C.png" alt="Sauce On Demand Plugin" width="650"/>
@@ -697,12 +697,12 @@ You don’t have to do anything to set the variable, or install any software or 
 
 Run your tests in Jenkins using **Build Now** (You can change the build configuration and delete `-m deep` command back to run all tests.)
 
-If you look on the Sauce Labs dashboard, you should see tests being run, an active tunnel, and even past builds listed:
+If you look on Sauce Labs, you should see tests being run, an active tunnel, and even past builds listed:
 
 <img src="assets/5.07Q.png" alt="Sauce Labs Builds" width="750"/>
 
 
-Congratulations!  You now have the skills to create a basic test suite, plan your test strategy using testing best practices, and even work with your team to add testing to your software development pipeline. There is a lot more to explore both with tests and with Jenkins, so after the quiz, take a look at Module 5.09 for more resources, and visit the [Sauce Labs Documentation](https://wiki.saucelabs.com/display/DOCS/The+Sauce+Labs+Cookbook+Home) for more information.
+Congratulations!  You now have the skills to create a basic test suite, plan your test strategy using testing best practices, and even work with your team to add testing to your software development pipeline. There is a lot more to explore both with tests and with Jenkins, so after the quiz, take a look at Module 5.09 for more resources, and visit the [Sauce Labs Documentation](https://docs.saucelabs.com/) for more information.
 
 <!-- ------------------------ -->
 ## 5.09 Quiz
@@ -721,7 +721,7 @@ Here is a list breaking down a majority of the Selenium resources available, alo
 ### Documentation & Tips
 
 
-#### [Sauce Labs Wiki](https://wiki.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link )
+#### [Sauce Labs Documentation](https://docs.saucelabs.com/)
 
 This is the official Sauce Labs documentation. You can find updated and maintained tips and tricks regarding web/mobile automated testing.
 

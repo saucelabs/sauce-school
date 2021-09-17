@@ -159,7 +159,7 @@ Once you have your account set up, go to **Account> User Settings** to find your
 
 You will need to set up your username and access key on your machine’s (or CI Tools') environment variables to use them in your test.
 
-To learn more about setting up environment variables, you can see the article [here](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials#BestPractice:UseEnvironmentVariablesforAuthenticationCredentials-SettingUpEnvironmentVariablesonMacOSX/LinuxSystems/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
+To learn more about setting up environment variables, you can see the article [here](https://docs.saucelabs.com/basics/environment-variables/).
 
 
 #### Video
@@ -172,7 +172,7 @@ Watch This Video to See how to [set up your Sauce Credentials as environment var
 ### Setup Tests for Sauce Labs
 
 #### Update `Config.java`
-In the `Config.java` file, you are going to communicate the settings for our test environment with the W3C [Capabilities](https://wiki.saucelabs.com/display/DOCS/Desired+Capabilities+Required+for+Selenium+and+Appium+Tests/?utm_source=referral&utm_medium=LMS&utm_campaign=link), required for every Selenium test.
+In the `Config.java` file, you are going to communicate the settings for our test environment with the [W3C Capabilities](https://docs.saucelabs.com/dev/test-configuration-options), required for every Selenium test.
 
 Here, you will define some variables that you can use in your Base Test code, for your tests to be able to communicate with Sauce Labs:
 
@@ -198,7 +198,7 @@ Notice the new variables you have added:
 
 
 *   `host `enables you to specify whether our tests run locally or on Sauce Labs. Right now, the host is either` "saucelabs`” or `"localhost"`
-*   The [Sauce Labs Test Configuration Options](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options) contains information for each specific test. You assume you may pass in unique usernames and access keys
+*   The [Sauce Labs Test Configuration Options](https://docs.saucelabs.com/dev/test-configuration-options) contains information for each specific test. You assume you may pass in unique usernames and access keys
     *   `browserName` specifies the browser for a test.
     *   `browserVersion` specifies which version of the browser for a test
     *   `platformName` specifies the operating system for a test.
@@ -284,7 +284,7 @@ Now that you have the pieces in place, such as your Sauce Labs credentials and v
 
 ### Update your URL and Capabilities
 
-Now you need to update `BaseTest.java `to work with these new values and connect to Sauce Labs. Note that these are called [Capabilities](https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options), and the format they are in here is compatible with Selenium WebDriver 4.0, as well as all previous Selenium versions. They set the options for setting up the environment for your tests.
+Now you need to update `BaseTest.java `to work with these new values and connect to Sauce Labs. Note that these are called [***capabilities***](https://docs.saucelabs.com/dev/test-configuration-options), and the format they are in here is compatible with Selenium WebDriver 4.0, as well as all previous Selenium versions. They set the options for setting up the environment for your tests.
 
 
 ```
@@ -388,7 +388,7 @@ Now that your tests are up and running on the Sauce Labs platform, you’ll noti
 <img src="assets/4.06A.png" alt="Unnamed Job" width="550"/>
 
 
-To fix this issue, you can pull information from the test and send it to the [Sauce Labs dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
+To fix this issue, you can pull information from the test and send it to [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
 
 ### Use TestWatcher to Add a Test Name
 
@@ -508,7 +508,7 @@ Under the saucelabs` driver` instantiation in the` before()` rule instantiate a`
 ```
 
 
-The `sessionId` is retrieved from the `RemoteWebDriver`. The `sauceClient` creates an instance using the Sauce Labs REST API, passing in the username, access key, and data center location. You can change the data center on the Sauce Labs dashboard. Once that is changed, if you would like, go into your code and [change](https://wiki.saucelabs.com/display/DOCS/Data+Center+Endpoints) the `DataCenter` option in your code to reflect this.
+The `sessionId` is retrieved from the `RemoteWebDriver`. The `sauceClient` creates an instance using the Sauce Labs REST API, passing in the username, access key, and data center location. You can change the data center on your Sauce Labs homepage. Once that is changed, if you would like, go into your code and [change](https://docs.saucelabs.com/basics/data-center-endpoints/data-center-endpoints) the `DataCenter` option in your code to reflect this.
 
 <img src="assets/4.06H.png" alt="Data Center" width="750"/>
 
@@ -578,7 +578,7 @@ With a conditional check in each `@Override` statement you make sure the sauceCl
 
 When a test is successful the `succeeded()` method will fire, marking the Sauce job for the test as `passed`. When a test fails the `failed()` method will trigger, and the job will be marked as `failed`. When there's a failure, we'll want to know the URL to view the job on [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) so you concatenate the URL and output it to the console using the `System.out.println` command.
 
-Now when you run `mvn clean test -Dhost=saucelabs` in terminal, then check your [Sauce Labs dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). On the right you should be able to see a status of passed with each test.
+Now when you run `mvn clean test -Dhost=saucelabs` in terminal, then check your [Sauce Labs account page](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link). On the right, you should be able to see a status of passed with each test.
 
 <img src="assets/4.06C.png" alt="Passed Tests" width="550"/>
 
@@ -723,7 +723,7 @@ import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.safari.SafariOptions;
 ```
 ### Run Tests in Different Environments
-Now, when you replace the options using the Sauce Labs [Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator) to find the values for `browserName`, `browserVersion`, and `platformName` you should be able to run in any browser & version that is supported by Sauce Labs.
+Now, when you replace the options using the Sauce Labs [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to find the values for `browserName`, `browserVersion`, and `platformName` you should be able to run in any browser & version that is supported by Sauce Labs.
 
 This example will run on version 90.0 of the Edge browser:
 
@@ -839,13 +839,13 @@ You also don’t want the output for the reporting to be created in a file, othe
 
 ### Run Parallel Tests
 
-Before you get started, head to the [Sauce Labs Dashboard](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) and look under **Account > User settings** and check out how many tests you (and your team) can run at once.
+Before you get started, head to [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) and look under **Account** > **User settings** and check out how many tests you (and your team) can run at once.
 
 <img src="assets/5.04C.png" alt="Sauce W3C case" width="650"/>
 
 Once you are sure that you are able to run tests in parallel (you should have less tests than your concurrency limit), you can run your tests. If you send more jobs than your concurrency limit, Sauce Labs will queue the excess and run them as the initial batch of jobs finish.
 
-Run `mvn clean test -Dhost=saucelabs` and visit the [Sauce Labs Dashboard ](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link)while your tests are running. You should see more than one test running at the same time, and notice that your test suite as a whole runs more quickly! You can see the completed code [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod5/5.04).
+Run `mvn clean test -Dhost=saucelabs` and visit [Sauce Labs](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link) while your tests are running. You should see more than one test running at the same time, and notice that your test suite as a whole runs more quickly! You can see the completed code [here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod5/5.04).
 
 <img src="assets/5.04H.png" alt="Concurrent tests running" width="650"/>
 

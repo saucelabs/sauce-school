@@ -56,11 +56,11 @@ Before you begin creating tests for your API program, you should first consider 
 
 Again, monitoring is the most useful and yet underused form of testing. You need to know more about an API than if it's up or down, you need to validate it's functioning correctly.
 
-Schedule your existing functional and integration tests against the live environment to truly understand how your APIs are working in the real world. Every API program should have a status page. [Learn about how to monitor AIPS](https://docs.saucelabs.com/api-testing/quick-start/easy-monitoring/index.html)
+Schedule your existing functional and integration tests against the live environment to truly understand how your APIs are working in the real world. Every API program should have a status page. [Learn about how to monitor AIPS](https://docs.saucelabs.com/api-testing/quick-start/easy-monitoring/)
 
 ### Automate!
 
-The key to delivering new and updated APIs quickly, and with confidence of their quality, is with test execution automation. This is particularly important for organization using CI/CD platforms like Jenkins, TravisCI, Bamboo, Azure DevOps, and more. Add your test suite to your pipelines as soon as you can. [Learn more about integrating CI/CD](https://docs.saucelabs.com/api-testing/quick-start/integrate-with-your-cicd)
+The key to delivering new and updated APIs quickly, and with confidence of their quality, is with test execution automation. This is particularly important for organization using CI/CD platforms like Jenkins, TravisCI, Bamboo, Azure DevOps, and more. Add your test suite to your pipelines as soon as you can. [Learn more about integrating CI/CD](https://docs.saucelabs.com/api-testing/quick-start/integrate-with-your-cicd/)
 
 
 
@@ -72,7 +72,7 @@ Duration: 0:04:00
 
 Domain, endpoints, and data sets are some of the parts of a test that should be easy to change quickly. You should never have to duplicate a test to execute it against a new staging environment. If you are doing that than your system needs to be reconsidered.
 
-As much as possible aim to have only a single test of a certain type. If you built a partner API, then try to have a single detailed test that can be a regression test during a CI pipeline, and then also used to monitor the live environment. [Learn More](https://docs.saucelabs.com/api-testing/quick-start/flexible-variables-for-flexible-environments/index.html)
+As much as possible aim to have only a single test of a certain type. If you built a partner API, then try to have a single detailed test that can be a regression test during a CI pipeline, and then also used to monitor the live environment. [Learn More](https://docs.saucelabs.com/api-testing/quick-start/flexible-variables-for-flexible-environments/)
 
 ### Business Logic Validating
 

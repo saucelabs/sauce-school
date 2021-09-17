@@ -11,6 +11,7 @@
   "dependencies": {},
   "devDependencies": {
     "cypress": "^7.3.0",
+    "gulp-sitemap": "^8.0.0",
     "wait-port": "^0.2.9"
   }
 }

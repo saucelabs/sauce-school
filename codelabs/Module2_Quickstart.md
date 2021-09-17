@@ -542,7 +542,7 @@ It will also make transitioning to a continuous integration pipeline easier, sin
 
 ### Upload the .apk File to Mobile-Apps
 
-To upload the `.apk` project file, you simply have to visit the [Sauce Labs dashboard,](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link) click on **Live > Mobile APP**, and then click the **App Upload** button.
+To upload the `.apk` project file, click **Live** > **Mobile APP** > **App Upload**.
 
 <img src="assets/QS2.04A.png" alt="App Upload" width="750"/>
 
@@ -638,7 +638,7 @@ public class Mobile_Android_EMU_Test {
 
 ### Configure for Sauce Labs
 
-One important thing that you need to add to this is the data center that your test is going to run on. If you log into the [Sauce Labs dashboard](https://accounts.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link), you will see there are different options for where to run your test.
+One important thing that you need to add to this is the data center that your test is going to run on. When you log into [Sauce Labs](https://accounts.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link), you will see there are different options for where to run your test.
 
 
 <img src="assets/QS2.04H.png" alt="Choose a Sauce data center" width="750"/>
@@ -899,7 +899,7 @@ public class Mobile_Android_Browser_Test {
 
 ### Configure for Sauce Labs
 
-One important thing that you need to add to this is the data center that your test is going to run on. If you log into the [Sauce Labs dashboard](https://accounts.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link), you will see there are different options for where to run your test.
+One important thing that you need to add to this is the data center that your test is going to run on. When you log into the [Sauce Labs](https://accounts.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link), you will see there are different options for where to run your test.
 
 <img src="assets/QS2.05B.png" alt="Sauce Labs data centers" width="750"/>
 
@@ -1155,8 +1155,8 @@ By using a reflection and an interface with your test methods, you will be able 
 
 
 
-*   Pass the `name` as a [capability to Sauce Labs](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Build+IDs%2C+Tags%2C+and+Names+to+Identify+Your+Tests/?utm_source=referral&utm_medium=LMS&utm_campaign=link)
-*   [Send a pass or fail status](https://wiki.saucelabs.com/display/DOCS/Setting+Test+Status+to+Pass+or+Fail/?utm_source=referral&utm_medium=LMS&utm_campaign=lin) using the [Sauce Labs REST API](https://wiki.saucelabs.com/display/DOCS/Annotating+Tests+with+the+Sauce+Labs+REST+API/?utm_source=referral&utm_medium=LMS&utm_campaign=link) using JavaScript
+*   Pass the `name` as a [capability to Sauce Labs](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation/#use-build-ids-tags-and-names-to-identify-your-tests/)
+*   [Send a pass or fail status](https://docs.saucelabs.com/test-results/test-status/) using the [Sauce Labs REST API](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation/#sauce-labs-rest-api) using JavaScript
 
 Without a **Pass** or **Fail** status, you simply see whether or not the test was able to complete without showing an exception (**Complete** or **Error** on Sauce Labs). Without a name, it’s very difficult to understand which test you are debugging.
 
@@ -1292,7 +1292,7 @@ Add in a `System.out.println("Sauce- release driver")` inside of the `finally` s
 ```
 
 
-Last, we will add in  `JavaScriptExecutor` [to pass in the sauce:job-result](https://wiki.saucelabs.com/display/DOCS/Annotating+Tests+with+Selenium%27s+JavaScript+Executor/?utm_source=referral&utm_medium=LMS&utm_campaign=link) to the Sauce Rest API:
+Last, we will add in `JavaScriptExecutor` [to pass in the sauce:job-result](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation/#selenium-javascript-executor) to the Sauce Rest API:
 
 
 ```

@@ -83,7 +83,7 @@ Using Cypress alongside Sauce Labs also allow you to:
 By default, when you use saucectl, it works by passing your entire test suite, including dependencies and configurations to Sauce Labs Cloud of Virtual Machines, where your tests will be executed as per your configurations. Use the command `saucectl run` or update `mode: sauce` in `config.yml`, to run your tests on Sauce Labs VMs.
 
 #### Docker Mode
-With saucectl, you can also install Docker and run a containerized version of your test environment, then pass the results to the Sauce Labs Dashboard , by setting `mode: docker` in `config.yml`.`
+With saucectl, you can also install Docker and run a containerized version of your test environment, then pass the results to your Sauce Labs account, by setting `mode: docker` in `config.yml`.`
 
 
 <!-- ------------------------ -->
@@ -176,7 +176,7 @@ Watch [this video](https://www.youtube.com/watch?v=3K1Eu0eTha8&t=12s) to see how
 
 ### Initialize saucectl
 
-Now that you have your Cypress test files set up in a directory, and your Sauce Labs username and access key setup globally with saucectl, you can initialize the test runner in order to run your Cypress tests on the Sauce Labs Cloud
+Now that you have your Cypress test files set up in a directory, and your Sauce Labs username and access key setup globally with saucectl, you can initialize the test runner in order to run your Cypress tests on the Sauce Labs cloud.
 
 From the folder where you should have placed `cypress.json`, and `/cypress` directory, and any other test files or assets, run the terminal command:
 
@@ -253,7 +253,7 @@ Take a look at the top of the config file. There are several important elements 
 *   The `cypress` information tells your cypress tests where to look for the test configuration file, and which version of cypress you are running. Other file locations are relative to where `config.json` is place. See the docs for a [list of supported versions](https://docs.saucelabs.com/testrunner-toolkit)
 * An optional setting is where the `rootDir` or root directory is placed
 * The `sauce` information. Here is where you will put information that will be passed to sauce and can be used for debugging tests, such as the name, `build` number from your CI tool, and number of machines you would like to run concurrently
-*   The `suites` information includes the name, browser, and the configuration for your test suites such as what types of file names to look for to run as tests, and other metadata that is passed to the Sauce Labs dashboard for running tests and displaying results.
+*   The `suites` information includes the name, browser, and the configuration for your test suites such as what types of file names to look for to run as tests, and other metadata that is passed to your Sauce Labs account for running tests and displaying results.
   * The `config: testFiles:` specify the directory relative to `cypress.json` or `rootDir` and the file names of your tests
 *   The `artifact` information includes what assets (such as images and videos of your tests) are fetched and stored locally. The options for downloading assets include `always`, `never`, `pass`, `fail`.
 
@@ -303,7 +303,7 @@ Specifying which tests you want to run in which environment can be configured in
 * Executing test in _Docker Mode_ or _Sauce Mode_
 * View test results on the Sauce Labs App
 
-Running tests using Cypress and saucectl allows you to run as many combinations of tests and environments as you would like
+Running tests using Cypress and saucectl allows you to run as many combinations of tests and environments as you would like.
 
 #### Video
 
@@ -335,7 +335,7 @@ suites:
 rootDir: .
 ```
 
-Lets create two directories within your `cypress/integration` directory so that you can learn to specify both directories and files. create a `/smoke` and a `/regression` directory, and paste copies of your tests in each.
+Lets create two directories within your `cypress/integration` directory so that you can learn to specify both directories and files. Create both a `/smoke` and a `/regression` directory, and paste copies of your tests in each.
 
 <img src="assets/SCTL1.04C.png" alt="saucectl init workflow" width="700"/>
 
@@ -373,20 +373,27 @@ Now when you use the command `saucectl run` you should see both test suites, **c
 
 ### Run Your Tests in Different Browsers
 
-Sauce Labs supports running Cypress tests in the [environments that are supported](https://docs.saucelabs.com/testrunner-toolkit/index.html#supported-frameworks-in-sauce-cloud) by the Cypress test runner. This means you can run using the Chrome, Microsoft Edge, and Firefox browsers.
+Sauce Labs supports running Cypress tests in the [environments that are supported](https://docs.saucelabs.com/testrunner-toolkit#supported-frameworks-in-sauce-cloud/) by the Cypress test runner. This means you can run using the Chrome, Microsoft Edge, and Firefox browsers.
 
 ### Run Your Tests in Different Modes
 
 #### Run All Tests in One Mode
 
-If you do not have the `mode:` specified anywhere in your `.sauce/config.yml` file, then, by default, all your tests will be bundled, and uploaded and run on the Sauce Labs Cloud of virtual machines.
+If you do not have the `mode:` specified anywhere in your `.sauce/config.yml` file, then, by default, all your tests will be bundled, and uploaded and run on the Sauce Labs Cloud of Virtual Machines.
 
-If you would like to try running tests in docker, you can set all your test suites to run, by default, in docker mode by setting the `defaults:` option:
+If you would like to try running tests in Docker, you can set all your test suites to run, by default, in docker mode by setting the `defaults:` option:
 
 ```
+apiVersion: v1alpha
+kind: cypress
 defaults:
   mode: docker
+  # ...
 ```
+
+You can change this setting back to default to _Sauce mode_ by changing `mode: sauce` or delete the `mode:` option.
+
+Unless you specify a different mode in a suite, all tests will run in _Docker Mode_:
 
 #### Note
 Negative
@@ -394,9 +401,7 @@ Negative
 
 #### Run Certain Tests in Different Modes
 
-Though you can set a default for the entire suite, there is also an option to set the mode for each suite. This setting will override whatever is set in `default:`. That is to say, if you have the default mode for all your suites set to (Docker, but specify the mode in a suite to run in
-
-With this option, you can run some suites in _Docker Mode_, and some suites in _Sauce Mode_, all from the same test run.
+You also have the ability to run some suites in _Docker Mode_, and some suites in _Sauce Mode_, all from the same test run, by setting individual suites to run in different modes.
 
 To set the mode on the suite level, simply add the `mode:` option somewhere under your test suite `name;`
 
@@ -406,14 +411,8 @@ To set the mode on the suite level, simply add the `mode:` option somewhere unde
       mode: docker
 ```
 
-The following configuration will run two of your tests in _Docker Mode_ (by default) and two of your tests in _Sauce Mode_:
+The following settings in your `config.yml` file will run two of your tests in _Docker Mode_ (by default) and two of your tests in _Sauce Mode_:
 
-```
-apiVersion: v1alpha
-kind: cypress
-defaults:
-  mode: docker
-```
 ```
 suites:
 - name: cypress - windows 10 - chrome smoke
@@ -447,7 +446,9 @@ suites:
 ```
 
 
-Now, when you run the command `saucectl run`, you should see output like this in your console.
+Now, when you run the command `saucectl run`, you should see output like this in your console:
+
+<img src="assets/TRT1.04I.png" alt="Cypress Tests on Sauce" width="550"/>
 
 ### View Your Test Results
 
@@ -515,7 +516,7 @@ suites:
     config:
       testFiles: [ "**/login.*" ]
 ```
-To find out more about the names for the different browser and platform  (OS) combinations, visit the [platform configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/), and [see the docs](https://docs.saucelabs.com/testrunner-toolkit/running-tests#cross-browser-tests) for the most up to date config.
+To find out more about the names for the different browser and platform  (OS) combinations, visit the [platform configurator](https://saucelabs.com/platform/platform-configurator), and [documentation](https://docs.saucelabs.com/testrunner-toolkit/running-tests#cross-browser-tests) for the most up to date config.
 
 #### Final Code
 See [an example suite](https://github.com/walkerlj0/testrunner-course-example-code/blob/main/Mod1/1.05/.sauce/config.yml) set to run in parallel on multiple browsers.

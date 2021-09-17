@@ -17,21 +17,20 @@ author: Lindsay Walker
 Duration: 0:03:00
 
 *   Learn to install and use Selenium WebDriver in conjunction with Java tools (IntelliJ and Maven) to write tests.  
-*   Use Maven and IntelliJ to compile and run tests and manage dependencies on your machine
-*   Use the Selenium WebDriver in conjunction with a Java test runner (JUnit4) to write tests
-*   Understand what the Selenium WebDriver is and the basics of how it is used to automate testing
-*   Understand the role a test runner, such as JUnit4, plays in creating tests
-*   Differentiate between the Selenium language bindings and the web drivers for different browsers
-*   Know how Maven manages and updates packages and tools used for Selenium testing in Java
-*   Explain how Selenium bindings, web drivers, and JUnit4 work together to create tests and test suites
+*   Use Maven and IntelliJ to compile and run tests and manage dependencies on your machine.
+*   Use the Selenium WebDriver in conjunction with a Java test runner (JUnit4) to write tests.
+*   Understand what the Selenium WebDriver is and the basics of how it is used to automate testing.
+*   Understand the role a test runner, such as JUnit4, plays in creating tests.
+*   Differentiate between the Selenium language bindings and the web drivers for different browsers.
+*   Know how Maven manages and updates packages and tools used for Selenium testing in Java.
+*   Explain how Selenium bindings, web drivers, and JUnit4 work together to create tests and test suites.
 *   Understand that good tests are atomic: They have tests grouped by functionality and are named descriptively. Good tests also use test runners, and are maintained in version control systems.
 
 <!-- ------------------------ -->
 ## 1.02 What is Selenium?
 Duration: 0:05:00
 
-Selenium is an open source tool used for automating testing of web applications. Without  automated testing, each time a web application was updated, a human would have to go onto the website and try various combinations of clicks, interactions, and submissions. If you  automate your testing with a tool like Selenium, when an update is made, you can write and run tests with the “robot” that is Selenium, which performs programmed sets of interactions for you to
-test new features and functionality before an updated version of a web app is released into the wild.
+Selenium is an open source tool used for automating testing of web applications. Without automated testing, each time a web application was updated, a human would have to go onto the website and try various combinations of clicks, interactions, and submissions. If you automate your testing with a tool like Selenium, when an update is made, you can write and run tests with the “robot” that is Selenium, which performs programmed sets of interactions for you to test new features and functionality before an updated version of a web app is released into the wild.
 
 <img src="assets/1.02A.png" alt="Automation bot" width="200"/>
 
@@ -43,8 +42,6 @@ Selenium is a robotic testing tool, not a framework. It expresses no judgement, 
 
 There are seven basic elements of a Selenium test script, which apply to any test case and any application under test (AUT):
 
-
-
 1. Create a WebDriver instance.
 2. Navigate to a Web page.
 3. Locate an HTML element on the Web page.
@@ -53,15 +50,15 @@ There are seven basic elements of a Selenium test script, which apply to any tes
 6. Run tests and record test results using a test framework.
 7. Conclude the test.
 
-The Selenium Grid allows you to run parallel tests on multiple combinations of machines (Mac, Windows, or Unix-based systems) using multiple web browsers (versions of Chrome, Edge, Firefox, or Safari). These different machines can exist virtually on a server in a cloud environment, or as a network of real devices. The JSON/ W3C protocol is used to communicate test commands and configurations and route those requirements to different nodes, which have different environments to test on.
+The Selenium Grid allows you to run parallel tests on multiple combinations of machines (Mac, Windows, or Unix-based systems) using multiple web browsers (versions of Chrome, Edge, Firefox, or Safari). These different machines can exist virtually on a server in a cloud environment, or as a network of real devices. The JSON and W3C WebDriver protocols are used to communicate test commands and configurations and route those requirements to different nodes, which have different environments to test on.
 
 <img src="assets/1.02B.png" alt="Selenium Computer" width="350"/>
 
-The [Sauce Labs](https://saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform enables you to use a Selenium Grid at scale to run thousands of tests at once, on our suite of different test environments in the cloud. Sauce also has a robust dashboard for easy viewing of test outcomes and increased velocity of debugging tests. This dashboard includes tracking of errors and even a visual record of what occurred in different environments.
+[Sauce Labs](https://saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link) enables you to use a Selenium Grid at scale to run thousands of tests at once, on our suite of different test environments in the cloud. Sauce also has a robust dashboard for easy viewing of test outcomes and increased velocity of debugging tests. This dashboard includes tracking of errors and even a visual record of what occurred in different environments.
 
 As your test suite grows, your test runs will take longer to complete. To speed them up, you will want to run them in parallel, which is where the benefit of having your own servers or using a cloud provider comes in -- that, and the ability to have numerous browser and operating system combinations to run your tests on.
 
-Selenium communicates the commands to the browser using either a JSON wire protocol (Selenium 3.14.15 and below) or the latest W3C protocol (Selenium 4 and above.) The fourth version of Selenium, which supports communication via the W3C WebDriver protocol. All modern web browsers are also built in compliance with this protocol (a set of rules on how to communicate), which means Selenium 4 can be used with any programming language and any browser and OS combination in your environment. With the W3C protocol, you can discover and manipulate elements on a page in order to test their functionality.
+Selenium communicates the commands to the browser using either a JSON wire protocol (Selenium 3.14.15 and below) or the latest W3C protocol (Selenium 4 and above.) The fourth version of Selenium, which supports communication via the W3C protocol. All modern web browsers are also built in compliance with this protocol (a set of rules on how to communicate), which means Selenium 4 can be used with any programming language and any browser and OS combination in your environment. With the W3C protocol, you can discover and manipulate elements on a page in order to test their functionality.
 
 Selenium is really good at a specific set of things. If you know what those are and stick to them, then you can easily write reliable, scalable, and maintainable tests that you and your team can trust.
 
@@ -141,7 +138,7 @@ Negative
 #### Windows Setup
 Follow [these instructions](https://docs.google.com/document/d/1herzHbTJdQpa-hAIR5llTfbbw20PeM99-BAoVTeuC8U/edit?usp=sharing) to install and set up a JDK, Maven, and IntelliJ on Windows 10.
 
-#### Mac OS Setup
+#### macOS Setup
 
 Check and see if you have a JDK (Java Development Kit) installed on your computer by opening terminal and typing `echo $JAVA_HOME.`
 
@@ -151,11 +148,11 @@ Go to [the JDK downloads](https://www.oracle.com/technetwork/java/javase/downloa
 
 <img src="assets/1.05F.png" alt="JDK Download" width="350"/>
 
-Open the file then unzip it
+Open the file, then unzip it.
 
 
 
-*   Once the file is  double clicked & open, then follow the installation instructions.
+*   Once the file is double clicked & opened, then follow the installation instructions.
 
 <img src="assets/1.05G.png" alt="JDK Install" width="350"/>
 
@@ -170,14 +167,13 @@ Move the zipped file to your Applications folder.
 
 In terminal, open the file in your downloads directory in terminal and run the command:
 
-
 `tar xzvf apache-maven-X.X.X-bin.tar.gz`
 
 (Replace `maven-X.X.X-bin.tar.gz` with the version you downloaded, such as `maven-3.6.3-bin.tar.gz`)  This will unzip the project file.
 
 Next, you will need to [update your bash profile](https://medium.com/macoclock/how-to-create-delete-update-bash-profile-in-macos-5f99999ed1e7) to tell your computer where to look for files that you will need to run your test (Maven and Java).
 
-Open your `.bash_profile `in your user directory (if you are running MacOS Catalina 10 or above, update the` .zshrc`), and add in the following environment variables.
+Open your `.bash_profile `in your user directory (if you are running macOS Catalina 10 or above, update the` .zshrc`), and add in the following environment variables.
 
 
 ```
@@ -335,7 +331,7 @@ Once you have added your `pom.xml` file update, go to **File > Invalidate Caches
 
 ### Use GitHub Repository (Optional)
 
-If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
+If you are familiar with using GitHub to write your code, you can also fork/branch this repository here for the first set of code:
 
 **[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod1/1.05)**
 
@@ -351,7 +347,7 @@ Take a look at the first test code we will be creating in the next module. There
 <img src="assets/1.06A.png" alt="IntelliJ JDK" width="550"/>
 ### Java Methods
 
-**public class**– A command that instantiates a Java Class.
+**public class** – A command that instantiates a Java Class.
 
 **private** – A command used to declare a variable whose scope is to be used only within the class or method it is defined within.
 
