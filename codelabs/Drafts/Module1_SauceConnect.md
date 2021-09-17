@@ -309,7 +309,7 @@ If you are having issues with your Sauce Connect Tunnel, you know your network c
 ## 1.05 Sauce Connect Options
 Duration: 0:05:00
 
-There are a [lot of different options](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/) you can use to change the settings and options for your Sauce Connect Tunnel. This lesson will cover the most commonly needed options for a typical user. You can find all the flags that you can use when running Sauce Connect in the [Sauce Connect CLI documentation](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy)
+There are a [lot of different options](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/) you can use to change the settings and options for your Sauce Connect Tunnel. This lesson will cover the most commonly needed options for a typical user. You can find all the flags that you can use when running Sauce Connect in the [Sauce Connect CLI documentation](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/)
 
 #### Video
 
