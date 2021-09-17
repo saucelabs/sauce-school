@@ -349,12 +349,18 @@ Duration: 0:03:00
 
 In this module, we will explore how and when a Sauce Connect tunnel can be used with a Continuous Integration (CI) tool. CI tools are used to start automated tests, and can also be used to spin up (host) an instance of the application you are testing.
 
-There are different ways you can configure the setup of your application (system) under test, your test suites, the Sauce Connect host, and the Sauce Labs Cloud of virtual machines. We will cover a couple use cases that will work with Sauce Connect:
+There are different ways you can configure the setup of your application (system) under test, your test suites, the Sauce Connect host, and the Sauce Labs Cloud of virtual machines. There are two main ways to do this.
 
-* Hosting your system under test, and application tests in separate environments
-* Hosting your system under test and an application in the same secure environment 
+* Hosting your system under test, and Sauce Connect tunnel on a the same private network
+* Building your system under test and Sauce Connect tunnel in the CI tool for testing
 
-The most important thing you need to understand is that the Sauce Connect proxy software needs to be running in the same environment that your system under test is running.
+<img src="assets/SC2.05F.png" alt="SC Setups" width="750"/>
+
+The most important thing you need to understand is that the **Sauce Connect proxy software needs to be running in the same environment that your system under test is running**.
+
+In this module, you will work with an example setting up Sauce Connect in a CI environment, however, keep in mind that if your app is hosted on a private network, and you try to follow the example in this course, you app won't be able to connect through Sauce Connect.
+
+<img src="assets/SC2.05G.png" alt="SC Setup Can't Connect" width="750"/>
 
 ### Test Scenarios
 
