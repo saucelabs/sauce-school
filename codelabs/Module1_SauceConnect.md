@@ -16,13 +16,19 @@ Duration: 0:01:00
 
 This course covers the basic setup and use of the Sauce Connect Proxy Tunnel, which is a tool created by Sauce Labs that customers can use to establish a secure, private connection between your app and the Sauce Labs Cloud.
 
-This tutorial gives examples written in Java, using the JUnit4 test runner, as well as the Maven build tool. If you would like to follow along, you can [download or fork and clone this project](https://github.com/walkerlj0/Selenium_Course_Example_Code)
+### What You'll Need
+In order to follow along with the course, you will need a few things set up ahead of time:
 
-* Look in the _/java/Mod4/4.06_ directory, and use the version of the test suite **in 4.06** to work from.
-* If you don't have Java and Maven set up on your machine to run test code, [follow this lesson](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4)
+* A Sauce [Username and Access Key](https://app.saucelabs.com/user-settings)
+* The [Tunnel Name](https://app.saucelabs.com/tunnels) of a running tunnel
+* A copy of [Sauce Connect](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/)
+* Automated tests. (See the example [Selenium Java test code](https://github.com/walkerlj0/sauceconnect-github-actions))
+* A computer with unrestricted access to saucelabs.com
 
-### In This Tutorial
-* Learn to download, setup, and run the Sauce Connect software on your machine
+This tutorial gives examples written in Java, using the JUnit4 test runner, as well as the Maven build tool.
+
+### Skills & Knowledge
+* Learn to download, setup,  and run the Sauce Connect software on your machine
 * Learn to modify Java with JUnit4 test code to run automated tests on Sauce Labs using the secure Sauce Connect Proxy Tunnel
   * See how to add the tunnel name in your capabilities or configuration file
 * Run a tunnel with common flags such as:
@@ -123,7 +129,7 @@ You can easily run any manual tests that you do with Sauce Connect proxy. Simply
 
 <!-- ------------------------ -->
 ## 1.03 Run a Java Test Using Sauce Connect Proxy
-This video is intended to show an example for how to update your test capabilities, using [this example test written](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.06) in Java, JUnit4, with Maven and InteliiJ. Iin this lesson you will:
+This video is intended to show an example for how to update your test capabilities, using [this example test written](https://github.com/walkerlj0/sauceconnect-github-actions) in Java, JUnit4, with Maven and InteliiJ. Iin this lesson you will:
 * [Start](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#start-your-tunnel) your tunnel
 * Update Sauce Environment Variables
 * [Update](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#update-test-code) your `config.java` and `BaseTest.java` files
@@ -147,7 +153,7 @@ Negative
 : Make sure your `.bash_profile` (or `.zshrc`) has the `SAUCE_TUNNEL` environment variable (it must match the tunnel name you used to start the tunnel). <img src="assets/5.03I.png" alt="Bash Profile" width="750"/>
 
 ### Set Sauce Connect Tunnel Capabilities
-This example shows how to set the capabilities in an example Java Test Suite, written with the JUnit4 test runner, and run and managed using Maven. [See the example suite this is created from](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod5/5.03).
+This example shows how to set the capabilities in an example Java Test Suite, written with the JUnit4 test runner, and run and managed using Maven. [See the example suite this is created from](https://github.com/walkerlj0/sauceconnect-github-actions).
 
 
 ### Update Test Code
@@ -218,16 +224,13 @@ Negative
 : You can also go to `Config.java`, change the host to `saucelabs-tunnel` instead of using the `-Dhost=` flag and just run  `mvn clean test`: <img src="assets/SC5.03L.png" alt="host name saucelabs-tunnel" width="650"/>
 
 
-
-
-
 You will run your test through the tunnel, and when you log into the SauceLabs UI, you should see the tests being run, and that there is an active tunnel:
 
 
 <img src="assets/5.03M.png" alt="Active Tunnel" width="650"/>
 
 
-You can see example code for this lesson [here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod5/5.03)
+You can see example code for this lesson [here.](https://github.com/walkerlj0/sauceconnect-github-actions)
 
 
 #### Sauce Connect Architecture
@@ -244,7 +247,7 @@ To learn more about what is happening when you use Sauce Connect tunnel, see the
  <img src="assets/TRT2.03D.png" alt="Shared Runnel" width="650"/>
 
 ### Final Code
-See the [example test suite](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod5/5.03) with [capabilities set for Sauce Connect](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod5/5.03/src/test/java/tests/BaseTest.java).
+See the [example test suite](https://github.com/walkerlj0/sauceconnect-github-actions) with capabilities set for Sauce Connect.
 <img src="assets/5.03N.png" alt="Final Java Base Test Code" width="650"/>
 
 <img src="assets/5.03O.png" alt="Final Java Config Code" width="650"/>
@@ -545,3 +548,17 @@ Sauce Connect logs are hard, and we have experts to help you. Visit **[support.s
 * Tunnel logs can be obtained by adding the -v flag to your start-up command
 
 * Fresh logs are the easiest for support to read, so it may be helpful to rename the old log file, then re-run your tunnel so a new one gets created. Alternatively you can specify a new file for test runs with the `-l <file>` command when you run your test
+
+### Install Using cURL
+To Install Sauce Connect on Linux, and add add sc to your system PATH, use the commands:
+
+```
+cd ~/
+curl -LO https://saucelabs.com/downloads/sc-4.6.5-linux.tar.gz
+tar xvf ./sc-4.6.5-linux.tar.gz
+cp ./sc-4.6.5-linux/bin/sc ~/bin/sc
+```
+
+```
+cp ./sc-4.6.5-linux/bin/sc ~/bin/sc
+```
