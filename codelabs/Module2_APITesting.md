@@ -52,16 +52,16 @@ For this first test project we will test against the Sauce Labs API.
    <img src="assets/apif-mod2/01/createProject.png" alt="API Fortress: Create Project"/>
 3. The **Add New Project** alert window appears.
    <img src="assets/apif-mod2/01/newProject.png" alt="API Fortress: Project Fields"/>
-   
+
    Add the following for each category:
     * **Project Name**: `Test Project`
     * **Description**: `Simple Test against the Sauce Labs User API`
     * **Notes**: `https://docs.saucelabs.com/dev/api/accounts#user-methods`
 
 5. Find your project and select the **Tests Icon** to continue.
-   
+
    <img src="assets/apif-mod2/01/testIcon.png" alt="API Fortress:Test Icon Button" />
-   
+
 <!------------------------------>
 
 ## 2.03 Create the API Test
@@ -89,14 +89,14 @@ From the project:
 
 3. You should now see the new **Test Details** alert window
    <img src="assets/apif-mod2/01/testDetails.png" alt="API Fortress: Test Details" />
-   
+
    Add the following for each category:
     * **Test Name**: `GET User Info`
     * **Description**: `Test for /team-management/users method`
     * **Tags**: `GET`, `user`, `team-management`
-   
+
 5. Now your test should appear in the project **Tests** page.
-   
+
    <img src="assets/apif-mod2/01/newTest.png" alt="API Fortress: Test Status / Interstitial Page" />
 
 #### Note:
@@ -110,7 +110,7 @@ Negative
 Duration: 0:04:00  
 
 At the moment, the test content is empty. So from here, we can generate a test with the following options:
-* Generate a test manually with the HTTP Client, 
+* Generate a test manually with the HTTP Client,
 * Generate a test from a spec file.
 
 For the purposes of this lesson, we will generate a test manually with the HTTP Client.
@@ -119,7 +119,7 @@ From the Tests page:
 
 1. Select the **HTTP Client** in the top navigation bar.
    <img src="assets/apif-mod2/01/httpClient.png" alt="API Fortress: HTTP Client button" />
-   
+
 3. At the bottom of the UI, enter the following URL where it says **Request url** in the **HTTP Client**:
    ```
    https://api.us-west-1.saucelabs.com/team-management/v1/users?limit=3
@@ -149,7 +149,7 @@ In the previous step we encountered a common authentication error, **[HTTP: 401]
 
 1. Navigate  back to the **Tests** page and click to edit the test you created.
    <img src="assets/apif-mod2/01/goBackTests.png" alt="API Fortress: Go back to the tests page" />
-   
+
 2. Select **+ Add Request / Assertions**
    <img src="assets/apif-mod2/01/addRequest.png" alt="API Fortress: Add Component Button" />
 
@@ -189,14 +189,14 @@ Negative
 
 2. Copy the `base64` Basic Authorization value (e.g. `Basic anRhY2s0Oxxxxxxxxxxxxxxxxxxxxxxxx==`) to your clipboard
 3. Return to the HTTP Client tab in your project.
-   
+
 4. Paste the `base64` Basic Authorization value into your HTTP Client **Headers** section and type `Authorization` into the _Key_ field. Also, make sure the endpoint URL: `https://api.us-west-1.saucelabs.com/team-management/v1/users?limit=3` is still there:
    <img src="assets/apif-mod2/01/get3Users.png" alt="Add Auth details to request" />
 
 
 5. Save your HTTP request in your project to use later. Name it whatever you wish (here it is named `GET 3 Users`):
    <img src="assets/apif-mod2/01/save3UsersTest.png" alt="Add Auth details to request" />
-   
+
 
 6. Back in the _HTTP Client_, select the **Send** button again. To the right, you should see a `200` response code and something similar in the response headers:
    <img src="assets/apif-mod2/01/responseBody200.png" alt="API Fortress: Response Body Example" />
@@ -266,7 +266,7 @@ You should now see the **Test Scheduler**:
    <img src="assets/apif-mod2/01/scheduleDetails.png" alt="API Fortress: Schedule Details" />
 4. Enter the desired details and when you're finished, select **Save** at the bottom. Below is an example of a schedule that runs on the 55th minute at noon and midnight, during every day of every month.
    <img src="assets/apif-mod2/01/highNoon.png" alt="API Fortress: High Noon Schedule" />
-   
+
 If everything worked correctly, you should see the following status on the **Schedule** page:
 <img src="assets/apif-mod2/01/scheduleExample.png" alt="API Fortress: Schedule Example" />
 

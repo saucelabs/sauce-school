@@ -1,4 +1,4 @@
-summary: Module 2 ....
+summary: Module 2 of Sauce Connect shows Team and Org Admins in Sauce Labs how to setup and maintain shared tunnels. You will create high-availability, resilitent tunnels, learn to automated creating these tunnels, and walk through an example of setting up Sauce Connect in Github Actions.
 id: Module2-SauceConnect
 categories: intermediate
 tags: saucetools
@@ -22,19 +22,25 @@ In order to follow along with the course, you will need a few things set up ahea
 * The [Tunnel Name](https://app.saucelabs.com/tunnels) of a running tunnel
 * A copy of [Sauce Connect](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/)
 * Example [Selenium Java test code](https://github.com/walkerlj0/sauceconnect-github-actions/tree/main/java_tests)
+* An App to build and test in GitHub Actions
 * A computer with unrestricted access to saucelabs.com
 
 This tutorial gives examples written in Java, using the JUnit4 test runner, as well as the Maven build tool. If you would like to follow along, you can [download or fork and clone this project](https://github.com/walkerlj0/sauceconnect-github-actions).
 
-### Skills & knowledge
-*
+### Skills & Knowledge
+* Be able to start a shared tunnel and run a Java test using a shared tunnel
+* Understand the difference between shared and high-availability tunnels, and when to use them
+* Start high availability tunnels for use by many users within a team or organization
+* Learn how to create bash scripts that will start and kill your tunnels, and use crontab jobs to schedule these to restart tunnels every 24 hours
+* Understand the use cases for Sauce Connect with your you system under test
+* Work through an example of setting up Sauce Connect in CI, using GitHub actions to start an on-demand tunnel
 
 
 <!-- ------------------------ -->
 ## 2.02 Shared Tunnels
 Duration: 0:06:00
 
-In this section, you will learn about using shared tunnels, and edit the code to run a test using the tunnel and [this example test written](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.06) in Java, JUnit4, with Maven and InteliiJ. This lesson covers:
+In this section, you will learn about using shared tunnels, and edit the code to run a test using the tunnel and [this example test written](https://github.com/walkerlj0/sauceconnect-github-actions) in Java, JUnit4, with Maven and InteliiJ. This lesson covers:
 
 * The different permissions for Sauce Labs accounts, and how they affect tunnels
 * How to start a shared tunnel that others can use
@@ -45,7 +51,7 @@ In this section, you will learn about using shared tunnels, and edit the code to
 
 #### Note
 Negative
-: If you clone & fork or download [the example repo called Selenium_Course_Example_Code](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.06), make sure you navigate to the _java/Mod4/4.06_ directory and open and run your tests from there. Learn more about [setting up a Java test environment](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4).
+: Not familiar with Java automated testing? Learn more about [setting up a Java test environment](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4). You will need to make sure you have your [Sauce Credentials set up as environment variables](https://www.youtube.com/watch?v=3K1Eu0eTha8) so the tests will run.
 
 Shared tunnels are tunnels that are started by one person in an organization, that can be used by other inidividuals within that organization. Though anyone can run the `-s` flag, tunnels are only shared with others if you are and Admin or Team Admin in your Sauce Labs account.
 
@@ -106,7 +112,7 @@ To run a test through this login to a user account that is different than the us
 
 <img src="assets/SC2.02D.png" alt="Start a shared tunnel" width="850"/>
 
-Now open your copy of the [example test](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod4/4.06).
+Now open your copy of the [example test](https://github.com/walkerlj0/sauceconnect-github-actions/tree/main/java_tests).
 
 Navigate to the directory _src/test/java_ and look in the `tests` directory to open `BaseTest.java`. Find the set of capabilities in the `before()` method for for `(host.equals("saucelabs")) {`:
 
@@ -164,7 +170,7 @@ This lesson covers:
 
 Typically, instances of the high availability tunnel are created and spun up with the same name (on the same server or different servers) as a shared tunnel so users in an organization can access tunnels as needed without having to start their own.
 
-To follow along, edit the code to run a test using [this example test written](https://github.com/walkerlj0/sauceconnect-github-actions) in Java, JUnit4, with Maven and InteliiJ. (Copy the tests in `/java/Mod4/4.06` and run your tests from there).
+To follow along, edit the code to run a test using [this example test written](https://github.com/walkerlj0/sauceconnect-github-actions) in Java, JUnit4, with Maven and InteliiJ. (Copy the tests in `/java_tests` and run your tests from there).
 
 ### Start High Availability Tunnels
 
@@ -202,15 +208,28 @@ To protect against tunnnel unavailability, you should start more than one tunnel
 #### Restarting Tunnels
 It's important to setup your tunnels to restart every 24 hours in order to improve resiliency. There are many services available to schedule a task such as stopping and restarting your Sauce Connect Tunnels. If you are using a Unix system (Mac or Linux) you can use a [Cron  daemon](https://kb.iu.edu/d/afiz).
 
+### Persistent and On-Demand Tunnels
+With Sauce Connect, you have the option to either start tunnels as they are needed, or _On-Demand_, or you can keep tunnels running at all time, as _Persistent_ tunnels.
+
+#### On-Demand
+Typically, On-Demand tunnels are useful for quick or one-off tests, and are also an option to use if you are automating the creation of your app in CI.
+
+#### Persistent
+In many situations having shared, high availability Persistent tunnels are an advantage.
+
+You can have a team dedicated to monitoring these tunnels, getting logs when errors occur, and make sure you have a resilient setup for the tunnels you use, with more than one tunnel running on more than one server, and tunnels being restarted every 24 hours.
+
+In the next lesson, you will see an example of how you can automate the restarting of those tunnels.
+
 ## 2.04 Create Bash Scripts to Restart Tunnels
 
 One way you can automatically restart a tunnel is to create bash scripts to start and stop a sauce connect tunnel, and run these automatically every day.
 In this lesson, you will learn to:
 
 * Create scripts to:
-  * [Start]() multiple tunnels
-  * [Kill all]() your running tunnels
-* Create [`crontab` jobs]() to run the start & kill your tunnels every 24 hours
+  * Start multiple tunnels
+  * Kill all your running tunnels
+* Create `crontab` jobs to run the start & kill your tunnels every 24 hours
 
 In order to kick off a script that will execute the starting and stopping of Sauce Labs tunnels, you can use the `crontab` command to create a file that will start the scripts.
 
@@ -349,39 +368,39 @@ Duration: 0:03:00
 
 In this module, we will explore how and when a Sauce Connect tunnel can be used with a Continuous Integration (CI) tool. CI tools are used to start automated tests, and can also be used to spin up (host) an instance of the application you are testing.
 
+### Test Scenarios
+
 There are different ways you can configure the setup of your application (system) under test, your test suites, the Sauce Connect host, and the Sauce Labs Cloud of virtual machines. There are two main ways to do this.
 
 * Hosting your system under test, and Sauce Connect tunnel on a the same private network
 * Building your system under test and Sauce Connect tunnel in the CI tool for testing
 
+With either of these situations, you can run your tests from wherever you would like: Your local machine, CI tool, the private network your app is hosted on, your kid's iPad, wherever your tests can reach the Sauce Labs Cloud.  
+
 <img src="assets/SC2.05F.png" alt="SC Setups" width="750"/>
 
-The most important thing you need to understand is that the **Sauce Connect proxy software needs to be running in the same environment that your system under test is running**.
+The most important thing you need to understand is that the **Sauce Connect proxy needs to be running in the same environment that your system under test is running**.
 
 In this module, you will work with an example setting up Sauce Connect in a CI environment, however, keep in mind that if your app is hosted on a private network, and you try to follow the example in this course, you app won't be able to connect through Sauce Connect.
 
 <img src="assets/SC2.05G.png" alt="SC Setup Can't Connect" width="750"/>
 
-### Test Scenarios
-
-You application
-
 <!-- ------------------------ -->
 ## 2.06 Sauce Connect Example with Github Actions
 Duration: 0:07:00
 
-In this lesson you will be creating a repo in GitHub actions that includes a Selenium Java test and a workflow that can run a Sauce Connect tunnel in Github actions, and test against the [Sauce Labs Demo app](https://www.saucedemo.com/).
+In this lesson you will be creating a repo in GitHub actions that includes a Selenium Java test and a workflow that can run a Sauce Connect tunnel in Github actions, and test against the [a Demo app](https://the-internet.herokuapp.com/).
 
-* See what you'll need
-* Create a GitHub Repo for your action & tests
+* Get what you'll need
+* Create [a GitHub Repo](https://github.com/walkerlj0/sauceconnect-github-actions) for your action & tests
 * Create GitHub Secrets
 
-Though this app is publicly hosted and doesn't require a secure tunnel to be accessed, this tutorial will walk you through the steps to access test the app with GitHub Actions using a Sauce Connect tunnel as an example of what you would do to test a restricted app.
+Though this app is publicly hosted and doesn't require a secure tunnel to be accessed, this tutorial will walk you through the steps to access test the app with GitHub Actions using a Sauce Connect tunnel as an example of what you would do to test a an app you would build in GitHub Actions, or of how you could setup CI on your private network.
 
 ### What You'll Need
 * [GitHub Account](https://github.com/join)
 * [Sauce Labs Account](https://saucelabs.com/sign-up)
-* [Tests](https://github.com/walkerlj0/sauceconnect-github-actions/tree/main/java_tests) for the Sauce Labs Demo App (www.saucedemo.com)
+* [Tests](https://github.com/walkerlj0/sauceconnect-github-actions/tree/main/java_tests) for your [Demo App](https://the-internet.herokuapp.com/)
 * The following permissions in GitHub:
     * The ability to create and manage workflows
     * The ability to create and store [GitHub secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)
@@ -390,16 +409,15 @@ _Learn more at the [Github Actions Homepage](https://github.com/features/actions
 ### Set Up Your Project
 
 #### Create a Project for Your Action and Tests
-First, you will need to create a repo where you will put your tests. Name it whatever you wish.
+First, you will need to create a repo where you will put your tests, build your app, and start a Sauce Connect tunnel.
+
+You can fork and clone/ download the demo repo if you want to follow along. Name your repo it whatever you wish.
 
 <img src="assets/TRT2.05C.png" alt="Set up Github repo" width="450"/>
 
 
-We will set up our test to run on every push request made to the main branch of a repository
+We will set up our test to run on every push request made to the main branch of a repository.
 
-### Run the Tests Locally (Optional)
-
-If you would like to poke around the code
 
 ### Create GitHub Secrets
 
@@ -420,7 +438,7 @@ The first order of business is to export your [Sauce Labs account credentials](h
 
 #### Create YAML File
 
-In your project file (in this example we will use the Swag Labs web app you downloaded) create a directory called `.github`, then within that, create a directory called `workflows`.
+In your project file (in this example we will test against a public demo web app) create a directory called `.github`, then within that, create a directory called `workflows`.
 
 We will need to create a new `.yml` file [like this example](https://github.com/saucelabs-training/demo-sauce-connect/blob/main/ci-examples/githubActionsExample.yml) that is used to give instructions to Github Actions.
 
@@ -430,33 +448,121 @@ Create a new file called `sc-actions-demo.yml`:
 
 <img src="assets/SC2.05A.png" alt="The YML file" width="450"/>
 
+
+### Set Up the Workflow Trigger and Secrets
+
 In the `sc-actions-demo.yml` file, use vim to or an IDE to copy and paste in the following:
 
-//Stopped here. Time to break it dowwwwn.
-```
-# This workflow uses the Sauce Labs Sauce Connect Github action to create an instance of Sauce Connect.
-# This example specifies the name and version of the requested tunnel.
 
-name: Swag Labs Sample App Workflow
+```
+# This workflow will do a clean install of Java & Maven, start a Sauce Connect tunnel, then run a Java Test suite with that tunnel
+name: Sample Java Test with Sauce Connect
 
 on:
   push:
     branches:
       - main
+      - diego-changes
   pull_request:
+  workflow_dispatch:
+  # ...
+```
 
+This first part of the code sets up your workflow to run when the `main` or `diego-changes` branch has a push to it, and the `worflow_dispatch` allows you to manually trigger a run within the UI
+
+<img src="assets/SC2.06A.png" alt="Trigger workflow" width="750"/>
+
+See [more about triggering workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows).
+
+Next, we will add in Secrets to use. You want to make sure that you use the same tunnel name in both the test and your automated tests. In the `sc-actions-demo.yml` file add your secrets below the actions you set to trigger:
+
+```
+#...
+on:
+  push:
+    branches:
+      - main
+      - diego-changes
+  pull_request:
+  workflow_dispatch:
+
+env:
+  SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+  SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+  SAUCE_TUNNEL_NAME: ${{ secrets.SAUCE_TUNNEL_NAME }}
+  BUILD_PREFIX: true
+#...
+```
+This will pull the secrets you set up for this project or environment. Note how [in the `Config.java` file](https://github.com/walkerlj0/sauceconnect-github-actions/blob/main/java_tests/src/test/java/tests/Config.java) you have the same variables set for your sauce username, access key, and tunnel name:
+
+```
+// filename: tests/Config.java
+package tests;
+
+public class Config {
+    public static final String baseUrl = System.getProperty("baseUrl", "http://the-internet.herokuapp.com");
+    public static final String host = System.getProperty("host", "saucelabs");
+    public static final String browserName = System.getProperty("browserName", "chrome");
+    public static final String browserVersion = System.getProperty("browserVersion", "75.0");
+    public static final String platformName = System.getProperty("platformName", "Windows 10");
+    public static final String sauceUser = System.getenv("SAUCE_USERNAME");
+    public static final String sauceKey = System.getenv("SAUCE_ACCESS_KEY");
+    public static final String sauceTunnel = System.getenv("SAUCE_TUNNEL_NAME");
+
+}
+```
+### Create Jobs in Github Actions
+Now we will define the job(s) you will use to start a Sauce Connect Tunnel, Build your app, and setup the envionment for your tests and run them.
+
+#### Note
+Negative
+: This example would actually not work unless you also added your app code to this repository. Remember, **A Sauce Connect Tunnel must be started in the same environment your app is hosted in** to work. Since this Github Actions sets up a tunnel, your app would need to be built in GitHub Actions as well.
+
+This is a _bad_ example, since this will actually test against a public app in another environment, but will give an example of starting a tunnel in GitHub actions where you can build your app.
+
+Add the job to set up Sauce Connect, and below it is a good place to add the code to build your app:
+
+```
 jobs:
   build:
-    runs-on: ubuntu-18.04
-    defaults:
-      run:
-        working-directory: ./
-    env:
-      BUILD_PREFIX: true
-      IS_MAIN: ${{ github.ref == 'refs/heads/main' }}
-      SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
-      SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Sauce Connect Action
+        uses: saucelabs/sauce-connect-action@v1
+        with:
+          username: ${{ secrets.SAUCE_USERNAME }}
+          accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
+          tunnelIdentifier: ${{ secrets.SAUCE_TUNNEL_NAME }}
+          scVersion: 4.6.4
+
+      #- name: Build Your App
+          # Add code here to build your app
 ```
+
+Note that you will want to updeate the `scVersion:` with the most [up to date version](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/#downloading-sauce-connect-proxy) that you plan to use.
+
+Last, add in the code to build yorr app, and setup & run the example test suite:
+
+```
+#- name: Build Your App
+    # Add code here to build your app
+
+- name: Set up JDK 1.8
+  uses: actions/setup-java@v1
+  with:
+    java-version: 1.8
+- name: Run tests
+  continue-on-error: true
+  run: cd java_tests && mvn test
+```
+Note how the last command to actually `run:` your tests first changes directory to the `java/tests` folder, then runs the test with Maven, which should already exist on the virtual machine/ container where your app, test, and Sauce Connect tunnel are being hosted.
+
+Now, when you push a change, you should see a successful workflow run under the **Actions**
+
+<img src="assets/SC2.06B.png" alt="Actions Workflow" width="750"/>
+
 
 
 
@@ -464,3 +570,42 @@ jobs:
 <!-- ------------------------ -->
 ## 2.07 Module 2 Quiz
 Duration: 0:10:00
+
+![https://docs.google.com/forms/d/e/1FAIpQLScky6wsNQr4v8dmEnZHVNuxQ5hjPqa1LxROL1Jen0XRRP0l6w/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScky6wsNQr4v8dmEnZHVNuxQ5hjPqa1LxROL1Jen0XRRP0l6w/viewform?usp=sf_link)
+
+
+## 2.08 Resources & Support
+Duration: 0:00:30
+
+### Resources
+
+**[Sauce REST API](https://docs.saucelabs.com/dev/api/connect/) –** A list of API methods you can use to manage tunnels
+
+**[Command Line Reference –](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/index.html)** A list of commands and options for the Sauce Connect CLI
+
+**[Troubleshooting Guide –](https://docs.saucelabs.com/secure-connections/sauce-connect/troubleshooting/index.html)** Some extra help, tips, and tricks to get your Sauce Connect tunnels working
+
+**[Change Logs –](https://changelog.saucelabs.com/en?category=sauce%20connect)** See the latest updates and versions of Sauce Connect
+
+
+### Support
+
+Sauce Connect logs are hard, and we have experts to help you. Visit **[support.saucelabs.com](https://support.saucelabs.com)** to get help with your Sauce Connect issues. Having log files ready will help speed up the process.
+
+* Tunnel logs can be obtained by adding the -v flag to your start-up command
+
+* Fresh logs are the easiest for support to read, so it may be helpful to rename the old log file, then re-run your tunnel so a new one gets created. Alternatively you can specify a new file for test runs with the `-l <file>` command when you run your test
+
+### Install Using cURL
+To Install Sauce Connect on Linux, and add add sc to your system PATH, use the commands:
+
+```
+cd ~/
+curl -LO https://saucelabs.com/downloads/sc-4.6.5-linux.tar.gz
+tar xvf ./sc-4.6.5-linux.tar.gz
+cp ./sc-4.6.5-linux/bin/sc ~/bin/sc
+```
+
+```
+cp ./sc-4.6.5-linux/bin/sc ~/bin/sc
+```
