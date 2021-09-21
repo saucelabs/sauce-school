@@ -169,7 +169,7 @@ In this section, you will learn about using **tunnel pools**. These are groups o
 This lesson covers:
 
 * How to start a new shared tunnel alongside an existing tunnel, with the same name
-* Start groups of shared tunnels using the `--tunnel-pools` capability
+* Start groups of shared tunnels using the `--tunnel-pool` capability
 * Run a test through shared tunnel
 
 Typically, instances of the high availability tunnel are created and spun up with the same name (on the same server or different servers) as a shared tunnel so users in an organization can access tunnels as needed without having to start their own.
@@ -178,10 +178,10 @@ To follow along, edit the code to run a test using [this example test written](h
 
 ### Start Tunnel Pools
 
-To start a tunnel pool and create a resilient system for your team to run tests in, simply start a test as you normally with a `-s` flag for a shared tunnel and `--tunnel-pools` with Sauce Connect 4.6.5 +, like so:
+To start a tunnel pool and create a resilient system for your team to run tests in, simply start a test as you normally with a `-s` flag for a shared tunnel and `--tunnel-pool` with Sauce Connect 4.6.5 +, like so:
 
 ```
-bin/sc -u your-username -k ******************** -i your_tunnel_id -s --tunnel-pools
+bin/sc -u your-username -k ******************** -i your_tunnel_id -s --tunnel-pool
 ```
 Typically when you start a tunnel somewhere, you have tunnel that is running 24-7, however if you or someone in your organization were to start two tunnels with the same name on the same server, they would 'collide' and stop running.
 
@@ -190,7 +190,7 @@ Typically when you start a tunnel somewhere, you have tunnel that is running 24-
 Now, to illustrate how high-availability tunnels work, we will start another tunnel with the same name (in a new terminal window):
 
 ```
-bin/sc -u your-username -k ******************** -i your_tunnel_id -s --tunnel-pools
+bin/sc -u your-username -k ******************** -i your_tunnel_id -s --tunnel-pool
 ```
 
 Since you have more than one tunnel with the same name, when others in your organization use that tunnel, the traffic will be balanced across these tunnels, and if one tunnel goes down, you will still be able to run tests without having to change the tunnel name.
@@ -304,10 +304,10 @@ When you create bash scripts, you need to let your system know what permission t
 For each of the scripts you created, [set the permissions](https://linuxcommand.org/lc3_lts0090.php) to read write, and execute as needed:
 
 ```
-chmod 754 start.sh
+chmod 740 start.sh
 ```
 ```
-chmod 754 kill.sh
+chmod 740 kill.sh
 ```
 ### Run Your Scripts
 Before you rely on the cron tab to run your scripts, you will probably want to test them out. navigate to the folder where you saved the scripts, and run the command:
