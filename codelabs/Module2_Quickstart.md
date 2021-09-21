@@ -542,7 +542,7 @@ It will also make transitioning to a continuous integration pipeline easier, sin
 
 ### Upload the .apk File to Mobile-Apps
 
-To upload the `.apk` project file, you simply have to visit the [Sauce Labs dashboard,](http://app.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link) click on **Live > Mobile APP**, and then click the **App Upload** button.
+To upload the `.apk` project file, click **Live** > **Mobile APP** > **App Upload**.
 
 <img src="assets/QS2.04A.png" alt="App Upload" width="750"/>
 
@@ -638,7 +638,7 @@ public class Mobile_Android_EMU_Test {
 
 ### Configure for Sauce Labs
 
-One important thing that you need to add to this is the data center that your test is going to run on. If you log into the [Sauce Labs dashboard](https://accounts.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link), you will see there are different options for where to run your test.
+One important thing that you need to add to this is the data center that your test is going to run on. When you log into [Sauce Labs](https://accounts.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link), you will see there are different options for where to run your test.
 
 
 <img src="assets/QS2.04H.png" alt="Choose a Sauce data center" width="750"/>
@@ -899,7 +899,7 @@ public class Mobile_Android_Browser_Test {
 
 ### Configure for Sauce Labs
 
-One important thing that you need to add to this is the data center that your test is going to run on. If you log into the [Sauce Labs dashboard](https://accounts.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link), you will see there are different options for where to run your test.
+One important thing that you need to add to this is the data center that your test is going to run on. When you log into the [Sauce Labs](https://accounts.saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link), you will see there are different options for where to run your test.
 
 <img src="assets/QS2.05B.png" alt="Sauce Labs data centers" width="750"/>
 
@@ -1292,7 +1292,7 @@ Add in a `System.out.println("Sauce- release driver")` inside of the `finally` s
 ```
 
 
-Last, we will add in `JavaScriptExecutor` [to pass in the sauce:job-result](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation#selenium-javascript-executor) to the Sauce Rest API:
+Last, we will add in `JavaScriptExecutor` [to pass in the sauce:job-result](https://docs.saucelabs.com/basics/test-config-annotation/test-annotation/#selenium-javascript-executor) to the Sauce Rest API:
 
 
 ```
