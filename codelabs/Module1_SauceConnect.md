@@ -23,7 +23,7 @@ In order to follow along with the course, you will need a few things set up ahea
 * The [Tunnel Name](https://app.saucelabs.com/tunnels) of a running tunnel
 * A copy of [Sauce Connect](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/)
 * Automated tests. (See the example [Selenium Java test code](https://github.com/walkerlj0/sauceconnect-github-actions))
-* A computer with unrestricted access to saucelabs.com
+* A computer with access to saucelabs.com ([See Allow Listing Doc](https://docs.saucelabs.com/secure-connections/sauce-connect/system-requirements/#allowlisting-for-restricted-networks))
 
 This tutorial gives examples written in Java, using the JUnit4 test runner, as well as the Maven build tool.
 
@@ -52,7 +52,7 @@ In this lesson, you will learn to:
 * Learn how to do a [Manual (Live) test](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#live-manual-tests-with-sauce-connect) with Sauce Connect
 
 #### Video
-[Set Up Sauce Connect Proxy](https://youtu.be/cpBcGeZ_wQU)
+[Set Up Sauce Connect](https://www.youtube.com/watch?v=cpBcGeZ_wQU&list=PL67l1VPxOnT6sxZkCZoH8rhUXWB-qlRWI&index=1)
 
 <video id="cpBcGeZ_wQU"></video>
 
@@ -137,7 +137,7 @@ This video is intended to show an example for how to update your test capabiliti
 * See how to run your test using [shared tunnels](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#shared-tunnels)
 
 #### Video
-[Run a Test with Sauce Connect Proxy](https://youtu.be/u1kijdRTSv8)
+[Run a Test with Sauce Connect Proxy](https://www.youtube.com/watch?v=u1kijdRTSv8&list=PL67l1VPxOnT6sxZkCZoH8rhUXWB-qlRWI&index=2)
 
 <video id="u1kijdRTSv8"></video>
 
@@ -266,7 +266,7 @@ This lesson will walk you through the basic things you will need to do if you ar
   * Making sure you don't have colliding tunnels
 
 #### Video
-[User Troubleshooting with Sauce Connect](https://youtu.be/Jx6ED1dNJEA)
+[Troubleshooting with Sauce Connect](https://www.youtube.com/watch?v=Jx6ED1dNJEA&list=PL67l1VPxOnT6sxZkCZoH8rhUXWB-qlRWI&index=3)
 
 <video id="Jx6ED1dNJEA"></video>
 
@@ -356,7 +356,7 @@ There are a many options you can use to change the settings and options for your
 You can find all the flags that you can use when running Sauce Connect in the [Sauce Connect Proxy CLI Reference](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy)
 
 #### Video
-[Sauce Connect Options](https://youtu.be/D7pfJfHe29k)
+[Sauce Connect Options for Users](https://www.youtube.com/watch?v=D7pfJfHe29k&list=PL67l1VPxOnT6sxZkCZoH8rhUXWB-qlRWI&index=4)
 
 <video id="D7pfJfHe29k"></video>
 
@@ -446,7 +446,7 @@ Duration: 0:05:00
 When users communicate with applications over the internet, they use TLS (successor of SSL) protocol to make sure they are communicating securely. One part of this protocol requires that the app the user is communicating with provides a secure 'certificate' to help verify the identity of server it is sending information to.
 
 #### Video
-[SSL Bumping with Sauce Connect](https://youtu.be/Bpayic1W514)
+[SSL Bumping with Sauce Connect](https://www.youtube.com/watch?v=Bpayic1W514&list=PL67l1VPxOnT6sxZkCZoH8rhUXWB-qlRWI&index=5)
 
 <video id="Bpayic1W514"></video>
 

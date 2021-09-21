@@ -21,18 +21,19 @@ In order to follow along with the course, you will need a few things set up ahea
 * A Sauce [Username and Access Key](https://app.saucelabs.com/user-settings)
 * The [Tunnel Name](https://app.saucelabs.com/tunnels) of a running tunnel
 * A copy of [Sauce Connect](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/)
-* Example [Selenium Java test code](https://github.com/walkerlj0/sauceconnect-github-actions/tree/main/java_tests)
 * An App to build and test in GitHub Actions
-* A computer with unrestricted access to saucelabs.com
+* A computer with access to saucelabs.com ([See Allow Listing Doc](https://docs.saucelabs.com/secure-connections/sauce-connect/system-requirements/#allowlisting-for-restricted-networks))
+* Example [Selenium Java test code](https://github.com/walkerlj0/sauceconnect-github-actions/tree/main/java_tests) (Optional)
 
 This tutorial gives examples written in Java, using the JUnit4 test runner, as well as the Maven build tool. If you would like to follow along, you can [download or fork and clone this project](https://github.com/walkerlj0/sauceconnect-github-actions).
 
 ### Skills & Knowledge
 * Be able to start a shared tunnel and run a Java test using a shared tunnel
-* Understand the difference between shared and high-availability tunnels, and when to use them
+* Understand shared tunnels and pools tunnels, and when to use them
 * Start high availability tunnels for use by many users within a team or organization
 * Learn how to create bash scripts that will start and kill your tunnels, and use crontab jobs to schedule these to restart tunnels every 24 hours
 * Understand the use cases for Sauce Connect with your you system under test
+* Understand when you should use On Demand or Persistent tunnels
 * Work through an example of setting up Sauce Connect in CI, using GitHub actions to start an on-demand tunnel
 
 
@@ -47,13 +48,15 @@ In this section, you will learn about using shared tunnels, and edit the code to
 * How to update Java test code to run your test through a shared tunnel by updating the `parentTunnel` capability.
 
 #### Video
+[Sauce Connect Shared Tunnels](https://www.youtube.com/watch?v=zVSUnYF6lI0&list=PL67l1VPxOnT6sxZkCZoH8rhUXWB-qlRWI&index=6)
 
+<video id="zVSUnYF6lI0"></video>
 
 #### Note
 Negative
 : Not familiar with Java automated testing? Learn more about [setting up a Java test environment](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4). You will need to make sure you have your [Sauce Credentials set up as environment variables](https://www.youtube.com/watch?v=3K1Eu0eTha8) so the tests will run.
 
-Shared tunnels are tunnels that are started by one person in an organization, that can be used by other inidividuals within that organization. Though anyone can run the `-s` flag, tunnels are only shared with others if you are and Admin or Team Admin in your Sauce Labs account.
+Shared tunnels are tunnels that are started by one person in an organization, that can be used by other inidividuals within that organization. Though anyone can run the `-s` flag, tunnels are only shared with others if you are on the same Sauce Labs team, or Team Admin in your Sauce Labs account.
 
 ### Sauce Labs Account Access
 There are different roles that individuals in an organization can have within Sauce Labs. The most common ones include:
@@ -157,36 +160,37 @@ Negative
 <img src="assets/SC2.02E.png" alt="Start a shared tunnel" width="850"/>
 
 <!-- ------------------------ -->
-## 2.03 High Availability Tunnels
+## 2.03 Tunnel Pools
 Duration: 0:05:00
 
 
-In this section, you will learn about using **high availability tunnels**. These are persistent tunnels that are always available to an organization or team (they are't stopped after a test).
+In this section, you will learn about using **tunnel pools**. These are groups of persistent tunnels that are always available to an organization or team (they aren't stopped after a test).
 
 This lesson covers:
 
 * How to start a new shared tunnel alongside an existing tunnel, with the same name
-* How to update Java test code to run your test through a shared tunnel by updating the `--no-remove-colliding-tunnels` capability.
+* Start groups of shared tunnels using the `--tunnel-pools` capability
+* Run a test through shared tunnel
 
 Typically, instances of the high availability tunnel are created and spun up with the same name (on the same server or different servers) as a shared tunnel so users in an organization can access tunnels as needed without having to start their own.
 
 To follow along, edit the code to run a test using [this example test written](https://github.com/walkerlj0/sauceconnect-github-actions) in Java, JUnit4, with Maven and InteliiJ. (Copy the tests in `/java_tests` and run your tests from there).
 
-### Start High Availability Tunnels
+### Start Tunnel Pools
 
-To start a high-availability tunnel and create a resilient system for your team to run tests in, simply start a test as you normally with a `-s` flag for a shared tunnel and `--no-remove-colliding-tunnels` with Sauce Connect 4.6.5 +, like so:
+To start a tunnel pool and create a resilient system for your team to run tests in, simply start a test as you normally with a `-s` flag for a shared tunnel and `--tunnel-pools` with Sauce Connect 4.6.5 +, like so:
 
 ```
-bin/sc -u your-username -k ******************** -i your_tunnel_id -s --no-remove-colliding-tunnels
+bin/sc -u your-username -k ******************** -i your_tunnel_id -s --tunnel-pools
 ```
-Typically when you start a tunnel somewhere, you have tunnel that is running 24/7, however if you or someone in your organization were to start two tunnels with the same name on the same server, they would 'collide' and stop running.
+Typically when you start a tunnel somewhere, you have tunnel that is running 24-7, however if you or someone in your organization were to start two tunnels with the same name on the same server, they would 'collide' and stop running.
 
 #### Start a Second Tunnel
 
-Now, to illustrate how high-availability tunnels work, we will start another tunnel with the same name (in a new terminal):
+Now, to illustrate how high-availability tunnels work, we will start another tunnel with the same name (in a new terminal window):
 
 ```
-bin/sc -u your-username -k ******************** -i your_tunnel_id -s --no-remove-colliding-tunnels
+bin/sc -u your-username -k ******************** -i your_tunnel_id -s --tunnel-pools
 ```
 
 Since you have more than one tunnel with the same name, when others in your organization use that tunnel, the traffic will be balanced across these tunnels, and if one tunnel goes down, you will still be able to run tests without having to change the tunnel name.
@@ -283,7 +287,7 @@ sc_path=/Users/youruser/Documents/sc-4.x.x-operatingsystem/bin/sc
 for tunnel in $(seq 1 $tunnels);
 do
     if [[ ! $(ps aux | grep sc_$tunnelname-$tunnel_port_num | grep -v grep | awk '{ print $2 }') ]]; then
-        $sc_path -u $user -k $key --tunnel-identifier $tunnelname --no-remove-colliding-tunnels -d /tmp/sc_$tunnelname-$tunnel_port_num -s -v --extra-info '{"inject_job_id":true}' &
+        $sc_path -u $user -k $key --tunnel-name $tunnelname --tunnel-pool -d /tmp/sc_$tunnelname-$tunnel_port_num -s -v --extra-info '{"inject_job_id":true}' &
         sleep 5
     fi
 
@@ -330,7 +334,7 @@ You should see a verification on your console that the tunnels have been shut do
 
 Next Create a crontab file with the command `crontab -e`.
 
-Use [vim](https://www.cyberciti.biz/faq/how-do-i-save-changes-in-vim/) to insert and save the timing for when you want to run your files, and the path to the bash script it will execute.
+Use [vim](https://www.cyberciti.biz/faq/how-do-i-save-changes-in-vim/) (`vim crontab`) to insert and save the timing for when you want to run your files, and the path to the bash script it will execute.
 
 This will execute the `start.bash` script every hour, which will check if you have a tunnel up, and if not, start one:
 ```
@@ -379,7 +383,7 @@ With either of these situations, you can run your tests from wherever you would 
 
 <img src="assets/SC2.05F.png" alt="SC Setups" width="750"/>
 
-The most important thing you need to understand is that the **Sauce Connect proxy needs to be running in the same environment that your system under test is running**.
+The most important thing you need to understand is that the **Sauce Connect proxy needs to be reachable or running in the same environment that your system under test is running** (or reachable on same network).
 
 In this module, you will work with an example setting up Sauce Connect in a CI environment, however, keep in mind that if your app is hosted on a private network, and you try to follow the example in this course, you app won't be able to connect through Sauce Connect.
 
@@ -541,7 +545,7 @@ jobs:
           # Add code here to build your app
 ```
 
-Note that you will want to updeate the `scVersion:` with the most [up to date version](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/#downloading-sauce-connect-proxy) that you plan to use.
+Note that you will want to update the `scVersion:` with the most [up to date version](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/#downloading-sauce-connect-proxy) that you plan to use.
 
 Last, add in the code to build yorr app, and setup & run the example test suite:
 
