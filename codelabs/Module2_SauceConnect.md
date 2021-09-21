@@ -47,13 +47,15 @@ In this section, you will learn about using shared tunnels, and edit the code to
 * How to update Java test code to run your test through a shared tunnel by updating the `parentTunnel` capability.
 
 #### Video
+[Sauce Connect Shared Tunnels](https://www.youtube.com/watch?v=zVSUnYF6lI0&list=PL67l1VPxOnT6sxZkCZoH8rhUXWB-qlRWI&index=6)
 
+<video id="zVSUnYF6lI0"></video>
 
 #### Note
 Negative
 : Not familiar with Java automated testing? Learn more about [setting up a Java test environment](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4). You will need to make sure you have your [Sauce Credentials set up as environment variables](https://www.youtube.com/watch?v=3K1Eu0eTha8) so the tests will run.
 
-Shared tunnels are tunnels that are started by one person in an organization, that can be used by other inidividuals within that organization. Though anyone can run the `-s` flag, tunnels are only shared with others if you are and Admin or Team Admin in your Sauce Labs account.
+Shared tunnels are tunnels that are started by one person in an organization, that can be used by other inidividuals within that organization. Though anyone can run the `-s` flag, tunnels are only shared with others if you are on the same Sauce Labs team, or Team Admin in your Sauce Labs account.
 
 ### Sauce Labs Account Access
 There are different roles that individuals in an organization can have within Sauce Labs. The most common ones include:
