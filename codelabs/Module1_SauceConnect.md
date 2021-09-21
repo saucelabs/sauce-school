@@ -23,7 +23,7 @@ In order to follow along with the course, you will need a few things set up ahea
 * The [Tunnel Name](https://app.saucelabs.com/tunnels) of a running tunnel
 * A copy of [Sauce Connect](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/)
 * Automated tests. (See the example [Selenium Java test code](https://github.com/walkerlj0/sauceconnect-github-actions))
-* A computer with unrestricted access to saucelabs.com
+* A computer with access to saucelabs.com ([See Allow Listing Doc](https://docs.saucelabs.com/secure-connections/sauce-connect/system-requirements/#allowlisting-for-restricted-networks))
 
 This tutorial gives examples written in Java, using the JUnit4 test runner, as well as the Maven build tool.
 
