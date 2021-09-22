@@ -446,10 +446,10 @@
     if (typeof instantsearch === 'function') {
 
         const sl_search = instantsearch({
-            indexName: "saucelabs_crawler_production_training",
+            indexName: "saucelabs_crawler_testing_unified",
             searchClient: algoliasearch(
                 "RO95H65NEO",
-                "63ef6fd845955e82ecb703bc813cce8d"
+                "bad6042c91ae4419a94229edf20bc8ea"
             ),
         });
 
