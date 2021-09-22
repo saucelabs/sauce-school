@@ -186,7 +186,12 @@ As the complexity and number of tests in your test suite increase, it's a best p
 * **Input Sets**
 * **The Vault**
 
-This level covers how to use Global Variables.
+This lesson covers how to use Global Variables.
+
+#### Video
+[APi ](https://www.youtube.com/watch?v=zVSUnYF6lI0&list=PL67l1VPxOnT6sxZkCZoH8rhUXWB-qlRWI&index=6)
+
+<video id="zVSUnYF6lI0"></video>
 
 ### Global Variables
 
