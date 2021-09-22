@@ -48,14 +48,14 @@ This is a testing solution for developers that simplifies user setup, speeds up 
 
 #### Scalable Testing, Quickly
 Installing with `saucectl` allows you to quickly and easily install all dependencies and start testing
-* Test with JavaScript frameworks such as Cypress, PlayWright, and TestCafe
+* Test with JavaScript frameworks such as xCUITest, Espresso, and Cypress
 * Configure your test suite and credentials quickly
 * Access Sauce Labs VMs with thousands of browser/ operating system combinations
 
 
 ### What can saucectl and the Sauce Labs Platform Do?
 
-`saucectl` stands for Sauce Control, the command line interface for running non-Selenium tests such a Cypress, TestCafe, Espresso, and XCUITest. The toolkit includes `saucectl` commands that allow you to interface with Sauce Labs, as well as the tools necessary to record the output from tests on a Sauce Labs Virtual Machine, making it easy to interpret, share and analyze those test results.
+`saucectl` stands for Sauce Control, the command line interface for running non-Selenium/ Appium tests such a Cypress, TestCafe, Espresso, and XCUITest. The toolkit includes [saucectl` commands](https://docs.saucelabs.com/testrunner-toolkit/) that allow you to interface with Sauce Labs, as well as the tools necessary to record the output from tests on a Sauce Labs Virtual Machine, making it easy to interpret, share and analyze those test results.
 
 
 ### Why Use saucectl
@@ -65,13 +65,13 @@ Appium can be a great solution for automating mobile tests, however there are ca
 Using XCUI along with Sauce Labs also allows you to:
 
 *   Run your tests using either a Sauce Labs VM or Docker container
-* All you need to run a test is an application file and a test file, eliminating the need for setting up an environment and dependencies
+*   All you need to run a test is an application file and a test file, eliminating the need for setting up an environment and dependencies
 *   Review, share, and evaluate your test assets, such as logs, test results, and test videos
 *   Use our Insights feature to perform deeper analysis of test outcomes
 
 //update
 
-<img src="assets/TRT1.02C.png" alt="Testrunner Toolkit Sauce Labs dashboard" width="600"/>
+<img src="assets/SCTLN2.02AC.png" alt="Testrunner Toolkit Sauce Labs dashboard" width="600"/>
 
 ### Two Ways to Run Tests
 
