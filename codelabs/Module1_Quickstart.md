@@ -97,7 +97,7 @@ Mobile web tests are similar to mobile application tests. Tests can be written w
 
 To run a web test on Sauce Labs, all you need to do is set the capabilities and point the test to the URL where the web application is hosted.
 
-Whether you choose to run your tests on real devices, virtual machines with emulators (Android) and simulators (IOS) Sauce Labs has an offering to help improve testing accuracy and efficiency.
+Whether you choose to run your tests on real devices, virtual machines with emulators (Android) and simulators (iOS) Sauce Labs has an offering to help improve testing accuracy and efficiency.
 
 <img src="assets/QS1.03A.png" alt="Mobile Test Offerings" width="500"/>
 
@@ -147,7 +147,7 @@ Duration: 0:05:00
 
 The test results dashboard is the automated tester’s key to understanding your automated tests.
 
-If you click into any of the tests from the **Automated > Test Results** dashboard, you will be taken to the test details page.
+If you click into any of the tests from the **Automated** > **Test Results** dashboard, you will be taken to the test details page.
 
 <img src="assets/QS1.05A.png" alt="Access Test Details Page" width="700"/>
 

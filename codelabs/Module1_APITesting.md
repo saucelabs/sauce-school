@@ -181,7 +181,7 @@ There are commonly used terms when referring to APIs that will help us when we t
 
 ### Requests
 
-These are the most common **API request methods**, sometimes referred to as API verbs, that dictate what type of information you want to send or recieve, and what you want to do with that information.
+These are the most common **API request methods**, sometimes referred to as API verbs, that dictate what type of information you want to send or receive, and what you want to do with that information.
 
 <ul>
   <li><p class="api get">GET </p></li>
@@ -200,15 +200,15 @@ A service endpoint is one end of a communication channel. It's typically a URL a
 
 ### GET
 
-The <span class="api get">GET</span> method communicates with the service endpoint when you want to get information from another service. This is the easiest API to use and understand. For example the [Sauce Labs get users API method](https://docs.saucelabs.com/dev/api/accounts#get-users).
+The <span class="api get">GET</span> method communicates with the service endpoint when you want to get information from another service. This is the easiest API to use and understand. For example, the [Sauce Labs get users API method](https://docs.saucelabs.com/dev/api/accounts/#get-users).
 
 An example of a GET request would be one app asking to get and read information about a given user, but not modify any of that information.
 
 ### POST
 
-The <span class="api post">POST</span> method communicates with the service endpoint in order to add or create data. An example of this is the [Sauce Labs create team API method](https://docs.saucelabs.com/dev/api/accounts#create-a-team).
+The <span class="api post">POST</span> method communicates with the service endpoint in order to add or create data. An example of this is the [Sauce Labs create team API method](https://docs.saucelabs.com/dev/api/accounts/#create-a-team).
 
-A example of a POST request could be to add information, say a users' address, which was a field that didn't exist before.
+A example of a POST request could be to add information, say a user's address, which was a field that didn't exist before.
 
 ### PUT
 
@@ -259,7 +259,7 @@ A rule or specific test against a single object and/or piece of data. The API te
 API requests return certain codes to let you know whether a API call was successful or not, as well as what kind of error occurred. Some common status codes include:
 
 * **200** - OK, your API call was successful
-* **401** – Not Authorized, usually the user creditials weren't entered, or were wrong
+* **401** – Not Authorized, usually the user credentials weren't entered, or were wrong
 * **404** – Not Found, the URL is invalid or the resource doesn't exist
 * **500** – Internal Server Error, a fairly generic response when the client was unable to get the information from the host's API.
 
@@ -358,7 +358,7 @@ The next layer is where skill and creativity in test creation are required to cr
 
 Imagine you are an ecommerce company with a product API, and you search for ‘red'. You know that these fields exist in different objects, and that you receive both shoes and pants. You also know all products should contain a size object, but they are very different size ranges.
 
-Adding the intelligence to a test that says, "If this is a pair of shoes, size should be between 4 and 17." or "The pants and shoes data objects should contain the field red" is business logic validation. This is where you need a skilled team that knows the expectations of the API, and how to manipulate and validate them.
+Adding the intelligence to a test that says, "If this is a pair of shoes, size should be between 4 and 17" or "The pants and shoes data objects should contain the field red" is business logic validation. This is where you need a skilled team that knows the expectations of the API, and how to manipulate and validate them.
 
 #### End-to-End & Integration Testing
 

@@ -176,7 +176,7 @@ Watch [this video](https://www.youtube.com/watch?v=3K1Eu0eTha8&t=12s) to see how
 
 ### Initialize saucectl
 
-Now that you have your Cypress test files set up in a directory, and your Sauce Labs username and access key setup globally with saucectl, you can initialize the test runner in order to run your Cypress tests on the Sauce Labs Cloud
+Now that you have your Cypress test files set up in a directory, and your Sauce Labs username and access key setup globally with saucectl, you can initialize the test runner in order to run your Cypress tests on the Sauce Labs cloud.
 
 From the folder where you should have placed `cypress.json`, and `/cypress` directory, and any other test files or assets, run the terminal command:
 

@@ -190,7 +190,7 @@ Negative
 <img src="assets/1.05D.png" alt="directory structure" width="230"/>
 
 
-Later on when you set up your first test, you will go back to the ‘SeleniumJS’ folder you just set up and create your first project files there.
+Later on, when you set up your first test, you will go back to the ‘SeleniumJS’ folder you just set up and create your first project files there.
 
 ### Install an IDE
 When using JavaScript, there are any number of **I**ntegrated **D**evelopment **E**nvironments (IDEs) that you can use. In this course, you will see examples from the [Atom IDE](https://atom.io/). You can use any IDE that works well to create JavaScript files & works with the NodeJS served.
