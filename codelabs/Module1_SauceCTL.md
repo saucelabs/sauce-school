@@ -145,6 +145,24 @@ Once you have a project directory containing cypress tests on your machine, navi
 Negative
 : You will want to make sure your Cypress tests are (and the project structure) works with the same version that you have listed in the `.sauce/config.yml` file. If you are using `saucectl` in an existing project, make sure that in the setup workflow, you do not overwrite any of the existing files. <img src="assets/TRT1.03D.png" alt="Project directory setup" width="800"/> -->
 
+
+
+### Initialize saucectl
+
+Now that you have your Cypress test files set up in a directory, and your Sauce Labs username and access key setup globally with saucectl, you can initialize the test runner in order to run your Cypress tests on the Sauce Labs cloud.
+
+From the folder where you should have placed `cypress.json`, and `/cypress` directory, and any other test files or assets, run the terminal command:
+
+```
+saucectl init
+```
+
+You will see a workflow appear allowing you to choose the data center you run tests in, the framework and version, configuration file, browser, platform, and options to download test assets.
+
+Once you make all the choices in your workflow, you should be able to see the hidden `/.sauce` directory and the `.sauceignore` file in your project:
+
+<img src="assets/SCTL1.03B.png" alt="saucectl init workflow" width="700"/>
+
 ### Set Sauce Username and Access Key
 
 You can access your Sauce Username and Access Key on the [Sauce Labs App](https://app.saucelabs.com/user-settings) and go to **Account> User Settings** . There are three ways you can configure your credentials with saucectl:
@@ -172,27 +190,8 @@ Visit [accounts.saucelabs.com](https://accounts.saucelabs.com/am/XUI/#login/?utm
 Watch [this video](https://www.youtube.com/watch?v=3K1Eu0eTha8&t=12s) to see how to set up your Sauce username and access key as environment variables on your machine, or use [the instructions here to set them up on Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
 
 
-
-
-### Initialize saucectl
-
-Now that you have your Cypress test files set up in a directory, and your Sauce Labs username and access key setup globally with saucectl, you can initialize the test runner in order to run your Cypress tests on the Sauce Labs cloud.
-
-From the folder where you should have placed `cypress.json`, and `/cypress` directory, and any other test files or assets, run the terminal command:
-
-```
-saucectl init
-```
-
-You will see a workflow appear allowing you to choose the data center you run tests in, the framework and version, configuration file, browser, platform, and options to download test assets.
-
-Once you make all the choices in your workflow, you should be able to see the hidden `/.sauce` directory and the `.sauceignore` file in your project:
-
-<img src="assets/SCTL1.03B.png" alt="saucectl init workflow" width="700"/>
-
-
-
-### The Configuration File
+<!-- ------------------------ -->
+## 1.04 The Configuration File
 
 Once you have your project setup, open the project directory, take a look at the project files inside.
 
@@ -286,7 +285,7 @@ You can check to see if it’s running with the command `docker info`, and see w
 See the next module for more about running tests with the command `saucectl run`
 
 <!-- ------------------------ -->
-## 1.04 Run Your Cypress Test on Sauce
+## 1.05 Run Your Cypress Test on Sauce
 Duration: 0:03:00
 
 Running a Cypress test on sauce is easy. If you follow the configuration steps using `saucectl init` in the last module, all you need to do is run the command:
@@ -471,7 +470,7 @@ See an example of the test suite with [updated suites in `.sauce/config.yml`](ht
 <img src="assets/SCTL1.04G.png" alt="All Specs passed" width="550"/>
 
 <!-- ------------------------ -->
-## 1.05 Run Cypress Tests in Parallel
+## 1.06 Run Cypress Tests in Parallel
 Duration: 0:03:00
 
 Running Cypress tests in parallel on the Sauce Labs Cloud using the saucectl is as simple as updating a single field in your `.sauce/config.yml` file:
@@ -522,7 +521,7 @@ To find out more about the names for the different browser and platform  (OS) co
 See [an example suite](https://github.com/walkerlj0/testrunner-course-example-code/blob/main/Mod1/1.05/.sauce/config.yml) set to run in parallel on multiple browsers.
 
 <!-- ------------------------ -->
-## 1.06 Module 1 Quiz
+## 1.07 Module 1 Quiz
 Duration: 0:02:00
 
 
@@ -557,7 +556,7 @@ d. The number of machines you want to run concurrently on Sauce Labs, which test
  -->
 #### Go on to [Module 2](https://training.saucelabs.com/codelabs/Module2-Testrunner/index.html?index=..%2F..testrunner#0) if you have your Cypress Tests set up.
 <!-- ------------------------ -->
-## 1.07 Create Page Objects (Optional)
+## 1.08 Create Page Objects (Optional)
 Duration: 0:05:00
 
 Sauce Labs’ Testrunner Toolkit allows you to take existing Cypress test suites (or build a cypress test suite) and quickly run them on Sauce Labs. In this lesson, you will learn how to modify a couple settings in the `cypress.json` and `.sauce/config.yml` files, then write a basic test and run it on Sauce Labs.
@@ -752,7 +751,7 @@ export default new SwagOverviewPage();
 
 
 <!-- ------------------------ -->
-## 1.08 Write Your First Test (Optional)
+## 1.09 Write Your First Test (Optional)
 Duration: 0:04:00
 
 Now that you have all the configuration files and page objects created, you can create your first test object to use all of these elements and run a test.
@@ -875,7 +874,7 @@ See a sample of the [project and code here](https://github.com/walkerlj0/testrun
 
 
 <!-- ------------------------ -->
-## 1.09 Debugging Locally with Cypress (Optional)
+## 1.10 Debugging Locally with Cypress (Optional)
 Duration: 0:05:00
 
 It often helps to debug on your local machine, and the Cypress client provides some additional debugging features if you install it locally.
