@@ -27,8 +27,7 @@ Duration: 0:01:00
 * Learn to run a Cypress Test on Sauce Labs with a Docker container and on Virtual Machines (VMs)
 
 * Run a saucectl with the Sauce Labs platform Cypress Test with your test code locally with Cypress
-
-* Learn basic JavaScript to write page object and test code that runs on Cypress and saucectl with the Sauce Labs platform (Optional) -->
+-->
 
 #### Clone the Project
 <!-- If you would like to follow along with the course, using the exact sample code, you can use the [example tests here](https://github.com/walkerlj0/saucectl-course-example-code/tree/main/Mod1/1.03). -->
@@ -55,7 +54,7 @@ Installing with `saucectl` allows you to quickly and easily install all dependen
 
 ### What can saucectl and the Sauce Labs Platform Do?
 
-`saucectl` stands for Sauce Control, the command line interface for running non-Selenium/ Appium tests such a Cypress, TestCafe, Espresso, and XCUITest. The toolkit includes [saucectl` commands](https://docs.saucelabs.com/testrunner-toolkit/) that allow you to interface with Sauce Labs, as well as the tools necessary to record the output from tests on a Sauce Labs Virtual Machine, making it easy to interpret, share and analyze those test results.
+`saucectl` stands for Sauce Control, the command line interface for running non-Selenium/ Appium tests such a Cypress, TestCafe, Espresso, and XCUITest. The toolkit includes [`saucectl` commands](https://docs.saucelabs.com/testrunner-toolkit/installation/#installing-saucectl) that allow you to interface with Sauce Labs, as well as the tools necessary to record the output from tests on a Sauce Labs Virtual Machine, making it easy to interpret, share and analyze those test results.
 
 
 ### Why Use saucectl
@@ -69,9 +68,8 @@ Using XCUI along with Sauce Labs also allows you to:
 *   Review, share, and evaluate your test assets, such as logs, test results, and test videos
 *   Use our Insights feature to perform deeper analysis of test outcomes
 
-//update
 
-<img src="assets/SCTLN2.02AC.png" alt="Testrunner Toolkit Sauce Labs dashboard" width="600"/>
+<img src="assets/SCTLN1.02A.png" alt="SauceCTL XCUI Test" width="750"/>
 
 ### Two Ways to Run Tests
 
@@ -86,11 +84,9 @@ With saucectl, you can also install Docker and run a containerized version of yo
 ## 1.03 Setup saucectl to Run Tests on Sauce Labs
 Duration: 0:07:00
 
-text
-
 In this module, you will see how you can set up   saucectl on Sauce Labs VMs _or_ use saucectl along with Docker on your MacOS Computer. The basic steps include:
 
-* Setup an [example Cypress project](https://github.com/saucelabs/saucectl-cypress-example)
+* Grab an [example xCTUITest project](https://github.com/saucelabs-training/demo-xcuitest
 * Install saucectl with `npm i -g saucectl`
 * Set your Sauce username and access key with `saucectl configure`
 * Update `.sauce/config.yml` with test suite information
@@ -106,11 +102,11 @@ _More detailed instructions are below_
 
 
 Negative
-: Note that the config file in the video may be out of date, and the most up-to date [configuration can be found in the documentation.](https://docs.saucelabs.com/testrunner-toolkit/configuration/xcuitest/).
+: To customize your test, you need to update the `.sauce/config.yml` file. See the most up-to-date [configuration in the documentation.](https://docs.saucelabs.com/testrunner-toolkit/configuration/xcuitest/).
 
 ### Download and Install saucectl
 
-First, you need to download and install the saucectl Command Line Interface (CLI) that you will use to run Sauce Labs. This is a part of the Sauce Labs set of tools that allows you to set a configuration location & update the file in your local directory.  There are several options (https://docs.saucelabs.com/testrunner-toolkit/installation) for installing it, and in this tutorial we will use npm, which means you need to have [NodeJS installed on your machine](https://nodejs.org/en/download/).
+First, you need to download and install the saucectl tools and Command Line Interface (CLI) that you will use to run Sauce Labs. This is a part of the Sauce Labs set of tools that allows you to set a configuration location & update the file in your local directory.  There are several options (https://docs.saucelabs.com/testrunner-toolkit/installation) for installing it, and in this tutorial we will use a `cURL` command
 
 It also allows you to run commands to run tests locally or remotely on the Sauce Labs platform.
 
@@ -121,7 +117,7 @@ First, anywhere on your machine install the saucectl tool globally, using this c
 
 ### XCUI Test Code
 
-<!-- You want to fork, clone or download a .zip copy of the [example project](https://docs.saucelabs.com/testrunner-toolkit/installation), then place your tests in the **cypress** directory that contains your tests.
+You want to fork, clone or download a .zip copy of the [example project](https://docs.saucelabs.com/testrunner-toolkit/installation), then place your tests in the **cypress** directory that contains your tests.
 
 You have the following options to test out Cypress on Sauce:
 * Use an existing project you have already (copy-paste in `/cypress` & `cypress.json`)
@@ -161,7 +157,7 @@ Watch [this video](https://www.youtube.com/watch?v=3K1Eu0eTha8&t=12s) to see how
 
 ### Initialize saucectl
 
-Now that you have your Cypress test files set up in a directory, and your Sauce Labs username and access key setup globally with saucectl, you can initialize the test runner in order to run your Cypress tests on the Sauce Labs Cloud
+Now that you have your Cypress test files set up in a directory, and your Sauce Labs username and access key setup globally with saucectl, you can initialize the test runner in order to run your Cypress tests on the Sauce Labs Cloud.
 
 From the folder where you should have placed `cypress.json`, and `/cypress` directory, and any other test files or assets, run the terminal command:
 
@@ -173,7 +169,7 @@ You will see a workflow appear allowing you to choose the data center you run te
 
 Once you make all the choices in your workflow, you should be able to see the hidden `/.sauce` directory and the `.sauceignore` file in your project:
 
-<img src="assets/SCTL1.03B.png" alt="saucectl init workflow" width="700"/> -->
+<img src="assets/SCTL1.03B.png" alt="saucectl init workflow" width="700"/>
 
 <!-- ------------------------ -->
 ## 1.04 Customize Your Test Runs

@@ -56,7 +56,7 @@ Installing with `saucectl` allows you to quickly and easily install all dependen
 
 ### What can saucectl and the Sauce Labs Platform Do?
 
-`saucectl` stands for Sauce Control, the command line interface for running non-Selenium tests such a Cypress, TestCafe, Espresso, and XCUITest. The toolkit includes `saucectl` commands that allow you to interface with Sauce Labs, as well as the tools necessary to record the output from tests on a Sauce Labs Virtual Machine, making it easy to interpret, share and analyze those test results.
+`saucectl` stands for Sauce Control, the command line interface for running non-Selenium tests such a Cypress, TestCafe, Espresso, and XCUITest. The toolkit includes []`saucectl` commands](https://docs.saucelabs.com/testrunner-toolkit/installation/#installing-saucectl) that allow you to interface with Sauce Labs, as well as the tools necessary to record the output from tests on a Sauce Labs Virtual Machine, making it easy to interpret, share and analyze those test results.
 
 
 ### Why Use saucectl
