@@ -61,15 +61,19 @@ The Selenium Grid allows you to run parallel tests on multiple combinations of m
 
 <img src="assets/1.02B.png" alt="Selenium Computer" width="350"/>
 
+### Sauce Labs Selenium Grid
 
-The [Sauce Labs](https://saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link) platform enables you to use a Selenium Grid at scale to run thousands of tests at once, on our suite of different test environments in the cloud. Sauce also has a robust dashboard for easy viewing of test outcomes and increased velocity of debugging tests. This dashboard includes tracking of errors and even a visual record of what occurred in different environments.
+[Sauce Labs](https://saucelabs.com/?utm_source=referral&utm_medium=LMS&utm_campaign=link) enables you to use a Selenium Grid at scale to run thousands of tests at once, on our suite of different test environments in the cloud. Sauce also has a robust dashboard for easy viewing of test outcomes and increased velocity of debugging tests. This dashboard includes tracking of errors and even a visual record of what occurred in different environments.
 
-As your test suite grows, your test runs will take longer to complete. To speed them up you will want to run them in parallel, which is where the benefit of having your own servers or using a cloud provider comes in -- that, and the ability to have numerous browser and operating system combinations to run your tests on.
+As your test suite grows, your test runs will take longer to complete. To speed them up, you will want to run them in parallel, which is where the benefit of having your own servers or using a cloud provider comes in -- that, and the ability to have numerous browser and operating system combinations to run your tests on.
 
-This course focuses on the fourth version of Selenium that supports communication via the W3C WebDriver. All modern web browsers are also built in compliance with this protocol (a set of rules on how to communicate), which means Selenium 4 can be used with any programming language and any browser/ OS environment. With W3C you can discover and manipulate elements on a page in order to test their functionality.
+Selenium communicates the commands to the browser using either a JSON wire protocol (Selenium 3.14.15 and below) or the latest W3C protocol (Selenium 4 and above.)
 
-Selenium is really good at a specific set of things. If you know what those are and stick to them then you can easily write reliable, scalable, and maintainable tests that you and your team can trust.
+#### Selenium 4
 
+The [fourth version of Selenium](https://www.selenium.dev/blog/2021/selenium-4-rc-1/), which supports communication via the W3C protocol, is being releaseed in 2021 All modern web browsers are also built in compliance with this protocol (a set of rules on how to communicate), which means Selenium 4 can be used with any programming language and any browser and OS combination in your environment. With the W3C protocol, you can discover and manipulate elements on a page in order to test their functionality.
+
+Selenium is really good at a specific set of things. If you know what those are and stick to them, then you can easily write reliable, scalable, and maintainable tests that you and your team can trust.
 
 ### What Selenium Is and Is Not Good At
 
