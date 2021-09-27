@@ -61,11 +61,18 @@ Find more detailed instructions [here](https://github.com/gulpjs/gulp/blob/maste
 cd site
 ```
 
+
 #### Install package dependencies and gulp dependencies in site directory
 In order to use claat and gulp, you will need to install the node dependencies in the `site` folder:
 
 ```
 npm install
+```
+
+Install the [version of npm-sass that works with the version of NodeJs you have on your machine](https://www.npmjs.com/package/node-sass) with:
+
+```
+ npm install node-sass@4.13.0
 ```
 
 ### 7. Serve it Locally
