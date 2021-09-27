@@ -60,9 +60,10 @@ Extracted the contents into another folder besides your **Dowloads** folder (tak
 
 <img src="assets/5.03B.png" alt="Tunnel Software Directory" width="450"/>
 
+
 ### Set Up Your Tunnel
 
-Go to the **Tunnels** tab in the [Sauce Labs app](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
+Go to the [**Tunnels** tab](https://accounts.saucelabs.com/am/XUI/#login/?utm_source=referral&utm_medium=LMS&utm_campaign=link).
 
 
 <img src="assets/5.03C.png" alt="Tunnels Menu" width="250"/>

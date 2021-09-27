@@ -74,7 +74,7 @@ You will need to have environment variables set for Sauce Labs on your local mac
 
 ### Start the Tunnel
 
-Sauce Connect tunnels are initiated from the client side to allow applications behind a firewall to communicate and test on the Sauce Labs Cloud. Start by going to the **Tunnels** tab in the Sauce Labs app.
+Sauce Connect tunnels are initiated from the client side to allow applications behind a firewall to communicate and test on the Sauce Labs Cloud. Start by going to the **Tunnels** tab in Sauce Labs.
 
 
 <img src="assets/5.03C.png" alt="Tunnels Menu" width="250"/>
@@ -237,7 +237,7 @@ To learn more about what is happening when you use Sauce Connect tunnel, see the
 
  Many companies may also choose to have their organization set up _Shared Tunnels_ on Sauce Labs, which anyone in their organization can use without having to worry about configuring their own tunnel.
 
- To use a shared tunnel simply check the **Tunnels** tab on your Sauce Labs app to see your shared tunnels you have access to. You should be able to see the shared tunnel name, the name of the owner of the tunnel as well, as an indication that it is a shared tunnel, then use the `tunnelIdenifier` and the `parentTunnel` in your test suites' capabilities:
+ To use a shared tunnel, simply check the **Tunnels** tab to see your shared tunnels you have access to. You should be able to see the shared tunnel name, the name of the owner of the tunnel as well, as an indication that it is a shared tunnel, then use the `tunnelIdenifier` and the `parentTunnel` in your test suites' capabilities:
 
  <img src="assets/TRT2.03C.png" alt="Shared Runnel" width="850"/>
 
