@@ -9,7 +9,7 @@ const closureCompilerPackage = require('google-closure-compiler');
 const closureCompiler = closureCompilerPackage.gulp();
 const crisper = require('@advanced-rest-client/gulp-crisper');
 const gulpif = require('gulp-if');
-const htmlmin = require('gulp-htmlmin');
+//const htmlmin = require('gulp-htmlmin');
 const merge = require('merge-stream');
 const postcss = require('gulp-html-postcss');
 const sass = require('gulp-sass');
@@ -302,7 +302,7 @@ gulp.task('minify:html', () => {
   ]
   return gulp.src(srcs, { base: 'dist/' })
     .pipe(postcss(opts.postcss()))
-    .pipe(htmlmin(opts.htmlmin()))
+    //.pipe(htmlmin(opts.htmlmin()))
     .pipe(gulp.dest('dist'));
 });
 
