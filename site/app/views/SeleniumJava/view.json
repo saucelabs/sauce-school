@@ -1,6 +1,6 @@
 {
   "title": "Selenium Java Course",
-  "description": "In this course, you will learn to use Java with the JUnit4 test runner to develop an automated testing suite. Create autonomous,easy to maintain test code, and learn to use Maven, Jenkins, SauceConnect, and Sauce OnDemand.",
+  "description": "In this course, you will learn to use Java with the JUnit4 test runner to develop an automated testing suite. Create autonomous, easy to maintain test code, and learn to use Maven, Jenkins, SauceConnect, and Sauce OnDemand.",
   "logoUrl": "/SeleniumJava/logo.png",
   "tags": ["java"],
   "exclude": [

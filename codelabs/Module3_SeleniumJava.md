@@ -50,15 +50,16 @@ If you are familiar with using GitHub to write your code, you can also fork/ bra
 <!--- ------------------------ -->
 ## 3.02 The POM and Imperative vs. Declarative Tests
 Duration: 0:08:00
-The Page Object Model (POM) is a design pattern that can be used with Selenium with any kind of framework. Using this pattern for tests means that you create two separate types of classes; **Pages** and **Test Cases**. The **Page** classes set up and navigate items on the page, using class members to represent web elements, an **Test** classes perform the actual assertions and tests.
+
+The **Page Object Model (POM)** is a design pattern that can be used with Selenium with any kind of framework. Using this pattern for tests means that you create two separate types of classes; **Pages** and **Test Cases**. The **Page** classes set up and navigate items on the page, using class members to represent web elements, an **Test** classes perform the actual assertions and tests.
 
 <img src="assets/3.02B.png" alt="POM Structure" width="650"/>
 
 Rather than integrate the calls to Selenium directly into your test methods, you can create separate classes. The POM allows you to write your tests using user-centric language, rather than Selenium-centric language.
 
+#### When to Use Page Objects
+
 Some general guidelines for creating page objects (or classes) include:
-
-
 
 *   Public methods represent the services that the page offers
 *   Try not to expose the internals of the page
@@ -775,7 +776,7 @@ public class DynamicLoading extends Base {
 ```
 
 
-You will use the locator of the start `<button>` in the HTML page, as well as the `id = 'finish' ` for the “Hello World!” test that appears on the page for the` startButton` and `finishText` variables.
+You will use the locator of the start <`button`> in the HTML page, as well as the `id = 'finish' ` for the “Hello World!” test that appears on the page for the` startButton` and `finishText` variables.
 
 Since there are two dynamic loading page examples to choose from on the-internet, you created the method` loadExample()`. It accepts a number as an argument, so you can specify which of the examples you want to visit and start.
 
@@ -858,6 +859,7 @@ Duration: 0:08:00
 
 Now that you have our new page object and an updated base page, it's time to write our test to use it. If you noticed in your `DynamicLoading.java` page object from the last lesson, the methods like `loadExample() `were grey in the IDE because they weren’t being used.
 
+These tests are going to use an explicit wait, and test that certain text is present before continuing on.
 
 ### Part 1: Dynamic Loading Test
 
@@ -948,7 +950,7 @@ Now that you have our new page object and an updated base page, it's time to wri
 
 [The second dynamic loading example](http://the-internet.herokuapp.com/dynamic_loading/2) is laid out similarly to the last one. The difference is that it renders the final text after the progress bar completes (whereas the previous example had the element on the page but it was hidden until the progress bar finished). In other words, in the first test, the text was there but hidden, but in this test the text doesn’t even exist until after the loading image disappears.
 
-Notice that it has the same start `<button>` and `id='finished'` at the beginning and end of the test. Will our same test work for the second page?
+Notice that it has the same start <`button`> and `id='finished'` at the beginning and end of the test. Will our same test work for the second page?
 
 Let's add a nearly identical second test to` DynamicLoadingTest.java` called `elementAppeared` that will load this second example and perform the same check (on the other page) as you did in the previous test.
 
@@ -967,7 +969,7 @@ Let's add a nearly identical second test to` DynamicLoadingTest.java` called `el
 ```
 
 
-Run the test. You can run the tests by typing `mvn clean test` in your terminal. To run just the tests in` TestDynamicLoading.java`, run the command  `mvn test -Dtest=TestDynamicLoading`
+Run the test. You can run the tests by typing `mvn clean test` in your terminal. To run just the tests in `TestDynamicLoading.java`, run the command  `mvn test -Dtest=TestDynamicLoading`
 
 <img src="assets/3.07I.png" alt="Run test dynamic Loading" width="550"/>
 
@@ -975,7 +977,7 @@ Run the test. You can run the tests by typing `mvn clean test` in your terminal.
 #### NOTE
 
 Negative
-: The `-Dtests= `flag allows you to search for a certain set of characters when you run the JUnit test. In this case, you are searching for and running the name of the test class **TestDynamicLoading, **and only two tests should be run.
+: The `-Dtests=` flag allows you to search for a certain set of characters when you run the JUnit test. In this case, you are searching for and running the name of the test class **TestDynamicLoading**, and only two tests should be run.
 
 Negative
 : <img src="assets/3.07J.png" alt="Run test dynamic Loading" width="650"/>
