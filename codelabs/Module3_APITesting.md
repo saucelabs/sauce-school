@@ -19,14 +19,14 @@ Duration: 0:02:00
 In this module, you will be learning to create your own test from scratch with test components, using requests (such as GET or POST), assertions that check if data exists, and use variables, input sets, and the Vault to store and reuse elements of your tests.
 
 **Assertions and Request Components**
-* Determine the different types of assertions and requests you can use with your API test
-* Understand the different types of output when adding assertions to an a API test
+* Determine the different types of assertions and requests you can use with your API test.
+* Understand the different types of output when adding assertions to an a API test.
 * Understand when and why you want to use certain request components in an API test.
 
 **Variables**
-* Understand the difference between global variables and input sets
-* Learn about how and when to use Input Sets and Variables
-* Demonstrate how to store sensitive variable data and/or secrets in the Vault
+* Understand the difference between global variables and input sets.
+* Learn about how and when to use Input Sets and Variables.
+* Demonstrate how to store sensitive variable data and/or secrets in the Vault.
 
 
 <!------------------------------>
@@ -39,12 +39,12 @@ The test component library contains many useful test components that can enrich 
 
 To access the component library:
 
-* Open a new blank test
-* Select the `+` symbol at the top of the Test Composer
+1. Open a new blank test.
+2. Select the `+` symbol at the top of the Test Composer.
 
 <img src="assets/apif-mod3/05/testComponent.png" alt="Add a Test Component" />
 
-All available test components, as well as a search bar, appears on the next screen.
+All available test components, as well as a search bar, appear on the next screen.
 
 <img src="assets/apif-mod3/05/componentLibrary.png" alt="Component Library" />
 
@@ -58,7 +58,6 @@ You can add any of the following components to your test, depending on your use 
 
 * **Update Input**: Store and/or updates a variable in an _input set_.
 * **JDBC**: Connect this request to a database using a [JDBC API](https://en.wikipedia.org/wiki/Java_Database_Connectivity#).
-
 * **K/V Store**: Store and retrieve ephemeral data from a `key:value` store.
 * **Fake**: Generates fake data for your test, particularly for `POST` and `PUT` requests.
 
@@ -133,11 +132,10 @@ In order to validate an API endpoint works properly, you must _assert_ whether t
 There are several assertions to choose from and below are a few examples, along with the accompanying documentation:
 
 * **[Assert Exists](https://docs.saucelabs.com/api-testing/assertion-components/assert-exists)**: Checks whether an item exists or not.
-* **[Assert Contains](https://docs.saucelabs.com/api-testing/assertion-components/assert-contains)**: Checks an item has a specific substring (e.g., test the word _Uber_ for product names like: _UberX_, _UberBlack_)
-* **[Assert Is](https://docs.saucelabs.com/api-testing/assertion-components/assert-is)**: Checks whether the value of an item is correctly defined (e.g., _url_, _boolean_, _integer_)
+* **[Assert Contains](https://docs.saucelabs.com/api-testing/assertion-components/assert-contains)**: Checks an item has a specific substring (e.g., test the word _Uber_ for product names like: _UberX_, _UberBlack_).
+* **[Assert Is](https://docs.saucelabs.com/api-testing/assertion-components/assert-is)**: Checks whether the value of an item is correctly defined (e.g., _url_, _boolean_, _integer_).
 
-In this example, you will be checking that when you ping the endpoint `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions` that a payload is return (it exists) and the one of the fields, the `"info_url
-"` is in fact a url.
+In this example, you will be checking that when you ping the endpoint `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions` that a payload is return (it exists) and the one of the fields, the `"info_url"` is in fact a url.
 
 If you check the **HTTP Client** tool, you should see the elements we are checking for:
 
@@ -145,26 +143,26 @@ If you check the **HTTP Client** tool, you should see the elements we are checki
 
 ### Add an Assertion
 
-* Open the previous test  you created, called **Sauce_Connect_Test**.
-* Select **+Add Request/Assertions**, and select **Assert Exists** with the following data:
+1. Open the previous test you created, called **Sauce_Connect_Test**.
+2. Select **+Add Request/Assertions**, and select **Assert Exists** with the following data:
    * Expression: `payload['downloads']`
    * Mode: `one`
    * Click the check mark to save
 
      <img src="assets/apif-mod3/assertExists.png" alt="Assert Exists Component" />
 
-* Next, select **+Add Request/Assertions** again. This time select **Assert Is**, and add the following data:
+3. Next, select **+Add Request/Assertions** again. This time select **Assert Is**, and add the following data:
    * Expression: `payload['info_url`]
    * Type: `url`
    * Click the check mark to save
 
      <img src="assets/apif-mod3/assertIs.png" alt="Assert Is Component"/>
 
-* Here's what the final result should look like:
+4. Here's what the final result should look like:
 
    <img src="assets/apif-mod3/finishedAssertionResult.png" alt="Finished Assertion Results" />
 
-* Click **Save** to save your test, then select **Run**. The test results should show up in the UI:
+5. Click **Save** to save your test, then select **Run**. The test results should show up in the UI:
 
    <img src="assets/apif-mod3/finishedTest.png" alt="Finished Assertion Result" width="700"/>
 
@@ -204,7 +202,7 @@ In your **Sauce_Connect_Test**, navigate and select the **Input** tab on the lef
 
    <img src="assets/apif-mod3/05/selectInputTab.png" alt="Input Set Tab" width="600" />
 
-Select **Add Global Param** in the _Global Parameters_ section
+Select **Add Global Param** in the _Global Parameters_ section.
 
 Add the following data to the global parameter:
    * Name: `domain`
@@ -232,7 +230,6 @@ Next, we need to substitute the `domain` value in the current GET request:
 * Run the test again to ensure the test still passes with the same result.
 
 * Repeat steps 1-3 above and create `protocol` and `endpoint` global parameters. The values for the respective params should be `https://` and `/rest/v1/public/tunnels/info/versions` respectively.
-
 
 The finished result should look like this:
 
@@ -425,15 +422,11 @@ You can now remove the first **GET** component and related checks from the **Sau
 Now you just need to make sure variables are aligned. Now we reach the dilemma of having to re-create our variables that we used from earlier: `${domain}`, `${protocol}`, and `${endpoint}`. The better approach is to use the **Company Vault**, which allows us to re-use variables across all projects.
 
 To access the **Company Vault**
-* Go to your Project page
-
-* Select the **Company Vault**
-
-* Select the **Variables** radial button
-
-* Click the **+ New Entry** button
-
-* Add the following variables from your Sauce_Connect_Test:
+1. Go to your Project page
+1. Select the **Company Vault**
+1. Select the **Variables** radial button
+1. Click the **+ New Entry** button
+1. Add the following variables from your Sauce_Connect_Test:
 
 ```
 domain = api.us-west-1.saucelabs.com
