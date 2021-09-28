@@ -46,16 +46,17 @@ If you don't have an API Fortress account you can [Create a Sauce Labs Account](
 
 For this first test project, we will test against the Sauce Labs API.
 
-1. Log in to the platform
-2. Select the **Create Project** button.
+1. Log in to the platform.
+2. Click the **Create Project** button.
    <img src="assets/apif-mod2/01/createProject.png" alt="API Fortress: Create Project"/>
-3. The **Add New Project** alert window appears.
-   <img src="assets/apif-mod2/01/newProject.png" alt="API Fortress: Project Fields"/>
+3. You'll see a **New Project** window.
+   <img src="assets/apif-mod2/01/newProject.png" alt="API Fortress: Project Fields"/><br/>
 
    Add the following for each category:
+    * **Create from**: select **Blank Project**
     * **Project Name**: `Test Project`
-    * **Description**: `Simple Test against the Sauce Labs User API`
-    * **Notes**: `https://docs.saucelabs.com/dev/api/accounts#user-methods`
+    * **Project Description**: `Simple Test against the Sauce Labs User API`
+    * **Project Notes**: `https://docs.saucelabs.com/dev/api/accounts#user-methods`
 
 5. Find your project and select the **Tests Icon** to continue.
 

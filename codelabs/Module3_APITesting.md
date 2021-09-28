@@ -56,7 +56,6 @@ If you select the **Tag** component at the top, it will automatically add this c
 
 You can add any of the following components to your test, depending on your use case. For an example some examples in the screenshot below:
 
-
 * **Update Input**: Store and/or updates a variable in an _input set_.
 * **JDBC**: Connect this request to a database using a [JDBC API](https://en.wikipedia.org/wiki/Java_Database_Connectivity#).
 
@@ -72,7 +71,7 @@ There are many components you can play around with, and hover over them to see w
 ## 3.03 Request Component
 Duration: 0:04:00
 
-In this lesson you will learn to add a GET request component in a test.
+In this lesson, you will learn to add a GET request component in a test.
 
 ### Types of Requests
 
@@ -88,13 +87,15 @@ Refer to the [API Testing Basics](https://training.saucelabs.com/codelabs/Module
 
 ### Note:
 Negative
-: In the previous module, [_Introduction to API Fortress_](https://training.saucelabs.com/codelabs/Module2-APITesting/index.html#0), we used the **Generate Test** button. This button automatically generates the HTTP request, assertions, and other test elements so that you can focus on the more intricate and tricky parts of your tests. In this module we will build a test from scratch in order to understand the importance of assertions, but refer back to that test for inspiration and ideas on how to design your assertions.
+: In the previous module, [_Introduction to API Fortress_](https://training.saucelabs.com/codelabs/Module2-APITesting/index.html#0), we used the **Generate Test** button. This button automatically generates the HTTP request, assertions, and other test elements so that you can focus on the more intricate and tricky parts of your tests. In this module, we will build a test from scratch in order to understand the importance of assertions, but refer back to that test for inspiration and ideas on how to design your assertions.
 
 ### Add a GET Request Component
 
-* Open your project and create a new test:
+* Open your project and create a new test.
+
    <img src="assets/apif-mod3/05/createNewTest.png" alt="Create New Test", width="500" />
-* Name it **Sauce_Connect_Test** (This example is named **AssertionTest**):
+
+* Name it **Sauce_Connect_Test** (This example is named **AssertionTest**).
 
    <img src="assets/apif-mod3/05/assertionTestDetails.png" alt="Assertion Test Details", width="500" />
 
@@ -114,14 +115,14 @@ This is what the finished result should look like:
 
    <img src="assets/apif-mod3/finishedExample.png" alt="Finished result of GET component" />
 
-In the next section you will work with **Assertion** components, learning how they are a vital part of your API tests.
+In the next section, you will work with **Assertion** components, learning how they are a vital part of your API tests.
 
 <!-- ------------------------ -->
 
 ## 3.04 Assertion Component
 Duration: 0:04:00
 
-There's a common phrase in the automated testing space: "If there is **no assertion**, it **isn't a test**." In this lesson, you will add an assertion after the GET request in the **Sauce_Connect_Test** you created in the last lesson
+There's a common phrase in the automated testing space: "If there is **no assertion**, it **isn't a test**." In this lesson, you will add an assertion after the GET request in the **Sauce_Connect_Test** you created in the last lesson.
 
 ### Why Assertions?
 
@@ -138,7 +139,7 @@ There are several assertions to choose from and below are a few examples, along 
 In this example, you will be checking that when you ping the endpoint `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions` that a payload is return (it exists) and the one of the fields, the `"info_url
 "` is in fact a url.
 
-If you check the **HTTP Client** tool you should see the elements we are checking for:
+If you check the **HTTP Client** tool, you should see the elements we are checking for:
 
 <img src="assets/apif-mod3/APICallContent.png" alt="Finished Content of the API" width="700"/>
 
@@ -199,7 +200,7 @@ To add a global variable/parameter select the **Input** tab in the top left, and
 
 ### Create Global Parameters
 
-In your **Sauce_Connect_Test** navigate and select the **Input** tab on the left side of the interface to begin the exercise.
+In your **Sauce_Connect_Test**, navigate and select the **Input** tab on the left side of the interface to begin the exercise.
 
    <img src="assets/apif-mod3/05/selectInputTab.png" alt="Input Set Tab" width="600" />
 
@@ -215,7 +216,7 @@ Add the following data to the global parameter:
 
    <img src="assets/apif-mod3/05/domainResult.png" alt="Domain in Global Param section" width="500" />
 
-Next we need to substitute the `domain` value in the current GET request:
+Next, we need to substitute the `domain` value in the current GET request:
 * To get back to our test code, select **Unit** in the tab at the top
 
    <img src="assets/apif-mod3/05/selectUnit.png" alt="Select Unit Tab" />
@@ -242,7 +243,7 @@ Negative
 : Please refer to the documentation for further information on [using variables](https://docs.saucelabs.com/api-testing/mark3/quick-start/flexible-variables-for-flexible-environments/).
 
 
-In the next section we will cover how to store information as a an **Input Set**.
+In the next section, we will cover how to store information as an **Input Set**.
 
 <!-- ------------------------ -->
 ## 3.06 Input Sets
@@ -258,7 +259,7 @@ An input set is an object (usually a group of input variables related to a speci
 
 When you add and use an Input Set, it means you will run a separate instance of your tests for each Input Set created. For example, if you created three Input Sets for `username` and `password`, your tests would be run three times, using each set of credentials. Input Sets are used within a single test.
 
-To add an input set select the **Input** tab in the top left. If there is a default input set, you will want to edit or delete it before creating your own.
+To add an input set, select the **Input** tab in the top left. If there is a default input set, you will want to edit or delete it before creating your own.
 
 ### Create Input Sets
 
@@ -268,7 +269,7 @@ First, click on the **Input** button on the top left hand side of the test page,
 
 In each of the input sets, add in the following sets of variables:
 
-```
+```bash
 tunnel_owner_1
 
 owner
@@ -286,6 +287,7 @@ tunnel_id
 xxxx
 
 ```
+
 You will replace the `x`s with values once you get owner and tunnel ids form the Sauce Labs Tunnels dashboard.
 
 ### Get Information About Sauce Connect Tunnels
@@ -341,18 +343,18 @@ In the next section we will discover how to store some of the information we cre
 ## 3.07 The Vault
 Duration: 0:07:00
 
-The  [Vault](https://docs.saucelabs.com/api-testing/mark3/quick-start/environments-vault-and-overrides-magic/) is a unique feature of the API Fortress platform that allows you to store information for use across all projects or tests.
+The [Vault](https://docs.saucelabs.com/api-testing/mark3/quick-start/environments-vault-and-overrides-magic/) is a unique feature of the API Fortress platform that allows you to store information for use across all projects or tests.
 
 ### The Vault vs. Inputs
 
-While Input Sets are typically only used within a given test, the vault allows you to store inputs and parameters that can be used across multiple test in your project. This is known as your **Project Vault**. In this lesson you will learn how to
+While Input Sets are typically only used within a given test, the vault allows you to store inputs and parameters that can be used across multiple test in your project. This is known as your **Project Vault**. In this lesson, you will learn how to:
 
 * Save code Snippets (or Variables) to a project vault
 * Use Snippets(or Variables) across tests in a project
 * Save a Variable (or Snippet) in a company Vault
 * Use  Variables (or Snippets) across tests in different projects
 
-The **Project Vault** allows you to save more than just variables, with the vault you can save, edit, and reuse almost anything including:
+The **Project Vault** allows you to save more than just variables; you can also save, edit, and reuse almost anything, including:
 
 * Variables
 * Code snippets (think reused authentication flows)
