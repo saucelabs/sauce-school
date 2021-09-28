@@ -87,10 +87,19 @@ Duration: 0:05:00
 
 The WebDriver protocol consists of rules for communication between the client on the local end, which use languages and libraries like Java, Ruby, JavaScript, etc. and a web browser. The local end (your computer) communicates with the remote end node on the server side. The web driver defines how the remote end can behave, and the method for how the remote end receives information. As an example, the Selenium WebDriver provides instructions to the browser on how to click or type into elements on a page. This is then communicated to specific browser drivers, such as Chromedriver (for the Chrome browser) or Geckodriver (for the Firefox browser) and the commands are carried out.
 
+### Selenium Bindings
+
 The code that Selenium provides to you as a developer (the Selenium library) is called a Selenium language binding. It ‘binds’ together the JavaScript code you write for actions and tests with things that WebDriver can understand. You also need to use web drivers such as Chromedriver and Geckodriver.
 
 
- ![Selenium Diagram](assets/1.03A.png "SeleniumDiagram")
+
+<img src="assets/1.03A.png" alt="Selenium Diagram" width="450"/>
+
+### The Selenium Driver
+
+JavaScript uses the Selenium driver to interact with Selenium. When you use it, you instantiate a web driver, and then you have access to methods allowed by the web driver. Selenium uses the driver to automate and manipulate elements in the browser. Some examples of drivers include Chromedriver for the Chrome browser or Geckodriver for the Firefox browser.
+
+### The Test Runner
 
 Mocha is a JavaScript library/ test runner that allows you to communicate with Selenium and run unit tests. It also helps orchestrate test execution. This JavaScript language binding (Selenium WebDriver methods written in JavaScript) allows you to leverage the features specified by the W3C WebDriver protocol.
 
