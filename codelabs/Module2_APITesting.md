@@ -39,7 +39,7 @@ However, you can try and follow along using other tools like [Postman](https://w
 If you don't have an API Fortress account you can [Create a Sauce Labs Account](https://saucelabs.com/sign-up/), and get started with a free trial. You can now access [API testing](https://app.saucelabs.com/api-testing).
 
 
-> **NOTE**: If you don't receive an email confirmation, check your spam folder or please email [support@saucelabs.com](support@saucelabs.com) for assistance.
+> **NOTE**: If you don't receive an email confirmation, check your spam folder or please email [support@saucelabs.com](mailto:support@saucelabs.com) for assistance.
 
 
 #### Create a Project
@@ -47,16 +47,15 @@ If you don't have an API Fortress account you can [Create a Sauce Labs Account](
 For this first test project, we will test against the Sauce Labs API.
 
 1. Log in to the platform.
-2. Click the **Create Project** button.
+2. Select the **Create Project** button.
    <img src="assets/apif-mod2/01/createProject.png" alt="API Fortress: Create Project"/>
-3. You'll see a **New Project** window.
-   <img src="assets/apif-mod2/01/newProject.png" alt="API Fortress: Project Fields"/><br/>
+3. The **Add New Project** alert window appears.
+   <img src="assets/apif-mod2/01/newProject.png" alt="API Fortress: Project Fields"/>
 
    Add the following for each category:
-    * **Create from**: select **Blank Project**
     * **Project Name**: `Test Project`
-    * **Project Description**: `Simple Test against the Sauce Labs User API`
-    * **Project Notes**: `https://docs.saucelabs.com/dev/api/accounts#user-methods`
+    * **Description**: `Simple Test against the Sauce Labs User API`
+    * **Notes**: `https://docs.saucelabs.com/dev/api/accounts#user-methods`
 
 5. Find your project and select the **Tests Icon** to continue.
 
@@ -106,7 +105,7 @@ Negative
 Duration: 0:04:00  
 
 At the moment, the test content is empty. So from here, we can generate a test with the following options:
-* Generate a test manually with the HTTP Client,
+* Generate a test manually with the HTTP Client.
 * Generate a test from a spec file.
 
 For the purposes of this lesson, we will generate a test manually with the HTTP Client.
@@ -143,7 +142,7 @@ Let's add a GET component that makes a successful API call against the Sauce Lab
 
 In the previous step we encountered a common authentication error, **[HTTP: 401](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401)**, because you didn't send the `username` and `accesskey` that Sauce Labs requires to communicate with their API. In order to fix this error we must add our [Sauce Labs Account Credentials](https://app.saucelabs.com/user-settings) as a [Basic Authentication Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication).
 
-1. Navigate  back to the **Tests** page and click to edit the test you created.
+1. Navigate back to the **Tests** page and click to edit the test you created.
    <img src="assets/apif-mod2/01/goBackTests.png" alt="API Fortress: Go back to the tests page" />
 
 2. Select **+ Add Request / Assertions**
