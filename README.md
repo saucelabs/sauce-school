@@ -44,12 +44,12 @@ npm install
 
 Install gulp globally with:
 ```
-npm install --global gulp-cli
+npm install --global gulp
 ```
 
 Install gulp CLI tool globally with:
 ```
-npm install --global gulp
+npm install --global gulp-cli
 ```
 
 Find more detailed instructions [here](https://github.com/gulpjs/gulp/blob/master/docs/getting-started/1-quick-start.md#install-the-gulp-command-line-utility)
