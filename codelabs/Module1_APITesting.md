@@ -39,7 +39,7 @@ First, let's take a step back and talk about we interact with applications and/o
 
 This sort of user activity (clicking or tapping) is defined as user *input*. Input results in a system *output* response—either in the form of the expected result, or an error message. In order for this cycle to occur, a dedicated **web service** exists between you the user, and the data you want to access or manipulate. Here's a practical example:
 
-Go visit [www.saucedemo.com](https://www.saucedemo.com), and the first page you see is the *Login Page*:
+Go to [www.saucedemo.com](https://www.saucedemo.com). The first page you see is the *Login Page*:
 
 <img src="assets/swaglabs.png" alt="Swag Labs Login Page"/>
 
