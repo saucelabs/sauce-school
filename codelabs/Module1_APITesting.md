@@ -79,9 +79,9 @@ Let's take a close look at a common service action made in the background, or "u
 
 When you need to search for a vehicle in Uber, you would usually perform the following actions:
 
-1. You open the app
-2. Select a destination
-3. Choose a ride/car type
+1. You open the app.
+2. Select a destination.
+3. Choose a ride/car type.
 4. Select 'search for ride'.
 
 Below is how Uber translates that user input data so that it can add it to an API HTTP call:
