@@ -21,7 +21,7 @@ Below are the primary learning objectives for this module:
 * Understand the relationship between Web Services and APIs
 * Learn about types of APIs
 * Understand API requests and responses, and what types of data are sent and received
-  * Request methods such as GET, POST, and DELETE
+  * Request methods such as `GET`, `POST`, and `DELETE`
   * Responses data formats & assertions
   * API status codes & response terminology
 * Learn to plan and create API tests as a part of a testing strategy
@@ -39,7 +39,7 @@ First, let's take a step back and talk about we interact with applications and/o
 
 This sort of user activity (clicking or tapping) is defined as user *input*. Input results in a system *output* response—either in the form of the expected result, or an error message. In order for this cycle to occur, a dedicated **web service** exists between you the user, and the data you want to access or manipulate. Here's a practical example:
 
-Go visit [www.saucedemo.com](https://www.saucedemo.com), and the first page you see is the *Login Page*:
+Go to [www.saucedemo.com](https://www.saucedemo.com). The first page you'll see is the *Login Page*:
 
 <img src="assets/swaglabs.png" alt="Swag Labs Login Page"/>
 
@@ -79,9 +79,9 @@ Let's take a close look at a common service action made in the background, or "u
 
 When you need to search for a vehicle in Uber, you would usually perform the following actions:
 
-1. You open the app
-2. Select a destination
-3. Choose a ride/car type
+1. You open the app.
+2. Select a destination.
+3. Choose a ride/car type.
 4. Select 'search for ride'.
 
 Below is how Uber translates that user input data so that it can add it to an API HTTP call:
