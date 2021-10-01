@@ -21,7 +21,7 @@ Below are the primary learning objectives for this module:
 * Understand the relationship between Web Services and APIs
 * Learn about types of APIs
 * Understand API requests and responses, and what types of data are sent and received
-  * Request methods such as GET, POST, and DELETE
+  * Request methods such as `GET`, `POST`, and `DELETE`
   * Responses data formats & assertions
   * API status codes & response terminology
 * Learn to plan and create API tests as a part of a testing strategy
