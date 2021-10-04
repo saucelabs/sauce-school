@@ -576,7 +576,7 @@ Next, we will create a new test file, named `TestLocator.java.` Place it in the 
 #### Note
 
 <aside class="negative">
-This can be done in IntelliJ by right clicking within the `tests` folder in the project window and creating a `New → Java Class` then naming it `TestLocator`.
+This can be done in IntelliJ by right clicking within the `tests` folder in the project window and creating a `Ncdew → Java Class` then naming it `TestLocator`.
 
 <img src="assets/2.08E.png" alt="New Java Class" width="650"/>
 
