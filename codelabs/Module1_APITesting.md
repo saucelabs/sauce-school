@@ -374,7 +374,7 @@ For many companies, that entire flow can be done on the API level, and should be
 
 Monitoring is probably the most valuable, and yet underused, type of testing. API issues are often only found in live environments when using live data.
 
-The goal of a proper monitoring strategy is to go beyond measuring uptime, but also measuring functional uptime. An API can return a status code of 200 and still be failing. Some APIs are built so that even when there is an error, it returns as a 200.
+The goal of a proper monitoring strategy is to go beyond measuring uptime, but also measuring functional uptime. An API can return a successful `200` status code and still be failing. Some APIs are built so that even when there is an error, it returns as a `200`.
 
 What's important to note is that you can use existing functional tests as your monitor. With the right platform choice, you can schedule them to run against live environments in certain intervals. Then use that monitoring to have a real-time status page across departments.
 
