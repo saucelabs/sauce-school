@@ -232,9 +232,7 @@ Open up the [IntelliJ IDE](https://www.google.com/search?q=download+intellij+ide
 
 #### Note
 <aside class="negative">
-If you are a first-time user of IntelliJ with Java, I highly recommend checking out the YouTube channel by JetBrains. This is a great first video.:
-</br>
-https://www.youtube.com/watch?v=H_XxH66lm3U
+If you are a first-time user of IntelliJ with Java, I highly recommend checking out the YouTube channel by JetBrains. <a href="https://www.youtube.com/watch?v=H_XxH66lm3U">This is a great first video</a>.
 </aside>
 
 <img src="assets/2.06H.png" alt="New IntelliJ project" width="350"/> <img src="assets/2.06I.png" alt="New IntelliJ project maven JDK" width="350"/>
@@ -266,10 +264,10 @@ Download the file, then unzip it and move it somewhere outside of your downloads
 #### Note
 
 <aside class="negative">
-Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, first open a terminal, and type in the command `sudo spctl --master-disable` to [disable Gatekeeper](https://osxdaily.com/2015/05/04/disable-gatekeeper-command-line-mac-osx/).
+Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, first open a terminal, and type in the command <code>sudo spctl --master-disable</code> to <a href="https://osxdaily.com/2015/05/04/disable-gatekeeper-command-line-mac-osx/">disable Gatekeeper</a>.
 </br>
 </br>
-Next, you need to allow app downloads from anywhere. Go to System Preferences on your Mac > Security & Privacy, then under the General*tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers. <img src="assets/4.04K.png" alt="Allow Unidentified Files in Security and Privacy" width="650"/>
+Next, you need to allow app downloads from anywhere. Go to System Preferences on your Mac > Security & Privacy, then under the General tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers. <img src="assets/4.04K.png" alt="Allow Unidentified Files in Security and Privacy" width="650"/>
 </aside>
 
 On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver** or **geckodriver** manually.
@@ -428,8 +426,8 @@ This abstraction using the JUnit4 annotations library enables us to write our te
 #### Note
 
 <aside class="negative">
-How to Find Dependencies Using IntelliJ:
- If your test file doesn’t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out. See the video [IntelliJ_Dependencies ](https://youtu.be/PDPl_pHo0K0) on using IntelliJ to install dependencies and update the .pom file <video id="PDPl_pHo0K0"></video>
+<strong>How to Find Dependencies Using IntelliJ:</strong>
+ If your test file doesn’t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out. See the video <a href="https://youtu.be/PDPl_pHo0K0">IntelliJ_Dependencies</a> on using IntelliJ to install dependencies and update the .pom file <video id="PDPl_pHo0K0"></video>
 </aside>
 
 ### Run a Test with IntelliJ
@@ -444,7 +442,7 @@ Follow the instructions here in [2.05_IntelliJ_Tests](https://youtu.be/qWi8Rk1R4
 <video id="qWi8Rk1R4Gw"></video>
 
 <aside class="negative">
-Check driver path and browser version– If your tests aren't running correctly, double check that the `System.setProperty("webdriver.chrome.driver")` has the full path to where you installed the chromedriver, and that the version of the Chromedriver you installed matches the browser version on your computer.
+Check driver path and browser version– If your tests aren't running correctly, double check that the <code>System.setProperty("webdriver.chrome.driver")</code> has the full path to where you installed the chromedriver, and that the version of the Chromedriver you installed matches the browser version on your computer.
 </aside>
 
 
@@ -519,11 +517,11 @@ Watch [Run Your Test with Maven](https://youtu.be/qWi8Rk1R4Gw) to learn the step
 
 #### Note
 <aside class="negative">
-If you had difficulty before getting your test to run because your test had trouble locating chromedriver, you can create a `/lib` directory in the root of the project folder, and place the extracted chromedriver there. <img src="assets/2.06E.png" alt="New lib directory" width="400"/> <img src="assets/2.06F.png" alt="Add chromedriver to lib" width="700"/>
+If you had difficulty before getting your test to run because your test had trouble locating chromedriver, you can create a <code>/lib</code> directory in the root of the project folder, and place the extracted chromedriver there. <img src="assets/2.06E.png" alt="New lib directory" width="400"/> <img src="assets/2.06F.png" alt="Add chromedriver to lib" width="700"/>
 </br>
 </br>
 
-If you do change the location of the chromedriver, you can modify your `system.setProperty` to the following: <img src="assets/2.06G.png" alt="update path to chromedriver" width="700"/>
+If you do change the location of the chromedriver, you can modify your <code>system.setProperty</code> to the following: <img src="assets/2.06G.png" alt="update path to chromedriver" width="700"/>
 
 </aside>
 
@@ -576,7 +574,7 @@ Next, we will create a new test file, named `TestLocator.java.` Place it in the 
 #### Note
 
 <aside class="negative">
-This can be done in IntelliJ by right clicking within the `tests` folder in the project window and creating a `Ncdew → Java Class` then naming it `TestLocator`.
+This can be done in IntelliJ by right clicking within the <code>tests</code> folder in the project window and creating a <code>New → Java Class</code> then naming it <code>TestLocator</code>.
 
 <img src="assets/2.08E.png" alt="New Java Class" width="650"/>
 
