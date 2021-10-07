@@ -147,7 +147,7 @@ Negative
 
 ### Set Sauce Username and Access Key
 
-You can access your Sauce Username and Access Key on the [Sauce Labs App](https://app.saucelabs.com/user-settings) and go to **Account> User Settings** . There are three ways you can configure your credentials with saucectl:
+You can access your Sauce Username and Access Key under [**Account** > **User Settings**]((https://app.saucelabs.com/user-settings). There are three ways you can configure your credentials with saucectl:
 
 * Set them as environment variables (saucectl will detect them)
 * Enter them when you run `saucectl init`
@@ -301,7 +301,7 @@ Specifying which tests you want to run in which environment can be configured in
 * Specifying certain test files
 * Running in different web browsers
 * Executing test in _Docker Mode_ or _Sauce Mode_
-* View test results on the Sauce Labs App
+* View test results on Sauce Labs
 
 Running tests using Cypress and saucectl allows you to run as many combinations of tests and environments as you would like.
 

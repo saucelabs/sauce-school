@@ -446,7 +446,7 @@
     if (typeof instantsearch === 'function') {
 
         const sl_search = instantsearch({
-            indexName: "saucelabs_crawler_production_training",
+            indexName: "saucelabs_crawler_new_sauce",
             searchClient: algoliasearch(
                 "RO95H65NEO",
                 "63ef6fd845955e82ecb703bc813cce8d"
@@ -455,7 +455,8 @@
 
         sl_search.addWidgets([
             instantsearch.widgets.configure({
-                distinct: 1
+                distinct: 1,
+                attributesToSnippet: [ 'title', 'description', 'category', 'title1', 'title2', 'label', 'content' ],
             }),
             instantsearch.widgets.searchBox({
                 container: "#searchBox",
@@ -466,7 +467,7 @@
                     item: `
           <a class="hit-group" href={{url}} target="_blank">
           <div class="hit-name v1">
-            {{#helpers.highlight}}{ "attribute": "moduleTitle" }{{/helpers.highlight}}
+            {{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}
           </div>
           <div class="hit-description">
             {{#helpers.snippet}}{ "attribute": "content" }{{/helpers.snippet}}...
