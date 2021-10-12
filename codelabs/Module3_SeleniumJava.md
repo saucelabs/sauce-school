@@ -340,7 +340,7 @@ Run **clean** and **test** with Maven and you should get two passing tests
 #### NOTE
 
 <aside class="negative">
-Now you have a test added into your suite that will check to see that a failure message was present with a bad password. We can't check for a success message not being there becauce it will throw and error and cause a timeout, ending test execution.
+Now you have a test added into your suite that will check to see that a failure message was present with a bad password. We can't check for a success message not being there because it will throw and error and cause a timeout, ending test execution.
 </aside>
 
 #### Final Code

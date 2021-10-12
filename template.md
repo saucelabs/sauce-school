@@ -2,7 +2,7 @@
 
 summary: Module X of the course X. Learn to write Selenium tests in X programming language with X Test runner and X framework
 id: ModuleX-SeleniumLang
-categories: <enter a single category for drop-down filter & card icon [beginner, intermediate, advaned, expert]>
+categories: <enter a single category for drop-down filter & card icon [beginner, intermediate, advanced, expert]
 tags: <enter Language names here from tools/site/app/views what is labeled in the view.json tag: attribute>  
 environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
@@ -54,7 +54,14 @@ Adding a link!
 
 
 ### Images
-`![alt-text-here](assets/puppy.jpg)`
+<img src="codelabs/assets/filename.png" alt="Example Tag Component"/>
+
+### Embed YouTube Video
+You can embed videos from YouTube using the YouTUbe video ID like so:
+_Video ID can be found in the url following v=_
+
+`<video id="DWAinkJ54D8"></video>`
+<video id=""></video>
 
 ### Embed an iframe
 `![EmbeddedURL](SharedURL)`
@@ -68,21 +75,15 @@ this.is.code.text.here () {
 }
 ```
 
+in paragraph code `can be added` with single tick marks.
+
 ### Size Images
-You can add in a sized image with the `<img/>` tag. As an example take this image in markdown:
-`![Pencil](assets/2.02C.png)`
-and resize it with the following:
+You can add in a sized image with the `<img/>` tag. As an example take this image in markdown and resize it with the `width` property:
 `<img src="assets/2.02C.png" alt="Pencil" width="150"/>`
 
-### Embed YouTUbe Video
-You can embed videos from YouTube using the YouTUbe video ID like so:
-_Video ID can be found in the url following v=_
-
-`<video id="DWAinkJ54D8"></video>`
-<video id=""></video>
 
 ### Embed Video/ Form from Google Drive
-Use the same markdown as embedding an iframe:
+Use the same markdown as embedding an iframe: _Not Recommended_
 `![EmbedURL](ShareURL)`
 
 ##### EmbedURL

@@ -185,7 +185,12 @@ As the complexity and number of tests in your test suite increase, it's a best p
 * **Input Sets**
 * **The Vault**
 
-This level covers how to use Global Variables.
+This lesson covers how to use Global Variables.
+
+#### Video
+**[API Testing – Global Variables](https://youtu.be/feiL0CKWFhU)**
+
+<video id="feiL0CKWFhU"></video>
 
 ### Global Variables
 
@@ -253,6 +258,11 @@ An input set is an object (usually a group of input variables related to a speci
 * Add information about Sauce Connect Tunnels to an Input Set
 * Use Input Sets with a GET component
 * Create and run tests with Input Sets
+
+#### Video
+**[API Testing – Input Sets](https://youtu.be/5aUNzcabivs)**
+
+<video id="5aUNzcabivs"></video>
 
 When you add and use an Input Set, it means you will run a separate instance of your tests for each Input Set created. For example, if you created three Input Sets for `username` and `password`, your tests would be run three times, using each set of credentials. Input Sets are used within a single test.
 
@@ -341,6 +351,11 @@ In the next section, we will discover how to store some of the information we cr
 Duration: 0:07:00
 
 The [Vault](https://docs.saucelabs.com/api-testing/mark3/quick-start/environments-vault-and-overrides-magic/) is a unique feature of the API Fortress platform that allows you to store information for use across all projects or tests.
+
+#### Video
+**[API Testing – The Vault](https://youtu.be/kjdZWpxHH1c)**
+
+<video id="kjdZWpxHH1c"></video>
 
 ### The Vault vs. Inputs
 
