@@ -25,13 +25,9 @@ Duration: 0:10:00
 ### Info Boxes
 Plain Text followed by green and yellow info boxes
 
-Negative
-: This will appear in a yellow info box.
-
-Positive
-: This will appear in a green info box.
-
-You created info boxes!
+<aside class="negative">
+You created a yellow side note!
+</aside>
 
 ### Bullets
 Plain Text followed by bullets
