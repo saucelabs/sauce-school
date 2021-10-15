@@ -20,7 +20,7 @@ This course covers the basic setup and use of the Sauce Connect Proxy Tunnel, wh
 In order to follow along with the course, you will need a few things set up ahead of time:
 
 * A Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
-* Have the [Sauce Connect Proxy client](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/) downloaded to your local machine
+* A copy of [Sauce Connect](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/)
 * The [tunnel name](https://app.saucelabs.com/tunnels) of a running tunnel
 * Automated tests (see the example [Selenium Java test code](https://github.com/walkerlj0/sauceconnect-github-actions))
 * A computer with access to saucelabs.com (see our [Allowlisting documentation](https://docs.saucelabs.com/secure-connections/sauce-connect/system-requirements/#allowlisting-for-restricted-networks))
@@ -230,7 +230,7 @@ You will run your test through the tunnel, and when you log into the SauceLabs U
 <img src="assets/5.03M.png" alt="Active Tunnel" width="650"/>
 
 
-You can see example code for this lesson [here.](https://github.com/walkerlj0/sauceconnect-github-actions)
+You can see example code for this lesson [here](https://github.com/walkerlj0/sauceconnect-github-actions).
 
 
 #### Sauce Connect Architecture
@@ -545,7 +545,7 @@ Duration: 0:00:30
 
 Sauce Connect logs are hard, and we have experts to help you. Visit **[support.saucelabs.com](https://support.saucelabs.com)** to get help with your Sauce Connect issues. Having log files ready will help speed up the process.
 
-* Tunnel logs can be obtained by adding the -v flag to your start-up command
+* Tunnel logs can be obtained by adding the `-v `flag to your start-up command
 
 * Fresh logs are the easiest for support to read, so it may be helpful to rename the old log file, then re-run your tunnel so a new one gets created. Alternatively you can specify a new file for test runs with the `-l <file>` command when you run your test
 
