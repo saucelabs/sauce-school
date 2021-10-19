@@ -56,6 +56,10 @@ In this lesson, you will learn to:
 
 <video id="cpBcGeZ_wQU"></video>
 
+<aside class="negative">
+Some of the flags in this video may be deprecated, see the <a href="https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/">Documentation for more information</a>. The <code>tunnel-identifier</code> flag has been changed to the <code>tunnel-name</code>
+</aside>
+
 In many cases, testers need to run their tests on internal sites. These can be dev/staging versions of their production site or actual internal sites only employees use. In either case, these sites are not available out in the open internet for sauce to access.
 
 The option shown here is using Sauce Connect Proxy which uses a proprietary [TLS protocol](https://www.cloudflare.com/learning/ssl/transport-layer-security-tls/) to encrypt traffic between Sauce Labs and your network and servers. [Learn more about Sauce Connect in the whitepaper](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview).  
@@ -77,6 +81,26 @@ Once you’ve extracted the contents, take the Sauce Connect Proxy folder and mo
 You will need to have environment variables set for Sauce Labs on your local machine or CI tool in order to run your tests.
 
  Watch [this video](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing) to learn how to set up environment variables with your Sauce Labs credentials on a Mac, or view the [instructions for Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
+
+ You also have the option to store all of the values for your Sauce Connect tunnel in a `.yml` file, and run the tunnel with the command:
+
+ ```
+ sc -c config.yaml
+ ```
+
+#### Example YAML File
+
+ ```
+ $ cat ~/sc-us-west.yml
+---
+region: us-west
+user: <SAUCE_USERNAME>
+api-key: <*******************>
+direct-domains:
+- domain1
+- domain2
+tunnel-name: <your-tunnel>
+ ```
 
 ### Start the Tunnel
 
@@ -119,8 +143,9 @@ You can stop any tunnel that you have running by hitting `cntrl` + `c`
 <img src="assets/5.03G.png" alt="Tunnel running on Sauce Labs" width="750"/>
 
 #### Note
-Negative
-: If you have trouble running your tunnel, you may need to update your firewall settings to [allow outbound traffic on port 443](https://docs.saucelabs.com/secure-connections/sauce-connect/faq#what-outbound-ports-do-i-need-open-for-sauce-connect-proxy) or configure Sauce Connect Proxy with a proxy that can reach the `saucelabs.com` domain, using the `--proxy` or `--pac` command line options
+<aside class="negative">
+ If you have trouble running your tunnel, you may need to update your firewall settings to [allow outbound traffic on port 443](https://docs.saucelabs.com/secure-connections/sauce-connect/faq#what-outbound-ports-do-i-need-open-for-sauce-connect-proxy) or configure Sauce Connect Proxy with a proxy that can reach the <code>saucelabs.com</code> domain, using the <code>--proxy</code> or <code>--pac</code> command line options
+ </aside>
 
 ### Live (Manual) Tests with Sauce Connect
 You can easily run any manual tests that you do with Sauce Connect proxy. Simply go to the **Live**, **Cross Browser** testing dashboard, and choose to use any proxy tunnel that is available to you for your manual tests.
@@ -141,16 +166,21 @@ This video is intended to show an example for how to update your test capabiliti
 
 <video id="u1kijdRTSv8"></video>
 
+<aside class="negative">
+Some of the flags in this video may be deprecated, see the <a href="https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/">Documentation for more information</a>. The <code>tunnel-identifier</code> flag has been changed to the <code>tunnel-name</code>
+</aside>
+
 ### Start Your Tunnel
 Navigate in terminal to the location where you saved the `sc-x.x.x-osx` file, then run the command that you copied from the **Tunnels** tab in the saucelabs dashboards
 
 ```
-bin/sc -u your-username -k ******************** -i your_tunnel_id
+bin/sc -u your-username -k ******************** -i your_tunnel_name
 ```
 
 #### Note
-Negative
-: Make sure your `.bash_profile` (or `.zshrc`) has the `SAUCE_TUNNEL` environment variable (it must match the tunnel name you used to start the tunnel). <img src="assets/5.03I.png" alt="Bash Profile" width="750"/>
+<aside class="negative">
+Make sure your <code>.bash_profile</code> (or <code>.zshrc</code>) has the <code>SAUCE_TUNNEL</code> environment variable (it must match the tunnel name you used to start the tunnel). <img src="assets/5.03I.png" alt="Bash Profile" width="750"/>
+</aside>
 
 ### Set Sauce Connect Tunnel Capabilities
 This example shows how to set the capabilities in an example Java Test Suite, written with the JUnit4 test runner, and run and managed using Maven. [See the example suite this is created from](https://github.com/walkerlj0/sauceconnect-github-actions).
@@ -182,7 +212,7 @@ else if (host.equals("saucelabs-tunnel")) {
     sauceOptions.setCapability("username", sauceUser);
     sauceOptions.setCapability("accessKey", sauceKey);
     sauceOptions.setCapability("name", testName);
-    sauceOptions.setCapability("tunnelIdentifier", sauceTunnel);
+    sauceOptions.setCapability("tunnelName", sauceTunnel);
     MutableCapabilities capabilities = new MutableCapabilities();
     capabilities.setCapability("browserName", browserName);
     capabilities.setCapability("browserVersion", browserVersion);
@@ -220,8 +250,9 @@ mvn clean test -Dhost=saucelabs-tunnel
 
 ### Note
 
-Negative
-: You can also go to `Config.java`, change the host to `saucelabs-tunnel` instead of using the `-Dhost=` flag and just run  `mvn clean test`: <img src="assets/SC5.03L.png" alt="host name saucelabs-tunnel" width="650"/>
+<aside class="negative">
+ You can also go to <code>Config.java</code>, change the host to <code>saucelabs-tunnel</code> instead of using the <code>-Dhost=</code> flag and just run  <code>mvn clean test</code>: <img src="assets/SC5.03L.png" alt="host name saucelabs-tunnel" width="650"/>
+ </aside>
 
 
 You will run your test through the tunnel, and when you log into the SauceLabs UI, you should see the tests being run, and that there is an active tunnel:
@@ -240,7 +271,7 @@ To learn more about what is happening when you use Sauce Connect tunnel, see the
 
  Many companies may also choose to have their organization set up _Shared Tunnels_ on Sauce Labs, which anyone in their organization can use without having to worry about configuring their own tunnel.
 
- To use a shared tunnel, simply check the **Tunnels** tab to see your shared tunnels you have access to. You should be able to see the shared tunnel name, the name of the owner of the tunnel as well, as an indication that it is a shared tunnel, then use the `tunnelIdenifier` and the `parentTunnel` in your test suites' capabilities:
+ To use a shared tunnel, simply check the **Tunnels** tab to see your shared tunnels you have access to. You should be able to see the shared tunnel name, the name of the owner of the tunnel as well, as an indication that it is a shared tunnel, then use the `tunnelIdenifier` and the `tunnelOwner` in your test suites' capabilities:
 
  <img src="assets/TRT2.03C.png" alt="Shared Runnel" width="850"/>
 
@@ -269,6 +300,11 @@ This lesson will walk you through the basic things you will need to do if you ar
 [Troubleshooting with Sauce Connect](https://www.youtube.com/watch?v=Jx6ED1dNJEA&list=PL67l1VPxOnT6sxZkCZoH8rhUXWB-qlRWI&index=3)
 
 <video id="Jx6ED1dNJEA"></video>
+
+<aside class="negative">
+Some of the flags in this video may be deprecated, see the <a href="https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/">Documentation for more information</a>.
+</aside>
+
 
 ### Find Out About Your Network
 The first thing you may need to do is check that the machine where you installed the Sauce Connect proxy will allow you to access Sauce Labs and your app. For example, if you installed Sauce Connect on a virtual machine that has a firewall or is in a DMZ, you may have issues communicating.
@@ -305,8 +341,9 @@ Logically, if the environment your tests are on cannot communicate with both of 
     * Allowing you access to the app you are testing
     * Making sure Sauce Labs' KGP protocol isn't causing issues with HTTP traffic
 
-Negative
-: **More About the KGP Protocol** <img src="assets/SC1.04C.png" alt="Tunnels Menu" width="750"/>
+<aside class="negative">
+<strong>More About the KGP Protocol</strong> <img src="assets/SC1.04C.png" alt="Tunnels Menu" width="750"/>
+</aside>
 
 ### Other Common Tunnel Issues
 When you have issues with starting a tunnel, and you have verified a firewall isn't an issue, there are several reasons that you might see an error like this:
@@ -322,9 +359,7 @@ If you are using the wrong `SAUCE_USERNAME` or `SAUCE_ACCESS_KEY`. Check that yo
 #### Tunnel Collision
 Sometimes more than one tunnel is created with the same name, which is known as a 'collision'. What will likely happen is that the first tunnel will stop running, and the new one will start up with the same name. You will get an error like this:
 
-<img src="assets/SC1.04G.png" alt="Error creating pidfile" width="750"/>
-
-This is an error creating the process id file (pidfile) which should be unique to each tunnel, but cannot be created if there are two tunnels running with the same name
+To prevent this from occurring, while starting more than one tunnel with the same name, [use the `--tunnel-pool` flag](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/#--tunnel-pool-or---no-remove-colliding-tunnels).
 
 
 #### File Upload Limit
@@ -360,6 +395,10 @@ You can find all the flags that you can use when running Sauce Connect in the [S
 
 <video id="D7pfJfHe29k"></video>
 
+<aside class="negative">
+Some of the flags in this video may be deprecated, see the <a href="https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/">Documentation for more information</a>.
+</aside>
+
 ### Check Your Sauce Connect Version
 Sometimes it's important to see if you have the most up to date [version of Sauce Connect](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/#downloading-sauce-connect-proxy) so you can use the latest features and functionality using the sauce connect `--version` flag:
 
@@ -367,8 +406,9 @@ Sometimes it's important to see if you have the most up to date [version of Sauc
 bin/ sc -u your-username -k your-accesskey -i your-tunnelname --version
 ```
 #### Note
-Negative
-: If you use the `--version` flag with your tunnel, it will print out the information, then immediately exit, so you will have to start your tunnel again to use it.
+<aside class="negative">
+If you use the <code>--version</code> flag with your tunnel, it will print out the information, then immediately exit, so you will have to start your tunnel again to use it.
+</aside>
 
 ### Generate Verbose Logs
 If you are having trouble running your tests, and were not able to get it working with troubleshooting in the previous lessons, verbose logs will provide mode information that can help give you hints as to what is going wrong.
@@ -450,6 +490,11 @@ When users communicate with applications over the internet, they use TLS (succes
 
 <video id="Bpayic1W514"></video>
 
+<aside class="negative">
+Some of the flags in this video may be deprecated, see the <a href="https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/">Documentation for more information</a>.
+</aside>
+
+
 When developers create and test an app, they typically use self-signed (considered invalid SSL certificates), which are not trusted by stock browsers, such as those installed on the Sauce Labs infrastructure. This means that when you are running Selenium tests, the communication with the browser may be interrupted with security warnings that can't be dismissed by Selenium.
 
  <img src="assets/SC1.06A.png" alt="Error- cannot access website" width="450"/>
@@ -504,10 +549,10 @@ d. You would like to do a Live (manual) test of an app that is hosted on a secur
 2. Which of the following is the capability you have to updated in your test code specifically to run your tests through a shared tunnel?
 a. The sharedTunnel capability
 b. The platformName capability
-c. The tunnelIdentifier capability
-d. The parentTunnel capability
+c. The tunnelName capability
+d. The tunnelOwner capability
 
-*The name for the capability for running through a shared (aka 'parent') tunnel is the parentTunnel capability. Though you will also have to set the platformName and tunnelIdentifier capabilities to run your tests on Sauce Labs, that parentTunnel capability is the one required for shared tunnels specifically.
+*The name for the capability for running through a shared (aka 'parent') tunnel is the tunnelOwner capability. Though you will also have to set the platformName and tunnelName capabilities to run your tests on Sauce Labs, that parentTunnel capability is the one required for shared tunnels specifically.
 
 3. Which of the following are a good basic set of things to check when troubleshooting Sauce Connect Tunnel issues?
 a. That your Username and Access Key are correct, and that you are able to communicate with both your app and Sauce Labs *
