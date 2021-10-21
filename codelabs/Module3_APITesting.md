@@ -131,9 +131,9 @@ In order to validate an API endpoint works properly, you must _assert_ whether t
 
 There are several assertions to choose from and below are a few examples, along with the accompanying documentation:
 
-* **[Assert Exists](https://docs.saucelabs.com/api-testing/mark2/assertion-components/assert-exists/)**: Checks whether an item exists or not.
-* **[Assert Contains](https://docs.saucelabs.com/api-testing/mark2/assertion-components/assert-contains/)**: Checks an item has a specific substring (e.g., test the word _Uber_ for product names like: _UberX_, _UberBlack_).
-* **[Assert Is](https://docs.saucelabs.com/api-testing/mark2/assertion-components/assert-is/)**: Checks whether the value of an item is correctly defined (e.g., _url_, _boolean_, _integer_).
+* **[Assert Exists](https://docs.saucelabs.com/api-testing/on-prem/assertion-components/assert-exists/)**: Checks whether an item exists or not.
+* **[Assert Contains](https://docs.saucelabs.com/api-testing/on-prem/assertion-components/assert-contains/)**: Checks an item has a specific substring (e.g., test the word _Uber_ for product names like: _UberX_, _UberBlack_).
+* **[Assert Is](https://docs.saucelabs.com/api-testing/on-prem/assertion-components/assert-is/)**: Checks whether the value of an item is correctly defined (e.g., _url_, _boolean_, _integer_).
 
 In this example, you will be checking that when you ping the endpoint `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions` that a payload is return (it exists) and the one of the fields, the `"info_url"` is in fact a url.
 
@@ -242,7 +242,7 @@ The finished result should look like this:
 
 ### Note:
 Negative
-: Please refer to the documentation for further information on [using variables](https://docs.saucelabs.com/api-testing/mark3/quick-start/flexible-variables-for-flexible-environments/).
+: Please refer to the documentation for further information on [using variables](https://docs.saucelabs.com/api-testing/flexible-variables-for-flexible-environments/).
 
 
 In the next section, we will cover how to store information as an **Input Set**.
@@ -350,7 +350,7 @@ In the next section, we will discover how to store some of the information we cr
 ## 3.07 The Vault
 Duration: 0:07:00
 
-The [Vault](https://docs.saucelabs.com/api-testing/mark3/quick-start/environments-vault-and-overrides-magic/) is a unique feature of the API Fortress platform that allows you to store information for use across all projects or tests.
+The [Vault](https://docs.saucelabs.com/api-testing/environments-vault-and-overrides-magic/) is a unique feature of the API Fortress platform that allows you to store information for use across all projects or tests.
 
 #### Video
 **[API Testing – The Vault](https://youtu.be/kjdZWpxHH1c)**
@@ -494,9 +494,9 @@ This is a screenshot of the end result:
 Now you can add this snippet to any test in any project. This approach is much easier than recreating the entire test from scratch! Run your test to see the report.
 
 To learn more about The Vault and Environments, see:
-* [Learn the Basics](https://docs.saucelabs.com/api-testing/mark3/quick-start/)
-* [Environments Basics](https://docs.saucelabs.com/api-testing/mark3/quick-start/environments-vault-and-overrides-magic)
-* [Using Variables](https://docs.saucelabs.com/api-testing/mark3/quick-start/flexible-variables-for-flexible-environments/)
+* [Learn the Basics](https://docs.saucelabs.com/api-testing/quickstart)
+* [Environments Basics](https://docs.saucelabs.com/api-testing/environments-vault-and-overrides-magic)
+* [Using Variables](https://docs.saucelabs.com/api-testing/flexible-variables-for-flexible-environments/)
 
 
 <!-- ------------------------ -->
