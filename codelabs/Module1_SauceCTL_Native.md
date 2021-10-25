@@ -15,22 +15,21 @@ authors: Lindsay Walker
 Duration: 0:01:00
 
 ### Skills & Knowledge
-<!--
+
 * Understand how saucectl with the Sauce Labs platform is different than other automated test solutions that you can use with Sauce Labs
 
-* Learn about the components of saucectl with the Sauce Labs platform, including the command line tool, Docker, and the Cypress.io client
+* Learn about the components of saucectl with the Sauce Labs platform, including the command line tool, Docker, the Sauce Labs 'My Demo' app, and a demo app test.
 
-* Set up the necessary components to run Cypress and saucectl with the Sauce Labs platform on your computer
+* Set up the necessary components to run an XCUI test with saucectl on the Sauce Labs platform
 
-* Understand the configuration files for Cypress on saucectl with the Sauce Labs platform and how to modify them
+* Understand the configuration files for an XCUI test on saucectl with the Sauce Labs platform and how to modify them
 
-* Learn to run a Cypress Test on Sauce Labs with a Docker container and on Virtual Machines (VMs)
+* Learn to run an XCUI test on Sauce Labs on Virtual Machines (VMs)
 
 * Run a saucectl with the Sauce Labs platform Cypress Test with your test code locally with Cypress
--->
 
 #### Clone the Project
-<!-- If you would like to follow along with the course, using the exact sample code, you can use the [example tests here](https://github.com/walkerlj0/saucectl-course-example-code/tree/main/Mod1/1.03). -->
+If you would like to follow along with the course, you can use the sample code and examples [example in the `saucectl-xcuitest-example` repository](https://github.com/saucelabs/saucectl-xcuitest-example).
 
 <!-- ------------------------ -->
 ## 1.02 What Is saucectl?
@@ -54,7 +53,7 @@ Installing with `saucectl` allows you to quickly and easily install all dependen
 
 ### What can saucectl and the Sauce Labs Platform Do?
 
-`saucectl` stands for Sauce Control, the command line interface for running non-Selenium/ Appium tests such a Cypress, TestCafe, Espresso, and XCUITest. The toolkit includes [`saucectl` commands](https://docs.saucelabs.com/testrunner-toolkit/installation/#installing-saucectl) that allow you to interface with Sauce Labs, as well as the tools necessary to record the output from tests on a Sauce Labs Virtual Machine, making it easy to interpret, share and analyze those test results.
+`saucectl` stands for Sauce Control, the command line interface for running non-Selenium/ Appium tests such as and XCUITest, Espresso Cypress, TestCafe, and more . The toolkit includes [`saucectl` commands](https://docs.saucelabs.com/testrunner-toolkit/installation/#installing-saucectl) that allow you to interface with Sauce Labs, as well as the tools necessary to record the output from tests on a Sauce Labs Virtual Machine, making it easy to interpret, share and analyze those test results.
 
 
 ### Why Use saucectl
