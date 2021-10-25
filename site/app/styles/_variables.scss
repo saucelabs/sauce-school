@@ -73,12 +73,12 @@ $radius: 3px;
 /* Breakpoints */
 
 $phone-breakpoint-min: 320px;
-$phone-breakpoint-max: 767px;
+$phone-breakpoint-max: 1024px;
 
 $tablet-breakpoint-min: $phone-breakpoint-max + 1;
-$tablet-breakpoint-mid: 884px;
-$tablet-breakpoint-max: 944px;
+$tablet-breakpoint-mid: 1138px;
+$tablet-breakpoint-max: 1200px;
 
 $desktop-breakpoint-min: $tablet-breakpoint-max + 1;
-$desktop-breakpoint-mid: 1136px;
-$desktop-breakpoint-max: 1264px;
+$desktop-breakpoint-mid: 1200px;
+$desktop-breakpoint-max: 1600px;

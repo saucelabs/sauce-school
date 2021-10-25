@@ -78,8 +78,8 @@ ul, li {
 
 .site-width {
   margin: 0 auto;
-  width: 90vw;
-  max-width: 1168px;
+  width: 100%;
+  max-width: 1240px;
 }
 
 #banner {
@@ -284,4 +284,8 @@ ul, li {
       flex: 1;
     }
   }
+}
+
+navigation-element {
+  margin-left: auto;
 }
