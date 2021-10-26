@@ -43,7 +43,7 @@ If you skipped Module 1, make sure you have a project folder set up and have cre
 
 If you are familiar with using GitHub to write your code, you can also fork/ branch this repository here for the first set of code:
 
-**[Module 1 Project Folder](https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/java/Mod1/1.06/src/test/java/companyname/TestLogin.java)**
+**[Selenium Examples Repo](https://github.com/walkerlj0/Selenium_Course_Example_Code)**
 
 <!-- ------------------------ -->
 ## 2.02 Writing Good Acceptance Tests
@@ -141,7 +141,7 @@ When your data shows certain functions, features, and flows are frequently used,
 
 Now that you know what functionality is business critical and widely adopted by your users, you need to determine what browsers to focus your automated web testing efforts on. Your usage data will tell you this as well. It will help you determine which browsers you can reasonably avoid testing in (based on non-existent or low usage numbers).
 
-Note the top 2 (or 3 depending on your numbers), but focus on the top 1 for now. This is the browser you will start using for automation.
+The top 2 (or 3) browsers should be considered for tests, but focus on the top 1 for now. This is the browser you will start using for automation.
 
 
 #### Question 4: What are the Risky Bits?
@@ -230,6 +230,11 @@ Duration: 0:15:00
 
 Open up the [IntelliJ IDE](https://www.google.com/search?q=download+intellij+idea&oq=download+IntelliJ+IDe&aqs=chrome.0.0j69i57j0l3j69i64l3.6131j0j7&sourceid=chrome&ie=UTF-8) and create a new project using Maven and your JDK (1.8 is recommended)
 
+#### Note
+<aside class="negative">
+If you are a first-time user of IntelliJ with Java, I highly recommend checking out the YouTube channel by JetBrains. <a href="https://www.youtube.com/watch?v=H_XxH66lm3U">This is a great first video</a>.
+</aside>
+
 <img src="assets/2.06H.png" alt="New IntelliJ project" width="350"/> <img src="assets/2.06I.png" alt="New IntelliJ project maven JDK" width="350"/>
 
 Choose which directory you want to store your project in, and give it a name such as **SeleniumJava**:
@@ -258,19 +263,18 @@ Download the file, then unzip it and move it somewhere outside of your downloads
 
 #### Note
 
-Negative
-: Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, first open a terminal, and type in the command `sudo spctl --master-disable` to [disable Gatekeeper](https://osxdaily.com/2015/05/04/disable-gatekeeper-command-line-mac-osx/).
+<aside class="negative">
+Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, first open a terminal, and type in the command <code>sudo spctl --master-disable</code> to <a href="https://osxdaily.com/2015/05/04/disable-gatekeeper-command-line-mac-osx/">disable Gatekeeper</a>.
+</br>
+</br>
+Next, you need to allow app downloads from anywhere. Go to System Preferences on your Mac > Security & Privacy, then under the General tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers. <img src="assets/4.04K.png" alt="Allow Unidentified Files in Security and Privacy" width="650"/>
+</aside>
 
-Negative
-: Next, you need to allow app downloads from anywhere. Go to **System Preferences** on your Mac **> Security & Privacy**, then under the **General** tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers. <img src="assets/4.04K.png" alt="Allow Unidentified Files in Security and Privacy" width="650"/>
-
-Negative
-: On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver** or **geckodriver** manually.
+On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver** or **geckodriver** manually.
 Once you have allowed this, find the Chromedriver in your file directory, double click on it, and force terminal to open it.
 
-#### Note
-Negative
-: If you are a first-time user of IntelliJ with Java, I highly recommend checking out the YouTube channel by JetBrains. [This is a great first video.](https://www.youtube.com/watch?v=H_XxH66lm3U)
+
+
 
 
 ### Copy the Project Code (Optional)
@@ -398,9 +402,10 @@ public class TestLogin {
 ```
 
 ### Note
-Negative
-: The two imported classes may delete themselves or turn grey – the IntelliJ IDE will intentionally clean up code and remove the import of unnecessary classes to speed up the running of your code.
+<aside class="negative">
+The two imported classes may delete themselves or turn grey – the IntelliJ IDE will intentionally clean up code and remove the import of unnecessary classes to speed up the running of your code.
 <img src="assets/2.05O.png" alt="Chrome Version" width="550"/>
+</aside>
 
 ### Test Code Overview
 
@@ -420,10 +425,10 @@ This abstraction using the JUnit4 annotations library enables us to write our te
 
 #### Note
 
-Negative
-: **How to Find Dependencies Using IntelliJ**:
- If your test file doesn’t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out. See the video [IntelliJ_Dependencies ](https://youtu.be/PDPl_pHo0K0) on using IntelliJ to install dependencies and update the .pom file <video id="PDPl_pHo0K0"></video>
-
+<aside class="negative">
+<strong>How to Find Dependencies Using IntelliJ:</strong>
+ If your test file doesn’t have all the dependencies that you need, or if those dependencies are an older version and you are unable to run your test code, the IntelliJ IDE has features that will help you out. See the video <a href="https://youtu.be/PDPl_pHo0K0">IntelliJ_Dependencies</a> on using IntelliJ to install dependencies and update the .pom file <video id="PDPl_pHo0K0"></video>
+</aside>
 
 ### Run a Test with IntelliJ
 
@@ -436,8 +441,9 @@ Follow the instructions here in [2.05_IntelliJ_Tests](https://youtu.be/qWi8Rk1R4
 
 <video id="qWi8Rk1R4Gw"></video>
 
-Negative
-: **Check driver path and browser version–** If your tests aren't running correctly, double check that the `System.setProperty("webdriver.chrome.driver")` has the full path to where you installed the chromedriver, and that the version of the Chromedriver you installed matches the browser version on your computer.
+<aside class="negative">
+Check driver path and browser version– If your tests aren't running correctly, double check that the <code>System.setProperty("webdriver.chrome.driver")</code> has the full path to where you installed the chromedriver, and that the version of the Chromedriver you installed matches the browser version on your computer.
+</aside>
 
 
 <!-- ------------------------ -->
@@ -486,9 +492,9 @@ public class TestLogin {
 
 ### Note
 
-Negative
-: When using the IntelliJ IDE, classes and libraries must be instantiated within the code before they can be added to the list of imported elements at the top. Watch this video to see how this is done.
-
+<aside class="negative">
+When using the IntelliJ IDE, classes and libraries must be instantiated within the code before they can be added to the list of imported elements at the top. Watch this video to see how this is done.
+</aside>
 
 #### Video
 Watch this [video](https://youtu.be/w3XcmSJxqcg) to understand importing classes and methods with IntelliJ
@@ -510,16 +516,15 @@ Watch [Run Your Test with Maven](https://youtu.be/qWi8Rk1R4Gw) to learn the step
 <video id="qWi8Rk1R4Gw"></video>
 
 #### Note
-Negative
-: If you had difficulty before getting your test to run because your test had trouble locating chromedriver, you can create a `/lib` directory in the root of the project folder, and place the extracted chromedriver there. <img src="assets/2.06E.png" alt="New lib directory" width="400"/> <img src="assets/2.06F.png" alt="Add chromedriver to lib" width="700"/>
+<aside class="negative">
+If you had difficulty before getting your test to run because your test had trouble locating chromedriver, you can create a <code>/lib</code> directory in the root of the project folder, and place the extracted chromedriver there. <img src="assets/2.06E.png" alt="New lib directory" width="400"/> <img src="assets/2.06F.png" alt="Add chromedriver to lib" width="700"/>
+</br>
+</br>
 
-Negative
-: If you do change the location of the chromedriver, you can modify your `system.setProperty` to the following: <img src="assets/2.06G.png" alt="update path to chromedriver" width="700"/> ```  // Set location of chromedriver
-        if (System.getProperty("os.name").startsWith("Windows")) {
-            System.setProperty("webdriver.chrome.driver", "lib/drivers/chromedriver.exe");
-        } else {
-            System.setProperty("webdriver.chrome.driver", "lib/drivers/chromedriver");
-        }```
+If you do change the location of the chromedriver, you can modify your <code>system.setProperty</code> to the following: <img src="assets/2.06G.png" alt="update path to chromedriver" width="700"/>
+
+</aside>
+
 
 ### Test Your Code with a Failure
 
@@ -529,7 +534,6 @@ Just to make certain that this test is doing what we think it should, let's chan
 ```
       assertTrue("success message not present",
                 driver.findElement(By.cssSelector(".flash.NOTsuccessas")).isDisplayed());
-
 
 ```
 
@@ -569,16 +573,15 @@ Next, we will create a new test file, named `TestLocator.java.` Place it in the 
 
 #### Note
 
-Negative
-: This can be done in IntelliJ by right clicking within the **companyname** folder in the project window and creating a **New → Java Class** then naming it **TestLocator.**
+<aside class="negative">
+This can be done in IntelliJ by right clicking within the <code>tests</code> folder in the project window and creating a <code>New → Java Class</code> then naming it <code>TestLocator</code>.
 
-Negative
-: <img src="assets/2.08E.png" alt="New Java Class" width="650"/>
+<img src="assets/2.08E.png" alt="New Java Class" width="650"/>
 
 
-Negative
-: <img src="assets/2.08F.png" alt="Test Locator Class" width="350"/>
 
+<img src="assets/2.08F.png" alt="Test Locator Class" width="350"/>
+</aside>
 
 Copy and paste the code below into your test file.  Above the `public class {}` declaration, you will `import` all of your dependencies. You will also instantiate the driver, then create the code to set up, test, then tear down your test within the `@Before, @Test, and @After `code.
 

@@ -1,6 +1,11 @@
 ### _Changelog- Add newest additions in an .md file at top_
 
 ///start typing below this text
+
+## Oct 4 - Jame's Changes
+- Changed algolia index name to `saucelabs_cralwer_new_sauce`
+- Modified `instantsearch` component in `app.js`. Included `attributesToSnippet` in order to render specific algolia record attributes.
+
 ##June 30 - Rich's Changes
 - Modified default string for `gulpfile.js`'s default `BASE_URL` value to remove `example.com` artifact on certain pages. (gulpfile.js, 61)
 

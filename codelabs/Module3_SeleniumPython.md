@@ -59,7 +59,7 @@ If you are familiar with using GitHub to write your code, you can also clone or 
 ## 3.02 The POM and Imperative vs. Declarative Tests
 Duration: 0:08:00
 
-The Page Object Model (POM) is a design pattern that can be used with Selenium with any kind of framework. Using this pattern for tests means that you create two separate types of classes; **Pages** and **Test Cases**. The **Page** classes set up and navigate items on the page, using variables to represent web elements, and **Test** classes perform the actual assertions and tests. There is also a **base test** called `conftest.py`, which contains the fixture used to set up and tear down each test, and a **base page** which defines methods used in each test.
+The **Page Object Model (POM)** is a design pattern that can be used with Selenium with any kind of framework. Using this pattern for tests means that you create two separate types of classes; **Pages** and **Test Cases**. The **Page** classes set up and navigate items on the page, using variables to represent web elements, and **Test** classes perform the actual assertions and tests. There is also a **base test** called `conftest.py`, which contains the fixture used to set up and tear down each test, and a **base page** which defines methods used in each test.
 
 <img src="assets/3.02C.png" alt="Resized POM Diagram" width="550"/>
 
@@ -554,8 +554,7 @@ def _is_displayed(self, locator):
 ## 3.06  Resilient Test Code and Timing
 Duration: 0:12:00
 
-
-Ideally you should be able to write your tests once and run them across all supported browsers. More often than not, however, you will run into unexpected problems running a test in all environments, and sometimes there may be a hack or two involved.
+Ideally you should be able to write your tests once and run them across all supported browsers. More often than not, however, you will run into unexpected problems running a test in all environments.
 
 Choosing high quality locators will help with this, but there are still some issues to deal with; most notably, timing. This is especially true when working with dynamic, JavaScript-heavy pages, which is is something you will find with most web applications.
 
@@ -778,7 +777,7 @@ Let's step through one more example to see if our explicit wait holds up.
 
 [The second dynamic loading example](http://the-internet.herokuapp.com/dynamic_loading/2) is laid out similarly to the last one. The difference is that it renders the final text after the progress bar completes (whereas the previous example had the element on the page but it was hidden until the progress bar finished). In other words, in the first test, the text was there but hidden, but in this test the text doesn’t even exist until after the loading image disappears.
 
-Notice that it has the same start `<button>` element and `id='finished'` at the beginning and end of the test, therefore our `dynamic_loading_page` code will work with the second page as well.
+Notice that it has the same start <`button`> element and `id='finished'` at the beginning and end of the test, therefore our `dynamic_loading_page` code will work with the second page as well.
 
 Let's add a nearly identical second test called `test_rendered_element` after `test_hidden_element`:
 

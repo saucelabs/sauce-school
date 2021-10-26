@@ -44,8 +44,14 @@ npm install
 
 Install gulp globally with:
 ```
+npm install --global gulp
+```
+
+Install gulp CLI tool globally with:
+```
 npm install --global gulp-cli
 ```
+
 Find more detailed instructions [here](https://github.com/gulpjs/gulp/blob/master/docs/getting-started/1-quick-start.md#install-the-gulp-command-line-utility)
 
 
@@ -93,14 +99,16 @@ The course are located in `codelabs` directory. Each course will contain a markd
 
 [Claat](https://github.com/googlecodelabs/tools) will render an HTML page/ JSON file inside of `site/codelabs`.
 
+Copy the [template.md file](https://github.com/saucelabs/sauce-school/blob/master/template.md) and place it in the `/codelabs` directory. Make sure all metadata is updated.
+
 *   The `/codelab` directory contains all courses, each with several modules in it.
 
- Place a markdown file for course modules in a folder called _/site/codelabs_. When you use CLAAT to export it, go to the root golder `sauce-school` and run the command `gulp serve` the markdown files will create directories in the `/site/codelabs` folder which is what is rendered
+* To create a new course, make a copy of one of the directories in `/site/app/views` (**not** the default folder). Make sure the `"tags"` in `view.json` match the tags you put in the top-matter in your markdown file.
 
- * Each Course module `.md.` file is labeled by language and module number (e.g. Module3_SeleniumJS.md).
- * The `tag` at the top of each codelab markdown file identifies the course e.g. java, javascript, python etc.) which are made of many 'modules' with several lessons in it. The codelabs will br grouped together into a course (aka `views`) according to this tag.
+* Each Course module `.md.` file is labeled by language and module number (e.g. Module3_SeleniumJS.md).
+* The `tag` at the top of each codelab markdown file identifies the course e.g. java, javascript, python etc.) which are made of many 'modules' with several lessons in it. The codelabs will br grouped together into a course (aka `views`) according to this tag.
 
-  **!IMPORTANT at the top of the .md file , you need to have project information with the id- this is the name of the rendered codelab in `site/build/codelabs`* (see below).
+**!IMPORTANT at the top of the .md file , you need to have project information with the id- this is the name of the rendered codelab in `site/build/codelabs`* (see below).
 
 * The `feedback link` is [a G-Form](https://docs.google.com/forms/d/1QKpJDvv64-YXrCPr_unHL-fBAezRnGzqjruLMKC4ssQ/edit?usp=sharing) for people to fill out about bugs/ issues/ questions.
 

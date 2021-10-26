@@ -30,7 +30,7 @@ In this Module, you will learn:
 *   How to view test details to gain insight and information when tests fail
 *   How you can Sauce Performance for actionable information on the front-end user experience
 *   How Sauce Connect can help you set up a secure connection to you application under test
-*   The main automation features available in the Sauce Labs app
+*   The main automation features available in Sauce Labs
 *   Use cases for Live testing for automation engineers
 *   How to use the Sauce Labs Live testing interface to run mobile and web tests
 
