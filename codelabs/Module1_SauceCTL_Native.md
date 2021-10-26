@@ -37,7 +37,7 @@ Duration: 0:03:00
 
 Sauce Labs has developed a set of tools in conjunction with a command line tool called `saucectl` to enable test developers to get setup quickly to scale up their testing to more browsers and devices using the Sauce Labs Cloud, and to be able to do this with a wider range of testing frameworks than ever before.
 
-This is a testing solution for developers that simplifies user setup, speeds up test execution time, unifies test results, and supports new open source frameworks like Playwright, Cypress, TestCafe, Espresso, and XCUI for running end-to-end web & mobile tests.
+This is a testing solution for developers that simplifies user setup, speeds up test execution time, unifies test results, and supports non-Selenium or Appium Frameworks like Espresso, XCUITest, Cypress, and more.
 
 <img src="assets/TRT1.02A.png" alt="saucectl tools" width="600"/>
 
