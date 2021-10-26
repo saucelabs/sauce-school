@@ -1,5 +1,5 @@
  summary: Module 1 of the Native Apps on Sauce Labs course will should you how to user the saucectl set of tools to run your XCUI iOS tests on the Sauce Labs Cloud of virtual machines. You will use saucectl to upload your app, run your automated tests creating artifacts to share and analyze.
-id: Module1-saucectl-native
+id: Module1-saucectl-Native
 categories: beginner
 environments: Web
 status: Published
@@ -29,7 +29,7 @@ Duration: 0:01:00
 * Run a saucectl with the Sauce Labs platform Cypress Test with your test code locally with Cypress
 
 #### Clone the Project
-If you would like to follow along with the course, you can use the sample code and examples [example in the `saucectl-xcuitest-example` repository](https://github.com/saucelabs/saucectl-xcuitest-example).
+If you would like to follow along with the course, you can use the {sample code and examples [example in the `saucectl-xcuitest-example` repository](https://github.com/saucelabs/saucectl-xcuitest-example).
 
 <!-- ------------------------ -->
 ## 1.02 What Is saucectl?
@@ -53,7 +53,7 @@ Installing with `saucectl` allows you to quickly and easily install all dependen
 
 ### What can saucectl and the Sauce Labs Platform Do?
 
-`saucectl` stands for Sauce Control, the command line interface for running non-Selenium/ Appium tests such as and XCUITest, Espresso Cypress, TestCafe, and more . The toolkit includes [`saucectl` commands](https://docs.saucelabs.com/testrunner-toolkit/installation/#installing-saucectl) that allow you to interface with Sauce Labs, as well as the tools necessary to record the output from tests on a Sauce Labs Virtual Machine, making it easy to interpret, share and analyze those test results.
+`saucectl` stands for Sauce Control, the command line interface for running non-Selenium/ Appium tests such a Espresso, XCUITest, Cypress, TestCafe, and more . The toolkit includes [`saucectl` commands](https://docs.saucelabs.com/testrunner-toolkit/installation/#installing-saucectl) that allow you to interface with Sauce Labs, as well as the tools necessary to record the output from tests on a Sauce Labs Virtual Machine, making it easy to interpret, share and analyze those test results.
 
 
 ### Why Use saucectl
