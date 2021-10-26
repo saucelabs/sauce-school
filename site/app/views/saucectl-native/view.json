@@ -1,7 +1,7 @@
 {
   "title": "Native App Tests on Sauce Labs",
-  "description": "This course offers lessons to help users get up and running you iOS with XCUI tests using the Sauce Labs Cloud and saucectl",
-  "logoUrl": "/sauceconnect/logo.png",
+  "description": "Module 1 of the Cypress on Sauce course will introduce you how to set up an XCUI test with saucectl on the Sauce Labs Cloud virtual machines, and use saucectl to run your automated tests creating artifacts to share and analyze. You will learn how to setup and run a test using a demo app and tet suite using a device on the Sauce Labs Real Device cloud.",
+  "logoUrl": "/saucectl-native/logo.png",
   "tags": ["saucectl-native"],
   "exclude": [
     ".*-about$",

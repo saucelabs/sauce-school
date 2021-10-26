@@ -83,7 +83,7 @@ With saucectl, you can also install Docker and run a containerized version of yo
 ## 1.03 Setup saucectl to Run Tests on Sauce Labs
 Duration: 0:07:00
 
-In this module, you will see how you can set up   saucectl on Sauce Labs VMs _or_ use saucectl along with Docker on your MacOS Computer. The basic steps include:
+In this module, you will see how you can set up saucectl on Sauce Labs VMs _or_ use saucectl along with Docker on your MacOS Computer. The basic steps include:
 
 * Grab an [example XCUITest project](https://github.com/saucelabs/saucectl-xcuitest-example)
 * Install saucectl with `sudo sh -c 'curl -L ...'`
