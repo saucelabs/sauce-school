@@ -1,6 +1,6 @@
 {
   "title": "Native App Tests on Sauce Labs",
-  "description": "The modules in this course will show you how to use saucectl to set up, run, and configure iOS and Android app tests on the Sauce Labs Cloud of real devices and virtual machines. Use saucectl to run your automated tests, creating artifacts to share and analyze. Walk through the process of uploading, configuring, and testing with a demo iOS or Android application and test file, scaling your automated mobile testing efforts",
+  "description": "The modules in this course will show you how to use saucectl with iOS or Android apps and tests on the Sauce Labs Cloud of real devices and virtual machines. Use a few simple commands to install, configure, and run your mobile tests.",
   "logoUrl": "/saucectl-native/logo.png",
   "tags": ["saucectl-native"],
   "exclude": [

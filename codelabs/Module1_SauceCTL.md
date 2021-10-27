@@ -87,15 +87,16 @@ With saucectl, you can also install Docker and run a containerized version of yo
 
 
 <!-- ------------------------ -->
-## 1.03 Setup saucectl to Run Tests on Sauce Labs
+## 1.03 Run Cypress Tests on Sauce Labs
 Duration: 0:07:00
 
 In this module, you will see how you can set up   saucectl on Sauce Labs VMs _or_ use saucectl along with Docker on your MacOS Computer. The basic steps include:
 
 * Setup an [example Cypress project](https://github.com/saucelabs/saucectl-cypress-example)
 * Install saucectl with `npm i -g saucectl`
+* Configure your test to run with `saucectl init`
 * Set your Sauce username and access key with `saucectl configure`
-* Update `.sauce/config.yml` with test suite information
+* Run your test suite with the command `saucectl run`
 
 _More detailed instructions are below_
 
@@ -189,15 +190,33 @@ Visit [accounts.saucelabs.com](https://accounts.saucelabs.com/am/XUI/#login/?utm
 
 Watch [this video](https://www.youtube.com/watch?v=3K1Eu0eTha8&t=12s) to see how to set up your Sauce username and access key as environment variables on your machine, or use [the instructions here to set them up on Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
 
+### Run Your Tests
+
+Now that you have setup your config file and credentials, all you need to do to launch your test suite is run the command:
+
+```
+saucectl run
+```
+You will see output like so in your console with details about the run on Sauce Labs:
+
+<img src="assets/SCTL1.03C.png" alt="saucectl init workflow" width="500"/>
 
 <!-- ------------------------ -->
-## 1.04 The Configuration File
+## 1.04 Set Up and Configure Cypress Tests
+
+In this lesson, you will learn how to configure a custom setup your test suite.
+* Update `.sauce/config.yml` with test suite information
+* Specify where and how different suites are run
+* Exclude files from being uploaded to Sauce (and slowing down your test run) in the `.sauce/.sauceignore` file
 
 Once you have your project setup, open the project directory, take a look at the project files inside.
 
 <img src="assets/TRT1.03C.png" alt="Project directory setup" width="500"/>
 
 You will see a `cypress` folder containing the `/integrations` directory where all test files are stored, as well as a `cypress.json` file where you can set options such as reporters, the base URL that tests will be run against, and [more](https://docs.cypress.io/guides/references/configuration.html#Global).
+
+
+### Configuration Files
 
 Another part of the package that was installed when you ran `saucectl` new is the /`.sauce` directory. The /`.sauce` directory has a `.sauceignore` file where you can designate the files and directories you don't want uploaded to Sauce Labs, and the `config.yml` file in which you will see something like the following ([Config Docs](https://docs.saucelabs.com/testrunner-toolkit/configuration#basic-configuration)):
 
@@ -246,7 +265,8 @@ artifacts:
 
 Take a look at the top of the config file. There are several important elements here that can be modified.
 *   The `apiVersion` is the [saucectl API](https://github.com/saucelabs/saucectl) Version
-*   The `kind` is the tesing framework
+*   The `kind` is the testing framework
+*   The `concurrency` is the number of suites that can be executed at the same time (limited by the number your team has available on Sauce Labs)
 * The `defaults` allow you to configure various settings. You can set the mode (_Docker_ or _Sauce_) in `mode` at this level, or as a field that is a part of the `suites` below.
 * If you are using _Docker mode_, you can `mount` or `copy` files
 *   The `cypress` information tells your cypress tests where to look for the test configuration file, and which version of cypress you are running. Other file locations are relative to where `config.json` is place. See the docs for a [list of supported versions](https://docs.saucelabs.com/testrunner-toolkit)
@@ -285,10 +305,10 @@ You can check to see if it’s running with the command `docker info`, and see w
 See the next module for more about running tests with the command `saucectl run`
 
 <!-- ------------------------ -->
-## 1.05 Run Your Cypress Test on Sauce
+## 1.05 Run Different Tests on Sauce
 Duration: 0:03:00
 
-Running a Cypress test on sauce is easy. If you follow the configuration steps using `saucectl init` in the last module, all you need to do is run the command:
+Running a Cypress test on sauce is easy, however there are many different options for how you can run tests.  If you follow the configuration steps using `saucectl init` in the last module, all you need to do is run the command:
 
 ```
 saucectl run
