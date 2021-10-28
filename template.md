@@ -54,7 +54,7 @@ Adding a link!
 
 
 ### Images
-<img src="codelabs/assets/filename.png" alt="Example Tag Component"/>
+<img src="codelabs/assets/filename.png" alt="Example Tag Component" width="700"/>
 
 ### Embed YouTube Video
 You can embed videos from YouTube using the YouTUbe video ID like so:

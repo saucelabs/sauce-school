@@ -30,12 +30,17 @@ Duration: 0:01:00
 
 * Learn basic JavaScript to write page object and test code that runs on Cypress and saucectl with the Sauce Labs platform (Optional)
 
+#### What You'll Need
+* **Sample Code**
+  * Use the [sample code from this course](https://github.com/walkerlj0/saucectl-course-example-code/tree/main/Mod1/1.03)
+  * You can also [use this sample test suite](https://github.com/saucelabs/saucectl-cypress-example) maintained by the saucectl team.
+* Get the [JSON Schema Validator](https://www.schemastore.org/json/) for your IDE called **SauceCTL Configuration**
+
 ### Note
 Negative
 : Developers that **already have a test suite do not have to do Modules 1.07 - 1.09**. If you have one, simply create a new saucectl project in the folder with your Cypress test suites to get started quickly, moving on to Module 2 after 1.06.
 
-#### Clone the Project
-If you would like to follow along with the course, using the exact sample code, you can use the [example tests here](https://github.com/walkerlj0/saucectl-course-example-code/tree/main/Mod1/1.03).
+
 
 <!-- ------------------------ -->
 ## 1.02 What Is saucectl?
@@ -205,8 +210,8 @@ You will see output like so in your console with details about the run on Sauce 
 ## 1.04 Set Up and Configure Cypress Tests
 
 In this lesson, you will learn how to configure a custom setup your test suite.
-* Update `.sauce/config.yml` with test suite information
-* Specify where and how different suites are run
+* Understand the configuration files that were installed with saucectl
+* Learn how to update `.sauce/config.yml` with test suite information
 * Exclude files from being uploaded to Sauce (and slowing down your test run) in the `.sauce/.sauceignore` file
 
 Once you have your project setup, open the project directory, take a look at the project files inside.

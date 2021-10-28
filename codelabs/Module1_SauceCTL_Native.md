@@ -28,8 +28,12 @@ Duration: 0:01:00
 
 * Learn to run test suites and classes in parallel, using the `concurrency` option
 
-#### Clone the Project
-If you would like to follow along with the course, you can use the {sample code and examples [example in the `saucectl-xcuitest-example` repository](https://github.com/saucelabs/saucectl-xcuitest-example).
+### What You Will Need
+
+* The IntelliJ IDE (free Community Edition is fine)
+* Download the sample code and test example [in the `saucectl-xcuitest-example` repository](https://github.com/saucelabs/saucectl-xcuitest-example).
+* Take a look at the [source code for the app & tests](https://github.com/saucelabs/my-demo-app-ios/releases)
+* Get the [JSON Schema Validator](https://www.schemastore.org/json/) for your IDE called **SauceCTL Configuration**
 
 <!-- ------------------------ -->
 ## 1.02 What Is saucectl?
@@ -183,92 +187,76 @@ You will see output like so in your console with details about the run on Sauce 
 ## 1.04 Set Up and Configure XCUI Tests
 
 In this lesson, you will learn how to configure a custom setup your test suite.
-* Update `.sauce/config.yml` with test suite information
-* Specify where and how different suites are run
+* Understand the configuration files that were installed with saucectl
+* Learn how to update `.sauce/config.yml` with test suite information
 * Exclude files from being uploaded to Sauce (and slowing down your test run) in the `.sauce/.sauceignore` file
 
 Once you have your project setup, open the project directory, take a look at the project files inside.
 
 <img src="assets/SCTLN1.05A.png" alt="Project directory setup" width="500"/>
 
-You will see a `apps` folder containing the `.ipa` (or `.app`) files where the app and test file packages are stored. These should be [bundles built by the app developer](https://developer.android.com/guide/app-bundle/test).
+You will see a `apps` folder containing the `.ipa` (or `.app`) files where the app and test file packages are stored. These should be [bundles built by the app developer](https://developer.apple.com/documentation/xcode/preparing-your-app-for-distribution).
 
 
 ### Configuration Files
 
 Another part of the package that was installed when you ran `saucectl` new is the /`.sauce` directory. The /`.sauce` directory has a `.sauceignore` file where you can designate the files and directories you don't want uploaded to Sauce Labs, and the `config.yml` file in which you will see something like the following:
 
-**[The Config File](https://docs.saucelabs.com/testrunner-toolkit/configuration/espresso/)**
+**[The Config File](https://docs.saucelabs.com/testrunner-toolkit/configuration/xcuitest/)**
 
-// needs updating with new app &test files
 
 ```
 apiVersion: v1alpha
-kind: espresso
+kind: xcuitest
 sauce:
   region: us-west-1
-  # Controls how many suites are executed at the same time (sauce test env only).
-  concurrency: 10
+  concurrency: 1
   metadata:
-    name: Testing Espresso Support
     tags:
       - e2e
       - release team
       - other tag
     build: Release $CI_COMMIT_SHORT_SHA
-espresso:
-  app: ./apps/calc.apk
-  testApp: ./apps/calc-success.apk
-suites:
-  - name: "saucy barista - combined"
-    testOptions:
-      class:
-        - com.example.android.testing.androidjunitrunnersample.CalculatorAddParameterizedTest
-        - com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest
-    emulators:
-      - name: "Google Pixel C GoogleAPI Emulator"
-        orientation: landscape
-        platformVersions:
-          - "8.1"
-    devices:
-      - id: Huawei_P10_real
-      - name: "Huawei.*"
-        platformVersion: 8.0.0
-  - name: "saucy barista - package"
-    testOptions:
-      package: com.example.android.testing.androidjunitrunnersample
-    emulators:
-      - name: "Android GoogleApi Emulator"
-        platformVersions:
-          - "11.0"
-  - name: "saucy barista - test size"
-    testOptions:
-      size: small
-    emulators:
-      - name: "Android GoogleApi Emulator"
-        platformVersions:
-          - "11.0"
 
-# Controls what artifacts to fetch when the suite on Sauce Cloud has finished.
+xcuitest:
+  app: ./apps/SauceLabs-Demo-App.ipa
+  testApp: ./apps/SauceLabs-Demo-App-Runner.XCUITest.ipa
+
+suites:
+  - name: "saucy xcuitest"
+    testOptions:
+      class: ["My_Demo_AppUITests.My_Demo_AppUITests/testNavigateToCart"]
+    devices:
+      # If set, only device by ID will be queried.
+      #- id: <rdc_device_id>
+      - name: "iPhone.*"
+        platformVersion: "14.6"
+        options:
+          # If set, only devices with a SIM card will be queried.
+          carrierConnectivity: false
+          # Possible values [ANY,PHONE,TABLET]
+          deviceType: PHONE
+          # If set, only private devices will be queried.
+          private: false
+
 artifacts:
   download:
     when: always
     match:
-      - junit.xml
+      - "*.junit.xml"
     directory: ./artifacts/
 ```
 
 Take a look at the top of the config file. There are several important elements here that can be modified.
 *   The `apiVersion` is the [saucectl API](https://github.com/saucelabs/saucectl) Version
-*   The `concurrency` is the number of suites that can be executed at the same time (limited by the number your team has available on Sauce Labs)
 *   The `kind` is the testing framework being used
-* The `sauce` options allow you to set the datacenter, and other information that will be passed to sauce and can be used for debugging tests, such as the name, `build` number from your CI tool, and number of machines you would like to run concurrently
-*   The `espresso` information specifies the name and location of the app and test packages
-
+* The `sauce` options allow you to set the datacenter, and other information that will be passed to sauce and can be used for debugging tests, such as the name, `build` number from your CI tool, and number of machines you would like to run concurrently.
+*   The `xcuitest` information specifies the name and location of the app and test packages
 *   The `suites` information includes the name, browser, and the configuration for your test suites such as what types of file names to look for to run as tests, and other metadata that is passed to your Sauce Labs account for running tests and displaying results.
-  * The `devices` and `emulators` options specify which real device or emulator on a virtual machine you will use. See the [platform configurator](https://saucelabs.com/platform/platform-configurator) for emulator options, and how to [specify Real Devices](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices/#dynamic-device-allocation).
-  * The `TestOptions` options allows you to specify which sets of tests in the source code will be run
-*   The `artifact` information includes what assets (such as images and videos of your tests) are fetched and stored locally. The options for downloading assets include `always`, `never`, `pass`, `fail`.
+  * The `devices` and option specifies which real device you will use. See how to [set Real Devices](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices/#dynamic-device-allocation).
+  <!-- * The `devices` and `emulators` options specify which real device or emulator on a virtual machine you will use. See the [platform configurator](https://saucelabs.com/platform/platform-configurator) for emulator options, and how to [specify Real Devices](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices/#dynamic-device-allocation). -->
+  * `TestOptions` allows you to specify which sets of tests in the source code will be run
+*   The `artifacts` information includes what assets (such as images and videos of your tests) are fetched and stored locally. The options for downloading assets include `always`, `never`, `pass`, `fail`.
 
 #### .sauceignore
 
@@ -292,44 +280,66 @@ The `sauceignore` file that is essential to use to speed up your test runs. By d
 ```
 
 <!-- ------------------------ -->
-## 1.05 Run XCUI Tests in Parallel
+## 1.05 Run Custom XCUI Test Suites
 Duration: 0:03:00
 
-text
-
-<!-- Running a Cypress test on sauce is easy. If you follow the configuration steps using `saucectl init` in the last module, all you need to do is run the command:
+Running different sets of tests in different environments on Sauce Labs is easy. If you follow the configuration steps using `saucectl init` in the last module, all you need to do is run the command:
 
 ```
 saucectl run
 ```
 
-Specifying which tests you want to run in which environment can be configured in the `suites:` tab in the `.sauce/config.yml` file. This lesson will cover:
+In this lesson, you will learn to specify which tests you want to run in which environment by configuring the properties under `suites:` in the `.sauce/config.yml` file. This lesson will cover:
 
+* Using JSON Schema validation with IntelliJ
 * Setting different directories
 * Specifying certain test files
-* Running in different web browsers
-* Executing test in _Docker Mode_ or _Sauce Mode_
+* Running on different devices
 * View test results on the Sauce Labs App
-
-Running tests using Cypress and saucectl allows you to run as many combinations of tests and environments as you would like.
 
 #### Video
 
-[Running Tests with Sauce and Cypress](https://www.youtube.com/watch?v=ofa9Y1u6RAc&list=PL67l1VPxOnT7YTdCbpvSpJ8FF-sNxm8r-&index=3)
+[Run Custom XCUI Tests on Sauce Labs]()
 
-<video id="ofa9Y1u6RAc"></video>
+<video id=""></video>
 
-#### Example Cypress Code
-For example Cypress tests, you can:
-* Use the [simplified Cypress test code ](https://github.com/walkerlj0/saucectl-course-example-code/tree/main/Mod1)you can learn more about in 1.07-1.08 that goes along with the `suites` examples
-* Use the [Sauce Labs Cypress Test Code](https://github.com/saucelabs/saucectl-cypress-example)
-* Use your own Cypress tests
+### Setup JSON Validation in IntelliJ IDEA
+
+In order to make it easy for users to validate that the properties in their `config.yml` file are correct, and to  make it easy to see what properties you can set, using auto complete, we will use the [SauceCTL Configuration from the JSON Schema Store](https://www.schemastore.org/json/s) with IntelliJ Idea.
+
+To set this up, Make sure you have IntelliJ Community Edition and follow these steps:
+1. Go to **Preferences** from the IntelliJ Menu
+</br>
+ <img src="assets/SCTLN1.05B.png" walt="Preferences menu" width="250"/>
+2. In the Preferences, find **Languages and Frameworks > Schemas and DTDs > JSON Schema Mappings**. Click the plus sign to add a new schema:
+</br>
+<img src="assets/SCTLN1.05C.png" walt="Schema menu" width="400"/>
+3. Create a new one named **saucectl configuration** and add the URL `https://raw.githubusercontent.com/saucelabs/saucectl/main/api/v1alpha/generated/saucectl.schema.json`
+</br>
+<img src="assets/SCTLN1.05D.png" walt="Apply Schema" width="400"/>
+4. CLick **Apply** and **OK** to exit the preferences dialogue box.
+5. Now click to choose a schema at the bottom right of the IntelliJ IDE:
+</br>
+<img src="assets/SCTLN1.05E.png" walt="Add Schema" width="200"/>
+6. Choose the **saucectl configuration** schema you just added.
+</br>
+<img src="assets/SCTLN1.05F.png" walt="Add saucectl" width="200"/>
+
+<aside class="negative">
+<strong>Example XCUI App & Test</strong>
+</br>
+Download the <a href="https://github.com/saucelabs/saucectl-xcuitest-example">sample code and test example</a> in the `saucectl-xcuitest-example` repository.
+</br>
+Take a look at the <a href="https://github.com/saucelabs/my-demo-app-ios/releases">source code for the app & tests</a>
+
+</aside>
+
+### Add and Run tests by class and
+As you grow your testing suite, you may want to add new tests to run, a....
 
 
-### Add and Run New Tests
-As you grow your testing suite, you may want to add new tests to run, and you may want to have the option to run different specific groups of tests, and run on different browsers. The `config: testFiles:` objects under the `suites:` tag allow you to specify which tests are run, when:
 
-If you used `saucectl init` the object test will automatically run any tests in the `cypress/integration` directory with a [supported Cypress test file type](https://docs.cypress.io/guides/core-concepts/writing-and-organizing-tests#Test-files) and look something like this:
+ and look something like this:
 
 ```
 suites:
@@ -476,10 +486,10 @@ See an example of the test suite with [updated suites in `.sauce/config.yml`](ht
 <img src="assets/SCTL1.04F.png" alt="All Specs passed" width="550"/>
 
 
-<img src="assets/SCTL1.04G.png" alt="All Specs passed" width="550"/> -->
+<img src="assets/SCTL1.04G.png" alt="All Specs passed" width="550"/>
 
 <!-- ------------------------ -->
-## 1.06 Run Cypress Tests in Parallel
+## 1.06 Run XCUI Tests in Parallel
 Duration: 0:03:00
 
 text
