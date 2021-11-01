@@ -1,6 +1,6 @@
 {
   "title": "Native App Tests on Sauce Labs",
-  "description": "The modules in this course will show you how to use saucectl with iOS or Android apps and tests on the Sauce Labs Cloud of real devices and virtual machines. Use a few simple commands to install, configure, and run your mobile tests.",
+  "description": "The modules in this course will show you how to use saucectl with iOS or Android apps and XCUITest or Espresso tests on the Sauce Labs Cloud of real devices and virtual machines. Use a few simple sauecctl commands to install, configure, and run your mobile tests.",
   "logoUrl": "/saucectl-native/logo.png",
   "tags": ["saucectl-native"],
   "exclude": [

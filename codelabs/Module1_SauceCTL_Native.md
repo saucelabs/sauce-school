@@ -41,11 +41,16 @@ Duration: 0:03:00
 
 Sauce Labs has developed a set of tools in conjunction with a command line tool called `saucectl` to enable test developers to get setup quickly to scale up their testing to more browsers and devices using the Sauce Labs Cloud, and to be able to do this with a wider range of testing frameworks than ever before.
 
+#### Video
+[Testing Native Apps on Sauce Labs]()
+
+<video id=""></video>
+
+### Native Testing
+
 This is a testing solution for developers that simplifies user setup, speeds up test execution time, unifies test results, and supports non-Selenium or Appium Frameworks like Espresso, XCUITest, Cypress, and more.
 
 <img src="assets/TRT1.02A.png" alt="saucectl tools" width="600"/>
-
-### Native Testing
 
 
 #### Scalable Testing, Quickly
@@ -224,8 +229,8 @@ xcuitest:
 
 suites:
   - name: "saucy xcuitest"
-    testOptions:
-      class: ["My_Demo_AppUITests.My_Demo_AppUITests/testNavigateToCart"]
+  #  testOptions:
+  #    class: ["My_Demo_AppUITests.My_Demo_AppUITests/testNavigateToCart"]
     devices:
       # If set, only device by ID will be queried.
       #- id: <rdc_device_id>
@@ -253,9 +258,9 @@ Take a look at the top of the config file. There are several important elements 
 * The `sauce` options allow you to set the datacenter, and other information that will be passed to sauce and can be used for debugging tests, such as the name, `build` number from your CI tool, and number of machines you would like to run concurrently.
 *   The `xcuitest` information specifies the name and location of the app and test packages
 *   The `suites` information includes the name, browser, and the configuration for your test suites such as what types of file names to look for to run as tests, and other metadata that is passed to your Sauce Labs account for running tests and displaying results.
+  * `TestOptions` allows you to specify which test classes and methods will be run in that suite
   * The `devices` and option specifies which real device you will use. Setting an `id` lets you choose a single device, or you can use `name` with [dynamic device allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices/#dynamic-device-allocation).
   <!-- * The `devices` and `emulators` options specify which real device or emulator on a virtual machine you will use. See the [platform configurator](https://saucelabs.com/platform/platform-configurator) for emulator options, and how to [specify Real Devices](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices/#dynamic-device-allocation). -->
-  * `TestOptions` allows you to specify which sets of tests in the source code will be run
 *   The `artifacts` information includes what assets (such as images and videos of your tests) are fetched and stored locally. The options for downloading assets include `always`, `never`, `pass`, `fail`.
 
 #### .sauceignore
@@ -291,9 +296,9 @@ saucectl run
 
 In this lesson, you will learn to specify which tests you want to run in which environment by configuring the properties under `suites:` in the `.sauce/config.yml` file. This lesson will cover:
 
-* Using JSON Schema validation with IntelliJ
+* Using JSON Schema validation with VSCode
 * Specifying certain test classes and methods
-* Running on different devices
+* Running tests on different devices
 * View test results on the Sauce Labs App
 
 #### Video
@@ -316,7 +321,7 @@ To set this up in VSCode, follow these steps:
 </br>
  <img src="assets/SCTLN1.05H.png" alt="VS Code YAML Extension" width="650"/>
 
-3. If you don't have auto-completion working, go to **Code > Preferences > Settings** and make sure that the JSon > Scema Download is set to enabled:
+3. If you don't have auto-completion working, go to **Code > Preferences > Settings** and make sure that the **JSON > Scema Download** is set to enabled:
 </br>
  <img src="assets/SCTLN1.05I.png" alt="Schema Download Enabled" width="450"/>
 
@@ -359,13 +364,14 @@ Lets go into the `apps/config.yml` that was created when you ran `saucectl init`
 
 ```
 suites:
-- name: xcuitest - iPad .* Add to Cart
-  testOptions:
-    class:  
-      - "My_Demo_AppUITests.My_Demo_AppUITests/testAddToCart"
+- name: xcuitest - iPad .* Navigate and Add to Cart
+testOptions:
+  class:  
+    - "My_Demo_AppUITests.My_Demo_AppUITests/navigateToCart"
+    - "My_Demo_AppUITests.My_Demo_AppUITests/testAddToCart"
   devices:
   - name: iPad .*
-- name: xcuitest - iPad .* Test Prod Details andPrice
+- name: xcuitest - iPad .* Test Prod Details and Price
   testOptions:
     class:  
       - "My_Demo_AppUITests.My_Demo_AppUITests/testProductListingPageDefault"
@@ -379,17 +385,17 @@ suites:
 Now when you run `saucectl run` you should see two different suites run, and only of the methods will run. You can use this to create several suites
 
 
-#### Note
-
-Negative
-: There are also two alternatives for listing the `testFiles;` in your suite, either in brackets `[]` [like the example here](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress#suites/&utm_source=referral&utm_medium=LMS&utm_campaign=link), or underneath tabbed in, in front of a dash with a space: `-'**/login].spec.js' `
-
 Now when you use the command `saucectl run` you should see...
+
+//ADD IMAGE OF DIFFERENT SUITE RUNS
 
 ### Run Your Tests on Different Devices
 
-Sauce Labs supports running XCUITest tests in the [environments that are supported](https://docs.saucelabs.com/testrunner-toolkit#supported-frameworks-in-sauce-cloud/) by the Cypress test runner. This means you can run using the Chrome, Microsoft Edge, and Firefox browsers.
+Sauce Labs [supports running](https://docs.saucelabs.com/testrunner-toolkit/configuration/xcuitest/) XCUITest tests in the Sauce Labs Real Device Cloud. You can see the different devices available on the [Real Device Live Testing Dashboard](https://app.saucelabs.com/live/web-testing/device) and see the individual device ID by clicking on **Details**.
 
+<img src="assets/SCTLN1.05J.png" alt="Real Devices on Sauce" width="650"/>
+
+Now, lets try modifying the device that each suite is running on
 
 ### View Your Test Results
 
