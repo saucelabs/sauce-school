@@ -253,7 +253,7 @@ Take a look at the top of the config file. There are several important elements 
 * The `sauce` options allow you to set the datacenter, and other information that will be passed to sauce and can be used for debugging tests, such as the name, `build` number from your CI tool, and number of machines you would like to run concurrently.
 *   The `xcuitest` information specifies the name and location of the app and test packages
 *   The `suites` information includes the name, browser, and the configuration for your test suites such as what types of file names to look for to run as tests, and other metadata that is passed to your Sauce Labs account for running tests and displaying results.
-  * The `devices` and option specifies which real device you will use. See how to [set Real Devices](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices/#dynamic-device-allocation).
+  * The `devices` and option specifies which real device you will use. Setting an `id` lets you choose a single device, or you can use `name` with [dynamic device allocation](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices/#dynamic-device-allocation).
   <!-- * The `devices` and `emulators` options specify which real device or emulator on a virtual machine you will use. See the [platform configurator](https://saucelabs.com/platform/platform-configurator) for emulator options, and how to [specify Real Devices](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices/#dynamic-device-allocation). -->
   * `TestOptions` allows you to specify which sets of tests in the source code will be run
 *   The `artifacts` information includes what assets (such as images and videos of your tests) are fetched and stored locally. The options for downloading assets include `always`, `never`, `pass`, `fail`.
@@ -292,8 +292,7 @@ saucectl run
 In this lesson, you will learn to specify which tests you want to run in which environment by configuring the properties under `suites:` in the `.sauce/config.yml` file. This lesson will cover:
 
 * Using JSON Schema validation with IntelliJ
-* Setting different directories
-* Specifying certain test files
+* Specifying certain test classes and methods
 * Running on different devices
 * View test results on the Sauce Labs App
 
@@ -303,27 +302,45 @@ In this lesson, you will learn to specify which tests you want to run in which e
 
 <video id=""></video>
 
-### Setup JSON Validation in IntelliJ IDEA
+### Setup JSON Validation in VSCode
+
+In order to make it easy for users to validate that the properties in their `config.yml` file are correct, and to  make it easy to see what properties you can set, using auto complete, we will use the [SauceCTL Configuration from the JSON Schema Store](https://www.schemastore.org/json/s) with VSCode.
+
+To set this up in VSCode, follow these steps:
+
+1. Install the [Yaml support extension for Visual Studio](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
+</br>
+ <img src="assets/SCTLN1.05G.png" alt="VS Code YAML Extension" width="450"/>
+
+2. You should see a notification on any `config.yml` page in a `.sauce directory` within the IDE that the saucectl Runner Configuration is being used, and when you add valid options, it should auto-complete for you.
+</br>
+ <img src="assets/SCTLN1.05H.png" alt="VS Code YAML Extension" width="650"/>
+
+3. If you don't have auto-completion working, go to **Code > Preferences > Settings** and make sure that the JSon > Scema Download is set to enabled:
+</br>
+ <img src="assets/SCTLN1.05I.png" alt="Schema Download Enabled" width="450"/>
+
+<!-- ### Setup JSON Validation in IntelliJ IDEA
 
 In order to make it easy for users to validate that the properties in their `config.yml` file are correct, and to  make it easy to see what properties you can set, using auto complete, we will use the [SauceCTL Configuration from the JSON Schema Store](https://www.schemastore.org/json/s) with IntelliJ Idea.
 
 To set this up, Make sure you have IntelliJ Community Edition and follow these steps:
 1. Go to **Preferences** from the IntelliJ Menu
 </br>
- <img src="assets/SCTLN1.05B.png" walt="Preferences menu" width="250"/>
+ <img src="assets/SCTLN1.05B.png" alt="Preferences menu" width="250"/>
 2. In the Preferences, find **Languages and Frameworks > Schemas and DTDs > JSON Schema Mappings**. Click the plus sign to add a new schema:
 </br>
-<img src="assets/SCTLN1.05C.png" walt="Schema menu" width="400"/>
+<img src="assets/SCTLN1.05C.png" alt="Schema menu" width="400"/>
 3. Create a new one named **saucectl configuration** and add the URL `https://raw.githubusercontent.com/saucelabs/saucectl/main/api/v1alpha/generated/saucectl.schema.json`
 </br>
-<img src="assets/SCTLN1.05D.png" walt="Apply Schema" width="400"/>
+<img src="assets/SCTLN1.05D.png" alt="Apply Schema" width="400"/>
 4. CLick **Apply** and **OK** to exit the preferences dialogue box.
 5. Now click to choose a schema at the bottom right of the IntelliJ IDE:
 </br>
-<img src="assets/SCTLN1.05E.png" walt="Add Schema" width="200"/>
+<img src="assets/SCTLN1.05E.png" alt="Add Schema" width="200"/>
 6. Choose the **saucectl configuration** schema you just added.
 </br>
-<img src="assets/SCTLN1.05F.png" walt="Add saucectl" width="200"/>
+<img src="assets/SCTLN1.05F.png" alt="Add saucectl" width="200"/> -->
 
 <aside class="negative">
 <strong>Example XCUI App & Test</strong>
@@ -334,159 +351,62 @@ Take a look at the <a href="https://github.com/saucelabs/my-demo-app-ios/release
 
 </aside>
 
-### Add and Run tests by class and
-As you grow your testing suite, you may want to add new tests to run, a....
 
+### Specify Test Classes and Methods
+As you grow your testing suite, you may want to add new tests to run, and you will have different test classes and methods. If you look at the [source code](https://github.com/saucelabs/my-demo-app-ios) for this test, you can see the [different test methods that exist in your test](https://github.com/saucelabs/my-demo-app-ios/blob/main/My%20Demo%20AppUITests/My_Demo_AppUITests.swift).
 
-
- and look something like this:
-
-```
-suites:
-- name: cypress - windows 10 - chrome
-  browser: chrome
-  platformName: windows 10
-  config:
-    testFiles:
-    - '**/*.*'
-  mode: sauce
-rootDir: .
-```
-
-Lets create two directories within your `cypress/integration` directory so that you can learn to specify both directories and files. Create both a `/smoke` and a `/regression` directory, and paste copies of your tests in each.
-
-<img src="assets/SCTL1.04C.png" alt="saucectl init workflow" width="700"/>
-
-You will want to modify any code that refers to the project structure that may change. In this example, you will want to update the imports in `login.spec.js` with an additional `../` to account for the re-organization:
-
-<img src="assets/SCTL1.04E.png" alt="saucectl init workflow" width="700"/>
-
-Now you can modify your `config.yml` to run one test from each directory. You will need to create two `-name:` objects under the `suites:`;
+Lets go into the `apps/config.yml` that was created when you ran `saucectl init` and update the name of the suite, as well as add `testOptions` that specify certain test methods by creating two new suites:
 
 ```
 suites:
-- name: cypress - windows 10 - chrome smoke
-  browser: chrome
-  platformName: windows 10
-  config:
-    testFiles:
-    - 'smoke/*.spec.*'
-  mode: sauce
-- name: cypress - windows 10 - chrome regression
-  browser: chrome
-  platformName: windows 10
-  config:
-    testFiles:
-      ['regression/*.test.*']
+- name: xcuitest - iPad .* Add to Cart
+  testOptions:
+    class:  
+      - "My_Demo_AppUITests.My_Demo_AppUITests/testAddToCart"
+  devices:
+  - name: iPad .*
+- name: xcuitest - iPad .* Test Prod Details andPrice
+  testOptions:
+    class:  
+      - "My_Demo_AppUITests.My_Demo_AppUITests/testProductListingPageDefault"
+      - "My_Demo_AppUITests.My_Demo_AppUITests/testProductDetailsPrice"
+  devices:
+  - name: iPad .*
+
 ```
+
+
+Now when you run `saucectl run` you should see two different suites run, and only of the methods will run. You can use this to create several suites
+
 
 #### Note
 
 Negative
 : There are also two alternatives for listing the `testFiles;` in your suite, either in brackets `[]` [like the example here](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress#suites/&utm_source=referral&utm_medium=LMS&utm_campaign=link), or underneath tabbed in, in front of a dash with a space: `-'**/login].spec.js' `
 
-Now when you use the command `saucectl run` you should see both test suites, **chrome smoke** and **chrome regression** having run:
+Now when you use the command `saucectl run` you should see...
 
-<img src="assets/SCTL1.04D.png" alt="saucectl init workflow" width="700"/>
+### Run Your Tests on Different Devices
 
-### Run Your Tests in Different Browsers
+Sauce Labs supports running XCUITest tests in the [environments that are supported](https://docs.saucelabs.com/testrunner-toolkit#supported-frameworks-in-sauce-cloud/) by the Cypress test runner. This means you can run using the Chrome, Microsoft Edge, and Firefox browsers.
 
-Sauce Labs supports running Cypress tests in the [environments that are supported](https://docs.saucelabs.com/testrunner-toolkit#supported-frameworks-in-sauce-cloud/) by the Cypress test runner. This means you can run using the Chrome, Microsoft Edge, and Firefox browsers.
-
-### Run Your Tests in Different Modes
-
-#### Run All Tests in One Mode
-
-If you do not have the `mode:` specified anywhere in your `.sauce/config.yml` file, then, by default, all your tests will be bundled, and uploaded and run on the Sauce Labs Cloud of Virtual Machines.
-
-If you would like to try running tests in Docker, you can set all your test suites to run, by default, in docker mode by setting the `defaults:` option:
-
-```
-apiVersion: v1alpha
-kind: cypress
-defaults:
-  mode: docker
-  # ...
-```
-
-You can change this setting back to default to _Sauce mode_ by changing `mode: sauce` or delete the `mode:` option.
-
-Unless you specify a different mode in a suite, all tests will run in _Docker Mode_:
-
-#### Note
-Negative
-: Not all browsers may be supported in _Docker Mode_, see the [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.1.0).
-
-#### Run Certain Tests in Different Modes
-
-You also have the ability to run some suites in _Docker Mode_, and some suites in _Sauce Mode_, all from the same test run, by setting individual suites to run in different modes.
-
-To set the mode on the suite level, simply add the `mode:` option somewhere under your test suite `name;`
-
-```
-  suites:
-    - name: saucy test suite
-      mode: docker
-```
-
-The following settings in your `config.yml` file will run two of your tests in _Docker Mode_ (by default) and two of your tests in _Sauce Mode_:
-
-```
-suites:
-- name: cypress - windows 10 - chrome smoke
-  mode: sauce
-  browser: chrome
-  platformName: windows 10
-  config:
-    testFiles:
-    - 'smoke/*.spec.*'
-- name: cypress - windows 10 - chrome regression
-  browser: chrome
-  platformName: windows 10
-  config:
-    testFiles:
-      ['regression/*.test.*']
-- name: cypress - windows 10 - firefox - all
-  browser: firefox
-  browserVersion: 86.0
-  platformName: windows 10
-  config:
-    testFiles:
-      - '**/*.*'
-- name: cypress - windows 10 - edge -all
-  browser: microsoftedge
-  browserVersion: 90.0
-  platformName: windows 10
-  config:
-    testFiles:
-      - '**/*.*'
-  mode: sauce
-```
-
-
-Now, when you run the command `saucectl run`, you should see output like this in your console:
-
-<img src="assets/TRT1.04I.png" alt="Cypress Tests on Sauce" width="550"/>
 
 ### View Your Test Results
 
 If you go to [app.saucelabs.com](https://accounts.saucelabs.com/am/XUI/#login/&utm_source=referral&utm_medium=LMS&utm_campaign=link ), you should see the two tests on your automated test results dashboard:
 
-<img src="assets/TRT1.06B.png" alt="Cypress Tests on Sauce" width="550"/>
+<!-- <img src="assets/" alt="Cypress Tests on Sauce" width="550"/> -->
 
-If you click into the tests, you can see the video of the test running on the Cypress client, and a log you can easily share with others:
+If you click into the tests, you can see the video of the test running on **//** , and a log you can easily share with others:
 
-<img src="assets/TRT1.06C.png" alt="Sauce Cypress Test Results" width="850"/>
+<!--
+<img src="assets/TRT1.06C.png" alt="Sauce Cypress Test Results" width="850"/> -->
 
-Once you have your tests running, learn more about what you can do with Sauce Labs and Cypress in [Module 2](https://training.saucelabs.com/codelabs/Module2-Testrunner/index.html?index=..%2F..testrunner#0)
+
 
 #### Final Code
 See an example of the test suite with [updated suites in `.sauce/config.yml`](https://github.com/walkerlj0/saucectl-course-example-code/tree/main/Mod1/1.04)
 
-<img src="assets/SCTL1.04F.png" alt="All Specs passed" width="550"/>
-
-
-<img src="assets/SCTL1.04G.png" alt="All Specs passed" width="550"/>
 
 <!-- ------------------------ -->
 ## 1.06 Run XCUI Tests in Parallel
