@@ -1,11 +1,19 @@
 .searchWrapper {
-  display: flex;
   place-items: center;
   position: relative;
+  display: none;
+  @media(min-width: $tablet-breakpoint-min) {
+    display: flex;
+  }
 }
 
 .searchBox {
-  width: 163px;
+  @media(min-width: $tablet-breakpoint-min) {
+    width: 130px;
+  }
+  @media(min-width: $desktop-breakpoint-min) {
+    width: 163px;
+  }
 }
 
 .searchResults {
