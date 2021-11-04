@@ -230,29 +230,36 @@
       a {
         color: $greyDark;
         &.navigation-element {
-          font-size: .9375rem;
+          font-size: .7235rem;
           line-height: .9375rem;
           letter-spacing: .03em;
+          @media(min-width: $desktop-breakpoint-min) {
+            font-size: .9375rem;
+          }
         }
         &.btn.btn-primary {
+          display: inline-block;
           background: #f85d5d;
           background: -webkit-gradient(linear,right top,left top,from(#f85d5d),to(#f83838));
           background: linear-gradient(
                           270deg,#f85d5d,#f83838);
           color: $pureWhite;
           border-radius: 50px;
-          //margin-top: -13px;
           font-weight: 600;
-          font-size: .8125rem;
-          line-height: 2.625rem;
+          line-height: 1.4rem;
           letter-spacing: .03em;
-          padding: 12px 37px;
+          padding: 12px 25px;
+          white-space: nowrap;
+          @media(min-width: $desktop-breakpoint-min) {
+            padding: 12px 37px;
+          }
           &:hover {
             background-color: $sauceRedHover;
           }
         }
         &.sign__in {
           color: $sauceRedAlt;
+          white-space: nowrap;
         }
       }
       .search__icon {
@@ -287,9 +294,12 @@
   }
 
   .logo-devs {
-    width: 15em;
+    width: 12em;
     height: auto;
     margin-top: 5px;
+    @media(min-width: $desktop-breakpoint-min) {
+      width: 15em;
+    }
   }
 }
 .header__menu--mobile {
@@ -332,15 +342,6 @@
 @media (min-width: $tablet-breakpoint-min) {
   .logo-devs {
     margin: 5px $keyline * 4 0 0;
-  }
-}
-
-//custom nav tablet override
-@media only screen and (max-device-width: 1050px),
-  only screen and (max-device-width: 1050px),
-  only screen and (max-width: 1050px) {
-  #mainToolbar ul.header__primary-nav li a.btn.btn-primary {
-    display: none !important;
   }
 }
 
@@ -482,7 +483,7 @@
       .btn-link {
         color: $pureWhite;
         width: inherit;
-        padding: 0 0 0 30%;
+        display: block;
         margin: 15px 0 15px 0;
       }
       .header__mobile-bottom-inner {
