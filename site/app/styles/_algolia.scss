@@ -1,34 +1,7 @@
 .searchWrapper {
   display: flex;
   place-items: center;
-  position: absolute;
-  right: 0;
-  top: 100%;
-  margin-top: 30px;
-  background-color: #fff;
-  -webkit-box-shadow: 0 0 9px 0 rgba(0,0,0,.36);
-  box-shadow: 0 0 9px 0 rgba(0,0,0,.36);
-
-
-  &::before {
-    border-bottom: 10px solid #fff;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    content: "";
-    -webkit-filter: drop-shadow(0 0 9px rgba(0,0,0,.36));
-    filter: drop-shadow(0 0 9px rgba(0,0,0,.36));
-    height: 0;
-    right: 0;
-    position: absolute;
-    top: -10px;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    width: 0;
-  }
-
-  &.hidden {
-    display: none;
-  }
+  position: relative;
 }
 
 .searchBox {
@@ -118,24 +91,7 @@ mark.ais-Snippet-highlighted {
 #searchBox .ais-SearchBox-input {
   border: none;
   padding: 12px 30px;
+  background: #e3e3e3;
+  border-radius: 25px;
 }
 
-.searchContainer {
-  display: none;
-  position: relative;
-  height: 14px;
-  width: 14px;
-  margin-left: -16px;
-
-  @media(min-width: $tablet-breakpoint-min) {
-    display: block;
-  }
-
-
-  svg {
-    cursor: pointer;
-    fill: #E12726;
-    height: 14px;
-    width: 14px;
-  }
-}
