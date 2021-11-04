@@ -53,8 +53,9 @@ In this section, you will learn about using shared tunnels, and edit the code to
 <video id="zVSUnYF6lI0"></video>
 
 #### Note
-Negative
-: Not familiar with Java automated testing? Learn more about [setting up a Java test environment](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4). You will need to make sure you have your [Sauce Labs credentials set up as environment variables](https://www.youtube.com/watch?v=3K1Eu0eTha8) so the tests will run.
+<aside class="negative">
+Not familiar with Java automated testing? Learn more about <a href="https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4">setting up a Java test environment</a>. You will need to make sure you have your <a href="https://www.youtube.com/watch?v=3K1Eu0eTha8">Sauce Credentials set up as environment variables</a> so the tests will run.
+</aside>
 
 Shared tunnels are tunnels that are started by one person in an organization, that can be used by other individuals within that organization. Though anyone can run the `-s` flag, tunnels are only shared with others if you are on the same Sauce Labs team, or Team Admin in your Sauce Labs account.
 
@@ -152,8 +153,9 @@ At the bottom of the list of `sauceOptions`, underneath the `sauceOptions.setCap
 
 Now you can run `mvn clean test` to run the test on Sauce Labs.
 
-Negative
-: Make sure you have [Sauce Labs credentials](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#set-sauce-labs-environment-variables) set up.
+<aside class="negative">
+Make sure you have <a href="https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing">Sauce Labs Credentials</a> set up.
+</aside>
 
 #### Final Code
 
@@ -348,9 +350,9 @@ This will execute the `kill.bash` script at 1:00 a.m. every day, then execute th
 ```
 
 #### Note
-Negative
-: You can use [`crontab guru`](https://crontab.guru/examples.html) to configure how frequently your bash script will run. Any time you want to access all cron jobs, simply use the command `crontab -e`
-
+<aside class="negative">
+You can use <a href="https://crontab.guru/examples.html" >crontab guru</a> to configure how frequently your bash script will run. Any time you want to access all cron jobs, simply use the command <code>crontab -e</code>
+</aside>
 
 <!--
  #### Note
@@ -517,10 +519,12 @@ public class Config {
 Now we will define the job(s) you will use to start a Sauce Connect Tunnel, Build your app, and setup the environment for your tests and run them.
 
 #### Note
-Negative
-: This example would actually not work unless you also added your app code to this repository. Remember, **a Sauce Connect Tunnel must be started in the same environment your app is hosted in** to work. Since this Github Actions sets up a tunnel, your app would need to be built in GitHub Actions as well.
+<aside class="negative">
+This example would actually not work unless you also added your app code to this repository. Remember, <strong>a Sauce Connect Tunnel must be started in the same environment your app is hosted in</strong> to work. Since this Github Actions sets up a tunnel, your app would need to be built in GitHub Actions as well.
 
-This is a _bad_ example, since this will actually test against a public app in another environment, but will give an example of starting a tunnel in GitHub actions where you can build your app.
+</aside>
+
+This is a _bad_ example of how Sauce Connect tunnels should be used, since this will actually test against a public app in another environment, but will give an example of starting a tunnel in GitHub actions where you can build your app.
 
 Add the job to set up Sauce Connect, and below it is a good place to add the code to build your app:
 
