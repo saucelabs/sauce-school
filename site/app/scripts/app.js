@@ -557,8 +557,4 @@
         }
     }
 
-    document.querySelector('.searchContainer i.svg').onclick = function(){
-        document.querySelector('.searchWrapper').classList.toggle('hidden');
-    }
-
 })();

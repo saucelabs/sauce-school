@@ -12,7 +12,8 @@
     width: 130px;
   }
   @media(min-width: $desktop-breakpoint-min) {
-    width: 163px;
+    //width: 163px;
+    width: auto;
   }
 }
 
