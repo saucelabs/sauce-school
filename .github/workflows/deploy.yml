@@ -114,7 +114,7 @@ jobs:
         with:
             username: ${{ secrets.SAUCE_USERNAME }}
             accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
-            tunnelIdentifier: ci-${{ github.sha }}
+            tunnelName: ci-${{ github.sha }}
             scVersion: 4.6.4
 
       - uses: saucelabs/saucectl-run-action@v1
