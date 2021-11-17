@@ -109,12 +109,12 @@ jobs:
           python3 -m http.server 8080 2>&1 &
           sleep 5
 
-      - uses: saucelabs/sauce-connect-action@v2
+      - uses: saucelabs/sauce-connect-action@v1
         if: github.event_name == 'pull_request' || startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/master'
         with:
             username: ${{ secrets.SAUCE_USERNAME }}
             accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
-            tunnelName: ci-${{ github.sha }}
+            tunnelIdentifier: ci-${{ github.sha }}
             scVersion: 4.6.4
 
       - uses: saucelabs/saucectl-run-action@v1
@@ -122,7 +122,7 @@ jobs:
         with:
           sauce-username: ${{ secrets.SAUCE_USERNAME }}
           sauce-access-key: ${{ secrets.SAUCE_ACCESS_KEY }}
-          tunnel-name: ci-${{ github.sha }}
+          tunnel-id: ci-${{ github.sha }}
           testing-environment: ""
           region: us-west-1
 
