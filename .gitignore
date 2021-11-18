@@ -18,3 +18,17 @@ site/.bundle
 .env
 */.env
 **/.env
+/assets
+**/assets
+changelog.md
+/codelabs
+**/codelabs
+README.md
+template.md
+changelog.md
+package.json
+package-lock.json
+/site
+**/site
+/Templates
+**/Templates
