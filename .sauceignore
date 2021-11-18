@@ -17,4 +17,15 @@ node_modules/
 .gitlab-ci.yml
 .npmrc
 *.gif
-
+/assets
+**/assets
+changelog.md
+/codelabs
+**/codelabs
+CONTRIBUTING.MD
+googlecodelabs_publish.md
+HOW_TO_REVIEW.md
+/site
+**/site
+/Templates
+/tools
