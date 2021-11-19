@@ -70,6 +70,7 @@ new S(b,this))}function fb(a){a=a[Ya];return a instanceof Xa?a:null}var mb="__cl
  See the License for the specific language governing permissions and
  limitations under the License.
 */
+
 var qb=["google-codelab"];function U(){var a=HTMLElement.call(this)||this;a.s=!1;a.B=new T;a.I=new T;a.w=a.getAttribute("category")||"";a.A=a.getAttribute("environment")||"";return a}var V=HTMLElement;U.prototype=sa(V.prototype);U.prototype.constructor=U;if(ka)ka(U,V);else for(var W in V)if("prototype"!=W)if(Object.defineProperties){var rb=Object.getOwnPropertyDescriptor(V,W);rb&&Object.defineProperty(U,W,rb)}else U[W]=V[W];U.C=V.prototype;
 U.prototype.connectedCallback=function(){var a=this;this.a=this.getAttribute("gaid")||"";!this.s&&this.a&&(void 0!==window.ga?(sb(this),tb(this),ub(),this.s=!0):vb().then(function(b){b&&(sb(a),tb(a),ub(),a.s=!0)}))};U.prototype.connectedCallback=U.prototype.connectedCallback;
 function tb(a){ob(a.B,"google-codelab-action",function(b){b=b.o.detail;wb({hitType:"event",dimension1:a.A,dimension2:a.w,eventCategory:b.category,eventAction:b.action||"",eventLabel:b.label||"",eventValue:b.value||""})});ob(a.I,"google-codelab-pageview",function(b){b=b.o.detail;wb({hitType:"pageview",dimension1:a.A,dimension2:a.w,page:b.page||"",title:b.title||""})})}
