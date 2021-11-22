@@ -377,184 +377,184 @@
 })(window, document);
 
 // Segment.io for Mixpanel Analytics
-!(function () {
-    var analytics = (window.analytics = window.analytics || []);
-    if (!analytics.initialize)
-        if (analytics.invoked)
-            window.console &&
-            console.error &&
-            console.error("Segment snippet included twice.");
-        else {
-            analytics.invoked = !0;
-            analytics.methods = [
-                "trackSubmit",
-                "trackClick",
-                "trackLink",
-                "trackForm",
-                "pageview",
-                "identify",
-                "reset",
-                "group",
-                "track",
-                "ready",
-                "alias",
-                "debug",
-                "page",
-                "once",
-                "off",
-                "on",
-                "addSourceMiddleware",
-                "addIntegrationMiddleware",
-                "setAnonymousId",
-                "addDestinationMiddleware",
-            ];
-            analytics.factory = function (e) {
-                return function () {
-                    var t = Array.prototype.slice.call(arguments);
-                    t.unshift(e);
-                    analytics.push(t);
-                    return analytics;
-                };
-            };
-            for (var e = 0; e < analytics.methods.length; e++) {
-                var key = analytics.methods[e];
-                analytics[key] = analytics.factory(key);
-            }
-            analytics.load = function (key, e) {
-                var t = document.createElement("script");
-                t.type = "text/javascript";
-                t.async = !0;
-                t.src =
-                    "https://cdn.segment.com/analytics.js/v1/" +
-                    key +
-                    "/analytics.min.js";
-                var n = document.getElementsByTagName("script")[0];
-                n.parentNode.insertBefore(t, n);
-                analytics._loadOptions = e;
-            };
-            analytics.SNIPPET_VERSION = "4.13.1";
-            analytics.load("SEGMENT_IO_KEY");
-            analytics.page();
-        }
-
-    /*
-      ToDo:
-
-      - Move to own module
-      - Move client info to .env
-     */
-    if (typeof instantsearch === 'function') {
-
-        const sl_search = instantsearch({
-            indexName: "saucelabs_crawler_new_sauce",
-            searchClient: algoliasearch(
-                "RO95H65NEO",
-                "63ef6fd845955e82ecb703bc813cce8d"
-            ),
-        });
-
-        const renderHits = (renderOptions, isFirstRender) => {
-            const {hits, widgetParams} = renderOptions;
-
-            let records = {};
-            for (var i in hits) {
-                //console.log(hits[i]);
-                const hit = hits[i];
-                const attributeName = 'label';
-                if (records[hit[attributeName]]) {
-                    records[hit[attributeName]].push(hit);
-                } else {
-                    records[hit[attributeName]] = [hit];
-                }
-            }
-            //console.log(records);
-            const entries = Object.entries(records);
-            //console.log(entries);
-            console.log(entries.map(([k, hits]) => k));
-
-            widgetParams.container.innerHTML = `
-            ${entries
-                .map(
-                    ([k, hits]) => `
-                    <ul style="color: #333;" class=${k.replace(/\s+/g, '-').replace(/[^a-zA-Z ]/g, "").toLowerCase()}> 
-                      <h5>${k}</h5>
-                      ${hits.map(
-                        (item) =>
-                            `<li>
-                                <a class="hit-group" href=${item.url} target="_blank">
-                                  <div class="hit-name v1">
-                                    <strong>${item.category}</strong>
-                                  </div>
-                                  <div class="hit-description">
-                                    ${instantsearch.snippet({
-                                attribute: 'content',
-                                hit: item
-                            })}                                    ${instantsearch.snippet({
-                                attribute: 'description',
-                                hit: item
-                            })}...
-                                    <br>
-                                    <span><strong>${item.hostname}</strong></span>
-                                  </div>
-                                </a>        
-                            </li>`
-                    ).join('')}
-                    </ul>`).join('')}`;
-        };
-
-        const customHits = instantsearch.connectors.connectHits(renderHits);
-        console.log('v1');
-        sl_search.addWidgets([
-            instantsearch.widgets.configure({
-                distinct: 1,
-                attributesToSnippet: [ 'title', 'description', 'category', 'title1', 'title2', 'label', 'content' ]
-
-            }),
-            instantsearch.widgets.searchBox({
-                container: "#searchBox",
-            }),
-            customHits({
-                container: document.querySelector('#searchResults'),
-            })
-            ,
-        ]);
-
-        sl_search.start();
-        {
-            const searchInput = document.querySelector(".ais-SearchBox-input");
-            const results = document.querySelector("#searchResults");
-
-            searchInput.addEventListener("keyup", (e) => {
-                if (document.activeElement === searchInput) {
-                    if (e.target.value.length > 0) {
-                        results.classList.remove("isHidden");
-                        results.classList.add("isActive");
-                    } else {
-                        results.classList.add("isHidden");
-                        results.classList.remove("isActive");
-                    }
-                }
-            });
-
-            document.addEventListener("focusout", (e) => {
-                if (results.classList.contains("isActive")) {
-                    document.addEventListener("click", (el) => {
-                        if (!results.contains(el.target)) {
-                            results.classList.add("isHidden");
-                            results.classList.remove("isActive");
-                        }
-                    });
-                }
-            });
-
-            document
-                .querySelector(".ais-SearchBox-reset")
-                .addEventListener("click", (e) => {
-                    const results = document.querySelector("#searchResults");
-                    results.classList.add("isHidden");
-                    results.classList.remove("isActive");
-                });
-        }
-    }
-
-})();
+// !(function () {
+//     var analytics = (window.analytics = window.analytics || []);
+//     if (!analytics.initialize)
+//         if (analytics.invoked)
+//             window.console &&
+//             console.error &&
+//             console.error("Segment snippet included twice.");
+//         else {
+//             analytics.invoked = !0;
+//             analytics.methods = [
+//                 "trackSubmit",
+//                 "trackClick",
+//                 "trackLink",
+//                 "trackForm",
+//                 "pageview",
+//                 "identify",
+//                 "reset",
+//                 "group",
+//                 "track",
+//                 "ready",
+//                 "alias",
+//                 "debug",
+//                 "page",
+//                 "once",
+//                 "off",
+//                 "on",
+//                 "addSourceMiddleware",
+//                 "addIntegrationMiddleware",
+//                 "setAnonymousId",
+//                 "addDestinationMiddleware",
+//             ];
+//             analytics.factory = function (e) {
+//                 return function () {
+//                     var t = Array.prototype.slice.call(arguments);
+//                     t.unshift(e);
+//                     analytics.push(t);
+//                     return analytics;
+//                 };
+//             };
+//             for (var e = 0; e < analytics.methods.length; e++) {
+//                 var key = analytics.methods[e];
+//                 analytics[key] = analytics.factory(key);
+//             }
+//             analytics.load = function (key, e) {
+//                 var t = document.createElement("script");
+//                 t.type = "text/javascript";
+//                 t.async = !0;
+//                 t.src =
+//                     "https://cdn.segment.com/analytics.js/v1/" +
+//                     key +
+//                     "/analytics.min.js";
+//                 var n = document.getElementsByTagName("script")[0];
+//                 n.parentNode.insertBefore(t, n);
+//                 analytics._loadOptions = e;
+//             };
+//             analytics.SNIPPET_VERSION = "4.13.1";
+//             analytics.load("SEGMENT_IO_KEY");
+//             analytics.page();
+//         }
+//
+//     /*
+//       ToDo:
+//
+//       - Move to own module
+//       - Move client info to .env
+//      */
+//     if (typeof instantsearch === 'function') {
+//
+//         const sl_search = instantsearch({
+//             indexName: "saucelabs_crawler_new_sauce",
+//             searchClient: algoliasearch(
+//                 "RO95H65NEO",
+//                 "63ef6fd845955e82ecb703bc813cce8d"
+//             ),
+//         });
+//
+//         const renderHits = (renderOptions, isFirstRender) => {
+//             const {hits, widgetParams} = renderOptions;
+//
+//             let records = {};
+//             for (var i in hits) {
+//                 //console.log(hits[i]);
+//                 const hit = hits[i];
+//                 const attributeName = 'label';
+//                 if (records[hit[attributeName]]) {
+//                     records[hit[attributeName]].push(hit);
+//                 } else {
+//                     records[hit[attributeName]] = [hit];
+//                 }
+//             }
+//             //console.log(records);
+//             const entries = Object.entries(records);
+//             //console.log(entries);
+//             console.log(entries.map(([k, hits]) => k));
+//
+//             widgetParams.container.innerHTML = `
+//             ${entries
+//                 .map(
+//                     ([k, hits]) => `
+//                     <ul style="color: #333;" class=${k.replace(/\s+/g, '-').replace(/[^a-zA-Z ]/g, "").toLowerCase()}>
+//                       <h5>${k}</h5>
+//                       ${hits.map(
+//                         (item) =>
+//                             `<li>
+//                                 <a class="hit-group" href=${item.url} target="_blank">
+//                                   <div class="hit-name v1">
+//                                     <strong>${item.category}</strong>
+//                                   </div>
+//                                   <div class="hit-description">
+//                                     ${instantsearch.snippet({
+//                                 attribute: 'content',
+//                                 hit: item
+//                             })}                                    ${instantsearch.snippet({
+//                                 attribute: 'description',
+//                                 hit: item
+//                             })}...
+//                                     <br>
+//                                     <span><strong>${item.hostname}</strong></span>
+//                                   </div>
+//                                 </a>
+//                             </li>`
+//                     ).join('')}
+//                     </ul>`).join('')}`;
+//         };
+//
+//         const customHits = instantsearch.connectors.connectHits(renderHits);
+//         console.log('v1');
+//         sl_search.addWidgets([
+//             instantsearch.widgets.configure({
+//                 distinct: 1,
+//                 attributesToSnippet: [ 'title', 'description', 'category', 'title1', 'title2', 'label', 'content' ]
+//
+//             }),
+//             instantsearch.widgets.searchBox({
+//                 container: "#searchBox",
+//             }),
+//             customHits({
+//                 container: document.querySelector('#searchResults'),
+//             })
+//             ,
+//         ]);
+//
+//         sl_search.start();
+//         {
+//             const searchInput = document.querySelector(".ais-SearchBox-input");
+//             const results = document.querySelector("#searchResults");
+//
+//             searchInput.addEventListener("keyup", (e) => {
+//                 if (document.activeElement === searchInput) {
+//                     if (e.target.value.length > 0) {
+//                         results.classList.remove("isHidden");
+//                         results.classList.add("isActive");
+//                     } else {
+//                         results.classList.add("isHidden");
+//                         results.classList.remove("isActive");
+//                     }
+//                 }
+//             });
+//
+//             document.addEventListener("focusout", (e) => {
+//                 if (results.classList.contains("isActive")) {
+//                     document.addEventListener("click", (el) => {
+//                         if (!results.contains(el.target)) {
+//                             results.classList.add("isHidden");
+//                             results.classList.remove("isActive");
+//                         }
+//                     });
+//                 }
+//             });
+//
+//             document
+//                 .querySelector(".ais-SearchBox-reset")
+//                 .addEventListener("click", (e) => {
+//                     const results = document.querySelector("#searchResults");
+//                     results.classList.add("isHidden");
+//                     results.classList.remove("isActive");
+//                 });
+//         }
+//     }
+//
+// })();
