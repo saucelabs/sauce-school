@@ -121,14 +121,14 @@ For loading `gapi.client` libraries
       /**
        * Returns the loaded API.
        */
-      get api() {
-        if (window.gapi && window.gapi.client &&
-            window.gapi.client[this.name]) {
-          return window.gapi.client[this.name];
-        } else {
-          return undefined;
-        }
-      },
+      // get api() {
+      //   if (window.gapi && window.gapi.client &&
+      //       window.gapi.client[this.name]) {
+      //     return window.gapi.client[this.name];
+      //   } else {
+      //     return undefined;
+      //   }
+      // },
 
       /**
        * Wrapper for `gapi.auth`.
