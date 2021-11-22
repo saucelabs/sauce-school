@@ -1473,81 +1473,81 @@
   };
   U.prototype.disconnectedCallback = U.prototype.disconnectedCallback;
 
-  function ma() {
-    var a = document.createElement("script");
-    a.src = "https://www.google-analytics.com/analytics.js";
-    a.async = !1;
-    return new Promise(function(b, c) {
-      a.onload = function() {
-        return b(a)
-      };
-      a.onerror = function() {
-        a.parentNode && a.parentNode.removeChild(a);
-        c()
-      };
-      document.head && document.head.appendChild(a)
-    })
-  }
-  var yb = ma,
-    X = ["module$exports$googlecodelabs$CodelabAnalytics", "injectGAScript"],
-    Y = v;
-  X[0] in Y || "undefined" == typeof Y.execScript || Y.execScript("var " + X[0]);
-  for (var Z; X.length && (Z = X.shift());) X.length || void 0 === yb ? Y[Z] && Y[Z] !== Object.prototype[Z] ? Y = Y[Z] : Y = Y[Z] = {} : Y[Z] = yb;
-
-  function vb() {
-    return ra(new qa(new oa(function(a) {
-      if (1 == a.c) return window.GoogleAnalyticsObject = "ga", window.ga = window.ga || function() {
-        (window.ga.q = window.ga.q || []).push(arguments)
-      }, window.ga.l = (new Date).valueOf(), a.h = 2, la(a);
-      if (2 != a.c) return a.return(a.i);
-      na(a);
-      return a.return()
-    })))
-  }
-
-  function sb(a) {
-    a.a && !zb(a.a) && window.ga("create", a.a, "auto");
-    a: {
-      var b = location.search.substring(1).split("&");
-      for (var c = 0; c < b.length; c++) {
-        var d = b[c].split("=");
-        if ("viewga" === d[0]) {
-          b = d[1];
-          break a
-        }
-      }
-      b = ""
-    }
-    b && !zb(b) && (window.ga("create", b, "auto", "view"), window.ga("view.send", "pageview"));
-    xb(a)
-  }
-
-  function xb(a) {
-    (a = a.getAttribute("codelab-gaid")) && !zb(a) && window.ga("create", a, "auto", "codelabAccount")
-  }
-
-  function zb(a) {
-    var b = !1;
-    window.ga.getAll().forEach(function(c) {
-      c.get("trackingId") == a && (b = !0)
-    });
-    return b
-  }
-  h.Object.defineProperties(U, {
-    observedAttributes: {
-      configurable: !0,
-      enumerable: !0,
-      get: function() {
-        return ["codelab-gaid", "environment", "category"]
-      }
-    }
-  });
-  try {
-    window.customElements.define("google-codelab-analytics", U)
-  } catch (a) {
-    console.warn("googlecodelabs.CodelabAnalytics", a)
-  };
-}).call(this);
+//   function ma() {
+//     var a = document.createElement("script");
+//     a.src = "https://www.google-analytics.com/analytics.js";
+//     a.async = !1;
+//     return new Promise(function(b, c) {
+//       a.onload = function() {
+//         return b(a)
+//       };
+//       a.onerror = function() {
+//         a.parentNode && a.parentNode.removeChild(a);
+//         c()
+//       };
+//       document.head && document.head.appendChild(a)
+//     })
+//   }
+//   var yb = ma,
+//     X = ["module$exports$googlecodelabs$CodelabAnalytics", "injectGAScript"],
+//     Y = v;
+//   X[0] in Y || "undefined" == typeof Y.execScript || Y.execScript("var " + X[0]);
+//   for (var Z; X.length && (Z = X.shift());) X.length || void 0 === yb ? Y[Z] && Y[Z] !== Object.prototype[Z] ? Y = Y[Z] : Y = Y[Z] = {} : Y[Z] = yb;
+//
+//   function vb() {
+//     return ra(new qa(new oa(function(a) {
+//       if (1 == a.c) return window.GoogleAnalyticsObject = "ga", window.ga = window.ga || function() {
+//         (window.ga.q = window.ga.q || []).push(arguments)
+//       }, window.ga.l = (new Date).valueOf(), a.h = 2, la(a);
+//       if (2 != a.c) return a.return(a.i);
+//       na(a);
+//       return a.return()
+//     })))
+//   }
+//
+//   function sb(a) {
+//     a.a && !zb(a.a) && window.ga("create", a.a, "auto");
+//     a: {
+//       var b = location.search.substring(1).split("&");
+//       for (var c = 0; c < b.length; c++) {
+//         var d = b[c].split("=");
+//         if ("viewga" === d[0]) {
+//           b = d[1];
+//           break a
+//         }
+//       }
+//       b = ""
+//     }
+//     b && !zb(b) && (window.ga("create", b, "auto", "view"), window.ga("view.send", "pageview"));
+//     xb(a)
+//   }
+//
+//   function xb(a) {
+//     (a = a.getAttribute("codelab-gaid")) && !zb(a) && window.ga("create", a, "auto", "codelabAccount")
+//   }
+//
+//   function zb(a) {
+//     var b = !1;
+//     window.ga.getAll().forEach(function(c) {
+//       c.get("trackingId") == a && (b = !0)
+//     });
+//     return b
+//   }
+//   h.Object.defineProperties(U, {
+//     observedAttributes: {
+//       configurable: !0,
+//       enumerable: !0,
+//       get: function() {
+//         return ["codelab-gaid", "environment", "category"]
+//       }
+//     }
+//   });
+//   try {
+//     window.customElements.define("google-codelab-analytics", U)
+//   } catch (a) {
+//     console.warn("googlecodelabs.CodelabAnalytics", a)
+//   };
+// }).call(this);
 (function() {
   'use strict';
   var aa = "undefined" != typeof window && window === this ? this : "undefined" != typeof global && null != global ? global : this,
