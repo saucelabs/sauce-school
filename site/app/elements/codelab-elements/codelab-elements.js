@@ -1472,6 +1472,7 @@
   };
   U.prototype.disconnectedCallback = U.prototype.disconnectedCallback;
 
+
   function ma() {
     var a = document.createElement("script");
     a.src = "https://www.google-analytics.com/analytics.js";
@@ -1547,6 +1548,7 @@
     console.warn("googlecodelabs.CodelabAnalytics", a)
   };
 }).call(this);
+
 (function() {
   'use strict';
   var aa = "undefined" != typeof window && window === this ? this : "undefined" != typeof global && null != global ? global : this,
