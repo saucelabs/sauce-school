@@ -21,17 +21,20 @@ footer {
   font-size: 13px;
   padding: 40px 0;
   text-align: center;
+
   .footer__image {
     display: flex;
     justify-content: space-between;
     max-width: 1200px;
     text-align: left;
     margin: 0 auto;
-    padding: 55px 0 25px 18px;
-     img {
-       width: 230px;
-     }
+    padding: 55px 0 40px 18px;
+
+    img {
+      width: 230px;
+    }
   }
+
   .footer__inner {
     display: flex;
     justify-content: space-between;
@@ -39,6 +42,7 @@ footer {
     max-width: 1200px;
     text-align: left;
   }
+
   ul, li {
     list-style: none;
     margin: 0;
@@ -51,6 +55,9 @@ footer {
 
     a {
       color: #fff;
+      font-size: .6875rem;
+      line-height: .6875rem;
+      font-weight: 500;
     }
 
   }
@@ -58,12 +65,14 @@ footer {
   .footer-wrapper {
     display: flex;
   }
+
   .link-title {
     color: #fff;
     font-size: 16px;
     font-weight: bold;
     padding-bottom: 10px;
   }
+
   .link-title__space {
     padding: 30px 0 0 0;
   }
@@ -73,6 +82,15 @@ footer {
     flex: 1;
     margin-right: $keyline*4;
     padding: 10px 0 0 0;
+
+    &.platform-list {
+      ul {
+        @media(min-width: $desktop-breakpoint-min) {
+          column-count: 2;
+        }
+      }
+    }
+
     &:last-child {
       margin-right: 0;
       margin-bottom: 0; // mobile
@@ -85,6 +103,7 @@ footer {
     }
   }
 }
+
 ul.footer__sublinks {
   float: right;
   margin: 0px;
@@ -93,6 +112,7 @@ ul.footer__sublinks {
   clear: both;
   position: relative;
   font-size: 12px;
+
   li {
     float: left;
     display: inline-block;
@@ -107,6 +127,7 @@ ul.footer__sublinks {
   font-size: 8px;
   padding: 10px 0;
   max-height: 13%;
+
   a {
     color: currentcolor;
   }
@@ -119,9 +140,11 @@ ul.footer__sublinks {
     .footer-wrapper {
       flex-direction: column;
     }
+
     .link-list {
       margin: 0 0 $keyline*3 0;
     }
+
     .footer__inner {
       display: flex;
       flex-wrap: wrap;
@@ -136,6 +159,7 @@ ul.footer__sublinks {
       flex-wrap: wrap;
       justify-content: flex-start;
     }
+
     .footer__sublinks, .footer__copyright {
       flex: 0 100%;
       padding: 5px 0 5px 0;
