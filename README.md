@@ -146,7 +146,9 @@ Images can mess things up. Make sure you list an image as `assets/imagename.png`
 ### 4. Adding in Elements to .md files
 See the template.md file for how to format most items
 
- * Format for Images `!(Image title)[imageDirInCodelab/Imagename,extension]``
+> Images should be placed in the `codelabs/assets` directory and referenced as `assets/filename.png`. Convention is to name the file with a capial identifier for the coure, the module number, and A, B, C, etc for the first, second, third, etc picture in that course. As an example, the fourth picture in the Sauce Control Native Course module 1.05 would be `assets/SCTLN1.05D.png`
+
+* Format for Images `<img src="assets/filename.png" alt="Example Alt Text"/>`
 * Format for Links `[Text to be highlighted](URL)`
 * Format for iframes `![embed URL](regular URL)`
 * Format for YouTube videos:

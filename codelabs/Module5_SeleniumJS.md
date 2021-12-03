@@ -9,7 +9,7 @@ analytics account: UA-86110990-1
 author:Lindsay Walker
 
 <!-- ------------------------ -->
-# Module 5 – Sauce Connect, Sauce OnDemand, and Continuous Integration
+# Module 5 – Sauce Connect, Parallel Tests, and CI with Selenium JavaScript
 
 
 <!-- ------------------------ -->

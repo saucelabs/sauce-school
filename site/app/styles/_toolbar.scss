@@ -16,6 +16,8 @@
 
 @import "_variables";
 
+
+
 #mainToolbar {
   display: flex;
   align-items: center;
@@ -26,12 +28,25 @@
   height: 130px;
   box-shadow: -1px 3px 73px -24px rgba(0, 0, 0, 0.25);
   z-index: 10;
+  @media(min-width: $desktop-breakpoint-min) {
+    padding: 0 15px;
+  }
+
+  .site-width {
+    display: flex;
+    align-items: center;
+    justify-content: unset;
+  }
+
   paper-icon-button[icon="menu"] {
     flex-shrink: 0;
   }
-  a {
+  > a {
     display: flex;
     align-items: center;
+    font-size: .9375rem;
+    line-height: .9375rem;
+    letter-spacing: .03em;
   }
   .sub-nav__company,
   .sub-nav__contact {
@@ -191,29 +206,60 @@
 
   ul.header__primary-nav {
     list-style-type: none;
-    margin: 25px 0px 0px 0px;
-    padding: 0px;
+    //margin: 25px 0px 0px 0px;
+    margin: 0;
+    padding: 0;
+    display: none;
+    align-items: center;
+
+    @media(min-width: $tablet-breakpoint-min) {
+      display: flex;
+    }
+
     li {
       float: left;
-      margin-right: 25px;
       font-size: 16px;
+
+      @media(min-width: $tablet-breakpoint-min) {
+        margin-right: 25px;
+      }
+      @media(min-width: $desktop-breakpoint-min) {
+        margin-right: 30px;
+      }
+
       a {
         color: $greyDark;
+        &.navigation-element {
+          font-size: .7235rem;
+          line-height: .9375rem;
+          letter-spacing: .03em;
+          @media(min-width: $desktop-breakpoint-min) {
+            font-size: .9375rem;
+          }
+        }
         &.btn.btn-primary {
-          background-color: $sauceRedAlt;
+          display: inline-block;
+          background: #f85d5d;
+          background: -webkit-gradient(linear,right top,left top,from(#f85d5d),to(#f83838));
+          background: linear-gradient(
+                          270deg,#f85d5d,#f83838);
           color: $pureWhite;
           border-radius: 50px;
-          padding: 12px 15px 12px 15px;
-          margin-top: -13px;
-          font-size: 14px;
           font-weight: 600;
-          letter-spacing: 1px;
+          line-height: 1.4rem;
+          letter-spacing: .03em;
+          padding: 12px 25px;
+          white-space: nowrap;
+          @media(min-width: $desktop-breakpoint-min) {
+            padding: 12px 37px;
+          }
           &:hover {
             background-color: $sauceRedHover;
           }
         }
         &.sign__in {
           color: $sauceRedAlt;
+          white-space: nowrap;
         }
       }
       .search__icon {
@@ -230,6 +276,16 @@
         border: none;
       }
     }
+
+    ul.sub-nav__inner-list {
+      a {
+        font-size: .9375rem;
+        line-height: 1.25rem;
+        letter-spacing: .03em;
+        display: inline-block;
+        font-weight: 700;
+      }
+    }
   }
   .logo-icon {
     margin-right: $keyline * 2;
@@ -238,9 +294,12 @@
   }
 
   .logo-devs {
-    width: 15em;
+    width: 12em;
     height: auto;
     margin-top: 5px;
+    @media(min-width: $desktop-breakpoint-min) {
+      width: 15em;
+    }
   }
 }
 .header__menu--mobile {
@@ -286,15 +345,6 @@
   }
 }
 
-//custom nav tablet override
-@media only screen and (max-device-width: 1050px),
-  only screen and (max-device-width: 1050px),
-  only screen and (max-width: 1050px) {
-  #mainToolbar ul.header__primary-nav li a.btn.btn-primary {
-    display: none !important;
-  }
-}
-
 @media (max-width: $phone-breakpoint-max) {
   .--mobile {
     display: inherit;
@@ -322,6 +372,7 @@
       width: 40px;
       margin-right: $keyline;
     }
+
   }
   .--bottomPosition {
     position: absolute;
@@ -432,7 +483,7 @@
       .btn-link {
         color: $pureWhite;
         width: inherit;
-        padding: 0 0 0 30%;
+        display: block;
         margin: 15px 0 15px 0;
       }
       .header__mobile-bottom-inner {
