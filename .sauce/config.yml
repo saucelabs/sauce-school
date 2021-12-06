@@ -3,7 +3,7 @@ kind: cypress
 sauce:
   concurrency: 3
   tunnel:
-    id: sauce-ci-tunnel
+    name: ci-${{ github.sha }}
   region: us-west-1
   metadata:
     name: Sauce School

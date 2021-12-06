@@ -453,31 +453,70 @@
             ),
         });
 
+        const renderHits = (renderOptions, isFirstRender) => {
+            const {hits, widgetParams} = renderOptions;
+
+            let records = {};
+            for (var i in hits) {
+                //console.log(hits[i]);
+                const hit = hits[i];
+                const attributeName = 'label';
+                if (records[hit[attributeName]]) {
+                    records[hit[attributeName]].push(hit);
+                } else {
+                    records[hit[attributeName]] = [hit];
+                }
+            }
+            //console.log(records);
+            const entries = Object.entries(records);
+            //console.log(entries);
+            console.log(entries.map(([k, hits]) => k));
+
+            widgetParams.container.innerHTML = `
+            ${entries
+                .map(
+                    ([k, hits]) => `
+                    <ul style="color: #333;" class=${k.replace(/\s+/g, '-').replace(/[^a-zA-Z ]/g, "").toLowerCase()}> 
+                      <h5>${k}</h5>
+                      ${hits.map(
+                        (item) =>
+                            `<li>
+                                <a class="hit-group" href=${item.url} target="_blank">
+                                  <div class="hit-name v1">
+                                    <strong>${item.category}</strong>
+                                  </div>
+                                  <div class="hit-description">
+                                    ${instantsearch.snippet({
+                                attribute: 'content',
+                                hit: item
+                            })}                                    ${instantsearch.snippet({
+                                attribute: 'description',
+                                hit: item
+                            })}...
+                                    <br>
+                                    <span><strong>${item.hostname}</strong></span>
+                                  </div>
+                                </a>        
+                            </li>`
+                    ).join('')}
+                    </ul>`).join('')}`;
+        };
+
+        const customHits = instantsearch.connectors.connectHits(renderHits);
+        console.log('v1');
         sl_search.addWidgets([
             instantsearch.widgets.configure({
                 distinct: 1,
-                attributesToSnippet: [ 'title', 'description', 'category', 'title1', 'title2', 'label', 'content' ],
+                attributesToSnippet: [ 'title', 'description', 'category', 'title1', 'title2', 'label', 'content' ]
+
             }),
             instantsearch.widgets.searchBox({
                 container: "#searchBox",
             }),
-            instantsearch.widgets.hits({
-                container: "#searchResults",
-                templates: {
-                    item: `
-          <a class="hit-group" href={{url}} target="_blank">
-          <div class="hit-name v1">
-            {{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}
-          </div>
-          <div class="hit-description">
-            {{#helpers.snippet}}{ "attribute": "content" }{{/helpers.snippet}}...
-            <br><br>
-            <span><strong>{{label}}</strong></span>
-          </div>
-          </a>
-      `,
-                },
-            }),
+            customHits({
+                container: document.querySelector('#searchResults'),
+            })
+            ,
         ]);
 
         sl_search.start();
