@@ -10,7 +10,12 @@ This document will be for documenting sauce_school specific changes and specific
  Install [Golang](https://golang.org/dl/) and [nodeJS and NPM](https://nodejs.org/en/download/) on your computer. [More instructions here](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
 
 ### 2. Get Claat & Go Env Variables
-Download the [claat binary](https://github.com/googlecodelabs/tools/tree/master/claat#install) using the command `go get github.com/googlecodelabs/tools/claat`. When you installed GO on your computer, you should have a folder called go/bin and if you navigate to the folder after installing claat, you should see a claat folder as well..
+Download the [claat binary](https://github.com/googlecodelabs/tools/tree/master/claat#install) using the command
+```
+go install github.com/googlecodelabs/tools/claat/cmd@latest
+```
+
+When you installed GO on your computer, you should have a folder called go/bin and if you navigate to the folder after installing claat, you should see a claat folder as well..
  [_more detailed instructions can be found here_](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
 
  > Make sure you have the Go environment variables set up so you can run your test. in either `.bash_profile` or `.zshrc`, add the following:
