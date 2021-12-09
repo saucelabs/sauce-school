@@ -22,7 +22,7 @@ go get -u -v -x github.com/googlecodelabs/tools/claat
 
 
 When you installed GO on your computer, you should have a folder called go/bin and if you navigate to the folder after installing claat, you should see a claat folder as well..
- [_more detailed instructions can be found here_](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd). The `GOPATH` variable should point to the directory where you installed claat, an the GOROOT directory should point to where you installed Golang on your computer.
+ [_more detailed instructions can be found here_](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd). The `GOPATH` variable should point to the directory where you installed claat (mine is in my $HOME directory), an the `GOROOT` directory should point to where you installed Golang on your computer (probably in /usr/local/go).
 
  > Make sure you have the Go environment variables in either `.bash_profile` or `.zshrc`:
 
