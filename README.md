@@ -14,6 +14,12 @@ Download the [claat binary](https://github.com/googlecodelabs/tools/tree/master/
 ```
 go install github.com/googlecodelabs/tools/claat/cmd@latest
 ```
+OR
+
+```
+go get -u -v -x github.com/googlecodelabs/tools/claat
+```
+
 
 When you installed GO on your computer, you should have a folder called go/bin and if you navigate to the folder after installing claat, you should see a claat folder as well..
  [_more detailed instructions can be found here_](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
