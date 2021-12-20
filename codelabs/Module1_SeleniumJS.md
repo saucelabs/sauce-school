@@ -216,7 +216,7 @@ Most IDEs come with a set of [plugins and packages](https://atom.io/packages) yo
 #### NOTE
 
 <aside class="negative">
- <i>if you are using Github</i>, it is recommended that you <a href="https://www.codementor.io/@johnkennedy/get-rid-of-that-npm-package-lock-json-e0bj7ai42">delete the package-lock.json</a> file
+ <i>If you are using Github</i>, it is recommended that you <a href="https://www.codementor.io/@johnkennedy/get-rid-of-that-npm-package-lock-json-e0bj7ai42">delete the package-lock.json</a> file
 </aside>
 
 
