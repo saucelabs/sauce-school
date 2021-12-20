@@ -30,6 +30,12 @@ Duration: 0:01:00
 
 * Learn basic JavaScript to write page object and test code that runs on Cypress and saucectl with the Sauce Labs platform (Optional)
 
+### What You'll Need
+* [A Sauce Labs Account](https://saucelabs.com/sign-up)
+* [The Sauce Connect software](https://docs.saucelabs.com/secure-connections/sauce-connect/quickstart/) installed on your machine
+* [The saucectl software](https://docs.saucelabs.com/testrunner-toolkit/installation/) installed on your machine
+* The [sample code for each lesson](https://github.com/walkerlj0/saucectl-course-example-code/tree/main/Mod1)
+
 ### Note
 <aside class="negative">
 Developers that <strong>already have a test suite do not have to do Modules 1.07 - 1.09.</strong> If you have one, simply create a new saucectl project in the folder with your Cypress test suites to get started quickly, moving on to Module 2 after 1.06.
