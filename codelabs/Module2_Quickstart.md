@@ -81,8 +81,7 @@ To run a local test, you will need to set up and install the following:
 * [Maven build tool](https://maven.apache.org/)
 * An IDE to edit test code like [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
 
-Negative
-: If you would like step-by-step instructions to help with the dependencies below, there are lessons in the Selenium Java Course on [how to set up your MacOS environment](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) with Java, Maven, and IntelliJ ([or set up your Windows environment](https://docs.google.com/document/d/1herzHbTJdQpa-hAIR5llTfbbw20PeM99-BAoVTeuC8U/edit?usp=sharing).), then learn to [create your first project file in IntelliJ](https://training.saucelabs.com/codelabs/Module2-SeleniumJava/index.html?index=..%2F..SeleniumJava#5)
+If you would like step-by-step instructions to help with the dependencies below, there are lessons in the Selenium Java Course on [how to set up your MacOS environment](https://training.saucelabs.com/codelabs/Module1-SeleniumJava/index.html?index=..%2F..SeleniumJava#4) with Java, Maven, and IntelliJ ([or set up your Windows environment](https://docs.google.com/document/d/1herzHbTJdQpa-hAIR5llTfbbw20PeM99-BAoVTeuC8U/edit?usp=sharing).), then learn to [create your first project file in IntelliJ](https://training.saucelabs.com/codelabs/Module2-SeleniumJava/index.html?index=..%2F..SeleniumJava#5)
 
 * [Android Studio](https://developer.android.com/studio)
 * [Appium Doctor](https://github.com/appium/appium-doctor)
@@ -207,8 +206,11 @@ The first thing you need to know is which capabilities are required to run a tes
 
 
 #### Note
-Negative
-: React Native apps (which is the type of app you are using in this example) also require the `appWaitActivity `or `appActivity` set to the the name of the first activity (the “screen” or class that is invoked when the app is started) that your application lands on. With this capability your app knows which view should be loaded before initializing the test, which is not always communicated with React applications.
+
+<aside class="negative">
+React Native apps (which is the type of app you are using in this example) also require the <code>appWaitActivity</code> or <code>appActivity</code> set to the the name of the first activity (the “screen” or class that is invoked when the app is started) that your application lands on. With this capability your app knows which view should be loaded before initializing the test, which is not always communicated with React applications.
+
+</aside>
 
 
 ### The Appium Server
@@ -245,11 +247,11 @@ Make sure either way, you have [set up your project](https://training.saucelabs.
 ### Add to `pom.xml`
 Add your configuration into `pom.xml`.
 
-Negative
-: The latest versions for the <`properties`> tags can be found in the Maven Repositories [like this one for the Appium Java client](https://mvnrepository.com/artifact/io.appium/java-client)
+<aside class="negative">
+The latest versions for the <code><`properties`></code> tags can be found in the Maven Repositories <a href="https://mvnrepository.com/artifact/io.appium/java-client">like this one for the Appium Java client</a>
+</aside>
 
 You may need to invalidate and restart again to activate the imports:
-
 
 ```
 // filename: pom.xml
@@ -366,8 +368,10 @@ You may need to invalidate and restart again to activate the imports:
 Once you have all your directories and files set up, add the following code to your test files.
 
 #### Note
-Negative
-: You will have to modify the `APP` variable, adding the absolute file path to where the `.apk` file for the Swag Labs App is stored on your local machine.
+<aside class="negative">
+You will have to modify the <code>APP</code> variable, adding the absolute file path to where the <code>.apk</code> file for the Swag Labs App is stored on your local machine.
+</aside>
+
 
 If you didn't clone [the repo](https://github.com/walkerlj0/Quickstart_Android), you can create and copy the following to `BasicTest.java`:
 
@@ -506,8 +510,10 @@ If you didn't clone [the repo](https://github.com/walkerlj0/Quickstart_Android),
 Once you have the first project configured, you can start Appium desktop and an Android emulator and run your test, using the command `mvn clean test.`
 
 #### Note
-Negative
-: If you are simply modifying an Appium test that is already configured to run on an Emulator on Sauce Labs, all you need to do is remove the `"app" `and `"appWaitActivity" `capabilities, then add in a `mobile_android_browser_test.xml` file and update the `pom.xml `to run based on that file.
+
+<aside class="negative">
+If you are simply modifying an Appium test that is already configured to run on an Emulator on Sauce Labs, all you need to do is remove the <code>"app"</code> and <code>"appWaitActivity"</code> capabilities, then add in a <code>mobile_android_browser_test.xml</code> file and update the <code>pom.xml</code> to run based on that file.
+</aside>
 
 <!-- ------------------------ -->
 ## 2.04 Run an Emulator App Test on Sauce Labs
@@ -1067,8 +1073,11 @@ public void login(String user, String pass){
 
 
 #### Note
-Negative
-: Since you are using different methods, many of the methods you imported will no longer be used, and will be grey in the imports list. You can remove those now.  <img src="assets/QS2.05C.png" alt="imports for the test" width="550"/>
+<aside class="negative">
+Unused dependencies that you  will appear in grey in the imports list. You can remove those now.  <img src="assets/QS2.05C.png" alt="imports for the test" width="550"/>
+</aside>
+
+Since you are using different methods, many of the methods you imported will no longer be used.
 
 
 
@@ -1317,23 +1326,16 @@ Last, we will add in `JavaScriptExecutor` [to pass in the sauce:job-result](http
 
 
 #### Note
-Negative
-: You need to have the SauceREST API specified in your `pom.xml` file so that you can access the endpoint, so make sure you have the following dependency with an updated version included in your dependencies:
 
-```
-// filename pom.xml
-//...
-    dependency
-        groupId com.saucelabs groupId
-        artifactId saucerest artifactId
-        version ${sauce.version} version
-    dependency
-
-// ...
-```
+<aside class="negative">
+You need to have the SauceREST API specified in your <code>pom.xml</code> file so that you can access the endpoint to pass the test name, so make sure you have the following dependency with an updated version included in your dependencies in <code>pom.xml</code> <a href="https://github.com/walkerlj0/quickstart-android/blob/v2021-12-20/Final/pom.xml#L68-L72">as seen in this example</a>.
+</aside>
 
 
-Now to run your test, creating a new TestNG xml file entitled `mobile_android_EMU_reporting_test.xml` :
+
+
+
+Now to run your test, create a new TestNG xml file entitled `mobile_android_EMU_reporting_test.xml` :
 
 
 ```
@@ -1358,8 +1360,12 @@ Then update your `pom.xml` with:
 
 
 #### Note
-Negative
-: As an alternative to updating your `pom.xml` with a new TestNG `xml` file each time, you can use a flag to run a certain TestNG `xml` file in terminal: run `mvn clean test -DtestngXmlFile=mobile_android_EMU_reporting_test.xml` in terminal.
+
+<aside class="negative">
+As an alternative to updating your <code>pom.xml</code> with a new TestNG <code>xml</code> file each time, you can use a flag to run a certain TestNG <code>xml</code> file in terminal:
+</br>
+ <code>mvn clean test -DtestngXmlFile=mobile_android_EMU_reporting_test.xml</code> in terminal.
+</aside>
 
 Now when you run your tests, you will see the test names as well as a passing or failing status:
 
