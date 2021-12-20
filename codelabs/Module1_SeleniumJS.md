@@ -175,9 +175,9 @@ In Terminal you can type this command to create a new project directory:
 
 #### Note
 
-Negative
-: If you already have experience with the NodeJS server and an IDE, and know how to install npm in a project folder, you can skip the rest of this Module (on to 2.01) where you can find a Github project directory to download or fork. Now we are going to install npm. When we run the command `npm install`, it will download dependencies defined in a package.json file and generate a node_modules folder with the installed modules.
-
+<aside class="negative">
+If you already have experience with the NodeJS server and an IDE, and know how to install npm in a project folder, you can skip the rest of this Module (on to 2.01) where you can find a Github project directory to download or fork. Now we are going to install npm. When we run the command <code>npm install</code>, it will download dependencies defined in a package.json file and generate a node_modules folder with the installed modules.
+</aside>
 
 * Navigate to the folder you just made from the terminal.
 
@@ -191,11 +191,13 @@ Negative
 
 <img src="assets/1.05C.png" alt="npm install" width="200"/>
 
-Negative
-: This will set up a new node package in the folder. Hit enter (and enter any information you wish to add) to run the init. If you are creating this in the repo, make sure you put it in the ‘code-examples’ file.
 
-Negative
-: <img src="assets/2.05C.png" alt="npm install" width="600"/>  
+<aside class="negative">
+This will set up a new node package in the folder. Hit enter (and enter any information you wish to add) to run the init. If you are creating this in the repo, make sure you put it in the ‘code-examples’ file.
+
+</br> <img src="assets/2.05C.png" alt="npm install" width="600"/>  
+</aside>
+
 
 
 * If you open your file folder, you should see the folder `node_modules` as well as `package.json` and `package-lock.json`.
@@ -213,8 +215,10 @@ Most IDEs come with a set of [plugins and packages](https://atom.io/packages) yo
 
 #### NOTE
 
-Negative
-: _if you are using Github, it is recommended that you [delete the package-lock.json](https://www.codementor.io/@johnkennedy/get-rid-of-that-npm-package-lock-json-e0bj7ai42) file._
+<aside class="negative">
+ <i>if you are using Github</i>, it is recommended that you <a href="https://www.codementor.io/@johnkennedy/get-rid-of-that-npm-package-lock-json-e0bj7ai42">delete the package-lock.json</a> file
+</aside>
+
 
 
 ### Use GitHub Repository (Optional)
@@ -226,8 +230,10 @@ If you are familiar with using GitHub to write your code, you can also fork/ bra
 
 #### NOTE
 
-Negative
-: If you download this project, you should open the directory (1.05) in your terminal and run `npm install` before trying to write any tests.
+<aside class="negative">
+If you download this project, you should open the directory (1.05) in your terminal and run <code>npm install</code> before trying to write any tests.
+</aside>
+
 
 
 
