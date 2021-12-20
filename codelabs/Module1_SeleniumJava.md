@@ -142,8 +142,10 @@ In order to run a Java test code suite on your local machine, you will need a fe
 **[IntelliJ IDE & Debugger](https://www.jetbrains.com/idea/download/#section=mac) –** This tool helps with the writing, debugging, and organization of your code. This includes features that make your code easier to read and organize. IntelliJ  provides  an interface where you can interact with other tools, such as Maven and JUnit4, as well as test and debug code.
 
 
-Negative
-: Even though you can use Maven and Java from within IntelliJ without installing it on your machine, you should install Maven and Java on your machine so that you can run tests you write outside of IntelliJ.
+<aside class="negative">
+Even though you can use Maven and Java from within IntelliJ without installing it on your machine, you should install Maven and Java on your machine so that you can run tests you write outside of IntelliJ.
+</aside>
+
 
 ### Environment Setup
 
@@ -204,8 +206,9 @@ export PATH=$PATH:$M2:$JAVA_HOME/bin:$PATH
 
 
 #### Note
-Negative
-: The version of the apache-maven PATH variable needs to reflect which version you downloaded. For example, if you downloaded maven version 3.6.3, it would read `export M2_HOME=$HOME/Applications/apache-maven-3.6.3`
+<aside class="negative">
+The version of the apache-maven PATH variable needs to reflect which version you downloaded. For example, if you downloaded maven version 3.6.3, it would read <code>export M2_HOME=$HOME/Applications/apache-maven-3.6.3</code>
+</aside>
 
 
 
@@ -239,8 +242,15 @@ We will download JDK (Java Development Kit) and choose the latest version. This 
 
 
 #### Note
-Negative
-: If you already have JDK(s) installed, simply choose the one you would like to use: <img src="assets/1.05X.png" alt="pom.xml" width="550"/>                  If you get a box asking for a GroupId and ArtifactId, you can fill them in with whatever you would like- it will be replaced later in the `pom.xml`. <img src="assets/1.05Y.png" alt="pom.xml" width="450"/>
+
+<aside class="negative">
+If you already have JDK(s) installed, simply choose the one you would like to use: <img src="assets/1.05X.png" alt="pom.xml" width="550"/>                
+</br>If you get a box asking for a GroupId and ArtifactId, you can fill them in with whatever you would like- it will be replaced later in the <code>pom.xml</code>.
+<br>
+</br>
+<img src="assets/1.05Y.png" alt="pom.xml" width="550"/>
+</aside>
+
 
 If you leave the **Location** blank, it will create this project in the root user folder. You can add in another directory name if you wish.  Our project will be called SeleniumJava.
 
