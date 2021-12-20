@@ -26,6 +26,10 @@ Duration: 0:02:00
 * View the test results
 * Publish and schedule a test run
 
+### What You'll Need
+* A Sauce Labs account
+* Access to the API Testing Dashboard. E-mail support.saucelabs.com or [submit a support request](https://support.saucelabs.com/hc/en-us)
+
 <!------------------------------>
 ## 2.02 Introduction to API Fortress
 Duration: 0:04:00

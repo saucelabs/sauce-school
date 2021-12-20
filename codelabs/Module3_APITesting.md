@@ -28,6 +28,10 @@ In this module, you will be learning to create your own test from scratch with t
 * Learn about how and when to use Input Sets and Variables.
 * Demonstrate how to store sensitive variable data and/or secrets in the Vault.
 
+### What You'll Need
+* A Sauce Labs account
+* Access to the API Testing Dashboard. E-mail support.saucelabs.com or [submit a support request](https://support.saucelabs.com/hc/en-us)
+
 
 <!------------------------------>
 ## 3.02 Component Library
