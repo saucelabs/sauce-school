@@ -19,10 +19,7 @@ Duration: 0:05:00
 This module is derived from content in chapters 6-7 of _The Selenium Guidebook_ _Python Edition_ By Dave Haeffner. This module will touch lightly on how to write a basic test, and teach users about how to set up a project, as well as learn about how Selenium locates and interacts with elements on a “page”, which can be any view or even object within a webpage.
 
 
-### Objectives
-
-
-
+### Skills & Objectives
 *   Use Pytest along with Pip3 and Python to run local tests and manage dependencies on your machine
 *   Understand that good tests are atomic: They have test grouped by functionality, and are named descriptively. Good tests also use test runners, and are maintained in version control systems
 *   Create and maintain a project folder with your test suite & dependencies, with separate folders for page and test classes
@@ -47,11 +44,13 @@ If you are familiar with using GitHub to write your code, you can also fork/ bra
 
 
 #### Note
-Negative
-: If you are cloning & forking or downloading the GitHub repo, make sure you do the following:
-  * Ensure there is no `.pytest_cache` file in the project (delete it!)
-  * You have Pip3 and Pytest installed
-  * You run `pip3 install -r requirements.txt` to install all the other dependencies.
+<aside class="negative">
+If you are cloning & forking or downloading the GitHub repo, make sure you do the following:
+  <li> * Ensure there is no <code>.pytest_cache</code> file in the project (delete it!)
+  <li> * You have Pip3 and Pytest installed
+  <li>* You run <code>pip3 install -r requirements.txt</code> to install all the other dependencies from <code>requirements.txt</code>.
+</aside>
+
 
 <!-- ------------------------ -->
 ## 2.02 Writing Good Python Acceptance Tests
@@ -252,8 +251,10 @@ pytest-randomly
 ```
 
 #### NOTE
-Negative
-: Run `pip3 install -r requirements` to ensure all the requirements have been installed.
+<aside class="negative">
+Run <code>pip3 install -r requirements</code> to install all the requirements from <code>requirements.txt</code>.
+</aside>
+
 
 If files need updating, PyCharm will prompt you to install the plugins and requirements - click on the links to install the dependencies listed.
 
@@ -288,15 +289,17 @@ Download the file, move it into the **vendor directory**, and double-click to ex
 
 #### Note
 
-Negative
-: Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, first open a terminal, and type in the command `sudo spctl --master-disable` to [disable Gatekeeper](https://osxdaily.com/2015/05/04/disable-gatekeeper-command-line-mac-osx/).
+<aside class="negative">
+Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, first open a terminal, and type in the command <code>sudo spctl --master-disable</code> to <a href="https://osxdaily.com/2015/05/04/disable-gatekeeper-command-line-mac-osx/">disable Gatekeeper on Mac</a>.
 
-Negative
-: Next, you need to allow app downloads from anywhere. Go to **System Preferences** on your Mac **> Security & Privacy**, then under the **General** tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers. <img src="assets/4.04K.png" alt="Allow Unidentified Files in Security and Privacy" width="650"/>
-
-Negative
-: On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver** or **geckodriver** manually.
+Next, you need to allow app downloads from anywhere. Go to <strong>System Preferences</strong> on your Mac <strong>> Security & Privacy</strong>, then under the <strong>General</strong> tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers. <img src="assets/4.04K.png" alt="Allow Unidentified Files in Security and Privacy" width="650"/>
+<br>
+</br>
+<strong>On Windows</strong>
+</br>
+You can allow unidentified apps using <a href="https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security">these instructions</a>. Another option you have is to find the driver you downloaded in the file directory and double-click to open the <strong>chromedriver</strong> or <strong>geckodriver</strong> manually.
 Once you have allowed this, find the Chromedriver in your file directory, double click on it, and force terminal to open it.
+</aside>
 
 #### Final Code
 
