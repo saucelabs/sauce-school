@@ -20,8 +20,6 @@ This module is derived from content in chapters 6-7 of _The Selenium Guidebook_ 
 
 ### Objectives
 
-
-
 *   Use NodeJS along with npm to run local tests and manage dependencies on your machine
 *   Understand that good tests are atomic: They have test grouped by functionality, and are named descriptively. Good tests also use test runners, and are maintained in version control systems
 *   Create and maintain a project folder with your test suite & dependencies, with separate folders for page and test classes
@@ -35,7 +33,7 @@ This module is derived from content in chapters 6-7 of _The Selenium Guidebook_ 
 
 ### Base Code
 
-If you skipped Module 1, make sure you have a project folder set up and have created the following files, as well as have NodeJS installed and init for this project:
+If you skipped Module 1, make sure you have a project folder set up and have created the following files, as well as have NodeJS installed, and <a href="https://github.com/walkerlj0/Selenium_Course_Example_Code/blob/master/javascript/Mod1/1.05/package.json"> add this package.json to your project directory</a>, and run <code>npm init</code>. You should see the following in your project:
 
 <img src="assets/2.00.png" alt="Directory Structure" width="400"/>
 <!-- ![Directory Structure](assets/2.00.png) -->
@@ -44,10 +42,10 @@ If you skipped Module 1, make sure you have a project folder set up and have cre
 
 #### Note
 
-Negative
-: _if you are using Github, it is recommended that you [delete the package-lock.json](https://www.codementor.io/@johnkennedy/get-rid-of-that-npm-package-lock-json-e0bj7ai42) file._
+<aside class="negative">
+ if you are using Github, it is recommended that you <a href="https://www.codementor.io/@johnkennedy/get-rid-of-that-npm-package-lock-json-e0bj7ai42">delete the package-lock.json</a> file.
+</aside>
 
---
 
 ### Use GitHub Repository (Optional)
 
@@ -340,10 +338,12 @@ In your file we'll create a new test file called `LoginTest.js`. Next, we will i
 
 #### Note
 
-Negative
-: The versions of the dependencies may have changed to a more updated version (especially browser drivers when browsers update), or need a different version for your tests. If you need to update the version, simply change the version in `package.json` then run `npm install` in terminal.
+<aside class="negative">
+The versions of the dependencies may have changed to a more updated version (especially browser drivers when browsers update), or need a different version for your tests. If you need to update the version, simply change the version in <code>package.json</code> then run <code>npm install</code> in terminal.
 
-Under where it says directories and scripts, change the value of `"test" `to `"mocha"`
+Under where it says directories and scripts, change the value of <code>"test"</code> to <code>"mocha"</code>
+</aside>
+
 
 
 ```
@@ -397,15 +397,17 @@ Download the file, then unzip it and move it somewhere outside of your downloads
 
 #### Note
 
-Negative
-: Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, first open a terminal, and type in the command `sudo spctl --master-disable` to [disable Gatekeeper](https://osxdaily.com/2015/05/04/disable-gatekeeper-command-line-mac-osx/).
+<aside class="negative">
+Often, web drivers are what is known as an ‘unsigned’ executable. This means that your operating system doesn’t recognize it as a trusted piece of software. In this situation, you need to manually set your operating system. To do this on a Mac, first open a terminal, and type in the command <code>sudo spctl --master-disable</code> to <a href="https://osxdaily.com/2015/05/04/disable-gatekeeper-command-line-mac-osx/">disable Gatekeeper on Mac</a>.
 
-Negative
-: Next, you need to allow app downloads from anywhere. Go to **System Preferences** on your Mac **> Security & Privacy**, then under the **General** tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers. <img src="assets/4.04K.png" alt="Allow Unidentified Files in Security and Privacy" width="650"/>
-
-Negative
-: On Windows, you can allow unidentified apps using [these instructions](https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security). Another option you have is to find the driver you downloaded in the file directory and double-click to open the **chromedriver** or **geckodriver** manually.
+Next, you need to allow app downloads from anywhere. Go to <strong>System Preferences</strong> on your Mac <strong>> Security & Privacy</strong>, then under the <strong>General</strong> tab after unlocking the settings, choose the radio button to Allow apps downloaded from App Store and identified developers. <img src="assets/4.04K.png" alt="Allow Unidentified Files in Security and Privacy" width="650"/>
+<br>
+</br>
+<strong>On Windows</strong>
+</br>
+You can allow unidentified apps using <a href="https://support.microsoft.com/en-gb/help/4046851/windows-10-allow-blocked-app-windows-security">these instructions</a>. Another option you have is to find the driver you downloaded in the file directory and double-click to open the <strong>chromedriver</strong> or <strong>geckodriver</strong> manually.
 Once you have allowed this, find the Chromedriver in your file directory, double click on it, and force terminal to open it.
+</aside>
 
 
 Now you are ready for the next lessons where you will write your first test!
@@ -492,8 +494,10 @@ In order for Selenium to load an instance of Firefox, we’ll need to specify th
 
 #### Note
 
-Negative
-: If you used `npm` to install your drivers, you will comment the `vendorDirectory` variable declaration out, as you don’t need to specify the path, since `npm` was used to install the dependencies, it takes care of mapping the code in your project to the correct path. The only code you will need inside the vendorDirectory for now is the `driver = await new Builder()`.
+<aside class="negative">
+If you used <code>npm</code> to install your drivers, you will comment the <code>vendorDirectory</code> variable declaration out, as you don’t need to specify the path, since <code>npm</code> was used to install the dependencies, it takes care of mapping the code in your project to the correct path. The only code you will need inside the vendorDirectory for now is the <code>driver = await new Builder()</code>.
+</aside>
+
 
 
 ```

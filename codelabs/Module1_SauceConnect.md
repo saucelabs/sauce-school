@@ -56,6 +56,13 @@ In this lesson, you will learn to:
 
 <video id="cpBcGeZ_wQU"></video>
 
+
+<!-- <details>
+<summary>Flags</summary>
+<br>
+Some of the flags in this video may be deprecated, see the <a href="https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/">Documentation for more information</a>. The <code>tunnel-identifier</code> flag has been changed to the <code>tunnel-name</code>
+</details> -->
+
 <aside class="negative">
 Some of the flags in this video may be deprecated, see the <a href="https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/">Documentation for more information</a>. The <code>tunnel-identifier</code> flag has been changed to the <code>tunnel-name</code>
 </aside>

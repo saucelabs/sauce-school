@@ -29,6 +29,12 @@ Plain Text followed by green and yellow info boxes
 You created a yellow side note!
 </aside>
 
+Some other things you can don in a yellow note include making <strong>bold text</strong, or <i>Italic text</i> or highlight <code>text as code</code>
+
+You can create a list
+<li> with the li tag</li>
+</aside>
+
 ### Bullets
 Plain Text followed by bullets
 * Hello

@@ -155,8 +155,10 @@ The easiest way to install Python dependencies on Mac is to enlist the help of a
 ```
 
 #### Note
-Negative
-: If you type `brew info` in your terminal, and you have homebrew installed correctly, you should see something like this: <img src="assets/5.06C.png" alt="Pencil" width="750"/> The Homebrew installation should also update the PATH variable when you install it, so other programs on your computer know how to access `brew` commands
+<aside class="negative">
+If you type <code>brew info</code> in your terminal, and you have homebrew installed correctly, you should see something like this: <img src="assets/5.06C.png" alt="Pencil" width="750"/> The Homebrew installation should also update the PATH variable when you install it, so other programs on your computer know how to access <code>brew</code> commands.
+</aside>
+
 
 
 ### Install Python
@@ -214,9 +216,12 @@ You should see an output like this:
 
  <img src="assets/1.05R.png" alt="PIP 3" width="550"/>
 
- #### Note
- Negative
-: If you don't have pip3 installed, or you are using an older version of Python, you may want to check to see if you have pip3  installed by typing `pip3 -version` into your terminal. You can also [use this website](https://pip.pypa.io/en/latest/installing/)  get get pip3 installed. It's not recommended that you use Python 2.7 and pip, as it's not supported, but it may be a reason `pip3`  isn't working.
+#### Note
+
+<aside class="negative">
+If you don't have pip3 installed, or you are using an older version of Python, you may want to check to see if you have pip3  installed by typing <code>pip3 -version</code> into your terminal. You can also <a href="https://pip.pypa.io/en/latest/installing/">use this website</a> and get get pip3 installed. It's not recommended that you use Python 2.7 and pip, as it's not supported, but it may be a reason <code>pip3</code>  isn't working.
+</aside>
+
 
 
 
