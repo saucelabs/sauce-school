@@ -197,7 +197,7 @@ To fix this error, we'll need to add our [Sauce Labs Account Credentials](https:
 
   <img src="assets/apif-mod2/basic-auth-component.png" alt="API Fortress: Basic Auth Component" />
 
-4. Input your [Sauce Labs Username and Access Key](https://app.us-west-1.saucelabs.com/user-settings) in the relevant fields.    When you're finished, select the **green check mark** <img src="assets/apif-mod2/green-check-mark.png" alt="API Fortress: Green Check Mark" width="30"/>.
+4. Input your [Sauce Labs Username and Access Key](https://app.saucelabs.com/user-settings) in the relevant fields.    When you're finished, select the **green check mark** <img src="assets/apif-mod2/green-check-mark.png" alt="API Fortress: Green Check Mark" width="30"/>.
 
    <img src="assets/apif-mod2/01/basicAuthDetails.png" alt="API Fortress: Basic Auth Details" />
 

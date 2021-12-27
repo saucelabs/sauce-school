@@ -296,8 +296,9 @@ Run npm test and you should get this error message
 
 #### NOTE
 
-Negative
-: **Why? –** Think about what the page interaction is like. After you click the login, if it was successful, then the error message (with the class `.flash.error`) will not show up, only the success message is displayed, and that element will not exist to interact with, therefore the test will fail.
+<aside class="negative">
+<strong>Why? –</strong> Think about what the page interaction is like. After you click the login, if it was successful, then the error message (with the class <code>.flash.error</code>) will not show up, only the success message is displayed, and that element will not exist to interact with, therefore the test will fail.
+</aside>
 
 
 ### Final Code
@@ -452,8 +453,9 @@ class LoginPage extends BasePage {
 ```
 ### Note
 
-Negative
-: **Inheriting from the Base Page –** To establish inheritance, you used the` extends `keyword when declaring the class (example; class `LoginPage extends BasePage {}), `and call` super `from the constructor, `super(driver)`. This passes the instance of Selenium to the base page object, and makes all of the base page object's methods available to our login page object (through `this`.).
+<aside class="negative">
+<strong>Inheriting from the Base Page –</strong> To establish inheritance, you used the <code>extends</code> keyword when declaring the class (example; class <code>LoginPage extends BasePage {}),</code> and call <code>super</code> from the constructor, <code>super(driver)</code>. This passes the instance of Selenium to the base page object, and makes all of the base page object's methods available to our login page object (through <code>this</code>.).
+</aside>
 
 
 You will first modify the class `LoginPage.js `to inherit from BasePage and the command in the class. Inside of the functions `async load(), async authenticate(), successMessagePresent(), and failureMessagePresent()` you are going to replace the methods that interact with the page.
@@ -495,21 +497,21 @@ A few things have changed in our Login page object. We've imported the base page
 
 #### Note
 
-Negative
-: **Why? –**  In other words, instead of having to type out all this, using Selenium-specific commands, to find an id on the page and input a username:
-```
+<aside class="negative">
+<strong>Why? –</strong>  In other words, instead of having to type out all this, using Selenium-specific commands, to find an id on the page and input a username:
+</br>
+<code>
 await this.driver.findElement(USERNAME_INPUT).sendKeys(username)
-```
+</code>
+</br>
+All you need to type is
+</br>
+<code>await this.type(USERNAME_INPUT, username)</code>
+</br>
+It’s easier to read and understand that <code>this.type</code> wants you to type this in there, without having to specify the `driver`, `findElement `and `sendKeys`, method, etc.
 
-Negative
-: All you need to type is
+</aside>
 
-```
-await this.type(USERNAME_INPUT, username)
-```
-
-Negative
-: It’s easier to read and understand that `this.type `wants you to type this in there, without having to specify the `driver`, `findElement `and `sendKeys`, method, etc.
 
 
 
