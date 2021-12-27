@@ -233,6 +233,13 @@ To fix this error, we'll need to add our [Sauce Labs Account Credentials](https:
 6. Back in the _HTTP Client_, click the **Send** button again. To the right, you should see a `200` response code and something similar in the response headers:
    <img src="assets/apif-mod2/01/responseBody200.png" alt="API Fortress: Response Body Example" />
 
+   <aside class="negative">
+<strong> See the Workflow</strong> to create a GET request with an Basic Authorization header.
+
+ <img src="assets/apif-mod2/2.05_Generate_A_Test_GET.gif" alt="API Fortress: GET call with Basic Auth" />
+   </aside>
+
+
 
 7. Next, click the **Generate Test** button and API Fortress automagically generates a sample test based on the request data.
    <img src="assets/apif-mod2/01/generateTest.png" alt="API Fortress: Generate Test Button" />
