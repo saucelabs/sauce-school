@@ -190,11 +190,12 @@ To fix this error, we'll need to add our [Sauce Labs Account Credentials](https:
     * **Query Params**: under *Name*, put `limit`; under *String value*, put `3`. This sets the number of responses to a limit of 3, so that your test doesn't take too long to complete.
 
 2. Scroll to the bottom of the window and click **Add Authentication**.
+</br>
    <img src="assets/apif-mod2/01/addAuthentication.png" alt="API Fortress: Authentication Details" />
 
 
 3. Select **Basic Authentication**.
-
+</br>
   <img src="assets/apif-mod2/basic-auth-component.png" alt="API Fortress: Basic Auth Component" />
 
 4. Input your [Sauce Labs Username and Access Key](https://app.saucelabs.com/user-settings) in the relevant fields.    When you're finished, select the **green check mark** <img src="assets/apif-mod2/green-check-mark.png" alt="API Fortress: Green Check Mark" width="30"/>.
@@ -216,6 +217,7 @@ To fix this error, we'll need to add our [Sauce Labs Account Credentials](https:
 ### Copy and Paste the Encoded Auth Header
 
 1. You'll notice that API Fortress automatically encodes and adds the [Base64 Authorization header](https://developer.mozilla.org/en-US/docs/Glossary/Base64) for you. Double-click the component to see the details:
+</br>
    <img src="assets/apif-mod2/01/basicEncode.png" alt="API Fortress: New Auth Component" />
 
 2. Copy the `base64` Basic Authorization value (e.g., `Basic anRhY2s0Oxxxxxxxxxxxxxxxxxxxxxxxx==`) to your clipboard.
@@ -223,10 +225,12 @@ To fix this error, we'll need to add our [Sauce Labs Account Credentials](https:
 3. Return to the HTTP Client tab in your project.
 
 4. Paste the `base64` Basic Authorization value into your HTTP Client **Headers** section and type `Authorization` into the _Key_ field. Also, make sure the endpoint URL (`https://api.us-west-1.saucelabs.com/team-management/v1/users?limit=3`) is still there:
+</br>
    <img src="assets/apif-mod2/01/get3Users.png" alt="Add Auth details to request" />
 
 
 5. Save your HTTP request in your project to use later. Name it whatever you'd like (here, it's named `GET 3 Users`):
+</br>
    <img src="assets/apif-mod2/01/save3UsersTest.png" alt="Add Auth details to request" />
 
 
@@ -239,7 +243,7 @@ To fix this error, we'll need to add our [Sauce Labs Account Credentials](https:
  <img src="assets/apif-mod2/2.05_Generate_A_Test_GET.gif" alt="API Fortress: GET call with Basic Auth" />
    </aside>
 
-
+### Generate a Test from the HTTP Client
 
 7. Next, click the **Generate Test** button and API Fortress automagically generates a sample test based on the request data.
    <img src="assets/apif-mod2/01/generateTest.png" alt="API Fortress: Generate Test Button" />
