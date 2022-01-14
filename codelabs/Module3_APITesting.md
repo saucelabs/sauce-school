@@ -56,8 +56,6 @@ If you select the **Tag** component at the top, it will automatically add this c
 
 You can add any of the following components to your test, depending on your use case. For an example some examples in the screenshot below:
 
-* **Update Input**: Store and/or updates a variable in an _input set_.
-* **JDBC**: Connect this request to a database using a [JDBC API](https://en.wikipedia.org/wiki/Java_Database_Connectivity#).
 * **K/V Store**: Store and retrieve ephemeral data from a `key:value` store.
 * **Fake**: Generates fake data for your test, particularly for `POST` and `PUT` requests.
 
