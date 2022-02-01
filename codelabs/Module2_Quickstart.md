@@ -823,7 +823,7 @@ In this lesson, you will configure and running a local test to run on an **Andro
   * Add a config file to set a region variable
   * Add test log information
 
-To do this tutorial, start with the **[Basic Test](http://BasicTestLink.com)** and follow along to make the changes.
+To do this tutorial, start with the Basic Test and follow along to make the changes.
 
 
 #### Video

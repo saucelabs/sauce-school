@@ -111,6 +111,8 @@ The Selenium framework is typically used for desktop web browser tests. You can 
 **[Desktop Browser Testing](https://youtu.be/Qj-JHkVlHsY)**
 <video id="Qj-JHkVlHsY"></video>
 
+> **NOTE**: There is no audio in this training video.
+
 One of the key features of Sauce Labs is the ability to run tests on a browser using hundreds of devices, emulators, and simulators.
 
 

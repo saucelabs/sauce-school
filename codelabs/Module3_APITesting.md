@@ -245,8 +245,9 @@ The finished result should look like this:
 <img src="assets/apif-mod3/05/finishedResult2.png" alt="Finished Result of Global Params" width="500"/>
 
 ### Note:
+
 <aside class="negative">
-Please refer to the documentation for further information on <a href= "https://docs.saucelabs.com/api-testing/vault/#variables">using variables</a>.
+Please refer to the documentation for further information on <a href="https://docs.saucelabs.com/api-testing/vault">using variables</a>.
 </aside>
 
 In the next section, we will cover how to store information as an **Input Set**.
@@ -354,7 +355,7 @@ In the next section, we will discover how to store some of the information we cr
 ## 3.07 The Vault
 Duration: 0:07:00
 
-The [Vault](https://docs.saucelabs.com/api-testing/environments-vault-and-overrides-magic/) is a unique feature of the API Fortress platform that allows you to store information for use across all projects or tests.
+The [Vault](https://docs.saucelabs.com/api-testing/vault/) is a unique feature of the API Fortress platform that allows you to store information for use across all projects or tests.
 
 #### Video
 **[API Testing – The Vault](https://youtu.be/kjdZWpxHH1c)**
@@ -492,7 +493,7 @@ To export a Snippet into the Company Vault:
 
 8. Choose your file to add it to the Company Vault.
 
-   <img src="assets/apif-mod3/05/export4.png" alt="Import the Snippet", width="500" />
+   <img src="assets/apif-mod3/05/export4.png" alt="Import the Snippet" width="500" />
 
 
 This is a screenshot of the end result:
@@ -502,9 +503,8 @@ This is a screenshot of the end result:
 Now you can add this snippet to any test in any project. This approach is much easier than recreating the entire test from scratch! Run your test to see the report.
 
 To learn more about The Vault and Environments, see:
-* [Learn the Basics](https://docs.saucelabs.com/api-testing/quickstart)
-* [Environments Basics](https://docs.saucelabs.com/api-testing/environments-vault-and-overrides-magic)
-* [Using Variables](https://docs.saucelabs.com/api-testing/flexible-variables-for-flexible-environments/)
+* [Environments Basics](https://docs.saucelabs.com/api-testing/environments/)
+* [Using Variables](https://docs.saucelabs.com/api-testing/vault/)
 
 
 <!-- ------------------------ -->
