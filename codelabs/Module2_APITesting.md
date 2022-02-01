@@ -144,7 +144,7 @@ Let's add a GET component that makes a successful API call against the Sauce Lab
 
 In the previous step, we encountered a common authentication error, **[HTTP: 401](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401)**, because we didn't send the `username` and `accesskey` that Sauce Labs requires to communicate with their API.
 
-To fix this error, we'll need to add our [Sauce Labs Account Credentials](https://app.saucelabs.com/user-settings) as a [Basic Authentication Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication).
+To fix this error, we'll need to add our [Sauce Labs account credentials](https://app.saucelabs.com/user-settings) as a [Basic Authentication Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication).
 
 1. Navigate back to the **Tests** page and click to edit the test you created.
    <img src="assets/apif-mod2/01/goBackTests.png" alt="API Fortress: Go back to the tests page" />
@@ -199,8 +199,7 @@ Negative
    <img src="assets/apif-mod2/01/get3Users.png" alt="Add Auth details to request" />
 
 
-5. Save your HTTP request in your project to use later. Name it whatever you'd like (here, it's named `GET 3 Users`):
-   <img src="assets/apif-mod2/01/save3UsersTest.png" alt="Add Auth details to request" />
+5. Save your HTTP request in your project to use later. Name it whatever you'd like (here, it's named `GET 3 Users`):<br/><img src="assets/apif-mod2/01/save3UsersTest.png" alt="Add Auth details to request" />
 
 
 6. Back in the _HTTP Client_, click the **Send** button again. To the right, you should see a `200` response code and something similar in the response headers:

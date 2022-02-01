@@ -443,7 +443,7 @@ and if you check you should see *Documents/logfiles/log1*.
 
 
 ### Specify the Sauce Data Center
-Depending which data center (*us-west-1*, *eu-central-1*, etc.) you are running your tests in, you may want to change which data center your tunnel is running through (default *us-west-1*). [See the list of Sauce Connect endpoints](https://docs.saucelabs.com/basics/data-center-endpoints/data-center-endpoints).
+Depending which data center (*us-west-1*, *eu-central-1*, etc.) you are running your tests in, you may want to change which data center your tunnel is running through (default *us-west-1*). [See the list of Sauce Connect endpoints](https://docs.saucelabs.com/basics/data-center-endpoints).
 
 Simply add a flag for the [data center endpoint](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy#data-center-endpoint) like `-x https://data-center-1.saucelabs.com/rest/v1` when you launch your tunnel:
 

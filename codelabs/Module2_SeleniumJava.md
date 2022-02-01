@@ -499,7 +499,7 @@ When using the IntelliJ IDE, classes and libraries must be instantiated within t
 #### Video
 Watch this [video](https://youtu.be/w3XcmSJxqcg) to understand importing classes and methods with IntelliJ
 
-<video id="https://youtu.be/w3XcmSJxqcg"></video>
+<video id="w3XcmSJxqcg"></video>
 
 ### Code Summary
 

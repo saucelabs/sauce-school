@@ -723,7 +723,7 @@ A  _failure_ is different from an _error_. An error means that you test code is 
 
 The test status will be gathered at the end of your test run, in the quit function. First, however, you need to write a hook to be included into the test execution, since a pass or fail status isn't a part of the pytest library.
 
-At the bottom of the `cpnftest.py` test code, you are going to add a hook. Copy and paste the following into your code:
+At the bottom of the `conftest.py` test code, you are going to add a hook. Copy and paste the following into your code:
 
 ```
 # filename: tests/conftest.py
@@ -738,7 +738,7 @@ def pytest_runtest_makereport(item, call):
     setattr(item, "rep_" + rep.when, rep)
 ```
 
-Next, we are going to use this hook as a part of the `quit()` method and create a variable callde `sauce_result` that will say either passed or failed, depending on what the hook detects:
+Next, we are going to use this hook as a part of the `quit()` method and create a variable called `sauce_result` that will say either passed or failed, depending on what the hook detects:
 
 ```
 # filename: tests/conftest.py
