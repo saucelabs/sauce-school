@@ -30,9 +30,16 @@ Duration: 0:01:00
 
 * Learn basic JavaScript to write page object and test code that runs on Cypress and saucectl with the Sauce Labs platform (Optional)
 
+### What You'll Need
+* [A Sauce Labs Account](https://saucelabs.com/sign-up)
+* [The Sauce Connect software](https://docs.saucelabs.com/secure-connections/sauce-connect/quickstart/) installed on your machine
+* [The saucectl software](https://docs.saucelabs.com/testrunner-toolkit/installation/) installed on your machine
+* The [sample code for each lesson](https://github.com/walkerlj0/saucectl-course-example-code/tree/main/Mod1)
+
 ### Note
-Negative
-: Developers that **already have a test suite do not have to do Modules 1.07 - 1.09**. If you have one, simply create a new saucectl project in the folder with your Cypress test suites to get started quickly, moving on to Module 2 after 1.06.
+<aside class="negative">
+Developers that <strong>already have a test suite do not have to do Modules 1.07 - 1.09.</strong> If you have one, simply create a new saucectl project in the folder with your Cypress test suites to get started quickly, moving on to Module 2 after 1.06.
+</aside>
 
 #### Clone the Project
 If you would like to follow along with the course, using the exact sample code, you can use the [example tests here](https://github.com/walkerlj0/saucectl-course-example-code/tree/main/Mod1/1.03).
@@ -116,8 +123,10 @@ _More detailed instructions are below_
 <video id="XCzmAbXyK-A"></video>
 
 
-Negative
-: Note that the config file in the video may be out of date, and the [correct configuration can be found in the documentation.](https://docs.staging.saucelabs.net/testrunner-toolkit/configuration/cypress). This video also doesn't include the `.sauceignore` file, where you can list the files & directories you don't want uploaded when you run your tests in _sauce mode_.
+<aside class="negative">
+Note that the config file in the video may be out of date, and the <a href="https://docs.staging.saucelabs.net/testrunner-toolkit/configuration/cypress"> correct configuration can be found in the documentation</a>. This video also doesn't include the <code>.sauceignore</code> file, where you can list the files & directories you don't want uploaded when you run your tests in <i>sauce mode</i>.
+</aside>
+
 
 ### Download and Install saucectl
 
@@ -364,8 +373,10 @@ suites:
 
 #### Note
 
-Negative
-: There are also two alternatives for listing the `testFiles;` in your suite, either in brackets `[]` [like the example here](https://docs.saucelabs.com/testrunner-toolkit/configuration/cypress#suites/&utm_source=referral&utm_medium=LMS&utm_campaign=link), or underneath tabbed in, in front of a dash with a space: `-'**/login].spec.js' `
+<aside class="negative">
+ There are also two alternatives for listing the <code>testFiles:</code> in your suite, either in brackets <code>[]</code> like the example above, or underneath tabbed in, in front of a dash with a space: <code>-'**/login].spec.js'</code>.
+</aside>
+
 
 Now when you use the command `saucectl run` you should see both test suites, **chrome smoke** and **chrome regression** having run:
 
@@ -396,8 +407,10 @@ You can change this setting back to default to _Sauce mode_ by changing `mode: s
 Unless you specify a different mode in a suite, all tests will run in _Docker Mode_:
 
 #### Note
-Negative
-: Not all browsers may be supported in _Docker Mode_, see the [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.1.0).
+<aside class="negative">
+ Not all browsers may be supported in <i>Docker Mode</i>, see the <a href"https://github.com/saucelabs/sauce-cypress-runner/releases/tag/v7.1.0">release notes</a>.
+</aside>
+
 
 #### Run Certain Tests in Different Modes
 
@@ -482,8 +495,11 @@ Inside of the `.sauce` data object, find the `concurrency` field, and change it 
 
 You are able to run suites of tests in parallel using the `concurrency` field in `config.yml`, running as many test suites in parallel as you would like (limited by the of virtual machines you have available on your Sauce Labs account).
 
-Negative
-: In order to run tests in parallel, you must have a paid account that has a concurrency of more than one. See the docs to learn more about concurrency, and check your concurrency  under **User Settings**. <img src="assets/TRT1.05B.png" alt="Concurrency in user settings" width="550"/>
+<aside class="negative">
+In order to run tests in parallel, you must have a paid account that has a concurrency of more than one. See the docs to learn more about concurrency, and check your concurrency  under <strong>User Settings</strong>.
+</br> <img src="assets/TRT1.05B.png" alt="Concurrency in user settings" width="550"/>
+</aside>
+
 
 
 ### Run Parallel Tests in Multiple Browsers
@@ -569,8 +585,10 @@ Sauce Labs’ Testrunner Toolkit allows you to take existing Cypress test suites
 <video id="GTGlkiUCRLM"></video>
 
 #### Note
-Negative
-: Different versions of Cypress will come with different pre-set project structures. If you have additional directories and files, you can keep them where they are, just make sure that you have the directories and files specified in this tutorial.
+<aside class="negative">
+Different versions of Cypress will come with different pre-set project structures. If you have additional directories and files, you can keep them where they are, just make sure that you have the directories and files specified in this tutorial.
+</aside>
+
 
 
 ### Test Configuration
@@ -864,8 +882,10 @@ describe('LoginPage', () => {
 
 ```
 
-Negative
-: Once you finish, **go back to [Module 1.04](https://training.saucelabs.com/codelabs/Module1-Testrunner/index.html?index=..%2F..testrunner#3)** to see how to run your tests in sauce or docker mode.
+<aside class="negative">
+Once you finish, <strong>go back to <a href="https://training.saucelabs.com/codelabs/Module1-Testrunner/index.html?index=..%2F..testrunner#3">Module 1.04</a></strong> to see how to run your tests in sauce or docker mode.
+</aside>
+
 
 #### Final Code
 
@@ -919,8 +939,9 @@ To install cypress locally, add `dependencies: {}` with `cypress:"x.x.x"` to the
 
 #### Note
 
-Negative
-: You will want to check `.sauce/config.yml` to see which version of cypress you are running in saucectl and match the version here. You can also use a newer version of Cypress, however you will want to check to make sure your project structure stays the same, as well as your files. If saucectl asks to overwrite files when it installs the new version, choose **No** in the npm workflow.
+<aside class="negative">
+You will want to check <code>.sauce/config.yml</code> to see which version of cypress you are running in saucectl and match the version here. You can also use a newer version of Cypress, however you will want to check to make sure your project structure stays the same, as well as your files. If saucectl asks to overwrite files when it installs the new version, choose <strong>No</strong> in the npm workflow.
+</aside>
 
 Now run `npm install` again to install the extra dependencies specified in `package.json`. Now in your folder you should see:
 

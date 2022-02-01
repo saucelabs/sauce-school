@@ -11,7 +11,7 @@ analytics account: UA-86110990-1
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 
 <!-- ------------------------ -->
-# Module 5 – Sauce Connect, Sauce OnDemand, and Continuous Integration
+# Module 5 – Sauce Connect, Parallel Tests, and CI with Selenium Java
 <!-- ------------------------ -->
 ## 5.01 What You’ll Learn
 Duration: 0:02:00

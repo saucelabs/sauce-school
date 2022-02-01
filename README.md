@@ -10,10 +10,23 @@ This document will be for documenting sauce_school specific changes and specific
  Install [Golang](https://golang.org/dl/) and [nodeJS and NPM](https://nodejs.org/en/download/) on your computer. [More instructions here](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
 
 ### 2. Get Claat & Go Env Variables
-Download the [claat binary](https://github.com/googlecodelabs/tools/tree/master/claat#install) using the command `go get github.com/googlecodelabs/tools/claat`. When you installed GO on your computer, you should have a folder called go/bin and if you navigate to the folder after installing claat, you should see a claat folder as well..
- [_more detailed instructions can be found here_](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
+Download the [claat binary](https://github.com/googlecodelabs/tools/tree/master/claat#install) using the command
+```
+go install github.com/googlecodelabs/tools/claat/cmd@latest
+```
+OR
 
- > Make sure you have the Go environment variables set up so you can run your test. in either `.bash_profile` or `.zshrc`, add the following:
+```
+go get -u -v -x github.com/googlecodelabs/tools/claat
+```
+
+
+When you installed the GO SDK on your computer, it should have installed a folder in `/usr/local/go/bin'. When you installed claat, it should have installed a `/go` directory in your home directory. and if you navigate to `'usr/bin` in your home directory after installing claat, you should see a claat binary as well.
+ [_more detailed instructions can be found here_](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd). 
+ 
+The `GOPATH` variable should point to the directory where you installed claat (mine is in my $HOME directory), an the `GOROOT` directory should point to where your SDK was installed (probably in /usr/local/go).[More on GOROOT and GOPATH](https://www.jetbrains.com/help/go/configuring-goroot-and-gopath.html)
+
+ > Make sure you have the Go environment variables in either `.bash_profile` or `.zshrc`:
 
 ```
 ## not required if you’re only using Go modules
@@ -146,7 +159,9 @@ Images can mess things up. Make sure you list an image as `assets/imagename.png`
 ### 4. Adding in Elements to .md files
 See the template.md file for how to format most items
 
- * Format for Images `!(Image title)[imageDirInCodelab/Imagename,extension]``
+> Images should be placed in the `codelabs/assets` directory and referenced as `assets/filename.png`. Convention is to name the file with a capial identifier for the coure, the module number, and A, B, C, etc for the first, second, third, etc picture in that course. As an example, the fourth picture in the Sauce Control Native Course module 1.05 would be `assets/SCTLN1.05D.png`
+
+* Format for Images `<img src="assets/filename.png" alt="Example Alt Text"/>`
 * Format for Links `[Text to be highlighted](URL)`
 * Format for iframes `![embed URL](regular URL)`
 * Format for YouTube videos:

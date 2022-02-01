@@ -26,8 +26,13 @@ Duration: 0:01:00
   * On Sauce Labs VM (in _Sauce Mode_)
   * On Docker, passing results to Sauce Labs (in _Docker Mode_)
 * Setup your Cypress tests and app code in a CI tool (GitHub Actions) passing information to Sauce Labs
-* Create and run a workflow with jobs that build and test an example app using GitHub Actions
+* Create and run a workflow with jobs that build and test an example app using GitHub Actions.
 
+### What You'll Need
+* [A Sauce Labs Account](https://saucelabs.com/sign-up)
+* [The Sauce Connect software](https://docs.saucelabs.com/secure-connections/sauce-connect/quickstart/) installed on your machine
+* [The saucectl software](https://docs.saucelabs.com/testrunner-toolkit/installation/) installed on your machine
+* The [sample code for each lesson](https://github.com/walkerlj0/saucectl-course-example-code/tree/main/Mod2)
 
 <!-- ------------------------ -->
 ## 2.02 Set Up Sauce Connect
@@ -83,8 +88,12 @@ In this example, the tunnel name is `linds-proxy-tunnel.`
 
 ###Note
 
-Negative
-: **Create Environment Variables for Sauce Labs –** The first thing you should do when creating a test is set up environment variables on your local machine or CI tool for your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`. It is important to save your Sauce username and access key as environment variables, instead of coding them into your test. It will also make transitioning to a continuous integration pipeline easier, since they will use the same environment variables. Watch [this video](https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing) to learn how to set up environment variables with your Sauce Labs credentials on a Mac, or view the [instructions for Windows](https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing).
+<aside class="negative">
+<strong>Create Environment Variables for Sauce Labs</strong>
+</br>
+The first thing you should do when creating a test is set up environment variables on your local machine or CI tool for your <code>SAUCE_USERNAME</code> and <code>SAUCE_ACCESS_KEY</code>. It is important to save your Sauce username and access key as environment variables, instead of coding them into your test. It will also make transitioning to a continuous integration pipeline easier, since they will use the same environment variables. Watch <a href="https://drive.google.com/file/d/1qezKtvBpn94bBTJgbAd2MSx4ByNx7oaz/view?usp=sharing">this video</a> to learn how to set up environment variables with your Sauce Labs credentials on a Mac, or view the <a href="https://docs.google.com/document/d/1Cb27j6hgau5JHmAxGHPihd3V4Og3autPCei82_m1Ae8/edit?usp=sharing">instructions for Windows</a>.
+</aside>
+
 
 You also have the option to copy the command that you will find at the bottom of the **Tunnels** tab in the [Sauce Labs app](https://accounts.saucelabs.com/am/XUI/#login), and paste this into your terminal as well, instead of typing what is above. Once you paste, you can change the tunnel name after the `-i` flag:
 ```
@@ -114,8 +123,10 @@ Duration: 0:04:00
 
 With saucectl and Sauce Labs, you can use Sauce Connect Proxy to run your Cypress tests thorough a secure proxy tunnel when you run tests the Sauce Labs cloud of virtual machines (in `--test-env sauce`), passing the data to Sauce Labs.
 
-Negative
-: First, make sure that your Sauce Connect tunnel is currently running, as per the instructions in the last module. Now you can make a simple change to `.sauce/config.yml` and run your Cypress test
+<aside class="negative">
+First, make sure that your Sauce Connect tunnel is currently running, as per the instructions in the last module. Now you can make a simple change to <code>.sauce/config.yml</code> and run your Cypress test
+</aside>
+
 
 #### Video
 **[Run a Cypress Test With Sauce Connect](https://www.youtube.com/watch?v=AO3CavnpKq8&list=PL67l1VPxOnT7YTdCbpvSpJ8FF-sNxm8r-&index=7)**
@@ -174,8 +185,9 @@ In this example, we will be downloading the [Swag Labs web app](https://github.c
 
 <video id="N2qUff6KZ-M"></video>
 
-Negative
-: This video shows the workflow for testing in Sauce Mode, which requires Sauce Connect Tunnel to be open so Sauce Labs can access the app you are running on your local machine.
+<aside class="negative">
+This video shows the workflow for testing in Sauce Mode, which requires Sauce Connect Tunnel to be open so Sauce Labs can access the app you are running on your local machine.
+</aside>
 
 ### Download Swag Labs (Optional)
 
@@ -279,8 +291,10 @@ If you are following along with the [Swag Labs app](https://github.com/saucelabs
 <img src="assets/TRT2.05C.png" alt="Set up github repo" width="450"/>
 
 #### Note
-Negative
-: To follow along, fork then download a copy of the [example web app](https://github.com/saucelabs/sample-app-web). Find a directory to store it on your computer, and use `git clone your-forked-repo` to make a local copy, then `git add .`, `commit -m "initial commit"` and `git push` to push your local changes.
+<aside class="negative">
+To follow along, fork then download a copy of the <a href="https://github.com/saucelabs/sample-app-web">example web app</a>. Find a directory to store it on your computer, and use <code>git clone your-forked-repo</code> to make a local copy, then <code>git add .</code>, <code>commit -m "initial commit"</code> and <code>git push</code> to push your local changes.
+</aside>
+
 
 
 We will set up our test to run on every pull request made to a code repository.
@@ -300,8 +314,12 @@ Now that you have a copy of your Cypress test files in your app. This can be don
 
 #### Note
 
-Negative
-: If you are using the sample app, you will want to make it so the workflows from the other `.yml` files included in this app don't run (in the directory `.github/workflow`) by appending `.bak` on the end, this way the other workflows in the app won't run when you commit or push. <img src="assets/TRT2.05G.png" alt="The YML file" width="550"/>
+<aside class="negative">
+If you are using the sample app, you will want to make it so the workflows from the other <code>.yml</code> files included in this app don't run (in the directory <code>.github/workflow</code>) by appending <code>.bak</code> on the end, this way the other workflows in the app won't run when you commit or push.
+</br>
+<img src="assets/TRT2.05G.png" alt="The YML file" width="550"/>
+</aside>
+
 
 ### Create GitHub Secrets
 
@@ -362,8 +380,10 @@ The `jobs:` object allows you to specify a group of individual actions that occu
 
 
 #### Note
-Negative
-: The `SAUCECTL_VERSION` variable should be set to the [latest release version listed](https://github.com/saucelabs/saucectl).
+<aside class="negative">
+The <code>SAUCECTL_VERSION</code> variable should be set to the <a href="https://github.com/saucelabs/saucectl">latest release version listed</a>.
+</aside>
+
 
 #### Final Code
 [See an example](https://github.com/walkerlj0/testrunner-course-example-code/tree/main/Mod2/2.06) of how the app code & workflow file is set up with Cypress tests.
@@ -464,8 +484,9 @@ jobs:
 This test job **needs** the `build-web-app` job to run first, and that the names of these should match. The **runs-on** specifies the virtual environment that GitHub Actions runs the app and tests in (an Ubuntu container).
 
 #### Note
-Negative
-: The variable `CI` is one recognized by CI tools, and if it's set to the default `true`, that may in fact cause [errors when running a build](https://dev.to/kapi1/solved-treating-warnings-as-errors-because-of-process-env-ci-true-bk5) of your app.
+<aside class="negative">
+The variable <code>CI</code> is one recognized by CI tools, and if it's set to the default <code>true</code>, that may in fact cause <a href= "https://dev.to/kapi1/solved-treating-warnings-as-errors-because-of-process-env-ci-true-bk5">errors when running a build</a> of your app.
+</aside>
 
 #### Install Python
 Python is used within the virtual Ubuntu environment to serve the app you are testing, (A NodeJS server is running your tests, and we don't want them to have race conditions) so when you run the test-web-app job, install Python first:
@@ -536,10 +557,12 @@ steps:
       sc-4.6.4-linux/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -i proxy-tunnel-$GITHUB_RUN_ID &
 ```
 
-Note that in this case the flag -`i proxy-tunnel-$GITHUB_RUN_ID` spins up (& tears down) a new tunnel each time the workflow is run.
+In this case the flag -`i proxy-tunnel-$GITHUB_RUN_ID` spins up (& tears down) a new tunnel each time the workflow is run.
 
-Negative
-: Make sure you have GitHub secrets set up for your SAUCE_USERNAME and SAUCE_ACCESS_KEY, and that the version of `sc-x.x.x` is set to the [latest version](https://docs.saucelabs.com/secure-connections/sauce-connect/installation/)  
+<aside class="negative">
+Make sure you have GitHub secrets set up for your <code>SAUCE_USERNAME</code> and <code>SAUCE_ACCESS_KEY</code>, and that the version of <code>sc-x.x.x</code> is set to the <a href="https://docs.saucelabs.com/secure-connections/sauce-connect/installation/">latest version</a>
+</aside>
+
 
 #### Use SauceCTL to Run Tests
 Use the action to install Sauce Control, then run the tests by building on `port 8000` and running the tests:

@@ -26,6 +26,9 @@ Below are the primary learning objectives for this module:
   * API status codes & response terminology
 * Learn to plan and create API tests as a part of a testing strategy
 
+### What You'll Need
+* A Sauce Labs account
+* Access to the API Testing Dashboard. E-mail support.saucelabs.com or [submit a support request](https://support.saucelabs.com/hc/en-us)
 
 <!------------------------------>
 ## 1.02 Introduction to Web Services & APIs
@@ -253,7 +256,7 @@ This is the more commonly seen format in REST APIs today. The Uber example is in
 
 #### Assertion
 
-A rule or specific test against a single object and/or piece of data. The API testing platform is powered by a proprietary XML language [with several assertions](https://docs.saucelabs.com/api-testing/mark2/assertion-components/assert-compares/), that handle just about every scenario, and are very quick and easy to write.
+A rule or specific test against a single object and/or piece of data. The API testing platform is powered by a proprietary XML language [with several assertions](https://docs.saucelabs.com/api-testing/on-prem/assertion-components/assert-compares/), that handle just about every scenario, and are very quick and easy to write.
 
 ### API Status Codes
 API requests return certain codes to let you know whether a API call was successful or not, as well as what kind of error occurred. Some common status codes include:

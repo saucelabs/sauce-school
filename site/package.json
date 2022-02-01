@@ -41,6 +41,7 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
+    "gulp-sitemap": "^8.0.0",
     "node-sass": "^4.14.0"
   }
 }

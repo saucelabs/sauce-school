@@ -56,6 +56,13 @@ In this lesson, you will learn to:
 
 <video id="cpBcGeZ_wQU"></video>
 
+
+<!-- <details>
+<summary>Flags</summary>
+<br>
+Some of the flags in this video may be deprecated, see the <a href="https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/">Documentation for more information</a>. The <code>tunnel-identifier</code> flag has been changed to the <code>tunnel-name</code>
+</details> -->
+
 <aside class="negative">
 Some of the flags in this video may be deprecated, see the <a href="https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/">Documentation for more information</a>. The <code>tunnel-identifier</code> flag has been changed to the <code>tunnel-name</code>
 </aside>
@@ -144,7 +151,7 @@ You can stop any tunnel that you have running by hitting `cntrl` + `c`
 
 #### Note
 <aside class="negative">
- If you have trouble running your tunnel, you may need to update your firewall settings to [allow outbound traffic on port 443](https://docs.saucelabs.com/secure-connections/sauce-connect/faq#what-outbound-ports-do-i-need-open-for-sauce-connect-proxy) or configure Sauce Connect Proxy with a proxy that can reach the <code>saucelabs.com</code> domain, using the <code>--proxy</code> or <code>--pac</code> command line options
+ If you have trouble running your tunnel, you may need to update your firewall settings to <a href="https://docs.saucelabs.com/secure-connections/sauce-connect/faq#what-outbound-ports-do-i-need-open-for-sauce-connect-proxy">allow outbound traffic on port 443</a> or configure Sauce Connect Proxy with a proxy that can reach the <code>saucelabs.com</code> domain, using the <code>--proxy</code> or <code>--pac</code> command line options
  </aside>
 
 ### Live (Manual) Tests with Sauce Connect

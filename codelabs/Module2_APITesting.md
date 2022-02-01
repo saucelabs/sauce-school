@@ -26,6 +26,10 @@ Duration: 0:02:00
 * View the test results
 * Publish and schedule a test run
 
+### What You'll Need
+* A Sauce Labs account
+* Access to the API Testing Dashboard. E-mail support.saucelabs.com or [submit a support request](https://support.saucelabs.com/hc/en-us)
+
 <!------------------------------>
 ## 2.02 Introduction to API Fortress
 Duration: 0:04:00
@@ -100,8 +104,11 @@ From the project:
    <img src="assets/apif-mod2/01/newTest.png" alt="API Fortress: Test Status / Interstitial Page" />
 
 #### Note:
-Negative
-: Enter tags individually and then press 'Enter' to submit the tag. These will be helpful down the road when you want to search or query test results by tag name.
+
+<aside class="negative">
+Enter tags individually and then press Enter to submit the tag. These will be helpful down the road when you want to search or query test results by tag name.
+</aside>
+
 
 
 <!------------------------------>
@@ -132,21 +139,38 @@ You should receive the following error response to the right of the request inpu
 
 <img src="assets/apif-mod2/01/authFailed.png" alt="API Fortress: HTTP 401 Request Error" />
 
+You are getting this error because you need to send an authorization header, identifying who you are in order to get a response from the GET request.
+
+We will use this request, however, to generate a test in the next section.
 
 #### Note:
 
-Negative
-: To see the raw response body in the **HTTP Client**, select **Body**, then select either *Raw* or *Parsed*.
+<aside class="negative">
+To try out a response that you can see (which doesn't require authorization) simply copy-paste the following into the GET request: <code>saucelabs.com/rest/v1/public/tunnels/info/versions</code>
+</br>
+<img src="assets/apif-mod2/successful-get.png" alt="sauce connect get"/>
+</br>
+</aside>
+
+## 2.05 Generate a Test from GET
+
+Lets use the test creation feature to get an authorization header that you can then add to an HTTP request to generate a test with that HTTP request.
+
+Start with the HTTP call to the team management endpoint URL:
+
+`https://api.us-west-1.saucelabs.com/team-management/v1/users?limit=3`
+
+
+<img src="assets/apif-mod2/get-team-managemet.png" alt="GET team management" />
+
 
 ### Adding a Test Component
-
-Let's add a GET component that makes a successful API call against the Sauce Labs REST API.
 
 In the previous step, we encountered a common authentication error, **[HTTP: 401](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401)**, because we didn't send the `username` and `accesskey` that Sauce Labs requires to communicate with their API.
 
 To fix this error, we'll need to add our [Sauce Labs account credentials](https://app.saucelabs.com/user-settings) as a [Basic Authentication Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication).
 
-1. Navigate back to the **Tests** page and click to edit the test you created.
+1. Navigate back to the **Tests** page and click to edit .
    <img src="assets/apif-mod2/01/goBackTests.png" alt="API Fortress: Go back to the tests page" />
 
 2. Select **+ Add Request / Assertions**.
@@ -166,29 +190,34 @@ To fix this error, we'll need to add our [Sauce Labs account credentials](https:
     * **Query Params**: under *Name*, put `limit`; under *String value*, put `3`. This sets the number of responses to a limit of 3, so that your test doesn't take too long to complete.
 
 2. Scroll to the bottom of the window and click **Add Authentication**.
+</br>
    <img src="assets/apif-mod2/01/addAuthentication.png" alt="API Fortress: Authentication Details" />
 
 
 3. Select **Basic Authentication**.
-
+</br>
   <img src="assets/apif-mod2/basic-auth-component.png" alt="API Fortress: Basic Auth Component" />
 
-4. Input your [Sauce Labs Username and Access Key](https://app.us-west-1.saucelabs.com/user-settings) in the relevant fields.    When you're finished, select the **green check mark** <img src="assets/apif-mod2/green-check-mark.png" alt="API Fortress: Green Check Mark" width="30"/>.
+4. Input your [Sauce Labs Username and Access Key](https://app.saucelabs.com/user-settings) in the relevant fields.    When you're finished, select the **green check mark** <img src="assets/apif-mod2/green-check-mark.png" alt="API Fortress: Green Check Mark" width="30"/>.
 
    <img src="assets/apif-mod2/01/basicAuthDetails.png" alt="API Fortress: Basic Auth Details" />
 
 
 
 #### Note
-Negative
-: THERE IS NO AUTOSAVE! It's important to save each time you make a change to your test and/or an HTTP Request.
 
+<aside class="negative">
+<strong>Your Tests will not auto-save</strong> It's important to save each time you make a change to your test and/or an HTTP Request, and it is important to <strong>click the save button each time</strong>
+</br>
 <img src="assets/apif-mod2/01/saveTheThings.png" alt="API Fortress: Save" width="600" />  
+</aside>
+
 
 
 ### Copy and Paste the Encoded Auth Header
 
 1. You'll notice that API Fortress automatically encodes and adds the [Base64 Authorization header](https://developer.mozilla.org/en-US/docs/Glossary/Base64) for you. Double-click the component to see the details:
+</br>
    <img src="assets/apif-mod2/01/basicEncode.png" alt="API Fortress: New Auth Component" />
 
 2. Copy the `base64` Basic Authorization value (e.g., `Basic anRhY2s0Oxxxxxxxxxxxxxxxxxxxxxxxx==`) to your clipboard.
@@ -196,15 +225,23 @@ Negative
 3. Return to the HTTP Client tab in your project.
 
 4. Paste the `base64` Basic Authorization value into your HTTP Client **Headers** section and type `Authorization` into the _Key_ field. Also, make sure the endpoint URL (`https://api.us-west-1.saucelabs.com/team-management/v1/users?limit=3`) is still there:
+</br>
    <img src="assets/apif-mod2/01/get3Users.png" alt="Add Auth details to request" />
 
-
-5. Save your HTTP request in your project to use later. Name it whatever you'd like (here, it's named `GET 3 Users`):<br/><img src="assets/apif-mod2/01/save3UsersTest.png" alt="Add Auth details to request" />
-
+5. Save your HTTP request in your project to use later. Name it whatever you'd like (here, it's named `GET 3 Users`):
+</br>
+   <img src="assets/apif-mod2/01/save3UsersTest.png" alt="Add Auth details to request" />
 
 6. Back in the _HTTP Client_, click the **Send** button again. To the right, you should see a `200` response code and something similar in the response headers:
    <img src="assets/apif-mod2/01/responseBody200.png" alt="API Fortress: Response Body Example" />
 
+   <aside class="negative">
+<strong> See the Workflow</strong> to create a GET request with an Basic Authorization header.
+
+ <img src="assets/apif-mod2/2.05_Generate_A_Test_GET.gif" alt="API Fortress: GET call with Basic Auth" />
+   </aside>
+
+### Generate a Test from the HTTP Client
 
 7. Next, click the **Generate Test** button and API Fortress automagically generates a sample test based on the request data.
    <img src="assets/apif-mod2/01/generateTest.png" alt="API Fortress: Generate Test Button" />
@@ -218,7 +255,7 @@ Negative
 
 <!------------------------------>
 
-## 2.05 View Test Results
+## 2.08 View Test Results
 Duration: 0:01:00
 
 To view your test results:
@@ -245,7 +282,7 @@ You can use the **HTTP Client** to send a request and even add in headers, such 
 
 <!-- ------------------------ -->
 
-## 2.06 Schedule and Publish a Test
+## 2.07 Schedule and Publish a Test
 Duration: 0:04:00
 
 If you navigate back to the **Tests** page, you may see an **Unpublished changes** message in the right-hand nav.

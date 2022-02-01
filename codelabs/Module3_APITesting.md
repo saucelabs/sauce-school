@@ -28,6 +28,10 @@ In this module, you will be learning to create your own test from scratch with t
 * Learn about how and when to use Input Sets and Variables.
 * Demonstrate how to store sensitive variable data and/or secrets in the Vault.
 
+### What You'll Need
+* A Sauce Labs account
+* Access to the API Testing Dashboard. E-mail **support@saucelabs.com** or [submit a support request](https://support.saucelabs.com/hc/en-us)
+
 
 <!------------------------------>
 ## 3.02 Component Library
@@ -56,8 +60,6 @@ If you select the **Tag** component at the top, it will automatically add this c
 
 You can add any of the following components to your test, depending on your use case. For an example some examples in the screenshot below:
 
-* **Update Input**: Store and/or updates a variable in an _input set_.
-* **JDBC**: Connect this request to a database using a [JDBC API](https://en.wikipedia.org/wiki/Java_Database_Connectivity#).
 * **K/V Store**: Store and retrieve ephemeral data from a `key:value` store.
 * **Fake**: Generates fake data for your test, particularly for `POST` and `PUT` requests.
 
@@ -85,8 +87,10 @@ A **Request** component is the foundation for creating a new test in API Fortres
 Refer to the [API Testing Basics](https://training.saucelabs.com/codelabs/Module1-APITesting/#3) module for further details about API request methods.
 
 ### Note:
-Negative
-: In the previous module, [_Introduction to API Fortress_](https://training.saucelabs.com/codelabs/Module2-APITesting/index.html#0), we used the **Generate Test** button. This button automatically generates the HTTP request, assertions, and other test elements so that you can focus on the more intricate and tricky parts of your tests. In this module, we will build a test from scratch in order to understand the importance of assertions, but refer back to that test for inspiration and ideas on how to design your assertions.
+<aside class="negative">
+In the previous module, <a href="https://training.saucelabs.com/codelabs/Module2-APITesting/index.html#0">Introduction to API Fortress</a>, we used the <strong>Generate Test</strong> button. This button automatically generates the HTTP request, assertions, and other test elements so that you can focus on the more intricate and tricky parts of your tests. In this module, we will build a test from scratch in order to understand the importance of assertions, but refer back to that test for inspiration and ideas on how to design your assertions.e!
+</aside>
+
 
 ### Add a GET Request Component
 
@@ -131,9 +135,9 @@ In order to validate an API endpoint works properly, you must _assert_ whether t
 
 There are several assertions to choose from and below are a few examples, along with the accompanying documentation:
 
-* **[Assert Exists](https://docs.saucelabs.com/api-testing/mark2/assertion-components/assert-exists/)**: Checks whether an item exists or not.
-* **[Assert Contains](https://docs.saucelabs.com/api-testing/mark2/assertion-components/assert-contains/)**: Checks an item has a specific substring (e.g., test the word _Uber_ for product names like: _UberX_, _UberBlack_).
-* **[Assert Is](https://docs.saucelabs.com/api-testing/mark2/assertion-components/assert-is/)**: Checks whether the value of an item is correctly defined (e.g., _url_, _boolean_, _integer_).
+* **[Assert Exists](https://docs.saucelabs.com/api-testing/on-prem/assertion-components/assert-exists/)**: Checks whether an item exists or not.
+* **[Assert Contains](https://docs.saucelabs.com/api-testing/on-prem/assertion-components/assert-contains/)**: Checks an item has a specific substring (e.g., test the word _Uber_ for product names like: _UberX_, _UberBlack_).
+* **[Assert Is](https://docs.saucelabs.com/api-testing/on-prem/assertion-components/assert-is/)**: Checks whether the value of an item is correctly defined (e.g., _url_, _boolean_, _integer_).
 
 In this example, you will be checking that when you ping the endpoint `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions` that a payload is return (it exists) and the one of the fields, the `"info_url"` is in fact a url.
 
@@ -241,9 +245,10 @@ The finished result should look like this:
 <img src="assets/apif-mod3/05/finishedResult2.png" alt="Finished Result of Global Params" width="500"/>
 
 ### Note:
-Negative
-: Please refer to the documentation for further information on [creating variables](https://docs.saucelabs.com/api-testing/vault/) and [managing variables](https://docs.saucelabs.com/api-testing/variables-environment-overrides/).
 
+<aside class="negative">
+Please refer to the documentation for further information on <a href="https://docs.saucelabs.com/api-testing/vault">using variables</a>.
+</aside>
 
 In the next section, we will cover how to store information as an **Input Set**.
 
@@ -373,8 +378,10 @@ The **Project Vault** allows you to save more than just variables; you can also 
 * Any assertions and code elements
 
 #### Note:
-Negative
-: A quick note on "Vault Scope." There is a key difference between the **Project Vault** vs. the **Company Vault**. In general, whatever you store in the Company Vault can be used across all project tests, but if there exists a similar value in your _Project Vault_, that value wins and overrides the value in the _Company Vault_. [More on this later](#company-vault).
+<aside class="negative">
+A quick note on "Vault Scope." There is a key difference between the <strong>Project Vault</strong> vs. the <strong>Company Vault</strong>. In general, whatever you store in the Company Vault can be used across all project tests, but if there exists a similar value in your <i>Project Vault</i>, that value wins and overrides the value in the <i>Company Vault</i>.
+</aside>
+
 
 
 ### Exercise: Use the Vault to Store a Snippet
@@ -402,10 +409,12 @@ The snippet now appears in the Snippets section of the project vault. To get bac
    <img src="assets/apif-mod3/SCSnippet.png" alt="Project Vault Snippet" />
 
 #### Note
-Negative
-: There are two ways to delete a snippet:
-   * **Option 1**: Select the checkbox next to the snippet, then select **Delete Selected**. <img src="assets/apif-mod3/05/delete1.png" alt="Delete option 1" />
-   * **Option 2**: Hover over the snippet, then select the trash icon to the right that states **Delete**. <img src="assets/apif-mod3/05/delete2.png" alt="Delete option 2" />
+<aside class="negative">
+There are two ways to delete a snippet:
+   <li>*  <strong>Option 1</strong>: Select the checkbox next to the snippet, then select <strong>Delete Selected</strong>. <img src="assets/apif-mod3/05/delete1.png" alt="Delete option 1" /></li>
+   <li>* <strong>Option 2</strong>: Hover over the snippet, then select the trash icon to the right that states <strong>Delete</strong>. <img src="assets/apif-mod3/05/delete2.png" alt="Delete option 2" /></li>
+</aside>
+
 
 
 ### Using a Snippet

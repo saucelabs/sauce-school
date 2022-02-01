@@ -340,7 +340,7 @@ Run **clean** and **test** with Maven and you should get two passing tests
 #### NOTE
 
 <aside class="negative">
-Now you have a test added into your suite that will check to see that a failure message was present with a bad password. We can't check for a success message not being there because it will throw and error and cause a timeout, ending test execution.
+Now you have a test added into your suite that will check to see that a failure message was present with a bad password. We can't check for a success message <i>not</i> being there because it will throw an error and cause a timeout, ending test execution.
 </aside>
 
 #### Final Code
@@ -585,8 +585,10 @@ Now much of your code has been abstracted into the facade layer called Base.java
 
 #### Note
 
-Negative
-: **Inheriting from the Base Page –** To establish inheritance, you use the` extends `keyword when declaring the class (example;` class Login extends Base, `and call` super `from the constructor, `super(driver)`. This passes the instance of the Selenium webdriver to the base page object, and makes all of the base page object's methods available to our login page object and any other page objects you eventually create).
+<aside class="negative">
+<strong>Inheriting from the Base Page –</strong> To establish inheritance, you use the <code>extends</code> keyword when declaring the class (example; <code>class Login extends Base</code>) and call <code>super</code> from the constructor with <code>super(driver)</code>. This passes the instance of the Selenium webdriver to the base page object, and makes all of the base page object's methods available to our login page object and any other page objects you eventually create).
+</aside>
+
 
 
 If you save everything and run your tests they will run and pass just like before, but now our page objects are more readable, simpler to write, and easier to maintain and extend.
@@ -824,11 +826,11 @@ It’s important to do these in order so that first you locate the element (wait
 
 #### NOTE
 
-Negative
-: The `timeout` parameter in both the `isDisplayed()` method using `WebDriverWait `is set to 10 seconds. This allows time for a slowly loading page and plenty of time to check to see that the element has been located and check if it is visible. In this case, if the `isDisplayed()` function is called without the` timeout` parameter, it will try the same test without the locator (the code in the first` isDisplayed() `in `Base.java`).
-
-Negative
-: <img src="assets/3.06M.png" alt="timeout parameter" width="750"/>
+<aside class="negative">
+The <code>timeout</code> parameter in both the <code>isDisplayed()</code> method using <code>WebDriverWait</code> is set to 10 seconds. This allows time for a slowly loading page and plenty of time to check to see that the element has been located and check if it is visible. In this case, if the <code>isDisplayed()</code> function is called without the <code>timeout</code> parameter, it will try the same test without the locator.
+</br>
+<img src="assets/3.06M.png" alt="timeout parameter" width="750"/>
+</aside>
 
 
 
@@ -919,9 +921,10 @@ In our test, `hiddenElementLoads()`,  you are visiting the first dynamic loading
 
 
 #### NOTE
+<aside class="negative">
+Remember that you have the Chrome driver installed in this case on your local machine. This code will break if you move this to another location like a docker container or virtual machine, and needs to be updated in any <code>setUp()</code> function in the <code>System.setProperty()</code> you have created in any test. You also need to remember to update the <code>System.setProperty()</code> to whatever you had created in <code>TestLogin.java</code>.
+</aside>
 
-Negative
-: Remember that you have the Chrome driver installed in this case on your local machine. This code will break if you move this to another location like a docker container or virtual machine, and needs to be updated in any `setUp()` function in the `System.setProperty() `you have created in any test. You also need to remember to update the `System.setProperty() `to whatever you had created in `TestLogin.java`.
 
 When you save this and run it with  `mvn clean test` from terminal (or from IntelliJ) it will:
 
@@ -977,12 +980,11 @@ Run the test. You can run the tests by typing `mvn clean test` in your terminal.
 
 #### NOTE
 
-Negative
-: The `-Dtests=` flag allows you to search for a certain set of characters when you run the JUnit test. In this case, you are searching for and running the name of the test class **TestDynamicLoading**, and only two tests should be run.
-
-Negative
-: <img src="assets/3.07J.png" alt="Run test dynamic Loading" width="650"/>
-
+<aside class="negative">
+The <code>-Dtests=</code> flag allows you to search for a certain set of characters when you run the JUnit test. In this case, you are searching for and running the name of the test class <strong>TestDynamicLoading</strong>, and only two tests should be run.
+</br>
+<img src="assets/3.07J.png" alt="Run test dynamic Loading" width="650"/>
+</aside>
 
 See the complete [source code here.](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/java/Mod3/3.07)
 

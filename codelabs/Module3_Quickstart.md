@@ -473,10 +473,12 @@ Right now regardless of the outcome of a test, the job in Sauce Labs will regist
 
 <video id="XN4tSvOFPv8"></video>
 
-Negative
-: A  _failure_ is different from an _error_. An error means that you test code is erroneous, and you, as the test writer, need to make a change. You should see this error in your terminal output, and if the code is correct to communicate with Sauce Labs, it should be on your dashboard as well. A failure means a test successfully ran, but the conditions it was checking for were not present – in other words, the code for the app isn’t as expected or needs fixing.
+<aside class="negative">
+A  <i>failure</i> is different from an <i>error</i>. An error means that you test code is erroneous, and you, as the test writer, need to make a change. You should see this error in your terminal output, and if the code is correct to communicate with Sauce Labs, it should be on your dashboard as well. A failure means a test successfully ran, but the conditions it was checking for were not present – in other words, the code for the app isn’t as expected or needs fixing.
 
 <img src="assets/4.06F.png" alt="Error or Complete" width="750"/>
+</aside>
+
 
 ### Create Session ID and Sauce Rest Functionality
 
