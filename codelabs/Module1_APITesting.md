@@ -1,9 +1,9 @@
-summary: Module 1 of the API Testing course. Module 1 will give you a high level understanding of what an API is and why testing APIs is important. This course will guide you on all you need to know to get started with continuous API testing.
+summary: Module 1 of the API Testing course. This course will give you a high-level understanding of APIs, why it's important to test them, and all you need to know to get started with continuous API testing.
 id: Module1-APITesting
 categories: beginner
 tags: zapi
 environments: Web
-status: One or more of (Draft, Published, Deprecated, Hidden)
+status: Published
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
 author:James Tacker & Lindsay Walker
@@ -28,7 +28,6 @@ Below are the primary learning objectives for this module:
 
 ### What You'll Need
 * A Sauce Labs account
-* Access to the API Testing Dashboard. E-mail support.saucelabs.com or [submit a support request](https://support.saucelabs.com/hc/en-us)
 
 <!------------------------------>
 ## 1.02 Introduction to Web Services & APIs
@@ -399,3 +398,11 @@ A good [continuous testing](https://saucelabs.com/solutions/continuous-testing) 
 Duration: 0:03:00
 
 ![https://docs.google.com/forms/d/e/1FAIpQLSfFQwJD8H8xngxGuLW6SBuBCUcvRVj69HeClX48t8sm3ywAdw/viewform?embedded=true>](https://docs.google.com/forms/d/e/1FAIpQLSfFQwJD8H8xngxGuLW6SBuBCUcvRVj69HeClX48t8sm3ywAdw/viewform?usp=sf_link)
+
+<!----------------------------->
+
+## 1.07 Resources
+Duration: 0:01:00
+
+#### [Sauce Labs API Testing Documentation](https://docs.saucelabs.com/api-testing/)
+Get started with API Testing and Monitoring on the Sauce Labs continuous testing cloud

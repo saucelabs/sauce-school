@@ -1,495 +1,515 @@
-summary: Module 3 of the API Testing course. Now that you have learned the basics and some helpful tips on how to do API testing, check out module 3. In this course you will learn how to create your first test. You will learn the different ways to begin writing a test, as well as some more advanced techniques to help you simulate real life scenarios.
+summary: Module 3 of the API Testing course. In this module you will learn about the components you can add to a test, and practice creating a test using assertion components, request components, global variables, input sets, and the vault.
+  {%- endif -%}
 id: Module3-APITesting
-categories: beginner
+categories: intermediate
 tags: zapi
 environments: Web
 status: One or more of (Draft, Published, Deprecated, Hidden)
 feedback link: https://forms.gle/CGu4QchgBxxWnNJK8
 analytics account: UA-86110990-1
-author:Lindsay Walker
+author: James Tacker
 <!-- ------------------------ -->
-# Module 3 – Writing Your First API Test
+# Module 3 – Create a Test Using Components
 
-<!-- ------------------------ -->
-## 3.01 How Can You Create an API Test?
+<!------------------------------>
+
+## 3.01 What You'll Learn
 Duration: 0:02:00
 
-<!--![https://www.youtube.com/embed/aRC6WkmFfzc](https://youtu.be/aRC6WkmFfzc) -->
+In this module, you will be learning to create your own test from scratch with test components, using requests (such as GET or POST), assertions that check if data exists, and use variables, input sets, and the Vault to store and reuse elements of your tests.
 
-There are two ways to create a test with the API tool, from a payload (the response) when you make an API call, or from a spec file from a tool such as [swagger.io](https://swagger.io/) or Postman. [Follow these steps to quickly create your first test](https://docs.saucelabs.com/api-testing/quick-start)
+**Assertions and Request Components**
+* Determine the different types of assertions and requests you can use with your API test.
+* Understand the different types of output when adding assertions to an a API test.
+* Understand when and why you want to use certain request components in an API test.
 
-### From An API Response Payload.
-Simply use the HTTP Client from your test editing dashboard to auto generate a functional API test.
+**Variables**
+* Understand the difference between global variables and input sets.
+* Learn about how and when to use Input Sets and Variables.
+* Demonstrate how to store sensitive variable data and/or secrets in the Vault.
 
-<img src="assets/wp-content/uploads/2019/07/Screen-Shot-2019-07-01-at-12.02.21-PM.png" alt="Generate a Test" width="850"/>
+### What You'll Need
+* A Sauce Labs account
+* Access to the API Testing Dashboard. E-mail **support@saucelabs.com** or [submit a support request](https://support.saucelabs.com/hc/en-us)
 
-[Generate a Test Video](https://www.youtube.com/watch?v=qujShNWCDvM&feature=emb_logo)
 
-<!-- ![https://www.youtube.com/embed/qujShNWCDvM](https://youtu.be/qujShNWCDvM) --> <!-- This YouTube link doesn't work -->
-
-### From a Spec File
-
-The above video shows you the method using Generate Test from a payload, and to generate a test from a spec file you can review [this page](https://docs.saucelabs.com/api-testing/quick-start/build-from-spec/#generate-a-single-test-from-a-spec-file). This includes [Postman Collections](https://apifortress.com/doc/importing-postman-collections/).
-
-```
-{
-    "swagger": "2.0",
-    "info": {
-        "title": "demoapif",
-        "version": "",
-        "description": "Call to the APIF demo API All Products Get."
-    },
-    "host": "demoapi.apifortress.com",
-    "basePath": "/api/retail",
-    "schemes": [
-        "http"
-    ],
-    "paths": {
-        "/product": {
-            "get": {
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {},
-                        "examples": {
-                            "application/json": [
-                                {
-                                    "id": 1,
-                                    "name": "Baseball Cap",
-                                    "price": 29.99,
-                                    "category": "1",
-                                    "description": "This is product 1!",
-                                    "quantity": 5,
-                                    "imageURL": "http://image.com",
-                                    "color": [
-                                        "blue",
-                                        "yellow"
-                                    ],
-                                    "createdAt": "2018-03-20T15:38:39.542Z",
-                                    "updatedAt": "2018-03-20T15:38:39.542Z"
-                                },
-                                {
-                                    "id": 2,
-                                    "name": "Long Sleeve Shirt",
-                                    "price": 39.99,
-                                    "category": "1",
-                                    "description": "This is product 2!",
-                                    "quantity": 7,
-                                    "imageURL": "http://image.com",
-                                    "color": [
-                                        "blue",
-                                        "yellow",
-                                        "red"
-                                    ],
-                                    "createdAt": "2018-03-20T15:38:39.542Z",
-                                    "updatedAt": "2018-03-20T15:38:39.542Z"
-                                },
-                                {
-                                    "id": 3,
-                                    "name": "Bluetooth Headphones",
-                                    "price": 49.99,
-                                    "category": "1",
-                                    "description": "This is product 3!",
-                                    "quantity": 50,
-                                    "imageURL": "http://image.com",
-                                    "color": [
-                                        "green",
-                                        "yellow"
-                                    ],
-                                    "createdAt": "2018-03-20T15:38:39.542Z",
-                                    "updatedAt": "2018-03-20T15:38:39.542Z"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "summary": "List All Products",
-                "description": "",
-                "tags": [],
-                "parameters": [],
-                "produces": [
-                    "application/json"
-                ]
-            }
-        }
-    },
-    "definitions": {
-        "Questions Collection": {}
-    }
-}
-```
-
-<!-- ------------------------ -->
-## 3.02 Building Your First Functional API Test
-Duration: 0:04:00
-
-#### Video
-View [this video](https://youtu.be/BkQit-1N4dI) to see how to create your test:
-
-<video id="BkQit-1N4dI"></video>
-
-### Build the Base Test
-Lets build your first functional test: Start by using this API call.  
-
-**[https://mastiff.apifortress.com/app/api/examples/retail/products](https://mastiff.apifortress.com/app/api/examples/retail/products)**
-
-<img src="assets/API3.02H.png" alt="Generate a Test" width="550"/>
-
-#### Note
-Negative
-: This example exists in your **Examples** project, and it is named **Retail: Integration - Products**.
-
-
-### Test Creation Basics
-
-Here are the basic components used for creating an API test:
-
-<img src="assets/API3.03U.png" alt="Generate a Test" width="850"/>
-
-
-**A –** All of the available components can be seen by clicking on Add Request / Assertions.
-
-**B –** This button allows you to easily transform an existing component into another component of the same type.
-
-**C – Input Sets** are a group of input variables representing a scenario. The test will be executed once for each input set, overriding the variable values into your test.  Global Parameters are variables that are available to be used throughout a test. Reference these variables simply by calling it within the test using the convention:  “${VARIABLE}”.
-
-**D – HTTP Client -** The API testing http client is very similar to many other http clients out there. You can make GET/POST/PUT/PATCH/DELETE calls and see their responses.   A key difference this HTTP client comes from your ability to generate a test by clicking the **Generate Test** button, and a test will be generated for you based on the API’s behavior and response.
-
-See how to [quickly create a test on the API testing platform.](hhttps://docs.saucelabs.com/api-testing/quick-start)
-
-
-You can add components to any step in the test like so:
-
-<img src="assets/API3.03A.png" alt="Generate a Test" width="850"/>
-
-
-### HTTP Client
-
-
-By clicking that link, or using the HTTP composer in the **HTTP Client** section to make the call, you get this response.
-
-<img src="assets/API3.02C.png" alt="Generate a Test" width="450"/>
-
-
-As you can see there are 5 objects returned here, so for our tests, we will at minimum lets make sure they ‘exist.’ What the API testing platform allows you to do is validate the objects exist _and_ the data is as expected. This is done using our XML markup language, or our GUI composer.
-
-<!-- ------------------------ -->
-## 3.03 Using the API Testing Platform
-Duration: 0:04:00
-
-#### Our Platform
-The API testing platform was specifically built to bridge the gap between testers and engineers, allowing you to write detailed API tests in whatever format you are most comfortable with. Our composer has a drag-and-drop interface that writes the XML code for you, and it also makes it easier to visually understand the nature of the test.
-
-<img src="assets/API3.02D.png" alt="Generate a Test" width="850"/>
-
-Our GUI composer also has a **Code View** which exposes the underlying XML. This XML can be written or edited in the GUI, or using your own IDE. This means that you can write an edit tests either with the GUI, or in the XML code view, save it, and the changes will take effect.
-
-<img src="assets/API3.02E.png" alt="Generate a Test" width="850"/>
-
-Why you click on **Code**, or were looking at the test in your own IDE, this is what you see:
-
-```
-<unit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="main" xsi:noNamespaceSchemaLocation="http://apifortress.com/app/unit.xsd">
-   <requirements />
-   <configs />
-   <sequence name="main">
-      <get url="${protocol}${domain}${productsEndpoint}" params="[:]" var="productsPayload" mode="json" />
-      <assert-equals expression="productsPayload.status" value="200" comment="" />
-      <assert-is expression="productsPayload.success" type="boolean" comment="" />
-      <assert-exists expression="productsPayload.content.act" comment="" />
-      <assert-is expression="productsPayload.content.products" type="array" comment="" />
-   </sequence>
-</unit>
-```
-
-Now look at the code itself carefully:
-
-- The `unit `section is referencing our markup Namespace file (useful when using your own IDE)
-- `Sequence` contains all of the test elements that you can edit in the UI
-- `config` are additional test settings that aren't usually surfaced in the UI
-- `get` is where the API call is made. Within this call it contains the necessary information to make the call (can include more if we’re dealing with oAuth for example)
-
-Some important things to note is how the platform has crated variables for `protocol`, `domain`, and then the chosen endpoint.
-
-If you click on the **Input Set** section on the left you can see those same variables and the data.
-
-This is hugely important to allow the test to be easily run against any environment by replacing the variables.
-
-<img src="assets/API3.02F.png" alt="Input Set" width="850"/>
-
-Each time you generate a test, notice the `Var: payload` in the **Get** component. This is generated when your test is generated. What happens is that when you call an API, and get response, that entire payload is automatically stored in a variable called `payload`.
-
-<img src="assets/API3.03V.png" alt="Input Set" width="850"/>
-
-#### Note
-Negative
-: You can also access performance metrics such as latency, fetch, and overall response time, and these can be added as assertions within the test itself. See [this page](https://docs.saucelabs.com/api-testing/how-to/assertions-for-metrics-performance/) for more information.
-
-### Assertions
-Now, the assertions. [There are over 70 assertions](https://assertible.com/docs/guide/assertions#:~:text=Assertions%20allow%20you%20to%20validate,time%20a%20test%20is%20run.) possible for an API test.  You can see the next four lines are `assert` statements for each object. Looking at the first you will see:  
-
-```
-<assert-equals expression="productsPayload.status" value="200" comment="" />
-<assert-is expression="productsPayload.success" type="boolean" comment="" />
-```
-
-* This line calls the `assert-equals` assertion, which validates an object exists and is equal to a chosen amount.  The `productsPayload.status`  is referencing the `status` object within the `productsPayload` variable.
-* The `assert-is expression` [checks that an object is a certain data type](https://docs.saucelabs.com/api-testing/assertion-components/assert-is/).
-
-The GET call gets an API response and stores it in that variable. This is useful for when you are dealing with multiple payloads (variables) in an integration test.  
-
-
-#### Note
-Negative
-: With the **Generate Test** feature you can have this entire structure generated for you in seconds. This frees you to focus on the more important and tricky aspects of writing detailed tests. <img src="assets/API3.02G.png" alt="Input Set" width="850"/>
-
-<!-- ------------------------ -->
-## 3.04 Update Your API Integration Test
-Duration: 0:07:00
-
-
-### Using an API as a Datasource
-Now lets take the functional test, and use it as the first step in an integration test. Notice that the first API call actually contains an array of product IDs. What if you use it as a datasource, and then iterate on each of them individually?
-
-First, you have the original test that was created (with assertions) when you clicked **Generate Test** after entering `https://mastiff.apifortress.com/app/api/examples/retail/products`:
-
-<img src="assets/API3.02D.png" alt="Generate a Test" width="850"/>
-
-#### The Payload Variable
-Now you just need to make sure the value you are storing your payload in, and the one you are calling with your checks are. Note that in the example tests (which you created your snippet with) doesn't use the default `Var` for playload:
-
-<img src="assets/API3.04G.png" alt="The payload var" width="750"/>
-
-Click to edit the variable to say `productsPayload`, and make sure all your checks use that as well.
-
-<img src="assets/API3.03W.png" alt="The payload var" width="750"/>
-
-Creating an integration test requires the use of two new components. The **[For Each](https://docs.saucelabs.com/api-testing/logical-components/each/)** component helps you iterate through a series of data (product IDs in this case), and the **[Set](https://docs.saucelabs.com/api-testing/learn-more/the-variables-system-in-api-fortress/#set-component)** which creates a temporary variable to reference.
-
-
-#### Note
-Negative
-: Save early and often! <img src="assets/API3.03.png" alt="Generate a Test" width="850"/>
-
-
-If you look at the above GUI view of this test, you see that we have our original test. It makes the first API call, and then tests each object in that response.
-
-<img src="assets/API3.03B.png" alt="Generate a Test" width="850"/>
-
-#### Input Variables
-If you do not have all of the same parameters, create them now in the **Input Set** window:
-
-<img src="assets/API3.03K.png" alt="Input set edit" width="350"/>
-
-Make sure your **GET** statement uses it as well:
-
-<img src="assets/API3.03X.png" alt="Input set edit" width="550"/>
-
-
-### Loop Through Each Element
-
-After the first set of verifications in the first **GET** request, add in the component that makes this integration test, that is using an API to be data-driven, the **For Each** component.
-
-You’ll notice that it is referencing the variable that we stored the entire response, then the array, and finally the object we want to use. Edit the **for each** loop statement so that it says **productsPayload.content.products.pick(2).**
-
-<img src="assets/API3.03C.png" alt="Generate a Test" width="550"/>
-
-The **.pick(2)** you added at the end is entirely optional, and what it does is randomly select a set (in this case, `2`) number of items from the list we are iterating through. This is useful if the dataset is  large. Ours is small so we would remove that and allow every product ID to be tested. We will leave it for training purposes.
-
-Next you want to add a **Set** component as the first element in the **for each in** loop, creating a new variable called **id**.
-
-<img src="assets/API3.03D.png" alt="Generate a Test" width="350"/>
-
-<img src="assets/API3.03E.png" alt="Generate a Test" width="550"/>
-
-The value of that variable depends on the location the **For Each** is at in the iteration. Here we set the value as `${_1}`. This is saying “using the current location in the array”. Traversing an array is a bit of a larger topic, so we’ll get into that later.
-
-<img src="assets/API3.03F.png" alt="Generate a Test" width="550"/>
-
-Delete any components that were automatically created exist when you created the loop or generated the test that don't match with the final code at the bottom of this page.
-
-<img src="assets/API3.03G.png" alt="Generate a Test" width="550"/>
-
-Now you need to move (or create) a  **GET** component within the **for each** loop. You’ll notice we are using the `id` that we stored from the first **GET** call at the beginning of the test to populate into the second **GET** call within the loop. Each iteration of the **For Each** will call the current `id` in the **GET** call.
-
-<img src="assets/API3.03I.png" alt="Generate a Test" width="850"/>
-
-#### Note
-Negative
-: Notice that the payload variable for this **Get** element is **productPayload**
-
-Update each of the elements in your **for each** loop so that it appears like the sample test entitled _Retail: Integration - Products_ in the _Examples_ project. You may have to drag and drop elements into the for loop, or add or delete new components to make it look like the **Final Code** at the bottom of this page.
-
-<img src="assets/API3.03L.png" alt="Generate a Test" width="650"/>
-
-<img src="assets/API3.03M.png" alt="Generate a Test" width="650"/>
-
-### Add an If Statement
-Once you  have all the assertions added in the second **for each** loop, you need to add one if statement to check that a shipping zone exists if there is something populared in your shopping cart.
-
-<img src="assets/API3.03Q.png" alt="Generate a Test" width="650"/>
-
-<img src="assets/API3.03O.png" alt="Generate a Test" width="300"/>
-
-<img src="assets/API3.03P.png" alt="Generate a Test" width="650"/>
-
-Finally, In the **If** statement, add a child component that asserts that the shipping zone does exist:
-
-<img src="assets/API3.03R.png" alt="Generate a Test" width="650"/>
-
-### Run Your Test
-That’s it! Now you can run your test by clicking on the **Run** button in the interface, choosing the data center, and see a final report for your test
-
-<img src="assets/API3.03S.png" alt="Generate a Test" width="650"/>
-
-
-#### Final Code
-<img src="assets/API3.03J.png" alt="Generate a Test" width="650"/>
-
-
-
-
-<!-- ------------------------ -->
-## 3.05 The Vault, Variables, and Environments
+<!------------------------------>
+## 3.02 Component Library
 Duration: 0:03:00
 
-### Using The Vault
+The test component library contains many useful test components that can enrich and add further validity to your API Tests. This level covers the basics of components you can add to your API test.
 
- The Vault is a unique part of the API testing platform that allows you to store variables and code for use across a projects.
+### Experiment with Components
 
-It is unique, not in terms of the idea, but in the flexibility offered. It allows you to save, edit, and reuse almost anything, including:
+To access the component library:
+
+1. Open a new blank test.
+2. Select the `+` symbol at the top of the Test Composer.
+
+<img src="assets/apif-mod3/05/testComponent.png" alt="Add a Test Component" />
+
+All available test components, as well as a search bar, will appear on the next screen.
+
+<img src="assets/apif-mod3/05/componentLibrary.png" alt="Component Library" />
+
+#### Example
+
+If you select the **Tag** component at the top, it will automatically add this component to the bottom of your test, like in this image:
+
+<img src="assets/apif-mod3/05/tagComponent.png" alt="Example Tag Component"/>
+
+You can add any of the following components to your test, depending on your use case. For an example some examples in the screenshot below:
+
+* **K/V Store**: Store and retrieve ephemeral data from a `key:value` store.
+* **Fake**: Generates fake data for your test, particularly for `POST` and `PUT` requests.
+
+<img src="assets/apif-mod3/05/exampleComponents.png" alt="Example components"/>
+
+There are many components you can play around with, and hover over them to see what they do, but next you will focus on **Request**, the building block of every API test.
+
+<!-- ------------------------ -->
+
+## 3.03 Request Component
+Duration: 0:04:00
+
+In this lesson, you will learn to add a GET request component in a test.
+
+### Types of Requests
+
+A **Request** component is the foundation for creating a new test in API Fortress. Whether you wish to test a chain of multiple requests, or a single request, the request component is where your test should begin. The available request components are:
+
+* GET
+* POST
+* PUT
+* DELETE
+* PATCH
+
+Refer to the [API Testing Basics](https://training.saucelabs.com/codelabs/Module1-APITesting/#3) module for further details about API request methods.
+
+### Note:
+<aside class="negative">
+In the previous module, <a href="https://training.saucelabs.com/codelabs/Module2-APITesting/index.html#0">Introduction to API Fortress</a>, we used the <strong>Generate Test</strong> button. This button automatically generates the HTTP request, assertions, and other test elements so that you can focus on the more intricate and tricky parts of your tests. In this module, we will build a test from scratch in order to understand the importance of assertions, but refer back to that test for inspiration and ideas on how to design your assertions.e!
+</aside>
+
+
+### Add a GET Request Component
+
+* Open your project and create a new test.<br/>
+
+   <img src="assets/apif-mod3/05/createNewTest.png" alt="Create New Test" width="500" />
+
+* Name it **Sauce_Connect_Test** (This example is named **AssertionTest**).<br/>
+
+   <img src="assets/apif-mod3/05/assertionTestDetails.png" alt="Assertion Test Details" width="500" />
+
+* Select **+Add Request/Assertions** in the Tests page.<br/>
+
+   <img src="assets/apif-mod3/05/addRequestComponent.png" alt="Add Request / Assertion" width="500" />
+
+* Select the **GET Request** component and add the following data:
+
+   * url: `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions`
+   * var: `payload`
+
+   <img src="assets/apif-mod3/getMethod.png" alt="Add GET Request" width="600" />
+
+
+This is what the finished result should look like:
+
+   <img src="assets/apif-mod3/finishedExample.png" alt="Finished result of GET component" />
+
+In the next section, you will work with **Assertion** components, learning how they are a vital part of your API tests.
+
+<!-- ------------------------ -->
+
+## 3.04 Assertion Component
+Duration: 0:04:00
+
+There's a common phrase in the automated testing space: "If there is **no assertion**, it **isn't a test**." In this lesson, you will add an assertion after the GET request in the **Sauce_Connect_Test** you created in the last lesson.
+
+### Why Assertions?
+
+This sentence demonstrates a common [testing anti-pattern](http://www.everydayunittesting.com/2017/03/unit-testing-anti-pattern-not-asserting.html); even if your code doesn't throw errors or crash, it doesn't mean it's a valid test.
+
+In order to validate an API endpoint works properly, you must _assert_ whether the API's expected output is correct or incorrect.
+
+There are several assertions to choose from and below are a few examples, along with the accompanying documentation:
+
+* **[Assert Exists](https://docs.saucelabs.com/api-testing/on-prem/assertion-components/assert-exists/)**: Checks whether an item exists or not.
+* **[Assert Contains](https://docs.saucelabs.com/api-testing/on-prem/assertion-components/assert-contains/)**: Checks an item has a specific substring (e.g., test the word _Uber_ for product names like: _UberX_, _UberBlack_).
+* **[Assert Is](https://docs.saucelabs.com/api-testing/on-prem/assertion-components/assert-is/)**: Checks whether the value of an item is correctly defined (e.g., _url_, _boolean_, _integer_).
+
+In this example, you will be checking that when you ping the endpoint `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions` that a payload is return (it exists) and the one of the fields, the `"info_url"` is in fact a url.
+
+If you check the **HTTP Client** tool, you should see the elements we are checking for:
+
+<img src="assets/apif-mod3/APICallContent.png" alt="Finished Content of the API" width="700"/>
+
+### Add an Assertion
+
+1. Open the previous test you created, called **Sauce_Connect_Test**.
+2. Select **+Add Request/Assertions**, and select **Assert Exists** with the following data:
+   * Expression: `payload['downloads']`
+   * Mode: `one`
+   * Click the check mark to save
+
+     <img src="assets/apif-mod3/assertExists.png" alt="Assert Exists Component" />
+
+3. Next, select **+Add Request/Assertions** again. This time select **Assert Is**, and add the following data:
+   * Expression: `payload['info_url`]
+   * Type: `url`
+   * Click the green checkmark to save.
+
+     <img src="assets/apif-mod3/assertIs.png" alt="Assert Is Component"/>
+
+4. Here's what the final result should look like.
+
+   <img src="assets/apif-mod3/finishedAssertionResult.png" alt="Finished Assertion Results" />
+
+5. Click **Save** to save your test, then select **Run**. The test results should show up in the UI.
+
+   <img src="assets/apif-mod3/finishedTest.png" alt="Finished Assertion Result" width="700"/>
+
+
+### Recap
+* We created a **GET** request in the previous module that returned a JSON object.
+* We created an **Assertion** to validate the "Sauce Connect" object existed.
+* We created another **Assertion** to verify that the object field "download_url" was indeed a `url`.
+
+In the next section, we will cover how to store information as a **Global Variable**.
+
+<!-- ------------------------ -->
+
+## 3.05 Global Variables
+Duration: 0:04:00
+
+As the complexity and number of tests in your test suite increase, it's a best practice to name and store test details such as common variables or data sets to allow more flexibility. There are three ways to store data within the API Testing platform:
+
+* **Global Variables**
+* **Input Sets**
+* **The Vault**
+
+This lesson covers how to use Global Variables.
+
+#### Video
+**[API Testing – Global Variables](https://youtu.be/feiL0CKWFhU)**
+
+<video id="feiL0CKWFhU"></video>
+
+### Global Variables
+
+The global variables (referred to as **parameters** in our API Testing interface), are usually common variables designed to run with an entire test such as authentication API Key, or a domain name. Global variables can be used across different tests in a project.
+
+To add a global variable/parameter, select the **Input** tab in the top left, and select **Add Global Param**.
+
+<img src="assets/apif-mod3/05/addGlobalParam.png" alt="Add Global Parameter" width="400"/>
+
+
+### Create Global Parameters
+
+To begin the exercise, open your **Sauce_Connect_Test**, navigate to the **Input** tab on the left side of the interface, and select it.
+
+   <img src="assets/apif-mod3/05/selectInputTab.png" alt="Input Set Tab" width="600" />
+
+Select **Add Global Param** in the _Global Parameters_ section.
+
+Add the following data to the global parameter:
+   * Name: `domain`
+   * Value: `api.us-west-1.saucelabs.com`
+
+   <img src="assets/apif-mod3/addDomain.png" alt="Domain Parameter" />
+
+   The parameter now appears in the **Global Parameters** section.
+
+   <img src="assets/apif-mod3/05/domainResult.png" alt="Domain in Global Param section" width="500" />
+
+Next, we need to substitute the `domain` value in the current GET request:
+* To get back to our test code, select **Unit** in the tab at the top.
+
+   <img src="assets/apif-mod3/05/selectUnit.png" alt="Select Unit Tab" />
+
+* Select the ellipsis to the left of the **GET** request component, then select **Edit component**.
+
+   <img src="assets/apif-mod3/05/editComponent.png" alt="Edit Component" width="500" />
+
+* Substitute `saucelabs.com` with the `${domain}` global parameter:
+
+   <img src="assets/apif-mod3/05/editDomain.png" alt="Use domain Param" width="500" />
+
+* Run the test again to ensure the test still passes with the same result.
+
+* Repeat steps 1-3 above and create `protocol` and `endpoint` global parameters. The values for the respective params should be `https://` and `/rest/v1/public/tunnels/info/versions`, respectively.
+
+The finished result should look like this:
+
+<img src="assets/apif-mod3/05/finishedResult2.png" alt="Finished Result of Global Params" width="500"/>
+
+### Note:
+
+<aside class="negative">
+Please refer to the documentation for further information on <a href="https://docs.saucelabs.com/api-testing/vault">using variables</a>.
+</aside>
+
+In the next section, we will cover how to store information as an **Input Set**.
+
+<!-- ------------------------ -->
+## 3.06 Input Sets
+Duration: 0:07:00
+
+### Input Sets
+An input set is an object (usually a group of input variables related to a specific scenario or use case), For example a list of relevant product ids returned from a product API endpoint. In this lesson you will:
+
+* Create Input Sets
+* Add information about Sauce Connect Tunnels to an Input Set
+* Use Input Sets with a GET component
+* Create and run tests with Input Sets
+
+#### Video
+**[API Testing – Input Sets](https://youtu.be/5aUNzcabivs)**
+
+<video id="5aUNzcabivs"></video>
+
+When you add and use an Input Set, it means you will run a separate instance of your tests for each Input Set created. For example, if you created three Input Sets for `username` and `password`, your tests would be run three times, using each set of credentials. Input Sets are used within a single test.
+
+To add an input set, select the **Input** tab in the top left. If there is a default input set, you will want to edit or delete it before creating your own.
+
+### Create Input Sets
+
+First, click on the **Input** button on the top left hand side of the test page. Under the **Input Set** section you create two Input Sets called `tunnel_owner_1` and `tunnel_owner_2`.
+
+<img src="assets/apif-mod3/add_input_sets.png" alt="Add Input Set" width="500"/>
+
+In each of the input sets, add in the following sets of variables:
+
+```bash
+tunnel_owner_1
+
+owner
+xxxxx
+
+tunnel_id
+xxxx
+
+tunnel_owner_2
+
+owner
+xxxxx
+
+tunnel_id
+xxxx
+
+```
+
+You will replace the `x`s with values once you get owner and tunnel ids form the Sauce Labs Tunnels dashboard.
+
+### Get Information About Sauce Connect Tunnels
+For this course, we will be using Sauce Connect Tunnels. To learn how to start a tunnel, see our [Sauce Connect Setup video on YouTube](https://www.youtube.com/watch?v=cpBcGeZ_wQU&t=9s) or [Module 1 of our Sauce Connect course](https://training.saucelabs.com/codelabs/Module1-SauceConnect/index.html?index=..%2F..sauceconnect#1). You should use tunnels that you own, or shared tunnels you have access to start and stop.
+
+Start at least two tunnels, then go to the [Sauce Labs Tunnels page](https://app.saucelabs.com/tunnels). Get the values for the **Tunnel ID** and **Owner**, and replace those values in the **Input Sets** you created on the API Testing dashboard.
+
+<img src="assets/apif-mod3/multiple_tunnels2.png" alt="Add Input Set" width="800"/>
+
+### Add Parameters to the Input Sets
+
+Now, you should have values like this, which match the values on your Tunnels page:
+
+<img src="assets/apif-mod3/inputset_tunnel_owners.png" alt="Navigate to Input" width="500"/>
+
+### Create a New GET Component with Input Sets
+Now, you will create another GET component in your **Sauce_Connect_Test** that will use the input sets you just created.
+
+This request will use the Sauce Connect API Call to [GET Tunnel Information](https://docs.saucelabs.com/dev/api/connect/#get-tunnel-information). Add a GET component to your test.
+ * In the **Url** field, add `https://api.us-west-1.saucelabs.com/rest/v1/${owner}/tunnels/${tunnel_id}`.
+ * In the **Variable** field, add `scpayload`, where the response will be stored.
+
+ <img src="assets/apif-mod3/GET_SauceAPI.png" alt="Add Input Set" width="800"/>
+
+ You will also need to add a **Add Authentication** (Basic) with a Sauce username and access key  for a user who has access to both the tunnels you used in your Input Set.
+
+
+### Use Input Sets in a Test
+
+Now, lets add two simple checks after this get request. Add in two components:
+
+* An **Assert Exists**, checking that there is in face, an `scpayload` variable with the response.
+* Use the `owner` variable in an **Assert Equals** component, one that checks that the owner retrieved from the GET request matches the owner your set for that tunnel.
+
+<img src="assets/apif-mod3/sc_assert_equals.png" alt="Add Input Set" width="700"/>
+
+The test should now look like this:
+<img src="assets/apif-mod3/final_input_sets_test.png" alt="Add Input Set" width="700"/>
+
+Now, once you save and **Run** your test, the test will be run one for the input set `tunnel_owner1` and once for the input set `tunnel_owner2`, a total of four GET commands, since there are two GET commands in each tests.
+
+<img src="assets/apif-mod3/Input_Sets_Tests.png" alt="Add Input Set" width="700"/>
+
+#### Recap
+
+To summarize, we have created a test that:
+* Checks to make sure that the endpoint where you download the Sauce Connect software is working
+* Checks to see that the tunnels running for as many sets of user/tunnel id combinations as you would like.
+
+In the next section, we will discover how to store some of the information we created in the Vault.
+
+<!-- ------------------------ -->
+## 3.07 The Vault
+Duration: 0:07:00
+
+The [Vault](https://docs.saucelabs.com/api-testing/vault/) is a unique feature of the API Fortress platform that allows you to store information for use across all projects or tests.
+
+#### Video
+**[API Testing – The Vault](https://youtu.be/kjdZWpxHH1c)**
+
+<video id="kjdZWpxHH1c"></video>
+
+### The Vault vs. Inputs
+
+While Input Sets are typically only used within a given test, the vault allows you to store inputs and parameters that can be used across multiple test in your project. This is known as your **Project Vault**. In this lesson, you will learn how to:
+
+* Save code Snippets (or Variables) to a project vault
+* Use Snippets (or Variables) across tests in a project
+* Save a Variable (or Snippet) in a company Vault
+* Use  Variables (or Snippets) across tests in different projects
+
+The **Project Vault** allows you to save more than just variables; you can also save, edit, and reuse almost anything, including:
 
 * Variables
 * Code snippets (think reused authentication flows)
 * Any assertions and code elements
 
+#### Note:
+<aside class="negative">
+A quick note on "Vault Scope." There is a key difference between the <strong>Project Vault</strong> vs. the <strong>Company Vault</strong>. In general, whatever you store in the Company Vault can be used across all project tests, but if there exists a similar value in your <i>Project Vault</i>, that value wins and overrides the value in the <i>Company Vault</i>.
+</aside>
 
-In the Vault, you can store level at two different levels of scope, project and global, and the project vault will allow you to reuse those values across any test within that scope.
-
- Similarly the global vault will allow use of stored values across any test within any project. You want to make sure that if you are using code snippets, variables are consistent across each test.
 
 
-### Using Variables and Environments
+### Exercise: Use the Vault to Store a Snippet
 
-If properly setup, any API test can be run against any environment. You’ll notice that is what we did in our functional test by turning the API URL into three separate parts - _protocol_, _domain_, and _endpoint_. This allows you to set the default location under **Input Sets** (in the left pane), and also override those values with the **Environments** tab:
+First, what is a **Code Snippet**? A snippet is a fragment of a test, stored in the Vault, that can be reused. For example if you want to re-use an authentication header, or perhaps there's a `POST` body value you wish to re-use in multiple requests.
 
-<img src="assets/API3.04A.gif" alt="Environmnets Tab demo" width="850"/>
+For this example, we don't need both the GET methods in the same test since the first one only needs to be run once (and not for every input set) we will store and re-use this part of the test.
 
-The Environments panel lets you change anything, not just environments. You can run the test against a certain environment, using a different API key, and datasource. This effectively allows you to have pre-set runtime variable overrides.
+To add the snippet to your project Vault:
+1. Open your test.
 
-### Adding Snippet to the Vault
-To add a snippet to your account, simply select the elements (hold **SHIFT** and click first and last elements to select a range), open the Vault in the side menu, and slick the `+` icon.
+2. Select all the elements (hold **SHIFT** and click the _first and last elements_ to select a range).
 
-<img src="assets/API3.04B.png" alt="Environmnets Tab demo" width="850"/>
+3. Select the **Export to Snippet** icon from the toolbar.
 
-In this example, you're going to use the code from the Example project called _Retail : Integration - Products_ test, and re-use it in your own test. Select the **for each** loop that selects 2 random elements, and name it **retailProductsLoop**, placing it in the global scope:
+   <img src="assets/apif-mod3/sc_snippet.png" alt="Create Snippets" />
 
-<img src="assets/API3.04C.png" alt="Environmnets Tab demo" width="750"/>
+3. Fill in the following details for the snippet:
 
-You should see the snippet show up in the panel.
+   * Name: `SC_Download_Snippet`
+
+4. Select **Save Snippet**.
+
+The snippet now appears in the Snippets section of the project vault. To get back to the vault, go to the **Project** where your tests are listed and select **Vault** in the toolbar, then the **Code Snippets** radial button:
+   <img src="assets/apif-mod3/SCSnippet.png" alt="Project Vault Snippet" />
+
+#### Note
+<aside class="negative">
+There are two ways to delete a snippet:
+   <li>*  <strong>Option 1</strong>: Select the checkbox next to the snippet, then select <strong>Delete Selected</strong>. <img src="assets/apif-mod3/05/delete1.png" alt="Delete option 1" /></li>
+   <li>* <strong>Option 2</strong>: Hover over the snippet, then select the trash icon to the right that states <strong>Delete</strong>. <img src="assets/apif-mod3/05/delete2.png" alt="Delete option 2" /></li>
+</aside>
+
+
 
 ### Using a Snippet
-Now lets re-use this handy snippet in a different project. Leave the _Examples_ project and open up one you created. Keep the first five commands as is, but delete the **for each** loop.
+If you wish to re-use this snippet in a different project/test, there are two options: **Invoke a Snippet** or **Insert a Snippet**. Invoking a snippet doesn't actually modify your test components, instead it makes an API call to the Vault, which inserts the snippet at test runtime. In contrast, inserting a snippet literally inserts the code into your existing test.
 
-Once you have deleted it, open up the **Vault** menu on the side, choose the bottom element in your test, and click the arrow to invoke the snippet in your code:
+Let's try adding a snippet to an empty test:
+1. Create an empty test (call it whatever you want)
 
-<img src="assets/API3.04D.png" alt="Invoke Snippet" width="750"/>
+2. Select the **Invoke Snippet** icon:
+   <img src="assets/apif-mod3/05/invoke1.png" alt="Invoke Snippet" />
 
-Now you just need to make sure variables are aligned. Note that in the example tests (which you created your snippet with) doesn't use the defaul `Var` for playload:
+3. Hover over the snippet, and select **Open**:
 
-<img src="assets/API3.04G.png" alt="The payload var" width="750"/>
+4. Select either **Invoke Snippet** or **Insert Snippet**, below are examples screenshots of both:
 
-You will need to edit the `Var=` in the **Get** method at the top of your own test to match.
+   <img src="assets/apif-mod3/Invoke_Snippet.png" alt="Invoke Snippet" />
 
- <img src="assets/API3.04H.png" alt="The payload var" width="750"/>
+#### Invoked Snippet
 
- Last, update the `payload` to `productsPayload` in each command before the snippet call:
+<img src="assets/apif-mod3/Invoked_Snippet.png" alt="Invoke Snippet" />
+
+#### Inserted Snippet
+
+<img src="assets/apif-mod3/Inserted_Snipped.png" alt="Invoke Snippet" />
+
+You can now remove the first **GET** component and related checks from the **Sauce_Connect_Test**.
+
+### Company Vault
+Now you just need to make sure variables are aligned. Now we reach the dilemma of having to re-create our variables that we used from earlier: `${domain}`, `${protocol}`, and `${endpoint}`. The better approach is to use the **Company Vault**, which allows us to re-use variables across all projects.
+
+To access the **Company Vault**
+1. Go to your Project page
+1. Select the **Company Vault**
+1. Select the **Variables** radial button
+1. Click the **+ New Entry** button
+1. Add the following variables from your **Sauce_Connect_Test**:
+
+```
+domain = api.us-west-1.saucelabs.com
+
+protocol = https://
+
+endpoint = /rest/v1/public/tunnels/info/versions
+```
+
+The end result should look like the screenshot below:
+
+<img src="assets/apif-mod3/Vault_Vars.png" alt="Payload Variables" />
+
+Now, if you run your new test that you created with a snippet (where you invoked or inserted the assertion snippet), all variables will default to the values in the Company Vault, and you test should run without you having to add new Variables to that test.
+
+#### What about Snippets?
+If you want to re-use a code snippet across different projects, it's a bit easier than re-creating variables from scratch. You can actually export it from the project vault, into the company vault.
+
+To export a Snippet into the Company Vault:
+
+1. Open your Project.
+
+2. Select **The Vault** from the toolbar.
+
+3. Select the **Code Snippet** radial button.
+
+4. Select the checkbox next to the desired snippet, then select the **Export*** button.
+
+   <img src="assets/apif-mod3/Exp_Snip.png" alt="Export Code Snippet" />
+
+5. Choose your file type (`.csv` is recommended here).
+
+   <img src="assets/apif-mod3/05/export2.png" alt="Choose File Type" />
+
+6. Save the file to your computer.
+
+7. Go back to the **Company Vault** page and select **Import**.
+
+   <img src="assets/apif-mod3/05/export3.png" alt="Import the Snippet" />
+
+8. Choose your file to add it to the Company Vault.
+
+   <img src="assets/apif-mod3/05/export4.png" alt="Import the Snippet" width="500" />
 
 
-
-Still much easier than recreating the entire for loop! Run your test to see the report.
-
-### Adding and Editing Variables
-
-Access the Vault and add variables and code snippets by first clicking on the **Vault** in the main menu.
+This is a screenshot of the end result:
+<img src="assets/apif-mod3/Comp_Snip.png" alt="Import the Snippet" />
 
 
-<img src="assets/API3.04E.png" alt="The Vault" width="650"/>
+Now you can add this snippet to any test in any project. This approach is much easier than recreating the entire test from scratch! Run your test to see the report.
 
-From here you can access and edit code for snippets and variables for both global project-specific snippets and variables.
+To learn more about The Vault and Environments, see:
+* [Environments Basics](https://docs.saucelabs.com/api-testing/environments/)
+* [Using Variables](https://docs.saucelabs.com/api-testing/vault/)
 
-<img src="assets/API3.04F.png" alt="The Vault" width="750"/>
-
-To learn more about The Vault and Environments see below links: [Learn the Basics](https://docs.saucelabs.com/api-testing/quick-start/the-vault/), [Environments Basics](https://apifortress.com/doc/environments-vault-and-overrides-magic/), [Using Variables](https://docs.saucelabs.com/api-testing/quick-start/flexible-variables-for-flexible-environments/)
 
 <!-- ------------------------ -->
-## 3.06 API Test Publishing and Reporting
-Duration: 0:03:00
 
-### Test Reports
-
-The test report will give you accessible, saveable information about a specific test run. The report lists the data center the test was run on, the date and time, as well as the results of each assertion within a test.
-
-<img src="assets/API3.03T.png" alt="Generate a Test" width="650"/>
-
-First, navigate to your project dashboard:
-
-<img src="assets/API3.05D.png" alt="Project Dashboard" width="350"/>
-
-Once you click into your dashboard, you can choose the **Logs** to see a historical list of reports for tests run in the project.
-
-<img src="assets/API3.05E.png" alt="Test logs" width="750"/>
-
-Here you can see the report, as well as generate a shareable URL.
-
-### Publishing and Scheduling
-
-The API testing plaform allows you to create **Published** copies of your tests so you can use a stable, existing version of a tests, (for example, in a scheduled test) and continue making updates to a working copy as well.
-
-First, **Exit & Save** your test:
-
-<img src="assets/API3.05B.png" alt="Exit and Save" width="850"/>
-
-On the next dashboard, you can click the **Publish** button, then you can click on the **Schedule** button once you have published a version of you test.
-
-<img src="assets/API3.05C.png" alt="Publish and Schedule" width="850"/>
-
-Now you can set up and save a this version of your test to run as often as you would like. [Learn more about scheduling tests](https://docs.saucelabs.com/api-testing/quick-start/schedule-a-test)
-
-<img src="assets/API3.05F.png" alt="Publish and Schedule" width="850"/>
-
-### Test Runs
-Tests run in 'manual' mode, or from the test edit screen, do not have the data stored in the project dashboard, or included for monitoring and reporting. In order to run tests that generate data, schedule your tests or run them from the Tests dashboard.
-
-<img src="assets/API3.06A.png" alt="Running tests to collect data" width="850"/>
-
-<!-- ------------------------ -->
-## 3.07 Module 3 Quiz
+## 3.08 Module 3 Quiz
 Duration: 0:03:00
 
 ![https://docs.google.com/forms/d/e/1FAIpQLScNPr_oYqWe0_PD3oil_iebFvZ9ejV96z-UZ3quytHXYXUOnw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScNPr_oYqWe0_PD3oil_iebFvZ9ejV96z-UZ3quytHXYXUOnw/viewform?usp=sf_link)
-
-<!--
-1. Which of the following are options for how you can generate an API test with Sauce Labs and API Fortress?
-a. By creating your own JSON file, and from an API Response Payload
-b. By creating your own JSON file and from a Spec file from another tool such as Swagger or Postman
-c. From and API Response Payload and from a Spec file from another tool such as Swagger or Postman*
-
-*In Module 3 we demonstrated generating a file from an API Response Payload, and you can also use a Spec file from tools like Swagger and Postman
-
-2. Which of the following is a good reason for creating a published version of your test?
-a. So you can share it with others, without allowing them to edit the code.
-b. So you can schedule a stable version of the test, and still make changes to the working copy *
-c. To make your test publicly viewable
-d. So you can make several different copies of the same test to use in different environments (staging, production, etc)
-
-*A good reason to publish tests is to create a stable version that you can schedule, and still make updates and changes that you can test on the working version. Best practices for writing tests for different environments is to use variables and parameters to set up your test
-
-3. What types of information does the Vault allow you to store, and for what purpose?
-a. You can share and store code snippets and variables, for re-use in tests across projects, and even globally
-b. You can share and store code snippets and parameters, for re-use in tests across projects
-c. You can share and store parameters and variables, for re-use in different tests across projects, and even globally
-d. You can share and store variables and variables, for re-use in different tests globally
-
- * The Vault allows storage of code snippets and variables, and allows you to share those elements between tests both in the same project, and globally across all projects.
--->
