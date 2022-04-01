@@ -950,7 +950,7 @@ Next you are going to delete the variables `APP` and `APPIUM`. You will no longe
 //...
 public class Mobile_Android_EMU_Test {
     // Deleted APP and APPIUM
-    String appUrl = "https://www.saucedemo.com/"; //added
+    String appUrl = "https://www.saucedemo.com/"; // added
     private AndroidDriver driver;
 // ...
 ```
@@ -967,7 +967,7 @@ Next you will update the `@BeforeMethod `with some information to print to the c
     public void setUp () throws Exception {
         System.out.println("Sauce Android Mobile Browser EMU - BeforeMethod hook"); //added       
         String username = System.getenv("SAUCE_USERNAME"); // added
-        String accesskey = System.getenv("SAUCE_ACCESS_KEY"); /added
+        String accesskey = System.getenv("SAUCE_ACCESS_KEY"); // added
         String sauceUrl;
             if (region.equalsIgnoreCase("eu")) {
                 sauceUrl = "@ondemand.eu-central-1.saucelabs.com:443";
