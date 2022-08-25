@@ -224,7 +224,7 @@ Run npm test and you should get this success message:
 <img src="assets/3.03C.png" alt="Page Object Directory" width="450"/>
 
 
-See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/code-examples/javascript/Mod3/3.02). Note that you have to run npm install in the root project folder before being able to use code pulled down from a repository.
+See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod3/3.03). Note that you have to run npm install in the root project folder before being able to use code pulled down from a repository.
 
 
 ## 3.04 Writing Code with Error Handling
@@ -550,7 +550,7 @@ async isDisplayed(locator) {
 
 When an error occurs, JavaScript will normally stop and generate an error message. This is called throwing an exception.
 
-In this next example, you use a [try… catch ](w3schools.com/js/js_errors.asp)statements to tell the program what to do when it encounters an error (in this case, it didn’t find an element) what to do with it, so you can continue running the next tests without exiting the test (throwing an exception).
+In this next example, you use a [try… catch ](https://www.w3schools.com/js/js_errors.asp)statements to tell the program what to do when it encounters an error (in this case, it didn’t find an element) what to do with it, so you can continue running the next tests without exiting the test (throwing an exception).
 
 
 #### Cheat Sheet
@@ -606,7 +606,7 @@ The final code for the project in this lesson can be found [here.](https://githu
 <img src="assets/3.05G.png" alt="3.05 Part 2 Final Code" width="650"/>
 
 
-See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/code-examples/javascript/Mod3/3.04). Note that you have to run npm install in the root project folder before being able to use code pulled down from a repository.
+See the complete [source code here](https://github.com/walkerlj0/Selenium_Course_Example_Code/tree/master/javascript/Mod3/3.04). Note that you have to run npm install in the root project folder before being able to use code pulled down from a repository.
 
 
 
@@ -660,10 +660,6 @@ Explicit waits are applied to individual test actions. Each time you want to use
 Implicit waits are generally not recommended, and also mixing explicit waits with implicit waits cause negative consequences. Many classes or functions have default timeouts, or the different waits may change or interfere with one another.
 
 The only time you would want to use an implicit wait is to make sure your tests have enough time to run, especially when you move them to the cloud. When using waits, Selenium will repeatedly try an action until either it can be accomplished, or until the amount of time specified has elapsed. If the latter occurs, a timeout exception is thrown.
-
-#### Cheat Sheet
-
-[3.06 Waits Cheat Sheet]()
 
 
 ### Create a Page with Explicit Waits

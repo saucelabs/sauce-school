@@ -604,7 +604,7 @@ Notice how many of the capabilities are grey in this example, since they aren’
 
 ### Setting up your Sauce Labs Account
 
-You'll need an account to use Sauce Labs. Their [free trial](ttps://accounts.saucelabs.com) offers enough to get you started.
+You'll need an account to use Sauce Labs. Their [free trial](https://accounts.saucelabs.com) offers enough to get you started.
 
 Go to **Account> User Settings** to find your username and access key.
 
@@ -859,7 +859,7 @@ Under the saucelabs` driver` instantiation in the` before()` rule instantiate a`
 ```
 
 
-The `sessionId` is retrieved from the `RemoteWebDriver`. The `sauceClient` creates an instance using the Sauce Labs REST API, passing in the username, access key, and data center location. You can change the data center in the Sauce Labs UI. Once that is changed, if you would like, go into your code and [change](https://docs.saucelabs.com/basics/data-center-endpoints/data-center-endpoints) the `DataCenter` option in your code to reflect this.
+The `sessionId` is retrieved from the `RemoteWebDriver`. The `sauceClient` creates an instance using the Sauce Labs REST API, passing in the username, access key, and data center location. You can change the data center in the Sauce Labs UI. Once that is changed, if you would like, go into your code and [change](https://docs.saucelabs.com/basics/data-center-endpoints/) the `DataCenter` option in your code to reflect this.
 
 <img src="assets/4.06H.png" alt="Data Center" width="750"/>
 

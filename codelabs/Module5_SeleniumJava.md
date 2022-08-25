@@ -942,7 +942,7 @@ Here is a list breaking down a majority of the Selenium resources available, alo
 
 This is the official Sauce Labs documentation. You can find updated and maintained tips and tricks regarding web/mobile automated testing.
 
-#### [Sauce Labs Whitepapers](https://saucelabs.com/resources/white-papers/?utm_source=referral&utm_medium=LMS&utm_campaign=link )
+#### [Sauce Labs Whitepapers](https://saucelabs.com/resources/white-papers)
 
 A collection on advanced topics and testing best practices.
 
