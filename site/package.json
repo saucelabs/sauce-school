@@ -24,7 +24,7 @@
     "gulp-if": "^2.0.2",
     "gulp-posthtml": "^3.0.5",
     "gulp-replace": "^1.0.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^5.1.0",
     "gulp-uglify": "^3.0.1",
     "gulp-useref": "^3.1.6",
     "gulp-vulcanize": "^7.0.0",
@@ -42,6 +42,6 @@
   },
   "dependencies": {
     "gulp-sitemap": "^8.0.0",
-    "node-sass": "^4.14.0"
+    "node-sass": "^8.0.0"
   }
 }
